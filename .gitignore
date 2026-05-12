@@ -20,4 +20,6 @@ wp-content/themes/salient-child/
 *.sql.gz
 *.zip
 *.tar
-*.tar.gz
+*.tar.gzwp-content/themes/index.php
+
+/wp-content/themes/index.php
