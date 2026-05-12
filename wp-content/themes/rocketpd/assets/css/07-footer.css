@@ -1,13 +1,21 @@
 .rpd-site-footer {
 	background: var(--rpd-navy);
-	color: var(--rpd-white);
+	color: var(--rpd-lavender-soft);
 }
 
 .rpd-site-footer__inner {
-	padding-block: 40px;
+	padding-block: var(--rpd-space-10);
 }
 
 .rpd-site-footer a {
-	color: inherit;
+	color: var(--rpd-white);
+	text-decoration-color: rgba(255, 255, 255, 0.35);
 }
 
+.rpd-site-footer a:hover {
+	color: var(--rpd-gold);
+}
+
+.rpd-site-footer p {
+	margin: 0;
+}

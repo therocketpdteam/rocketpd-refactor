@@ -2,17 +2,30 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+	gap: var(--rpd-space-2);
 	min-height: 44px;
-	padding: 0.75rem 1.15rem;
+	padding: 0.78rem 1.2rem;
 	border: 1px solid transparent;
-	border-radius: 999px;
+	border-radius: var(--rpd-radius-pill);
+	box-shadow: none;
 	font-weight: 700;
 	line-height: 1;
+	text-align: center;
 	text-decoration: none;
+	transition: background-color var(--rpd-transition), border-color var(--rpd-transition), box-shadow var(--rpd-transition), color var(--rpd-transition), transform var(--rpd-transition);
+}
+
+.rpd-btn:hover {
+	transform: translateY(-1px);
 }
 
 .rpd-btn--gold {
 	background: var(--rpd-gold);
+	color: var(--rpd-navy);
+}
+
+.rpd-btn--gold:hover {
+	background: var(--rpd-orange);
 	color: var(--rpd-navy);
 }
 
@@ -21,9 +34,19 @@
 	color: var(--rpd-white);
 }
 
+.rpd-btn--purple:hover {
+	background: var(--rpd-purple-deep);
+	color: var(--rpd-white);
+}
+
 .rpd-btn--outline-purple {
 	border-color: var(--rpd-purple);
 	color: var(--rpd-purple);
+}
+
+.rpd-btn--outline-purple:hover {
+	background: var(--rpd-purple);
+	color: var(--rpd-white);
 }
 
 .rpd-btn--outline-white {
@@ -31,21 +54,156 @@
 	color: var(--rpd-white);
 }
 
+.rpd-btn--outline-white:hover {
+	background: var(--rpd-white);
+	color: var(--rpd-navy);
+}
+
 .rpd-btn--ghost {
 	color: var(--rpd-purple);
 }
 
+.rpd-btn--ghost:hover {
+	color: var(--rpd-purple-deep);
+}
+
+.rpd-btn--full {
+	width: 100%;
+}
+
 .rpd-card {
-	border: 1px solid rgba(35, 31, 88, 0.12);
-	border-radius: 8px;
-	background: var(--rpd-white);
+	padding: var(--rpd-space-6);
+	border: 1px solid var(--rpd-color-border);
+	border-radius: var(--rpd-radius);
+	background: var(--rpd-color-surface);
+	box-shadow: var(--rpd-shadow-sm);
+}
+
+.rpd-card--soft {
+	background: var(--rpd-color-surface-soft);
+	box-shadow: none;
+}
+
+.rpd-card--dark {
+	border-color: rgba(255, 255, 255, 0.16);
+	background: var(--gradient-navy);
+	color: var(--rpd-white);
+}
+
+.rpd-card--dark :where(h1, h2, h3, h4, h5, h6) {
+	color: var(--rpd-white);
+}
+
+.rpd-lifted-card {
+	position: relative;
+	isolation: isolate;
+	padding: var(--rpd-space-6);
+	border: 1px solid var(--rpd-color-border);
+	border-radius: var(--rpd-radius);
+	background: var(--rpd-color-surface);
+	box-shadow: var(--rpd-shadow-sm);
+}
+
+.rpd-lifted-card::after,
+.rpd-lifted-card__shadow {
+	position: absolute;
+	inset: var(--rpd-space-3) calc(var(--rpd-space-3) * -1) calc(var(--rpd-space-3) * -1) var(--rpd-space-3);
+	z-index: -1;
+	border-radius: var(--rpd-radius);
+	background: rgba(196, 196, 229, 0.55);
+	content: "";
+}
+
+.rpd-icon-chip {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	border-radius: var(--rpd-radius);
+	background: rgba(85, 82, 177, 0.11);
+	color: var(--rpd-purple);
+}
+
+.rpd-icon-chip--gold {
+	background: rgba(253, 185, 51, 0.18);
+	color: var(--rpd-navy);
+}
+
+.rpd-icon {
+	display: inline-block;
+	width: 1.25em;
+	height: 1.25em;
+	border-radius: 50%;
+	background: currentColor;
 }
 
 .rpd-section-header {
 	max-width: 760px;
 }
 
-.rpd-section-header__body {
-	color: var(--rpd-body);
+.rpd-section-header--center {
+	margin-inline: auto;
+	text-align: center;
 }
 
+.rpd-section-header__eyebrow {
+	margin-bottom: var(--rpd-space-3);
+	color: var(--rpd-purple);
+	font-size: var(--rpd-font-size-xs);
+	font-weight: 800;
+	letter-spacing: 0;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.rpd-section-header__title {
+	margin-bottom: var(--rpd-space-4);
+}
+
+.rpd-section-header__body {
+	color: var(--rpd-color-text-muted);
+	font-size: var(--rpd-font-size-md);
+}
+
+.rpd-surface-soft {
+	background: var(--rpd-color-surface-soft);
+}
+
+.rpd-surface-alt {
+	background: var(--rpd-color-surface-alt);
+}
+
+.rpd-surface-dark {
+	background: var(--gradient-navy);
+	color: var(--rpd-lavender-soft);
+}
+
+.rpd-surface-dark :where(h1, h2, h3, h4, h5, h6),
+.rpd-surface-dark .rpd-section-header__title {
+	color: var(--rpd-white);
+}
+
+.rpd-surface-dark .rpd-section-header__eyebrow {
+	color: var(--rpd-gold);
+}
+
+.rpd-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--rpd-space-2);
+	padding: var(--rpd-space-2) var(--rpd-space-3);
+	border: 1px solid var(--rpd-color-border);
+	border-radius: var(--rpd-radius-pill);
+	background: var(--rpd-white);
+	color: var(--rpd-purple);
+	font-size: var(--rpd-font-size-sm);
+	font-weight: 700;
+	line-height: 1;
+}
+
+@media (max-width: 480px) {
+	.rpd-btn {
+		width: 100%;
+	}
+}

@@ -25,13 +25,19 @@ function rocketpd_enqueue_assets() {
 		'07-footer',
 	);
 
+	$dependency = array();
+
 	foreach ( $css_files as $css_file ) {
+		$handle = 'rocketpd-' . $css_file;
+
 		wp_enqueue_style(
-			'rocketpd-' . $css_file,
+			$handle,
 			get_template_directory_uri() . '/assets/css/' . $css_file . '.css',
-			array(),
+			$dependency,
 			$theme_version
 		);
+
+		$dependency = array( $handle );
 	}
 
 	wp_enqueue_script(
@@ -51,4 +57,3 @@ function rocketpd_enqueue_assets() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'rocketpd_enqueue_assets' );
-

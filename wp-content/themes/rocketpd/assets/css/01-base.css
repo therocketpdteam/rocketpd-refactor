@@ -5,39 +5,136 @@
 }
 
 html {
+	min-width: 320px;
 	scroll-behavior: smooth;
+	text-size-adjust: 100%;
 }
 
 body {
 	margin: 0;
-	background: var(--rpd-white);
-	color: var(--rpd-body);
+	background: var(--rpd-color-surface);
+	color: var(--rpd-color-text);
 	font-family: var(--font-body);
+	font-size: var(--rpd-font-size-base);
+	line-height: var(--rpd-line-height-body);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	font-family: var(--font-body);
+}
+
+main {
+	display: block;
 }
 
 img,
 svg,
-video {
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
 	display: block;
 	max-width: 100%;
+}
+
+img,
+svg,
+video,
+canvas {
 	height: auto;
 }
 
 a {
+	color: var(--rpd-purple);
+	text-decoration-thickness: 0.08em;
+	text-underline-offset: 0.16em;
+	transition: color var(--rpd-transition-fast), text-decoration-color var(--rpd-transition-fast);
+}
+
+a:hover {
+	color: var(--rpd-purple-deep);
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+}
+
+button {
+	border: 0;
+	background: none;
 	color: inherit;
+	cursor: pointer;
+}
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+	cursor: not-allowed;
+	opacity: 0.65;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+hr {
+	height: 1px;
+	margin-block: var(--rpd-space-8);
+	border: 0;
+	background: var(--rpd-color-border);
+}
+
+::selection {
+	background: rgba(253, 185, 51, 0.35);
+	color: var(--rpd-navy);
+}
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+	outline: 3px solid var(--rpd-color-focus);
+	outline-offset: 3px;
+}
+
+[hidden] {
+	display: none;
 }
 
 .rpd-skip-link {
 	position: absolute;
 	left: -999px;
-	top: 16px;
-	z-index: 100;
-	padding: 10px 14px;
+	top: var(--rpd-space-4);
+	z-index: 1000;
+	padding: var(--rpd-space-3) var(--rpd-space-4);
+	border-radius: var(--rpd-radius-sm);
 	background: var(--rpd-navy);
 	color: var(--rpd-white);
+	font-weight: 700;
+	text-decoration: none;
 }
 
 .rpd-skip-link:focus {
-	left: 16px;
+	left: var(--rpd-space-4);
 }
 
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto;
+		transition-duration: 0.01ms;
+		animation-duration: 0.01ms;
+		animation-iteration-count: 1;
+	}
+}

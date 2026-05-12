@@ -1,4 +1,5 @@
 :root {
+	/* Brand colors */
 	--rpd-navy: #231f58;
 	--rpd-navy-deep: #1a1744;
 	--rpd-navy-mid: #343465;
@@ -13,11 +14,77 @@
 	--rpd-blue-soft: #b6cfdc;
 	--rpd-white: #ffffff;
 	--rpd-black: #111111;
+
+	/* Semantic colors */
+	--rpd-color-heading: var(--rpd-navy);
+	--rpd-color-text: var(--rpd-body);
+	--rpd-color-text-muted: #69659b;
+	--rpd-color-border: rgba(35, 31, 88, 0.14);
+	--rpd-color-border-strong: rgba(35, 31, 88, 0.24);
+	--rpd-color-surface: var(--rpd-white);
+	--rpd-color-surface-soft: var(--rpd-bg-soft);
+	--rpd-color-surface-alt: var(--rpd-bg-soft-alt);
+	--rpd-color-focus: var(--rpd-gold);
+
+	/* Typography */
 	--font-heading: "Poppins", system-ui, sans-serif;
 	--font-body: "Inter", system-ui, sans-serif;
+	--rpd-font-size-xs: 0.75rem;
+	--rpd-font-size-sm: 0.875rem;
+	--rpd-font-size-base: 1rem;
+	--rpd-font-size-md: 1.125rem;
+	--rpd-font-size-lg: 1.25rem;
+	--rpd-font-size-xl: 1.5rem;
+	--rpd-font-size-2xl: 2rem;
+	--rpd-font-size-3xl: 2.5rem;
+	--rpd-font-size-4xl: 3rem;
+	--rpd-line-height-tight: 1.12;
+	--rpd-line-height-heading: 1.18;
+	--rpd-line-height-body: 1.65;
+
+	/* Spacing */
+	--rpd-space-1: 0.25rem;
+	--rpd-space-2: 0.5rem;
+	--rpd-space-3: 0.75rem;
+	--rpd-space-4: 1rem;
+	--rpd-space-5: 1.25rem;
+	--rpd-space-6: 1.5rem;
+	--rpd-space-8: 2rem;
+	--rpd-space-10: 2.5rem;
+	--rpd-space-12: 3rem;
+	--rpd-space-16: 4rem;
+	--rpd-space-20: 5rem;
+	--rpd-space-24: 6rem;
+
+	/* Layout */
+	--rpd-container-sm: 48rem;
+	--rpd-container-md: 64rem;
+	--rpd-container: 75rem;
+	--rpd-container-wide: 85rem;
+	--rpd-container-gutter: 2.5rem;
+	--rpd-section-y: 7rem;
+	--rpd-section-y-sm: 4rem;
+	--rpd-section-y-lg: 8.5rem;
+	--rpd-grid-gap: 1.5rem;
+
+	/* Shape and elevation */
+	--rpd-radius-xs: 0.25rem;
+	--rpd-radius-sm: 0.375rem;
+	--rpd-radius: 0.5rem;
+	--rpd-radius-pill: 999px;
+	--rpd-shadow-sm: 0 8px 22px rgba(35, 31, 88, 0.08);
+	--rpd-shadow-md: 0 16px 42px rgba(35, 31, 88, 0.12);
+	--rpd-shadow-lg: 0 26px 70px rgba(35, 31, 88, 0.16);
+	--rpd-shadow-lifted: 14px 14px 0 rgba(196, 196, 229, 0.55);
+
+	/* Motion */
+	--rpd-transition-fast: 140ms ease;
+	--rpd-transition: 200ms ease;
+	--rpd-transition-slow: 320ms ease;
+
+	/* Gradients */
 	--gradient-purple: linear-gradient(135deg, #5552b1, #a154a1);
 	--gradient-navy: linear-gradient(135deg, #1a1744, #231f58, #343465);
 	--gradient-navy-deep: linear-gradient(135deg, #0f0d2e, #1a1744, #231f58);
 	--gradient-soft: linear-gradient(135deg, #ffffff, #f8fafc, rgba(196, 196, 229, 0.25));
 }
-
