@@ -5,6 +5,10 @@
  * @package RocketPD
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 ?>
 <footer class="rpd-site-footer">
 	<div class="rpd-container rpd-site-footer__inner">
@@ -19,4 +23,3 @@
 		</p>
 	</div>
 </footer>
-

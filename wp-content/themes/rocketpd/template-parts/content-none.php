@@ -5,6 +5,10 @@
  * @package RocketPD
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 ?>
 <section class="rpd-entry rpd-entry--none">
 	<header class="rpd-entry__header">
@@ -12,4 +16,3 @@
 	</header>
 	<p><?php esc_html_e( 'No content is available yet.', 'rocketpd' ); ?></p>
 </section>
-

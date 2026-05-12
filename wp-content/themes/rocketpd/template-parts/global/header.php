@@ -5,11 +5,15 @@
  * @package RocketPD
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 ?>
 <header class="rpd-site-header">
 	<div class="rpd-container rpd-site-header__inner">
 		<a class="rpd-site-header__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<?php bloginfo( 'name' ); ?>
+			<?php echo esc_html( get_bloginfo( 'name' ) ); ?>
 		</a>
 
 		<nav class="rpd-site-header__nav" aria-label="<?php esc_attr_e( 'Primary navigation', 'rocketpd' ); ?>">
@@ -23,4 +27,3 @@
 
 	<?php get_template_part( 'template-parts/global/mobile-menu' ); ?>
 </header>
-

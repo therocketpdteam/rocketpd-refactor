@@ -5,6 +5,10 @@
  * @package RocketPD
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'rpd-entry' ); ?>>
 	<header class="rpd-entry__header">
@@ -15,4 +19,3 @@
 		<?php the_content(); ?>
 	</div>
 </article>
-

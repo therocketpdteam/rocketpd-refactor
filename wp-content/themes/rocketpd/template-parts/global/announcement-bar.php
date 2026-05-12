@@ -5,5 +5,8 @@
  * @package RocketPD
  */
 
-// Announcement content will be wired through global options when needed.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
+// Announcement content will be wired through global options when needed.

@@ -5,6 +5,10 @@
  * @package RocketPD
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 ?>
 <div class="rpd-mobile-menu" data-rpd-mobile-menu hidden>
 	<div class="rpd-container">
@@ -13,4 +17,3 @@
 		</nav>
 	</div>
 </div>
-

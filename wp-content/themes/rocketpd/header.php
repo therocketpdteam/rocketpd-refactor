@@ -5,6 +5,10 @@
  * @package RocketPD
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -16,4 +20,3 @@
 <?php wp_body_open(); ?>
 <a class="rpd-skip-link" href="#primary"><?php esc_html_e( 'Skip to content', 'rocketpd' ); ?></a>
 <?php get_template_part( 'template-parts/global/header' ); ?>
-
