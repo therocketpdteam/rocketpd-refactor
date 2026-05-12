@@ -9,5 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Taxonomies will be registered as needed by resource and content templates.
-
+/*
+ * No custom taxonomies are registered in this foundation pass.
+ *
+ * The current docs name initial CPTs, but do not specify taxonomy keys,
+ * labels, rewrite slugs, or content relationships. Add taxonomy registration
+ * here only after the content audit or template requirements document it.
+ */
