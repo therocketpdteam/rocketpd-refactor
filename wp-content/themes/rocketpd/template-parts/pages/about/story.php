@@ -29,6 +29,19 @@ $values = rocketpd_get_field(
 		),
 	)
 );
+$story_stats = rocketpd_get_field(
+	'rpd_about_story_stats',
+	array(
+		array(
+			'value' => __( 'Human', 'rocketpd' ),
+			'label' => __( 'relationships over transactional PD', 'rocketpd' ),
+		),
+		array(
+			'value' => __( 'Useful', 'rocketpd' ),
+			'label' => __( 'resources that support real implementation', 'rocketpd' ),
+		),
+	)
+);
 ?>
 
 <section class="rpd-about-story rpd-section">
@@ -37,6 +50,23 @@ $values = rocketpd_get_field(
 			<p class="rpd-eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
 			<h2><?php echo esc_html( $headline ); ?></h2>
 			<p class="rpd-lede"><?php echo esc_html( $body ); ?></p>
+
+			<?php if ( is_array( $story_stats ) && ! empty( $story_stats ) ) : ?>
+				<div class="rpd-about-story__stats">
+					<?php foreach ( $story_stats as $stat ) : ?>
+						<?php
+						$value = isset( $stat['value'] ) ? $stat['value'] : '';
+						$label = isset( $stat['label'] ) ? $stat['label'] : '';
+						?>
+						<?php if ( $value || $label ) : ?>
+							<div>
+								<strong><?php echo esc_html( $value ); ?></strong>
+								<span><?php echo esc_html( $label ); ?></span>
+							</div>
+						<?php endif; ?>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
 		</div>
 
 		<?php if ( is_array( $values ) && ! empty( $values ) ) : ?>

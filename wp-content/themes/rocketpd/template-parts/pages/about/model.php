@@ -16,16 +16,20 @@ $cards = rocketpd_get_field(
 	'rpd_about_model_cards',
 	array(
 		array(
-			'title' => __( 'Live virtual learning', 'rocketpd' ),
-			'body' => __( 'Accessible sessions with expert facilitators and space for real questions.', 'rocketpd' ),
+			'title' => __( 'Designed with practitioners', 'rocketpd' ),
+			'body' => __( 'The work is shaped by educators who understand classroom, school, and district realities.', 'rocketpd' ),
 		),
 		array(
-			'title' => __( 'Practical implementation', 'rocketpd' ),
-			'body' => __( 'Frameworks, examples, and next steps that educators can use right away.', 'rocketpd' ),
+			'title' => __( 'Built for application', 'rocketpd' ),
+			'body' => __( 'Sessions focus on decisions, examples, and moves educators can take into practice.', 'rocketpd' ),
 		),
 		array(
-			'title' => __( 'Community-driven growth', 'rocketpd' ),
-			'body' => __( 'A professional learning network that keeps the conversation moving.', 'rocketpd' ),
+			'title' => __( 'Connected beyond the session', 'rocketpd' ),
+			'body' => __( 'Resources, recordings, and community help ideas keep moving after the live event.', 'rocketpd' ),
+		),
+		array(
+			'title' => __( 'Flexible for teams', 'rocketpd' ),
+			'body' => __( 'Districts, schools, and individual educators can engage in ways that fit their goals.', 'rocketpd' ),
 		),
 	)
 );
@@ -48,7 +52,7 @@ $cards = rocketpd_get_field(
 					?>
 					<?php if ( $title || $card_body ) : ?>
 						<article class="rpd-card rpd-about-model-card">
-							<span class="rpd-icon-chip" aria-hidden="true"></span>
+							<span class="rpd-about-card-dot" aria-hidden="true"></span>
 							<h3><?php echo esc_html( $title ); ?></h3>
 							<p><?php echo esc_html( $card_body ); ?></p>
 						</article>

@@ -18,8 +18,11 @@ while ( have_posts() ) {
 	<main id="primary" class="rpd-site-main rpd-about-page">
 		<?php
 		get_template_part( 'template-parts/pages/about/hero' );
+		get_template_part( 'template-parts/pages/about/mission' );
 		get_template_part( 'template-parts/pages/about/model' );
 		get_template_part( 'template-parts/pages/about/leaders' );
+		get_template_part( 'template-parts/pages/about/implementation' );
+		get_template_part( 'template-parts/pages/about/community' );
 		get_template_part( 'template-parts/pages/about/story' );
 		get_template_part( 'template-parts/pages/about/final-cta' );
 		?>

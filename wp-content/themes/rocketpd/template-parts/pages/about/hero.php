@@ -12,6 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 $eyebrow = rocketpd_get_field( 'rpd_about_hero_eyebrow', __( 'About RocketPD', 'rocketpd' ) );
 $headline = rocketpd_get_field( 'rpd_about_hero_headline', __( 'Professional learning built around the people doing the work.', 'rocketpd' ) );
 $body = rocketpd_get_field( 'rpd_about_hero_body', __( 'RocketPD brings educators, school leaders, and nationally respected K-12 voices together for practical professional development that moves from ideas to implementation.', 'rocketpd' ) );
+$proof_points = rocketpd_get_field(
+	'rpd_about_hero_proof_points',
+	array(
+		array( 'text' => __( 'Live virtual sessions with practical tools', 'rocketpd' ) ),
+		array( 'text' => __( 'Trusted K-12 experts and implementation support', 'rocketpd' ) ),
+		array( 'text' => __( 'A community educators can keep learning with', 'rocketpd' ) ),
+	)
+);
 $stats = rocketpd_get_field(
 	'rpd_about_hero_stats',
 	array(
@@ -37,16 +45,33 @@ $stats = rocketpd_get_field(
 			<p class="rpd-eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
 			<h1><?php echo nl2br( esc_html( $headline ) ); ?></h1>
 			<p class="rpd-lede"><?php echo esc_html( $body ); ?></p>
+
+			<?php if ( is_array( $proof_points ) && ! empty( $proof_points ) ) : ?>
+				<ul class="rpd-about-hero__proof">
+					<?php foreach ( $proof_points as $point ) : ?>
+						<?php $text = isset( $point['text'] ) ? $point['text'] : ''; ?>
+						<?php if ( $text ) : ?>
+							<li><?php echo esc_html( $text ); ?></li>
+						<?php endif; ?>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
 		</div>
 
 		<aside class="rpd-about-hero__rings" aria-label="<?php esc_attr_e( 'RocketPD learning model', 'rocketpd' ); ?>">
-			<div class="rpd-about-ring rpd-about-ring--outer">
-				<div class="rpd-about-ring rpd-about-ring--middle">
-					<div class="rpd-about-ring rpd-about-ring--inner">
-						<span><?php esc_html_e( 'Learn', 'rocketpd' ); ?></span>
-						<span><?php esc_html_e( 'Practice', 'rocketpd' ); ?></span>
-						<span><?php esc_html_e( 'Share', 'rocketpd' ); ?></span>
+			<div class="rpd-about-hero-card">
+				<div class="rpd-about-ring rpd-about-ring--outer">
+					<div class="rpd-about-ring rpd-about-ring--middle">
+						<div class="rpd-about-ring rpd-about-ring--inner">
+							<span><?php esc_html_e( 'Learn', 'rocketpd' ); ?></span>
+							<span><?php esc_html_e( 'Practice', 'rocketpd' ); ?></span>
+							<span><?php esc_html_e( 'Share', 'rocketpd' ); ?></span>
+						</div>
 					</div>
+				</div>
+				<div class="rpd-about-hero-card__caption">
+					<strong><?php esc_html_e( 'From inspiration to implementation', 'rocketpd' ); ?></strong>
+					<span><?php esc_html_e( 'Expert-led PD, usable resources, and community in one connected model.', 'rocketpd' ); ?></span>
 				</div>
 			</div>
 		</aside>

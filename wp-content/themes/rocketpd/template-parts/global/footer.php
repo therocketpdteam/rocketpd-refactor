@@ -10,8 +10,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $footer_logo_id     = rocketpd_get_option( 'rpd_footer_logo' );
-$footer_description = rocketpd_get_option( 'rpd_footer_description' );
-$footer_columns     = rocketpd_get_option( 'rpd_footer_columns', array() );
+$footer_description = rocketpd_get_option(
+	'rpd_footer_description',
+	__( 'Live virtual professional development, trusted K-12 experts, and practical learning communities for educators and school teams.', 'rocketpd' )
+);
+$footer_columns     = rocketpd_get_option(
+	'rpd_footer_columns',
+	array(
+		array(
+			'title' => __( 'Explore', 'rocketpd' ),
+			'links' => array(
+				array(
+					'label' => __( 'LaunchPad', 'rocketpd' ),
+					'url'   => home_url( '/launchpad/' ),
+				),
+				array(
+					'label' => __( 'Resources', 'rocketpd' ),
+					'url'   => home_url( '/resources/' ),
+				),
+			),
+		),
+		array(
+			'title' => __( 'Connect', 'rocketpd' ),
+			'links' => array(
+				array(
+					'label' => __( 'About', 'rocketpd' ),
+					'url'   => home_url( '/about/' ),
+				),
+				array(
+					'label' => __( 'Contact', 'rocketpd' ),
+					'url'   => home_url( '/contact/' ),
+				),
+			),
+		),
+	)
+);
 $social_links       = rocketpd_get_option( 'rpd_footer_social_links', array() );
 $copyright          = rocketpd_get_option(
 	'rpd_footer_copyright',

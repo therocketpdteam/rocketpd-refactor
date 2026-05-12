@@ -20,16 +20,20 @@ $secondary_url = rocketpd_get_field( 'rpd_about_final_secondary_url', home_url( 
 
 <section class="rpd-about-final rpd-section">
 	<div class="rpd-container rpd-about-final__inner">
-		<p class="rpd-eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
-		<h2><?php echo esc_html( $headline ); ?></h2>
-		<p><?php echo esc_html( $body ); ?></p>
-		<div class="rpd-cluster rpd-about-final__actions">
-			<?php if ( $primary_label && $primary_url ) : ?>
-				<a class="rpd-btn rpd-btn--gold" href="<?php echo esc_url( $primary_url ); ?>"><?php echo esc_html( $primary_label ); ?></a>
-			<?php endif; ?>
-			<?php if ( $secondary_label && $secondary_url ) : ?>
-				<a class="rpd-btn rpd-btn--outline-white" href="<?php echo esc_url( $secondary_url ); ?>"><?php echo esc_html( $secondary_label ); ?></a>
-			<?php endif; ?>
+		<div>
+			<p class="rpd-eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
+			<h2><?php echo esc_html( $headline ); ?></h2>
+			<p><?php echo esc_html( $body ); ?></p>
+		</div>
+		<div class="rpd-about-final__action-card">
+			<div class="rpd-cluster rpd-about-final__actions">
+				<?php if ( $primary_label && $primary_url ) : ?>
+					<a class="rpd-btn rpd-btn--gold" href="<?php echo esc_url( $primary_url ); ?>"><?php echo esc_html( $primary_label ); ?></a>
+				<?php endif; ?>
+				<?php if ( $secondary_label && $secondary_url ) : ?>
+					<a class="rpd-btn rpd-btn--outline-white" href="<?php echo esc_url( $secondary_url ); ?>"><?php echo esc_html( $secondary_label ); ?></a>
+				<?php endif; ?>
+			</div>
 		</div>
 	</div>
 </section>
