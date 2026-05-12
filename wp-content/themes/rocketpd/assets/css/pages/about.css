@@ -7,6 +7,7 @@
 	--about-card-shadow: 0 2px 0 rgba(40, 36, 95, 0.05), 0 18px 44px rgba(40, 36, 95, 0.08);
 	color: var(--about-copy);
 	background: var(--rpd-white);
+	overflow-x: clip;
 }
 
 .rpd-about-section {
