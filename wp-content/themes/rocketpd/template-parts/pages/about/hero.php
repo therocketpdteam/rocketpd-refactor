@@ -9,88 +9,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$eyebrow = rocketpd_get_field( 'rpd_about_hero_eyebrow', __( 'About RocketPD', 'rocketpd' ) );
-$headline = rocketpd_get_field( 'rpd_about_hero_headline', __( 'Professional learning built around the people doing the work.', 'rocketpd' ) );
-$body = rocketpd_get_field( 'rpd_about_hero_body', __( 'RocketPD brings educators, school leaders, and nationally respected K-12 voices together for practical professional development that moves from ideas to implementation.', 'rocketpd' ) );
-$proof_points = rocketpd_get_field(
-	'rpd_about_hero_proof_points',
-	array(
-		array( 'text' => __( 'Live virtual sessions with practical tools', 'rocketpd' ) ),
-		array( 'text' => __( 'Trusted K-12 experts and implementation support', 'rocketpd' ) ),
-		array( 'text' => __( 'A community educators can keep learning with', 'rocketpd' ) ),
-	)
-);
-$stats = rocketpd_get_field(
-	'rpd_about_hero_stats',
-	array(
-		array(
-			'value' => __( '40K+', 'rocketpd' ),
-			'label' => __( 'educators in community', 'rocketpd' ),
-		),
-		array(
-			'value' => __( '850+', 'rocketpd' ),
-			'label' => __( 'districts represented', 'rocketpd' ),
-		),
-		array(
-			'value' => __( '48+', 'rocketpd' ),
-			'label' => __( 'countries reached', 'rocketpd' ),
-		),
+$headline = rocketpd_get_field( 'rpd_about_hero_headline', __( 'The Community for Educator Growth.', 'rocketpd' ) );
+$intro    = rocketpd_get_field( 'rpd_about_hero_intro', __( 'Every educator can name a teacher who changed their life.', 'rocketpd' ) );
+$body     = rocketpd_get_field(
+	'rpd_about_hero_body',
+	__(
+		"Educators are among society's greatest assets — but the work has never been harder.\n\nBetween staffing challenges, evolving student needs, and rapid technological change, schools need professional learning that supports real growth, not just compliance.\n\nRocketPD exists to help educators grow, collaborate, and turn learning into meaningful outcomes in their schools.",
+		'rocketpd'
 	)
 );
 ?>
 
-<section class="rpd-about-hero rpd-section">
-	<div class="rpd-container rpd-about-hero__grid">
-		<div class="rpd-about-hero__copy">
-			<p class="rpd-eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
-			<h1><?php echo nl2br( esc_html( $headline ) ); ?></h1>
-			<p class="rpd-lede"><?php echo esc_html( $body ); ?></p>
+<section class="rpd-about-hero rpd-about-section">
+	<div class="rpd-container rpd-about-hero__inner">
+		<h1><?php echo esc_html( $headline ); ?></h1>
 
-			<?php if ( is_array( $proof_points ) && ! empty( $proof_points ) ) : ?>
-				<ul class="rpd-about-hero__proof">
-					<?php foreach ( $proof_points as $point ) : ?>
-						<?php $text = isset( $point['text'] ) ? $point['text'] : ''; ?>
-						<?php if ( $text ) : ?>
-							<li><?php echo esc_html( $text ); ?></li>
-						<?php endif; ?>
-					<?php endforeach; ?>
-				</ul>
-			<?php endif; ?>
-		</div>
+		<?php if ( $intro ) : ?>
+			<p class="rpd-about-hero__intro"><?php echo esc_html( $intro ); ?></p>
+		<?php endif; ?>
 
-		<aside class="rpd-about-hero__rings" aria-label="<?php esc_attr_e( 'RocketPD learning model', 'rocketpd' ); ?>">
-			<div class="rpd-about-hero-card">
-				<div class="rpd-about-ring rpd-about-ring--outer">
-					<div class="rpd-about-ring rpd-about-ring--middle">
-						<div class="rpd-about-ring rpd-about-ring--inner">
-							<span><?php esc_html_e( 'Learn', 'rocketpd' ); ?></span>
-							<span><?php esc_html_e( 'Practice', 'rocketpd' ); ?></span>
-							<span><?php esc_html_e( 'Share', 'rocketpd' ); ?></span>
-						</div>
-					</div>
-				</div>
-				<div class="rpd-about-hero-card__caption">
-					<strong><?php esc_html_e( 'From inspiration to implementation', 'rocketpd' ); ?></strong>
-					<span><?php esc_html_e( 'Expert-led PD, usable resources, and community in one connected model.', 'rocketpd' ); ?></span>
-				</div>
+		<?php if ( $body ) : ?>
+			<div class="rpd-about-copy rpd-about-hero__body">
+				<?php echo wp_kses_post( wpautop( $body ) ); ?>
 			</div>
-		</aside>
+		<?php endif; ?>
 	</div>
-
-	<?php if ( is_array( $stats ) && ! empty( $stats ) ) : ?>
-		<div class="rpd-container rpd-about-stats">
-			<?php foreach ( $stats as $stat ) : ?>
-				<?php
-				$value = isset( $stat['value'] ) ? $stat['value'] : '';
-				$label = isset( $stat['label'] ) ? $stat['label'] : '';
-				?>
-				<?php if ( $value || $label ) : ?>
-					<div class="rpd-about-stat">
-						<strong><?php echo esc_html( $value ); ?></strong>
-						<span><?php echo esc_html( $label ); ?></span>
-					</div>
-				<?php endif; ?>
-			<?php endforeach; ?>
-		</div>
-	<?php endif; ?>
 </section>
