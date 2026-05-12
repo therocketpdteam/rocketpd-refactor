@@ -51,6 +51,12 @@ $direct_rows   = rocketpd_get_field(
 	)
 );
 
+$legacy_hero_body = "Whether you're an educator looking for community, a school leader exploring options, or a current member who needs a hand, pick a door below and we'll meet you there.";
+
+if ( $legacy_hero_body === $body ) {
+	$body = __( "Whether you're an educator looking for a community, a school leader exploring options, or a current member who needs a hand — pick a door below and we'll meet you there.", 'rocketpd' );
+}
+
 if ( $highlight && false !== stripos( $headline, $highlight ) ) {
 	$headline_html = preg_replace( '/' . preg_quote( $highlight, '/' ) . '/i', '<span>$0</span>', esc_html( $headline ), 1 );
 } else {

@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $eyebrow         = rocketpd_get_field( 'rpd_contact_form_eyebrow', __( 'Tell us more', 'rocketpd' ) );
 $headline        = rocketpd_get_field( 'rpd_contact_form_headline', __( "Walkthrough, partnership, or something we haven't thought of yet?", 'rocketpd' ) );
 $body            = rocketpd_get_field( 'rpd_contact_form_body', __( "Drop the details and we'll route it to the right person on our team. Schools, districts, education associations, ed-tech partners, conference organizers — all welcome here.", 'rocketpd' ) );
+$legacy_body     = __( "Drop the details and we'll route it to the right person on our team.", 'rocketpd' );
 $promise         = rocketpd_get_field( 'rpd_contact_form_promise', __( "Replies typically within 1 business day. We don't add you to a drip sequence — promise.", 'rocketpd' ) );
 $bullets         = rocketpd_get_field(
 	'rpd_contact_form_bullets',
@@ -32,6 +33,10 @@ $select_options  = rocketpd_get_field(
 		array( 'label' => __( 'Something else', 'rocketpd' ) ),
 	)
 );
+
+if ( $legacy_body === $body ) {
+	$body = __( "Drop the details and we'll route it to the right person on our team. Schools, districts, education associations, ed-tech partners, conference organizers — all welcome here.", 'rocketpd' );
+}
 ?>
 
 <section class="rpd-contact-form-section rpd-contact-section" id="walkthrough-form">

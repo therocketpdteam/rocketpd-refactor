@@ -13,6 +13,7 @@ $jesse_url = rocketpd_get_option( 'rpd_jesse_schedule_url', home_url( '/contact/
 $eyebrow   = rocketpd_get_field( 'rpd_contact_jesse_eyebrow', __( 'Talk to a real human', 'rocketpd' ) );
 $headline  = rocketpd_get_field( 'rpd_contact_jesse_headline', __( 'Twenty minutes with Jesse beats a 50-page deck.', 'rocketpd' ) );
 $body      = rocketpd_get_field( 'rpd_contact_jesse_body', __( "Jesse's been inside more PD rollouts than just about anyone. Tell him what you're trying to do — he'll tell you what's worked, what hasn't, and whether RocketPD even fits.", 'rocketpd' ) );
+$legacy_body = __( "Tell him what you're trying to do. He'll tell you what fits, what doesn't, and what to try next.", 'rocketpd' );
 $name      = rocketpd_get_field( 'rpd_contact_jesse_name', __( 'Jesse', 'rocketpd' ) );
 $title     = rocketpd_get_field( 'rpd_contact_jesse_title', __( 'Co-founder, RocketPD', 'rocketpd' ) );
 $meta      = rocketpd_get_field(
@@ -43,6 +44,10 @@ $best_for  = rocketpd_get_field(
 		array( 'text' => __( 'Anyone trying to build a real PD program', 'rocketpd' ) ),
 	)
 );
+
+if ( $legacy_body === $body ) {
+	$body = __( "Jesse's been inside more PD rollouts than just about anyone. Tell him what you're trying to do — he'll tell you what's worked, what hasn't, and whether RocketPD even fits.", 'rocketpd' );
+}
 ?>
 
 <section class="rpd-contact-jesse rpd-contact-section" id="jesse">

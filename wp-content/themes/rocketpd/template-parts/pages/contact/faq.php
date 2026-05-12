@@ -12,9 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $eyebrow  = rocketpd_get_field( 'rpd_contact_faq_eyebrow', __( 'Quick answers', 'rocketpd' ) );
 $headline = rocketpd_get_field( 'rpd_contact_faq_headline', __( 'Before you reach out...', 'rocketpd' ) );
 $body     = rocketpd_get_field( 'rpd_contact_faq_body', __( "We get these a lot. If your question's here, you might not even need to email.", 'rocketpd' ) );
-$faqs     = rocketpd_get_field(
-	'rpd_contact_faq_items',
-	array(
+$default_faqs = array(
 		array(
 			'question' => __( 'Can a single teacher use RocketPD?', 'rocketpd' ),
 			'answer'   => __( 'Yes — the Community is free for any educator, no credit card required. LaunchPad is also available for individuals on a self-serve plan.', 'rocketpd' ),
@@ -39,8 +37,21 @@ $faqs     = rocketpd_get_field(
 			'question' => __( 'Can I speak at a RocketPD event?', 'rocketpd' ),
 			'answer'   => __( "Yes — fill out the form above, choose 'Press, speaking, or media,' and we'll be in touch.", 'rocketpd' ),
 		),
-	)
-);
+	);
+$faqs = rocketpd_get_field( 'rpd_contact_faq_items', $default_faqs );
+$valid_faqs = array();
+
+if ( is_array( $faqs ) ) {
+	foreach ( $faqs as $faq ) {
+		if ( is_array( $faq ) && ( ! empty( $faq['question'] ) || ! empty( $faq['answer'] ) ) ) {
+			$valid_faqs[] = $faq;
+		}
+	}
+}
+
+if ( count( $valid_faqs ) < 6 ) {
+	$valid_faqs = $default_faqs;
+}
 ?>
 
 <section class="rpd-contact-faq rpd-contact-section">
@@ -51,9 +62,9 @@ $faqs     = rocketpd_get_field(
 			<p><?php echo esc_html( $body ); ?></p>
 		</header>
 
-		<?php if ( is_array( $faqs ) && ! empty( $faqs ) ) : ?>
+		<?php if ( ! empty( $valid_faqs ) ) : ?>
 			<div class="rpd-contact-faq__grid">
-				<?php foreach ( $faqs as $faq ) : ?>
+				<?php foreach ( $valid_faqs as $faq ) : ?>
 					<?php
 					$question = isset( $faq['question'] ) ? $faq['question'] : '';
 					$answer   = isset( $faq['answer'] ) ? $faq['answer'] : '';
