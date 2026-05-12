@@ -15,9 +15,7 @@ $support_email = rocketpd_get_option( 'rpd_support_email', 'support@rocketpd.com
 $eyebrow       = rocketpd_get_field( 'rpd_contact_doors_eyebrow', __( 'Choose your door', 'rocketpd' ) );
 $headline      = rocketpd_get_field( 'rpd_contact_doors_headline', __( "Tell us a bit about you, and we'll point you to the right spot.", 'rocketpd' ) );
 $body          = rocketpd_get_field( 'rpd_contact_doors_body', __( 'Each path lands you with a real person on our team — no chatbot loops, no ticket purgatory.', 'rocketpd' ) );
-$doors         = rocketpd_get_field(
-	'rpd_contact_doors',
-	array(
+$default_doors = array(
 		array(
 			'style'     => 'educator',
 			'icon'      => 'learning',
@@ -60,8 +58,21 @@ $doors         = rocketpd_get_field(
 			'cta_label' => __( 'Email Support', 'rocketpd' ),
 			'cta_url'   => 'mailto:' . $support_email,
 		),
-	)
-);
+	);
+$doors         = rocketpd_get_field( 'rpd_contact_doors', $default_doors );
+$valid_doors   = array();
+
+if ( is_array( $doors ) ) {
+	foreach ( $doors as $door ) {
+		if ( is_array( $door ) && ( ! empty( $door['title'] ) || ! empty( $door['body'] ) ) ) {
+			$valid_doors[] = $door;
+		}
+	}
+}
+
+if ( empty( $valid_doors ) ) {
+	$valid_doors = $default_doors;
+}
 ?>
 
 <section class="rpd-contact-doors rpd-contact-section">
@@ -72,9 +83,9 @@ $doors         = rocketpd_get_field(
 			<p><?php echo esc_html( $body ); ?></p>
 		</header>
 
-		<?php if ( is_array( $doors ) && ! empty( $doors ) ) : ?>
+		<?php if ( ! empty( $valid_doors ) ) : ?>
 			<div class="rpd-contact-door-grid">
-				<?php foreach ( $doors as $door ) : ?>
+				<?php foreach ( $valid_doors as $door ) : ?>
 					<?php
 					$style          = isset( $door['style'] ) ? sanitize_html_class( $door['style'] ) : 'educator';
 					$icon           = isset( $door['icon'] ) ? sanitize_html_class( $door['icon'] ) : 'learning';
