@@ -29,6 +29,26 @@ function rocketpd_get_option( $field_name, $fallback = '' ) {
 }
 
 /**
+ * Return an ACF field value for the current post when ACF is available.
+ *
+ * @param string $field_name ACF field name.
+ * @param mixed  $fallback   Fallback value.
+ * @param int    $post_id    Optional post ID.
+ * @return mixed
+ */
+function rocketpd_get_field( $field_name, $fallback = '', $post_id = 0 ) {
+	if ( function_exists( 'get_field' ) ) {
+		$value = get_field( $field_name, $post_id ?: false );
+
+		if ( null !== $value && '' !== $value && array() !== $value ) {
+			return $value;
+		}
+	}
+
+	return $fallback;
+}
+
+/**
  * Return image markup for an ACF image value that may be an ID, array, or URL.
  *
  * @param mixed  $image Image value.
