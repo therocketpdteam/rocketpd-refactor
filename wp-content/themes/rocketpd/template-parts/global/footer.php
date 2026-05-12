@@ -9,14 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$footer_logo_id     = rocketpd_get_option( 'rpd_footer_logo' );
-$footer_description = rocketpd_get_option(
-	'rpd_footer_description',
-	__( "The world's most engaged professional learning community for K-12 educators, school leaders, and district leaders.", 'rocketpd' )
-);
-$footer_columns     = rocketpd_get_option(
-	'rpd_footer_columns',
-	array(
+$is_about_template       = is_page_template( 'page-templates/template-about.php' );
+$footer_logo_id          = rocketpd_get_option( 'rpd_footer_logo' );
+$default_footer_columns  = array(
 		array(
 			'title' => __( 'Product', 'rocketpd' ),
 			'links' => array(
@@ -80,10 +75,16 @@ $footer_columns     = rocketpd_get_option(
 				),
 			),
 		),
-	)
-);
-$social_links       = rocketpd_get_option( 'rpd_footer_social_links', array() );
-$copyright          = rocketpd_get_option(
+	);
+$footer_description      = $is_about_template
+	? __( "The world's most engaged professional learning community for K-12 educators, school leaders, and district leaders.", 'rocketpd' )
+	: rocketpd_get_option(
+		'rpd_footer_description',
+		__( "The world's most engaged professional learning community for K-12 educators, school leaders, and district leaders.", 'rocketpd' )
+	);
+$footer_columns          = $is_about_template ? $default_footer_columns : rocketpd_get_option( 'rpd_footer_columns', $default_footer_columns );
+$social_links            = rocketpd_get_option( 'rpd_footer_social_links', array() );
+$copyright               = rocketpd_get_option(
 	'rpd_footer_copyright',
 	sprintf(
 		/* translators: %s: current year. */
