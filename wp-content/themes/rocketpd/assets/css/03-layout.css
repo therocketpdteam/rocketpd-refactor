@@ -1,0 +1,13 @@
+.rpd-container {
+	width: min(100% - 40px, 1200px);
+	margin-inline: auto;
+}
+
+.rpd-section {
+	padding-block: clamp(64px, 8vw, 112px);
+}
+
+.rpd-site-main {
+	min-height: 60vh;
+}
+

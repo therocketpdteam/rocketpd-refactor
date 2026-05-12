@@ -1,0 +1,23 @@
+:root {
+	--rpd-navy: #231f58;
+	--rpd-navy-deep: #1a1744;
+	--rpd-navy-mid: #343465;
+	--rpd-purple: #5552b1;
+	--rpd-purple-deep: #a154a1;
+	--rpd-gold: #fdb933;
+	--rpd-orange: #f99d33;
+	--rpd-body: #45417c;
+	--rpd-lavender-soft: #c4c4e5;
+	--rpd-bg-soft: #f8fafc;
+	--rpd-bg-soft-alt: #f8f8fc;
+	--rpd-blue-soft: #b6cfdc;
+	--rpd-white: #ffffff;
+	--rpd-black: #111111;
+	--font-heading: "Poppins", system-ui, sans-serif;
+	--font-body: "Inter", system-ui, sans-serif;
+	--gradient-purple: linear-gradient(135deg, #5552b1, #a154a1);
+	--gradient-navy: linear-gradient(135deg, #1a1744, #231f58, #343465);
+	--gradient-navy-deep: linear-gradient(135deg, #0f0d2e, #1a1744, #231f58);
+	--gradient-soft: linear-gradient(135deg, #ffffff, #f8fafc, rgba(196, 196, 229, 0.25));
+}
+

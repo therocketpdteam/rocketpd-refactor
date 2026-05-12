@@ -1,6 +1,6 @@
 <?php
 /**
- * Silence is golden.
+ * Final CTA component placeholder.
  *
  * @package RocketPD
  */

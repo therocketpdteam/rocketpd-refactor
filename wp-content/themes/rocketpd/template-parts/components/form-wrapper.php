@@ -1,6 +1,6 @@
 <?php
 /**
- * Silence is golden.
+ * Form wrapper component placeholder.
  *
  * @package RocketPD
  */

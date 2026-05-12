@@ -1,6 +1,6 @@
 <?php
 /**
- * Silence is golden.
+ * Card component placeholder.
  *
  * @package RocketPD
  */

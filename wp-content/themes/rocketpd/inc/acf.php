@@ -1,0 +1,34 @@
+<?php
+/**
+ * ACF local JSON configuration.
+ *
+ * @package RocketPD
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Set the ACF local JSON save path.
+ *
+ * @return string
+ */
+function rocketpd_acf_save_json_path() {
+	return get_template_directory() . '/acf-json';
+}
+add_filter( 'acf/settings/save_json', 'rocketpd_acf_save_json_path' );
+
+/**
+ * Add the theme ACF local JSON load path.
+ *
+ * @param array $paths Existing load paths.
+ * @return array
+ */
+function rocketpd_acf_load_json_paths( $paths ) {
+	$paths[] = get_template_directory() . '/acf-json';
+
+	return $paths;
+}
+add_filter( 'acf/settings/load_json', 'rocketpd_acf_load_json_paths' );
+

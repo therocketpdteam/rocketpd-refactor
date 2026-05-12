@@ -1,0 +1,43 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background: var(--rpd-white);
+	color: var(--rpd-body);
+	font-family: var(--font-body);
+}
+
+img,
+svg,
+video {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	color: inherit;
+}
+
+.rpd-skip-link {
+	position: absolute;
+	left: -999px;
+	top: 16px;
+	z-index: 100;
+	padding: 10px 14px;
+	background: var(--rpd-navy);
+	color: var(--rpd-white);
+}
+
+.rpd-skip-link:focus {
+	left: 16px;
+}
+

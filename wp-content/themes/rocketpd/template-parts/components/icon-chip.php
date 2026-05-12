@@ -1,6 +1,6 @@
 <?php
 /**
- * Silence is golden.
+ * Icon chip component placeholder.
  *
  * @package RocketPD
  */

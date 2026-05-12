@@ -1,0 +1,13 @@
+.rpd-site-footer {
+	background: var(--rpd-navy);
+	color: var(--rpd-white);
+}
+
+.rpd-site-footer__inner {
+	padding-block: 40px;
+}
+
+.rpd-site-footer a {
+	color: inherit;
+}
+
