@@ -211,3 +211,61 @@ ACF:
 10. LaunchPad
 11. LaunchPad+
 12. Resource/blog templates
+
+## Visual QA and Staging Review Loop
+
+For any task that changes a page template, page-specific CSS, global header, global footer, or visual layout, the task is not complete until the work has been reviewed in-browser on the staging site.
+
+### Required workflow
+
+1. Complete the local implementation.
+2. Run local validation:
+   - `git diff --check -- wp-content/themes/rocketpd`
+   - JSON validation for any changed ACF JSON files.
+   - Syntax checks where available.
+3. Deploy or upload the changed RocketPD theme files to the staging environment.
+4. Clear staging caches where available.
+5. Open the affected staging URL in Playwright.
+6. Capture a full-page screenshot.
+7. Compare the staging screenshot against the approved reference screenshot or design direction.
+8. Self-correct visual issues.
+9. Repeat the deploy/review/correction loop up to 3 times, or until the page is approximately 90% aligned with the approved reference.
+
+### Visual comparison criteria
+
+When comparing against the reference, check:
+
+- Overall section order and page structure.
+- Header and footer rendering.
+- Hero layout, headline scale, and spacing.
+- Section rhythm and vertical spacing.
+- Background color bands and contrast.
+- Card layouts, grids, and image treatments.
+- Typography hierarchy.
+- Button styling and hover/focus states.
+- Mobile responsiveness.
+- Whether any legacy content, old ACF fields, or broken menu output is visible.
+- Whether the page feels polished enough for client-facing QA.
+
+### Important staging rules
+
+- Only deploy to staging/QA, never production.
+- Do not modify WordPress database content unless the prompt explicitly asks for it.
+- Do not delete legacy themes, plugins, uploads, or old ACF field groups unless explicitly instructed.
+- Keep file changes inside `wp-content/themes/rocketpd/` unless the task explicitly says otherwise.
+- If the staging site does not update after deployment, stop and diagnose deployment/caching before continuing design work.
+- Do not report a visual task as complete based only on local file validation.
+
+### Reporting requirements
+
+For visual tasks, always report:
+
+- Files changed.
+- Whether files were deployed/uploaded to staging.
+- Staging URL reviewed.
+- Whether Playwright was used.
+- Screenshot path or confirmation that a screenshot was captured.
+- Number of correction passes completed.
+- Remaining visual gaps, if any.
+- Whether the result is ready for human QA.
+- Final git status.
