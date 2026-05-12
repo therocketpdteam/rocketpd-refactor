@@ -1,4 +1,36 @@
+.rpd-announcement {
+	background: var(--rpd-navy-deep);
+	color: var(--rpd-white);
+	font-size: var(--rpd-font-size-sm);
+}
+
+.rpd-announcement__inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--rpd-space-3);
+	min-height: 40px;
+	padding-block: var(--rpd-space-2);
+	text-align: center;
+}
+
+.rpd-announcement__text {
+	margin: 0;
+}
+
+.rpd-announcement__link {
+	color: var(--rpd-gold);
+	font-weight: 800;
+	text-decoration: none;
+}
+
+.rpd-announcement__link:hover {
+	color: var(--rpd-white);
+}
+
 .rpd-site-header {
+	position: relative;
+	z-index: 20;
 	border-bottom: 1px solid rgba(35, 31, 88, 0.1);
 	background: var(--rpd-white);
 	color: var(--rpd-navy);
@@ -13,6 +45,9 @@
 }
 
 .rpd-site-header__brand {
+	display: inline-flex;
+	align-items: center;
+	flex: 0 0 auto;
 	color: var(--rpd-navy);
 	font-family: var(--font-heading);
 	font-weight: 800;
@@ -20,16 +55,39 @@
 	text-decoration: none;
 }
 
+.rpd-site-header__logo {
+	width: auto;
+	max-height: 42px;
+}
+
+.rpd-site-header__wordmark {
+	font-size: var(--rpd-font-size-lg);
+}
+
+.rpd-site-header__nav {
+	display: flex;
+	justify-content: center;
+	flex: 1 1 auto;
+}
+
 .rpd-menu {
 	display: flex;
 	align-items: center;
-	gap: 24px;
+	gap: var(--rpd-space-6);
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
+.rpd-menu li {
+	position: relative;
+	margin: 0;
+}
+
 .rpd-menu a {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
 	color: var(--rpd-navy);
 	font-size: var(--rpd-font-size-sm);
 	font-weight: 700;
@@ -40,9 +98,35 @@
 	color: var(--rpd-purple);
 }
 
+.rpd-site-header__actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: var(--rpd-space-3);
+	flex: 0 0 auto;
+}
+
+.rpd-site-header__login {
+	color: var(--rpd-navy);
+	font-size: var(--rpd-font-size-sm);
+	font-weight: 800;
+	text-decoration: none;
+}
+
+.rpd-site-header__login:hover {
+	color: var(--rpd-purple);
+}
+
+.rpd-site-header__cta {
+	min-height: 42px;
+	padding-inline: var(--rpd-space-4);
+	font-size: var(--rpd-font-size-sm);
+}
+
 .rpd-site-header__toggle {
 	display: inline-flex;
 	align-items: center;
+	gap: var(--rpd-space-2);
 	min-height: 44px;
 	padding: var(--rpd-space-2) var(--rpd-space-3);
 	border: 1px solid var(--rpd-color-border);
@@ -51,9 +135,39 @@
 	font-weight: 800;
 }
 
+.rpd-site-header__toggle-lines,
+.rpd-site-header__toggle-lines::before,
+.rpd-site-header__toggle-lines::after {
+	display: block;
+	width: 18px;
+	height: 2px;
+	border-radius: 2px;
+	background: currentColor;
+	content: "";
+}
+
+.rpd-site-header__toggle-lines {
+	position: relative;
+}
+
+.rpd-site-header__toggle-lines::before,
+.rpd-site-header__toggle-lines::after {
+	position: absolute;
+	left: 0;
+}
+
+.rpd-site-header__toggle-lines::before {
+	top: -6px;
+}
+
+.rpd-site-header__toggle-lines::after {
+	top: 6px;
+}
+
 .rpd-mobile-menu {
 	border-top: 1px solid var(--rpd-color-border);
 	background: var(--rpd-white);
+	box-shadow: var(--rpd-shadow-sm);
 }
 
 .rpd-mobile-menu .rpd-menu {
@@ -62,8 +176,33 @@
 	padding-block: var(--rpd-space-5);
 }
 
+.rpd-mobile-menu .rpd-menu a {
+	width: 100%;
+	justify-content: space-between;
+}
+
+.rpd-mobile-menu__actions {
+	display: grid;
+	gap: var(--rpd-space-3);
+	padding-bottom: var(--rpd-space-5);
+}
+
+.rpd-mobile-menu__actions .rpd-site-header__login {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+}
+
+.rpd-mobile-menu-open {
+	overflow: hidden;
+}
+
 @media (min-width: 900px) {
 	.rpd-site-header__toggle {
+		display: none;
+	}
+
+	.rpd-mobile-menu {
 		display: none;
 	}
 }
@@ -71,5 +210,31 @@
 @media (max-width: 899px) {
 	.rpd-site-header__nav {
 		display: none;
+	}
+
+	.rpd-site-header__actions .rpd-site-header__login,
+	.rpd-site-header__actions .rpd-site-header__cta {
+		display: none;
+	}
+}
+
+@media (max-width: 639px) {
+	.rpd-announcement__inner {
+		display: grid;
+		gap: var(--rpd-space-1);
+	}
+
+	.rpd-site-header__inner {
+		min-height: 68px;
+	}
+
+	.rpd-site-header__toggle-text {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+		white-space: nowrap;
 	}
 }

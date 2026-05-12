@@ -28,3 +28,46 @@ function rocketpd_get_option( $field_name, $fallback = '' ) {
 	return $fallback;
 }
 
+/**
+ * Return image markup for an ACF image value that may be an ID, array, or URL.
+ *
+ * @param mixed  $image Image value.
+ * @param string $class CSS class.
+ * @param string $alt   Fallback alt text.
+ * @return string
+ */
+function rocketpd_get_image_markup( $image, $class = '', $alt = '' ) {
+	if ( is_numeric( $image ) ) {
+		return wp_get_attachment_image(
+			(int) $image,
+			'full',
+			false,
+			array(
+				'class' => $class,
+				'alt'   => $alt,
+			)
+		);
+	}
+
+	if ( is_array( $image ) && ! empty( $image['url'] ) ) {
+		$image_alt = ! empty( $image['alt'] ) ? $image['alt'] : $alt;
+
+		return sprintf(
+			'<img class="%1$s" src="%2$s" alt="%3$s">',
+			esc_attr( $class ),
+			esc_url( $image['url'] ),
+			esc_attr( $image_alt )
+		);
+	}
+
+	if ( is_string( $image ) && $image ) {
+		return sprintf(
+			'<img class="%1$s" src="%2$s" alt="%3$s">',
+			esc_attr( $class ),
+			esc_url( $image ),
+			esc_attr( $alt )
+		);
+	}
+
+	return '';
+}
