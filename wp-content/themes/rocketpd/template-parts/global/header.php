@@ -9,13 +9,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$is_about_template  = is_page_template( 'page-templates/template-about.php' );
 $header_logo_id     = rocketpd_get_option( 'rpd_logo' );
 $header_logo_alt    = rocketpd_get_option( 'rpd_logo_alt', get_bloginfo( 'name' ) );
-$nav_cta_label      = rocketpd_get_option( 'rpd_primary_nav_cta_label' );
-$nav_cta_url        = rocketpd_get_option( 'rpd_primary_nav_cta_url' );
-$login_label        = rocketpd_get_option( 'rpd_login_label' );
-$login_url          = rocketpd_get_option( 'rpd_login_url' );
+$nav_cta_label      = rocketpd_get_option( 'rpd_primary_nav_cta_label', $is_about_template ? __( 'Join the Community', 'rocketpd' ) : '' );
+$nav_cta_url        = rocketpd_get_option( 'rpd_primary_nav_cta_url', $is_about_template ? home_url( '/' ) : '' );
+$login_label        = rocketpd_get_option( 'rpd_login_label', $is_about_template ? __( 'Login', 'rocketpd' ) : '' );
+$login_url          = rocketpd_get_option( 'rpd_login_url', $is_about_template ? home_url( '/login/' ) : '' );
 $has_header_actions = ( $nav_cta_label && $nav_cta_url ) || ( $login_label && $login_url );
+$about_nav_links    = array(
+	array(
+		'label' => __( 'Topics', 'rocketpd' ),
+		'url'   => home_url( '/topics/' ),
+	),
+	array(
+		'label' => __( 'Instructors', 'rocketpd' ),
+		'url'   => home_url( '/instructors/' ),
+	),
+	array(
+		'label' => __( 'Solutions', 'rocketpd' ),
+		'url'   => home_url( '/solutions/' ),
+	),
+	array(
+		'label' => __( 'Resources', 'rocketpd' ),
+		'url'   => home_url( '/resources/' ),
+	),
+	array(
+		'label' => __( 'About', 'rocketpd' ),
+		'url'   => home_url( '/about/' ),
+	),
+);
 
 ?>
 <?php get_template_part( 'template-parts/global/announcement-bar' ); ?>
@@ -37,7 +60,17 @@ $has_header_actions = ( $nav_cta_label && $nav_cta_url ) || ( $login_label && $l
 		</a>
 
 		<nav class="rpd-site-header__nav" aria-label="<?php esc_attr_e( 'Primary navigation', 'rocketpd' ); ?>">
-			<?php rocketpd_nav_menu( 'primary' ); ?>
+			<?php if ( $is_about_template ) : ?>
+				<ul class="rpd-menu rpd-menu--primary">
+					<?php foreach ( $about_nav_links as $nav_link ) : ?>
+						<li>
+							<a href="<?php echo esc_url( $nav_link['url'] ); ?>"><?php echo esc_html( $nav_link['label'] ); ?></a>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			<?php else : ?>
+				<?php rocketpd_nav_menu( 'primary' ); ?>
+			<?php endif; ?>
 		</nav>
 
 		<div class="rpd-site-header__actions">
@@ -76,6 +109,7 @@ $has_header_actions = ( $nav_cta_label && $nav_cta_url ) || ( $login_label && $l
 			'login_url'          => $login_url,
 			'nav_cta_label'      => $nav_cta_label,
 			'nav_cta_url'        => $nav_cta_url,
+			'nav_links'          => $is_about_template ? $about_nav_links : array(),
 		)
 	);
 	?>

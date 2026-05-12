@@ -12,30 +12,67 @@ if ( ! defined( 'ABSPATH' ) ) {
 $footer_logo_id     = rocketpd_get_option( 'rpd_footer_logo' );
 $footer_description = rocketpd_get_option(
 	'rpd_footer_description',
-	__( 'Live virtual professional development, trusted K-12 experts, and practical learning communities for educators and school teams.', 'rocketpd' )
+	__( "The world's most engaged professional learning community for K-12 educators, school leaders, and district leaders.", 'rocketpd' )
 );
 $footer_columns     = rocketpd_get_option(
 	'rpd_footer_columns',
 	array(
 		array(
-			'title' => __( 'Explore', 'rocketpd' ),
+			'title' => __( 'Product', 'rocketpd' ),
 			'links' => array(
 				array(
 					'label' => __( 'LaunchPad', 'rocketpd' ),
 					'url'   => home_url( '/launchpad/' ),
 				),
 				array(
-					'label' => __( 'Resources', 'rocketpd' ),
-					'url'   => home_url( '/resources/' ),
+					'label' => __( 'For Districts', 'rocketpd' ),
+					'url'   => home_url( '/districts/' ),
+				),
+				array(
+					'label' => __( 'For Schools', 'rocketpd' ),
+					'url'   => home_url( '/schools/' ),
+				),
+				array(
+					'label' => __( 'Pricing', 'rocketpd' ),
+					'url'   => home_url( '/pricing/' ),
 				),
 			),
 		),
 		array(
-			'title' => __( 'Connect', 'rocketpd' ),
+			'title' => __( 'Community', 'rocketpd' ),
 			'links' => array(
 				array(
-					'label' => __( 'About', 'rocketpd' ),
+					'label' => __( 'Topics', 'rocketpd' ),
+					'url'   => home_url( '/topics/' ),
+				),
+				array(
+					'label' => __( 'Instructors', 'rocketpd' ),
+					'url'   => home_url( '/instructors/' ),
+				),
+				array(
+					'label' => __( 'Events', 'rocketpd' ),
+					'url'   => home_url( '/events/' ),
+				),
+				array(
+					'label' => __( 'Member Directory', 'rocketpd' ),
+					'url'   => home_url( '/members/' ),
+				),
+			),
+		),
+		array(
+			'title' => __( 'Company', 'rocketpd' ),
+			'links' => array(
+				array(
+					'label' => __( 'About Us', 'rocketpd' ),
 					'url'   => home_url( '/about/' ),
+				),
+				array(
+					'label' => __( 'Careers', 'rocketpd' ),
+					'url'   => home_url( '/careers/' ),
+				),
+				array(
+					'label' => __( 'Blog', 'rocketpd' ),
+					'url'   => home_url( '/blog/' ),
 				),
 				array(
 					'label' => __( 'Contact', 'rocketpd' ),
