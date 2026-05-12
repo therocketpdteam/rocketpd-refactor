@@ -28,13 +28,14 @@ function rocketpd_enqueue_assets() {
 	$dependency = array();
 
 	foreach ( $css_files as $css_file ) {
-		$handle = 'rocketpd-' . $css_file;
+		$handle   = 'rocketpd-' . $css_file;
+		$css_path = get_template_directory() . '/assets/css/' . $css_file . '.css';
 
 		wp_enqueue_style(
 			$handle,
 			get_template_directory_uri() . '/assets/css/' . $css_file . '.css',
 			$dependency,
-			$theme_version
+			file_exists( $css_path ) ? filemtime( $css_path ) : $theme_version
 		);
 
 		$dependency = array( $handle );
@@ -57,11 +58,13 @@ function rocketpd_enqueue_assets() {
 	);
 
 	if ( is_page_template( 'page-templates/template-contact.php' ) ) {
+		$contact_css_path = get_template_directory() . '/assets/css/pages/contact.css';
+
 		wp_enqueue_style(
 			'rocketpd-contact',
 			get_template_directory_uri() . '/assets/css/pages/contact.css',
 			array( 'rocketpd-07-footer' ),
-			$theme_version
+			file_exists( $contact_css_path ) ? filemtime( $contact_css_path ) : $theme_version
 		);
 	}
 }

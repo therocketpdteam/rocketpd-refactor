@@ -9,9 +9,80 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$footer_logo_id     = rocketpd_get_option( 'rpd_footer_logo' );
-$footer_description = rocketpd_get_option( 'rpd_footer_description' );
-$footer_columns     = rocketpd_get_option( 'rpd_footer_columns', array() );
+$is_contact_template    = is_page_template( 'page-templates/template-contact.php' );
+$phone_display          = rocketpd_get_option( 'rpd_phone_display', '(855) 757-6253' );
+$email                  = rocketpd_get_option( 'rpd_general_email', 'info@rocketpd.com' );
+$support_email          = rocketpd_get_option( 'rpd_support_email', 'support@rocketpd.com' );
+$jesse_url              = rocketpd_get_option( 'rpd_jesse_schedule_url', home_url( '/contact/#jesse' ) );
+$footer_logo_id         = rocketpd_get_option( 'rpd_footer_logo' );
+$default_description    = __( "The world's most engaged professional learning community for K-12 educators, school leaders, and district leaders.", 'rocketpd' );
+$default_footer_columns = array(
+	array(
+		'title' => __( 'Product', 'rocketpd' ),
+		'links' => array(
+			array(
+				'label' => __( 'LaunchPad', 'rocketpd' ),
+				'url'   => home_url( '/launchpad/' ),
+			),
+			array(
+				'label' => __( 'For Districts', 'rocketpd' ),
+				'url'   => home_url( '/districts/' ),
+			),
+			array(
+				'label' => __( 'For Schools', 'rocketpd' ),
+				'url'   => home_url( '/schools/' ),
+			),
+			array(
+				'label' => __( 'Pricing', 'rocketpd' ),
+				'url'   => home_url( '/pricing/' ),
+			),
+		),
+	),
+	array(
+		'title' => __( 'Community', 'rocketpd' ),
+		'links' => array(
+			array(
+				'label' => __( 'Topics', 'rocketpd' ),
+				'url'   => home_url( '/topics/' ),
+			),
+			array(
+				'label' => __( 'Instructors', 'rocketpd' ),
+				'url'   => home_url( '/instructors/' ),
+			),
+			array(
+				'label' => __( 'Events', 'rocketpd' ),
+				'url'   => home_url( '/events/' ),
+			),
+			array(
+				'label' => __( 'Member Directory', 'rocketpd' ),
+				'url'   => home_url( '/members/' ),
+			),
+		),
+	),
+	array(
+		'title' => __( 'Contact', 'rocketpd' ),
+		'links' => array(
+			array(
+				'label' => $phone_display,
+				'url'   => 'tel:' . preg_replace( '/[^0-9+]/', '', $phone_display ),
+			),
+			array(
+				'label' => $email,
+				'url'   => 'mailto:' . $email,
+			),
+			array(
+				'label' => $support_email,
+				'url'   => 'mailto:' . $support_email,
+			),
+			array(
+				'label' => __( 'Book with Jesse', 'rocketpd' ),
+				'url'   => $jesse_url,
+			),
+		),
+	),
+);
+$footer_description   = $is_contact_template ? $default_description : rocketpd_get_option( 'rpd_footer_description', $default_description );
+$footer_columns       = $is_contact_template ? $default_footer_columns : rocketpd_get_option( 'rpd_footer_columns', $default_footer_columns );
 $social_links       = rocketpd_get_option( 'rpd_footer_social_links', array() );
 $copyright          = rocketpd_get_option(
 	'rpd_footer_copyright',

@@ -3,10 +3,9 @@
     "title": "RocketPD Contact",
     "fields": [
         {
-            "key": "field_rpd_contact_tab_hero",
+            "key": "field_rpd_contact_001_hero",
             "label": "Hero",
-            "name": "",
-            "aria-label": "",
+            "name": "hero",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -20,52 +19,30 @@
             "endpoint": 0
         },
         {
-            "key": "field_rpd_contact_hero_eyebrow",
+            "key": "field_rpd_contact_002_rpd_contact_hero_eyebrow",
             "label": "Eyebrow",
             "name": "rpd_contact_hero_eyebrow",
-            "aria-label": "",
             "type": "text",
-            "instructions": "Short label above the Contact page headline.",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "Contact RocketPD",
-            "maxlength": 40,
+            "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
         },
         {
-            "key": "field_rpd_contact_hero_headline",
+            "key": "field_rpd_contact_003_rpd_contact_hero_headline",
             "label": "Headline",
             "name": "rpd_contact_hero_headline",
-            "aria-label": "",
             "type": "textarea",
-            "instructions": "Main H1. Keep it short and warm.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "We're here. What do you need?",
-            "maxlength": 120,
-            "rows": 2,
-            "placeholder": "",
-            "new_lines": "br"
-        },
-        {
-            "key": "field_rpd_contact_hero_body",
-            "label": "Intro Copy",
-            "name": "rpd_contact_hero_body",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Brief paragraph under the headline.",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -73,19 +50,18 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Whether you're an educator looking for community, a school leader exploring options, or a current member who needs a hand, pick a door below and we'll meet you there.",
-            "maxlength": 260,
-            "rows": 3,
+            "default_value": "",
+            "maxlength": "",
+            "rows": 2,
             "placeholder": "",
             "new_lines": ""
         },
         {
-            "key": "field_rpd_contact_hero_trust_items",
-            "label": "Trust Items",
-            "name": "rpd_contact_hero_trust_items",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Short reassurance points below the hero copy.",
+            "key": "field_rpd_contact_004_rpd_contact_hero_highlight",
+            "label": "Highlighted word",
+            "name": "rpd_contact_hero_highlight",
+            "type": "text",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -93,19 +69,54 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 3,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_005_rpd_contact_hero_body",
+            "label": "Body copy",
+            "name": "rpd_contact_hero_body",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_rpd_contact_007_rpd_contact_hero_trust_items",
+            "label": "Trust items",
+            "name": "rpd_contact_hero_trust_items",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
             "collapsed": "",
-            "button_label": "Add trust item",
-            "rows_per_page": 20,
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add item",
             "sub_fields": [
                 {
-                    "key": "field_rpd_contact_hero_trust_item_text",
+                    "key": "field_rpd_contact_006_hero_trust_text",
                     "label": "Text",
                     "name": "text",
-                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -116,7 +127,7 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "maxlength": 60,
+                    "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
@@ -124,89 +135,11 @@
             ]
         },
         {
-            "key": "field_rpd_contact_tab_doors",
-            "label": "Choose Your Door",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_rpd_contact_doors_eyebrow",
-            "label": "Eyebrow",
-            "name": "rpd_contact_doors_eyebrow",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Choose your door",
-            "maxlength": 40,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_rpd_contact_doors_headline",
-            "label": "Headline",
-            "name": "rpd_contact_doors_headline",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "67",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Tell us a bit about you, and we'll point you to the right spot.",
-            "maxlength": 120,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_rpd_contact_doors_body",
-            "label": "Intro Copy",
-            "name": "rpd_contact_doors_body",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Each path lands you with a real person on our team.",
-            "maxlength": 180,
-            "rows": 2,
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_rpd_contact_doors",
-            "label": "Door Cards",
-            "name": "rpd_contact_doors",
-            "aria-label": "",
+            "key": "field_rpd_contact_013_rpd_contact_direct_rows",
+            "label": "Direct contact rows",
+            "name": "rpd_contact_direct_rows",
             "type": "repeater",
-            "instructions": "Three audience cards. Keep the school/district card visually featured.",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -214,34 +147,31 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
-            "pagination": 0,
+            "collapsed": "",
             "min": 0,
             "max": 3,
-            "collapsed": "field_rpd_contact_door_title",
-            "button_label": "Add door card",
-            "rows_per_page": 20,
+            "layout": "block",
+            "button_label": "Add item",
             "sub_fields": [
                 {
-                    "key": "field_rpd_contact_door_style",
+                    "key": "field_rpd_contact_008_direct_row_style",
                     "label": "Style",
                     "name": "style",
-                    "aria-label": "",
                     "type": "select",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "25",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
                     "choices": {
-                        "light": "Light",
-                        "dark-featured": "Dark Featured",
-                        "light-alt": "Light Alternate"
+                        "gold": "Gold",
+                        "purple": "Purple",
+                        "pink": "Pink"
                     },
-                    "default_value": "light",
+                    "default_value": false,
                     "return_format": "value",
                     "multiple": 0,
                     "allow_null": 0,
@@ -250,50 +180,273 @@
                     "placeholder": ""
                 },
                 {
-                    "key": "field_rpd_contact_door_featured_badge",
-                    "label": "Featured Badge",
-                    "name": "featured_badge",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Only used for the dark featured card.",
+                    "key": "field_rpd_contact_009_direct_row_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "25",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "maxlength": 40,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
+                    "choices": {
+                        "phone": "Phone",
+                        "email": "Email",
+                        "calendar": "Calendar"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
                 },
                 {
-                    "key": "field_rpd_contact_door_title",
-                    "label": "Title",
-                    "name": "title",
-                    "aria-label": "",
+                    "key": "field_rpd_contact_010_direct_row_label",
+                    "label": "Label",
+                    "name": "label",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "maxlength": 80,
+                    "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
                 },
                 {
-                    "key": "field_rpd_contact_door_body",
+                    "key": "field_rpd_contact_011_direct_row_value",
+                    "label": "Value",
+                    "name": "value",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_rpd_contact_012_direct_row_url",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_contact_014_choose_your_door",
+            "label": "Choose Your Door",
+            "name": "choose_your_door",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_contact_015_rpd_contact_doors_eyebrow",
+            "label": "Eyebrow",
+            "name": "rpd_contact_doors_eyebrow",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_016_rpd_contact_doors_headline",
+            "label": "Headline",
+            "name": "rpd_contact_doors_headline",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_017_rpd_contact_doors_body",
+            "label": "Body copy",
+            "name": "rpd_contact_doors_body",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_rpd_contact_029_rpd_contact_doors",
+            "label": "Door cards",
+            "name": "rpd_contact_doors",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 3,
+            "max": 3,
+            "layout": "block",
+            "button_label": "Add item",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_contact_018_door_style",
+                    "label": "Style",
+                    "name": "style",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "educator": "Educator",
+                        "leader": "Leader featured",
+                        "member": "Member"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_rpd_contact_019_door_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "learning": "Learning",
+                        "building": "Building",
+                        "support": "Support"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_rpd_contact_020_door_featured_badge",
+                    "label": "Featured badge",
+                    "name": "featured_badge",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_rpd_contact_021_door_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_rpd_contact_022_door_body",
                     "label": "Body",
                     "name": "body",
-                    "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -304,42 +457,80 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "maxlength": 240,
+                    "maxlength": "",
                     "rows": 3,
                     "placeholder": "",
                     "new_lines": ""
                 },
                 {
-                    "key": "field_rpd_contact_door_cta_label",
-                    "label": "CTA Label",
+                    "key": "field_rpd_contact_024_door_bullets",
+                    "label": "Bullets",
+                    "name": "door_bullets",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "block",
+                    "button_label": "Add item",
+                    "sub_fields": [
+                        {
+                            "key": "field_rpd_contact_023_door_bullet_text",
+                            "label": "Text",
+                            "name": "text",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ]
+                },
+                {
+                    "key": "field_rpd_contact_025_door_cta_label",
+                    "label": "CTA label",
                     "name": "cta_label",
-                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "maxlength": 50,
+                    "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
                 },
                 {
-                    "key": "field_rpd_contact_door_cta_url",
+                    "key": "field_rpd_contact_026_door_cta_url",
                     "label": "CTA URL",
                     "name": "cta_url",
-                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
@@ -347,327 +538,9 @@
                     "placeholder": ""
                 },
                 {
-                    "key": "field_rpd_contact_door_subcta_label",
-                    "label": "Secondary CTA Label",
+                    "key": "field_rpd_contact_027_door_subcta_label",
+                    "label": "Secondary CTA label",
                     "name": "subcta_label",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Optional.",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": 60,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
-                    "key": "field_rpd_contact_door_subcta_url",
-                    "label": "Secondary CTA URL",
-                    "name": "subcta_url",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Optional. Allows anchors such as #walkthrough-form.",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": 120,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                }
-            ]
-        },
-        {
-            "key": "field_rpd_contact_tab_jesse",
-            "label": "Jesse",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_rpd_contact_jesse_eyebrow",
-            "label": "Eyebrow",
-            "name": "rpd_contact_jesse_eyebrow",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Talk to a real human",
-            "maxlength": 40,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_rpd_contact_jesse_headline",
-            "label": "Headline",
-            "name": "rpd_contact_jesse_headline",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "67",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Twenty minutes with Jesse beats a 50-page deck.",
-            "maxlength": 120,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_rpd_contact_jesse_body",
-            "label": "Body",
-            "name": "rpd_contact_jesse_body",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Tell him what you're trying to do. He'll tell you what fits, what doesn't, and what to try next.",
-            "maxlength": 260,
-            "rows": 3,
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_rpd_contact_jesse_name",
-            "label": "Name",
-            "name": "rpd_contact_jesse_name",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Jesse",
-            "maxlength": 60,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_rpd_contact_jesse_title",
-            "label": "Title",
-            "name": "rpd_contact_jesse_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Co-founder, RocketPD",
-            "maxlength": 80,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_rpd_contact_tab_form",
-            "label": "Form",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_rpd_contact_form_id",
-            "label": "Gravity Form ID",
-            "name": "rpd_contact_form_id",
-            "aria-label": "",
-            "type": "number",
-            "instructions": "Optional. If Gravity Forms is unavailable or this is empty, the template shows a marked placeholder.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "min": 1,
-            "max": "",
-            "placeholder": "",
-            "step": 1,
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_rpd_contact_form_eyebrow",
-            "label": "Eyebrow",
-            "name": "rpd_contact_form_eyebrow",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Tell us more",
-            "maxlength": 40,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_rpd_contact_form_headline",
-            "label": "Headline",
-            "name": "rpd_contact_form_headline",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Walkthrough, partnership, or something we haven't thought of yet?",
-            "maxlength": 140,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_rpd_contact_form_body",
-            "label": "Body",
-            "name": "rpd_contact_form_body",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Drop the details and we'll route it to the right person on our team.",
-            "maxlength": 240,
-            "rows": 3,
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_rpd_contact_form_promise",
-            "label": "Form Promise",
-            "name": "rpd_contact_form_promise",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Short line rendered under the form.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Replies typically within 1 business day. We don't add you to a drip sequence.",
-            "maxlength": 180,
-            "rows": 2,
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_rpd_contact_tab_faq",
-            "label": "FAQ",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_rpd_contact_faq_items",
-            "label": "FAQ Items",
-            "name": "rpd_contact_faq_items",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "Keep the IDG relationship FAQ unless brand strategy approves removing it.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "pagination": 0,
-            "min": 0,
-            "max": 8,
-            "collapsed": "field_rpd_contact_faq_question",
-            "button_label": "Add FAQ",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_rpd_contact_faq_question",
-                    "label": "Question",
-                    "name": "question",
-                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -678,16 +551,432 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "maxlength": 120,
+                    "maxlength": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
                 },
                 {
-                    "key": "field_rpd_contact_faq_answer",
-                    "label": "Answer",
-                    "name": "answer",
-                    "aria-label": "",
+                    "key": "field_rpd_contact_028_door_subcta_url",
+                    "label": "Secondary CTA URL",
+                    "name": "subcta_url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_contact_030_jesse",
+            "label": "Jesse",
+            "name": "jesse",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_contact_031_rpd_contact_jesse_eyebrow",
+            "label": "Eyebrow",
+            "name": "rpd_contact_jesse_eyebrow",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_032_rpd_contact_jesse_headline",
+            "label": "Headline",
+            "name": "rpd_contact_jesse_headline",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_033_rpd_contact_jesse_body",
+            "label": "Body copy",
+            "name": "rpd_contact_jesse_body",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_rpd_contact_034_rpd_contact_jesse_name",
+            "label": "Name",
+            "name": "rpd_contact_jesse_name",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_035_rpd_contact_jesse_title",
+            "label": "Title",
+            "name": "rpd_contact_jesse_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_039_rpd_contact_jesse_meta",
+            "label": "Meta items",
+            "name": "rpd_contact_jesse_meta",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 3,
+            "layout": "block",
+            "button_label": "Add item",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_contact_036_jesse_meta_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "clock": "Clock",
+                        "people": "People",
+                        "spark": "Spark"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_rpd_contact_037_jesse_meta_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_rpd_contact_038_jesse_meta_body",
+                    "label": "Body",
+                    "name": "body",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_contact_041_rpd_contact_jesse_best_for",
+            "label": "Best for checklist",
+            "name": "rpd_contact_jesse_best_for",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add item",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_contact_040_jesse_best_for_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_contact_042_reach",
+            "label": "Reach",
+            "name": "reach",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_contact_043_rpd_contact_reach_eyebrow",
+            "label": "Eyebrow",
+            "name": "rpd_contact_reach_eyebrow",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_044_rpd_contact_reach_headline",
+            "label": "Headline",
+            "name": "rpd_contact_reach_headline",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_045_rpd_contact_reach_body",
+            "label": "Body copy",
+            "name": "rpd_contact_reach_body",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_rpd_contact_052_rpd_contact_reach_methods",
+            "label": "Contact methods",
+            "name": "rpd_contact_reach_methods",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 3,
+            "layout": "block",
+            "button_label": "Add item",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_contact_046_reach_method_style",
+                    "label": "Style",
+                    "name": "style",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "gold": "Gold",
+                        "purple": "Purple",
+                        "pink": "Pink"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_rpd_contact_047_reach_method_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "phone": "Phone",
+                        "email": "Email",
+                        "pin": "Pin"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_rpd_contact_048_reach_method_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_rpd_contact_049_reach_method_title",
+                    "label": "Title",
+                    "name": "title",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -698,18 +987,90 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "maxlength": 360,
+                    "maxlength": "",
                     "rows": 3,
                     "placeholder": "",
                     "new_lines": ""
+                },
+                {
+                    "key": "field_rpd_contact_050_reach_method_body",
+                    "label": "Body",
+                    "name": "body",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 3,
+                    "placeholder": "",
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_rpd_contact_051_reach_method_url",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
                 }
             ]
         },
         {
-            "key": "field_rpd_contact_tab_final",
-            "label": "Final CTA",
-            "name": "",
-            "aria-label": "",
+            "key": "field_rpd_contact_053_rpd_contact_support_title",
+            "label": "Support strip title",
+            "name": "rpd_contact_support_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_054_rpd_contact_support_body",
+            "label": "Support strip body",
+            "name": "rpd_contact_support_body",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_rpd_contact_055_form",
+            "label": "Form",
+            "name": "form",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -723,50 +1084,68 @@
             "endpoint": 0
         },
         {
-            "key": "field_rpd_contact_final_eyebrow",
+            "key": "field_rpd_contact_056_rpd_contact_form_id",
+            "label": "Gravity Form ID",
+            "name": "rpd_contact_form_id",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_057_rpd_contact_form_eyebrow",
             "label": "Eyebrow",
-            "name": "rpd_contact_final_eyebrow",
-            "aria-label": "",
+            "name": "rpd_contact_form_eyebrow",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33",
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "The fastest way to meet us",
-            "maxlength": 40,
+            "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
         },
         {
-            "key": "field_rpd_contact_final_headline",
+            "key": "field_rpd_contact_058_rpd_contact_form_headline",
             "label": "Headline",
-            "name": "rpd_contact_final_headline",
-            "aria-label": "",
+            "name": "rpd_contact_form_headline",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "67",
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "Honestly? Just come hang out.",
-            "maxlength": 100,
+            "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
         },
         {
-            "key": "field_rpd_contact_final_body",
-            "label": "Body",
-            "name": "rpd_contact_final_body",
-            "aria-label": "",
+            "key": "field_rpd_contact_059_rpd_contact_form_body",
+            "label": "Body copy",
+            "name": "rpd_contact_form_body",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -776,17 +1155,96 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "The door's open, and it's free.",
-            "maxlength": 220,
-            "rows": 3,
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
             "placeholder": "",
             "new_lines": ""
         },
         {
-            "key": "field_rpd_contact_final_proof",
-            "label": "Proof Strip",
-            "name": "rpd_contact_final_proof",
-            "aria-label": "",
+            "key": "field_rpd_contact_061_rpd_contact_form_bullets",
+            "label": "Form section bullets",
+            "name": "rpd_contact_form_bullets",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add item",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_contact_060_form_bullet_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_contact_063_rpd_contact_form_interest_options",
+            "label": "Interest dropdown options",
+            "name": "rpd_contact_form_interest_options",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add item",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_contact_062_form_interest_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_contact_064_rpd_contact_form_promise",
+            "label": "Promise text",
+            "name": "rpd_contact_form_promise",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -796,8 +1254,302 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "40K+ educators | 850+ districts | 48+ countries",
-            "maxlength": 120,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_065_faq",
+            "label": "FAQ",
+            "name": "faq",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_contact_066_rpd_contact_faq_eyebrow",
+            "label": "Eyebrow",
+            "name": "rpd_contact_faq_eyebrow",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_067_rpd_contact_faq_headline",
+            "label": "Headline",
+            "name": "rpd_contact_faq_headline",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_068_rpd_contact_faq_body",
+            "label": "Body copy",
+            "name": "rpd_contact_faq_body",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_rpd_contact_071_rpd_contact_faq_items",
+            "label": "FAQ items",
+            "name": "rpd_contact_faq_items",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add item",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_contact_069_faq_question",
+                    "label": "Question",
+                    "name": "question",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_rpd_contact_070_faq_answer",
+                    "label": "Answer",
+                    "name": "answer",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": 3,
+                    "placeholder": "",
+                    "new_lines": ""
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_contact_072_final_cta",
+            "label": "Final CTA",
+            "name": "final_cta",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_contact_073_rpd_contact_final_eyebrow",
+            "label": "Eyebrow",
+            "name": "rpd_contact_final_eyebrow",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_074_rpd_contact_final_headline",
+            "label": "Headline",
+            "name": "rpd_contact_final_headline",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_075_rpd_contact_final_body",
+            "label": "Body copy",
+            "name": "rpd_contact_final_body",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_rpd_contact_076_rpd_contact_final_primary_label",
+            "label": "Primary button label",
+            "name": "rpd_contact_final_primary_label",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_077_rpd_contact_final_primary_url",
+            "label": "Primary button URL",
+            "name": "rpd_contact_final_primary_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_rpd_contact_078_rpd_contact_final_secondary_label",
+            "label": "Secondary button label",
+            "name": "rpd_contact_final_secondary_label",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_contact_079_rpd_contact_final_secondary_url",
+            "label": "Secondary button URL",
+            "name": "rpd_contact_final_secondary_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_rpd_contact_080_rpd_contact_final_proof",
+            "label": "Proof line",
+            "name": "rpd_contact_final_proof",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
@@ -819,7 +1571,7 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "ACF fields for the clean RocketPD Contact page template.",
+    "description": "Fields for the RocketPD Contact page template.",
     "show_in_rest": 0,
-    "modified": 1770000000
+    "modified": 1778620703
 }
