@@ -88,7 +88,7 @@ $select_options  = rocketpd_get_field(
 				</label>
 				<label>
 					<span><?php esc_html_e( "What's On Your Mind?", 'rocketpd' ); ?></span>
-					<textarea rows="5" placeholder="<?php esc_attr_e( \"A sentence or two is plenty — we'll follow up to learn more.\", 'rocketpd' ); ?>"></textarea>
+					<textarea rows="5" placeholder="<?php esc_attr_e( "A sentence or two is plenty — we'll follow up to learn more.", 'rocketpd' ); ?>"></textarea>
 				</label>
 				<button class="rpd-btn rpd-btn--purple rpd-btn--full" type="button"><?php esc_html_e( 'Send It Over', 'rocketpd' ); ?> <span aria-hidden="true">✈</span></button>
 			</form>
