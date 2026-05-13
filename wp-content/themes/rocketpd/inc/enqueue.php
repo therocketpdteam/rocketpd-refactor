@@ -73,5 +73,14 @@ function rocketpd_enqueue_assets() {
 			$theme_version
 		);
 	}
+
+	if ( is_page_template( 'page-templates/template-launchpad-plus.php' ) ) {
+		wp_enqueue_style(
+			'rocketpd-launchpad-plus',
+			get_template_directory_uri() . '/assets/css/pages/launchpad-plus.css',
+			array( 'rocketpd-07-footer' ),
+			$theme_version
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'rocketpd_enqueue_assets' );
