@@ -84,8 +84,11 @@
 	margin: 0;
 }
 
-.rpd-menu .sub-menu {
-	display: none;
+.rpd-site-header .rpd-menu .sub-menu {
+	display: none !important;
+	visibility: hidden !important;
+	opacity: 0 !important;
+	pointer-events: none !important;
 }
 
 .rpd-menu a {
