@@ -99,11 +99,22 @@
 	margin-top: 2rem;
 }
 
+.rpd-lead-hero .rpd-lead-actions {
+	flex-wrap: nowrap;
+}
+
 .rpd-lead-actions .rpd-btn,
 .rpd-lead-deeper-card .rpd-btn,
 .rpd-lead-final .rpd-btn {
 	min-width: 15rem;
 	border-radius: 0.38rem;
+}
+
+.rpd-lead-hero .rpd-lead-actions .rpd-btn {
+	min-width: 0;
+	padding-right: 1.5rem;
+	padding-left: 1.5rem;
+	white-space: nowrap;
 }
 
 .rpd-lead-hero {
@@ -570,9 +581,9 @@
 	color: #ffffff;
 }
 
-.rpd-lead-download h2,
-.rpd-lead-download p,
-.rpd-lead-download li {
+.rpd-lead-download__copy h2,
+.rpd-lead-download__copy p,
+.rpd-lead-download__copy li {
 	color: #ffffff;
 }
 
@@ -606,7 +617,12 @@
 }
 
 .rpd-lead-form-card h2 {
+	color: var(--rpd-lead-ink);
 	font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+}
+
+.rpd-lead-form-card > p {
+	color: rgba(35, 31, 88, 0.76);
 }
 
 .rpd-lead-form-card form {
