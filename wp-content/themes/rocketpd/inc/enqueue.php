@@ -91,6 +91,10 @@ function rocketpd_enqueue_assets() {
 		$enqueue_page_style( 'rocketpd-lead-magnet', '/assets/css/pages/lead-magnet.css' );
 	}
 
+	if ( is_page_template( 'page-templates/template-lead-thank-you.php' ) ) {
+		$enqueue_page_style( 'rocketpd-lead-thank-you', '/assets/css/pages/lead-thank-you.css' );
+	}
+
 	if ( is_page_template( 'page-templates/template-trust-cycle-guide.php' ) ) {
 		$enqueue_page_style( 'rocketpd-trust-cycle-guide', '/assets/css/pages/trust-cycle-guide.css' );
 	}

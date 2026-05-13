@@ -1,0 +1,37 @@
+{
+  "key": "group_rocketpd_lead_thank_you",
+  "title": "RocketPD Lead Thank You",
+  "fields": [
+    { "key": "field_rpd_lead_thank_0001_tab_confirmation", "label": "Confirmation", "type": "tab", "placement": "top" },
+    { "key": "field_rpd_lead_thank_0002_eyebrow", "label": "Eyebrow", "name": "rpd_lead_thank_eyebrow", "type": "text", "default_value": "Download ready" },
+    { "key": "field_rpd_lead_thank_0003_headline", "label": "Headline", "name": "rpd_lead_thank_headline", "type": "text", "default_value": "Your guide is ready." },
+    { "key": "field_rpd_lead_thank_0004_download_label", "label": "Download Button Label", "name": "rpd_lead_thank_download_label", "type": "text", "default_value": "Download the Guide" },
+    { "key": "field_rpd_lead_thank_0005_download_url", "label": "Download Button URL", "name": "rpd_lead_thank_download_url", "type": "url" },
+    { "key": "field_rpd_lead_thank_0006_secondary_label", "label": "Secondary Button Label", "name": "rpd_lead_thank_secondary_label", "type": "text", "default_value": "Explore RocketPD" },
+    { "key": "field_rpd_lead_thank_0007_secondary_url", "label": "Secondary Button URL", "name": "rpd_lead_thank_secondary_url", "type": "url", "default_value": "/" },
+    { "key": "field_rpd_lead_thank_0008_proof", "label": "Proof Line", "name": "rpd_lead_thank_proof", "type": "text", "default_value": "Free guide - Practical next steps - Built for K-12 teams" },
+    { "key": "field_rpd_lead_thank_0009_tab_next", "label": "Next Step Card", "type": "tab", "placement": "top" },
+    { "key": "field_rpd_lead_thank_0010_next_label", "label": "Card Label", "name": "rpd_lead_thank_next_label", "type": "text", "default_value": "What happens next" },
+    { "key": "field_rpd_lead_thank_0011_next_title", "label": "Card Title", "name": "rpd_lead_thank_next_title", "type": "text", "default_value": "Keep the momentum going." },
+    { "key": "field_rpd_lead_thank_0012_next_body", "label": "Card Body", "name": "rpd_lead_thank_next_body", "type": "textarea", "rows": 4, "default_value": "Use the guide with your team, share it with a colleague, or explore RocketPD LaunchPad when you are ready for a fuller professional learning experience." }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-templates/template-lead-thank-you.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Fields for RocketPD lead magnet thank-you/download confirmation pages.",
+  "show_in_rest": 0,
+  "modified": 1778700000
+}

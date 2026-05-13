@@ -1,0 +1,177 @@
+.rpd-lead-thank-page {
+	--rpd-lead-thank-ink: #231f58;
+	--rpd-lead-thank-purple: #a154a1;
+	--rpd-lead-thank-gold: #fdb933;
+	--rpd-lead-thank-soft: #f7f4fb;
+	--rpd-lead-thank-line: rgba(35, 31, 88, 0.14);
+	color: var(--rpd-lead-thank-ink);
+	background:
+		radial-gradient(circle at 88% 10%, rgba(253, 185, 51, 0.2), transparent 22rem),
+		linear-gradient(180deg, #ffffff 0%, #fbfbff 100%);
+}
+
+.rpd-lead-thank-confirmation {
+	position: relative;
+	min-height: clamp(42rem, 72vh, 52rem);
+	padding: clamp(5rem, 9vw, 8rem) 0;
+	overflow: clip;
+}
+
+.rpd-lead-thank-confirmation__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.72fr);
+	gap: clamp(3rem, 7vw, 6rem);
+	align-items: center;
+}
+
+.rpd-lead-thank-pill {
+	display: inline-flex;
+	width: fit-content;
+	margin: 0 0 1.35rem;
+	padding: 0.55rem 0.9rem;
+	border-radius: 0.38rem;
+	background: #fff0cf;
+	color: #8a5a00;
+	font-size: 0.78rem;
+	font-weight: 800;
+	line-height: 1;
+}
+
+.rpd-lead-thank-confirmation h1,
+.rpd-lead-thank-card h2 {
+	margin: 0;
+	color: var(--rpd-lead-thank-ink);
+	letter-spacing: 0;
+}
+
+.rpd-lead-thank-confirmation h1 {
+	max-width: 10ch;
+	margin-bottom: 1.4rem;
+	font-size: clamp(3.6rem, 6.4vw, 6.4rem);
+	line-height: 0.98;
+}
+
+.rpd-lead-thank-confirmation__body {
+	max-width: 45rem;
+	color: rgba(35, 31, 88, 0.82);
+	font-size: 1.1rem;
+	line-height: 1.72;
+}
+
+.rpd-lead-thank-confirmation__body > * {
+	margin-top: 0;
+}
+
+.rpd-lead-thank-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	align-items: center;
+	margin-top: 2rem;
+}
+
+.rpd-lead-thank-actions .rpd-btn {
+	min-width: 13.5rem;
+	border-radius: 0.38rem;
+}
+
+.rpd-lead-thank-confirmation__proof {
+	margin: 1.4rem 0 0;
+	color: rgba(35, 31, 88, 0.65);
+	font-size: 0.95rem;
+	font-weight: 700;
+}
+
+.rpd-lead-thank-card {
+	position: relative;
+	min-height: 24rem;
+	padding: clamp(2rem, 4vw, 3rem);
+	overflow: hidden;
+	border: 1px solid var(--rpd-lead-thank-line);
+	border-radius: 0.75rem;
+	background:
+		linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(247, 244, 251, 0.96)),
+		var(--rpd-lead-thank-soft);
+	box-shadow: 0 1.5rem 4rem rgba(35, 31, 88, 0.12);
+}
+
+.rpd-lead-thank-card > p:first-child {
+	display: inline-flex;
+	margin: 0 0 1.25rem;
+	padding: 0.48rem 0.75rem;
+	border-radius: 999px;
+	background: #f1eefb;
+	color: var(--rpd-lead-thank-purple);
+	font-size: 0.78rem;
+	font-weight: 800;
+}
+
+.rpd-lead-thank-card h2 {
+	max-width: 12ch;
+	margin-bottom: 1rem;
+	font-size: clamp(2rem, 3.4vw, 3rem);
+	line-height: 1.02;
+}
+
+.rpd-lead-thank-card > p:not(:first-child) {
+	position: relative;
+	z-index: 1;
+	max-width: 26rem;
+	color: rgba(35, 31, 88, 0.76);
+	font-size: 1rem;
+	line-height: 1.65;
+}
+
+.rpd-lead-thank-card__rings {
+	position: absolute;
+	right: -5rem;
+	bottom: -5rem;
+	width: 17rem;
+	aspect-ratio: 1;
+}
+
+.rpd-lead-thank-card__rings span {
+	position: absolute;
+	inset: 0;
+	border: 1.25rem solid rgba(161, 84, 161, 0.12);
+	border-radius: 50%;
+}
+
+.rpd-lead-thank-card__rings span:nth-child(2) {
+	inset: 3.4rem;
+	border-color: rgba(253, 185, 51, 0.35);
+}
+
+.rpd-lead-thank-card__rings span:nth-child(3) {
+	inset: 6.8rem;
+	border-color: rgba(85, 82, 177, 0.18);
+}
+
+@media (max-width: 900px) {
+	.rpd-lead-thank-confirmation__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.rpd-lead-thank-confirmation h1 {
+		max-width: 12ch;
+	}
+}
+
+@media (max-width: 640px) {
+	.rpd-lead-thank-confirmation {
+		padding: 4rem 0;
+	}
+
+	.rpd-lead-thank-confirmation h1 {
+		font-size: clamp(3rem, 16vw, 4.25rem);
+	}
+
+	.rpd-lead-thank-actions,
+	.rpd-lead-thank-actions .rpd-btn {
+		width: 100%;
+	}
+
+	.rpd-lead-thank-card {
+		min-height: 20rem;
+	}
+}
