@@ -65,6 +65,15 @@ function rocketpd_enqueue_assets() {
 		);
 	}
 
+	if ( is_page_template( 'page-templates/template-lead-magnet.php' ) ) {
+		wp_enqueue_style(
+			'rocketpd-lead-magnet',
+			get_template_directory_uri() . '/assets/css/pages/lead-magnet.css',
+			array( 'rocketpd-07-footer' ),
+			$theme_version
+		);
+	}
+
 	if ( is_front_page() ) {
 		wp_enqueue_style(
 			'rocketpd-home',

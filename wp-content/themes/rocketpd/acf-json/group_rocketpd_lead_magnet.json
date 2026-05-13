@@ -1,0 +1,224 @@
+{
+  "key": "group_rocketpd_lead_magnet",
+  "title": "RocketPD Lead Magnet",
+  "fields": [
+    { "key": "field_rpd_lead_0001_tab_hero", "label": "Hero", "type": "tab", "placement": "top" },
+    { "key": "field_rpd_lead_0002_hero_eyebrow", "label": "Eyebrow", "name": "rpd_lead_hero_eyebrow", "type": "text", "default_value": "Free guide for district leaders" },
+    { "key": "field_rpd_lead_0003_hero_headline", "label": "Headline", "name": "rpd_lead_hero_headline", "type": "text", "default_value": "Professional Learning Isn't Working Like It Should" },
+    { "key": "field_rpd_lead_0004_hero_highlight", "label": "Highlighted Headline Text", "name": "rpd_lead_hero_highlight_text", "type": "text", "default_value": "Isn't Working" },
+    { "key": "field_rpd_lead_0005_hero_body", "label": "Body", "name": "rpd_lead_hero_body", "type": "textarea", "rows": 3 },
+    { "key": "field_rpd_lead_0006_guide_label", "label": "Guide Card Label", "name": "rpd_lead_guide_label", "type": "text", "default_value": "Download the guide" },
+    { "key": "field_rpd_lead_0007_guide_title", "label": "Guide Card Title", "name": "rpd_lead_guide_title", "type": "text", "default_value": "Learning Meet Doing" },
+    { "key": "field_rpd_lead_0008_guide_body", "label": "Guide Card Body", "name": "rpd_lead_guide_body", "type": "textarea", "rows": 3 },
+    { "key": "field_rpd_lead_0009_primary_label", "label": "Primary Button Label", "name": "rpd_lead_primary_label", "type": "text", "default_value": "Download the Guide" },
+    { "key": "field_rpd_lead_0010_primary_url", "label": "Primary Button URL", "name": "rpd_lead_primary_url", "type": "url", "default_value": "#rpd-lead-download" },
+    { "key": "field_rpd_lead_0011_secondary_label", "label": "Secondary Button Label", "name": "rpd_lead_secondary_label", "type": "text", "default_value": "See What This Looks Like in Practice" },
+    { "key": "field_rpd_lead_0012_secondary_url", "label": "Secondary Button URL", "name": "rpd_lead_secondary_url", "type": "url", "default_value": "#rpd-lead-proof" },
+    { "key": "field_rpd_lead_0013_visual_title", "label": "Guide Visual Title", "name": "rpd_lead_guide_visual_title", "type": "text", "default_value": "Learning Meet Doing" },
+    { "key": "field_rpd_lead_0014_visual_subtitle", "label": "Guide Visual Subtitle", "name": "rpd_lead_guide_visual_subtitle", "type": "textarea", "rows": 3 },
+    {
+      "key": "field_rpd_lead_0015_trust_items",
+      "label": "Trust Items",
+      "name": "rpd_lead_trust_items",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Add Trust Item",
+      "sub_fields": [
+        { "key": "field_rpd_lead_0016_trust_text", "label": "Text", "name": "text", "type": "text" }
+      ]
+    },
+    {
+      "key": "field_rpd_lead_0017_floating_stats",
+      "label": "Floating Stats",
+      "name": "rpd_lead_floating_stats",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Add Stat",
+      "sub_fields": [
+        { "key": "field_rpd_lead_0018_float_label", "label": "Label", "name": "label", "type": "text" },
+        { "key": "field_rpd_lead_0019_float_value", "label": "Value", "name": "value", "type": "text" },
+        { "key": "field_rpd_lead_0020_float_icon", "label": "Icon", "name": "icon", "type": "text" }
+      ]
+    },
+
+    { "key": "field_rpd_lead_0021_tab_problem", "label": "Problem", "type": "tab", "placement": "top" },
+    { "key": "field_rpd_lead_0022_problem_eyebrow", "label": "Eyebrow", "name": "rpd_lead_problem_eyebrow", "type": "text", "default_value": "The challenge" },
+    { "key": "field_rpd_lead_0023_problem_headline", "label": "Headline", "name": "rpd_lead_problem_headline", "type": "text" },
+    { "key": "field_rpd_lead_0024_problem_body", "label": "Body", "name": "rpd_lead_problem_body", "type": "textarea", "rows": 5 },
+    { "key": "field_rpd_lead_0025_problem_emphasis", "label": "Emphasis", "name": "rpd_lead_problem_emphasis", "type": "text" },
+    { "key": "field_rpd_lead_0026_problem_card_label", "label": "Card Label", "name": "rpd_lead_problem_card_label", "type": "text" },
+    {
+      "key": "field_rpd_lead_0027_problem_items",
+      "label": "Problem Items",
+      "name": "rpd_lead_problem_items",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Add Problem",
+      "sub_fields": [
+        { "key": "field_rpd_lead_0028_problem_title", "label": "Title", "name": "title", "type": "text" },
+        { "key": "field_rpd_lead_0029_problem_item_body", "label": "Body", "name": "body", "type": "textarea", "rows": 2 }
+      ]
+    },
+
+    { "key": "field_rpd_lead_0030_tab_shift", "label": "Shift", "type": "tab", "placement": "top" },
+    { "key": "field_rpd_lead_0031_shift_eyebrow", "label": "Eyebrow", "name": "rpd_lead_shift_eyebrow", "type": "text", "default_value": "The shift" },
+    { "key": "field_rpd_lead_0032_shift_headline", "label": "Headline", "name": "rpd_lead_shift_headline", "type": "text" },
+    { "key": "field_rpd_lead_0033_shift_body", "label": "Body", "name": "rpd_lead_shift_body", "type": "textarea", "rows": 3 },
+    { "key": "field_rpd_lead_0034_old_title", "label": "Old Model Title", "name": "rpd_lead_old_model_title", "type": "text" },
+    { "key": "field_rpd_lead_0035_new_title", "label": "New Model Title", "name": "rpd_lead_new_model_title", "type": "text" },
+    {
+      "key": "field_rpd_lead_0036_old_items",
+      "label": "Old Model Items",
+      "name": "rpd_lead_old_model_items",
+      "type": "repeater",
+      "layout": "table",
+      "sub_fields": [
+        { "key": "field_rpd_lead_0037_old_text", "label": "Text", "name": "text", "type": "text" }
+      ]
+    },
+    {
+      "key": "field_rpd_lead_0038_new_items",
+      "label": "New Model Items",
+      "name": "rpd_lead_new_model_items",
+      "type": "repeater",
+      "layout": "table",
+      "sub_fields": [
+        { "key": "field_rpd_lead_0039_new_text", "label": "Text", "name": "text", "type": "text" }
+      ]
+    },
+    {
+      "key": "field_rpd_lead_0040_process_steps",
+      "label": "Process Steps",
+      "name": "rpd_lead_process_steps",
+      "type": "repeater",
+      "layout": "table",
+      "sub_fields": [
+        { "key": "field_rpd_lead_0041_process_text", "label": "Text", "name": "text", "type": "text" }
+      ]
+    },
+
+    { "key": "field_rpd_lead_0042_tab_learn", "label": "Learn", "type": "tab", "placement": "top" },
+    { "key": "field_rpd_lead_0043_learn_eyebrow", "label": "Eyebrow", "name": "rpd_lead_learn_eyebrow", "type": "text" },
+    { "key": "field_rpd_lead_0044_learn_headline", "label": "Headline", "name": "rpd_lead_learn_headline", "type": "text" },
+    { "key": "field_rpd_lead_0045_learn_body", "label": "Body", "name": "rpd_lead_learn_body", "type": "textarea", "rows": 3 },
+    {
+      "key": "field_rpd_lead_0046_learn_items",
+      "label": "Learn Items",
+      "name": "rpd_lead_learn_items",
+      "type": "repeater",
+      "layout": "block",
+      "sub_fields": [
+        { "key": "field_rpd_lead_0047_learn_icon", "label": "Icon", "name": "icon", "type": "text" },
+        { "key": "field_rpd_lead_0048_learn_title", "label": "Title", "name": "title", "type": "text" },
+        { "key": "field_rpd_lead_0049_learn_item_body", "label": "Body", "name": "body", "type": "textarea", "rows": 3 },
+        { "key": "field_rpd_lead_0050_learn_accent", "label": "Accent", "name": "accent", "type": "select", "choices": { "purple": "Purple", "gold": "Gold", "pink": "Pink", "blue": "Blue" }, "default_value": "purple" }
+      ]
+    },
+
+    { "key": "field_rpd_lead_0051_tab_impact", "label": "Impact", "type": "tab", "placement": "top" },
+    { "key": "field_rpd_lead_0052_impact_eyebrow", "label": "Eyebrow", "name": "rpd_lead_impact_eyebrow", "type": "text" },
+    { "key": "field_rpd_lead_0053_impact_headline", "label": "Headline", "name": "rpd_lead_impact_headline", "type": "text" },
+    { "key": "field_rpd_lead_0054_impact_body", "label": "Body", "name": "rpd_lead_impact_body", "type": "textarea", "rows": 3 },
+    {
+      "key": "field_rpd_lead_0055_impact_steps",
+      "label": "Impact Steps",
+      "name": "rpd_lead_impact_steps",
+      "type": "repeater",
+      "layout": "block",
+      "sub_fields": [
+        { "key": "field_rpd_lead_0056_impact_number", "label": "Number", "name": "number", "type": "text" },
+        { "key": "field_rpd_lead_0057_impact_title", "label": "Title", "name": "title", "type": "text" },
+        { "key": "field_rpd_lead_0058_impact_subtitle", "label": "Subtitle", "name": "subtitle", "type": "text" },
+        { "key": "field_rpd_lead_0059_impact_accent", "label": "Accent", "name": "accent", "type": "text" }
+      ]
+    },
+    { "key": "field_rpd_lead_0060_impact_footer", "label": "Footer Text", "name": "rpd_lead_impact_footer_text", "type": "textarea", "rows": 3 },
+
+    { "key": "field_rpd_lead_0061_tab_proof", "label": "Proof", "type": "tab", "placement": "top" },
+    { "key": "field_rpd_lead_0062_proof_eyebrow", "label": "Eyebrow", "name": "rpd_lead_proof_eyebrow", "type": "text" },
+    { "key": "field_rpd_lead_0063_proof_headline", "label": "Headline", "name": "rpd_lead_proof_headline", "type": "text" },
+    { "key": "field_rpd_lead_0064_proof_body", "label": "Body", "name": "rpd_lead_proof_body", "type": "textarea", "rows": 3 },
+    {
+      "key": "field_rpd_lead_0065_proof_items",
+      "label": "Proof Items",
+      "name": "rpd_lead_proof_items",
+      "type": "repeater",
+      "layout": "block",
+      "sub_fields": [
+        { "key": "field_rpd_lead_0066_proof_stat", "label": "Stat", "name": "stat", "type": "text" },
+        { "key": "field_rpd_lead_0067_proof_label", "label": "Label", "name": "label", "type": "text" },
+        { "key": "field_rpd_lead_0068_proof_item_body", "label": "Body", "name": "body", "type": "textarea", "rows": 3 },
+        { "key": "field_rpd_lead_0069_proof_accent", "label": "Accent", "name": "accent", "type": "text" }
+      ]
+    },
+    { "key": "field_rpd_lead_0070_proof_quote", "label": "Quote", "name": "rpd_lead_proof_quote", "type": "textarea", "rows": 2 },
+
+    { "key": "field_rpd_lead_0071_tab_download", "label": "Download", "type": "tab", "placement": "top" },
+    { "key": "field_rpd_lead_0072_download_eyebrow", "label": "Eyebrow", "name": "rpd_lead_download_eyebrow", "type": "text" },
+    { "key": "field_rpd_lead_0073_download_headline", "label": "Headline", "name": "rpd_lead_download_headline", "type": "text" },
+    { "key": "field_rpd_lead_0074_download_body", "label": "Body", "name": "rpd_lead_download_body", "type": "textarea", "rows": 4 },
+    {
+      "key": "field_rpd_lead_0075_download_items",
+      "label": "Checklist Items",
+      "name": "rpd_lead_download_items",
+      "type": "repeater",
+      "layout": "table",
+      "sub_fields": [
+        { "key": "field_rpd_lead_0076_download_text", "label": "Text", "name": "text", "type": "text" }
+      ]
+    },
+    { "key": "field_rpd_lead_0077_form_shortcode", "label": "Form Shortcode", "name": "rpd_lead_form_shortcode", "type": "text" },
+    { "key": "field_rpd_lead_0078_form_id", "label": "Form ID", "name": "rpd_lead_form_id", "type": "text" },
+    { "key": "field_rpd_lead_0079_form_eyebrow", "label": "Form Eyebrow", "name": "rpd_lead_form_eyebrow", "type": "text" },
+    { "key": "field_rpd_lead_0080_form_headline", "label": "Form Headline", "name": "rpd_lead_form_headline", "type": "text" },
+    { "key": "field_rpd_lead_0081_form_button", "label": "Form Button Label", "name": "rpd_lead_form_button_label", "type": "text" },
+    { "key": "field_rpd_lead_0082_form_promise", "label": "Form Promise", "name": "rpd_lead_form_promise", "type": "textarea", "rows": 2 },
+
+    { "key": "field_rpd_lead_0083_tab_deeper", "label": "Deeper", "type": "tab", "placement": "top" },
+    { "key": "field_rpd_lead_0084_deeper_eyebrow", "label": "Eyebrow", "name": "rpd_lead_deeper_eyebrow", "type": "text" },
+    { "key": "field_rpd_lead_0085_deeper_headline", "label": "Headline", "name": "rpd_lead_deeper_headline", "type": "text" },
+    { "key": "field_rpd_lead_0086_deeper_body", "label": "Body", "name": "rpd_lead_deeper_body", "type": "textarea", "rows": 3 },
+    {
+      "key": "field_rpd_lead_0087_deeper_cards",
+      "label": "Next Step Cards",
+      "name": "rpd_lead_deeper_cards",
+      "type": "repeater",
+      "layout": "block",
+      "sub_fields": [
+        { "key": "field_rpd_lead_0088_deeper_icon", "label": "Icon", "name": "icon", "type": "text" },
+        { "key": "field_rpd_lead_0089_deeper_title", "label": "Title", "name": "title", "type": "text" },
+        { "key": "field_rpd_lead_0090_deeper_card_body", "label": "Body", "name": "body", "type": "textarea", "rows": 4 },
+        { "key": "field_rpd_lead_0091_deeper_cta_label", "label": "CTA Label", "name": "cta_label", "type": "text" },
+        { "key": "field_rpd_lead_0092_deeper_cta_url", "label": "CTA URL", "name": "cta_url", "type": "url" },
+        { "key": "field_rpd_lead_0093_deeper_style", "label": "Style", "name": "style", "type": "select", "choices": { "purple": "Purple", "pink": "Pink", "gold": "Gold" }, "default_value": "purple" }
+      ]
+    },
+
+    { "key": "field_rpd_lead_0094_tab_final", "label": "Final CTA", "type": "tab", "placement": "top" },
+    { "key": "field_rpd_lead_0095_final_eyebrow", "label": "Eyebrow", "name": "rpd_lead_final_eyebrow", "type": "text" },
+    { "key": "field_rpd_lead_0096_final_headline", "label": "Headline", "name": "rpd_lead_final_headline", "type": "text" },
+    { "key": "field_rpd_lead_0097_final_body", "label": "Body", "name": "rpd_lead_final_body", "type": "textarea", "rows": 2 },
+    { "key": "field_rpd_lead_0098_final_cta_label", "label": "CTA Label", "name": "rpd_lead_final_cta_label", "type": "text" },
+    { "key": "field_rpd_lead_0099_final_cta_url", "label": "CTA URL", "name": "rpd_lead_final_cta_url", "type": "url", "default_value": "#rpd-lead-download" },
+    { "key": "field_rpd_lead_0100_final_proof", "label": "Proof Text", "name": "rpd_lead_final_proof", "type": "text" }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-templates/template-lead-magnet.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Fields for the RocketPD Lead Magnet page template.",
+  "show_in_rest": false,
+  "modified": 1770000000
+}
