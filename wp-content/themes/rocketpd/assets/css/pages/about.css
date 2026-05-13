@@ -1,2 +1,664 @@
-/* About page styles will be added when the About template is built. */
+.rpd-about-page {
+	--about-ink: #28245f;
+	--about-copy: #25225f;
+	--about-muted: #53508b;
+	--about-band: #f7f9fc;
+	--about-border: rgba(40, 36, 95, 0.14);
+	--about-card-shadow: 0 2px 0 rgba(40, 36, 95, 0.05), 0 18px 44px rgba(40, 36, 95, 0.08);
+	color: var(--about-copy);
+	background: var(--rpd-white);
+	overflow-x: clip;
+}
 
+.rpd-about-section {
+	padding-block: clamp(4.75rem, 7.5vw, 8.75rem);
+}
+
+.rpd-about-band {
+	background: var(--about-band);
+	border-block: 1px solid rgba(40, 36, 95, 0.08);
+}
+
+.rpd-about-page h1,
+.rpd-about-page h2,
+.rpd-about-page h3 {
+	color: var(--about-ink);
+	font-family: var(--font-heading);
+	letter-spacing: 0;
+}
+
+.rpd-about-page h1,
+.rpd-about-page h2 {
+	margin: 0;
+	font-weight: 900;
+	line-height: 1.1;
+}
+
+.rpd-about-page h1 {
+	font-size: clamp(3.4rem, 7vw, 5.8rem);
+}
+
+.rpd-about-page h2 {
+	font-size: clamp(2.25rem, 4.8vw, 4rem);
+}
+
+.rpd-about-page h3 {
+	margin: 0;
+	font-size: var(--rpd-font-size-lg);
+	font-weight: 900;
+	line-height: 1.25;
+}
+
+.rpd-about-page p {
+	color: var(--about-copy);
+	font-size: var(--rpd-font-size-md);
+	line-height: 1.7;
+}
+
+.rpd-about-centered,
+.rpd-about-section-header {
+	width: min(100%, 56rem);
+	margin-inline: auto;
+	text-align: center;
+}
+
+.rpd-about-section-header {
+	margin-bottom: clamp(2.75rem, 5vw, 4.75rem);
+}
+
+.rpd-about-section-header p {
+	max-width: 48rem;
+	margin: 1.4rem auto 0;
+}
+
+.rpd-about-section-title {
+	max-width: 52rem;
+	margin: 0 auto clamp(2.5rem, 4vw, 4rem);
+	text-align: center;
+	font-size: clamp(2rem, 3.2vw, 3rem);
+}
+
+.rpd-about-copy > * {
+	margin: 0;
+}
+
+.rpd-about-copy > * + * {
+	margin-top: 1.45rem;
+}
+
+.rpd-about-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 1.75rem;
+	margin: 0 0 1rem;
+	padding: 0.2rem 0.75rem;
+	border-radius: var(--rpd-radius-pill);
+	background: rgba(161, 84, 161, 0.11);
+	color: var(--rpd-purple-deep);
+	font-size: var(--rpd-font-size-xs);
+	font-weight: 900;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.rpd-about-emphasis,
+.rpd-about-small-heading,
+.rpd-about-linkline,
+.rpd-about-district__emphasis {
+	font-weight: 900;
+}
+
+.rpd-about-hero {
+	display: flex;
+	align-items: center;
+	min-height: clamp(40rem, 58vw, 48rem);
+	background:
+		radial-gradient(circle at 50% 100%, rgba(196, 196, 229, 0.18), transparent 34rem),
+		linear-gradient(180deg, #fbfdff 0%, #f8fafc 100%);
+	text-align: center;
+}
+
+.rpd-about-hero__inner {
+	width: min(100% - var(--rpd-container-gutter), 62rem);
+}
+
+.rpd-about-hero__intro {
+	margin: 2.2rem auto 0;
+	font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+}
+
+.rpd-about-hero__body {
+	max-width: 51rem;
+	margin: 1.9rem auto 0;
+}
+
+.rpd-about-hero__body p {
+	font-size: clamp(1.05rem, 1.55vw, 1.25rem);
+}
+
+.rpd-about-intro {
+	text-align: center;
+}
+
+.rpd-about-intro .rpd-about-copy {
+	max-width: 52rem;
+	margin: 2.5rem auto 0;
+}
+
+.rpd-about-intro .rpd-about-emphasis {
+	margin: 2.4rem 0 0;
+	font-size: var(--rpd-font-size-md);
+}
+
+.rpd-about-focus__grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.rpd-about-focus-card {
+	min-height: 19.25rem;
+	padding: clamp(2rem, 3vw, 2.75rem);
+	border: 1px solid var(--about-border);
+	border-radius: var(--rpd-radius);
+	background: var(--rpd-white);
+	box-shadow: var(--about-card-shadow);
+}
+
+.rpd-about-focus-card h3 {
+	max-width: 16rem;
+	margin-top: 1.65rem;
+	font-size: clamp(1.2rem, 1.6vw, 1.45rem);
+}
+
+.rpd-about-focus-card p {
+	margin: 1.35rem 0 0;
+	font-size: var(--rpd-font-size-base);
+}
+
+.rpd-about-icon {
+	display: inline-grid;
+	place-items: center;
+	width: 3.2rem;
+	height: 3.2rem;
+	border-radius: 0.75rem;
+	background: #f0ecff;
+	color: var(--rpd-purple);
+}
+
+.rpd-about-icon::before,
+.rpd-about-icon::after {
+	display: block;
+	content: "";
+}
+
+.rpd-about-icon--community::before {
+	width: 1.35rem;
+	height: 1.1rem;
+	border: 2px solid currentColor;
+	border-top: 0;
+	border-radius: 0 0 1rem 1rem;
+	box-shadow: -0.42rem -0.35rem 0 -0.18rem currentColor, 0.42rem -0.35rem 0 -0.18rem currentColor;
+}
+
+.rpd-about-icon--learning {
+	background: #faeefa;
+	color: var(--rpd-purple-deep);
+}
+
+.rpd-about-icon--learning::before {
+	width: 1.45rem;
+	height: 1rem;
+	border: 2px solid currentColor;
+	border-radius: 50% 50% 45% 45%;
+	transform: rotate(8deg);
+}
+
+.rpd-about-icon--outcomes {
+	background: #fff4de;
+	color: var(--rpd-orange);
+}
+
+.rpd-about-icon--outcomes::before {
+	width: 1.65rem;
+	height: 1.65rem;
+	border: 2px solid currentColor;
+	border-radius: 50%;
+	box-shadow: inset 0 0 0 0.28rem #fff4de, inset 0 0 0 0.45rem currentColor;
+}
+
+.rpd-about-checklist__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+	gap: clamp(3rem, 8vw, 7.5rem);
+	align-items: center;
+}
+
+.rpd-about-checklist__copy h2 {
+	max-width: 36rem;
+	font-size: clamp(2.15rem, 3.9vw, 3.4rem);
+}
+
+.rpd-about-checklist__copy > p {
+	margin: 1.9rem 0 0;
+}
+
+.rpd-about-small-heading {
+	margin-top: 2rem;
+}
+
+.rpd-about-check-list {
+	display: grid;
+	gap: 1.15rem;
+	margin: 1.4rem 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.rpd-about-check-list li {
+	position: relative;
+	min-height: 2rem;
+	padding-left: 2.6rem;
+	color: var(--about-copy);
+	font-size: var(--rpd-font-size-md);
+	line-height: 1.5;
+}
+
+.rpd-about-check-list li::before {
+	position: absolute;
+	top: -0.05rem;
+	left: 0;
+	display: grid;
+	place-items: center;
+	width: 1.8rem;
+	height: 1.8rem;
+	border-radius: 50%;
+	background: #ffedcc;
+	color: var(--about-ink);
+	font-weight: 900;
+	content: "✓";
+}
+
+.rpd-about-linkline {
+	margin-top: 2.35rem;
+	color: var(--rpd-purple);
+}
+
+.rpd-about-checklist__media {
+	position: relative;
+}
+
+.rpd-about-checklist__media::after {
+	position: absolute;
+	right: -1rem;
+	bottom: -1rem;
+	z-index: -1;
+	width: 92%;
+	height: 92%;
+	border-radius: 0.75rem;
+	background: linear-gradient(135deg, rgba(253, 185, 51, 0.28), rgba(161, 84, 161, 0.18));
+	content: "";
+}
+
+.rpd-about-checklist__image,
+.rpd-about-checklist__fallback {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1.5;
+	border-radius: 0.75rem;
+	box-shadow: var(--rpd-shadow-md);
+	object-fit: cover;
+}
+
+.rpd-about-checklist__fallback {
+	position: relative;
+	overflow: hidden;
+	background:
+		linear-gradient(135deg, rgba(35, 31, 88, 0.14), rgba(253, 185, 51, 0.08)),
+		linear-gradient(135deg, #d9e8ef, #f7dfc1 48%, #cfc8e8);
+}
+
+.rpd-about-checklist__fallback span {
+	position: absolute;
+	bottom: 16%;
+	width: 23%;
+	aspect-ratio: 0.75;
+	border-radius: 999px 999px 0.8rem 0.8rem;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(85, 82, 177, 0.45));
+	box-shadow: 0 1rem 2.5rem rgba(35, 31, 88, 0.18);
+}
+
+.rpd-about-checklist__fallback span:nth-child(1) {
+	left: 16%;
+}
+
+.rpd-about-checklist__fallback span:nth-child(2) {
+	left: 39%;
+	bottom: 12%;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(35, 31, 88, 0.46));
+}
+
+.rpd-about-checklist__fallback span:nth-child(3) {
+	right: 15%;
+}
+
+.rpd-about-district {
+	background:
+		radial-gradient(circle at 52% 48%, rgba(85, 82, 177, 0.32), transparent 26rem),
+		linear-gradient(135deg, #231f58, #28245f 48%, #343465);
+	text-align: center;
+}
+
+.rpd-about-district h2,
+.rpd-about-district p {
+	color: var(--rpd-white);
+}
+
+.rpd-about-district h2 {
+	max-width: 57rem;
+	margin-inline: auto;
+	font-size: clamp(2.45rem, 5vw, 4.35rem);
+}
+
+.rpd-about-district .rpd-about-copy {
+	max-width: 58rem;
+	margin: 2.4rem auto 0;
+}
+
+.rpd-about-district p {
+	color: rgba(255, 255, 255, 0.84);
+}
+
+.rpd-about-district__emphasis {
+	max-width: 54rem;
+	margin: 2.35rem auto 0;
+	color: var(--rpd-white) !important;
+	font-size: clamp(1.25rem, 2vw, 1.6rem) !important;
+	line-height: 1.35 !important;
+}
+
+.rpd-about-platform__inner {
+	width: min(100%, 58rem);
+	margin-inline: auto;
+	text-align: center;
+}
+
+.rpd-about-platform h2 {
+	font-size: clamp(2rem, 3.8vw, 3.35rem);
+}
+
+.rpd-about-platform__body {
+	max-width: 48rem;
+	margin: 2rem auto 0;
+}
+
+.rpd-about-belief-card {
+	margin-top: 3rem;
+	padding: clamp(2.25rem, 4vw, 3.5rem) clamp(2rem, 5vw, 4.75rem);
+	border: 1px solid var(--about-border);
+	border-radius: 0.75rem;
+	background: var(--rpd-white);
+	box-shadow: var(--about-card-shadow);
+}
+
+.rpd-about-belief-card h3 {
+	text-align: center;
+}
+
+.rpd-about-beliefs {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.75rem 4rem;
+	margin: 2.25rem 0 0;
+	padding: 0 0 2.35rem;
+	border-bottom: 1px solid rgba(40, 36, 95, 0.08);
+	list-style: none;
+	text-align: left;
+}
+
+.rpd-about-beliefs li {
+	position: relative;
+	min-height: 2.4rem;
+	padding-left: 3.2rem;
+	color: var(--about-copy);
+	font-size: var(--rpd-font-size-base);
+	line-height: 1.45;
+}
+
+.rpd-about-beliefs li::before {
+	position: absolute;
+	left: 0;
+	top: -0.15rem;
+	width: 2.25rem;
+	height: 2.25rem;
+	border-radius: 50%;
+	background: rgba(85, 82, 177, 0.1);
+	color: var(--rpd-purple);
+	text-align: center;
+	line-height: 2.25rem;
+	content: "○";
+}
+
+.rpd-about-belief-card > p {
+	margin: 2.25rem 0 0;
+	color: var(--rpd-purple-deep);
+	font-family: var(--font-heading);
+	font-size: clamp(1.35rem, 2.4vw, 2rem);
+	font-weight: 900;
+	line-height: 1.25;
+	text-align: center;
+}
+
+.rpd-about-people-grid {
+	display: grid;
+	gap: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.rpd-about-people-grid--founders,
+.rpd-about-people-grid--team {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.rpd-about-people-grid--board {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.rpd-about-person-card {
+	overflow: hidden;
+	border: 1px solid var(--about-border);
+	border-radius: 0.75rem;
+	background: var(--rpd-white);
+	box-shadow: var(--about-card-shadow);
+}
+
+.rpd-about-person-card__visual {
+	display: grid;
+	place-items: center;
+	min-height: clamp(14rem, 24vw, 22rem);
+	background: linear-gradient(135deg, #a154a1, #5552b1 52%, #231f58);
+}
+
+.rpd-about-people-grid--team .rpd-about-person-card__visual,
+.rpd-about-people-grid--board .rpd-about-person-card__visual {
+	min-height: clamp(12rem, 20vw, 18rem);
+}
+
+.rpd-about-person-card__visual span {
+	color: rgba(255, 255, 255, 0.48);
+	font-family: var(--font-heading);
+	font-size: clamp(3rem, 7vw, 5rem);
+	font-weight: 900;
+	line-height: 1;
+}
+
+.rpd-about-person-card__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.rpd-about-person-card__body {
+	padding: clamp(1.4rem, 2.5vw, 2rem);
+}
+
+.rpd-about-person-card__body h3 {
+	font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+}
+
+.rpd-about-person-card__body p {
+	margin: 1.1rem 0 0;
+	font-size: var(--rpd-font-size-sm);
+	line-height: 1.65;
+}
+
+.rpd-about-person-card__role,
+.rpd-about-person-card__specialty {
+	color: var(--rpd-purple) !important;
+	font-size: var(--rpd-font-size-xs) !important;
+	font-weight: 800;
+	letter-spacing: 0.06em;
+	line-height: 1.4 !important;
+	text-transform: uppercase;
+}
+
+.rpd-about-person-card__specialty {
+	margin-top: 0.45rem !important;
+	font-style: italic;
+	letter-spacing: 0;
+	text-transform: none;
+}
+
+.rpd-about-person-card--navy .rpd-about-person-card__visual {
+	background: linear-gradient(135deg, #343465, #231f58 66%, #1a1744);
+}
+
+.rpd-about-person-card--gold .rpd-about-person-card__visual {
+	background: linear-gradient(135deg, #fdb933, #a154a1 56%, #231f58);
+}
+
+.rpd-about-person-card--blue .rpd-about-person-card__visual {
+	background: linear-gradient(135deg, #b6cfdc, #5552b1);
+}
+
+.rpd-about-person-card--pink .rpd-about-person-card__visual {
+	background: linear-gradient(135deg, #c4c4e5, #a154a1);
+}
+
+.rpd-about-person-card--sand .rpd-about-person-card__visual {
+	background: linear-gradient(135deg, #f0c36a, #9d8b90 45%, #5552b1);
+}
+
+.rpd-about-person-card--plum .rpd-about-person-card__visual {
+	background: linear-gradient(135deg, #a154a1, #231f58);
+}
+
+.rpd-about-team {
+	padding-block: clamp(4.5rem, 7vw, 7.5rem);
+}
+
+.rpd-about-final-cta {
+	background:
+		radial-gradient(circle at 20% 30%, rgba(161, 84, 161, 0.35), transparent 24rem),
+		linear-gradient(135deg, #231f58, #343465);
+	text-align: center;
+}
+
+.rpd-about-final-cta__inner {
+	width: min(100% - var(--rpd-container-gutter), 55rem);
+}
+
+.rpd-about-final-cta h2,
+.rpd-about-final-cta p {
+	color: var(--rpd-white);
+}
+
+.rpd-about-final-cta h2 {
+	font-size: clamp(2.25rem, 4.8vw, 4rem);
+}
+
+.rpd-about-final-cta p {
+	max-width: 42rem;
+	margin: 1.65rem auto 0;
+	color: rgba(255, 255, 255, 0.78);
+}
+
+.rpd-about-final-cta__actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+	margin-top: 2.65rem;
+}
+
+.rpd-about-final-cta__actions .rpd-btn {
+	min-width: 14.25rem;
+}
+
+@media (max-width: 1023px) {
+	.rpd-about-focus__grid,
+	.rpd-about-checklist__grid,
+	.rpd-about-people-grid--founders,
+	.rpd-about-people-grid--team,
+	.rpd-about-people-grid--board {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.rpd-about-checklist__grid {
+		gap: 3.5rem;
+	}
+
+	.rpd-about-checklist__copy,
+	.rpd-about-checklist__copy h2 {
+		max-width: none;
+	}
+}
+
+@media (max-width: 720px) {
+	.rpd-about-section {
+		padding-block: 4.5rem;
+	}
+
+	.rpd-about-page h1 {
+		font-size: clamp(2.8rem, 12vw, 4rem);
+	}
+
+	.rpd-about-page h2 {
+		font-size: clamp(2rem, 9vw, 3rem);
+	}
+
+	.rpd-about-hero {
+		min-height: 34rem;
+	}
+
+	.rpd-about-focus__grid,
+	.rpd-about-checklist__grid,
+	.rpd-about-beliefs,
+	.rpd-about-people-grid--founders,
+	.rpd-about-people-grid--team,
+	.rpd-about-people-grid--board {
+		grid-template-columns: 1fr;
+	}
+
+	.rpd-about-focus-card {
+		min-height: auto;
+	}
+
+	.rpd-about-belief-card {
+		padding: 2rem 1.35rem;
+	}
+
+	.rpd-about-person-card__visual {
+		min-height: 13.5rem;
+	}
+
+	.rpd-about-final-cta__actions {
+		align-items: stretch;
+		flex-direction: column;
+	}
+
+	.rpd-about-final-cta__actions .rpd-btn {
+		width: 100%;
+		min-width: 0;
+	}
+}
