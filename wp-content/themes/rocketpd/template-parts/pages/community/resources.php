@@ -15,14 +15,15 @@ $headline      = rocketpd_get_field( 'rpd_community_resources_headline', __( 'Re
 $body          = rocketpd_get_field( 'rpd_community_resources_body', __( "Explore a growing library - new resources are added regularly, so there's always something relevant to explore.", 'rocketpd' ) );
 $button_label  = rocketpd_get_field( 'rpd_community_resources_button_label', __( 'Browse the Resource Library', 'rocketpd' ) );
 $button_url    = rocketpd_get_field( 'rpd_community_resources_button_url', $resources_url );
-$cards         = rocketpd_get_field(
+$cards         = rocketpd_get_repeater_rows(
 	'rpd_community_resource_cards',
 	array(
 		array( 'type' => __( 'Guide', 'rocketpd' ), 'category' => __( 'Instruction', 'rocketpd' ), 'title' => __( 'High-Impact Instructional Strategies', 'rocketpd' ), 'meta' => __( '12 min read - 18 pages', 'rocketpd' ), 'icon' => 'book' ),
 		array( 'type' => __( 'Playbook', 'rocketpd' ), 'category' => __( 'Leadership', 'rocketpd' ), 'title' => __( 'Leading Schoolwide Systems Change', 'rocketpd' ), 'meta' => __( 'Step-by-step - 6 modules', 'rocketpd' ), 'icon' => 'clipboard' ),
 		array( 'type' => __( 'Webinar', 'rocketpd' ), 'category' => __( 'Leadership', 'rocketpd' ), 'title' => __( "MTSS in Action: A Principal's Perspective", 'rocketpd' ), 'meta' => __( 'Recorded - 52 min', 'rocketpd' ), 'icon' => 'play' ),
 		array( 'type' => __( 'Tool', 'rocketpd' ), 'category' => __( 'Instruction', 'rocketpd' ), 'title' => __( 'Classroom Engagement Self-Assessment', 'rocketpd' ), 'meta' => __( 'Editable PDF - 4 pages', 'rocketpd' ), 'icon' => 'tool' ),
-	)
+	),
+	array( 'title' )
 );
 ?>
 

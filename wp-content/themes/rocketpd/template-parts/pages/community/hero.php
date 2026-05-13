@@ -19,15 +19,16 @@ $primary_label  = rocketpd_get_field( 'rpd_community_hero_primary_label', __( "J
 $primary_url    = rocketpd_get_field( 'rpd_community_hero_primary_url', $join_url );
 $secondary_label = rocketpd_get_field( 'rpd_community_hero_secondary_label', __( 'Explore Resources', 'rocketpd' ) );
 $secondary_url  = rocketpd_get_field( 'rpd_community_hero_secondary_url', $resources_url );
-$proofs         = rocketpd_get_field(
+$proofs         = rocketpd_get_repeater_rows(
 	'rpd_community_hero_proofs',
 	array(
 		array( 'text' => __( 'Always free', 'rocketpd' ) ),
 		array( 'text' => __( 'No credit card', 'rocketpd' ) ),
 		array( 'text' => __( 'Instant access', 'rocketpd' ) ),
-	)
+	),
+	array( 'text' )
 );
-$cards          = rocketpd_get_field(
+$cards          = rocketpd_get_repeater_rows(
 	'rpd_community_hero_cards',
 	array(
 		array(
@@ -51,7 +52,8 @@ $cards          = rocketpd_get_field(
 			'footer'   => __( '24 replies - 47 saves', 'rocketpd' ),
 			'modifier' => 'discussion',
 		),
-	)
+	),
+	array( 'title' )
 );
 ?>
 

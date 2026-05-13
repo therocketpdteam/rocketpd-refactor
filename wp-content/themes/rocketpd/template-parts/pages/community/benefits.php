@@ -15,13 +15,14 @@ $headline  = rocketpd_get_field( 'rpd_community_benefits_headline', __( 'Member 
 $body      = rocketpd_get_field( 'rpd_community_benefits_body', __( "As part of the RocketPD Community, you'll also receive perks that give you a clear path to go deeper - when you're ready.", 'rocketpd' ) );
 $cta_label = rocketpd_get_field( 'rpd_community_benefits_cta_label', __( 'Join Free', 'rocketpd' ) );
 $cta_url   = rocketpd_get_field( 'rpd_community_benefits_cta_url', $join_url );
-$items     = rocketpd_get_field(
+$items     = rocketpd_get_repeater_rows(
 	'rpd_community_benefit_items',
 	array(
 		array( 'title' => __( 'Early invitations', 'rocketpd' ), 'body' => __( 'First look at new learning experiences as they launch.', 'rocketpd' ) ),
 		array( 'title' => __( 'Priority registration', 'rocketpd' ), 'body' => __( 'Reserve your spot in live-virtual cohorts before public release.', 'rocketpd' ) ),
 		array( 'title' => __( 'Exclusive pricing', 'rocketpd' ), 'body' => __( 'Special rates on select courses and programs.', 'rocketpd' ) ),
-	)
+	),
+	array( 'title' )
 );
 ?>
 

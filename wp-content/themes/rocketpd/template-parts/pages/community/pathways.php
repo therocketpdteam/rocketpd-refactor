@@ -13,13 +13,14 @@ $eyebrow = rocketpd_get_field( 'rpd_community_pathways_eyebrow', __( "When you'r
 $headline = rocketpd_get_field( 'rpd_community_pathways_headline', __( "Start free. Go further when you're ready.", 'rocketpd' ) );
 $body = rocketpd_get_field( 'rpd_community_pathways_body', __( "The RocketPD Community is the starting point. As a member, you'll also get early visibility into deeper learning opportunities - along with preferred access and pricing.", 'rocketpd' ) );
 $note = rocketpd_get_field( 'rpd_community_pathways_note', __( 'You can start here - and grow into what you need.', 'rocketpd' ) );
-$plans = rocketpd_get_field(
+$plans = rocketpd_get_repeater_rows(
 	'rpd_community_pathway_cards',
 	array(
 		array( 'badge' => __( "You're Here", 'rocketpd' ), 'title' => __( 'Community', 'rocketpd' ), 'audience' => __( 'Free for educators', 'rocketpd' ), 'body' => __( 'Practical resources, live sessions, and connection with peers - at no cost.', 'rocketpd' ), 'bullets' => "Curated guides & playbooks\nLive webinars & meet-ups\nDiscussion spaces", 'cta_label' => '', 'cta_url' => '', 'featured' => 0 ),
 		array( 'badge' => '', 'title' => __( 'LaunchPad', 'rocketpd' ), 'audience' => __( 'For educators & teams', 'rocketpd' ), 'body' => __( 'Access to a full library of expert-led courses, workbooks, and professional credit pathways.', 'rocketpd' ), 'bullets' => "Expert-led courses\nWorkbooks & certificates\nCredit pathways", 'cta_label' => __( 'Explore LaunchPad', 'rocketpd' ), 'cta_url' => home_url( '/launchpad/' ), 'featured' => 0 ),
 		array( 'badge' => '', 'title' => __( 'LaunchPad+', 'rocketpd' ), 'audience' => __( 'For districts', 'rocketpd' ), 'body' => __( 'A custom-branded platform for districts to organize learning, host internal content, and support teams at scale.', 'rocketpd' ), 'bullets' => "District-branded platform\nHost internal content\nTeam-scale support", 'cta_label' => __( 'Explore LaunchPad+', 'rocketpd' ), 'cta_url' => home_url( '/launchpad-plus/' ), 'featured' => 1 ),
-	)
+	),
+	array( 'title' )
 );
 ?>
 

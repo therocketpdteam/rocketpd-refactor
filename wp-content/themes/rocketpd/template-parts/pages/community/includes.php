@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $eyebrow  = rocketpd_get_field( 'rpd_community_includes_eyebrow', __( "What's included", 'rocketpd' ) );
 $headline = rocketpd_get_field( 'rpd_community_includes_headline', __( 'What you get as a member', 'rocketpd' ) );
 $body     = rocketpd_get_field( 'rpd_community_includes_body', __( 'Everything you need to grow your practice - at no cost.', 'rocketpd' ) );
-$items    = rocketpd_get_field(
+$items    = rocketpd_get_repeater_rows(
 	'rpd_community_include_items',
 	array(
 		array( 'icon' => 'book', 'title' => __( 'Curated Guide Library', 'rocketpd' ), 'body' => __( 'Actionable resources built around real school challenges.', 'rocketpd' ) ),
@@ -23,7 +23,8 @@ $items    = rocketpd_get_field(
 		array( 'icon' => 'star', 'title' => __( 'Priority Cohort Access', 'rocketpd' ), 'body' => __( 'Be the first to hear about and register for upcoming live-virtual cohorts.', 'rocketpd' ) ),
 		array( 'icon' => 'tag', 'title' => __( 'Member Pricing', 'rocketpd' ), 'body' => __( 'Discounted access to expert-led courses and live experiences.', 'rocketpd' ) ),
 		array( 'icon' => 'chat', 'title' => __( 'Discussion Spaces', 'rocketpd' ), 'body' => __( 'Share ideas, ask questions, and learn from peers.', 'rocketpd' ) ),
-	)
+	),
+	array( 'title' )
 );
 ?>
 

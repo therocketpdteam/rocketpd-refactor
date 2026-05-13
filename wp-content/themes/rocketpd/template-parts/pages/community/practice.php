@@ -14,21 +14,23 @@ $headline  = rocketpd_get_field( 'rpd_community_practice_headline', __( 'Learnin
 $body      = rocketpd_get_field( 'rpd_community_practice_body', __( 'Everything in the RocketPD Community is designed with one goal:', 'rocketpd' ) );
 $highlight = rocketpd_get_field( 'rpd_community_practice_highlight', __( 'Help educators take what they learn and apply it immediately.', 'rocketpd' ) );
 $closing   = rocketpd_get_field( 'rpd_community_practice_closing', __( 'Just practical ideas you can use in your classroom, your school, or your leadership role.', 'rocketpd' ) );
-$checklist = rocketpd_get_field(
+$checklist = rocketpd_get_repeater_rows(
 	'rpd_community_practice_checklist',
 	array(
 		array( 'text' => __( 'No filler', 'rocketpd' ) ),
 		array( 'text' => __( 'No theory without practice', 'rocketpd' ) ),
 		array( 'text' => __( 'No wasted time', 'rocketpd' ) ),
-	)
+	),
+	array( 'text' )
 );
-$steps     = rocketpd_get_field(
+$steps     = rocketpd_get_repeater_rows(
 	'rpd_community_practice_steps',
 	array(
 		array( 'number' => '1', 'title' => __( 'Learn', 'rocketpd' ), 'body' => __( 'Read a guide. Join a webinar.', 'rocketpd' ) ),
 		array( 'number' => '2', 'title' => __( 'Apply', 'rocketpd' ), 'body' => __( 'Try a strategy with your students this week.', 'rocketpd' ) ),
 		array( 'number' => '3', 'title' => __( 'Reflect', 'rocketpd' ), 'body' => __( 'Share what worked with the community.', 'rocketpd' ) ),
-	)
+	),
+	array( 'title' )
 );
 ?>
 

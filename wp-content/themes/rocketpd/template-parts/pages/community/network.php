@@ -13,21 +13,23 @@ $eyebrow = rocketpd_get_field( 'rpd_community_network_eyebrow', __( 'A growing n
 $stat = rocketpd_get_field( 'rpd_community_network_stat', __( '40,000+', 'rocketpd' ) );
 $headline = rocketpd_get_field( 'rpd_community_network_headline', __( 'educators and school leaders', 'rocketpd' ) );
 $body = rocketpd_get_field( 'rpd_community_network_body', __( 'Join a growing community of educators and school leaders who are working together to support real classrooms.', 'rocketpd' ) );
-$cards = rocketpd_get_field(
+$cards = rocketpd_get_repeater_rows(
 	'rpd_community_network_cards',
 	array(
 		array( 'title' => __( 'Looking for practical solutions', 'rocketpd' ), 'body' => __( 'to real challenges in their schools and classrooms.', 'rocketpd' ), 'icon' => 'compass' ),
 		array( 'title' => __( 'Sharing ideas', 'rocketpd' ), 'body' => __( 'and learning from each other across grade levels and roles.', 'rocketpd' ), 'icon' => 'chat' ),
 		array( 'title' => __( 'Building skills', 'rocketpd' ), 'body' => __( 'that translate directly into their work - every day.', 'rocketpd' ), 'icon' => 'growth' ),
-	)
+	),
+	array( 'title' )
 );
-$stats = rocketpd_get_field(
+$stats = rocketpd_get_repeater_rows(
 	'rpd_community_distribution_stats',
 	array(
 		array( 'value' => __( '62%', 'rocketpd' ), 'label' => __( 'Teachers & Coaches', 'rocketpd' ) ),
 		array( 'value' => __( '21%', 'rocketpd' ), 'label' => __( 'Principals & APs', 'rocketpd' ) ),
 		array( 'value' => __( '17%', 'rocketpd' ), 'label' => __( 'District Leaders', 'rocketpd' ) ),
-	)
+	),
+	array( 'value' )
 );
 ?>
 

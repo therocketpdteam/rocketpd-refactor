@@ -49,6 +49,42 @@ function rocketpd_get_field( $field_name, $fallback = '', $post_id = 0 ) {
 }
 
 /**
+ * Return non-empty ACF repeater rows, with fallback rows for blank editor state.
+ *
+ * @param string $field_name    ACF repeater field name.
+ * @param array  $fallback      Fallback rows.
+ * @param array  $required_keys Keys that indicate a meaningful row.
+ * @param int    $post_id       Optional post ID.
+ * @return array
+ */
+function rocketpd_get_repeater_rows( $field_name, $fallback = array(), $required_keys = array(), $post_id = 0 ) {
+	$rows = rocketpd_get_field( $field_name, array(), $post_id );
+
+	if ( ! is_array( $rows ) ) {
+		return $fallback;
+	}
+
+	$filtered = array();
+
+	foreach ( $rows as $row ) {
+		if ( ! is_array( $row ) ) {
+			continue;
+		}
+
+		$keys_to_check = $required_keys ?: array_keys( $row );
+
+		foreach ( $keys_to_check as $key ) {
+			if ( isset( $row[ $key ] ) && '' !== trim( (string) $row[ $key ] ) ) {
+				$filtered[] = $row;
+				break;
+			}
+		}
+	}
+
+	return $filtered ?: $fallback;
+}
+
+/**
  * Return image markup for an ACF image value that may be an ID, array, or URL.
  *
  * @param mixed  $image Image value.

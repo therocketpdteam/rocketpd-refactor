@@ -18,13 +18,14 @@ $primary_label = rocketpd_get_field( 'rpd_community_final_primary_label', __( "J
 $primary_url = rocketpd_get_field( 'rpd_community_final_primary_url', $join_url );
 $secondary_label = rocketpd_get_field( 'rpd_community_final_secondary_label', __( 'Explore Resources', 'rocketpd' ) );
 $secondary_url = rocketpd_get_field( 'rpd_community_final_secondary_url', $resources_url );
-$proofs = rocketpd_get_field(
+$proofs = rocketpd_get_repeater_rows(
 	'rpd_community_final_proofs',
 	array(
 		array( 'text' => __( 'Always free', 'rocketpd' ) ),
 		array( 'text' => __( 'No credit card', 'rocketpd' ) ),
 		array( 'text' => __( 'Instant access', 'rocketpd' ) ),
-	)
+	),
+	array( 'text' )
 );
 ?>
 

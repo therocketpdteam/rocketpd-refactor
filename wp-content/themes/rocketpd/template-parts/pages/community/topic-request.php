@@ -16,7 +16,7 @@ $note       = rocketpd_get_field( 'rpd_community_topic_note', __( 'We review eve
 $shortcode  = rocketpd_get_field( 'rpd_community_topic_form_shortcode' );
 $form_id    = rocketpd_get_field( 'rpd_community_topic_form_id' );
 $submit     = rocketpd_get_field( 'rpd_community_topic_submit_label', __( "Share What You're Looking For", 'rocketpd' ) );
-$topics     = rocketpd_get_field(
+$topics     = rocketpd_get_repeater_rows(
 	'rpd_community_topic_options',
 	array(
 		array( 'label' => __( 'Instruction', 'rocketpd' ) ),
@@ -26,7 +26,8 @@ $topics     = rocketpd_get_field(
 		array( 'label' => __( 'SEL', 'rocketpd' ) ),
 		array( 'label' => __( 'Math', 'rocketpd' ) ),
 		array( 'label' => __( 'School Culture', 'rocketpd' ) ),
-	)
+	),
+	array( 'label' )
 );
 ?>
 
