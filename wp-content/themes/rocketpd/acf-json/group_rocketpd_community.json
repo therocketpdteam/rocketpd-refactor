@@ -1,0 +1,417 @@
+{
+    "key": "group_rocketpd_community",
+    "title": "RocketPD Community",
+    "fields": [
+        {
+            "key": "field_rpd_community_0001_hero_tab",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_community_0002_join_url",
+            "label": "Community Join URL",
+            "name": "rpd_community_join_url",
+            "type": "url",
+            "default_value": ""
+        },
+        {
+            "key": "field_rpd_community_0003_resources_url",
+            "label": "Resources URL",
+            "name": "rpd_community_resources_url",
+            "type": "url",
+            "default_value": ""
+        },
+        {
+            "key": "field_rpd_community_0004_hero_eyebrow",
+            "label": "Hero Eyebrow",
+            "name": "rpd_community_hero_eyebrow",
+            "type": "text",
+            "default_value": "Free for K-12 educators"
+        },
+        {
+            "key": "field_rpd_community_0005_hero_headline",
+            "label": "Hero Headline",
+            "name": "rpd_community_hero_headline",
+            "type": "text",
+            "default_value": "The RocketPD Community"
+        },
+        {
+            "key": "field_rpd_community_0006_hero_subheadline",
+            "label": "Hero Subheadline",
+            "name": "rpd_community_hero_subheadline",
+            "type": "textarea",
+            "rows": 2,
+            "new_lines": "",
+            "default_value": "Free, practical professional learning - built for educators."
+        },
+        {
+            "key": "field_rpd_community_0007_hero_body",
+            "label": "Hero Body",
+            "name": "rpd_community_hero_body",
+            "type": "textarea",
+            "rows": 4,
+            "new_lines": "",
+            "default_value": ""
+        },
+        {
+            "key": "field_rpd_community_0008_hero_primary_label",
+            "label": "Hero Primary CTA Label",
+            "name": "rpd_community_hero_primary_label",
+            "type": "text",
+            "default_value": "Join the Community - It's Free"
+        },
+        {
+            "key": "field_rpd_community_0009_hero_primary_url",
+            "label": "Hero Primary CTA URL",
+            "name": "rpd_community_hero_primary_url",
+            "type": "url",
+            "default_value": ""
+        },
+        {
+            "key": "field_rpd_community_0010_hero_secondary_label",
+            "label": "Hero Secondary CTA Label",
+            "name": "rpd_community_hero_secondary_label",
+            "type": "text",
+            "default_value": "Explore Resources"
+        },
+        {
+            "key": "field_rpd_community_0011_hero_secondary_url",
+            "label": "Hero Secondary CTA URL",
+            "name": "rpd_community_hero_secondary_url",
+            "type": "url",
+            "default_value": ""
+        },
+        {
+            "key": "field_rpd_community_0012_hero_proofs",
+            "label": "Hero Proof Items",
+            "name": "rpd_community_hero_proofs",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add proof item",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_community_0012a_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_community_0013_hero_cards",
+            "label": "Hero Floating Cards",
+            "name": "rpd_community_hero_cards",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add hero card",
+            "sub_fields": [
+                { "key": "field_rpd_community_0013a_type", "label": "Type", "name": "type", "type": "text" },
+                { "key": "field_rpd_community_0013b_title", "label": "Title", "name": "title", "type": "text" },
+                { "key": "field_rpd_community_0013c_meta", "label": "Meta", "name": "meta", "type": "text" },
+                { "key": "field_rpd_community_0013d_footer", "label": "Footer", "name": "footer", "type": "text" },
+                { "key": "field_rpd_community_0013e_modifier", "label": "Style Modifier", "name": "modifier", "type": "text" }
+            ]
+        },
+        {
+            "key": "field_rpd_community_0014_intro_tab",
+            "label": "Intro",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        { "key": "field_rpd_community_0015_intro_eyebrow", "label": "Intro Eyebrow", "name": "rpd_community_intro_eyebrow", "type": "text", "default_value": "A place to start" },
+        { "key": "field_rpd_community_0016_intro_headline", "label": "Intro Headline", "name": "rpd_community_intro_headline", "type": "text", "default_value": "Learning that actually supports your work." },
+        {
+            "key": "field_rpd_community_0017_intro_paragraphs",
+            "label": "Intro Paragraphs",
+            "name": "rpd_community_intro_paragraphs",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add paragraph",
+            "sub_fields": [
+                { "key": "field_rpd_community_0017a_text", "label": "Text", "name": "text", "type": "textarea", "rows": 3, "new_lines": "" }
+            ]
+        },
+        {
+            "key": "field_rpd_community_0018_included_tab",
+            "label": "Included",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        { "key": "field_rpd_community_0019_includes_eyebrow", "label": "Included Eyebrow", "name": "rpd_community_includes_eyebrow", "type": "text", "default_value": "What's included" },
+        { "key": "field_rpd_community_0020_includes_headline", "label": "Included Headline", "name": "rpd_community_includes_headline", "type": "text", "default_value": "What you get as a member" },
+        { "key": "field_rpd_community_0021_includes_body", "label": "Included Body", "name": "rpd_community_includes_body", "type": "textarea", "rows": 2, "new_lines": "", "default_value": "Everything you need to grow your practice - at no cost." },
+        {
+            "key": "field_rpd_community_0022_include_items",
+            "label": "Included Items",
+            "name": "rpd_community_include_items",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add item",
+            "sub_fields": [
+                { "key": "field_rpd_community_0022a_icon", "label": "Icon Key", "name": "icon", "type": "text" },
+                { "key": "field_rpd_community_0022b_title", "label": "Title", "name": "title", "type": "text" },
+                { "key": "field_rpd_community_0022c_body", "label": "Body", "name": "body", "type": "textarea", "rows": 2, "new_lines": "" }
+            ]
+        },
+        {
+            "key": "field_rpd_community_0023_benefits_tab",
+            "label": "Benefits",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        { "key": "field_rpd_community_0024_benefits_badge", "label": "Benefits Badge", "name": "rpd_community_benefits_badge", "type": "text", "default_value": "Member perks" },
+        { "key": "field_rpd_community_0025_benefits_headline", "label": "Benefits Headline", "name": "rpd_community_benefits_headline", "type": "text", "default_value": "Member benefits" },
+        { "key": "field_rpd_community_0026_benefits_body", "label": "Benefits Body", "name": "rpd_community_benefits_body", "type": "textarea", "rows": 3, "new_lines": "" },
+        { "key": "field_rpd_community_0027_benefits_cta_label", "label": "Benefits CTA Label", "name": "rpd_community_benefits_cta_label", "type": "text", "default_value": "Join Free" },
+        { "key": "field_rpd_community_0028_benefits_cta_url", "label": "Benefits CTA URL", "name": "rpd_community_benefits_cta_url", "type": "url" },
+        {
+            "key": "field_rpd_community_0029_benefit_items",
+            "label": "Benefit Items",
+            "name": "rpd_community_benefit_items",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add benefit",
+            "sub_fields": [
+                { "key": "field_rpd_community_0029a_title", "label": "Title", "name": "title", "type": "text" },
+                { "key": "field_rpd_community_0029b_body", "label": "Body", "name": "body", "type": "textarea", "rows": 2, "new_lines": "" }
+            ]
+        },
+        {
+            "key": "field_rpd_community_0030_practice_tab",
+            "label": "Practice",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        { "key": "field_rpd_community_0031_practice_eyebrow", "label": "Practice Eyebrow", "name": "rpd_community_practice_eyebrow", "type": "text", "default_value": "Built for practice" },
+        { "key": "field_rpd_community_0032_practice_headline", "label": "Practice Headline", "name": "rpd_community_practice_headline", "type": "text", "default_value": "Learning, meet doing." },
+        { "key": "field_rpd_community_0033_practice_body", "label": "Practice Body", "name": "rpd_community_practice_body", "type": "textarea", "rows": 2, "new_lines": "" },
+        { "key": "field_rpd_community_0034_practice_highlight", "label": "Practice Highlight", "name": "rpd_community_practice_highlight", "type": "textarea", "rows": 2, "new_lines": "" },
+        { "key": "field_rpd_community_0035_practice_closing", "label": "Practice Closing", "name": "rpd_community_practice_closing", "type": "textarea", "rows": 2, "new_lines": "" },
+        {
+            "key": "field_rpd_community_0036_practice_checklist",
+            "label": "Practice Checklist",
+            "name": "rpd_community_practice_checklist",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add checklist item",
+            "sub_fields": [
+                { "key": "field_rpd_community_0036a_text", "label": "Text", "name": "text", "type": "text" }
+            ]
+        },
+        {
+            "key": "field_rpd_community_0037_practice_steps",
+            "label": "Practice Steps",
+            "name": "rpd_community_practice_steps",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add step",
+            "sub_fields": [
+                { "key": "field_rpd_community_0037a_number", "label": "Number", "name": "number", "type": "text" },
+                { "key": "field_rpd_community_0037b_title", "label": "Title", "name": "title", "type": "text" },
+                { "key": "field_rpd_community_0037c_body", "label": "Body", "name": "body", "type": "textarea", "rows": 2, "new_lines": "" }
+            ]
+        },
+        {
+            "key": "field_rpd_community_0038_resources_tab",
+            "label": "Resources",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        { "key": "field_rpd_community_0039_resources_eyebrow", "label": "Resources Eyebrow", "name": "rpd_community_resources_eyebrow", "type": "text", "default_value": "Resource library" },
+        { "key": "field_rpd_community_0040_resources_headline", "label": "Resources Headline", "name": "rpd_community_resources_headline", "type": "text", "default_value": "Real resources. Real classrooms. Zero cost." },
+        { "key": "field_rpd_community_0041_resources_body", "label": "Resources Body", "name": "rpd_community_resources_body", "type": "textarea", "rows": 3, "new_lines": "" },
+        { "key": "field_rpd_community_0042_resources_button_label", "label": "Resources Button Label", "name": "rpd_community_resources_button_label", "type": "text", "default_value": "Browse the Resource Library" },
+        { "key": "field_rpd_community_0043_resources_button_url", "label": "Resources Button URL", "name": "rpd_community_resources_button_url", "type": "url" },
+        {
+            "key": "field_rpd_community_0044_resource_cards",
+            "label": "Resource Cards",
+            "name": "rpd_community_resource_cards",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add resource card",
+            "sub_fields": [
+                { "key": "field_rpd_community_0044a_type", "label": "Type", "name": "type", "type": "text" },
+                { "key": "field_rpd_community_0044b_category", "label": "Category", "name": "category", "type": "text" },
+                { "key": "field_rpd_community_0044c_title", "label": "Title", "name": "title", "type": "text" },
+                { "key": "field_rpd_community_0044d_meta", "label": "Meta", "name": "meta", "type": "text" },
+                { "key": "field_rpd_community_0044e_icon", "label": "Icon Key", "name": "icon", "type": "text" }
+            ]
+        },
+        {
+            "key": "field_rpd_community_0045_flexible_tab",
+            "label": "Flexible Learning",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        { "key": "field_rpd_community_0046_flexible_eyebrow", "label": "Flexible Eyebrow", "name": "rpd_community_flexible_eyebrow", "type": "text", "default_value": "However you show up" },
+        { "key": "field_rpd_community_0047_flexible_headline", "label": "Flexible Headline", "name": "rpd_community_flexible_headline", "type": "text", "default_value": "Learn in ways that fit your schedule." },
+        { "key": "field_rpd_community_0048_flexible_body", "label": "Flexible Body", "name": "rpd_community_flexible_body", "type": "textarea", "rows": 2, "new_lines": "" },
+        {
+            "key": "field_rpd_community_0049_learning_modes",
+            "label": "Learning Modes",
+            "name": "rpd_community_learning_modes",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add learning mode",
+            "sub_fields": [
+                { "key": "field_rpd_community_0049a_time", "label": "Time", "name": "time", "type": "text" },
+                { "key": "field_rpd_community_0049b_title", "label": "Title", "name": "title", "type": "text" },
+                { "key": "field_rpd_community_0049c_body", "label": "Body", "name": "body", "type": "textarea", "rows": 2, "new_lines": "" },
+                { "key": "field_rpd_community_0049d_icon", "label": "Icon Key", "name": "icon", "type": "text" }
+            ]
+        },
+        {
+            "key": "field_rpd_community_0050_topic_tab",
+            "label": "Topic Request",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        { "key": "field_rpd_community_0051_topic_badge", "label": "Topic Badge", "name": "rpd_community_topic_badge", "type": "text", "default_value": "We're listening" },
+        { "key": "field_rpd_community_0052_topic_headline", "label": "Topic Headline", "name": "rpd_community_topic_headline", "type": "text", "default_value": "Want content on a particular topic?" },
+        { "key": "field_rpd_community_0053_topic_body", "label": "Topic Body", "name": "rpd_community_topic_body", "type": "textarea", "rows": 5, "new_lines": "" },
+        { "key": "field_rpd_community_0054_topic_note", "label": "Topic Note", "name": "rpd_community_topic_note", "type": "textarea", "rows": 2, "new_lines": "" },
+        { "key": "field_rpd_community_0055_topic_form_shortcode", "label": "Form Shortcode", "name": "rpd_community_topic_form_shortcode", "type": "text" },
+        { "key": "field_rpd_community_0056_topic_form_id", "label": "Gravity Form ID", "name": "rpd_community_topic_form_id", "type": "number" },
+        { "key": "field_rpd_community_0057_topic_submit_label", "label": "Fallback Submit Label", "name": "rpd_community_topic_submit_label", "type": "text", "default_value": "Share What You're Looking For" },
+        {
+            "key": "field_rpd_community_0058_topic_options",
+            "label": "Topic Options",
+            "name": "rpd_community_topic_options",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add topic option",
+            "sub_fields": [
+                { "key": "field_rpd_community_0058a_label", "label": "Label", "name": "label", "type": "text" }
+            ]
+        },
+        {
+            "key": "field_rpd_community_0059_pathways_tab",
+            "label": "Pathways",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        { "key": "field_rpd_community_0060_pathways_eyebrow", "label": "Pathways Eyebrow", "name": "rpd_community_pathways_eyebrow", "type": "text", "default_value": "When you're ready" },
+        { "key": "field_rpd_community_0061_pathways_headline", "label": "Pathways Headline", "name": "rpd_community_pathways_headline", "type": "text", "default_value": "Start free. Go further when you're ready." },
+        { "key": "field_rpd_community_0062_pathways_body", "label": "Pathways Body", "name": "rpd_community_pathways_body", "type": "textarea", "rows": 4, "new_lines": "" },
+        { "key": "field_rpd_community_0063_pathways_note", "label": "Pathways Note", "name": "rpd_community_pathways_note", "type": "text", "default_value": "You can start here - and grow into what you need." },
+        {
+            "key": "field_rpd_community_0064_pathway_cards",
+            "label": "Pathway Cards",
+            "name": "rpd_community_pathway_cards",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add pathway card",
+            "sub_fields": [
+                { "key": "field_rpd_community_0064a_badge", "label": "Badge", "name": "badge", "type": "text" },
+                { "key": "field_rpd_community_0064b_title", "label": "Title", "name": "title", "type": "text" },
+                { "key": "field_rpd_community_0064c_audience", "label": "Audience", "name": "audience", "type": "text" },
+                { "key": "field_rpd_community_0064d_body", "label": "Body", "name": "body", "type": "textarea", "rows": 3, "new_lines": "" },
+                { "key": "field_rpd_community_0064e_bullets", "label": "Bullets", "name": "bullets", "type": "textarea", "rows": 4, "new_lines": "" },
+                { "key": "field_rpd_community_0064f_cta_label", "label": "CTA Label", "name": "cta_label", "type": "text" },
+                { "key": "field_rpd_community_0064g_cta_url", "label": "CTA URL", "name": "cta_url", "type": "url" },
+                { "key": "field_rpd_community_0064h_featured", "label": "Featured Dark Card", "name": "featured", "type": "true_false", "ui": 1 }
+            ]
+        },
+        {
+            "key": "field_rpd_community_0065_network_tab",
+            "label": "Network",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        { "key": "field_rpd_community_0066_network_eyebrow", "label": "Network Eyebrow", "name": "rpd_community_network_eyebrow", "type": "text", "default_value": "A growing network" },
+        { "key": "field_rpd_community_0067_network_stat", "label": "Network Stat", "name": "rpd_community_network_stat", "type": "text", "default_value": "40,000+" },
+        { "key": "field_rpd_community_0068_network_headline", "label": "Network Headline", "name": "rpd_community_network_headline", "type": "text", "default_value": "educators and school leaders" },
+        { "key": "field_rpd_community_0069_network_body", "label": "Network Body", "name": "rpd_community_network_body", "type": "textarea", "rows": 3, "new_lines": "" },
+        {
+            "key": "field_rpd_community_0070_network_cards",
+            "label": "Network Cards",
+            "name": "rpd_community_network_cards",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add network card",
+            "sub_fields": [
+                { "key": "field_rpd_community_0070a_icon", "label": "Icon Key", "name": "icon", "type": "text" },
+                { "key": "field_rpd_community_0070b_title", "label": "Title", "name": "title", "type": "text" },
+                { "key": "field_rpd_community_0070c_body", "label": "Body", "name": "body", "type": "textarea", "rows": 2, "new_lines": "" }
+            ]
+        },
+        {
+            "key": "field_rpd_community_0071_distribution_stats",
+            "label": "Distribution Stats",
+            "name": "rpd_community_distribution_stats",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add stat",
+            "sub_fields": [
+                { "key": "field_rpd_community_0071a_value", "label": "Value", "name": "value", "type": "text" },
+                { "key": "field_rpd_community_0071b_label", "label": "Label", "name": "label", "type": "text" }
+            ]
+        },
+        {
+            "key": "field_rpd_community_0072_final_tab",
+            "label": "Final CTA",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        { "key": "field_rpd_community_0073_final_badge", "label": "Final Badge", "name": "rpd_community_final_badge", "type": "text", "default_value": "Join 40,000+ educators" },
+        { "key": "field_rpd_community_0074_final_headline", "label": "Final Headline", "name": "rpd_community_final_headline", "type": "text", "default_value": "Join the RocketPD Community" },
+        { "key": "field_rpd_community_0075_final_body", "label": "Final Body", "name": "rpd_community_final_body", "type": "textarea", "rows": 2, "new_lines": "", "default_value": "Start exploring practical professional learning - at no cost." },
+        { "key": "field_rpd_community_0076_final_primary_label", "label": "Final Primary CTA Label", "name": "rpd_community_final_primary_label", "type": "text", "default_value": "Join the Community - It's Free" },
+        { "key": "field_rpd_community_0077_final_primary_url", "label": "Final Primary CTA URL", "name": "rpd_community_final_primary_url", "type": "url" },
+        { "key": "field_rpd_community_0078_final_secondary_label", "label": "Final Secondary CTA Label", "name": "rpd_community_final_secondary_label", "type": "text", "default_value": "Explore Resources" },
+        { "key": "field_rpd_community_0079_final_secondary_url", "label": "Final Secondary CTA URL", "name": "rpd_community_final_secondary_url", "type": "url" },
+        {
+            "key": "field_rpd_community_0080_final_proofs",
+            "label": "Final Proof Items",
+            "name": "rpd_community_final_proofs",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add proof item",
+            "sub_fields": [
+                { "key": "field_rpd_community_0080a_text", "label": "Text", "name": "text", "type": "text" }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates/template-community.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for the RocketPD Community page template.",
+    "show_in_rest": 0,
+    "modified": 1778600000
+}
