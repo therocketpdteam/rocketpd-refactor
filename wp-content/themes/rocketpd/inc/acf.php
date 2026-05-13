@@ -34,7 +34,5 @@ function rocketpd_acf_load_json_paths( $paths ) {
 	return $paths;
 }
 
-if ( class_exists( 'ACF' ) || function_exists( 'acf' ) ) {
-	add_filter( 'acf/settings/save_json', 'rocketpd_acf_save_json_path' );
-	add_filter( 'acf/settings/load_json', 'rocketpd_acf_load_json_paths' );
-}
+add_filter( 'acf/settings/save_json', 'rocketpd_acf_save_json_path' );
+add_filter( 'acf/settings/load_json', 'rocketpd_acf_load_json_paths' );
