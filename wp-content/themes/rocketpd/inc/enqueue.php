@@ -65,6 +65,17 @@ function rocketpd_enqueue_assets() {
 		);
 	}
 
+	if ( is_page_template( 'page-templates/template-trust-cycle-guide.php' ) ) {
+		$trust_cycle_css = get_template_directory() . '/assets/css/pages/trust-cycle-guide.css';
+
+		wp_enqueue_style(
+			'rocketpd-trust-cycle-guide',
+			get_template_directory_uri() . '/assets/css/pages/trust-cycle-guide.css',
+			array( 'rocketpd-07-footer' ),
+			file_exists( $trust_cycle_css ) ? filemtime( $trust_cycle_css ) : $theme_version
+		);
+	}
+
 	if ( is_front_page() ) {
 		wp_enqueue_style(
 			'rocketpd-home',
