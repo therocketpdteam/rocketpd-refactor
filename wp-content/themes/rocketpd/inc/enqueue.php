@@ -64,5 +64,14 @@ function rocketpd_enqueue_assets() {
 			$theme_version
 		);
 	}
+
+	if ( is_page_template( 'page-templates/template-community.php' ) ) {
+		wp_enqueue_style(
+			'rocketpd-community',
+			get_template_directory_uri() . '/assets/css/pages/community.css',
+			array( 'rocketpd-07-footer' ),
+			$theme_version
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'rocketpd_enqueue_assets' );
