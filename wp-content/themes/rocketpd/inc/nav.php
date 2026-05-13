@@ -25,8 +25,7 @@ function rocketpd_nav_menu( $location = 'primary' ) {
 			'container'      => false,
 			'menu_class'     => 'rpd-menu rpd-menu--' . sanitize_html_class( $location ),
 			'fallback_cb'    => false,
-			'depth'          => 2,
+			'depth'          => 1,
 		)
 	);
 }
-
