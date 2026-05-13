@@ -1,0 +1,188 @@
+{
+  "key": "group_rocketpd_trust_cycle_guide",
+  "title": "RocketPD Trust Cycle Guide",
+  "fields": [
+    { "key": "field_rpd_trust_0001_tab_hero", "label": "Hero", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+    { "key": "field_rpd_trust_0002_hero_eyebrow", "label": "Eyebrow", "name": "rpd_trust_hero_eyebrow", "type": "text", "default_value": "The RocketPD Playbook - Vol. 1, A Practical Guide" },
+    { "key": "field_rpd_trust_0003_hero_headline", "label": "Headline", "name": "rpd_trust_hero_headline", "type": "text", "default_value": "Professional Learning, Meeting Doing." },
+    { "key": "field_rpd_trust_0004_hero_body", "label": "Body", "name": "rpd_trust_hero_body", "type": "textarea", "rows": 3, "new_lines": "", "default_value": "How innovative K-12 districts are connecting learning to daily practice - to build educator confidence, strengthen retention, and move the needle on organizational goals." },
+    { "key": "field_rpd_trust_0005_hero_note_title", "label": "Note Title", "name": "rpd_trust_hero_note_title", "type": "text", "default_value": "Professional learning isn't broken." },
+    { "key": "field_rpd_trust_0006_hero_note_body", "label": "Note Body", "name": "rpd_trust_hero_note_body", "type": "text", "default_value": "But the way it is often designed is." },
+    { "key": "field_rpd_trust_0007_hero_reality", "label": "Reality Items", "name": "rpd_trust_hero_reality_items", "type": "repeater", "layout": "block", "button_label": "Add item", "sub_fields": [
+      { "key": "field_rpd_trust_0007a_text", "label": "Text", "name": "text", "type": "text" }
+    ] },
+    { "key": "field_rpd_trust_0008_hero_approach", "label": "Old Approach Items", "name": "rpd_trust_hero_approach_items", "type": "repeater", "layout": "block", "button_label": "Add item", "sub_fields": [
+      { "key": "field_rpd_trust_0008a_text", "label": "Text", "name": "text", "type": "text" }
+    ] },
+    { "key": "field_rpd_trust_0009_hero_question", "label": "Question Headline", "name": "rpd_trust_hero_question", "type": "text", "default_value": "What if professional learning actually supported the work teachers do every day?" },
+    { "key": "field_rpd_trust_0010_hero_question_body", "label": "Question Body", "name": "rpd_trust_hero_question_body", "type": "textarea", "rows": 3, "new_lines": "" },
+    { "key": "field_rpd_trust_0011_hero_primary_label", "label": "Primary CTA Label", "name": "rpd_trust_hero_primary_label", "type": "text", "default_value": "Read the Guide" },
+    { "key": "field_rpd_trust_0012_hero_primary_url", "label": "Primary CTA URL", "name": "rpd_trust_hero_primary_url", "type": "url", "default_value": "#rpd-trust-model" },
+    { "key": "field_rpd_trust_0013_hero_secondary_label", "label": "Secondary CTA Label", "name": "rpd_trust_hero_secondary_label", "type": "text", "default_value": "Watch the video" },
+    { "key": "field_rpd_trust_0014_hero_secondary_url", "label": "Secondary CTA URL", "name": "rpd_trust_hero_secondary_url", "type": "url", "default_value": "#rpd-trust-final" },
+    { "key": "field_rpd_trust_0015_hero_stats", "label": "Stats", "name": "rpd_trust_hero_stats", "type": "repeater", "layout": "block", "button_label": "Add stat", "sub_fields": [
+      { "key": "field_rpd_trust_0015a_value", "label": "Value", "name": "value", "type": "text" },
+      { "key": "field_rpd_trust_0015b_label", "label": "Label", "name": "label", "type": "text" }
+    ] },
+
+    { "key": "field_rpd_trust_0016_tab_model", "label": "Model", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+    { "key": "field_rpd_trust_0017_model_eyebrow", "label": "Eyebrow", "name": "rpd_trust_model_eyebrow", "type": "text", "default_value": "In education" },
+    { "key": "field_rpd_trust_0018_model_headline", "label": "Headline", "name": "rpd_trust_model_headline", "type": "text", "default_value": "Professional learning isn't broken. The model is." },
+    { "key": "field_rpd_trust_0019_model_body", "label": "Body", "name": "rpd_trust_model_body", "type": "textarea", "rows": 5, "new_lines": "" },
+    { "key": "field_rpd_trust_0020_model_warning_label", "label": "Warning Label", "name": "rpd_trust_model_warning_label", "type": "text" },
+    { "key": "field_rpd_trust_0021_model_warning_body", "label": "Warning Body", "name": "rpd_trust_model_warning_body", "type": "textarea", "rows": 3, "new_lines": "" },
+    { "key": "field_rpd_trust_0022_model_dark_label", "label": "Dark Label", "name": "rpd_trust_model_dark_label", "type": "text" },
+    { "key": "field_rpd_trust_0023_model_dark_body", "label": "Dark Body", "name": "rpd_trust_model_dark_body", "type": "textarea", "rows": 3, "new_lines": "" },
+    { "key": "field_rpd_trust_0024_model_closing", "label": "Closing", "name": "rpd_trust_model_closing", "type": "textarea", "rows": 2, "new_lines": "" },
+    { "key": "field_rpd_trust_0025_model_items", "label": "Impact Items", "name": "rpd_trust_model_impact_items", "type": "repeater", "layout": "block", "button_label": "Add impact", "sub_fields": [
+      { "key": "field_rpd_trust_0025a_title", "label": "Title", "name": "title", "type": "text" }
+    ] },
+
+    { "key": "field_rpd_trust_0026_tab_retention", "label": "Retention", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+    { "key": "field_rpd_trust_0027_retention_eyebrow", "label": "Eyebrow", "name": "rpd_trust_retention_eyebrow", "type": "text" },
+    { "key": "field_rpd_trust_0028_retention_headline", "label": "Headline", "name": "rpd_trust_retention_headline", "type": "text" },
+    { "key": "field_rpd_trust_0029_retention_body", "label": "Body", "name": "rpd_trust_retention_body", "type": "textarea", "rows": 4, "new_lines": "" },
+    { "key": "field_rpd_trust_0030_retention_cards", "label": "Cards", "name": "rpd_trust_retention_cards", "type": "repeater", "layout": "block", "button_label": "Add card", "sub_fields": [
+      { "key": "field_rpd_trust_0030a_title", "label": "Title", "name": "title", "type": "text" },
+      { "key": "field_rpd_trust_0030b_body", "label": "Body", "name": "body", "type": "textarea", "rows": 2, "new_lines": "" }
+    ] },
+    { "key": "field_rpd_trust_0031_retention_quote", "label": "Quote", "name": "rpd_trust_retention_quote", "type": "textarea", "rows": 2, "new_lines": "" },
+    { "key": "field_rpd_trust_0032_retention_principles", "label": "Principles", "name": "rpd_trust_retention_principles", "type": "repeater", "layout": "block", "button_label": "Add principle", "sub_fields": [
+      { "key": "field_rpd_trust_0032a_title", "label": "Title", "name": "title", "type": "text" },
+      { "key": "field_rpd_trust_0032b_body", "label": "Body", "name": "body", "type": "textarea", "rows": 2, "new_lines": "" }
+    ] },
+
+    { "key": "field_rpd_trust_0033_tab_continuous", "label": "Continuous Learning", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+    { "key": "field_rpd_trust_0034_continuous_eyebrow", "label": "Eyebrow", "name": "rpd_trust_continuous_eyebrow", "type": "text" },
+    { "key": "field_rpd_trust_0035_continuous_headline", "label": "Headline", "name": "rpd_trust_continuous_headline", "type": "text" },
+    { "key": "field_rpd_trust_0036_continuous_body", "label": "Body", "name": "rpd_trust_continuous_body", "type": "textarea", "rows": 4, "new_lines": "" },
+    { "key": "field_rpd_trust_0037_continuous_cards", "label": "Comparison Cards", "name": "rpd_trust_continuous_cards", "type": "repeater", "layout": "block", "button_label": "Add card", "sub_fields": [
+      { "key": "field_rpd_trust_0037a_label", "label": "Label", "name": "label", "type": "text" },
+      { "key": "field_rpd_trust_0037b_title", "label": "Title", "name": "title", "type": "text" },
+      { "key": "field_rpd_trust_0037c_items", "label": "Items", "name": "items", "type": "textarea", "rows": 4, "new_lines": "" },
+      { "key": "field_rpd_trust_0037d_style", "label": "Style", "name": "style", "type": "select", "choices": { "light": "Light", "dark": "Dark" }, "default_value": "light" }
+    ] },
+    { "key": "field_rpd_trust_0038_continuous_quote", "label": "Quote", "name": "rpd_trust_continuous_quote", "type": "textarea", "rows": 2, "new_lines": "" },
+
+    { "key": "field_rpd_trust_0039_tab_cycle", "label": "Practice Cycle", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+    { "key": "field_rpd_trust_0040_cycle_eyebrow", "label": "Eyebrow", "name": "rpd_trust_cycle_eyebrow", "type": "text" },
+    { "key": "field_rpd_trust_0041_cycle_headline", "label": "Headline", "name": "rpd_trust_cycle_headline", "type": "text" },
+    { "key": "field_rpd_trust_0042_cycle_body", "label": "Body", "name": "rpd_trust_cycle_body", "type": "textarea", "rows": 3, "new_lines": "" },
+    { "key": "field_rpd_trust_0043_cycle_steps", "label": "Cycle Steps", "name": "rpd_trust_cycle_steps", "type": "repeater", "layout": "block", "button_label": "Add step", "sub_fields": [
+      { "key": "field_rpd_trust_0043a_number", "label": "Number", "name": "number", "type": "text" },
+      { "key": "field_rpd_trust_0043b_title", "label": "Title", "name": "title", "type": "text" },
+      { "key": "field_rpd_trust_0043c_body", "label": "Body", "name": "body", "type": "textarea", "rows": 2, "new_lines": "" }
+    ] },
+    { "key": "field_rpd_trust_0044_cycle_conditions", "label": "Conditions", "name": "rpd_trust_cycle_conditions", "type": "repeater", "layout": "block", "button_label": "Add condition", "sub_fields": [
+      { "key": "field_rpd_trust_0044a_title", "label": "Title", "name": "title", "type": "text" },
+      { "key": "field_rpd_trust_0044b_body", "label": "Body", "name": "body", "type": "textarea", "rows": 2, "new_lines": "" }
+    ] },
+    { "key": "field_rpd_trust_0045_cycle_outcomes", "label": "Outcomes", "name": "rpd_trust_cycle_outcomes", "type": "repeater", "layout": "block", "button_label": "Add outcome", "sub_fields": [
+      { "key": "field_rpd_trust_0045a_title", "label": "Title", "name": "title", "type": "text" }
+    ] },
+
+    { "key": "field_rpd_trust_0046_tab_engagement", "label": "Engagement", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+    { "key": "field_rpd_trust_0047_engagement_eyebrow", "label": "Eyebrow", "name": "rpd_trust_engagement_eyebrow", "type": "text" },
+    { "key": "field_rpd_trust_0048_engagement_headline", "label": "Headline", "name": "rpd_trust_engagement_headline", "type": "text" },
+    { "key": "field_rpd_trust_0049_engagement_body", "label": "Body", "name": "rpd_trust_engagement_body", "type": "textarea", "rows": 4, "new_lines": "" },
+    { "key": "field_rpd_trust_0050_engagement_quote_left", "label": "Left Quote", "name": "rpd_trust_engagement_quote_left", "type": "text" },
+    { "key": "field_rpd_trust_0051_engagement_quote_right", "label": "Right Quote", "name": "rpd_trust_engagement_quote_right", "type": "text" },
+    { "key": "field_rpd_trust_0052_engagement_cards", "label": "Cards", "name": "rpd_trust_engagement_cards", "type": "repeater", "layout": "block", "button_label": "Add card", "sub_fields": [
+      { "key": "field_rpd_trust_0052a_title", "label": "Title", "name": "title", "type": "text" },
+      { "key": "field_rpd_trust_0052b_body", "label": "Body", "name": "body", "type": "textarea", "rows": 2, "new_lines": "" }
+    ] },
+    { "key": "field_rpd_trust_0053_engagement_note", "label": "Note", "name": "rpd_trust_engagement_note", "type": "textarea", "rows": 2, "new_lines": "" },
+
+    { "key": "field_rpd_trust_0054_tab_practices", "label": "Practices", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+    { "key": "field_rpd_trust_0055_practices_eyebrow", "label": "Eyebrow", "name": "rpd_trust_practices_eyebrow", "type": "text" },
+    { "key": "field_rpd_trust_0056_practices_headline", "label": "Headline", "name": "rpd_trust_practices_headline", "type": "text" },
+    { "key": "field_rpd_trust_0057_practices_body", "label": "Body", "name": "rpd_trust_practices_body", "type": "textarea", "rows": 3, "new_lines": "" },
+    { "key": "field_rpd_trust_0058_practices", "label": "Practices", "name": "rpd_trust_practices", "type": "repeater", "layout": "block", "button_label": "Add practice", "sub_fields": [
+      { "key": "field_rpd_trust_0058a_number", "label": "Number", "name": "number", "type": "text" },
+      { "key": "field_rpd_trust_0058b_title", "label": "Title", "name": "title", "type": "text" },
+      { "key": "field_rpd_trust_0058c_body", "label": "Body", "name": "body", "type": "textarea", "rows": 3, "new_lines": "" },
+      { "key": "field_rpd_trust_0058d_note", "label": "Note", "name": "note", "type": "text" }
+    ] },
+
+    { "key": "field_rpd_trust_0059_tab_districts", "label": "Districts", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+    { "key": "field_rpd_trust_0060_districts_eyebrow", "label": "Eyebrow", "name": "rpd_trust_districts_eyebrow", "type": "text" },
+    { "key": "field_rpd_trust_0061_districts_headline", "label": "Headline", "name": "rpd_trust_districts_headline", "type": "text" },
+    { "key": "field_rpd_trust_0062_districts_body", "label": "Body", "name": "rpd_trust_districts_body", "type": "textarea", "rows": 3, "new_lines": "" },
+    { "key": "field_rpd_trust_0063_district_cards", "label": "District Cards", "name": "rpd_trust_district_cards", "type": "repeater", "layout": "block", "button_label": "Add district", "sub_fields": [
+      { "key": "field_rpd_trust_0063a_label", "label": "Label", "name": "label", "type": "text" },
+      { "key": "field_rpd_trust_0063b_title", "label": "Title", "name": "title", "type": "text" },
+      { "key": "field_rpd_trust_0063c_challenge", "label": "Challenge", "name": "challenge", "type": "textarea", "rows": 3, "new_lines": "" },
+      { "key": "field_rpd_trust_0063d_approach", "label": "Approach Bullets", "name": "approach", "type": "textarea", "rows": 4, "new_lines": "" },
+      { "key": "field_rpd_trust_0063e_result", "label": "Result Bullets", "name": "result", "type": "textarea", "rows": 3, "new_lines": "" },
+      { "key": "field_rpd_trust_0063f_quote", "label": "Quote", "name": "quote", "type": "textarea", "rows": 2, "new_lines": "" }
+    ] },
+
+    { "key": "field_rpd_trust_0064_tab_fit", "label": "RocketPD Fit", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+    { "key": "field_rpd_trust_0065_fit_eyebrow", "label": "Eyebrow", "name": "rpd_trust_fit_eyebrow", "type": "text" },
+    { "key": "field_rpd_trust_0066_fit_headline", "label": "Headline", "name": "rpd_trust_fit_headline", "type": "text" },
+    { "key": "field_rpd_trust_0067_fit_body", "label": "Body", "name": "rpd_trust_fit_body", "type": "textarea", "rows": 2, "new_lines": "" },
+    { "key": "field_rpd_trust_0068_fit_quote", "label": "Quote", "name": "rpd_trust_fit_quote", "type": "textarea", "rows": 2, "new_lines": "" },
+    { "key": "field_rpd_trust_0069_fit_checklist", "label": "Checklist", "name": "rpd_trust_fit_checklist", "type": "repeater", "layout": "block", "button_label": "Add item", "sub_fields": [
+      { "key": "field_rpd_trust_0069a_text", "label": "Text", "name": "text", "type": "text" }
+    ] },
+    { "key": "field_rpd_trust_0070_fit_closing", "label": "Closing", "name": "rpd_trust_fit_closing", "type": "text" },
+
+    { "key": "field_rpd_trust_0071_tab_start", "label": "Starting Point", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+    { "key": "field_rpd_trust_0072_start_eyebrow", "label": "Eyebrow", "name": "rpd_trust_start_eyebrow", "type": "text" },
+    { "key": "field_rpd_trust_0073_start_headline", "label": "Headline", "name": "rpd_trust_start_headline", "type": "text" },
+    { "key": "field_rpd_trust_0074_start_body", "label": "Body", "name": "rpd_trust_start_body", "type": "textarea", "rows": 2, "new_lines": "" },
+    { "key": "field_rpd_trust_0075_starting_steps", "label": "Steps", "name": "rpd_trust_starting_steps", "type": "repeater", "layout": "block", "button_label": "Add step", "sub_fields": [
+      { "key": "field_rpd_trust_0075a_number", "label": "Number", "name": "number", "type": "text" },
+      { "key": "field_rpd_trust_0075b_label", "label": "Label", "name": "label", "type": "text" },
+      { "key": "field_rpd_trust_0075c_title", "label": "Title", "name": "title", "type": "text" },
+      { "key": "field_rpd_trust_0075d_body", "label": "Body", "name": "body", "type": "textarea", "rows": 2, "new_lines": "" }
+    ] },
+    { "key": "field_rpd_trust_0076_starting_outcomes", "label": "Outcome Strip", "name": "rpd_trust_starting_outcomes", "type": "repeater", "layout": "block", "button_label": "Add outcome", "sub_fields": [
+      { "key": "field_rpd_trust_0076a_value", "label": "Value", "name": "value", "type": "text" },
+      { "key": "field_rpd_trust_0076b_label", "label": "Label", "name": "label", "type": "text" }
+    ] },
+
+    { "key": "field_rpd_trust_0077_tab_initiative", "label": "Initiative", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+    { "key": "field_rpd_trust_0078_initiative_eyebrow", "label": "Eyebrow", "name": "rpd_trust_initiative_eyebrow", "type": "text" },
+    { "key": "field_rpd_trust_0079_initiative_headline", "label": "Headline", "name": "rpd_trust_initiative_headline", "type": "text" },
+    { "key": "field_rpd_trust_0080_initiative_body", "label": "Body", "name": "rpd_trust_initiative_body", "type": "textarea", "rows": 2, "new_lines": "" },
+    { "key": "field_rpd_trust_0081_initiative_outcomes", "label": "Outcome Cards", "name": "rpd_trust_initiative_outcomes", "type": "repeater", "layout": "block", "button_label": "Add outcome", "sub_fields": [
+      { "key": "field_rpd_trust_0081a_title", "label": "Title", "name": "title", "type": "text" }
+    ] },
+    { "key": "field_rpd_trust_0082_initiative_shift_headline", "label": "Shift Headline", "name": "rpd_trust_initiative_shift_headline", "type": "text" },
+    { "key": "field_rpd_trust_0083_initiative_shift_body", "label": "Shift Body", "name": "rpd_trust_initiative_shift_body", "type": "textarea", "rows": 2, "new_lines": "" },
+    { "key": "field_rpd_trust_0084_initiative_summary", "label": "Summary", "name": "rpd_trust_initiative_summary", "type": "textarea", "rows": 4, "new_lines": "" },
+
+    { "key": "field_rpd_trust_0085_tab_final", "label": "Final CTA", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+    { "key": "field_rpd_trust_0086_final_eyebrow", "label": "Eyebrow", "name": "rpd_trust_final_eyebrow", "type": "text" },
+    { "key": "field_rpd_trust_0087_final_headline", "label": "Headline", "name": "rpd_trust_final_headline", "type": "text" },
+    { "key": "field_rpd_trust_0088_final_body", "label": "Body", "name": "rpd_trust_final_body", "type": "textarea", "rows": 2, "new_lines": "" },
+    { "key": "field_rpd_trust_0089_final_cards", "label": "CTA Cards", "name": "rpd_trust_final_cards", "type": "repeater", "layout": "block", "button_label": "Add card", "sub_fields": [
+      { "key": "field_rpd_trust_0089a_step", "label": "Step", "name": "step", "type": "text" },
+      { "key": "field_rpd_trust_0089b_title", "label": "Title", "name": "title", "type": "text" },
+      { "key": "field_rpd_trust_0089c_body", "label": "Body", "name": "body", "type": "textarea", "rows": 4, "new_lines": "" },
+      { "key": "field_rpd_trust_0089d_cta_label", "label": "CTA Label", "name": "cta_label", "type": "text" },
+      { "key": "field_rpd_trust_0089e_cta_url", "label": "CTA URL", "name": "cta_url", "type": "url" },
+      { "key": "field_rpd_trust_0089f_style", "label": "Button Style", "name": "style", "type": "select", "choices": { "purple": "Purple", "gold": "Gold" }, "default_value": "purple" }
+    ] }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-templates/template-trust-cycle-guide.php"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Fields for the RocketPD Trust Cycle Guide page template.",
+  "show_in_rest": false,
+  "modified": 1778700000
+}
