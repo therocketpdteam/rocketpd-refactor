@@ -29,12 +29,13 @@ function rocketpd_enqueue_assets() {
 
 	foreach ( $css_files as $css_file ) {
 		$handle = 'rocketpd-' . $css_file;
+		$path   = get_template_directory() . '/assets/css/' . $css_file . '.css';
 
 		wp_enqueue_style(
 			$handle,
 			get_template_directory_uri() . '/assets/css/' . $css_file . '.css',
 			$dependency,
-			$theme_version
+			file_exists( $path ) ? filemtime( $path ) : $theme_version
 		);
 
 		$dependency = array( $handle );
