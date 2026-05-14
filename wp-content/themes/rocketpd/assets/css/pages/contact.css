@@ -97,6 +97,10 @@
 	transition: background-color var(--rpd-transition);
 }
 
+.rpd-contact-quick__item + .rpd-contact-quick__item {
+	border-top: 1px solid var(--rpd-color-border);
+}
+
 .rpd-contact-quick__item:hover {
 	background: rgba(85, 82, 177, 0.07);
 }
@@ -163,9 +167,28 @@
 	box-shadow: var(--rpd-shadow-sm);
 }
 
+.rpd-contact-door::after {
+	position: absolute;
+	inset: auto -0.45rem -0.45rem auto;
+	z-index: -1;
+	width: 55%;
+	height: 45%;
+	border-radius: var(--rpd-radius);
+	background: rgba(85, 82, 177, 0.12);
+	content: "";
+}
+
 .rpd-contact-door--dark-featured {
 	background: var(--gradient-navy);
 	color: var(--rpd-lavender-soft);
+}
+
+.rpd-contact-door--dark-featured::after {
+	background: rgba(253, 185, 51, 0.25);
+}
+
+.rpd-contact-door--light-alt::after {
+	background: rgba(161, 84, 161, 0.15);
 }
 
 .rpd-contact-door--dark-featured h3 {
@@ -188,6 +211,41 @@
 	margin-top: auto;
 }
 
+.rpd-contact-door__list,
+.rpd-contact-form-section__list {
+	display: grid;
+	gap: var(--rpd-space-2);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.rpd-contact-door__list li,
+.rpd-contact-form-section__list li {
+	position: relative;
+	padding-left: 1.65rem;
+	font-size: var(--rpd-font-size-sm);
+	font-weight: 700;
+}
+
+.rpd-contact-door__list li::before,
+.rpd-contact-form-section__list li::before {
+	position: absolute;
+	left: 0;
+	top: 0.2rem;
+	width: 0.45rem;
+	height: 0.75rem;
+	content: "";
+	border: solid var(--rpd-purple);
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
+}
+
+.rpd-contact-door--dark-featured .rpd-contact-door__list li::before,
+.rpd-contact-form-section__list li::before {
+	border-color: var(--rpd-gold);
+}
+
 .rpd-contact-door__subcta {
 	color: inherit;
 	font-size: var(--rpd-font-size-sm);
@@ -200,6 +258,31 @@
 
 .rpd-contact-jesse__actions {
 	margin-top: var(--rpd-space-6);
+}
+
+.rpd-contact-jesse__meta {
+	display: grid;
+	gap: var(--rpd-space-3);
+	margin-top: var(--rpd-space-6);
+}
+
+.rpd-contact-jesse__meta div {
+	padding-left: var(--rpd-space-4);
+	border-left: 3px solid var(--rpd-gold);
+}
+
+.rpd-contact-jesse__meta strong,
+.rpd-contact-jesse__meta span {
+	display: block;
+}
+
+.rpd-contact-jesse__meta strong {
+	color: var(--rpd-navy);
+}
+
+.rpd-contact-jesse__meta span {
+	color: var(--rpd-color-text-muted);
+	font-size: var(--rpd-font-size-sm);
 }
 
 .rpd-contact-profile {
@@ -230,6 +313,22 @@
 
 .rpd-contact-profile__box ul {
 	margin-bottom: 0;
+}
+
+.rpd-contact-profile__booking {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--rpd-space-4);
+	margin-top: var(--rpd-space-5);
+	padding-top: var(--rpd-space-4);
+	border-top: 1px solid var(--rpd-color-border);
+	color: var(--rpd-color-text-muted);
+	font-size: var(--rpd-font-size-sm);
+}
+
+.rpd-contact-profile__booking strong {
+	color: var(--rpd-navy);
 }
 
 .rpd-contact-method {
@@ -277,6 +376,10 @@
 	color: var(--rpd-white);
 }
 
+.rpd-contact-form-section__list {
+	margin-top: var(--rpd-space-6);
+}
+
 .rpd-contact-form-card {
 	padding: var(--rpd-space-8);
 	border-radius: var(--rpd-radius);
@@ -285,11 +388,40 @@
 	box-shadow: var(--rpd-shadow-lg);
 }
 
-.rpd-contact-form-placeholder {
-	padding: var(--rpd-space-6);
-	border: 1px dashed var(--rpd-color-border-strong);
+.rpd-contact-form-fallback {
+	display: grid;
+	gap: var(--rpd-space-4);
+}
+
+.rpd-contact-form-fallback label {
+	display: grid;
+	gap: var(--rpd-space-2);
+	margin: 0;
+	color: var(--rpd-navy);
+	font-size: var(--rpd-font-size-sm);
+	font-weight: 800;
+}
+
+.rpd-contact-form-fallback input,
+.rpd-contact-form-fallback select,
+.rpd-contact-form-fallback textarea {
+	width: 100%;
+	border: 1px solid var(--rpd-color-border);
 	border-radius: var(--rpd-radius);
-	background: var(--rpd-color-surface-soft);
+	background: var(--rpd-bg-soft);
+	color: var(--rpd-color-text-muted);
+}
+
+.rpd-contact-form-fallback .rpd-btn {
+	width: 100%;
+	opacity: 1;
+}
+
+.rpd-contact-form-fallback .rpd-btn:disabled,
+.rpd-contact-form-fallback input:disabled,
+.rpd-contact-form-fallback select:disabled,
+.rpd-contact-form-fallback textarea:disabled {
+	cursor: default;
 }
 
 .rpd-contact-form-card__promise {
@@ -304,7 +436,24 @@
 }
 
 .rpd-contact-faq__item h3 {
+	position: relative;
+	padding-left: var(--rpd-space-6);
 	font-size: var(--rpd-font-size-md);
+}
+
+.rpd-contact-faq__item h3::before {
+	position: absolute;
+	left: 0;
+	top: 0.1rem;
+	width: 0.8rem;
+	height: 0.8rem;
+	border: 2px solid var(--rpd-purple);
+	border-radius: 999px;
+	content: "";
+}
+
+.rpd-contact-faq__item p {
+	padding-left: var(--rpd-space-6);
 }
 
 .rpd-contact-final {
@@ -346,6 +495,10 @@
 
 	.rpd-contact-door-grid,
 	.rpd-contact-reach__grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.rpd-contact-jesse__meta {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 

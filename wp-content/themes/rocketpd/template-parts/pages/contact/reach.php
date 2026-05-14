@@ -15,9 +15,9 @@ $email         = rocketpd_get_option( 'rpd_general_email', 'info@rocketpd.com' )
 $support_email = rocketpd_get_option( 'rpd_support_email', 'support@rocketpd.com' );
 $address       = array_filter(
 	array(
-		rocketpd_get_option( 'rpd_address_line_1' ),
-		rocketpd_get_option( 'rpd_address_line_2' ),
-		rocketpd_get_option( 'rpd_city_state_zip' ),
+		rocketpd_get_option( 'rpd_address_line_1', '1055 Howell Mill Rd.' ),
+		rocketpd_get_option( 'rpd_address_line_2', '8th Floor' ),
+		rocketpd_get_option( 'rpd_city_state_zip', 'Atlanta, GA 30318' ),
 	)
 );
 ?>

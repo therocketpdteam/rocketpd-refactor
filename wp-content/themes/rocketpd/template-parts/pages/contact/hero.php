@@ -12,16 +12,47 @@ if ( ! defined( 'ABSPATH' ) ) {
 $phone_display = rocketpd_get_option( 'rpd_phone_display', '(855) 757-6253' );
 $phone_tel     = rocketpd_get_option( 'rpd_phone_tel', '8557576253' );
 $email         = rocketpd_get_option( 'rpd_general_email', 'info@rocketpd.com' );
-$jesse_url     = rocketpd_get_option( 'rpd_jesse_schedule_url' );
+$jesse_url     = rocketpd_get_option( 'rpd_jesse_schedule_url', 'https://rocketpd.com/jesse-schedule/' );
 $eyebrow       = rocketpd_get_field( 'rpd_contact_hero_eyebrow', __( 'Contact RocketPD', 'rocketpd' ) );
 $headline      = rocketpd_get_field( 'rpd_contact_hero_headline', __( "We're here. What do you need?", 'rocketpd' ) );
 $body          = rocketpd_get_field( 'rpd_contact_hero_body', __( "Whether you're an educator looking for community, a school leader exploring options, or a current member who needs a hand, pick a door below and we'll meet you there.", 'rocketpd' ) );
-$trust_items   = rocketpd_get_field(
+$fallback_trust_items = array(
+	array( 'text' => __( 'Replies within 1 business day', 'rocketpd' ) ),
+	array( 'text' => __( 'Real humans, every time', 'rocketpd' ) ),
+);
+$trust_items          = rocketpd_get_repeater_rows(
 	'rpd_contact_hero_trust_items',
+	$fallback_trust_items,
+	array( 'text' )
+);
+
+if ( count( $trust_items ) < 2 ) {
+	$trust_items = $fallback_trust_items;
+}
+
+$quick_items = array(
 	array(
-		array( 'text' => __( 'Replies within 1 business day', 'rocketpd' ) ),
-		array( 'text' => __( 'Real humans, every time', 'rocketpd' ) ),
-	)
+		'modifier' => 'gold',
+		'icon'     => 'P',
+		'label'    => __( 'Call', 'rocketpd' ),
+		'value'    => $phone_display,
+		'url'      => 'tel:' . preg_replace( '/[^0-9+]/', '', $phone_tel ),
+	),
+	array(
+		'modifier' => '',
+		'icon'     => '@',
+		'label'    => __( 'Email', 'rocketpd' ),
+		'value'    => $email,
+		'url'      => 'mailto:' . $email,
+	),
+	array(
+		'modifier' => 'deep',
+		'icon'     => 'T',
+		'label'    => __( 'Book time', 'rocketpd' ),
+		'value'    => __( 'With Jesse, in 20 min', 'rocketpd' ),
+		'url'      => $jesse_url,
+		'target'   => '_blank',
+	),
 );
 ?>
 
@@ -47,31 +78,22 @@ $trust_items   = rocketpd_get_field(
 		<aside class="rpd-lifted-card rpd-contact-quick" aria-label="<?php esc_attr_e( 'Reach RocketPD directly', 'rocketpd' ); ?>">
 			<p class="rpd-contact-quick__eyebrow"><?php esc_html_e( 'Reach us directly', 'rocketpd' ); ?></p>
 
-			<a class="rpd-contact-quick__item" href="<?php echo esc_url( 'tel:' . preg_replace( '/[^0-9+]/', '', $phone_tel ) ); ?>">
-				<span class="rpd-contact-quick__chip rpd-contact-quick__chip--gold" aria-hidden="true">P</span>
-				<span>
-					<span class="rpd-contact-quick__label"><?php esc_html_e( 'Call', 'rocketpd' ); ?></span>
-					<span class="rpd-contact-quick__value"><?php echo esc_html( $phone_display ); ?></span>
-				</span>
-			</a>
+			<?php foreach ( $quick_items as $item ) : ?>
+				<?php
+				if ( empty( $item['url'] ) || empty( $item['value'] ) ) {
+					continue;
+				}
 
-			<a class="rpd-contact-quick__item" href="<?php echo esc_url( 'mailto:' . $email ); ?>">
-				<span class="rpd-contact-quick__chip" aria-hidden="true">@</span>
-				<span>
-					<span class="rpd-contact-quick__label"><?php esc_html_e( 'Email', 'rocketpd' ); ?></span>
-					<span class="rpd-contact-quick__value"><?php echo esc_html( $email ); ?></span>
-				</span>
-			</a>
-
-			<?php if ( $jesse_url ) : ?>
-				<a class="rpd-contact-quick__item" href="<?php echo esc_url( $jesse_url ); ?>" target="_blank" rel="noopener">
-					<span class="rpd-contact-quick__chip rpd-contact-quick__chip--deep" aria-hidden="true">T</span>
+				$chip_class = ! empty( $item['modifier'] ) ? ' rpd-contact-quick__chip--' . sanitize_html_class( $item['modifier'] ) : '';
+				?>
+				<a class="rpd-contact-quick__item" href="<?php echo esc_url( $item['url'] ); ?>"<?php echo ! empty( $item['target'] ) ? ' target="_blank" rel="noopener"' : ''; ?>>
+					<span class="rpd-contact-quick__chip<?php echo esc_attr( $chip_class ); ?>" aria-hidden="true"><?php echo esc_html( $item['icon'] ); ?></span>
 					<span>
-						<span class="rpd-contact-quick__label"><?php esc_html_e( 'Book time', 'rocketpd' ); ?></span>
-						<span class="rpd-contact-quick__value"><?php esc_html_e( 'With Jesse, in 20 min', 'rocketpd' ); ?></span>
+						<span class="rpd-contact-quick__label"><?php echo esc_html( $item['label'] ); ?></span>
+						<span class="rpd-contact-quick__value"><?php echo esc_html( $item['value'] ); ?></span>
 					</span>
 				</a>
-			<?php endif; ?>
+			<?php endforeach; ?>
 		</aside>
 	</div>
 </section>
