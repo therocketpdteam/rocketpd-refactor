@@ -9,8 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$community_url = rocketpd_get_option( 'rpd_community_signup_url' );
-$jesse_url     = rocketpd_get_option( 'rpd_jesse_schedule_url' );
+$community_url = rocketpd_get_option( 'rpd_community_signup_url', home_url( '/community/' ) );
+$jesse_url     = rocketpd_get_option( 'rpd_jesse_schedule_url', 'https://rocketpd.com/jesse-schedule/' );
 $eyebrow       = rocketpd_get_field( 'rpd_contact_final_eyebrow', __( 'The fastest way to meet us', 'rocketpd' ) );
 $headline      = rocketpd_get_field( 'rpd_contact_final_headline', __( 'Honestly? Just come hang out.', 'rocketpd' ) );
 $body          = rocketpd_get_field( 'rpd_contact_final_body', __( "The door's open, and it's free.", 'rocketpd' ) );
