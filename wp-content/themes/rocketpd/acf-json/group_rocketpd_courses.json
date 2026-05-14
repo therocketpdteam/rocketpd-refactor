@@ -1,0 +1,378 @@
+{
+    "key": "group_rocketpd_courses",
+    "title": "RocketPD Courses",
+    "fields": [
+        {
+            "key": "field_rpd_courses_tab_hero",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_courses_hero_eyebrow",
+            "label": "Hero Eyebrow",
+            "name": "rpd_courses_hero_eyebrow",
+            "type": "text",
+            "default_value": "Courses & Learning Experiences"
+        },
+        {
+            "key": "field_rpd_courses_hero_headline",
+            "label": "Hero Headline",
+            "name": "rpd_courses_hero_headline",
+            "type": "text",
+            "default_value": "Expert-Led K-12 Professional Learning, Built Around the Way Educators Actually Learn."
+        },
+        {
+            "key": "field_rpd_courses_hero_body",
+            "label": "Hero Body",
+            "name": "rpd_courses_hero_body",
+            "type": "textarea",
+            "rows": 3,
+            "default_value": "Browse free webinars, self-paced video courses, and live-virtual cohorts led by nationally recognized K-12 experts. Choose the format that fits your team - or blend all three."
+        },
+        {
+            "key": "field_rpd_courses_hero_primary_label",
+            "label": "Primary CTA Label",
+            "name": "rpd_courses_hero_primary_label",
+            "type": "text",
+            "default_value": "Browse Courses"
+        },
+        {
+            "key": "field_rpd_courses_hero_primary_url",
+            "label": "Primary CTA URL",
+            "name": "rpd_courses_hero_primary_url",
+            "type": "text",
+            "default_value": "#course-gallery"
+        },
+        {
+            "key": "field_rpd_courses_hero_secondary_label",
+            "label": "Secondary CTA Label",
+            "name": "rpd_courses_hero_secondary_label",
+            "type": "text",
+            "default_value": "Explore Free Webinars"
+        },
+        {
+            "key": "field_rpd_courses_hero_secondary_url",
+            "label": "Secondary CTA URL",
+            "name": "rpd_courses_hero_secondary_url",
+            "type": "text",
+            "default_value": "#course-gallery"
+        },
+        {
+            "key": "field_rpd_courses_hero_trust_items",
+            "label": "Trust Strip Items",
+            "name": "rpd_courses_hero_trust_items",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Item",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_courses_hero_trust_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_courses_tab_formats",
+            "label": "Formats",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_courses_formats_eyebrow",
+            "label": "Formats Eyebrow",
+            "name": "rpd_courses_formats_eyebrow",
+            "type": "text",
+            "default_value": "Three Ways to Learn"
+        },
+        {
+            "key": "field_rpd_courses_formats_headline",
+            "label": "Formats Headline",
+            "name": "rpd_courses_formats_headline",
+            "type": "text",
+            "default_value": "Choose your learning format."
+        },
+        {
+            "key": "field_rpd_courses_formats_body",
+            "label": "Formats Body",
+            "name": "rpd_courses_formats_body",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Every RocketPD experience is built for working educators. Pick the depth and pace that fits your week."
+        },
+        {
+            "key": "field_rpd_courses_format_cards",
+            "label": "Format Cards",
+            "name": "rpd_courses_format_cards",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Format Card",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_courses_format_card_format",
+                    "label": "Format Key",
+                    "name": "format",
+                    "type": "select",
+                    "choices": {
+                        "webinar": "Free Webinar",
+                        "self-paced": "Self-Paced Course",
+                        "cohort": "Live-Virtual Cohort"
+                    }
+                },
+                {
+                    "key": "field_rpd_courses_format_card_badge",
+                    "label": "Badge",
+                    "name": "badge",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_courses_format_card_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_courses_format_card_body",
+                    "label": "Body",
+                    "name": "body",
+                    "type": "textarea",
+                    "rows": 3
+                },
+                {
+                    "key": "field_rpd_courses_format_card_cta_label",
+                    "label": "CTA Label",
+                    "name": "cta_label",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_courses_format_card_cta_url",
+                    "label": "CTA URL",
+                    "name": "cta_url",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_courses_format_card_featured",
+                    "label": "Featured",
+                    "name": "featured",
+                    "type": "true_false",
+                    "ui": 1
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_courses_tab_gallery",
+            "label": "Gallery",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_courses_gallery_eyebrow",
+            "label": "Gallery Eyebrow",
+            "name": "rpd_courses_gallery_eyebrow",
+            "type": "text",
+            "default_value": "Learning Gallery"
+        },
+        {
+            "key": "field_rpd_courses_gallery_headline",
+            "label": "Gallery Headline",
+            "name": "rpd_courses_gallery_headline",
+            "type": "text",
+            "default_value": "Find the right course for your team."
+        },
+        {
+            "key": "field_rpd_courses_gallery_body",
+            "label": "Gallery Body",
+            "name": "rpd_courses_gallery_body",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Filter by format, topic, instructor, or audience. Every course is built and delivered by a nationally recognized K-12 thought leader."
+        },
+        {
+            "key": "field_rpd_courses_empty_title",
+            "label": "Empty State Title",
+            "name": "rpd_courses_empty_title",
+            "type": "text",
+            "default_value": "No courses match"
+        },
+        {
+            "key": "field_rpd_courses_empty_body",
+            "label": "Empty State Body",
+            "name": "rpd_courses_empty_body",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Try clearing a filter or searching for a broader topic."
+        },
+        {
+            "key": "field_rpd_courses_tab_guide",
+            "label": "Decision Guide",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_courses_guide_eyebrow",
+            "label": "Guide Eyebrow",
+            "name": "rpd_courses_guide_eyebrow",
+            "type": "text",
+            "default_value": "Decision Guide"
+        },
+        {
+            "key": "field_rpd_courses_guide_headline",
+            "label": "Guide Headline",
+            "name": "rpd_courses_guide_headline",
+            "type": "text",
+            "default_value": "Not sure where to start?"
+        },
+        {
+            "key": "field_rpd_courses_guide_body",
+            "label": "Guide Body",
+            "name": "rpd_courses_guide_body",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "A 30-second decision guide to pick the format that fits your goal this month."
+        },
+        {
+            "key": "field_rpd_courses_guide_cards",
+            "label": "Guide Cards",
+            "name": "rpd_courses_guide_cards",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Guide Card",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_courses_guide_card_format",
+                    "label": "Format Key",
+                    "name": "format",
+                    "type": "select",
+                    "choices": {
+                        "webinar": "Free Webinar",
+                        "self-paced": "Self-Paced Course",
+                        "cohort": "Live-Virtual Cohort"
+                    }
+                },
+                {
+                    "key": "field_rpd_courses_guide_card_eyebrow",
+                    "label": "Eyebrow",
+                    "name": "eyebrow",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_courses_guide_card_body",
+                    "label": "Body",
+                    "name": "body",
+                    "type": "textarea",
+                    "rows": 4
+                },
+                {
+                    "key": "field_rpd_courses_guide_card_meta",
+                    "label": "Time Commitment",
+                    "name": "meta",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_courses_tab_cta",
+            "label": "District CTA",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_courses_cta_eyebrow",
+            "label": "CTA Eyebrow",
+            "name": "rpd_courses_cta_eyebrow",
+            "type": "text",
+            "default_value": "For Schools & Districts"
+        },
+        {
+            "key": "field_rpd_courses_cta_headline",
+            "label": "CTA Headline",
+            "name": "rpd_courses_cta_headline",
+            "type": "text",
+            "default_value": "Want to bring RocketPD to your school or district?"
+        },
+        {
+            "key": "field_rpd_courses_cta_body",
+            "label": "CTA Body",
+            "name": "rpd_courses_cta_body",
+            "type": "textarea",
+            "rows": 3,
+            "default_value": "RocketPD helps schools and districts connect professional learning to strategic priorities through expert-led courses, cohorts, and customized implementation support."
+        },
+        {
+            "key": "field_rpd_courses_cta_primary_label",
+            "label": "Primary CTA Label",
+            "name": "rpd_courses_cta_primary_label",
+            "type": "text",
+            "default_value": "Talk With RocketPD"
+        },
+        {
+            "key": "field_rpd_courses_cta_primary_url",
+            "label": "Primary CTA URL",
+            "name": "rpd_courses_cta_primary_url",
+            "type": "text",
+            "default_value": "/contact/"
+        },
+        {
+            "key": "field_rpd_courses_cta_secondary_label",
+            "label": "Secondary CTA Label",
+            "name": "rpd_courses_cta_secondary_label",
+            "type": "text",
+            "default_value": "See District Pricing"
+        },
+        {
+            "key": "field_rpd_courses_cta_secondary_url",
+            "label": "Secondary CTA URL",
+            "name": "rpd_courses_cta_secondary_url",
+            "type": "text",
+            "default_value": "/launchpad/"
+        },
+        {
+            "key": "field_rpd_courses_cta_perks",
+            "label": "CTA Perks",
+            "name": "rpd_courses_cta_perks",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Perk",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_courses_cta_perk_icon",
+                    "label": "Icon Key",
+                    "name": "icon",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_courses_cta_perk_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates/template-courses.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Page-level fields for the RocketPD Course Index template.",
+    "show_in_rest": 0,
+    "modified": 1770835200
+}

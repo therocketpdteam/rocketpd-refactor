@@ -18,6 +18,7 @@ $rocketpd_includes = array(
 	'taxonomies',
 	'helpers',
 	'instructors',
+	'courses',
 	'icons',
 	'template-tags',
 	'nav',
