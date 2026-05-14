@@ -57,8 +57,9 @@ function rocketpd_is_courses_menu_item( $item ) {
 
 	$path = wp_parse_url( $item->url, PHP_URL_PATH );
 	$path = $path ? untrailingslashit( $path ) : '';
+	$title = ! empty( $item->title ) ? sanitize_title( $item->title ) : '';
 
-	return '/launchpad/courses' === $path;
+	return in_array( $path, array( '/launchpad/courses', '/launchpad' ), true ) || in_array( $title, array( 'courses', 'video-courses' ), true );
 }
 
 /**
