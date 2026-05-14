@@ -73,6 +73,10 @@
 		linear-gradient(135deg, #ffffff 0%, #f6f5fb 48%, #ecebf6 100%);
 }
 
+.rpd-course-detail-page .rpd-course-hero .rpd-container{
+	max-width: min(1280px, calc(100vw - 2rem));
+}
+
 .rpd-course-detail-page .rpd-course-orb{
 	position: absolute;
 	z-index: -1;
@@ -105,6 +109,11 @@
 	align-items: center;
 }
 
+.rpd-course-detail-page .rpd-course-hero__inner{
+	grid-template-columns: minmax(0, 1fr) minmax(33rem, 1fr);
+	gap: clamp(3rem, 5vw, 4.5rem);
+}
+
 .rpd-course-detail-page .rpd-course-format-badge,
 .rpd-course-detail-page .rpd-course-section-kicker,
 .rpd-course-detail-page .rpd-course-section-header > p,
@@ -129,9 +138,9 @@
 }
 
 .rpd-course-detail-page .rpd-course-hero h1{
-	max-width: 21ch;
+	max-width: 24ch;
 	margin: 0 0 1.3rem;
-	font-size: clamp(2.85rem, 3.75vw, 4.15rem);
+	font-size: clamp(2.8rem, 3.35vw, 3.72rem);
 	line-height: 1.04;
 	overflow-wrap: normal;
 	word-break: normal;
@@ -350,10 +359,15 @@
 
 .rpd-course-detail-page .rpd-course-outcomes__grid,
 .rpd-course-detail-page .rpd-course-pricing__grid,
-.rpd-course-detail-page .rpd-course-related__grid,
-.rpd-course-detail-page .rpd-course-resource-grid{
+.rpd-course-detail-page .rpd-course-related__grid{
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.5rem;
+}
+
+.rpd-course-detail-page .rpd-course-resource-grid{
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 1.5rem;
 }
 
@@ -481,29 +495,151 @@
 
 .rpd-course-detail-page .rpd-course-device-card__screen{
 	position: relative;
-	display: grid;
-	gap: 1rem;
-	place-items: center;
+	overflow: hidden;
 	min-height: 20rem;
 	padding: 2rem;
 	border-radius: 1rem;
-	background: rgba(255, 255, 255, 0.1);
+	background:
+		radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.12) 0 28%, transparent 29% 100%),
+		rgba(255, 255, 255, 0.1);
 	color: #ffffff;
 	text-align: center;
 }
 
-.rpd-course-detail-page .rpd-course-device-card__screen img{
-	width: min(14rem, 80%);
-	aspect-ratio: 1;
-	border-radius: 1rem;
-	object-fit: cover;
-	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+.rpd-course-detail-page .rpd-course-device-card__brand{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	width: 8.6rem;
+	height: 8.6rem;
+	display: grid;
+	place-items: center;
+	border-radius: 50%;
+	background: #ffffff;
+	color: var(--rpd-navy);
+	font-family: var(--font-heading);
+	font-size: 1.45rem;
+	font-weight: 900;
+	transform: translate(-50%, -50%);
 }
 
-.rpd-course-detail-page .rpd-course-device-card__screen strong{
+.rpd-course-detail-page .rpd-course-device-card__brand span{
+	color: var(--rpd-purple);
+}
+
+.rpd-course-detail-page .rpd-course-device-card__phone,
+.rpd-course-detail-page .rpd-course-device-card__laptop,
+.rpd-course-detail-page .rpd-course-device-card__book{
+	position: absolute;
+	z-index: 2;
+	border: 5px solid rgba(255, 255, 255, 0.92);
+	background: #ffffff;
+	box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+}
+
+.rpd-course-detail-page .rpd-course-device-card__phone{
+	left: 21%;
+	bottom: 12%;
+	width: 6.4rem;
+	padding: 0.6rem;
+	border-radius: 1.1rem;
+	color: var(--rpd-navy);
+	text-align: left;
+	transform: rotate(-2deg);
+}
+
+.rpd-course-detail-page .rpd-course-device-card__phone span{
 	display: block;
-	font-family: var(--font-heading);
-	font-size: 2rem;
+	height: 4.5rem;
+	margin-bottom: 0.55rem;
+	border-radius: 0.65rem;
+	background: linear-gradient(135deg, rgba(253, 185, 51, 0.92), rgba(161, 84, 161, 0.82));
+}
+
+.rpd-course-detail-page .rpd-course-device-card__phone strong,
+.rpd-course-detail-page .rpd-course-device-card__phone em{
+	display: block;
+	font-size: 0.55rem;
+	line-height: 1.25;
+}
+
+.rpd-course-detail-page .rpd-course-device-card__phone em{
+	color: var(--rpd-body);
+	font-style: normal;
+}
+
+.rpd-course-detail-page .rpd-course-device-card__laptop{
+	right: 8%;
+	bottom: 14%;
+	width: 15rem;
+	padding: 0.55rem;
+	border-radius: 0.8rem 0.8rem 0.25rem 0.25rem;
+	transform: rotate(1deg);
+}
+
+.rpd-course-detail-page .rpd-course-device-card__laptop::after{
+	position: absolute;
+	left: 50%;
+	bottom: -0.75rem;
+	width: 17rem;
+	height: 0.75rem;
+	border-radius: 0 0 1rem 1rem;
+	background: rgba(255, 255, 255, 0.78);
+	content: "";
+	transform: translateX(-50%);
+}
+
+.rpd-course-detail-page .rpd-course-device-card__laptop > div{
+	overflow: hidden;
+	min-height: 7.7rem;
+	border-radius: 0.45rem;
+	background: linear-gradient(135deg, #231f58, #5552b1);
+	color: #ffffff;
+}
+
+.rpd-course-detail-page .rpd-course-device-card__laptop img{
+	width: 100%;
+	height: 5.4rem;
+	object-fit: cover;
+	opacity: 0.9;
+}
+
+.rpd-course-detail-page .rpd-course-device-card__laptop span{
+	display: block;
+	padding: 0.5rem;
+	font-size: 0.62rem;
+	font-weight: 900;
+}
+
+.rpd-course-detail-page .rpd-course-device-card__book{
+	top: 22%;
+	right: 17%;
+	width: 7.2rem;
+	height: 9rem;
+	border-width: 0;
+	border-radius: 0.45rem;
+	background: linear-gradient(145deg, #ffffff 0 48%, #e9e7f7 49% 100%);
+	color: var(--rpd-navy);
+	transform: rotate(12deg);
+}
+
+.rpd-course-detail-page .rpd-course-device-card__book::before{
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	background: linear-gradient(135deg, rgba(253, 185, 51, 0.9), rgba(161, 84, 161, 0.75));
+	clip-path: polygon(0 0, 100% 0, 100% 42%, 0 72%);
+	content: "";
+}
+
+.rpd-course-detail-page .rpd-course-device-card__book span{
+	position: absolute;
+	right: 0.55rem;
+	bottom: 0.75rem;
+	left: 0.55rem;
+	font-size: 0.62rem;
+	font-weight: 900;
 }
 
 .rpd-course-detail-page .rpd-course-instructor-card{
@@ -626,7 +762,14 @@
 }
 
 .rpd-course-detail-page .rpd-course-resource-card{
+	display: flex;
+	flex-direction: column;
+	min-height: 15rem;
 	padding: 1.5rem;
+}
+
+.rpd-course-detail-page .rpd-course-resource-card--blog{
+	grid-column: span 1;
 }
 
 .rpd-course-detail-page .rpd-course-resource-card a,
@@ -636,6 +779,12 @@
 	color: var(--rpd-purple);
 	font-weight: 900;
 	text-decoration: none;
+}
+
+.rpd-course-detail-page .rpd-course-resource-card a{
+	margin-top: auto;
+	padding-top: 1rem;
+	border-top: 1px solid rgba(35, 31, 88, 0.1);
 }
 
 .rpd-course-detail-page .rpd-course-pricing-card{
