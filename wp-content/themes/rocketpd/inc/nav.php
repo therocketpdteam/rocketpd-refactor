@@ -24,7 +24,7 @@ function rocketpd_is_instructors_context() {
  * @return bool
  */
 function rocketpd_is_courses_context() {
-	return is_page_template( 'page-templates/template-courses.php' );
+	return is_page_template( 'page-templates/template-courses.php' ) || ( function_exists( 'rocketpd_is_course_detail_context' ) && rocketpd_is_course_detail_context() );
 }
 
 /**

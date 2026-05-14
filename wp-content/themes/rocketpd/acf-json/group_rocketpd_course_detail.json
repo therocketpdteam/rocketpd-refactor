@@ -1,0 +1,100 @@
+{
+    "key": "group_rocketpd_course_detail",
+    "title": "RocketPD Course Detail",
+    "fields": [
+        {
+            "key": "field_rpd_course_tab_hero",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_course_title",
+            "label": "Course Title",
+            "name": "rpd_course_title",
+            "type": "text",
+            "default_value": "Rethinking Teacher Supervision, Coaching & Evaluation"
+        },
+        {
+            "key": "field_rpd_course_format",
+            "label": "Format",
+            "name": "rpd_course_format",
+            "type": "select",
+            "choices": {
+                "webinar": "Free Webinar",
+                "self-paced": "Self-Paced Course",
+                "cohort": "Live-Virtual Cohort"
+            },
+            "default_value": "self-paced"
+        },
+        {
+            "key": "field_rpd_course_topic",
+            "label": "Topic",
+            "name": "rpd_course_topic",
+            "type": "text",
+            "default_value": "Teacher Evaluation"
+        },
+        {
+            "key": "field_rpd_course_price",
+            "label": "Price",
+            "name": "rpd_course_price",
+            "type": "text",
+            "default_value": "$49"
+        },
+        {
+            "key": "field_rpd_course_price_meta",
+            "label": "Price Meta",
+            "name": "rpd_course_price_meta",
+            "type": "text",
+            "default_value": "single course \u00b7 anytime access"
+        },
+        {
+            "key": "field_rpd_course_promise",
+            "label": "Promise",
+            "name": "rpd_course_promise",
+            "type": "textarea",
+            "rows": 4,
+            "default_value": "Build a more practical, trust-centered approach to teacher evaluation through frequent mini-observations, better feedback conversations, and stronger coaching systems."
+        },
+        {
+            "key": "field_rpd_course_trailer_youtube_id",
+            "label": "Trailer YouTube ID",
+            "name": "rpd_course_trailer_youtube_id",
+            "type": "text",
+            "default_value": "1lOJDsHcCPQ"
+        },
+        {
+            "key": "field_rpd_course_tab_sections",
+            "label": "Sections",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_course_editor_note",
+            "label": "Editor Note",
+            "name": "rpd_course_editor_note",
+            "type": "message",
+            "message": "This first template renders from the theme fallback COURSE contract. Future CMS fields can map to outcomes, included items, resources, pricing, related courses, and FAQs without changing the front-end structure."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates/template-course-detail.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "Page-level fields for RocketPD individual course detail pages.",
+    "show_in_rest": 0,
+    "modified": 1715900000
+}

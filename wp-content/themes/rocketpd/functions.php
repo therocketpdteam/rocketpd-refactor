@@ -19,6 +19,7 @@ $rocketpd_includes = array(
 	'helpers',
 	'instructors',
 	'courses',
+	'course-detail',
 	'icons',
 	'template-tags',
 	'nav',
