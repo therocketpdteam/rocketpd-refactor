@@ -1,0 +1,666 @@
+{
+    "key": "group_rocketpd_instructor_detail",
+    "title": "RocketPD Instructor Detail",
+    "fields": [
+        {
+            "key": "field_rpd_instructor_tab_identity",
+            "label": "Identity",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructor_name",
+            "label": "Name",
+            "name": "rpd_instructor_name",
+            "type": "text",
+            "default_value": "Kim Marshall"
+        },
+        {
+            "key": "field_rpd_instructor_authority",
+            "label": "Authority Headline",
+            "name": "rpd_instructor_authority",
+            "type": "textarea",
+            "rows": 3,
+            "default_value": "Rethinking teacher supervision, coaching, and evaluation so leaders can build trust and improve practice."
+        },
+        {
+            "key": "field_rpd_instructor_tags",
+            "label": "Tags",
+            "name": "rpd_instructor_tags",
+            "type": "textarea",
+            "instructions": "One tag per line.",
+            "rows": 4
+        },
+        {
+            "key": "field_rpd_instructor_headshot",
+            "label": "Headshot",
+            "name": "rpd_instructor_headshot",
+            "type": "image",
+            "return_format": "url",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_rpd_instructor_hero_eyebrow",
+            "label": "Hero Eyebrow",
+            "name": "rpd_instructor_hero_eyebrow",
+            "type": "text",
+            "default_value": "RocketPD Instructor \u00b7 Featured Expert"
+        },
+        {
+            "key": "field_rpd_instructor_hero_primary_label",
+            "label": "Hero Primary CTA Label",
+            "name": "rpd_instructor_hero_primary_label",
+            "type": "text",
+            "default_value": "Explore Free Resources"
+        },
+        {
+            "key": "field_rpd_instructor_hero_primary_href",
+            "label": "Hero Primary CTA URL",
+            "name": "rpd_instructor_hero_primary_href",
+            "type": "text",
+            "default_value": "#free-resources"
+        },
+        {
+            "key": "field_rpd_instructor_hero_secondary_label",
+            "label": "Hero Secondary CTA Label",
+            "name": "rpd_instructor_hero_secondary_label",
+            "type": "text",
+            "default_value": "View Professional Learning"
+        },
+        {
+            "key": "field_rpd_instructor_hero_secondary_href",
+            "label": "Hero Secondary CTA URL",
+            "name": "rpd_instructor_hero_secondary_href",
+            "type": "text",
+            "default_value": "#professional-learning"
+        },
+        {
+            "key": "field_rpd_instructor_hero_award",
+            "label": "Hero Award Text",
+            "name": "rpd_instructor_hero_award",
+            "type": "text",
+            "default_value": "30+ years"
+        },
+        {
+            "key": "field_rpd_instructor_stats",
+            "label": "Hero Stats",
+            "name": "rpd_instructor_stats",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Stat",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_instructor_stats_value",
+                    "label": "Value",
+                    "name": "value",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructor_stats_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_instructor_tab_follow",
+            "label": "Follow Links",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructor_linkedin_url",
+            "label": "LinkedIn URL",
+            "name": "rpd_instructor_linkedin_url",
+            "type": "url"
+        },
+        {
+            "key": "field_rpd_instructor_twitter_url",
+            "label": "Twitter URL",
+            "name": "rpd_instructor_twitter_url",
+            "type": "url"
+        },
+        {
+            "key": "field_rpd_instructor_website_url",
+            "label": "Website URL",
+            "name": "rpd_instructor_website_url",
+            "type": "url"
+        },
+        {
+            "key": "field_rpd_instructor_tab_authority",
+            "label": "Authority",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructor_bio_eyebrow",
+            "label": "Authority Eyebrow",
+            "name": "rpd_instructor_bio_eyebrow",
+            "type": "text",
+            "default_value": "Authority Positioning"
+        },
+        {
+            "key": "field_rpd_instructor_bio_heading",
+            "label": "Authority Heading",
+            "name": "rpd_instructor_bio_heading",
+            "type": "text",
+            "default_value": "Why educators learn from Kim"
+        },
+        {
+            "key": "field_rpd_instructor_bio_paragraphs",
+            "label": "Bio Paragraphs",
+            "name": "rpd_instructor_bio_paragraphs",
+            "type": "textarea",
+            "instructions": "Separate paragraphs with line breaks.",
+            "rows": 6
+        },
+        {
+            "key": "field_rpd_instructor_focus_areas",
+            "label": "Focus Areas",
+            "name": "rpd_instructor_focus_areas",
+            "type": "textarea",
+            "instructions": "One focus area per line.",
+            "rows": 6
+        },
+        {
+            "key": "field_rpd_instructor_tab_resources",
+            "label": "Free Resources",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructor_guide_enabled",
+            "label": "Guide Enabled",
+            "name": "rpd_instructor_guide_enabled",
+            "type": "true_false",
+            "ui": 1,
+            "default_value": 1
+        },
+        {
+            "key": "field_rpd_instructor_guide_title",
+            "label": "Guide Title",
+            "name": "rpd_instructor_guide_title",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_guide_summary",
+            "label": "Guide Summary",
+            "name": "rpd_instructor_guide_summary",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "field_rpd_instructor_guide_meta",
+            "label": "Guide Meta",
+            "name": "rpd_instructor_guide_meta",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_guide_href",
+            "label": "Guide URL",
+            "name": "rpd_instructor_guide_href",
+            "type": "url"
+        },
+        {
+            "key": "field_rpd_instructor_guide_deliverables",
+            "label": "Guide Deliverables",
+            "name": "rpd_instructor_guide_deliverables",
+            "type": "textarea",
+            "instructions": "One deliverable per line.",
+            "rows": 4
+        },
+        {
+            "key": "field_rpd_instructor_podcast_enabled",
+            "label": "Podcast Enabled",
+            "name": "rpd_instructor_podcast_enabled",
+            "type": "true_false",
+            "ui": 1,
+            "default_value": 1
+        },
+        {
+            "key": "field_rpd_instructor_podcast_title",
+            "label": "Podcast Title",
+            "name": "rpd_instructor_podcast_title",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_podcast_summary",
+            "label": "Podcast Summary",
+            "name": "rpd_instructor_podcast_summary",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "field_rpd_instructor_podcast_meta",
+            "label": "Podcast Meta",
+            "name": "rpd_instructor_podcast_meta",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_podcast_embed_id",
+            "label": "Podcast YouTube Embed ID",
+            "name": "rpd_instructor_podcast_embed_id",
+            "type": "text",
+            "default_value": "AME1I5sUJFQ"
+        },
+        {
+            "key": "field_rpd_instructor_podcast_href",
+            "label": "Podcast URL",
+            "name": "rpd_instructor_podcast_href",
+            "type": "url"
+        },
+        {
+            "key": "field_rpd_instructor_webinar_enabled",
+            "label": "Webinar Enabled",
+            "name": "rpd_instructor_webinar_enabled",
+            "type": "true_false",
+            "ui": 1,
+            "default_value": 1
+        },
+        {
+            "key": "field_rpd_instructor_webinar_title",
+            "label": "Webinar Title",
+            "name": "rpd_instructor_webinar_title",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_webinar_summary",
+            "label": "Webinar Summary",
+            "name": "rpd_instructor_webinar_summary",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "field_rpd_instructor_webinar_meta",
+            "label": "Webinar Meta",
+            "name": "rpd_instructor_webinar_meta",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_webinar_embed_id",
+            "label": "Webinar YouTube Embed ID",
+            "name": "rpd_instructor_webinar_embed_id",
+            "type": "text",
+            "default_value": "wIV-j4nt_ms"
+        },
+        {
+            "key": "field_rpd_instructor_webinar_href",
+            "label": "Webinar URL",
+            "name": "rpd_instructor_webinar_href",
+            "type": "url"
+        },
+        {
+            "key": "field_rpd_instructor_blog_enabled",
+            "label": "Blog Enabled",
+            "name": "rpd_instructor_blog_enabled",
+            "type": "true_false",
+            "ui": 1,
+            "default_value": 1
+        },
+        {
+            "key": "field_rpd_instructor_blog_posts",
+            "label": "Blog Posts",
+            "name": "rpd_instructor_blog_posts",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Blog Card",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_instructor_blog_post_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructor_blog_post_meta",
+                    "label": "Meta",
+                    "name": "meta",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructor_blog_post_href",
+                    "label": "URL",
+                    "name": "href",
+                    "type": "url"
+                },
+                {
+                    "key": "field_rpd_instructor_blog_post_placeholder",
+                    "label": "Placeholder Card",
+                    "name": "placeholder",
+                    "type": "true_false",
+                    "ui": 1,
+                    "default_value": 0
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_instructor_playbook_enabled",
+            "label": "Playbook Enabled (Reserved)",
+            "name": "rpd_instructor_playbook_enabled",
+            "type": "true_false",
+            "ui": 1,
+            "default_value": 0
+        },
+        {
+            "key": "field_rpd_instructor_tab_offerings",
+            "label": "Professional Learning",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructor_launchpad_enabled",
+            "label": "LaunchPad Enabled",
+            "name": "rpd_instructor_launchpad_enabled",
+            "type": "true_false",
+            "ui": 1,
+            "default_value": 1
+        },
+        {
+            "key": "field_rpd_instructor_launchpad_title",
+            "label": "LaunchPad Title",
+            "name": "rpd_instructor_launchpad_title",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_launchpad_price",
+            "label": "LaunchPad Price",
+            "name": "rpd_instructor_launchpad_price",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_launchpad_bullets",
+            "label": "LaunchPad Bullets",
+            "name": "rpd_instructor_launchpad_bullets",
+            "type": "textarea",
+            "instructions": "One bullet per line.",
+            "rows": 4
+        },
+        {
+            "key": "field_rpd_instructor_launchpad_href",
+            "label": "LaunchPad URL",
+            "name": "rpd_instructor_launchpad_href",
+            "type": "url"
+        },
+        {
+            "key": "field_rpd_instructor_launchpad_cta",
+            "label": "LaunchPad CTA",
+            "name": "rpd_instructor_launchpad_cta",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_cohort_enabled",
+            "label": "Cohort Enabled",
+            "name": "rpd_instructor_cohort_enabled",
+            "type": "true_false",
+            "ui": 1,
+            "default_value": 1
+        },
+        {
+            "key": "field_rpd_instructor_cohort_title",
+            "label": "Cohort Title",
+            "name": "rpd_instructor_cohort_title",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_cohort_price",
+            "label": "Cohort Price",
+            "name": "rpd_instructor_cohort_price",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_cohort_bullets",
+            "label": "Cohort Bullets",
+            "name": "rpd_instructor_cohort_bullets",
+            "type": "textarea",
+            "instructions": "One bullet per line.",
+            "rows": 4
+        },
+        {
+            "key": "field_rpd_instructor_cohort_href",
+            "label": "Cohort URL",
+            "name": "rpd_instructor_cohort_href",
+            "type": "url"
+        },
+        {
+            "key": "field_rpd_instructor_cohort_cta",
+            "label": "Cohort CTA",
+            "name": "rpd_instructor_cohort_cta",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_workshop_enabled",
+            "label": "Workshop Enabled",
+            "name": "rpd_instructor_workshop_enabled",
+            "type": "true_false",
+            "ui": 1,
+            "default_value": 1
+        },
+        {
+            "key": "field_rpd_instructor_workshop_title",
+            "label": "Workshop Title",
+            "name": "rpd_instructor_workshop_title",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_workshop_price",
+            "label": "Workshop Price",
+            "name": "rpd_instructor_workshop_price",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_workshop_bullets",
+            "label": "Workshop Bullets",
+            "name": "rpd_instructor_workshop_bullets",
+            "type": "textarea",
+            "instructions": "One bullet per line.",
+            "rows": 4
+        },
+        {
+            "key": "field_rpd_instructor_workshop_href",
+            "label": "Workshop URL",
+            "name": "rpd_instructor_workshop_href",
+            "type": "url"
+        },
+        {
+            "key": "field_rpd_instructor_workshop_cta",
+            "label": "Workshop CTA",
+            "name": "rpd_instructor_workshop_cta",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_tab_trust",
+            "label": "Trust",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructor_trust_quote",
+            "label": "Trust Quote",
+            "name": "rpd_instructor_trust_quote",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "field_rpd_instructor_trust_person",
+            "label": "Trust Person",
+            "name": "rpd_instructor_trust_person",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_trust_attribution",
+            "label": "Trust Attribution",
+            "name": "rpd_instructor_trust_attribution",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_trust_stats",
+            "label": "Trust Stats",
+            "name": "rpd_instructor_trust_stats",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Trust Stat",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_instructor_trust_stat_value",
+                    "label": "Value",
+                    "name": "value",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructor_trust_stat_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_instructor_tab_related",
+            "label": "Related Experts",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructor_related_experts",
+            "label": "Related Experts",
+            "name": "rpd_instructor_related_experts",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Related Expert",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_instructor_related_slug",
+                    "label": "Slug",
+                    "name": "slug",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructor_related_name",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructor_related_authority",
+                    "label": "Authority",
+                    "name": "authority",
+                    "type": "textarea",
+                    "rows": 2
+                },
+                {
+                    "key": "field_rpd_instructor_related_headshot",
+                    "label": "Headshot URL",
+                    "name": "headshot",
+                    "type": "url"
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_instructor_tab_final_cta",
+            "label": "Final CTA",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructor_final_eyebrow",
+            "label": "Final CTA Eyebrow",
+            "name": "rpd_instructor_final_eyebrow",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_final_headline",
+            "label": "Final CTA Headline",
+            "name": "rpd_instructor_final_headline",
+            "type": "text",
+            "default_value": "Bring Kim's work to your district."
+        },
+        {
+            "key": "field_rpd_instructor_final_body",
+            "label": "Final CTA Body",
+            "name": "rpd_instructor_final_body",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "field_rpd_instructor_final_primary_label",
+            "label": "Primary Button Label",
+            "name": "rpd_instructor_final_primary_label",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_final_primary_href",
+            "label": "Primary Button URL",
+            "name": "rpd_instructor_final_primary_href",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_final_secondary_label",
+            "label": "Secondary Button Label",
+            "name": "rpd_instructor_final_secondary_label",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_final_secondary_href",
+            "label": "Secondary Button URL",
+            "name": "rpd_instructor_final_secondary_href",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_instructor_tab_faq",
+            "label": "FAQ",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructor_faqs",
+            "label": "FAQs",
+            "name": "rpd_instructor_faqs",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add FAQ",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_instructor_faq_question",
+                    "label": "Question",
+                    "name": "question",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructor_faq_answer",
+                    "label": "Answer",
+                    "name": "answer",
+                    "type": "textarea",
+                    "rows": 3
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "instructor"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "Page-level editable fields for the RocketPD individual instructor template.",
+    "show_in_rest": 0,
+    "modified": 1778770200
+}

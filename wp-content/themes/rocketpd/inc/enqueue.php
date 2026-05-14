@@ -101,6 +101,20 @@ function rocketpd_enqueue_assets() {
 		);
 	}
 
+	if ( is_singular( 'instructor' ) ) {
+		$enqueue_page_style( 'rocketpd-instructor-detail', '/assets/css/pages/instructor-detail.css' );
+
+		$instructor_detail_script_path = get_template_directory() . '/assets/js/instructor-detail.js';
+
+		wp_enqueue_script(
+			'rocketpd-instructor-detail',
+			get_template_directory_uri() . '/assets/js/instructor-detail.js',
+			array( 'rocketpd-main' ),
+			file_exists( $instructor_detail_script_path ) ? filemtime( $instructor_detail_script_path ) : $theme_version,
+			true
+		);
+	}
+
 	if ( is_page_template( 'page-templates/template-launchpad.php' ) ) {
 		$enqueue_page_style( 'rocketpd-launchpad', '/assets/css/pages/launchpad.css' );
 	}
