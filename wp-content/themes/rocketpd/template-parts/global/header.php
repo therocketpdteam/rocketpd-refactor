@@ -9,13 +9,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$header_logo_id     = rocketpd_get_option( 'rpd_logo' );
-$header_logo_alt    = rocketpd_get_option( 'rpd_logo_alt', get_bloginfo( 'name' ) );
-$nav_cta_label      = rocketpd_get_option( 'rpd_primary_nav_cta_label' );
-$nav_cta_url        = rocketpd_get_option( 'rpd_primary_nav_cta_url' );
-$login_label        = rocketpd_get_option( 'rpd_login_label' );
-$login_url          = rocketpd_get_option( 'rpd_login_url' );
-$has_header_actions = ( $nav_cta_label && $nav_cta_url ) || ( $login_label && $login_url );
+$header_logo_id        = rocketpd_get_option( 'rpd_logo' );
+$custom_logo_id        = get_theme_mod( 'custom_logo' );
+$header_logo_alt       = rocketpd_get_option( 'rpd_logo_alt', get_bloginfo( 'name' ) );
+$community_signup_url  = rocketpd_get_option( 'rpd_community_signup_url', home_url( '/community/' ) );
+$nav_cta_label         = rocketpd_get_option( 'rpd_primary_nav_cta_label', __( 'Join the Community', 'rocketpd' ) );
+$nav_cta_url           = rocketpd_get_option( 'rpd_primary_nav_cta_url', $community_signup_url );
+$login_label           = rocketpd_get_option( 'rpd_login_label', __( 'Login', 'rocketpd' ) );
+$login_url             = rocketpd_get_option( 'rpd_login_url', home_url( '/login/' ) );
+$has_header_actions    = ( $nav_cta_label && $nav_cta_url ) || ( $login_label && $login_url );
 
 ?>
 <?php get_template_part( 'template-parts/global/announcement-bar' ); ?>
@@ -31,8 +33,22 @@ $has_header_actions = ( $nav_cta_label && $nav_cta_url ) || ( $login_label && $l
 					$header_logo_alt
 				);
 				?>
+			<?php elseif ( $custom_logo_id ) : ?>
+				<?php
+				echo wp_get_attachment_image(
+					(int) $custom_logo_id,
+					'full',
+					false,
+					array(
+						'class' => 'rpd-site-header__logo',
+						'alt'   => $header_logo_alt,
+					)
+				);
+				?>
 			<?php else : ?>
-				<span class="rpd-site-header__wordmark"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
+				<span class="rpd-site-header__wordmark">
+					<span><?php echo esc_html_x( 'Rocket', 'Header wordmark text', 'rocketpd' ); ?></span><span class="rpd-site-header__wordmark-badge"><?php echo esc_html_x( 'PD', 'Header wordmark badge', 'rocketpd' ); ?></span>
+				</span>
 			<?php endif; ?>
 		</a>
 
