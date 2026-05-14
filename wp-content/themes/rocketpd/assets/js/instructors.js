@@ -9,6 +9,7 @@
 	const searchInput = page.querySelector('[data-rpd-instructor-search]');
 	const cards = Array.from(page.querySelectorAll('[data-rpd-instructor-card]'));
 	const status = page.querySelector('[data-rpd-instructor-status]');
+	const portraitImages = Array.from(page.querySelectorAll('.rpd-instructors-collage__tile img, .rpd-instructor-card__image img'));
 
 	if (!cards.length) {
 		return;
@@ -58,4 +59,23 @@
 	if (searchInput) {
 		searchInput.addEventListener('input', updateCards);
 	}
+
+	portraitImages.forEach((image) => {
+		const container = image.closest('.rpd-instructors-collage__tile, .rpd-instructor-card__image');
+
+		if (!container) {
+			return;
+		}
+
+		const showFallback = () => {
+			container.classList.add('is-image-missing');
+			image.setAttribute('aria-hidden', 'true');
+		};
+
+		image.addEventListener('error', showFallback, { once: true });
+
+		if (image.complete && image.naturalWidth === 0) {
+			showFallback();
+		}
+	});
 })();

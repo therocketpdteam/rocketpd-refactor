@@ -133,10 +133,38 @@
 
 .rpd-instructors-collage img,
 .rpd-instructor-card__image img {
+	position: relative;
+	z-index: 1;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	transition: transform var(--rpd-transition);
+}
+
+.rpd-instructors-portrait-fallback {
+	display: grid;
+	place-items: center;
+	width: 100%;
+	height: 100%;
+	color: var(--rpd-white);
+	font-family: var(--font-heading);
+	font-size: inherit;
+	font-weight: 900;
+}
+
+.rpd-instructors-collage img + .rpd-instructors-portrait-fallback,
+.rpd-instructor-card__image img + .rpd-instructors-portrait-fallback {
+	display: none;
+}
+
+.rpd-instructors-collage__tile.is-image-missing img,
+.rpd-instructor-card__image.is-image-missing img {
+	display: none;
+}
+
+.rpd-instructors-collage__tile.is-image-missing .rpd-instructors-portrait-fallback,
+.rpd-instructor-card__image.is-image-missing .rpd-instructors-portrait-fallback {
+	display: grid;
 }
 
 .rpd-instructors-featured {

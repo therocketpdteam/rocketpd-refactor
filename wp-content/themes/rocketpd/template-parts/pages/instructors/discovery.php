@@ -64,9 +64,8 @@ $view_url     = rocketpd_get_field( 'rpd_instructors_view_all_url', '#instructor
 					<div class="rpd-instructor-card__image">
 						<?php if ( $headshot ) : ?>
 							<img src="<?php echo esc_url( $headshot ); ?>" alt="<?php echo esc_attr( $name ); ?>">
-						<?php else : ?>
-							<span role="img" aria-label="<?php echo esc_attr( $name ); ?>"><?php echo esc_html( $initials ); ?></span>
 						<?php endif; ?>
+						<span class="rpd-instructors-portrait-fallback" role="img" aria-label="<?php echo esc_attr( $name ); ?>"><?php echo esc_html( $initials ); ?></span>
 					</div>
 					<div class="rpd-instructor-card__body">
 						<h3><?php echo esc_html( $name ); ?></h3>
