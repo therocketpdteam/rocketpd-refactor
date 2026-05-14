@@ -146,6 +146,15 @@
 	color: var(--rpd-purple);
 }
 
+.rpd-menu .current-menu-item > a,
+.rpd-menu .current_page_item > a,
+.rpd-menu a[aria-current="page"] {
+	color: var(--rpd-purple-deep);
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.38rem;
+}
+
 .rpd-menu .sub-menu a {
 	display: flex;
 	width: 100%;

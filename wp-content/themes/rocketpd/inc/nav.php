@@ -17,14 +17,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 function rocketpd_nav_menu( $location = 'primary' ) {
 	if ( ! has_nav_menu( $location ) ) {
 		if ( 'primary' === $location ) {
+			$is_instructors = is_page_template( 'page-templates/template-instructors.php' ) || is_singular( 'instructor' );
 			$items = array(
 				array(
 					'label' => __( 'Topics', 'rocketpd' ),
 					'url'   => home_url( '/topics/' ),
 				),
 				array(
-					'label' => __( 'Instructors', 'rocketpd' ),
-					'url'   => home_url( '/instructors/' ),
+					'label'   => __( 'Instructors', 'rocketpd' ),
+					'url'     => home_url( '/instructor/' ),
+					'current' => $is_instructors,
 				),
 				array(
 					'label' => __( 'Solutions', 'rocketpd' ),
@@ -42,8 +44,9 @@ function rocketpd_nav_menu( $location = 'primary' ) {
 			?>
 			<ul class="rpd-menu rpd-menu--primary">
 				<?php foreach ( $items as $item ) : ?>
-					<li>
-						<a href="<?php echo esc_url( $item['url'] ); ?>"><?php echo esc_html( $item['label'] ); ?></a>
+					<?php $is_current = ! empty( $item['current'] ); ?>
+					<li class="<?php echo $is_current ? 'current-menu-item' : ''; ?>">
+						<a href="<?php echo esc_url( $item['url'] ); ?>"<?php echo $is_current ? ' aria-current="page"' : ''; ?>><?php echo esc_html( $item['label'] ); ?></a>
 					</li>
 				<?php endforeach; ?>
 			</ul>

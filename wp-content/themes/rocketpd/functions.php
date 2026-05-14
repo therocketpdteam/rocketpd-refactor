@@ -17,6 +17,7 @@ $rocketpd_includes = array(
 	'post-types',
 	'taxonomies',
 	'helpers',
+	'instructors',
 	'icons',
 	'template-tags',
 	'nav',
@@ -31,4 +32,3 @@ foreach ( $rocketpd_includes as $rocketpd_file ) {
 		require_once $rocketpd_path;
 	}
 }
-

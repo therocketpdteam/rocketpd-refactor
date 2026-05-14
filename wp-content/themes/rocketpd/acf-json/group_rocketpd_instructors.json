@@ -1,0 +1,381 @@
+{
+    "key": "group_rocketpd_instructors",
+    "title": "RocketPD Instructors",
+    "fields": [
+        {
+            "key": "field_rpd_instructors_tab_hero",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructors_hero_eyebrow",
+            "label": "Hero Eyebrow",
+            "name": "rpd_instructors_hero_eyebrow",
+            "type": "text",
+            "default_value": "Trusted Expert Network - 18+ K-12 Thought Leaders"
+        },
+        {
+            "key": "field_rpd_instructors_hero_headline",
+            "label": "Hero Headline",
+            "name": "rpd_instructors_hero_headline",
+            "type": "text",
+            "default_value": "Learn From the Nation's Leading K-12 Experts."
+        },
+        {
+            "key": "field_rpd_instructors_hero_body",
+            "label": "Hero Body",
+            "name": "rpd_instructors_hero_body",
+            "type": "textarea",
+            "rows": 3,
+            "default_value": "Explore expert-led professional learning designed to help educators solve real-world challenges, strengthen instructional practice, and drive meaningful outcomes for students."
+        },
+        {
+            "key": "field_rpd_instructors_hero_primary_label",
+            "label": "Primary CTA Label",
+            "name": "rpd_instructors_hero_primary_label",
+            "type": "text",
+            "default_value": "Explore Experts"
+        },
+        {
+            "key": "field_rpd_instructors_hero_primary_url",
+            "label": "Primary CTA URL",
+            "name": "rpd_instructors_hero_primary_url",
+            "type": "text",
+            "default_value": "#instructor-discovery"
+        },
+        {
+            "key": "field_rpd_instructors_hero_secondary_label",
+            "label": "Secondary CTA Label",
+            "name": "rpd_instructors_hero_secondary_label",
+            "type": "text",
+            "default_value": "Browse by Topic"
+        },
+        {
+            "key": "field_rpd_instructors_hero_secondary_url",
+            "label": "Secondary CTA URL",
+            "name": "rpd_instructors_hero_secondary_url",
+            "type": "text",
+            "default_value": "#instructor-topics"
+        },
+        {
+            "key": "field_rpd_instructors_tab_discovery",
+            "label": "Discovery",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructors_discovery_eyebrow",
+            "label": "Discovery Eyebrow",
+            "name": "rpd_instructors_discovery_eyebrow",
+            "type": "text",
+            "default_value": "Explore by Topic"
+        },
+        {
+            "key": "field_rpd_instructors_discovery_headline",
+            "label": "Discovery Headline",
+            "name": "rpd_instructors_discovery_headline",
+            "type": "text",
+            "default_value": "Find the right expert for your challenge."
+        },
+        {
+            "key": "field_rpd_instructors_discovery_body",
+            "label": "Discovery Body",
+            "name": "rpd_instructors_discovery_body",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Every instructor maps to multiple topic areas - so you can explore by the work your team is doing right now."
+        },
+        {
+            "key": "field_rpd_instructors_search_label",
+            "label": "Search Label",
+            "name": "rpd_instructors_search_label",
+            "type": "text",
+            "default_value": "Search by name, topic, or format"
+        },
+        {
+            "key": "field_rpd_instructors_view_all_label",
+            "label": "View All Label",
+            "name": "rpd_instructors_view_all_label",
+            "type": "text",
+            "default_value": "View all 18+ instructors"
+        },
+        {
+            "key": "field_rpd_instructors_view_all_url",
+            "label": "View All URL",
+            "name": "rpd_instructors_view_all_url",
+            "type": "text",
+            "default_value": "#instructor-discovery"
+        },
+        {
+            "key": "field_rpd_instructors_tab_trust",
+            "label": "Trust Stats",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructors_trust_stats",
+            "label": "Trust Band Stats",
+            "name": "rpd_instructors_trust_stats",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Stat",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_instructors_trust_icon",
+                    "label": "Icon Key",
+                    "name": "icon",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructors_trust_value",
+                    "label": "Value",
+                    "name": "value",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructors_trust_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_instructors_tab_learning",
+            "label": "Learning Ways",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructors_learning_eyebrow",
+            "label": "Learning Eyebrow",
+            "name": "rpd_instructors_learning_eyebrow",
+            "type": "text",
+            "default_value": "The Learning Ecosystem"
+        },
+        {
+            "key": "field_rpd_instructors_learning_headline",
+            "label": "Learning Headline",
+            "name": "rpd_instructors_learning_headline",
+            "type": "text",
+            "default_value": "Multiple ways to learn from every expert."
+        },
+        {
+            "key": "field_rpd_instructors_learning_body",
+            "label": "Learning Body",
+            "name": "rpd_instructors_learning_body",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Whether you have 15 minutes or a full school year, there's a way to bring expert thinking into your team's work."
+        },
+        {
+            "key": "field_rpd_instructors_learning_cards",
+            "label": "Learning Cards",
+            "name": "rpd_instructors_learning_cards",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add Card",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_instructors_learning_card_icon",
+                    "label": "Icon Key",
+                    "name": "icon",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructors_learning_card_kicker",
+                    "label": "Kicker",
+                    "name": "kicker",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructors_learning_card_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructors_learning_card_body",
+                    "label": "Body",
+                    "name": "body",
+                    "type": "textarea",
+                    "rows": 3
+                },
+                {
+                    "key": "field_rpd_instructors_learning_card_items",
+                    "label": "Checklist Items",
+                    "name": "items",
+                    "type": "textarea",
+                    "instructions": "One item per line.",
+                    "rows": 4
+                },
+                {
+                    "key": "field_rpd_instructors_learning_card_cta_label",
+                    "label": "CTA Label",
+                    "name": "cta_label",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructors_learning_card_cta_url",
+                    "label": "CTA URL",
+                    "name": "cta_url",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructors_learning_card_featured",
+                    "label": "Featured",
+                    "name": "featured",
+                    "type": "true_false",
+                    "ui": 1
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_instructors_tab_impact",
+            "label": "Impact",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructors_impact_eyebrow",
+            "label": "Impact Eyebrow",
+            "name": "rpd_instructors_impact_eyebrow",
+            "type": "text",
+            "default_value": "Community Impact"
+        },
+        {
+            "key": "field_rpd_instructors_impact_headline",
+            "label": "Impact Headline",
+            "name": "rpd_instructors_impact_headline",
+            "type": "text",
+            "default_value": "Trusted by educators across 850+ districts."
+        },
+        {
+            "key": "field_rpd_instructors_impact_body",
+            "label": "Impact Body",
+            "name": "rpd_instructors_impact_body",
+            "type": "textarea",
+            "rows": 3,
+            "default_value": "RocketPD instructors don't just teach - they shape the practice of tens of thousands of educators every year."
+        },
+        {
+            "key": "field_rpd_instructors_impact_stats",
+            "label": "Impact Stats",
+            "name": "rpd_instructors_impact_stats",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Stat",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_instructors_impact_stat_value",
+                    "label": "Value",
+                    "name": "value",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_instructors_impact_stat_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_instructors_quote",
+            "label": "Quote",
+            "name": "rpd_instructors_quote",
+            "type": "textarea",
+            "rows": 3,
+            "default_value": "\"RocketPD's cohort-based learning experiences have changed the way we look at professional development.\""
+        },
+        {
+            "key": "field_rpd_instructors_quote_name",
+            "label": "Quote Name",
+            "name": "rpd_instructors_quote_name",
+            "type": "text",
+            "default_value": "Joe Baeta"
+        },
+        {
+            "key": "field_rpd_instructors_quote_role",
+            "label": "Quote Role",
+            "name": "rpd_instructors_quote_role",
+            "type": "text",
+            "default_value": "Superintendent - Stoughton Public Schools, MA"
+        },
+        {
+            "key": "field_rpd_instructors_tab_final",
+            "label": "Final CTA",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_rpd_instructors_final_headline",
+            "label": "Final Headline",
+            "name": "rpd_instructors_final_headline",
+            "type": "text",
+            "default_value": "Find the right expert for your team."
+        },
+        {
+            "key": "field_rpd_instructors_final_body",
+            "label": "Final Body",
+            "name": "rpd_instructors_final_body",
+            "type": "textarea",
+            "rows": 2,
+            "default_value": "Browse the community, explore by topic, or talk with RocketPD about custom programs for your school or district."
+        },
+        {
+            "key": "field_rpd_instructors_final_primary_label",
+            "label": "Primary CTA Label",
+            "name": "rpd_instructors_final_primary_label",
+            "type": "text",
+            "default_value": "Explore the Community"
+        },
+        {
+            "key": "field_rpd_instructors_final_primary_url",
+            "label": "Primary CTA URL",
+            "name": "rpd_instructors_final_primary_url",
+            "type": "text",
+            "default_value": "/community/"
+        },
+        {
+            "key": "field_rpd_instructors_final_secondary_label",
+            "label": "Secondary CTA Label",
+            "name": "rpd_instructors_final_secondary_label",
+            "type": "text",
+            "default_value": "Talk With RocketPD"
+        },
+        {
+            "key": "field_rpd_instructors_final_secondary_url",
+            "label": "Secondary CTA URL",
+            "name": "rpd_instructors_final_secondary_url",
+            "type": "text",
+            "default_value": "/contact/"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates/template-instructors.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Page-level copy for the RocketPD Instructor Index template.",
+    "show_in_rest": 0,
+    "modified": 1778800000
+}
