@@ -87,6 +87,20 @@ function rocketpd_enqueue_assets() {
 		$enqueue_page_style( 'rocketpd-contact', '/assets/css/pages/contact.css' );
 	}
 
+	if ( is_page_template( 'page-templates/template-instructors.php' ) ) {
+		$enqueue_page_style( 'rocketpd-instructors', '/assets/css/pages/instructors.css' );
+
+		$instructors_script_path = get_template_directory() . '/assets/js/instructors.js';
+
+		wp_enqueue_script(
+			'rocketpd-instructors',
+			get_template_directory_uri() . '/assets/js/instructors.js',
+			array( 'rocketpd-main' ),
+			file_exists( $instructors_script_path ) ? filemtime( $instructors_script_path ) : $theme_version,
+			true
+		);
+	}
+
 	if ( is_page_template( 'page-templates/template-launchpad.php' ) ) {
 		$enqueue_page_style( 'rocketpd-launchpad', '/assets/css/pages/launchpad.css' );
 	}
