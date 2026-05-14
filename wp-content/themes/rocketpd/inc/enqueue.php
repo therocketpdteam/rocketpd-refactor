@@ -101,6 +101,20 @@ function rocketpd_enqueue_assets() {
 		);
 	}
 
+	if ( function_exists( 'rocketpd_is_course_detail_context' ) && rocketpd_is_course_detail_context() ) {
+		$enqueue_page_style( 'rocketpd-course-detail', '/assets/css/pages/course-detail.css' );
+
+		$course_detail_script_path = get_template_directory() . '/assets/js/course-detail.js';
+
+		wp_enqueue_script(
+			'rocketpd-course-detail',
+			get_template_directory_uri() . '/assets/js/course-detail.js',
+			array( 'rocketpd-main' ),
+			file_exists( $course_detail_script_path ) ? filemtime( $course_detail_script_path ) : $theme_version,
+			true
+		);
+	}
+
 	if ( is_page_template( 'page-templates/template-instructors.php' ) ) {
 		$enqueue_page_style( 'rocketpd-instructors', '/assets/css/pages/instructors.css' );
 

@@ -1,0 +1,916 @@
+.rpd-course-detail-page {
+	--rpd-course-blue: #3b82f6;
+	--rpd-course-emerald: #10b981;
+	--rpd-course-gold-dark: #8a5a00;
+	overflow-x: clip;
+	background: #ffffff;
+	color: var(--rpd-body);
+}
+
+.rpd-course-detail-page *,
+.rpd-course-detail-page *::before,
+.rpd-course-detail-page *::after {
+	box-sizing: border-box;
+}
+
+.rpd-course-detail-page [hidden] {
+	display: none !important;
+}
+
+.rpd-course-detail-page h1,
+.rpd-course-detail-page h2,
+.rpd-course-detail-page h3 {
+	color: var(--rpd-navy);
+	font-family: var(--font-heading);
+	letter-spacing: 0;
+}
+
+.rpd-course-detail-page .rpd-course-breadcrumb{
+	background: #f1eff9;
+	border-bottom: 1px solid rgba(35, 31, 88, 0.08);
+}
+
+.rpd-course-detail-page .rpd-course-breadcrumb ol{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.55rem;
+	align-items: center;
+	margin: 0;
+	padding: 0.85rem 0;
+	list-style: none;
+	color: var(--rpd-navy);
+	font-weight: 800;
+}
+
+.rpd-course-detail-page .rpd-course-breadcrumb li{
+	display: inline-flex;
+	gap: 0.55rem;
+	align-items: center;
+}
+
+.rpd-course-detail-page .rpd-course-breadcrumb li + li::before{
+	color: var(--rpd-purple);
+	content: "/";
+}
+
+.rpd-course-detail-page .rpd-course-breadcrumb a{
+	color: var(--rpd-navy);
+	text-decoration: none;
+}
+
+.rpd-course-detail-page .rpd-course-breadcrumb [aria-current="page"]{
+	color: var(--rpd-purple-deep);
+}
+
+.rpd-course-detail-page .rpd-course-hero{
+	position: relative;
+	isolation: isolate;
+	padding: 6.4rem 0 6rem;
+	overflow: hidden;
+	background:
+		radial-gradient(circle at 86% 18%, rgba(59, 130, 246, 0.12), transparent 20rem),
+		radial-gradient(circle at 13% 82%, rgba(161, 84, 161, 0.14), transparent 22rem),
+		linear-gradient(135deg, #ffffff 0%, #f6f5fb 48%, #ecebf6 100%);
+}
+
+.rpd-course-detail-page .rpd-course-orb{
+	position: absolute;
+	z-index: -1;
+	width: 18rem;
+	height: 18rem;
+	border-radius: 50%;
+	filter: blur(48px);
+	opacity: 0.22;
+	pointer-events: none;
+}
+
+.rpd-course-detail-page .rpd-course-orb--blue{
+	right: 8%;
+	top: 8%;
+	background: var(--rpd-course-blue);
+}
+
+.rpd-course-detail-page .rpd-course-orb--magenta{
+	left: 10%;
+	bottom: 4%;
+	background: var(--rpd-purple-deep);
+}
+
+.rpd-course-detail-page .rpd-course-hero__inner,
+.rpd-course-detail-page .rpd-course-included__inner,
+.rpd-course-detail-page .rpd-course-split{
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: clamp(2.5rem, 5vw, 5rem);
+	align-items: center;
+}
+
+.rpd-course-detail-page .rpd-course-format-badge,
+.rpd-course-detail-page .rpd-course-section-kicker,
+.rpd-course-detail-page .rpd-course-section-header > p,
+.rpd-course-detail-page .rpd-course-resources__header p{
+	display: inline-flex;
+	width: fit-content;
+	margin: 0 0 1rem;
+	color: var(--rpd-purple-deep);
+	font-size: 0.76rem;
+	font-weight: 900;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.rpd-course-detail-page .rpd-course-format-badge{
+	padding: 0.35rem 0.72rem;
+	border-radius: 999px;
+	background: rgba(253, 185, 51, 0.18);
+	color: var(--rpd-course-gold-dark);
+	letter-spacing: 0.02em;
+	text-transform: none;
+}
+
+.rpd-course-detail-page .rpd-course-hero h1{
+	max-width: 21ch;
+	margin: 0 0 1.3rem;
+	font-size: clamp(2.85rem, 3.75vw, 4.15rem);
+	line-height: 1.04;
+	overflow-wrap: normal;
+	word-break: normal;
+	hyphens: none;
+}
+
+.rpd-course-detail-page .rpd-course-instructor-row{
+	display: flex;
+	gap: 0.9rem;
+	align-items: center;
+	margin-bottom: 1.45rem;
+}
+
+.rpd-course-detail-page .rpd-course-instructor-row img{
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.rpd-course-detail-page .rpd-course-instructor-row strong,
+.rpd-course-detail-page .rpd-course-instructor-row span{
+	display: block;
+}
+
+.rpd-course-detail-page .rpd-course-instructor-row strong{
+	color: var(--rpd-navy);
+	font-weight: 900;
+}
+
+.rpd-course-detail-page .rpd-course-instructor-row span{
+	color: var(--rpd-body);
+}
+
+.rpd-course-detail-page .rpd-course-hero__promise{
+	max-width: 41rem;
+	margin: 0 0 1.4rem;
+	color: var(--rpd-body);
+	font-size: 1.08rem;
+	line-height: 1.7;
+}
+
+.rpd-course-detail-page .rpd-course-hero__commerce{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	align-items: center;
+	margin-bottom: 1.4rem;
+}
+
+.rpd-course-detail-page .rpd-course-price-card{
+	min-width: 11rem;
+	padding: 0.9rem 1.1rem;
+	border: 1px solid rgba(35, 31, 88, 0.1);
+	border-radius: 0.8rem;
+	background: #ffffff;
+	box-shadow: 0 16px 34px rgba(35, 31, 88, 0.1);
+}
+
+.rpd-course-detail-page .rpd-course-price-card strong,
+.rpd-course-detail-page .rpd-course-price-card span{
+	display: block;
+}
+
+.rpd-course-detail-page .rpd-course-price-card strong{
+	color: var(--rpd-navy);
+	font-family: var(--font-heading);
+	font-size: 2rem;
+	line-height: 1;
+}
+
+.rpd-course-detail-page .rpd-course-price-card span{
+	margin-top: 0.25rem;
+	color: var(--rpd-body);
+	font-size: 0.8rem;
+	font-weight: 800;
+}
+
+.rpd-course-detail-page .rpd-course-hero__actions{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.8rem;
+}
+
+.rpd-course-detail-page .rpd-course-hero__actions .rpd-btn,
+.rpd-course-detail-page .rpd-course-final-cta .rpd-btn{
+	border-radius: 0.45rem;
+}
+
+.rpd-course-detail-page .rpd-course-meta-row{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.8rem 1.2rem;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	color: var(--rpd-purple);
+	font-size: 0.76rem;
+	font-weight: 900;
+}
+
+.rpd-course-detail-page .rpd-course-meta-row li{
+	display: inline-flex;
+	gap: 0.45rem;
+	align-items: center;
+}
+
+.rpd-course-detail-page .rpd-course-meta-row span{
+	width: 0.7rem;
+	height: 0.7rem;
+	border: 1px solid currentColor;
+	border-radius: 50%;
+}
+
+.rpd-course-detail-page .rpd-course-hero__video{
+	position: relative;
+}
+
+.rpd-course-detail-page .rpd-course-hero__video > span{
+	position: absolute;
+	top: -1rem;
+	right: 1.5rem;
+	z-index: 2;
+	padding: 0.48rem 0.9rem;
+	border-radius: 999px;
+	background: var(--rpd-gold);
+	color: var(--rpd-navy);
+	font-size: 0.72rem;
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+.rpd-course-detail-page .rpd-course-video-frame{
+	position: relative;
+	overflow: hidden;
+	padding: 0.55rem;
+	border: 1px solid rgba(85, 82, 177, 0.18);
+	border-radius: 1.35rem;
+	background: #ffffff;
+	box-shadow: 0 30px 70px rgba(35, 31, 88, 0.18);
+}
+
+.rpd-course-detail-page .rpd-course-video-frame::before{
+	position: absolute;
+	inset: 0.55rem;
+	border-radius: 1rem;
+	background: linear-gradient(rgba(35, 31, 88, 0.18), rgba(35, 31, 88, 0.38)), var(--rpd-course-video-poster, none) center / cover, var(--rpd-navy);
+	content: "";
+}
+
+.rpd-course-detail-page .rpd-course-video-frame iframe{
+	position: relative;
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	border: 0;
+	border-radius: 1rem;
+	background: var(--rpd-navy) var(--rpd-course-video-poster, none) center / cover no-repeat;
+}
+
+.rpd-course-detail-page .rpd-course-outcomes,
+.rpd-course-detail-page .rpd-course-included,
+.rpd-course-detail-page .rpd-course-related{
+	padding: 6.5rem 0;
+	background: #ffffff;
+}
+
+.rpd-course-detail-page .rpd-course-audience,
+.rpd-course-detail-page .rpd-course-pricing,
+.rpd-course-detail-page .rpd-course-faq{
+	padding: 6.5rem 0;
+	background: #f8f8fc;
+}
+
+.rpd-course-detail-page .rpd-course-instructor{
+	padding: 6.5rem 0;
+	background: linear-gradient(135deg, #f8f7ff 0%, #ecebf6 100%);
+}
+
+.rpd-course-detail-page .rpd-course-resources{
+	padding: 6.5rem 0;
+	background: #ffffff;
+}
+
+.rpd-course-detail-page .rpd-course-section-header{
+	max-width: 48rem;
+	margin-bottom: 3rem;
+}
+
+.rpd-course-detail-page .rpd-course-section-header--center{
+	margin-inline: auto;
+	text-align: center;
+}
+
+.rpd-course-detail-page .rpd-course-section-header h2,
+.rpd-course-detail-page .rpd-course-split h2,
+.rpd-course-detail-page .rpd-course-included h2,
+.rpd-course-detail-page .rpd-course-resources h2,
+.rpd-course-detail-page .rpd-course-pricing h2,
+.rpd-course-detail-page .rpd-course-related h2,
+.rpd-course-detail-page .rpd-course-faq h2,
+.rpd-course-detail-page .rpd-course-final-cta h2{
+	margin: 0 0 1rem;
+	font-size: clamp(2.3rem, 4vw, 3.7rem);
+	line-height: 1.08;
+}
+
+.rpd-course-detail-page .rpd-course-section-header span,
+.rpd-course-detail-page .rpd-course-split p,
+.rpd-course-detail-page .rpd-course-resources__header > span,
+.rpd-course-detail-page .rpd-course-pricing .rpd-course-section-header span{
+	color: var(--rpd-body);
+	font-size: 1.05rem;
+	line-height: 1.65;
+}
+
+.rpd-course-detail-page .rpd-course-outcomes__grid,
+.rpd-course-detail-page .rpd-course-pricing__grid,
+.rpd-course-detail-page .rpd-course-related__grid,
+.rpd-course-detail-page .rpd-course-resource-grid{
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.5rem;
+}
+
+.rpd-course-detail-page .rpd-course-outcome-card,
+.rpd-course-detail-page .rpd-course-resource-card,
+.rpd-course-detail-page .rpd-course-pricing-card,
+.rpd-course-detail-page .rpd-course-related-card,
+.rpd-course-detail-page .rpd-course-faq__item,
+.rpd-course-detail-page .rpd-course-featured-guide,
+.rpd-course-detail-page .rpd-course-instructor-card{
+	border: 1px solid rgba(35, 31, 88, 0.12);
+	border-radius: 1rem;
+	background: #ffffff;
+	box-shadow: 0 10px 30px rgba(35, 31, 88, 0.08);
+}
+
+.rpd-course-detail-page .rpd-course-outcome-card{
+	padding: 2rem;
+}
+
+.rpd-course-detail-page .rpd-course-outcome-card > span{
+	display: grid;
+	place-items: center;
+	width: 2.25rem;
+	height: 2.25rem;
+	margin-bottom: 1.6rem;
+	border-radius: 0.55rem;
+	background: linear-gradient(135deg, var(--rpd-purple), var(--rpd-course-blue));
+	color: #ffffff;
+	font-weight: 900;
+}
+
+.rpd-course-detail-page .rpd-course-outcome-card h3,
+.rpd-course-detail-page .rpd-course-resource-card h3,
+.rpd-course-detail-page .rpd-course-pricing-card h3,
+.rpd-course-detail-page .rpd-course-related-card h3{
+	margin: 0 0 0.8rem;
+	font-size: 1.3rem;
+	line-height: 1.22;
+}
+
+.rpd-course-detail-page .rpd-course-outcome-card p,
+.rpd-course-detail-page .rpd-course-resource-card span,
+.rpd-course-detail-page .rpd-course-pricing-card li,
+.rpd-course-detail-page .rpd-course-related-card strong{
+	color: var(--rpd-body);
+	line-height: 1.6;
+}
+
+.rpd-course-detail-page .rpd-course-chip-cloud,
+.rpd-course-detail-page .rpd-course-specialty-pills{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+	margin-bottom: 1.25rem;
+}
+
+.rpd-course-detail-page .rpd-course-chip-cloud span,
+.rpd-course-detail-page .rpd-course-specialty-pills span{
+	display: inline-flex;
+	gap: 0.45rem;
+	align-items: center;
+	padding: 0.5rem 0.75rem;
+	border: 1px solid rgba(85, 82, 177, 0.16);
+	border-radius: 999px;
+	background: #ffffff;
+	color: var(--rpd-purple);
+	font-weight: 850;
+}
+
+.rpd-course-detail-page .rpd-course-chip-cloud i,
+.rpd-course-detail-page .rpd-course-pricing-card li i{
+	width: 0.85rem;
+	height: 0.85rem;
+	border-radius: 50%;
+	background: var(--rpd-purple);
+}
+
+.rpd-course-detail-page .rpd-course-included__list{
+	display: grid;
+	gap: 0.75rem;
+	padding: 0;
+	margin: 1.5rem 0 0;
+	list-style: none;
+}
+
+.rpd-course-detail-page .rpd-course-included__list li{
+	display: flex;
+	gap: 0.85rem;
+	align-items: center;
+	padding: 0.9rem 1rem;
+	border-radius: 0.7rem;
+	background: #f5f4fb;
+	color: var(--rpd-navy);
+	font-weight: 850;
+}
+
+.rpd-course-detail-page .rpd-course-included__list span{
+	display: grid;
+	place-items: center;
+	width: 1.55rem;
+	height: 1.55rem;
+	border-radius: 0.4rem;
+	background: #ffffff;
+	color: var(--rpd-purple);
+}
+
+.rpd-course-detail-page .rpd-course-included__list span::before,
+.rpd-course-detail-page .rpd-course-device-card__screen::before,
+.rpd-course-detail-page .rpd-course-pricing-card li i::before{
+	content: "";
+	display: block;
+	width: 0.72rem;
+	height: 0.72rem;
+	border: 2px solid currentColor;
+	border-radius: 0.18rem;
+}
+
+.rpd-course-detail-page .rpd-course-device-card{
+	padding: clamp(1.8rem, 4vw, 3rem);
+	border-radius: 1rem;
+	background: radial-gradient(circle at 65% 20%, rgba(59, 130, 246, 0.35), transparent 16rem), linear-gradient(135deg, var(--rpd-navy), var(--rpd-purple));
+	box-shadow: 0 24px 60px rgba(35, 31, 88, 0.18);
+}
+
+.rpd-course-detail-page .rpd-course-device-card__screen{
+	position: relative;
+	display: grid;
+	gap: 1rem;
+	place-items: center;
+	min-height: 20rem;
+	padding: 2rem;
+	border-radius: 1rem;
+	background: rgba(255, 255, 255, 0.1);
+	color: #ffffff;
+	text-align: center;
+}
+
+.rpd-course-detail-page .rpd-course-device-card__screen img{
+	width: min(14rem, 80%);
+	aspect-ratio: 1;
+	border-radius: 1rem;
+	object-fit: cover;
+	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.rpd-course-detail-page .rpd-course-device-card__screen strong{
+	display: block;
+	font-family: var(--font-heading);
+	font-size: 2rem;
+}
+
+.rpd-course-detail-page .rpd-course-instructor-card{
+	display: grid;
+	grid-template-columns: minmax(13rem, 0.45fr) minmax(0, 1fr);
+	gap: 2.5rem;
+	align-items: center;
+	max-width: 58rem;
+	padding: clamp(1.5rem, 4vw, 3rem);
+	margin-inline: auto;
+	border-radius: 1.5rem;
+}
+
+.rpd-course-detail-page .rpd-course-instructor-card__portrait{
+	position: relative;
+}
+
+.rpd-course-detail-page .rpd-course-instructor-card__portrait img{
+	width: 100%;
+	aspect-ratio: 1;
+	border-radius: 1rem;
+	object-fit: cover;
+}
+
+.rpd-course-detail-page .rpd-course-instructor-card__portrait span{
+	position: absolute;
+	right: -0.8rem;
+	bottom: 1rem;
+	padding: 0.45rem 0.8rem;
+	border-radius: 999px;
+	background: var(--rpd-gold);
+	color: var(--rpd-navy);
+	font-size: 0.72rem;
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+.rpd-course-detail-page .rpd-course-instructor-card strong{
+	display: block;
+	margin-bottom: 1rem;
+	color: var(--rpd-purple);
+}
+
+.rpd-course-detail-page .rpd-course-instructor-card p{
+	color: var(--rpd-body);
+	line-height: 1.68;
+}
+
+.rpd-course-detail-page .rpd-course-resources__header,
+.rpd-course-detail-page .rpd-course-related__header{
+	display: flex;
+	justify-content: space-between;
+	gap: 2rem;
+	align-items: end;
+	margin-bottom: 2.5rem;
+}
+
+.rpd-course-detail-page .rpd-course-resources__header > div,
+.rpd-course-detail-page .rpd-course-related__header > div{
+	max-width: 42rem;
+}
+
+.rpd-course-detail-page .rpd-course-resources__header > span{
+	max-width: 25rem;
+}
+
+.rpd-course-detail-page .rpd-course-featured-guide{
+	display: grid;
+	grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+	overflow: hidden;
+	margin-bottom: 1.5rem;
+}
+
+.rpd-course-detail-page .rpd-course-featured-guide > div:first-child{
+	padding: 2rem;
+	background: linear-gradient(135deg, var(--rpd-navy), var(--rpd-purple));
+	color: #ffffff;
+}
+
+.rpd-course-detail-page .rpd-course-featured-guide > div:first-child h3,
+.rpd-course-detail-page .rpd-course-final-cta h2{
+	color: #ffffff;
+}
+
+.rpd-course-detail-page .rpd-course-featured-guide > div:last-child{
+	padding: 2rem;
+}
+
+.rpd-course-detail-page .rpd-course-featured-guide p,
+.rpd-course-detail-page .rpd-course-resource-card p,
+.rpd-course-detail-page .rpd-course-pricing-card p,
+.rpd-course-detail-page .rpd-course-related-card p{
+	margin: 0 0 0.75rem;
+	color: var(--rpd-purple-deep);
+	font-size: 0.76rem;
+	font-weight: 900;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.rpd-course-detail-page .rpd-course-featured-guide ul,
+.rpd-course-detail-page .rpd-course-pricing-card ul{
+	display: grid;
+	gap: 0.55rem;
+	padding: 0;
+	margin: 1rem 0 1.35rem;
+	list-style: none;
+}
+
+.rpd-course-detail-page .rpd-course-featured-guide li::before{
+	color: var(--rpd-purple);
+	content: "✓ ";
+	font-weight: 900;
+}
+
+.rpd-course-detail-page .rpd-course-resource-actions{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.rpd-course-detail-page .rpd-course-resource-card{
+	padding: 1.5rem;
+}
+
+.rpd-course-detail-page .rpd-course-resource-card a,
+.rpd-course-detail-page .rpd-course-related__header a,
+.rpd-course-detail-page .rpd-course-related-card a,
+.rpd-course-detail-page .rpd-course-faq a{
+	color: var(--rpd-purple);
+	font-weight: 900;
+	text-decoration: none;
+}
+
+.rpd-course-detail-page .rpd-course-pricing-card{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
+}
+
+.rpd-course-detail-page .rpd-course-pricing-card.is-featured{
+	border: 2px solid var(--rpd-purple);
+	transform: translateY(-1.2rem);
+}
+
+.rpd-course-detail-page .rpd-course-pricing-card__ribbon{
+	position: absolute;
+	top: -0.8rem;
+	left: 50%;
+	padding: 0.35rem 1.15rem;
+	border-radius: 999px;
+	background: var(--rpd-purple);
+	color: #ffffff;
+	font-size: 0.7rem;
+	font-weight: 900;
+	text-transform: uppercase;
+	transform: translateX(-50%);
+}
+
+.rpd-course-detail-page .rpd-course-pricing-card > strong{
+	color: var(--rpd-navy);
+	font-family: var(--font-heading);
+	font-size: 3rem;
+	line-height: 1;
+}
+
+.rpd-course-detail-page .rpd-course-pricing-card > span{
+	color: var(--rpd-body);
+	font-weight: 800;
+}
+
+.rpd-course-detail-page .rpd-course-pricing-card .rpd-btn{
+	margin-top: auto;
+	justify-content: center;
+}
+
+.rpd-course-detail-page .rpd-course-pricing-card li{
+	display: flex;
+	gap: 0.65rem;
+	align-items: flex-start;
+}
+
+.rpd-course-detail-page .rpd-course-related-card{
+	overflow: hidden;
+}
+
+.rpd-course-detail-page .rpd-course-related-card > div:first-child{
+	position: relative;
+	height: 13.5rem;
+	overflow: hidden;
+	background: var(--rpd-navy);
+}
+
+.rpd-course-detail-page .rpd-course-related-card img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.rpd-course-detail-page .rpd-course-related-card > div:first-child span,
+.rpd-course-detail-page .rpd-course-related-card > div:first-child em{
+	position: absolute;
+	top: 0.85rem;
+	z-index: 1;
+	padding: 0.3rem 0.6rem;
+	border-radius: 999px;
+	background: #ffffff;
+	color: var(--course-text);
+	font-size: 0.7rem;
+	font-style: normal;
+	font-weight: 900;
+}
+
+.rpd-course-detail-page .rpd-course-related-card > div:first-child span{
+	left: 0.85rem;
+}
+
+.rpd-course-detail-page .rpd-course-related-card > div:first-child em{
+	right: 0.85rem;
+	color: var(--rpd-navy);
+}
+
+.rpd-course-detail-page .rpd-course-related-card > div:last-child{
+	padding: 1.35rem;
+}
+
+.rpd-course-detail-page .rpd-course-faq__list{
+	display: grid;
+	gap: 0.7rem;
+}
+
+.rpd-course-detail-page .rpd-course-faq__item{
+	overflow: hidden;
+}
+
+.rpd-course-detail-page .rpd-course-faq__item button{
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	width: 100%;
+	padding: 1.05rem 1.2rem;
+	border: 0;
+	background: #ffffff;
+	color: var(--rpd-navy);
+	font: 900 1rem/1.3 var(--font-heading);
+	text-align: left;
+	cursor: pointer;
+}
+
+.rpd-course-detail-page .rpd-course-faq__item button i{
+	width: 1rem;
+	height: 1rem;
+	border-right: 2px solid currentColor;
+	border-bottom: 2px solid currentColor;
+	transform: rotate(45deg);
+}
+
+.rpd-course-detail-page .rpd-course-faq__item button[aria-expanded="true"] i{
+	transform: rotate(225deg);
+}
+
+.rpd-course-detail-page .rpd-course-faq__item div{
+	padding: 0 1.2rem 1.1rem;
+}
+
+.rpd-course-detail-page .rpd-course-faq__item p{
+	margin: 0;
+	color: var(--rpd-body);
+	line-height: 1.65;
+}
+
+.rpd-course-detail-page .rpd-course-final-cta{
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+	padding: 6rem 0;
+	background: linear-gradient(135deg, var(--rpd-navy), #2c2870 58%, #1a1744);
+	color: #ffffff;
+	text-align: center;
+}
+
+.rpd-course-detail-page .rpd-course-final-cta__orb{
+	position: absolute;
+	z-index: -1;
+	width: 18rem;
+	height: 18rem;
+	border-radius: 50%;
+	filter: blur(50px);
+	opacity: 0.18;
+}
+
+.rpd-course-detail-page .rpd-course-final-cta__orb--blue{
+	top: 5%;
+	right: 10%;
+	background: var(--rpd-course-blue);
+}
+
+.rpd-course-detail-page .rpd-course-final-cta__orb--magenta{
+	left: 12%;
+	bottom: 5%;
+	background: var(--rpd-purple-deep);
+}
+
+.rpd-course-detail-page .rpd-course-final-cta .rpd-container{
+	max-width: 48rem;
+}
+
+.rpd-course-detail-page .rpd-course-final-cta p{
+	max-width: 38rem;
+	margin: 0 auto 1.6rem;
+	color: rgba(255, 255, 255, 0.78);
+	line-height: 1.65;
+}
+
+.rpd-course-detail-page .rpd-course-final-cta div:last-child{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.85rem;
+	justify-content: center;
+}
+
+.rpd-course-detail-page .rpd-course-tone--emerald{
+	--course-color: #10b981;
+	--course-text: #047857;
+}
+
+.rpd-course-detail-page .rpd-course-tone--gold{
+	--course-color: #fdb933;
+	--course-text: #8a5a00;
+}
+
+.rpd-course-detail-page .rpd-course-tone--blue{
+	--course-color: #3b82f6;
+	--course-text: #1d4ed8;
+}
+
+@media (max-width: 980px) {
+	.rpd-course-detail-page .rpd-course-hero__inner,
+	.rpd-course-detail-page .rpd-course-included__inner,
+	.rpd-course-detail-page .rpd-course-split,
+	.rpd-course-detail-page .rpd-course-featured-guide,
+	.rpd-course-detail-page .rpd-course-instructor-card,
+	.rpd-course-detail-page .rpd-course-resources__header,
+	.rpd-course-detail-page .rpd-course-related__header{
+		grid-template-columns: 1fr;
+	}
+
+	.rpd-course-detail-page .rpd-course-resources__header,
+	.rpd-course-detail-page .rpd-course-related__header{
+		display: grid;
+		align-items: start;
+	}
+
+	.rpd-course-detail-page .rpd-course-outcomes__grid,
+	.rpd-course-detail-page .rpd-course-pricing__grid,
+	.rpd-course-detail-page .rpd-course-related__grid,
+	.rpd-course-detail-page .rpd-course-resource-grid{
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.rpd-course-detail-page .rpd-course-pricing-card.is-featured{
+		transform: none;
+	}
+}
+
+@media (max-width: 640px) {
+	.rpd-course-detail-page .rpd-course-hero,
+	.rpd-course-detail-page .rpd-course-outcomes,
+	.rpd-course-detail-page .rpd-course-audience,
+	.rpd-course-detail-page .rpd-course-included,
+	.rpd-course-detail-page .rpd-course-instructor,
+	.rpd-course-detail-page .rpd-course-resources,
+	.rpd-course-detail-page .rpd-course-pricing,
+	.rpd-course-detail-page .rpd-course-related,
+	.rpd-course-detail-page .rpd-course-faq,
+	.rpd-course-detail-page .rpd-course-final-cta{
+		padding: 4.5rem 0;
+	}
+
+	.rpd-course-detail-page .rpd-course-hero h1{
+		max-width: 15ch;
+		font-size: clamp(2.25rem, 10vw, 3.05rem);
+	}
+
+	.rpd-course-detail-page .rpd-course-hero__commerce,
+	.rpd-course-detail-page .rpd-course-hero__actions,
+	.rpd-course-detail-page .rpd-course-resource-actions,
+	.rpd-course-detail-page .rpd-course-final-cta div:last-child{
+		display: grid;
+	}
+
+	.rpd-course-detail-page .rpd-course-hero__actions .rpd-btn,
+	.rpd-course-detail-page .rpd-course-resource-actions .rpd-btn,
+	.rpd-course-detail-page .rpd-course-final-cta .rpd-btn{
+		width: 100%;
+		justify-content: center;
+	}
+
+	.rpd-course-detail-page .rpd-course-outcomes__grid,
+	.rpd-course-detail-page .rpd-course-pricing__grid,
+	.rpd-course-detail-page .rpd-course-related__grid,
+	.rpd-course-detail-page .rpd-course-resource-grid{
+		grid-template-columns: 1fr;
+	}
+
+	.rpd-course-detail-page .rpd-course-instructor-card{
+		padding: 1rem;
+	}
+}
