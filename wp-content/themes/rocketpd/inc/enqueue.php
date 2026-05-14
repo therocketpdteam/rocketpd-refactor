@@ -159,6 +159,20 @@ function rocketpd_enqueue_assets() {
 		$enqueue_page_style( 'rocketpd-lead-thank-you', '/assets/css/pages/lead-thank-you.css' );
 	}
 
+	if ( function_exists( 'rocketpd_is_topics_context' ) && rocketpd_is_topics_context() ) {
+		$enqueue_page_style( 'rocketpd-topics', '/assets/css/pages/topics.css' );
+
+		$topics_script_path = get_template_directory() . '/assets/js/topics.js';
+
+		wp_enqueue_script(
+			'rocketpd-topics',
+			get_template_directory_uri() . '/assets/js/topics.js',
+			array( 'rocketpd-main' ),
+			file_exists( $topics_script_path ) ? filemtime( $topics_script_path ) : $theme_version,
+			true
+		);
+	}
+
 	if ( is_page_template( 'page-templates/template-trust-cycle-guide.php' ) ) {
 		$enqueue_page_style( 'rocketpd-trust-cycle-guide', '/assets/css/pages/trust-cycle-guide.css' );
 	}

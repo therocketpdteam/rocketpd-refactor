@@ -28,6 +28,15 @@ function rocketpd_is_courses_context() {
 }
 
 /**
+ * Return true on the Topic Index page.
+ *
+ * @return bool
+ */
+function rocketpd_nav_is_topics_context() {
+	return function_exists( 'rocketpd_is_topics_context' ) && rocketpd_is_topics_context();
+}
+
+/**
  * Return true when a menu item points to the Instructor Index route.
  *
  * @param WP_Post $item Menu item.
@@ -63,6 +72,24 @@ function rocketpd_is_courses_menu_item( $item ) {
 }
 
 /**
+ * Return true when a menu item points to the Topic Index route.
+ *
+ * @param WP_Post $item Menu item.
+ * @return bool
+ */
+function rocketpd_is_topics_menu_item( $item ) {
+	if ( empty( $item->url ) ) {
+		return false;
+	}
+
+	$path  = wp_parse_url( $item->url, PHP_URL_PATH );
+	$path  = $path ? untrailingslashit( $path ) : '';
+	$title = ! empty( $item->title ) ? sanitize_title( $item->title ) : '';
+
+	return in_array( $path, array( '/topic', '/topics' ), true ) || 'topics' === $title;
+}
+
+/**
  * Render a theme menu when assigned.
  *
  * @param string $location Menu location.
@@ -72,10 +99,12 @@ function rocketpd_nav_menu( $location = 'primary' ) {
 		if ( 'primary' === $location ) {
 			$is_instructors = rocketpd_is_instructors_context();
 			$is_courses     = rocketpd_is_courses_context();
+			$is_topics      = rocketpd_nav_is_topics_context();
 			$items = array(
 				array(
-					'label' => __( 'Topics', 'rocketpd' ),
-					'url'   => home_url( '/topics/' ),
+					'label'   => __( 'Topics', 'rocketpd' ),
+					'url'     => home_url( '/topic/' ),
+					'current' => $is_topics,
 				),
 				array(
 					'label'   => __( 'Instructors', 'rocketpd' ),
@@ -157,6 +186,23 @@ function rocketpd_courses_nav_classes( $classes, $item, $args ) {
 add_filter( 'nav_menu_css_class', 'rocketpd_courses_nav_classes', 10, 3 );
 
 /**
+ * Add current-menu-item to assigned menu items that point to Topics.
+ *
+ * @param array   $classes Menu item classes.
+ * @param WP_Post $item    Menu item.
+ * @param object  $args    Menu args.
+ * @return array
+ */
+function rocketpd_topics_nav_classes( $classes, $item, $args ) {
+	if ( isset( $args->theme_location ) && 'primary' === $args->theme_location && rocketpd_nav_is_topics_context() && rocketpd_is_topics_menu_item( $item ) ) {
+		$classes[] = 'current-menu-item';
+	}
+
+	return $classes;
+}
+add_filter( 'nav_menu_css_class', 'rocketpd_topics_nav_classes', 10, 3 );
+
+/**
  * Add aria-current to assigned menu items that point to Instructors.
  *
  * @param array   $atts Link attributes.
@@ -189,3 +235,20 @@ function rocketpd_courses_nav_link_attributes( $atts, $item, $args ) {
 	return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'rocketpd_courses_nav_link_attributes', 10, 3 );
+
+/**
+ * Add aria-current to assigned menu items that point to Topics.
+ *
+ * @param array   $atts Link attributes.
+ * @param WP_Post $item Menu item.
+ * @param object  $args Menu args.
+ * @return array
+ */
+function rocketpd_topics_nav_link_attributes( $atts, $item, $args ) {
+	if ( isset( $args->theme_location ) && 'primary' === $args->theme_location && rocketpd_nav_is_topics_context() && rocketpd_is_topics_menu_item( $item ) ) {
+		$atts['aria-current'] = 'page';
+	}
+
+	return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'rocketpd_topics_nav_link_attributes', 10, 3 );
