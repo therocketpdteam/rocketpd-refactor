@@ -13,6 +13,10 @@
 	box-sizing: border-box;
 }
 
+.rpd-courses-page [hidden] {
+	display: none !important;
+}
+
 .rpd-courses-page h1,
 .rpd-courses-page h2,
 .rpd-courses-page h3 {
@@ -39,11 +43,11 @@
 .rpd-courses-page .rpd-courses-hero {
 	position: relative;
 	isolation: isolate;
-	min-height: 50rem;
-	padding: 7rem 0 6.5rem;
+	min-height: 47rem;
+	padding: 6.6rem 0 6.1rem;
 	overflow: hidden;
 	background:
-		radial-gradient(circle at 85% 16%, rgba(59, 130, 246, 0.16), transparent 25rem),
+		radial-gradient(circle at 84% 17%, rgba(59, 130, 246, 0.12), transparent 22rem),
 		radial-gradient(circle at 11% 87%, rgba(161, 84, 161, 0.14), transparent 24rem),
 		linear-gradient(135deg, #ffffff 0%, #f5f4fb 48%, #ecebf6 100%);
 }
@@ -51,17 +55,17 @@
 .rpd-courses-page .rpd-courses-orb {
 	position: absolute;
 	z-index: -1;
-	width: 24rem;
-	height: 24rem;
+	width: 20rem;
+	height: 20rem;
 	border-radius: 50%;
-	filter: blur(35px);
-	opacity: 0.3;
+	filter: blur(42px);
+	opacity: 0.24;
 	pointer-events: none;
 }
 
 .rpd-courses-page .rpd-courses-orb--blue {
-	right: 4%;
-	top: 6%;
+	right: 8%;
+	top: 7%;
 	background: var(--rpd-courses-blue);
 }
 
@@ -73,19 +77,19 @@
 
 .rpd-courses-page .rpd-courses-hero__inner {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(26rem, 0.92fr);
-	gap: clamp(3rem, 7vw, 7rem);
+	grid-template-columns: minmax(0, 0.96fr) minmax(28rem, 1fr);
+	gap: clamp(3rem, 6vw, 6rem);
 	align-items: center;
 }
 
 .rpd-courses-page .rpd-courses-hero__content {
-	max-width: 42rem;
+	max-width: 39rem;
 }
 
 .rpd-courses-page .rpd-courses-hero__content h1 {
 	margin: 0 0 1.5rem;
-	font-size: clamp(3.8rem, 6vw, 5.9rem);
-	line-height: 0.98;
+	font-size: clamp(3.55rem, 5.15vw, 5.2rem);
+	line-height: 1;
 }
 
 .rpd-courses-page .rpd-courses-hero__content h1 span {
@@ -147,7 +151,7 @@
 
 .rpd-courses-page .rpd-courses-hero__visual {
 	position: relative;
-	min-height: 31rem;
+	min-height: 34rem;
 }
 
 .rpd-courses-page .rpd-courses-dot-grid {
@@ -160,7 +164,7 @@
 
 .rpd-courses-page .rpd-course-float-card {
 	position: absolute;
-	width: min(21rem, 58vw);
+	width: min(21.5rem, 58vw);
 	overflow: hidden;
 	border: 1px solid rgba(35, 31, 88, 0.12);
 	border-radius: 1rem;
@@ -169,22 +173,22 @@
 }
 
 .rpd-courses-page .rpd-course-float-card--1 {
-	top: 1.5rem;
-	left: 0;
+	top: 0.2rem;
+	left: 0.3rem;
 	z-index: 3;
 	transform: rotate(-2deg);
 }
 
 .rpd-courses-page .rpd-course-float-card--2 {
-	top: 5.8rem;
-	right: 0;
+	top: 5.3rem;
+	right: 0.3rem;
 	z-index: 4;
 	transform: rotate(5deg);
 }
 
 .rpd-courses-page .rpd-course-float-card--3 {
-	left: 5rem;
-	bottom: 0;
+	left: 5.4rem;
+	bottom: 0.3rem;
 	z-index: 2;
 	transform: rotate(3deg);
 }
@@ -619,7 +623,7 @@
 .rpd-courses-page .rpd-course-card__body {
 	display: flex;
 	flex-direction: column;
-	min-height: 22rem;
+	min-height: 21rem;
 	padding: 1.35rem 1.35rem 1.15rem;
 }
 
@@ -640,7 +644,7 @@
 
 .rpd-courses-page .rpd-course-card h3 {
 	margin: 0 0 0.95rem;
-	font-size: 1.26rem;
+	font-size: 1.22rem;
 	line-height: 1.24;
 }
 
@@ -688,7 +692,7 @@
 	justify-content: space-between;
 	gap: 1rem;
 	align-items: center;
-	margin-top: 1rem;
+	margin-top: auto;
 	padding-top: 1rem;
 	border-top: 1px solid rgba(35, 31, 88, 0.12);
 }
