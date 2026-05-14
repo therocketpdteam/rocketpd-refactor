@@ -17,7 +17,7 @@ $audiences = isset( $course['audiences'] ) && is_array( $course['audiences'] ) ?
 	<div class="rpd-container rpd-course-split">
 		<div>
 			<p class="rpd-course-section-kicker"><?php esc_html_e( 'Who This Is For', 'rocketpd' ); ?></p>
-			<h2><?php esc_html_e( 'Built for the people who run schools', 'rocketpd' ); ?></h2>
+			<h2><?php esc_html_e( 'Built for the people who run schools — and the coaches who support them.', 'rocketpd' ); ?></h2>
 		</div>
 		<div>
 			<?php if ( $audiences ) : ?>

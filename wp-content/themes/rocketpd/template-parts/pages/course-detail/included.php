@@ -32,12 +32,22 @@ if ( ! $items ) {
 		</div>
 		<div class="rpd-course-device-card">
 			<div class="rpd-course-device-card__screen">
-				<?php if ( ! empty( $included['visual'] ) ) : ?>
-					<img src="<?php echo esc_url( $included['visual'] ); ?>" alt="">
-				<?php endif; ?>
-				<div>
-					<strong><?php esc_html_e( 'LaunchPad', 'rocketpd' ); ?></strong>
-					<span><?php esc_html_e( 'Video modules, workbook, certificate, and community access.', 'rocketpd' ); ?></span>
+				<div class="rpd-course-device-card__brand"><?php esc_html_e( 'LaunchPad', 'rocketpd' ); ?><span aria-hidden="true">&raquo;</span></div>
+				<div class="rpd-course-device-card__phone" aria-hidden="true">
+					<span></span>
+					<strong><?php esc_html_e( 'My courses', 'rocketpd' ); ?></strong>
+					<em><?php echo esc_html( $course['title'] ?? __( 'Course', 'rocketpd' ) ); ?></em>
+				</div>
+				<div class="rpd-course-device-card__laptop" aria-hidden="true">
+					<div>
+						<?php if ( ! empty( $included['visual'] ) ) : ?>
+							<img src="<?php echo esc_url( $included['visual'] ); ?>" alt="">
+						<?php endif; ?>
+						<span><?php esc_html_e( 'Workbook + video modules', 'rocketpd' ); ?></span>
+					</div>
+				</div>
+				<div class="rpd-course-device-card__book" aria-hidden="true">
+					<span><?php esc_html_e( 'Guide', 'rocketpd' ); ?></span>
 				</div>
 			</div>
 		</div>

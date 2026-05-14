@@ -57,7 +57,7 @@ if ( ! $resources ) {
 				<?php if ( 'guide' === $key ) : ?>
 					<?php continue; ?>
 				<?php endif; ?>
-				<article class="rpd-course-resource-card">
+				<article class="rpd-course-resource-card rpd-course-resource-card--<?php echo esc_attr( $key ); ?>">
 					<p><?php echo esc_html( $resource['meta'] ?? ucfirst( $key ) ); ?></p>
 					<h3><?php echo esc_html( $resource['title'] ?? '' ); ?></h3>
 					<span><?php echo esc_html( $resource['summary'] ?? '' ); ?></span>
