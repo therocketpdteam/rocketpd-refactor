@@ -1,0 +1,831 @@
+.rpd-instructor-detail-page {
+	background: var(--rpd-white);
+	color: #45417c;
+	overflow-x: clip;
+}
+
+.rpd-instructor-detail-page .rpd-container {
+	max-width: 75rem;
+}
+
+.rpd-instructor-detail-page h1,
+.rpd-instructor-detail-page h2,
+.rpd-instructor-detail-page h3 {
+	color: #231f58;
+	font-family: var(--font-heading);
+	letter-spacing: 0;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-breadcrumb {
+	background: rgba(196, 196, 229, 0.34);
+	border-bottom: 1px solid rgba(196, 196, 229, 0.55);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-breadcrumb ol {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.55rem;
+	margin: 0;
+	padding: 1rem 0;
+	list-style: none;
+	color: #231f58;
+	font-size: 0.86rem;
+	font-weight: 800;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-breadcrumb li:not(:last-child)::after {
+	margin-left: 0.55rem;
+	color: #7670b3;
+	content: "/";
+}
+
+.rpd-instructor-detail-page .rpd-instructor-breadcrumb a {
+	color: #231f58;
+	text-decoration: none;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-breadcrumb [aria-current="page"] {
+	color: #a154a1;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-hero {
+	padding: clamp(4.5rem, 7vw, 7rem) 0 clamp(4.75rem, 7vw, 7.25rem);
+	background:
+		radial-gradient(circle at 86% 20%, rgba(161, 84, 161, 0.18), transparent 24rem),
+		radial-gradient(circle at 14% 78%, rgba(85, 82, 177, 0.12), transparent 28rem),
+		linear-gradient(135deg, #ffffff 0%, #fbfbff 44%, rgba(196, 196, 229, 0.52) 100%);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-hero__grid {
+	display: grid;
+	align-items: center;
+	gap: clamp(3rem, 7vw, 6rem);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-eyebrow,
+.rpd-instructor-detail-page .rpd-instructor-section-kicker {
+	margin: 0 0 1rem;
+	color: #a154a1;
+	font-size: 0.78rem;
+	font-weight: 900;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-hero h1 {
+	margin: 0;
+	font-size: clamp(3.8rem, 8vw, 6.2rem);
+	font-weight: 900;
+	line-height: 0.92;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-hero__authority {
+	max-width: 43rem;
+	margin: 1.4rem 0 0;
+	color: #a154a1;
+	font-family: var(--font-heading);
+	font-size: clamp(1.55rem, 3vw, 2.35rem);
+	font-weight: 800;
+	line-height: 1.12;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+	margin-top: 1.65rem;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-tags span {
+	padding: 0.42rem 0.8rem;
+	border: 1px solid rgba(196, 196, 229, 0.85);
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.78);
+	color: #5552b1;
+	font-size: 0.78rem;
+	font-weight: 800;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-hero__actions,
+.rpd-instructor-detail-page .rpd-instructor-resource-actions,
+.rpd-instructor-detail-page .rpd-instructor-final__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.9rem;
+	margin-top: 2rem;
+}
+
+.rpd-instructor-detail-page .rpd-btn {
+	border-radius: 0.375rem;
+	font-weight: 900;
+}
+
+.rpd-instructor-detail-page .rpd-btn--outline-purple {
+	border: 1px solid #5552b1;
+	background: transparent;
+	color: #5552b1;
+}
+
+.rpd-instructor-detail-page .rpd-btn--outline-light {
+	border: 1px solid rgba(255, 255, 255, 0.76);
+	background: transparent;
+	color: var(--rpd-white);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-follow {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.7rem;
+	margin-top: 2rem;
+	color: #7670b3;
+	font-size: 0.78rem;
+	font-weight: 900;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-follow a {
+	display: inline-grid;
+	place-items: center;
+	width: 2.35rem;
+	height: 2.35rem;
+	border: 1px solid rgba(196, 196, 229, 0.8);
+	border-radius: 999px;
+	background: var(--rpd-white);
+	color: #5552b1;
+	text-decoration: none;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-follow__icon,
+.rpd-instructor-detail-page .rpd-instructor-follow__icon svg {
+	display: block;
+	width: 1rem;
+	height: 1rem;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-follow__icon svg {
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.9;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-follow__icon svg path:first-child:last-child {
+	fill: currentColor;
+	stroke: none;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-hero__visual {
+	position: relative;
+	max-width: 35rem;
+	margin-inline: auto;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-portrait {
+	display: grid;
+	place-items: center;
+	overflow: hidden;
+	aspect-ratio: 0.88;
+	border: 0.8rem solid var(--rpd-white);
+	border-radius: 2rem;
+	background: linear-gradient(135deg, #c4c4e5, #5552b1 60%, #a154a1);
+	box-shadow: 24px 24px 0 rgba(196, 196, 229, 0.56), var(--rpd-shadow-lg);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-portrait img {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-portrait__fallback {
+	display: grid;
+	place-items: center;
+	width: 100%;
+	height: 100%;
+	color: var(--rpd-white);
+	font-family: var(--font-heading);
+	font-size: 5rem;
+	font-weight: 900;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-portrait img + .rpd-instructor-portrait__fallback {
+	display: none;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-portrait.is-image-missing img {
+	display: none;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-portrait.is-image-missing .rpd-instructor-portrait__fallback {
+	display: grid;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-award {
+	position: absolute;
+	top: 1.2rem;
+	right: -1.2rem;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	padding: 0.75rem 1rem;
+	border-radius: 999px;
+	background: #fdb933;
+	color: #231f58;
+	font-family: var(--font-heading);
+	font-weight: 900;
+	box-shadow: var(--rpd-shadow-md);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-hero-stats {
+	position: absolute;
+	right: 1.6rem;
+	bottom: -2.2rem;
+	left: 1.6rem;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.65rem;
+	padding: 1.2rem;
+	border: 1px solid rgba(196, 196, 229, 0.8);
+	border-radius: 1rem;
+	background: var(--rpd-white);
+	box-shadow: var(--rpd-shadow-md);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-hero-stats strong,
+.rpd-instructor-detail-page .rpd-instructor-trust__stats strong {
+	display: block;
+	color: #231f58;
+	font-family: var(--font-heading);
+	font-size: clamp(1.35rem, 3vw, 2.05rem);
+	font-weight: 900;
+	line-height: 1;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-hero-stats span,
+.rpd-instructor-detail-page .rpd-instructor-trust__stats span {
+	display: block;
+	margin-top: 0.35rem;
+	color: #7670b3;
+	font-size: 0.75rem;
+	font-weight: 800;
+	line-height: 1.25;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-authority,
+.rpd-instructor-detail-page .rpd-instructor-trust,
+.rpd-instructor-detail-page .rpd-instructor-related,
+.rpd-instructor-detail-page .rpd-instructor-faq {
+	padding: clamp(5rem, 8vw, 7rem) 0;
+	background: var(--rpd-white);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-split {
+	display: grid;
+	gap: clamp(2rem, 6vw, 5rem);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-split__intro h2,
+.rpd-instructor-detail-page .rpd-instructor-section-header h2,
+.rpd-instructor-detail-page .rpd-instructor-final h2 {
+	margin: 0;
+	font-size: clamp(2.4rem, 5vw, 4.2rem);
+	font-weight: 900;
+	line-height: 1;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-authority__body > p {
+	margin: 0 0 1.2rem;
+	color: #343465;
+	font-size: 1.12rem;
+	line-height: 1.7;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-authority__body h3 {
+	margin: 2.4rem 0 1rem;
+	color: #a154a1;
+	font-size: 0.82rem;
+	font-weight: 900;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-focus-grid {
+	display: grid;
+	gap: 0.9rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-focus-grid li {
+	display: flex;
+	gap: 0.7rem;
+	align-items: flex-start;
+	padding: 1rem;
+	border: 1px solid rgba(196, 196, 229, 0.65);
+	border-radius: 0.55rem;
+	background: #fbfbff;
+	color: #343465;
+	font-weight: 800;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-focus-grid span {
+	display: grid;
+	place-items: center;
+	width: 1.2rem;
+	height: 1.2rem;
+	margin-top: 0.1rem;
+	border-radius: 999px;
+	background: rgba(85, 82, 177, 0.12);
+	color: #5552b1;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-focus-grid span::before {
+	content: "✓";
+	font-size: 0.8rem;
+	font-weight: 900;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-resources {
+	padding: clamp(5rem, 8vw, 7rem) 0;
+	background: rgba(196, 196, 229, 0.2);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-section-header {
+	max-width: 52rem;
+	margin: 0 auto 2.5rem;
+	text-align: center;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-guide-card {
+	display: grid;
+	overflow: hidden;
+	border-radius: 1.2rem;
+	background: #231f58;
+	box-shadow: var(--rpd-shadow-lg);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-guide-card__feature {
+	padding: clamp(2rem, 4vw, 3rem);
+	color: var(--rpd-white);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-resource-icon {
+	display: inline-grid;
+	place-items: center;
+	width: 3rem;
+	height: 3rem;
+	margin-bottom: 1.2rem;
+	border-radius: 0.75rem;
+	background: rgba(253, 185, 51, 0.18);
+	color: #fdb933;
+	font-size: 0.78rem;
+	font-weight: 900;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-guide-card__feature p,
+.rpd-instructor-detail-page .rpd-instructor-media-card__body > p,
+.rpd-instructor-detail-page .rpd-instructor-blog-card p,
+.rpd-instructor-detail-page .rpd-instructor-offering-card > p {
+	margin: 0 0 0.8rem;
+	color: #a154a1;
+	font-size: 0.78rem;
+	font-weight: 900;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-guide-card__feature h3 {
+	max-width: 28rem;
+	margin: 0;
+	color: var(--rpd-white);
+	font-size: clamp(1.8rem, 4vw, 3rem);
+	font-weight: 900;
+	line-height: 1.03;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-guide-card__feature > span {
+	display: block;
+	margin-top: 1.2rem;
+	color: #c4c4e5;
+	font-weight: 800;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-guide-card__panel {
+	margin: 1rem;
+	padding: clamp(1.5rem, 4vw, 2.4rem);
+	border-radius: 1rem;
+	background: var(--rpd-white);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-guide-card__panel p,
+.rpd-instructor-detail-page .rpd-instructor-media-card__body span {
+	margin: 0;
+	color: #343465;
+	font-size: 1.05rem;
+	line-height: 1.65;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-guide-card__panel ul,
+.rpd-instructor-detail-page .rpd-instructor-offering-card ul {
+	display: grid;
+	gap: 0.7rem;
+	margin: 1.4rem 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-guide-card__panel li,
+.rpd-instructor-detail-page .rpd-instructor-offering-card li {
+	color: #343465;
+	font-weight: 700;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-guide-card__panel li::before,
+.rpd-instructor-detail-page .rpd-instructor-offering-card li::before {
+	margin-right: 0.5rem;
+	color: #5552b1;
+	content: "✓";
+	font-weight: 900;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-media-grid,
+.rpd-instructor-detail-page .rpd-instructor-blog-grid,
+.rpd-instructor-detail-page .rpd-instructor-offerings,
+.rpd-instructor-detail-page .rpd-instructor-related__grid {
+	display: grid;
+	gap: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-media-card,
+.rpd-instructor-detail-page .rpd-instructor-blog-card,
+.rpd-instructor-detail-page .rpd-instructor-offering-card,
+.rpd-instructor-detail-page .rpd-instructor-related-card {
+	overflow: hidden;
+	border: 1px solid rgba(196, 196, 229, 0.72);
+	border-radius: 0.85rem;
+	background: var(--rpd-white);
+	box-shadow: 0 3px 10px rgba(35, 31, 88, 0.08);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-embed {
+	aspect-ratio: 16 / 9;
+	background: #231f58;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-embed iframe {
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-media-card__body,
+.rpd-instructor-detail-page .rpd-instructor-blog-card,
+.rpd-instructor-detail-page .rpd-instructor-offering-card {
+	padding: 1.5rem;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-media-card h3,
+.rpd-instructor-detail-page .rpd-instructor-blog-card h3,
+.rpd-instructor-detail-page .rpd-instructor-offering-card h3,
+.rpd-instructor-detail-page .rpd-instructor-related-card h3 {
+	margin: 0 0 0.8rem;
+	font-size: 1.45rem;
+	font-weight: 900;
+	line-height: 1.08;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-media-card a,
+.rpd-instructor-detail-page .rpd-instructor-blog-card a,
+.rpd-instructor-detail-page .rpd-instructor-related-card a {
+	display: inline-flex;
+	margin-top: 1.1rem;
+	color: #5552b1;
+	font-weight: 900;
+	text-decoration: none;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-blog-card.is-placeholder {
+	border-style: dashed;
+	background: rgba(255, 255, 255, 0.55);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-learning {
+	padding: clamp(5rem, 8vw, 7rem) 0;
+	background: var(--rpd-white);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-offering-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 26rem;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-offering-card > p {
+	color: #5552b1;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-offering-card__badge {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	padding: 0.32rem 0.65rem;
+	border-radius: 999px;
+	background: #a154a1;
+	color: var(--rpd-white);
+	font-size: 0.68rem;
+	font-weight: 900;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-offering-card .rpd-btn {
+	justify-content: center;
+	margin-top: auto;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-offering-card.is-featured {
+	border-color: #5552b1;
+	box-shadow: var(--rpd-shadow-md);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-trust__grid {
+	display: grid;
+	gap: clamp(2rem, 6vw, 5rem);
+	align-items: center;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-testimonial {
+	margin: 0;
+	padding: clamp(2rem, 4vw, 3rem);
+	border-radius: 1rem;
+	background: #231f58;
+	color: var(--rpd-white);
+	box-shadow: var(--rpd-shadow-md);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-testimonial > span {
+	color: #fdb933;
+	font-family: var(--font-heading);
+	font-size: 3rem;
+	font-weight: 900;
+	line-height: 1;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-testimonial blockquote {
+	margin: 0;
+	color: var(--rpd-white);
+	font-family: var(--font-heading);
+	font-size: clamp(1.45rem, 3vw, 2.25rem);
+	font-weight: 800;
+	line-height: 1.2;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-testimonial figcaption {
+	margin-top: 1.5rem;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-testimonial strong,
+.rpd-instructor-detail-page .rpd-instructor-testimonial small {
+	display: block;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-testimonial small {
+	color: #c4c4e5;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-trust__stats {
+	display: grid;
+	gap: 1rem;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-trust__stats div {
+	padding: 1.4rem;
+	border: 1px solid rgba(196, 196, 229, 0.72);
+	border-radius: 0.8rem;
+	background: #fbfbff;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-related {
+	background: rgba(196, 196, 229, 0.18);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-related-card {
+	display: grid;
+	grid-template-columns: 6rem 1fr;
+	gap: 1rem;
+	padding: 1rem;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-related-card__image {
+	overflow: hidden;
+	aspect-ratio: 1;
+	border-radius: 0.7rem;
+	background: linear-gradient(135deg, #c4c4e5, #5552b1);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-related-card__image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-related-card p {
+	margin: 0;
+	color: #343465;
+	line-height: 1.45;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-faq__list {
+	display: grid;
+	gap: 0.9rem;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-faq__item {
+	border: 1px solid rgba(196, 196, 229, 0.72);
+	border-radius: 0.75rem;
+	background: var(--rpd-white);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-faq button {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	width: 100%;
+	padding: 1.15rem 1.25rem;
+	border: 0;
+	background: transparent;
+	color: #231f58;
+	font-family: var(--font-heading);
+	font-size: 1.05rem;
+	font-weight: 900;
+	text-align: left;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-faq button i::before {
+	content: "+";
+}
+
+.rpd-instructor-detail-page .rpd-instructor-faq button[aria-expanded="true"] i::before {
+	content: "-";
+}
+
+.rpd-instructor-detail-page .rpd-instructor-faq [role="region"] {
+	padding: 0 1.25rem 1.2rem;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-faq [role="region"] p,
+.rpd-instructor-detail-page .rpd-instructor-faq .rpd-instructor-split__intro p {
+	margin: 0;
+	color: #343465;
+	line-height: 1.65;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-faq .rpd-instructor-split__intro p {
+	margin-top: 1rem;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-faq a {
+	color: #5552b1;
+	font-weight: 900;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-final {
+	position: relative;
+	overflow: hidden;
+	padding: clamp(5rem, 8vw, 7rem) 0;
+	background:
+		radial-gradient(circle at 18% 36%, rgba(161, 84, 161, 0.35), transparent 28rem),
+		radial-gradient(circle at 80% 25%, rgba(85, 82, 177, 0.42), transparent 30rem),
+		linear-gradient(135deg, #231f58, #343465);
+	color: var(--rpd-white);
+	text-align: center;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-final h2 {
+	max-width: 48rem;
+	margin-inline: auto;
+	color: var(--rpd-white);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-final__eyebrow {
+	margin: 0 0 1rem;
+	color: #fdb933;
+	font-size: 0.78rem;
+	font-weight: 900;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-final p {
+	max-width: 44rem;
+	margin: 1.3rem auto 0;
+	color: #c4c4e5;
+	font-size: 1.16rem;
+	line-height: 1.6;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-final p.rpd-instructor-final__eyebrow {
+	margin: 0 0 1rem;
+	color: #fdb933;
+	font-size: 0.78rem;
+	line-height: 1.2;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-final__actions {
+	justify-content: center;
+}
+
+@media (min-width: 760px) {
+	.rpd-instructor-detail-page .rpd-instructor-focus-grid,
+	.rpd-instructor-detail-page .rpd-instructor-media-grid,
+	.rpd-instructor-detail-page .rpd-instructor-blog-grid,
+	.rpd-instructor-detail-page .rpd-instructor-related__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-offerings {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 980px) {
+	.rpd-instructor-detail-page .rpd-instructor-hero__grid {
+		grid-template-columns: minmax(0, 5fr) minmax(24rem, 7fr);
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-split,
+	.rpd-instructor-detail-page .rpd-instructor-trust__grid {
+		grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-guide-card {
+		grid-template-columns: minmax(0, 1fr) minmax(25rem, 0.9fr);
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-related__grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-offering-card.is-featured {
+		transform: translateY(-1rem);
+	}
+}
+
+@media (max-width: 979px) {
+	.rpd-instructor-detail-page .rpd-instructor-hero {
+		padding-top: 4rem;
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-hero__visual {
+		width: min(100%, 30rem);
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-hero-stats,
+	.rpd-instructor-detail-page .rpd-instructor-award {
+		position: static;
+		margin-top: 1rem;
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-hero-stats {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 640px) {
+	.rpd-instructor-detail-page {
+		overflow-x: hidden;
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-hero h1 {
+		font-size: clamp(3.5rem, 18vw, 5rem);
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-hero__actions,
+	.rpd-instructor-detail-page .rpd-instructor-resource-actions,
+	.rpd-instructor-detail-page .rpd-instructor-final__actions {
+		flex-direction: column;
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-hero__actions .rpd-btn,
+	.rpd-instructor-detail-page .rpd-instructor-resource-actions .rpd-btn,
+	.rpd-instructor-detail-page .rpd-instructor-final__actions .rpd-btn {
+		width: 100%;
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-related-card {
+		grid-template-columns: 1fr;
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-related-card__image {
+		width: 7rem;
+	}
+}
