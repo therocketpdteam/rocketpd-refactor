@@ -27,7 +27,8 @@ foreach ( $floating_keys as $key ) {
 }
 
 $eyebrow         = rocketpd_get_field( 'rpd_courses_hero_eyebrow', __( 'Courses & Learning Experiences', 'rocketpd' ) );
-$headline        = rocketpd_get_field( 'rpd_courses_hero_headline', __( 'Expert-Led K-12 Professional Learning, Built Around the Way Educators Actually Learn.', 'rocketpd' ) );
+$default_headline = __( 'Expert-Led K-12 Professional Learning, Built Around the Way Educators Actually Learn.', 'rocketpd' );
+$headline         = rocketpd_get_field( 'rpd_courses_hero_headline', $default_headline );
 $body            = rocketpd_get_field( 'rpd_courses_hero_body', __( 'Browse free webinars, self-paced video courses, and live-virtual cohorts led by nationally recognized K-12 experts. Choose the format that fits your team - or blend all three.', 'rocketpd' ) );
 $primary_label   = rocketpd_get_field( 'rpd_courses_hero_primary_label', __( 'Browse Courses', 'rocketpd' ) );
 $primary_url     = rocketpd_get_field( 'rpd_courses_hero_primary_url', '#course-gallery' );
@@ -43,6 +44,7 @@ $trust_items     = rocketpd_get_repeater_rows(
 	array( 'text' )
 );
 $headline_parts  = explode( ',', $headline, 2 );
+$is_default_headline = trim( $headline ) === $default_headline;
 ?>
 
 <section class="rpd-courses-hero">
@@ -52,9 +54,15 @@ $headline_parts  = explode( ',', $headline, 2 );
 		<div class="rpd-courses-hero__content">
 			<p class="rpd-courses-eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
 			<h1>
-				<?php echo esc_html( $headline_parts[0] ); ?><?php echo isset( $headline_parts[1] ) ? ',' : ''; ?>
-				<?php if ( isset( $headline_parts[1] ) ) : ?>
-					<span><?php echo esc_html( trim( $headline_parts[1] ) ); ?></span>
+				<?php if ( $is_default_headline ) : ?>
+					<span class="rpd-courses-hero__headline-nowrap"><?php esc_html_e( 'Expert-Led K-12', 'rocketpd' ); ?></span><br>
+					<?php esc_html_e( 'Professional Learning,', 'rocketpd' ); ?>
+					<span class="rpd-courses-hero__headline-accent"><?php esc_html_e( 'Built Around the Way Educators Actually Learn.', 'rocketpd' ); ?></span>
+				<?php else : ?>
+					<?php echo esc_html( $headline_parts[0] ); ?><?php echo isset( $headline_parts[1] ) ? ',' : ''; ?>
+					<?php if ( isset( $headline_parts[1] ) ) : ?>
+						<span class="rpd-courses-hero__headline-accent"><?php echo esc_html( trim( $headline_parts[1] ) ); ?></span>
+					<?php endif; ?>
 				<?php endif; ?>
 			</h1>
 			<p><?php echo esc_html( $body ); ?></p>
