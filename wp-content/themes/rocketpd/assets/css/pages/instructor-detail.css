@@ -181,6 +181,7 @@
 	position: relative;
 	max-width: 35rem;
 	margin-inline: auto;
+	overflow: visible;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-portrait {
@@ -228,7 +229,8 @@
 .rpd-instructor-detail-page .rpd-instructor-award {
 	position: absolute;
 	top: 1.2rem;
-	right: -1.2rem;
+	right: -2rem;
+	z-index: 5;
 	display: inline-flex;
 	align-items: center;
 	gap: 0.45rem;
@@ -243,13 +245,16 @@
 
 .rpd-instructor-detail-page .rpd-instructor-hero-stats {
 	position: absolute;
+	z-index: 6;
 	right: 1.6rem;
-	bottom: -2.2rem;
+	bottom: -2.8rem;
 	left: 1.6rem;
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
+	align-items: start;
 	gap: 0.65rem;
-	padding: 1.2rem;
+	min-height: 5.6rem;
+	padding: 1rem 1.15rem;
 	border: 1px solid rgba(196, 196, 229, 0.8);
 	border-radius: 1rem;
 	background: var(--rpd-white);
@@ -475,11 +480,19 @@
 }
 
 .rpd-instructor-detail-page .rpd-instructor-embed {
+	position: relative;
+	overflow: hidden;
 	aspect-ratio: 16 / 9;
-	background: #231f58;
+	background:
+		linear-gradient(rgba(35, 31, 88, 0.18), rgba(35, 31, 88, 0.18)),
+		var(--rpd-instructor-embed-poster, none) center / cover no-repeat,
+		#231f58;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-embed iframe {
+	position: relative;
+	z-index: 1;
+	display: block;
 	width: 100%;
 	height: 100%;
 	border: 0;
@@ -581,6 +594,9 @@
 
 .rpd-instructor-detail-page .rpd-instructor-testimonial blockquote {
 	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
 	color: var(--rpd-white);
 	font-family: var(--font-heading);
 	font-size: clamp(1.45rem, 3vw, 2.25rem);
@@ -797,6 +813,7 @@
 
 	.rpd-instructor-detail-page .rpd-instructor-hero-stats {
 		grid-template-columns: 1fr;
+		min-height: 0;
 	}
 }
 

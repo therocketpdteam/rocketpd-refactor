@@ -74,7 +74,11 @@ if ( ! $has_guide && ! $has_podcast && ! $has_webinar && ! $has_blog ) {
 						<?php continue; ?>
 					<?php endif; ?>
 					<article class="rpd-instructor-media-card">
-						<div class="rpd-instructor-embed">
+						<?php
+						$embed_id      = $resource['embed_id'] ?? '';
+						$thumbnail_url = $embed_id ? 'https://img.youtube.com/vi/' . rawurlencode( $embed_id ) . '/hqdefault.jpg' : '';
+						?>
+						<div class="rpd-instructor-embed"<?php echo $thumbnail_url ? ' style="--rpd-instructor-embed-poster: url(' . esc_url( $thumbnail_url ) . ');"' : ''; ?>>
 							<iframe loading="lazy" src="<?php echo esc_url( 'https://www.youtube-nocookie.com/embed/' . rawurlencode( $resource['embed_id'] ?? '' ) ); ?>" title="<?php echo esc_attr( $resource['title'] ?? sprintf( 'podcast' === $type ? __( '%s podcast episode', 'rocketpd' ) : __( '%s webinar', 'rocketpd' ), $name ) ); ?>" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 						</div>
 						<div class="rpd-instructor-media-card__body">
