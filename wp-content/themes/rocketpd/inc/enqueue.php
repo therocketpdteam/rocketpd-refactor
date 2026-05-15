@@ -87,6 +87,20 @@ function rocketpd_enqueue_assets() {
 		$enqueue_page_style( 'rocketpd-contact', '/assets/css/pages/contact.css' );
 	}
 
+	if ( function_exists( 'rocketpd_is_cohorts_context' ) && rocketpd_is_cohorts_context() ) {
+		$enqueue_page_style( 'rocketpd-cohorts', '/assets/css/pages/cohorts.css' );
+
+		$cohorts_script_path = get_template_directory() . '/assets/js/cohorts.js';
+
+		wp_enqueue_script(
+			'rocketpd-cohorts',
+			get_template_directory_uri() . '/assets/js/cohorts.js',
+			array( 'rocketpd-main' ),
+			file_exists( $cohorts_script_path ) ? filemtime( $cohorts_script_path ) : $theme_version,
+			true
+		);
+	}
+
 	if ( is_page_template( 'page-templates/template-courses.php' ) ) {
 		$enqueue_page_style( 'rocketpd-courses', '/assets/css/pages/courses.css' );
 

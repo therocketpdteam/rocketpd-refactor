@@ -28,6 +28,15 @@ function rocketpd_is_courses_context() {
 }
 
 /**
+ * Return true on the Cohorts Index page.
+ *
+ * @return bool
+ */
+function rocketpd_nav_is_cohorts_context() {
+	return function_exists( 'rocketpd_is_cohorts_context' ) && rocketpd_is_cohorts_context();
+}
+
+/**
  * Return true on the Topic Index page.
  *
  * @return bool
@@ -73,6 +82,24 @@ function rocketpd_is_courses_menu_item( $item ) {
 }
 
 /**
+ * Return true when a menu item points to the Cohorts Index route.
+ *
+ * @param WP_Post $item Menu item.
+ * @return bool
+ */
+function rocketpd_is_cohorts_menu_item( $item ) {
+	if ( empty( $item->url ) ) {
+		return false;
+	}
+
+	$path  = wp_parse_url( $item->url, PHP_URL_PATH );
+	$path  = $path ? untrailingslashit( $path ) : '';
+	$title = ! empty( $item->title ) ? sanitize_title( $item->title ) : '';
+
+	return '/cohorts' === $path || 'cohorts' === $title;
+}
+
+/**
  * Return true when a menu item points to the Topic Index route.
  *
  * @param WP_Post $item Menu item.
@@ -100,6 +127,7 @@ function rocketpd_nav_menu( $location = 'primary' ) {
 		if ( 'primary' === $location ) {
 			$is_instructors = rocketpd_is_instructors_context();
 			$is_courses     = rocketpd_is_courses_context();
+			$is_cohorts     = rocketpd_nav_is_cohorts_context();
 			$is_topics      = rocketpd_nav_is_topics_context();
 			$items = array(
 				array(
@@ -116,6 +144,11 @@ function rocketpd_nav_menu( $location = 'primary' ) {
 					'label'   => __( 'Courses', 'rocketpd' ),
 					'url'     => home_url( '/launchpad/courses/' ),
 					'current' => $is_courses,
+				),
+				array(
+					'label'   => __( 'Cohorts', 'rocketpd' ),
+					'url'     => home_url( '/cohorts/' ),
+					'current' => $is_cohorts,
 				),
 				array(
 					'label' => __( 'Solutions', 'rocketpd' ),
@@ -187,6 +220,23 @@ function rocketpd_courses_nav_classes( $classes, $item, $args ) {
 add_filter( 'nav_menu_css_class', 'rocketpd_courses_nav_classes', 10, 3 );
 
 /**
+ * Add current-menu-item to assigned menu items that point to Cohorts.
+ *
+ * @param array   $classes Menu item classes.
+ * @param WP_Post $item    Menu item.
+ * @param object  $args    Menu args.
+ * @return array
+ */
+function rocketpd_cohorts_nav_classes( $classes, $item, $args ) {
+	if ( isset( $args->theme_location ) && 'primary' === $args->theme_location && rocketpd_nav_is_cohorts_context() && rocketpd_is_cohorts_menu_item( $item ) ) {
+		$classes[] = 'current-menu-item';
+	}
+
+	return $classes;
+}
+add_filter( 'nav_menu_css_class', 'rocketpd_cohorts_nav_classes', 10, 3 );
+
+/**
  * Add current-menu-item to assigned menu items that point to Topics.
  *
  * @param array   $classes Menu item classes.
@@ -236,6 +286,23 @@ function rocketpd_courses_nav_link_attributes( $atts, $item, $args ) {
 	return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'rocketpd_courses_nav_link_attributes', 10, 3 );
+
+/**
+ * Add aria-current to assigned menu items that point to Cohorts.
+ *
+ * @param array   $atts Link attributes.
+ * @param WP_Post $item Menu item.
+ * @param object  $args Menu args.
+ * @return array
+ */
+function rocketpd_cohorts_nav_link_attributes( $atts, $item, $args ) {
+	if ( isset( $args->theme_location ) && 'primary' === $args->theme_location && rocketpd_nav_is_cohorts_context() && rocketpd_is_cohorts_menu_item( $item ) ) {
+		$atts['aria-current'] = 'page';
+	}
+
+	return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'rocketpd_cohorts_nav_link_attributes', 10, 3 );
 
 /**
  * Add aria-current to assigned menu items that point to Topics.
