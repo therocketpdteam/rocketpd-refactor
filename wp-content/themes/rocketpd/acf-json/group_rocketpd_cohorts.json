@@ -1,0 +1,70 @@
+{
+    "key": "group_rocketpd_cohorts",
+    "title": "RocketPD Cohorts",
+    "fields": [
+        {
+            "key": "field_rpd_cohorts_tab_page",
+            "label": "Page Copy",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_cohorts_hero_eyebrow",
+            "label": "Hero Eyebrow",
+            "name": "rpd_cohorts_hero_eyebrow",
+            "type": "text",
+            "default_value": "Live-Virtual Cohorts · 2026 Lineup"
+        },
+        {
+            "key": "field_rpd_cohorts_hero_headline",
+            "label": "Hero Headline",
+            "name": "rpd_cohorts_hero_headline",
+            "type": "text",
+            "default_value": "Live-Virtual Cohorts for Educator Growth"
+        },
+        {
+            "key": "field_rpd_cohorts_hero_body",
+            "label": "Hero Body",
+            "name": "rpd_cohorts_hero_body",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "field_rpd_cohorts_tab_future_card_contract",
+            "label": "Future Cohort Card Contract",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_cohorts_contract_note",
+            "label": "Implementation Note",
+            "name": "rpd_cohorts_contract_note",
+            "type": "message",
+            "message": "This first production pass renders cohort cards from code fallbacks. Future cohort records should support: cohort_subtitle, cohort_short_description, cohort_topic, cohort_audience, cohort_status, featured_toggle, start_date, end_date, session_count, session_count_label, total_hours, format_label, price_type, price_label, price_amount, instructor, card_image, sponsor_enabled, sponsor_name, sponsor_logo.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates/template-cohorts.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Page-level fields and future data-contract note for the RocketPD Cohorts Index.",
+    "show_in_rest": 0
+}
