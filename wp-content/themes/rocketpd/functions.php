@@ -21,6 +21,7 @@ $rocketpd_includes = array(
 	'courses',
 	'course-detail',
 	'topics',
+	'topic-detail',
 	'icons',
 	'template-tags',
 	'nav',
