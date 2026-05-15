@@ -33,7 +33,8 @@ function rocketpd_is_courses_context() {
  * @return bool
  */
 function rocketpd_nav_is_topics_context() {
-	return function_exists( 'rocketpd_is_topics_context' ) && rocketpd_is_topics_context();
+	return ( function_exists( 'rocketpd_is_topics_context' ) && rocketpd_is_topics_context() )
+		|| ( function_exists( 'rocketpd_is_topic_detail_context' ) && rocketpd_is_topic_detail_context() );
 }
 
 /**

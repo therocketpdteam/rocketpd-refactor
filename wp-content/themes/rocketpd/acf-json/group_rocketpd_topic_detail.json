@@ -1,0 +1,353 @@
+{
+    "key": "group_rocketpd_topic_detail",
+    "title": "RocketPD Topic Detail",
+    "fields": [
+        {
+            "key": "field_rpd_topic_detail_tab_hero",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_topic_detail_title",
+            "label": "Topic Title",
+            "name": "rpd_topic_detail_title",
+            "type": "text",
+            "default_value": "Teacher Supervision, Evaluation & Coaching"
+        },
+        {
+            "key": "field_rpd_topic_detail_badge",
+            "label": "Badge",
+            "name": "rpd_topic_detail_badge",
+            "type": "text",
+            "default_value": "Topic Hub"
+        },
+        {
+            "key": "field_rpd_topic_detail_category",
+            "label": "Category",
+            "name": "rpd_topic_detail_category",
+            "type": "select",
+            "choices": {
+                "leadership": "Leadership",
+                "instruction": "Instruction",
+                "student-support": "Student Support",
+                "technology": "Technology",
+                "wellness-culture": "Wellness & Culture"
+            },
+            "default_value": "leadership",
+            "ui": 1,
+            "return_format": "value"
+        },
+        {
+            "key": "field_rpd_topic_detail_subtitle",
+            "label": "Subtitle",
+            "name": "rpd_topic_detail_subtitle",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "field_rpd_topic_detail_primary_cta_label",
+            "label": "Primary CTA Label",
+            "name": "rpd_topic_detail_primary_cta_label",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_topic_detail_primary_cta_url",
+            "label": "Primary CTA URL",
+            "name": "rpd_topic_detail_primary_cta_url",
+            "type": "url"
+        },
+        {
+            "key": "field_rpd_topic_detail_secondary_cta_label",
+            "label": "Secondary CTA Label",
+            "name": "rpd_topic_detail_secondary_cta_label",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_topic_detail_secondary_cta_url",
+            "label": "Secondary CTA URL",
+            "name": "rpd_topic_detail_secondary_cta_url",
+            "type": "url"
+        },
+        {
+            "key": "field_rpd_topic_detail_tab_overview",
+            "label": "Overview",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_topic_detail_overview_headline",
+            "label": "Overview Headline",
+            "name": "rpd_topic_detail_overview_headline",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_topic_detail_overview_intro",
+            "label": "Overview Intro Paragraphs",
+            "name": "rpd_topic_detail_overview_intro",
+            "type": "repeater",
+            "layout": "row",
+            "button_label": "Add paragraph",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_topic_detail_overview_intro_paragraph",
+                    "label": "Paragraph",
+                    "name": "paragraph",
+                    "type": "textarea",
+                    "rows": 4
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_topic_detail_overview_sections",
+            "label": "Overview Sections",
+            "name": "rpd_topic_detail_overview_sections",
+            "type": "repeater",
+            "layout": "block",
+            "button_label": "Add section",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_topic_detail_overview_section_heading",
+                    "label": "Heading",
+                    "name": "heading",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_topic_detail_overview_section_body",
+                    "label": "Body",
+                    "name": "body",
+                    "type": "textarea",
+                    "rows": 5
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_topic_detail_key_takeaways",
+            "label": "Key Takeaways",
+            "name": "rpd_topic_detail_key_takeaways",
+            "type": "repeater",
+            "button_label": "Add takeaway",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_topic_detail_key_takeaway_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_topic_detail_side_stats",
+            "label": "Side Stats",
+            "name": "rpd_topic_detail_side_stats",
+            "type": "repeater",
+            "button_label": "Add stat",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_topic_detail_side_stat_value",
+                    "label": "Value",
+                    "name": "value",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_topic_detail_side_stat_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_topic_detail_tab_cards",
+            "label": "Cards & Lists",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_topic_detail_why_matters",
+            "label": "Why This Topic Matters",
+            "name": "rpd_topic_detail_why_matters",
+            "type": "repeater",
+            "button_label": "Add benefit",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_topic_detail_why_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_topic_detail_why_body",
+                    "label": "Body",
+                    "name": "body",
+                    "type": "textarea",
+                    "rows": 3
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_topic_detail_resources",
+            "label": "Related Resources",
+            "name": "rpd_topic_detail_resources",
+            "type": "repeater",
+            "button_label": "Add resource",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_topic_detail_resource_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_topic_detail_resource_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea",
+                    "rows": 3
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_topic_detail_opportunities",
+            "label": "Upcoming Learning Opportunities",
+            "name": "rpd_topic_detail_opportunities",
+            "type": "repeater",
+            "button_label": "Add opportunity",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_topic_detail_opportunity_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_topic_detail_opportunity_meta",
+                    "label": "Meta",
+                    "name": "meta",
+                    "type": "textarea",
+                    "rows": 2
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_topic_detail_frameworks",
+            "label": "Practical Strategies & Frameworks",
+            "name": "rpd_topic_detail_frameworks",
+            "type": "repeater",
+            "button_label": "Add framework",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_topic_detail_framework_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_topic_detail_framework_body",
+                    "label": "Body",
+                    "name": "body",
+                    "type": "textarea",
+                    "rows": 3
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_topic_detail_tab_faq",
+            "label": "FAQ & Final CTA",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_topic_detail_faqs",
+            "label": "FAQ Items",
+            "name": "rpd_topic_detail_faqs",
+            "type": "repeater",
+            "button_label": "Add FAQ",
+            "sub_fields": [
+                {
+                    "key": "field_rpd_topic_detail_faq_question",
+                    "label": "Question",
+                    "name": "question",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_topic_detail_faq_answer",
+                    "label": "Answer",
+                    "name": "answer",
+                    "type": "textarea",
+                    "rows": 4
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_topic_detail_final_headline",
+            "label": "Final CTA Headline",
+            "name": "rpd_topic_detail_final_headline",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_topic_detail_final_body",
+            "label": "Final CTA Body",
+            "name": "rpd_topic_detail_final_body",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "field_rpd_topic_detail_final_primary_label",
+            "label": "Final Primary Label",
+            "name": "rpd_topic_detail_final_primary_label",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_topic_detail_final_primary_url",
+            "label": "Final Primary URL",
+            "name": "rpd_topic_detail_final_primary_url",
+            "type": "url"
+        },
+        {
+            "key": "field_rpd_topic_detail_final_secondary_label",
+            "label": "Final Secondary Label",
+            "name": "rpd_topic_detail_final_secondary_label",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_topic_detail_final_secondary_url",
+            "label": "Final Secondary URL",
+            "name": "rpd_topic_detail_final_secondary_url",
+            "type": "url"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates/template-topic-detail.php"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates/topics-template.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Page-level fields for the RocketPD individual topic detail template. Empty fields preserve code fallbacks.",
+    "show_in_rest": 0
+}
