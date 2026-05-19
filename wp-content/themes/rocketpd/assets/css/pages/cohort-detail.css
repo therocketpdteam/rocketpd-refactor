@@ -1,0 +1,967 @@
+.rpd-cohort-detail-page {
+	overflow-x: clip;
+	background: #ffffff;
+	color: var(--rpd-body);
+}
+
+.rpd-cohort-detail-page :where(h1, h2, h3) {
+	color: var(--rpd-navy);
+	letter-spacing: 0;
+}
+
+.rpd-cohort-detail-page :where(p, li) {
+	line-height: 1.65;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-breadcrumb {
+	background: #f4f3fb;
+	padding: 1rem 0 0;
+	font-size: 0.85rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-breadcrumb ol {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-breadcrumb li:not(:last-child)::after {
+	margin-left: 0.5rem;
+	color: #807ca8;
+	content: "/";
+}
+
+.rpd-cohort-detail-page .rpd-cohort-breadcrumb a {
+	color: var(--rpd-purple);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-hero {
+	padding: 3rem 0 5rem;
+	background: linear-gradient(180deg, #f4f3fb 0%, #eceafa 100%);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-hero__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+	gap: clamp(2rem, 5vw, 5rem);
+	align-items: center;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-pill-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+	margin-bottom: 1.25rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-pill-row span,
+.rpd-cohort-detail-page .rpd-cohort-status-pill,
+.rpd-cohort-detail-page .rpd-cohort-pricing-card__pill,
+.rpd-cohort-detail-page .rpd-cohort-specialties span {
+	display: inline-flex;
+	align-items: center;
+	border-radius: var(--rpd-radius-pill);
+	background: #ffffff;
+	color: var(--rpd-purple);
+	font-size: 0.78rem;
+	font-weight: 800;
+	line-height: 1;
+	padding: 0.52rem 0.78rem;
+	text-transform: uppercase;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-status-pill--emerald {
+	background: #dff8ea;
+	color: #147145;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-status-pill--gold {
+	background: #fff0c4;
+	color: #7a4e00;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-status-pill--purple {
+	background: #ecebff;
+	color: var(--rpd-purple);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-status-pill--lavender {
+	background: #e5e3f5;
+	color: var(--rpd-navy);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-hero h1 {
+	max-width: 830px;
+	margin: 0;
+	font-size: clamp(2.45rem, 5vw, 5rem);
+	line-height: 1.04;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-hero__instructor {
+	display: flex;
+	align-items: center;
+	gap: 0.85rem;
+	margin-top: 1.35rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-hero__instructor-image {
+	width: 48px;
+	height: 48px;
+	border: 3px solid #fff;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-hero__instructor strong,
+.rpd-cohort-detail-page .rpd-cohort-hero__instructor span {
+	display: block;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-hero__promise {
+	max-width: 760px;
+	margin: 1.5rem 0 0;
+	font-size: 1.14rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-hero__commerce {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	align-items: center;
+	margin-top: 2rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-price-chip,
+.rpd-cohort-detail-page .rpd-cohort-snapshot-card,
+.rpd-cohort-detail-page .rpd-cohort-pricing-card,
+.rpd-cohort-detail-page .rpd-cohort-testimonial-card,
+.rpd-cohort-detail-page .rpd-cohort-resource-card,
+.rpd-cohort-detail-page .rpd-cohort-faq__item {
+	border: 1px solid rgba(35, 31, 88, 0.12);
+	border-radius: 0.75rem;
+	background: #fff;
+	box-shadow: 0 18px 42px rgba(35, 31, 88, 0.1);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-price-chip {
+	min-width: 180px;
+	padding: 1rem 1.25rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-price-chip strong,
+.rpd-cohort-detail-page .rpd-cohort-price-chip span {
+	display: block;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-price-chip strong {
+	font-size: 2rem;
+	color: var(--rpd-navy);
+	line-height: 1;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-hero__actions,
+.rpd-cohort-detail-page .rpd-cohort-final-cta__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.8rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-snapshot-card {
+	padding: 1.5rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-kicker {
+	margin: 0 0 0.65rem;
+	color: var(--rpd-purple);
+	font-size: 0.78rem;
+	font-weight: 900;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-snapshot-card ul {
+	display: grid;
+	gap: 0.9rem;
+	margin: 1rem 0;
+	padding: 0;
+	list-style: none;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-snapshot-card li,
+.rpd-cohort-detail-page .rpd-cohort-snapshot-bar__item {
+	display: flex;
+	gap: 0.8rem;
+	align-items: flex-start;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-snapshot-card li > span,
+.rpd-cohort-detail-page .rpd-cohort-snapshot-bar__item > span,
+.rpd-cohort-detail-page .rpd-cohort-included__item > span,
+.rpd-cohort-detail-page .rpd-cohort-support-banner > span {
+	flex: 0 0 auto;
+	width: 2.35rem;
+	height: 2.35rem;
+	border-radius: 0.65rem;
+	background: rgba(85, 82, 177, 0.12);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-snapshot-card strong,
+.rpd-cohort-detail-page .rpd-cohort-snapshot-card em,
+.rpd-cohort-detail-page .rpd-cohort-snapshot-bar strong,
+.rpd-cohort-detail-page .rpd-cohort-snapshot-bar em {
+	display: block;
+	font-style: normal;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-snapshot-card strong {
+	color: var(--rpd-navy);
+	font-size: 0.85rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-snapshot-card em {
+	color: #625d91;
+	font-size: 0.92rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-snapshot-card__note {
+	margin: 1rem 0 0;
+	padding-top: 1rem;
+	border-top: 1px solid rgba(35, 31, 88, 0.12);
+	color: var(--rpd-purple);
+	font-weight: 800;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-snapshot-bar {
+	background: var(--rpd-navy);
+	color: #fff;
+	padding: 1.25rem 0;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-snapshot-bar__grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-snapshot-bar__item > span {
+	background: rgba(253, 185, 51, 0.18);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-snapshot-bar strong,
+.rpd-cohort-detail-page .rpd-cohort-snapshot-bar em {
+	color: #fff;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-snapshot-bar strong {
+	font-size: 0.75rem;
+	opacity: 0.72;
+	text-transform: uppercase;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-snapshot-bar em {
+	font-weight: 800;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-about,
+.rpd-cohort-detail-page .rpd-cohort-included,
+.rpd-cohort-detail-page .rpd-cohort-resources,
+.rpd-cohort-detail-page .rpd-cohort-faq {
+	padding: 6rem 0;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-about__grid {
+	display: grid;
+	grid-template-columns: minmax(240px, 0.75fr) minmax(0, 1.25fr);
+	gap: 4rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-about h2,
+.rpd-cohort-detail-page .rpd-cohort-section-header h2 {
+	margin: 0;
+	font-size: clamp(2rem, 3vw, 3.3rem);
+	line-height: 1.08;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-about__copy p:first-child {
+	margin-top: 0;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-audience-pills {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-top: 1.5rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-audience-pills span {
+	max-width: 240px;
+	border: 1px solid rgba(85, 82, 177, 0.18);
+	border-radius: 0.75rem;
+	background: #f7f6fb;
+	padding: 0.9rem 1rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-audience-pills strong,
+.rpd-cohort-detail-page .rpd-cohort-audience-pills em {
+	display: block;
+	font-style: normal;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-audience-pills strong {
+	color: var(--rpd-navy);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-outcomes,
+.rpd-cohort-detail-page .rpd-cohort-instructor,
+.rpd-cohort-detail-page .rpd-cohort-testimonials,
+.rpd-cohort-detail-page .rpd-cohort-pricing {
+	padding: 6rem 0;
+	background: #f3f2fb;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-section-header {
+	max-width: 760px;
+	margin-bottom: 2.5rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-section-header--center {
+	margin-inline: auto;
+	text-align: center;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-section-header > span {
+	display: block;
+	margin-top: 0.8rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-outcomes__grid,
+.rpd-cohort-detail-page .rpd-cohort-included__items,
+.rpd-cohort-detail-page .rpd-cohort-resource-grid,
+.rpd-cohort-detail-page .rpd-cohort-testimonials__grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-outcome-card {
+	min-height: 220px;
+	border: 1px solid rgba(35, 31, 88, 0.1);
+	border-radius: 0.75rem;
+	background: #fff;
+	padding: 1.25rem;
+	box-shadow: 0 12px 28px rgba(35, 31, 88, 0.07);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-outcome-card > span {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	margin-bottom: 1rem;
+	border-radius: 0.65rem;
+	background: var(--rpd-purple);
+	color: #fff;
+	font-weight: 900;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-outcome-card h3 {
+	margin: 0 0 0.5rem;
+	font-size: 1.05rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-schedule {
+	padding: 6rem 0;
+	background: #fff;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-timeline {
+	position: relative;
+	display: grid;
+	gap: 1rem;
+	margin: 0;
+	padding: 0 0 0 1.25rem;
+	list-style: none;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-timeline::before {
+	position: absolute;
+	top: 0.5rem;
+	bottom: 0.5rem;
+	left: 2.45rem;
+	width: 2px;
+	background: #dedbf4;
+	content: "";
+}
+
+.rpd-cohort-detail-page .rpd-cohort-session-card {
+	position: relative;
+	display: grid;
+	grid-template-columns: 4rem minmax(0, 1fr);
+	gap: 1rem;
+	align-items: start;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-session-card__number {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	border-radius: 50%;
+	background: var(--rpd-purple);
+	color: #fff;
+	font-weight: 900;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-session-card__body {
+	border: 1px solid rgba(35, 31, 88, 0.12);
+	border-radius: 0.75rem;
+	background: #fff;
+	padding: 1.2rem 1.4rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-session-card__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	align-items: center;
+	color: var(--rpd-purple);
+	font-size: 0.85rem;
+	font-weight: 800;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-session-card__meta em {
+	border-radius: var(--rpd-radius-pill);
+	background: #fff0c4;
+	color: #7a4e00;
+	font-style: normal;
+	padding: 0.25rem 0.55rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-session-card h3 {
+	margin: 0.6rem 0 0.35rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-session-card p {
+	margin: 0;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-schedule__note {
+	margin: 1.25rem 0 0 5rem;
+	border-radius: 0.75rem;
+	background: #f7f6fb;
+	padding: 1rem 1.2rem;
+	font-weight: 700;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-instructor__card {
+	display: grid;
+	grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+	gap: 2rem;
+	align-items: center;
+	border-radius: 0.85rem;
+	background: #fff;
+	padding: 2rem;
+	box-shadow: 0 20px 48px rgba(35, 31, 88, 0.13);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-instructor__portrait {
+	position: relative;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-instructor__image {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1;
+	border-radius: 0.75rem;
+	object-fit: cover;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-instructor__portrait span {
+	position: absolute;
+	top: 1rem;
+	right: -1rem;
+	border-radius: var(--rpd-radius-pill);
+	background: var(--rpd-gold);
+	color: var(--rpd-navy);
+	font-weight: 900;
+	padding: 0.55rem 0.8rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-instructor__content h2 {
+	margin: 0 0 0.4rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-instructor__content > strong {
+	display: block;
+	color: var(--rpd-purple);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-instructor blockquote {
+	margin: 1rem 0;
+	border-left: 4px solid var(--rpd-gold);
+	background: #f8f7fd;
+	padding: 1rem;
+	color: var(--rpd-navy);
+	font-weight: 700;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-specialties,
+.rpd-cohort-detail-page .rpd-cohort-instructor__links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+	align-items: center;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-included__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+	gap: 3rem;
+	align-items: center;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-included__items {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	margin-top: 1.5rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-included__item {
+	display: flex;
+	gap: 0.8rem;
+	align-items: center;
+	border: 1px solid rgba(35, 31, 88, 0.1);
+	border-radius: 0.75rem;
+	background: #fff;
+	padding: 0.95rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-included__item p {
+	margin: 0;
+	font-weight: 700;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-device-visual {
+	position: relative;
+	min-height: 310px;
+	border-radius: 1rem;
+	background: linear-gradient(135deg, var(--rpd-purple), #2d2a72);
+	box-shadow: var(--rpd-shadow-lg);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-device-visual div,
+.rpd-cohort-detail-page .rpd-cohort-device-visual i,
+.rpd-cohort-detail-page .rpd-cohort-device-visual b,
+.rpd-cohort-detail-page .rpd-cohort-device-visual em {
+	position: absolute;
+	display: block;
+	border-radius: 0.75rem;
+	background: #fff;
+	box-shadow: 0 18px 36px rgba(26, 23, 68, 0.25);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-device-visual div {
+	top: 3rem;
+	left: 2.25rem;
+	width: 62%;
+	height: 52%;
+	padding: 1rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-device-visual div span {
+	color: var(--rpd-purple);
+	font-family: var(--font-heading);
+	font-weight: 900;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-device-visual i {
+	right: 2rem;
+	bottom: 3rem;
+	width: 32%;
+	height: 42%;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-device-visual b {
+	right: 5rem;
+	top: 2rem;
+	width: 26%;
+	height: 18%;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-device-visual em {
+	left: 4rem;
+	bottom: 2rem;
+	width: 45%;
+	height: 16%;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-sponsor {
+	padding: 4rem 0;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-sponsor__card {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr) auto;
+	gap: 1.5rem;
+	align-items: center;
+	border: 1px solid rgba(35, 31, 88, 0.12);
+	border-radius: 0.85rem;
+	background: #fff;
+	padding: 1.5rem;
+	box-shadow: var(--rpd-shadow-sm);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-sponsor__mark {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	background: #f7f6fb;
+	color: var(--rpd-purple);
+	font-weight: 900;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-pricing__grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.5rem;
+	align-items: stretch;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-pricing-card {
+	display: flex;
+	flex-direction: column;
+	padding: 1.6rem;
+	min-height: 100%;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-pricing-card--primary {
+	border-color: rgba(85, 82, 177, 0.48);
+	box-shadow: 0 0 0 2px rgba(85, 82, 177, 0.1), 0 22px 52px rgba(35, 31, 88, 0.12);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-pricing-card--team {
+	border-color: rgba(85, 82, 177, 0.16);
+	background: linear-gradient(180deg, #fbfaff 0%, #f4f2fb 100%);
+	box-shadow: none;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-pricing-card h3 {
+	margin: 1rem 0 0.35rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-pricing-card > strong {
+	color: var(--rpd-navy);
+	font-family: var(--font-heading);
+	font-size: clamp(2.5rem, 5vw, 4.25rem);
+	line-height: 1;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-pricing-card ul {
+	display: grid;
+	gap: 0.55rem;
+	margin: 1rem 0;
+	padding: 0;
+	list-style: none;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-pricing-card li::before {
+	color: var(--rpd-purple);
+	content: "+ ";
+	font-weight: 900;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-pricing-card .rpd-btn {
+	margin-top: auto;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-pricing-card small {
+	display: block;
+	margin-top: 0.85rem;
+	color: #625d91;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-pricing-card__closed {
+	margin: 1rem 0;
+	border-radius: 0.65rem;
+	background: #f0eef8;
+	padding: 0.85rem;
+	font-weight: 700;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-team-tiers {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.8rem;
+	margin: 1.15rem 0;
+	border: 1px solid rgba(35, 31, 88, 0.09);
+	border-radius: 0.85rem;
+	background: #fff;
+	padding: 0.85rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-team-tiers div {
+	border-radius: 0.65rem;
+	background: #f8f7fc;
+	padding: 0.8rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-team-tiers span,
+.rpd-cohort-detail-page .rpd-cohort-team-tiers strong,
+.rpd-cohort-detail-page .rpd-cohort-team-tiers em {
+	display: block;
+	font-style: normal;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-team-tiers strong {
+	color: var(--rpd-navy);
+	font-size: 1.4rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-team-tiers span,
+.rpd-cohort-detail-page .rpd-cohort-team-tiers em {
+	color: #625d91;
+	font-size: 0.82rem;
+	font-weight: 800;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-team-checklist {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	border-top: 1px solid rgba(35, 31, 88, 0.09);
+	padding-top: 1rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-support-banner {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr) auto;
+	gap: 1rem;
+	align-items: center;
+	margin-top: 1.5rem;
+	border-radius: 0.85rem;
+	background: linear-gradient(135deg, var(--rpd-navy-deep), var(--rpd-navy));
+	color: #fff;
+	padding: 1.25rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-support-banner h3,
+.rpd-cohort-detail-page .rpd-cohort-final-cta h2 {
+	color: #fff;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-support-banner h3,
+.rpd-cohort-detail-page .rpd-cohort-support-banner p {
+	margin: 0;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-resources {
+	background: #fff;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-featured-resource {
+	display: grid;
+	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+	overflow: hidden;
+	border: 1px solid rgba(35, 31, 88, 0.12);
+	border-radius: 0.85rem;
+	background: #fff;
+	box-shadow: var(--rpd-shadow-sm);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-featured-resource > div {
+	padding: 1.6rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-featured-resource > div:first-child {
+	background: var(--rpd-purple);
+	color: #fff;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-featured-resource h3 {
+	color: inherit;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-resource-grid {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	margin-top: 1rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-resource-card {
+	padding: 1.25rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-resource-card p {
+	margin: 0 0 0.75rem;
+	color: var(--rpd-purple);
+	font-weight: 800;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-resource-card a {
+	color: var(--rpd-purple);
+	font-weight: 800;
+	text-decoration: none;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-testimonials__grid {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.rpd-cohort-detail-page .rpd-cohort-testimonial-card {
+	padding: 1.5rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-testimonial-card::before {
+	display: block;
+	margin-bottom: 0.75rem;
+	color: var(--rpd-gold);
+	font-size: 2rem;
+	line-height: 1;
+	content: "\"";
+}
+
+.rpd-cohort-detail-page .rpd-cohort-testimonial-card strong,
+.rpd-cohort-detail-page .rpd-cohort-testimonial-card span {
+	display: block;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-faq__list {
+	display: grid;
+	gap: 0.75rem;
+	max-width: 860px;
+	margin: 0 auto;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-faq__item {
+	overflow: hidden;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-faq__item button {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	border: 0;
+	background: transparent;
+	color: var(--rpd-navy);
+	cursor: pointer;
+	font: inherit;
+	font-weight: 800;
+	padding: 1.1rem 1.25rem;
+	text-align: left;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-faq__item button i {
+	width: 0.75rem;
+	height: 0.75rem;
+	border-right: 2px solid currentColor;
+	border-bottom: 2px solid currentColor;
+	transform: rotate(45deg);
+	transition: transform 180ms ease;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-faq__item button[aria-expanded="true"] i {
+	transform: rotate(225deg);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-faq__item div {
+	padding: 0 1.25rem 1.25rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-faq__item div p {
+	margin: 0;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-final-cta {
+	padding: 5rem 0;
+	background: linear-gradient(135deg, var(--rpd-navy-deep), var(--rpd-purple));
+	color: #fff;
+	text-align: center;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-final-cta p {
+	max-width: 680px;
+	margin: 1rem auto 1.5rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-final-cta__actions {
+	justify-content: center;
+}
+
+@media (max-width: 900px) {
+	.rpd-cohort-detail-page .rpd-cohort-hero__grid,
+	.rpd-cohort-detail-page .rpd-cohort-about__grid,
+	.rpd-cohort-detail-page .rpd-cohort-instructor__card,
+	.rpd-cohort-detail-page .rpd-cohort-included__grid,
+	.rpd-cohort-detail-page .rpd-cohort-pricing__grid,
+	.rpd-cohort-detail-page .rpd-cohort-featured-resource {
+		grid-template-columns: 1fr;
+	}
+
+	.rpd-cohort-detail-page .rpd-cohort-snapshot-bar__grid,
+	.rpd-cohort-detail-page .rpd-cohort-outcomes__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 640px) {
+	.rpd-cohort-detail-page .rpd-cohort-hero,
+	.rpd-cohort-detail-page .rpd-cohort-about,
+	.rpd-cohort-detail-page .rpd-cohort-outcomes,
+	.rpd-cohort-detail-page .rpd-cohort-schedule,
+	.rpd-cohort-detail-page .rpd-cohort-instructor,
+	.rpd-cohort-detail-page .rpd-cohort-included,
+	.rpd-cohort-detail-page .rpd-cohort-pricing,
+	.rpd-cohort-detail-page .rpd-cohort-resources,
+	.rpd-cohort-detail-page .rpd-cohort-testimonials,
+	.rpd-cohort-detail-page .rpd-cohort-faq {
+		padding-block: 4rem;
+	}
+
+	.rpd-cohort-detail-page .rpd-cohort-snapshot-bar__grid,
+	.rpd-cohort-detail-page .rpd-cohort-outcomes__grid,
+	.rpd-cohort-detail-page .rpd-cohort-included__items,
+	.rpd-cohort-detail-page .rpd-cohort-resource-grid,
+	.rpd-cohort-detail-page .rpd-cohort-testimonials__grid,
+	.rpd-cohort-detail-page .rpd-cohort-team-tiers,
+	.rpd-cohort-detail-page .rpd-cohort-team-checklist,
+	.rpd-cohort-detail-page .rpd-cohort-support-banner,
+	.rpd-cohort-detail-page .rpd-cohort-sponsor__card {
+		grid-template-columns: 1fr;
+	}
+
+	.rpd-cohort-detail-page .rpd-cohort-session-card {
+		grid-template-columns: 1fr;
+	}
+
+	.rpd-cohort-detail-page .rpd-cohort-timeline {
+		padding-left: 0;
+	}
+
+	.rpd-cohort-detail-page .rpd-cohort-timeline::before {
+		display: none;
+	}
+
+	.rpd-cohort-detail-page .rpd-cohort-schedule__note {
+		margin-left: 0;
+	}
+
+	.rpd-cohort-detail-page .rpd-cohort-hero__actions,
+	.rpd-cohort-detail-page .rpd-cohort-final-cta__actions {
+		align-items: stretch;
+		flex-direction: column;
+	}
+
+	.rpd-cohort-detail-page .rpd-cohort-hero__actions .rpd-btn,
+	.rpd-cohort-detail-page .rpd-cohort-final-cta__actions .rpd-btn {
+		width: 100%;
+	}
+}

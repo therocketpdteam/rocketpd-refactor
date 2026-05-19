@@ -33,7 +33,8 @@ function rocketpd_is_courses_context() {
  * @return bool
  */
 function rocketpd_nav_is_cohorts_context() {
-	return function_exists( 'rocketpd_is_cohorts_context' ) && rocketpd_is_cohorts_context();
+	return ( function_exists( 'rocketpd_is_cohorts_context' ) && rocketpd_is_cohorts_context() )
+		|| ( function_exists( 'rocketpd_is_cohort_detail_context' ) && rocketpd_is_cohort_detail_context() );
 }
 
 /**

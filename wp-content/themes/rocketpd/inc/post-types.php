@@ -22,6 +22,7 @@ function rocketpd_register_content_type( $post_type, $args ) {
 	$plural   = $args['plural'];
 	$slug     = $args['slug'];
 	$icon     = $args['icon'];
+	$supports = isset( $args['supports'] ) ? $args['supports'] : array( 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' );
 
 	register_post_type(
 		$post_type,
@@ -94,8 +95,8 @@ function rocketpd_register_content_type( $post_type, $args ) {
 			'public'             => true,
 			'show_in_rest'       => true,
 			'menu_icon'          => $icon,
-			'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ),
-			'has_archive'        => true,
+			'supports'           => $supports,
+			'has_archive'        => isset( $args['has_archive'] ) ? (bool) $args['has_archive'] : true,
 			'rewrite'            => array(
 				'slug'       => $slug,
 				'with_front' => false,
@@ -129,6 +130,14 @@ function rocketpd_register_post_types() {
 			'plural'   => __( 'Instructors', 'rocketpd' ),
 			'slug'     => 'instructors',
 			'icon'     => 'dashicons-welcome-learn-more',
+		),
+		'cohort'      => array(
+			'singular'    => __( 'Cohort', 'rocketpd' ),
+			'plural'      => __( 'Cohorts', 'rocketpd' ),
+			'slug'        => 'cohorts',
+			'icon'        => 'dashicons-groups',
+			'has_archive' => false,
+			'supports'    => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', 'revisions' ),
 		),
 		'testimonial' => array(
 			'singular' => __( 'Testimonial', 'rocketpd' ),
