@@ -25,17 +25,17 @@ if ( ! $experts ) {
 		</header>
 		<div class="rpd-instructor-related__grid">
 			<?php foreach ( $experts as $expert ) : ?>
-				<article class="rpd-instructor-related-card">
-					<div class="rpd-instructor-related-card__image">
+				<article class="rpd-instructor-related-card rpd-interactive-card">
+					<div class="rpd-instructor-related-card__image rpd-interactive-card__media">
 						<?php if ( ! empty( $expert['headshot'] ) ) : ?>
-							<img src="<?php echo esc_url( $expert['headshot'] ); ?>" alt="<?php echo esc_attr( $expert['name'] ?? '' ); ?>">
+							<img class="rpd-interactive-card__image" src="<?php echo esc_url( $expert['headshot'] ); ?>" alt="<?php echo esc_attr( $expert['name'] ?? '' ); ?>">
 						<?php endif; ?>
 					</div>
 					<div>
 						<h3><?php echo esc_html( $expert['name'] ?? '' ); ?></h3>
 						<p><?php echo esc_html( $expert['authority'] ?? '' ); ?></p>
 						<?php if ( ! empty( $expert['slug'] ) ) : ?>
-							<a href="<?php echo esc_url( home_url( '/instructors/' . $expert['slug'] . '/' ) ); ?>"><?php esc_html_e( 'Explore expert', 'rocketpd' ); ?> <span aria-hidden="true">-></span></a>
+							<a class="rpd-interactive-card__cta" href="<?php echo esc_url( home_url( '/instructors/' . $expert['slug'] . '/' ) ); ?>"><?php esc_html_e( 'Explore expert', 'rocketpd' ); ?> <span aria-hidden="true">→</span></a>
 						<?php endif; ?>
 					</div>
 				</article>

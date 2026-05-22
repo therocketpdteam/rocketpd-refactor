@@ -17,9 +17,6 @@ $cta        = $instructor['final_cta'] ?? array();
 
 <section class="rpd-instructor-final">
 	<div class="rpd-container">
-		<?php if ( ! empty( $cta['eyebrow'] ) ) : ?>
-			<p class="rpd-instructor-final__eyebrow"><?php echo esc_html( $cta['eyebrow'] ); ?></p>
-		<?php endif; ?>
 		<h2>
 			<?php
 			echo esc_html(

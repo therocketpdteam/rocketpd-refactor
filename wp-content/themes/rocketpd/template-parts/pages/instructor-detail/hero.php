@@ -75,7 +75,7 @@ $svg_allowed = array(
 					<span><?php echo esc_html( sprintf( __( 'Follow %s', 'rocketpd' ), $first_name ) ); ?></span>
 					<?php foreach ( $follow as $network => $url ) : ?>
 						<?php if ( $url ) : ?>
-							<a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer">
+							<a class="rpd-icon-link rpd-icon-link--circle rpd-icon-link--social" href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer">
 								<span class="rpd-instructor-follow__icon" aria-hidden="true"><?php echo wp_kses( $follow_icons[ $network ] ?? $follow_icons['website'], $svg_allowed ); ?></span>
 								<span class="screen-reader-text"><?php echo esc_html( sprintf( __( 'Follow %1$s on %2$s', 'rocketpd' ), $name, ucfirst( $network ) ) ); ?></span>
 							</a>
