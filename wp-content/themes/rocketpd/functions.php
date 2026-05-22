@@ -17,6 +17,7 @@ $rocketpd_includes = array(
 	'post-types',
 	'taxonomies',
 	'helpers',
+	'breadcrumbs',
 	'instructors',
 	'courses',
 	'course-detail',
