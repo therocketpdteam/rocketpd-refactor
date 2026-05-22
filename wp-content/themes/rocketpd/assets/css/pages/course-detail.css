@@ -25,43 +25,6 @@
 	letter-spacing: 0;
 }
 
-.rpd-course-detail-page .rpd-course-breadcrumb{
-	background: #f1eff9;
-	border-bottom: 1px solid rgba(35, 31, 88, 0.08);
-}
-
-.rpd-course-detail-page .rpd-course-breadcrumb ol{
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.55rem;
-	align-items: center;
-	margin: 0;
-	padding: 0.85rem 0;
-	list-style: none;
-	color: var(--rpd-navy);
-	font-weight: 800;
-}
-
-.rpd-course-detail-page .rpd-course-breadcrumb li{
-	display: inline-flex;
-	gap: 0.55rem;
-	align-items: center;
-}
-
-.rpd-course-detail-page .rpd-course-breadcrumb li + li::before{
-	color: var(--rpd-purple);
-	content: "/";
-}
-
-.rpd-course-detail-page .rpd-course-breadcrumb a{
-	color: var(--rpd-navy);
-	text-decoration: none;
-}
-
-.rpd-course-detail-page .rpd-course-breadcrumb [aria-current="page"]{
-	color: var(--rpd-purple-deep);
-}
-
 .rpd-course-detail-page .rpd-course-hero{
 	position: relative;
 	isolation: isolate;

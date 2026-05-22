@@ -16,38 +16,6 @@
 	letter-spacing: 0;
 }
 
-.rpd-instructor-detail-page .rpd-instructor-breadcrumb {
-	background: rgba(196, 196, 229, 0.34);
-	border-bottom: 1px solid rgba(196, 196, 229, 0.55);
-}
-
-.rpd-instructor-detail-page .rpd-instructor-breadcrumb ol {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.55rem;
-	margin: 0;
-	padding: 1rem 0;
-	list-style: none;
-	color: #231f58;
-	font-size: 0.86rem;
-	font-weight: 800;
-}
-
-.rpd-instructor-detail-page .rpd-instructor-breadcrumb li:not(:last-child)::after {
-	margin-left: 0.55rem;
-	color: #7670b3;
-	content: "/";
-}
-
-.rpd-instructor-detail-page .rpd-instructor-breadcrumb a {
-	color: #231f58;
-	text-decoration: none;
-}
-
-.rpd-instructor-detail-page .rpd-instructor-breadcrumb [aria-current="page"] {
-	color: #a154a1;
-}
-
 .rpd-instructor-detail-page .rpd-instructor-hero {
 	padding: clamp(4.75rem, 7vw, 7.25rem) 0 clamp(5rem, 7vw, 7.5rem);
 	background:
