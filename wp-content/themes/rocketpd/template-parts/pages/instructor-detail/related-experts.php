@@ -20,6 +20,7 @@ if ( ! $experts ) {
 <section class="rpd-instructor-related">
 	<div class="rpd-container">
 		<header class="rpd-instructor-section-header">
+			<p class="rpd-instructor-section-kicker"><?php esc_html_e( 'Explore related experts', 'rocketpd' ); ?></p>
 			<h2><?php esc_html_e( 'Related experts you might explore.', 'rocketpd' ); ?></h2>
 		</header>
 		<div class="rpd-instructor-related__grid">

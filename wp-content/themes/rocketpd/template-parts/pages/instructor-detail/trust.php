@@ -25,13 +25,18 @@ $stats      = isset( $trust['stats'] ) && is_array( $trust['stats'] ) ? $trust['
 			</figcaption>
 		</figure>
 		<?php if ( $stats ) : ?>
-			<div class="rpd-instructor-trust__stats" aria-label="<?php esc_attr_e( 'Instructor impact stats', 'rocketpd' ); ?>">
-				<?php foreach ( $stats as $stat ) : ?>
-					<div>
-						<strong><?php echo esc_html( $stat['value'] ?? '' ); ?></strong>
-						<span><?php echo esc_html( $stat['label'] ?? '' ); ?></span>
-					</div>
-				<?php endforeach; ?>
+			<div class="rpd-instructor-trust__impact">
+				<p class="rpd-instructor-section-kicker"><?php esc_html_e( 'Trusted by school leaders', 'rocketpd' ); ?></p>
+				<h2><?php esc_html_e( 'Used in 850+ districts across 47 states.', 'rocketpd' ); ?></h2>
+				<p><?php esc_html_e( 'School leaders nationwide use Kim’s frameworks to rebuild teacher trust, free up principal time, and turn evaluation into a real engine for instructional growth.', 'rocketpd' ); ?></p>
+				<div class="rpd-instructor-trust__stats" aria-label="<?php esc_attr_e( 'Instructor impact stats', 'rocketpd' ); ?>">
+					<?php foreach ( $stats as $stat ) : ?>
+						<div>
+							<strong><?php echo esc_html( $stat['value'] ?? '' ); ?></strong>
+							<span><?php echo esc_html( $stat['label'] ?? '' ); ?></span>
+						</div>
+					<?php endforeach; ?>
+				</div>
 			</div>
 		<?php endif; ?>
 	</div>
