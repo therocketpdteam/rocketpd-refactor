@@ -72,3 +72,26 @@ Do not use for:
 - Static stat tiles.
 - FAQ accordions.
 - Testimonial quote cards unless they are intentionally clickable.
+
+## Offering Icon Tile
+
+Use `.rpd-offering-card__icon` for non-clickable icon tiles that introduce an offering, value, feature, or pricing-style card.
+
+Standard treatment:
+- Center a simple line icon inside a rounded square tile.
+- Use a solid RocketPD palette color for the icon.
+- Use a low-opacity tint of the same hue for the tile background.
+- Keep tile sizing consistent across sibling cards.
+- Decorative SVGs must use `aria-hidden="true"` on the wrapper or SVG.
+
+Use for:
+- Offering cards.
+- Value cards.
+- Feature cards.
+- Non-clickable pricing or program cards.
+
+Do not use for:
+- Social icon links.
+- Primary CTA buttons.
+- Breadcrumbs.
+- Navigation links.

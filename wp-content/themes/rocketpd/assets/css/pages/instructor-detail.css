@@ -228,15 +228,15 @@
 .rpd-instructor-detail-page .rpd-instructor-hero-stats {
 	position: absolute;
 	z-index: 6;
-	right: 1.6rem;
+	right: -0.35rem;
 	bottom: -2.8rem;
-	left: 1.6rem;
+	left: -3rem;
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 	align-items: start;
-	gap: 0.65rem;
+	gap: 0.85rem;
 	min-height: 5.6rem;
-	padding: 1rem 1.15rem;
+	padding: 1.05rem 1.35rem;
 	border: 1px solid rgba(196, 196, 229, 0.8);
 	border-radius: 1rem;
 	background: var(--rpd-white);
@@ -261,6 +261,10 @@
 	font-size: 0.75rem;
 	font-weight: 800;
 	line-height: 1.25;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-hero-stats span {
+	white-space: nowrap;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-authority,
@@ -293,49 +297,51 @@
 }
 
 .rpd-instructor-detail-page .rpd-instructor-authority__body h3 {
-	margin: 2.4rem 0 1rem;
-	color: #a154a1;
-	font-size: 0.82rem;
-	font-weight: 900;
-	letter-spacing: 0.12em;
+	margin: 2.35rem 0 1.05rem;
+	color: #45417c;
+	font-size: 0.8rem;
+	font-weight: 800;
+	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-focus-grid {
 	display: grid;
-	gap: 0.9rem;
+	gap: 0.85rem 1.2rem;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-focus-grid li {
-	display: flex;
-	gap: 0.7rem;
+	display: grid;
+	grid-template-columns: 1.25rem minmax(0, 1fr);
+	gap: 0.6rem;
 	align-items: flex-start;
-	padding: 1rem;
-	border: 1px solid rgba(196, 196, 229, 0.65);
-	border-radius: 0.55rem;
-	background: #fbfbff;
 	color: #343465;
-	font-weight: 800;
+	font-family: var(--font-body);
+	font-size: 0.95rem;
+	font-weight: 650;
+	line-height: 1.4;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-focus-grid span {
 	display: grid;
 	place-items: center;
-	width: 1.2rem;
-	height: 1.2rem;
-	margin-top: 0.1rem;
+	width: 1.05rem;
+	height: 1.05rem;
+	margin-top: 0.08rem;
+	border: 1px solid rgba(85, 82, 177, 0.22);
 	border-radius: 999px;
-	background: rgba(85, 82, 177, 0.12);
+	background: transparent;
 	color: #5552b1;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-focus-grid span::before {
 	content: "✓";
-	font-size: 0.8rem;
+	font-size: 0.62rem;
 	font-weight: 900;
+	line-height: 1;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-resources {
@@ -349,9 +355,18 @@
 	text-align: center;
 }
 
-.rpd-instructor-detail-page .rpd-instructor-section-header .rpd-instructor-section-kicker {
-	margin-bottom: 0.75rem;
-	color: #fdb933;
+.rpd-instructor-detail-page .rpd-instructor-resources .rpd-instructor-section-header .rpd-instructor-section-kicker,
+.rpd-instructor-detail-page .rpd-instructor-learning .rpd-instructor-section-header .rpd-instructor-section-kicker {
+	display: inline-flex;
+	align-items: center;
+	width: fit-content;
+	margin: 0 auto 0.9rem;
+	padding: 0.42rem 0.86rem;
+	border: 1px solid rgba(196, 196, 229, 0.62);
+	border-radius: 999px;
+	background: rgba(196, 196, 229, 0.34);
+	color: #231f58;
+	letter-spacing: 0.09em;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-section-header > p:last-child {
@@ -403,7 +418,7 @@
 .rpd-instructor-detail-page .rpd-instructor-guide-card__feature p,
 .rpd-instructor-detail-page .rpd-instructor-media-card__body > p,
 .rpd-instructor-detail-page .rpd-instructor-blog-card p,
-.rpd-instructor-detail-page .rpd-instructor-offering-card > p {
+.rpd-instructor-detail-page .rpd-instructor-offering-card__eyebrow {
 	margin: 0 0 0.8rem;
 	color: #a154a1;
 	font-size: 0.78rem;
@@ -462,11 +477,41 @@
 	font-weight: 700;
 }
 
+.rpd-instructor-detail-page .rpd-instructor-offering-card li {
+	display: grid;
+	grid-template-columns: 1.15rem minmax(0, 1fr);
+	gap: 0.56rem;
+	align-items: start;
+}
+
 .rpd-instructor-detail-page .rpd-instructor-offering-card li::before {
-	margin-right: 0.5rem;
+	display: inline-grid;
+	place-items: center;
+	width: 1.05rem;
+	height: 1.05rem;
+	margin-top: 0.12rem;
+	border-radius: 50%;
+	background: rgba(85, 82, 177, 0.12);
 	color: #5552b1;
 	content: "✓";
+	font-size: 0.62rem;
 	font-weight: 900;
+	line-height: 1;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-offering-card--launchpad li::before {
+	background: rgba(253, 185, 51, 0.17);
+	color: #f5a800;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-offering-card--cohort li::before {
+	background: rgba(85, 82, 177, 0.12);
+	color: #5552b1;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-offering-card--workshop li::before {
+	background: rgba(161, 84, 161, 0.13);
+	color: #a154a1;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-guide-card__panel li {
@@ -498,6 +543,59 @@
 	display: grid;
 	gap: 1.6rem;
 	margin-top: 1.75rem;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-blog-header {
+	display: grid;
+	gap: 0.9rem;
+	align-items: end;
+	margin: clamp(2.3rem, 4vw, 3rem) 0 1.3rem;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-blog-header .rpd-instructor-section-kicker {
+	margin: 0 0 0.55rem;
+	color: #a154a1;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-blog-header h3 {
+	margin: 0;
+	color: #231f58;
+	font-family: var(--font-heading);
+	font-size: clamp(1.45rem, 2.6vw, 2.15rem);
+	font-weight: 900;
+	line-height: 1.08;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-blog-header__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	width: fit-content;
+	color: #5552b1;
+	font-weight: 900;
+	text-decoration: none;
+	transition: color 180ms ease;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-blog-header__link:hover,
+.rpd-instructor-detail-page .rpd-instructor-blog-header__link:focus {
+	color: #a154a1;
+	text-decoration: underline;
+	text-underline-offset: 0.18em;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-blog-header__link span {
+	display: inline-block;
+	transition: transform 180ms ease;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-blog-header__link:hover span,
+.rpd-instructor-detail-page .rpd-instructor-blog-header__link:focus span {
+	transform: translateX(2px);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-blog-header + .rpd-instructor-blog-grid {
+	margin-top: 0;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-media-card,
@@ -572,35 +670,71 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	overflow: visible;
 	min-height: 26rem;
-	padding-top: 4.8rem;
+	padding-top: 2rem;
 }
 
-.rpd-instructor-detail-page .rpd-instructor-offering-card::before {
-	position: absolute;
-	top: 1.5rem;
-	left: 1.65rem;
-	display: grid;
-	place-items: center;
-	width: 2.4rem;
-	height: 2.4rem;
-	border-radius: 0.58rem;
-	background: rgba(253, 185, 51, 0.16);
-	color: #a154a1;
-	content: "▣";
-	font-size: 0.9rem;
-	font-weight: 900;
-}
-
-.rpd-instructor-detail-page .rpd-instructor-offering-card > p {
+.rpd-instructor-detail-page .rpd-offering-card__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 3.35rem;
+	height: 3.35rem;
+	margin-bottom: 1.35rem;
+	border-radius: 0.9rem;
+	background: rgba(85, 82, 177, 0.12);
 	color: #5552b1;
+	box-shadow: inset 0 0 0 1px rgba(85, 82, 177, 0.08);
+}
+
+.rpd-instructor-detail-page .rpd-offering-card__icon--launchpad {
+	background: rgba(253, 185, 51, 0.16);
+	color: #f5a800;
+	box-shadow: inset 0 0 0 1px rgba(253, 185, 51, 0.18);
+}
+
+.rpd-instructor-detail-page .rpd-offering-card__icon--cohort {
+	background: rgba(85, 82, 177, 0.13);
+	color: #5552b1;
+	box-shadow: inset 0 0 0 1px rgba(85, 82, 177, 0.14);
+}
+
+.rpd-instructor-detail-page .rpd-offering-card__icon--workshop {
+	background: rgba(161, 84, 161, 0.13);
+	color: #a154a1;
+	box-shadow: inset 0 0 0 1px rgba(161, 84, 161, 0.14);
+}
+
+.rpd-instructor-detail-page .rpd-offering-card__icon svg {
+	display: block;
+	width: 1.55rem;
+	height: 1.55rem;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.75;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-offering-card__eyebrow {
+	color: #5552b1;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-offering-card__meta {
+	margin: -0.25rem 0 0.95rem;
+	color: #5552b1;
+	font-size: 1.32rem;
+	font-weight: 900;
+	line-height: 1.15;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-offering-card__badge {
 	position: absolute;
-	top: 1rem;
-	right: 1rem;
-	padding: 0.32rem 0.65rem;
+	top: 0;
+	left: 50%;
+	z-index: 2;
+	padding: 0.42rem 0.9rem;
 	border-radius: 999px;
 	background: #a154a1;
 	color: var(--rpd-white);
@@ -608,6 +742,9 @@
 	font-weight: 900;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
+	transform: translate(-50%, -50%);
+	white-space: nowrap;
+	box-shadow: 0 10px 22px rgba(161, 84, 161, 0.22);
 }
 
 .rpd-instructor-detail-page .rpd-instructor-offering-card .rpd-btn {
@@ -635,12 +772,17 @@
 	box-shadow: 0 24px 52px rgba(35, 31, 88, 0.17);
 }
 
-.rpd-instructor-detail-page .rpd-instructor-testimonial > span {
+.rpd-instructor-detail-page .rpd-instructor-testimonial__quote-icon {
+	display: block;
+	width: 3.75rem;
+	height: auto;
+	margin-bottom: 1.35rem;
 	color: #fdb933;
-	font-family: var(--font-heading);
-	font-size: 3rem;
-	font-weight: 900;
-	line-height: 1;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 3;
+	stroke-linejoin: round;
+	opacity: 0.96;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-testimonial blockquote {
@@ -656,7 +798,33 @@
 }
 
 .rpd-instructor-detail-page .rpd-instructor-testimonial figcaption {
+	display: flex;
+	gap: 0.9rem;
+	align-items: center;
 	margin-top: 1.5rem;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-testimonial__avatar {
+	display: inline-flex;
+	flex: 0 0 auto;
+	align-items: center;
+	justify-content: center;
+	width: 3.1rem;
+	height: 3.1rem;
+	border: 1px solid rgba(255, 255, 255, 0.26);
+	border-radius: 50%;
+	background: rgba(253, 185, 51, 0.96);
+	color: #231f58;
+	font-size: 0.9rem;
+	font-weight: 900;
+	letter-spacing: 0.04em;
+	line-height: 1;
+	box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+	object-fit: cover;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-testimonial__author {
+	min-width: 0;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-testimonial strong,
@@ -697,14 +865,19 @@
 
 .rpd-instructor-detail-page .rpd-instructor-trust__stats div {
 	padding: 1.4rem;
-	border: 1px solid rgba(196, 196, 229, 0.72);
+	border: 1px solid rgba(196, 196, 229, 0.78);
 	border-radius: 0.8rem;
-	background: #fbfbff;
+	background: rgba(255, 255, 255, 0.72);
 	text-align: center;
+	box-shadow: none;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-related {
 	background: rgba(196, 196, 229, 0.18);
+}
+
+.rpd-instructor-detail-page .rpd-instructor-related .rpd-instructor-section-kicker {
+	color: #a154a1;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-related-card {
@@ -745,6 +918,10 @@
 .rpd-instructor-detail-page .rpd-instructor-faq .rpd-instructor-section-kicker {
 	margin: 0 0 1rem;
 	color: #a154a1;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-faq .rpd-instructor-split__intro h2 {
+	font-weight: 700;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-faq__item {
@@ -853,7 +1030,7 @@
 }
 
 .rpd-instructor-detail-page .rpd-instructor-final p {
-	max-width: 44rem;
+	max-width: 36rem;
 	margin: 1.3rem auto 0;
 	color: rgba(255, 255, 255, 0.9);
 	font-size: 1.16rem;
@@ -872,6 +1049,15 @@
 }
 
 @media (min-width: 760px) {
+	.rpd-instructor-detail-page .rpd-instructor-blog-header {
+		grid-template-columns: minmax(0, 1fr) auto;
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-blog-header__link {
+		justify-self: end;
+		margin-bottom: 0.15rem;
+	}
+
 	.rpd-instructor-detail-page .rpd-instructor-focus-grid,
 	.rpd-instructor-detail-page .rpd-instructor-media-grid,
 	.rpd-instructor-detail-page .rpd-instructor-blog-grid,
@@ -904,8 +1090,8 @@
 	}
 
 	.rpd-instructor-detail-page .rpd-instructor-faq .rpd-instructor-split {
-		grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-		gap: clamp(2rem, 4vw, 4rem);
+		grid-template-columns: minmax(0, 11fr) minmax(0, 12fr);
+		gap: clamp(2rem, 3vw, 3.25rem);
 	}
 
 	.rpd-instructor-detail-page .rpd-instructor-guide-card {

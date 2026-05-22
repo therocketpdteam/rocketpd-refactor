@@ -313,8 +313,9 @@ function rocketpd_get_instructor_detail_defaults( $slug = 'kim-marshall' ) {
 		'offerings'        => array(
 			'launchpad' => array(
 				'enabled' => true,
+				'type'    => __( 'Self-paced', 'rocketpd' ),
 				'title'   => __( 'LaunchPad', 'rocketpd' ),
-				'price'   => __( '$49 self-paced', 'rocketpd' ),
+				'price'   => __( '$49', 'rocketpd' ),
 				'bullets'  => array(
 					__( 'Self-paced video course', 'rocketpd' ),
 					__( 'Practical reflection tools', 'rocketpd' ),
@@ -325,6 +326,7 @@ function rocketpd_get_instructor_detail_defaults( $slug = 'kim-marshall' ) {
 			),
 			'cohort'    => array(
 				'enabled'  => true,
+				'type'     => __( 'Live-virtual cohort', 'rocketpd' ),
 				'title'    => __( 'Live-Virtual Cohort', 'rocketpd' ),
 				'price'    => __( '$750', 'rocketpd' ),
 				'badge'    => __( 'Most Popular', 'rocketpd' ),
@@ -339,6 +341,7 @@ function rocketpd_get_instructor_detail_defaults( $slug = 'kim-marshall' ) {
 			),
 			'workshop' => array(
 				'enabled' => true,
+				'type'    => __( 'Custom district workshop', 'rocketpd' ),
 				'title'   => __( 'Custom District Workshop', 'rocketpd' ),
 				'price'   => __( 'Inquire', 'rocketpd' ),
 				'bullets'  => array(
@@ -354,6 +357,7 @@ function rocketpd_get_instructor_detail_defaults( $slug = 'kim-marshall' ) {
 			'quote'       => __( 'Kim gives leaders practical language and routines that make feedback feel less like an event and more like part of the work.', 'rocketpd' ),
 			'person'      => __( 'Dave Baugh', 'rocketpd' ),
 			'attribution' => __( 'Superintendent and RocketPD district partner', 'rocketpd' ),
+			'image'       => '',
 			'stats'       => array(
 				array(
 					'value' => __( '12K+', 'rocketpd' ),
@@ -574,7 +578,7 @@ function rocketpd_get_current_instructor_detail() {
 			$data['offerings'][ $offering_key ]['enabled'] = (bool) $enabled;
 		}
 
-		foreach ( array( 'title', 'price', 'href', 'cta' ) as $key ) {
+		foreach ( array( 'type', 'title', 'price', 'href', 'cta' ) as $key ) {
 			$value = get_field( 'rpd_instructor_' . $offering_key . '_' . $key, $post_id );
 
 			if ( is_string( $value ) && $value ) {
@@ -593,10 +597,13 @@ function rocketpd_get_current_instructor_detail() {
 		'quote'       => 'rpd_instructor_trust_quote',
 		'person'      => 'rpd_instructor_trust_person',
 		'attribution' => 'rpd_instructor_trust_attribution',
+		'image'       => 'rpd_instructor_trust_image',
 	) as $key => $field_name ) {
 		$value = get_field( $field_name, $post_id );
 
 		if ( is_string( $value ) && $value ) {
+			$data['trust'][ $key ] = $value;
+		} elseif ( 'image' === $key && is_array( $value ) && ! empty( $value['url'] ) ) {
 			$data['trust'][ $key ] = $value;
 		}
 	}
