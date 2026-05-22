@@ -45,7 +45,12 @@ if ( ! $has_guide && ! $has_podcast && ! $has_webinar && ! $has_blog ) {
 		<?php if ( $has_guide ) : ?>
 			<article class="rpd-instructor-guide-card">
 				<div class="rpd-instructor-guide-card__feature">
-					<span class="rpd-instructor-resource-icon" aria-hidden="true"></span>
+					<span class="rpd-instructor-resource-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" focusable="false">
+							<path d="M6.5 4.5h8.25A2.75 2.75 0 0 1 17.5 7.25v12.25H8A2.5 2.5 0 0 0 5.5 22V5.5a1 1 0 0 1 1-1Z"/>
+							<path d="M8 19.5h9.5M8.25 8h6.25M8.25 11h5"/>
+						</svg>
+					</span>
 					<p><?php esc_html_e( 'Featured Guide - Free', 'rocketpd' ); ?></p>
 					<h3><?php echo esc_html( $guide['title'] ?? '' ); ?></h3>
 					<span><?php echo esc_html( $guide['meta'] ?? '' ); ?></span>
@@ -61,7 +66,7 @@ if ( ! $has_guide && ! $has_podcast && ! $has_webinar && ! $has_blog ) {
 					<?php endif; ?>
 					<?php if ( ! empty( $guide['href'] ) ) : ?>
 						<div class="rpd-instructor-resource-actions">
-							<a class="rpd-btn rpd-btn--gold" href="<?php echo esc_url( $guide['href'] ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Get the Free Guide', 'rocketpd' ); ?></a>
+							<a class="rpd-btn rpd-btn--gold" href="<?php echo esc_url( $guide['href'] ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Get the Free Guide', 'rocketpd' ); ?> <span aria-hidden="true">→</span></a>
 							<a class="rpd-btn rpd-btn--outline-purple" href="<?php echo esc_url( $guide['href'] ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Preview a sample chapter', 'rocketpd' ); ?></a>
 						</div>
 					<?php endif; ?>

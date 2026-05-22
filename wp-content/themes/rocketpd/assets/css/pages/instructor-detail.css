@@ -59,10 +59,27 @@
 .rpd-instructor-detail-page .rpd-instructor-hero__grid {
 	display: grid;
 	align-items: center;
-	gap: clamp(2.5rem, 5vw, 4.25rem);
+	gap: clamp(2rem, 4vw, 3.5rem);
 }
 
-.rpd-instructor-detail-page .rpd-instructor-eyebrow,
+.rpd-instructor-detail-page .rpd-instructor-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	width: fit-content;
+	max-width: 100%;
+	margin: 0 0 1rem;
+	padding: 0.42rem 0.82rem;
+	border: 1px solid rgba(196, 196, 229, 0.72);
+	border-radius: var(--rpd-radius-pill);
+	background: rgba(196, 196, 229, 0.36);
+	color: #231f58;
+	font-size: 0.74rem;
+	font-weight: 900;
+	letter-spacing: 0.08em;
+	line-height: 1.15;
+	text-transform: uppercase;
+}
+
 .rpd-instructor-detail-page .rpd-instructor-section-kicker {
 	margin: 0 0 1rem;
 	color: #a154a1;
@@ -80,7 +97,7 @@
 }
 
 .rpd-instructor-detail-page .rpd-instructor-hero__authority {
-	max-width: 43rem;
+	max-width: 48rem;
 	margin: 1.4rem 0 0;
 	color: #a154a1;
 	font-family: var(--font-heading);
@@ -93,17 +110,22 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.65rem;
+	max-width: 49rem;
 	margin-top: 1.65rem;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-tags span {
-	padding: 0.42rem 0.8rem;
-	border: 1px solid rgba(196, 196, 229, 0.85);
+	display: inline-flex;
+	align-items: center;
+	min-height: 2rem;
+	padding: 0.43rem 0.84rem;
+	border: 1px solid rgba(196, 196, 229, 0.5);
 	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.78);
-	color: #5552b1;
+	background: rgba(196, 196, 229, 0.38);
+	color: #231f58;
 	font-size: 0.78rem;
-	font-weight: 800;
+	font-weight: 750;
+	line-height: 1.15;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-hero__actions,
@@ -145,16 +167,9 @@
 	text-transform: uppercase;
 }
 
-.rpd-instructor-detail-page .rpd-instructor-follow a {
-	display: inline-grid;
-	place-items: center;
+.rpd-instructor-detail-page .rpd-instructor-follow .rpd-icon-link {
 	width: 2.35rem;
 	height: 2.35rem;
-	border: 1px solid rgba(196, 196, 229, 0.8);
-	border-radius: 999px;
-	background: var(--rpd-white);
-	color: #5552b1;
-	text-decoration: none;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-follow__icon,
@@ -189,10 +204,9 @@
 	place-items: center;
 	overflow: hidden;
 	aspect-ratio: 0.86;
-	border: 0.8rem solid var(--rpd-white);
 	border-radius: 2rem;
 	background: linear-gradient(135deg, #c4c4e5, #5552b1 60%, #a154a1);
-	box-shadow: 28px 28px 0 rgba(196, 196, 229, 0.72), 0 26px 50px rgba(35, 31, 88, 0.18);
+	box-shadow: 24px 24px 0 rgba(196, 196, 229, 0.72), 0 26px 50px rgba(35, 31, 88, 0.2);
 }
 
 .rpd-instructor-detail-page .rpd-instructor-portrait img {
@@ -407,13 +421,15 @@
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
 }
 
-.rpd-instructor-detail-page .rpd-instructor-resource-icon::before {
-	width: 1.28rem;
-	height: 1.28rem;
-	border: 2px solid currentColor;
-	border-radius: 0.16rem 0.42rem 0.42rem 0.16rem;
-	box-shadow: inset 0.28rem 0 0 rgba(253, 185, 51, 0.22);
-	content: "";
+.rpd-instructor-detail-page .rpd-instructor-resource-icon svg {
+	display: block;
+	width: 1.45rem;
+	height: 1.45rem;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.8;
+	stroke-linecap: round;
+	stroke-linejoin: round;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-guide-card__feature p,
@@ -449,11 +465,9 @@
 }
 
 .rpd-instructor-detail-page .rpd-instructor-guide-card__panel {
-	margin: 1rem;
 	padding: clamp(1.5rem, 4vw, 2.4rem);
-	border-radius: 1rem;
+	border-radius: 0 0 1.2rem 1.2rem;
 	background: var(--rpd-white);
-	box-shadow: 0 18px 36px rgba(35, 31, 88, 0.1);
 }
 
 .rpd-instructor-detail-page .rpd-instructor-guide-card__panel p,
@@ -480,12 +494,33 @@
 	font-weight: 700;
 }
 
-.rpd-instructor-detail-page .rpd-instructor-guide-card__panel li::before,
 .rpd-instructor-detail-page .rpd-instructor-offering-card li::before {
 	margin-right: 0.5rem;
 	color: #5552b1;
 	content: "✓";
 	font-weight: 900;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-guide-card__panel li {
+	display: grid;
+	grid-template-columns: 1.25rem minmax(0, 1fr);
+	gap: 0.58rem;
+	align-items: start;
+}
+
+.rpd-instructor-detail-page .rpd-instructor-guide-card__panel li::before {
+	display: inline-grid;
+	place-items: center;
+	width: 1.1rem;
+	height: 1.1rem;
+	margin-top: 0.08rem;
+	border-radius: 50%;
+	background: rgba(196, 196, 229, 0.42);
+	color: #5552b1;
+	content: "✓";
+	font-size: 0.66rem;
+	font-weight: 900;
+	line-height: 1;
 }
 
 .rpd-instructor-detail-page .rpd-instructor-media-grid,
@@ -739,6 +774,11 @@
 	gap: 0.9rem;
 }
 
+.rpd-instructor-detail-page .rpd-instructor-faq .rpd-instructor-section-kicker {
+	margin: 0 0 1rem;
+	color: #a154a1;
+}
+
 .rpd-instructor-detail-page .rpd-instructor-faq__item {
 	border: 1px solid rgba(196, 196, 229, 0.72);
 	border-radius: 0.75rem;
@@ -774,13 +814,13 @@
 }
 
 .rpd-instructor-detail-page .rpd-instructor-faq [role="region"] p,
-.rpd-instructor-detail-page .rpd-instructor-faq .rpd-instructor-split__intro p {
+.rpd-instructor-detail-page .rpd-instructor-faq .rpd-instructor-split__intro p:not(.rpd-instructor-section-kicker) {
 	margin: 0;
 	color: #343465;
 	line-height: 1.65;
 }
 
-.rpd-instructor-detail-page .rpd-instructor-faq .rpd-instructor-split__intro p {
+.rpd-instructor-detail-page .rpd-instructor-faq .rpd-instructor-split__intro p:not(.rpd-instructor-section-kicker) {
 	margin-top: 1rem;
 }
 
@@ -847,7 +887,7 @@
 .rpd-instructor-detail-page .rpd-instructor-final p {
 	max-width: 44rem;
 	margin: 1.3rem auto 0;
-	color: #c4c4e5;
+	color: rgba(255, 255, 255, 0.9);
 	font-size: 1.16rem;
 	line-height: 1.6;
 }
@@ -878,11 +918,11 @@
 
 @media (min-width: 980px) {
 	.rpd-instructor-detail-page .rpd-instructor-hero__grid {
-		grid-template-columns: minmax(0, 5fr) minmax(24rem, 7fr);
+		grid-template-columns: minmax(0, 3fr) minmax(22rem, 2fr);
 	}
 
 	.rpd-instructor-detail-page .rpd-instructor-hero h1 {
-		font-size: 3.85rem;
+		font-size: 4.15rem;
 	}
 
 	.rpd-instructor-detail-page .rpd-instructor-split,
@@ -890,9 +930,23 @@
 		grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
 	}
 
+	.rpd-instructor-detail-page .rpd-instructor-authority .rpd-instructor-split {
+		grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+		gap: clamp(2.5rem, 4vw, 4rem);
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-faq .rpd-instructor-split {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+		gap: clamp(2rem, 4vw, 4rem);
+	}
+
 	.rpd-instructor-detail-page .rpd-instructor-guide-card {
 		grid-template-columns: minmax(0, 0.96fr) minmax(25rem, 1.04fr);
 		align-items: stretch;
+	}
+
+	.rpd-instructor-detail-page .rpd-instructor-guide-card__panel {
+		border-radius: 0 1.2rem 1.2rem 0;
 	}
 
 	.rpd-instructor-detail-page .rpd-instructor-related__grid {
@@ -909,7 +963,7 @@
 
 	.rpd-instructor-detail-page .rpd-instructor-hero__visual {
 		justify-self: end;
-		width: min(100%, 35.5rem);
+		width: min(100%, 30.5rem);
 	}
 }
 
