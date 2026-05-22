@@ -293,13 +293,15 @@ function rocketpd_get_instructor_detail_defaults( $slug = 'kim-marshall' ) {
 			'enabled' => true,
 			'posts'   => array(
 				array(
-					'title' => __( 'Rethinking teacher evaluation: 3 keys to reduce stress, save time, & build confidence', 'rocketpd' ),
-					'meta'  => __( 'Article', 'rocketpd' ),
-					'href'  => home_url( '/rethinking-teacher-evaluation-3-keys-to-reduce-stress-save-time-build-confidence-with-kim-marshall/' ),
+					'title'   => __( 'Rethinking teacher evaluation: 3 keys to reduce stress, save time, & build confidence', 'rocketpd' ),
+					'meta'    => __( 'Article', 'rocketpd' ),
+					'excerpt' => __( 'Kim Marshall walks through the three shifts that turn annual evaluation from a compliance ritual into a growth engine for teachers.', 'rocketpd' ),
+					'href'    => home_url( '/rethinking-teacher-evaluation-3-keys-to-reduce-stress-save-time-build-confidence-with-kim-marshall/' ),
 				),
 				array(
 					'title'       => __( 'More articles coming soon', 'rocketpd' ),
 					'meta'        => __( 'Coming soon', 'rocketpd' ),
+					'excerpt'     => __( 'Subscribe to the Marshall Memo or join the RocketPD newsletter to be the first to read new pieces.', 'rocketpd' ),
 					'href'        => '',
 					'placeholder' => true,
 				),

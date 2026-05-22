@@ -27,6 +27,7 @@ if ( ! $offerings ) {
 <section class="rpd-instructor-learning" id="professional-learning">
 	<div class="rpd-container">
 		<header class="rpd-instructor-section-header">
+			<p class="rpd-instructor-section-kicker"><?php esc_html_e( 'Go deeper', 'rocketpd' ); ?></p>
 			<h2>
 				<?php
 				printf(
@@ -36,6 +37,7 @@ if ( ! $offerings ) {
 				);
 				?>
 			</h2>
+			<p><?php esc_html_e( 'Three flexible ways to bring this work directly into your school or district.', 'rocketpd' ); ?></p>
 		</header>
 		<div class="rpd-instructor-offerings">
 			<?php foreach ( $offerings as $key => $offering ) : ?>
