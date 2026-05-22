@@ -105,6 +105,15 @@ if ( ! $has_guide && ! $has_podcast && ! $has_webinar && ! $has_blog ) {
 		<?php endif; ?>
 
 		<?php if ( $has_blog ) : ?>
+			<div class="rpd-instructor-blog-header">
+				<div>
+					<p class="rpd-instructor-section-kicker"><?php esc_html_e( 'LATEST FROM THE BLOG', 'rocketpd' ); ?></p>
+					<h3><?php echo esc_html( sprintf( __( 'Recent articles featuring %s', 'rocketpd' ), $first_name ) ); ?></h3>
+				</div>
+				<a class="rpd-instructor-blog-header__link" href="<?php echo esc_url( home_url( '/resources/' ) ); ?>">
+					<?php esc_html_e( 'See all articles', 'rocketpd' ); ?> <span aria-hidden="true">&rarr;</span>
+				</a>
+			</div>
 			<div class="rpd-instructor-blog-grid">
 				<?php foreach ( $blog['posts'] as $post_card ) : ?>
 					<?php $placeholder = ! empty( $post_card['placeholder'] ); ?>
