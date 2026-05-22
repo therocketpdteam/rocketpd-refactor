@@ -246,13 +246,14 @@ function rocketpd_get_instructor_detail_defaults( $slug = 'kim-marshall' ) {
 			'award'           => __( '30+ years', 'rocketpd' ),
 		),
 		'bio'              => array(
-			'eyebrow'    => __( 'Authority Positioning', 'rocketpd' ),
-			'heading'    => __( 'Why educators learn from Kim', 'rocketpd' ),
-			'paragraphs' => array(
+			'eyebrow'       => __( 'Authority Positioning', 'rocketpd' ),
+			'heading'       => __( 'Why educators learn from Kim', 'rocketpd' ),
+			'paragraphs'    => array(
 				__( 'Kim Marshall helps school leaders make teacher supervision more practical, human, and instructionally useful. His work moves evaluation away from compliance-driven checklists and toward short, frequent observations paired with thoughtful coaching conversations.', 'rocketpd' ),
 				__( 'Through the Marshall Memo, books, guides, and live learning with RocketPD, Kim gives leaders concrete ways to reduce evaluation stress, strengthen feedback culture, and keep improvement focused on classroom practice.', 'rocketpd' ),
 			),
-			'focus'      => array(
+			'focus_heading' => __( 'His work focuses on', 'rocketpd' ),
+			'focus'         => array(
 				__( 'Mini-observations that fit real school schedules', 'rocketpd' ),
 				__( 'Feedback conversations teachers can actually use', 'rocketpd' ),
 				__( 'Teacher evaluation systems that build trust', 'rocketpd' ),
@@ -261,37 +262,51 @@ function rocketpd_get_instructor_detail_defaults( $slug = 'kim-marshall' ) {
 				__( 'Practical tools for supervision and follow-through', 'rocketpd' ),
 			),
 		),
+		'resources'        => array(
+			'eyebrow' => __( 'Free Resources', 'rocketpd' ),
+			'heading' => __( "Start exploring Kim's work - free.", 'rocketpd' ),
+			'body'    => __( 'Read, watch, and listen. Every resource below is designed to help school leaders take a single concrete step this week.', 'rocketpd' ),
+		),
 		'guide'            => array(
-			'enabled'      => true,
-			'title'        => __( 'Rethinking Teacher Supervision, Coaching & Evaluation', 'rocketpd' ),
-			'summary'      => __( 'A practical guide for leaders who want teacher evaluation to feel less stressful, more useful, and more connected to the everyday work of improving instruction.', 'rocketpd' ),
-			'meta'         => __( 'PDF guide - 20 minute read', 'rocketpd' ),
-			'href'         => home_url( '/k-12-guides/learning-meet-doing/' ),
-			'deliverables' => array(
+			'enabled'         => true,
+			'eyebrow'         => __( 'Featured Guide - Free', 'rocketpd' ),
+			'title'           => __( 'Rethinking Teacher Supervision, Coaching & Evaluation', 'rocketpd' ),
+			'summary'         => __( 'A practical guide for leaders who want teacher evaluation to feel less stressful, more useful, and more connected to the everyday work of improving instruction.', 'rocketpd' ),
+			'meta'            => __( 'PDF guide - 20 minute read', 'rocketpd' ),
+			'href'            => home_url( '/k-12-guides/learning-meet-doing/' ),
+			'primary_label'   => __( 'Get the Free Guide', 'rocketpd' ),
+			'secondary_label' => __( 'Preview a sample chapter', 'rocketpd' ),
+			'deliverables'    => array(
 				__( 'A supervision model built around frequent classroom visits', 'rocketpd' ),
 				__( 'Conversation prompts for more useful feedback', 'rocketpd' ),
 				__( 'Implementation moves principals can start this month', 'rocketpd' ),
 			),
 		),
 		'podcast'          => array(
-			'enabled'  => true,
-			'title'    => __( 'Kim Marshall on rethinking teacher supervision', 'rocketpd' ),
-			'summary'  => __( 'Listen to Kim unpack why observation, feedback, and trust belong together.', 'rocketpd' ),
-			'meta'     => __( 'Podcast episode', 'rocketpd' ),
-			'embed_id' => 'AME1I5sUJFQ',
-			'href'     => 'https://www.youtube.com/watch?v=AME1I5sUJFQ',
+			'enabled'   => true,
+			'title'     => __( 'Kim Marshall on rethinking teacher supervision', 'rocketpd' ),
+			'summary'   => __( 'Listen to Kim unpack why observation, feedback, and trust belong together.', 'rocketpd' ),
+			'meta'      => __( 'Podcast episode', 'rocketpd' ),
+			'embed_id'  => 'AME1I5sUJFQ',
+			'href'      => 'https://www.youtube.com/watch?v=AME1I5sUJFQ',
+			'cta_label' => __( 'Listen on YouTube', 'rocketpd' ),
 		),
 		'webinar'          => array(
-			'enabled'  => true,
-			'title'    => __( 'From mini-observations to meaningful debriefs', 'rocketpd' ),
-			'summary'  => __( 'A practical conversation on reducing stress and improving teacher feedback.', 'rocketpd' ),
-			'meta'     => __( 'Recorded webinar', 'rocketpd' ),
-			'embed_id' => 'wIV-j4nt_ms',
-			'href'     => 'https://www.youtube.com/watch?v=wIV-j4nt_ms',
+			'enabled'   => true,
+			'title'     => __( 'From mini-observations to meaningful debriefs', 'rocketpd' ),
+			'summary'   => __( 'A practical conversation on reducing stress and improving teacher feedback.', 'rocketpd' ),
+			'meta'      => __( 'Recorded webinar', 'rocketpd' ),
+			'embed_id'  => 'wIV-j4nt_ms',
+			'href'      => 'https://www.youtube.com/watch?v=wIV-j4nt_ms',
+			'cta_label' => __( 'Watch the webinar', 'rocketpd' ),
 		),
 		'blog'             => array(
-			'enabled' => true,
-			'posts'   => array(
+			'enabled'   => true,
+			'eyebrow'   => __( 'Latest from the blog', 'rocketpd' ),
+			'heading'   => __( 'Recent articles featuring Kim', 'rocketpd' ),
+			'cta_label' => __( 'See all articles', 'rocketpd' ),
+			'cta_url'   => home_url( '/resources/' ),
+			'posts'     => array(
 				array(
 					'title'   => __( 'Rethinking teacher evaluation: 3 keys to reduce stress, save time, & build confidence', 'rocketpd' ),
 					'meta'    => __( 'Article', 'rocketpd' ),
@@ -309,6 +324,11 @@ function rocketpd_get_instructor_detail_defaults( $slug = 'kim-marshall' ) {
 		),
 		'playbook'         => array(
 			'enabled' => false,
+		),
+		'learning'         => array(
+			'eyebrow' => __( 'Go Deeper', 'rocketpd' ),
+			'heading' => __( 'Work with Kim through RocketPD.', 'rocketpd' ),
+			'body'    => __( 'Three flexible ways to bring this work directly into your school or district.', 'rocketpd' ),
 		),
 		'offerings'        => array(
 			'launchpad' => array(
@@ -354,11 +374,14 @@ function rocketpd_get_instructor_detail_defaults( $slug = 'kim-marshall' ) {
 			),
 		),
 		'trust'            => array(
-			'quote'       => __( 'Kim gives leaders practical language and routines that make feedback feel less like an event and more like part of the work.', 'rocketpd' ),
-			'person'      => __( 'Dave Baugh', 'rocketpd' ),
-			'attribution' => __( 'Superintendent and RocketPD district partner', 'rocketpd' ),
-			'image'       => '',
-			'stats'       => array(
+			'quote'          => __( 'Kim gives leaders practical language and routines that make feedback feel less like an event and more like part of the work.', 'rocketpd' ),
+			'person'         => __( 'Dave Baugh', 'rocketpd' ),
+			'attribution'    => __( 'Superintendent and RocketPD district partner', 'rocketpd' ),
+			'image'          => '',
+			'impact_eyebrow' => __( 'Trusted by school leaders', 'rocketpd' ),
+			'impact_heading' => __( 'Used in 850+ districts across 47 states.', 'rocketpd' ),
+			'impact_body'    => __( 'School leaders nationwide use Kim’s frameworks to rebuild teacher trust, free up principal time, and turn evaluation into a real engine for instructional growth.', 'rocketpd' ),
+			'stats'          => array(
 				array(
 					'value' => __( '12K+', 'rocketpd' ),
 					'label' => __( 'educators trained', 'rocketpd' ),
@@ -410,6 +433,16 @@ function rocketpd_get_instructor_detail_defaults( $slug = 'kim-marshall' ) {
 				'authority' => __( 'Innovation, leadership, and staff engagement.', 'rocketpd' ),
 				'headshot'  => '/wp-content/uploads/2024/03/George-Couros.jpg',
 			),
+		),
+		'related'          => array(
+			'eyebrow' => __( 'Explore related experts', 'rocketpd' ),
+			'heading' => __( 'Related experts you might explore.', 'rocketpd' ),
+		),
+		'faq_intro'        => array(
+			'heading'       => __( 'Questions leaders ask about learning with Kim.', 'rocketpd' ),
+			'help_text'     => __( 'Need help deciding?', 'rocketpd' ),
+			'contact_label' => __( 'Talk with the RocketPD team.', 'rocketpd' ),
+			'contact_url'   => home_url( '/contact/' ),
 		),
 		'final_cta'        => array(
 			'eyebrow'         => __( 'Bring this work to your team', 'rocketpd' ),
@@ -493,8 +526,9 @@ function rocketpd_get_current_instructor_detail() {
 	}
 
 	foreach ( array(
-		'eyebrow' => 'rpd_instructor_bio_eyebrow',
-		'heading' => 'rpd_instructor_bio_heading',
+		'eyebrow'       => 'rpd_instructor_bio_eyebrow',
+		'heading'       => 'rpd_instructor_bio_heading',
+		'focus_heading' => 'rpd_instructor_authority_focus_heading',
 	) as $key => $field_name ) {
 		$value = get_field( $field_name, $post_id );
 
@@ -523,6 +557,18 @@ function rocketpd_get_current_instructor_detail() {
 		}
 	}
 
+	foreach ( array(
+		'eyebrow' => 'rpd_instructor_resources_eyebrow',
+		'heading' => 'rpd_instructor_resources_heading',
+		'body'    => 'rpd_instructor_resources_body',
+	) as $key => $field_name ) {
+		$value = get_field( $field_name, $post_id );
+
+		if ( is_string( $value ) && $value ) {
+			$data['resources'][ $key ] = $value;
+		}
+	}
+
 	foreach ( array( 'guide', 'podcast', 'webinar', 'blog', 'playbook' ) as $resource_key ) {
 		$enabled = get_field( 'rpd_instructor_' . $resource_key . '_enabled', $post_id );
 
@@ -531,7 +577,7 @@ function rocketpd_get_current_instructor_detail() {
 		}
 	}
 
-	foreach ( array( 'title', 'summary', 'meta', 'href' ) as $key ) {
+	foreach ( array( 'eyebrow', 'title', 'summary', 'meta', 'href', 'primary_label', 'secondary_label' ) as $key ) {
 		$value = get_field( 'rpd_instructor_guide_' . $key, $post_id );
 
 		if ( is_string( $value ) && $value ) {
@@ -546,12 +592,25 @@ function rocketpd_get_current_instructor_detail() {
 	}
 
 	foreach ( array( 'podcast', 'webinar' ) as $resource_key ) {
-		foreach ( array( 'title', 'summary', 'meta', 'embed_id', 'href' ) as $key ) {
+		foreach ( array( 'title', 'summary', 'meta', 'embed_id', 'href', 'cta_label' ) as $key ) {
 			$value = get_field( 'rpd_instructor_' . $resource_key . '_' . $key, $post_id );
 
 			if ( is_string( $value ) && $value ) {
 				$data[ $resource_key ][ $key ] = $value;
 			}
+		}
+	}
+
+	foreach ( array(
+		'eyebrow'   => 'rpd_instructor_blog_eyebrow',
+		'heading'   => 'rpd_instructor_blog_heading',
+		'cta_label' => 'rpd_instructor_blog_cta_label',
+		'cta_url'   => 'rpd_instructor_blog_cta_url',
+	) as $key => $field_name ) {
+		$value = get_field( $field_name, $post_id );
+
+		if ( is_string( $value ) && $value ) {
+			$data['blog'][ $key ] = $value;
 		}
 	}
 
@@ -571,6 +630,18 @@ function rocketpd_get_current_instructor_detail() {
 		}
 	}
 
+	foreach ( array(
+		'eyebrow' => 'rpd_instructor_learning_eyebrow',
+		'heading' => 'rpd_instructor_learning_heading',
+		'body'    => 'rpd_instructor_learning_body',
+	) as $key => $field_name ) {
+		$value = get_field( $field_name, $post_id );
+
+		if ( is_string( $value ) && $value ) {
+			$data['learning'][ $key ] = $value;
+		}
+	}
+
 	foreach ( array( 'launchpad', 'cohort', 'workshop' ) as $offering_key ) {
 		$enabled = get_field( 'rpd_instructor_' . $offering_key . '_enabled', $post_id );
 
@@ -578,12 +649,18 @@ function rocketpd_get_current_instructor_detail() {
 			$data['offerings'][ $offering_key ]['enabled'] = (bool) $enabled;
 		}
 
-		foreach ( array( 'type', 'title', 'price', 'href', 'cta' ) as $key ) {
+		foreach ( array( 'type', 'title', 'price', 'href', 'cta', 'badge' ) as $key ) {
 			$value = get_field( 'rpd_instructor_' . $offering_key . '_' . $key, $post_id );
 
 			if ( is_string( $value ) && $value ) {
 				$data['offerings'][ $offering_key ][ $key ] = $value;
 			}
+		}
+
+		$featured = get_field( 'rpd_instructor_' . $offering_key . '_featured', $post_id );
+
+		if ( null !== $featured && '' !== $featured ) {
+			$data['offerings'][ $offering_key ]['featured'] = (bool) $featured;
 		}
 
 		$bullets = get_field( 'rpd_instructor_' . $offering_key . '_bullets', $post_id );
@@ -594,10 +671,13 @@ function rocketpd_get_current_instructor_detail() {
 	}
 
 	foreach ( array(
-		'quote'       => 'rpd_instructor_trust_quote',
-		'person'      => 'rpd_instructor_trust_person',
-		'attribution' => 'rpd_instructor_trust_attribution',
-		'image'       => 'rpd_instructor_trust_image',
+		'quote'          => 'rpd_instructor_trust_quote',
+		'person'         => 'rpd_instructor_trust_person',
+		'attribution'    => 'rpd_instructor_trust_attribution',
+		'image'          => 'rpd_instructor_trust_image',
+		'impact_eyebrow' => 'rpd_instructor_trust_impact_eyebrow',
+		'impact_heading' => 'rpd_instructor_trust_impact_heading',
+		'impact_body'    => 'rpd_instructor_trust_impact_body',
 	) as $key => $field_name ) {
 		$value = get_field( $field_name, $post_id );
 
@@ -641,6 +721,17 @@ function rocketpd_get_current_instructor_detail() {
 	}
 
 	foreach ( array(
+		'eyebrow' => 'rpd_instructor_related_eyebrow',
+		'heading' => 'rpd_instructor_related_heading',
+	) as $key => $field_name ) {
+		$value = get_field( $field_name, $post_id );
+
+		if ( is_string( $value ) && $value ) {
+			$data['related'][ $key ] = $value;
+		}
+	}
+
+	foreach ( array(
 		'eyebrow'         => 'rpd_instructor_final_eyebrow',
 		'headline'        => 'rpd_instructor_final_headline',
 		'body'            => 'rpd_instructor_final_body',
@@ -653,6 +744,19 @@ function rocketpd_get_current_instructor_detail() {
 
 		if ( is_string( $value ) && $value ) {
 			$data['final_cta'][ $key ] = $value;
+		}
+	}
+
+	foreach ( array(
+		'heading'       => 'rpd_instructor_faq_heading',
+		'help_text'     => 'rpd_instructor_faq_help_text',
+		'contact_label' => 'rpd_instructor_faq_contact_label',
+		'contact_url'   => 'rpd_instructor_faq_contact_url',
+	) as $key => $field_name ) {
+		$value = get_field( $field_name, $post_id );
+
+		if ( is_string( $value ) && $value ) {
+			$data['faq_intro'][ $key ] = $value;
 		}
 	}
 
