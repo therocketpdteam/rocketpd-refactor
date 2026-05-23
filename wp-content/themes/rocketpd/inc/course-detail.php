@@ -164,7 +164,7 @@ function rocketpd_get_course_detail_fallback() {
 					'priceMeta'   => __( 'one-time access', 'rocketpd' ),
 					'bullets'     => array( __( 'Self-paced video modules', 'rocketpd' ), __( 'Course workbook PDF', 'rocketpd' ), __( 'Access to secure Learning Portal', 'rocketpd' ), __( 'Membership in learning community', 'rocketpd' ), __( 'Certificate of completion', 'rocketpd' ) ),
 					'ctaLabel'    => __( 'Start Learning', 'rocketpd' ),
-					'ctaHref'     => '#',
+					'ctaHref'     => '#pricing',
 					'highlighted' => false,
 				),
 				array(
@@ -174,7 +174,7 @@ function rocketpd_get_course_detail_fallback() {
 					'priceMeta'   => __( 'annually', 'rocketpd' ),
 					'bullets'     => array( __( 'Access to all RocketPD courses', 'rocketpd' ), __( 'Self-paced video modules', 'rocketpd' ), __( 'All course workbooks', 'rocketpd' ), __( 'Access to secure Learning Portal', 'rocketpd' ), __( 'Membership in learning community', 'rocketpd' ), __( 'Certificates of completion', 'rocketpd' ) ),
 					'ctaLabel'    => __( 'Get Full Library', 'rocketpd' ),
-					'ctaHref'     => '#',
+					'ctaHref'     => home_url( '/launchpad/' ),
 					'highlighted' => true,
 				),
 				array(
