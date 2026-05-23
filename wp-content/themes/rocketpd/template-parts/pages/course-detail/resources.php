@@ -30,9 +30,10 @@ if ( ! $resources ) {
 		<?php if ( $guide ) : ?>
 			<article class="rpd-course-featured-guide">
 				<div>
-					<p><?php esc_html_e( 'Featured Free Guide', 'rocketpd' ); ?></p>
+					<p class="rpd-course-featured-guide__badge"><span aria-hidden="true">▱</span><?php esc_html_e( 'Featured Free Guide', 'rocketpd' ); ?></p>
 					<h3><?php echo esc_html( $guide['title'] ?? '' ); ?></h3>
 					<span><?php echo esc_html( $guide['meta'] ?? '' ); ?></span>
+					<small class="rpd-course-featured-guide__footer"><span aria-hidden="true">☆</span> <?php esc_html_e( 'Most-downloaded resource from Kim Marshall', 'rocketpd' ); ?></small>
 				</div>
 				<div>
 					<p><?php echo esc_html( $guide['summary'] ?? '' ); ?></p>
