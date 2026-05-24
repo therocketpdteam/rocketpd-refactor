@@ -440,8 +440,8 @@
 
 .rpd-contact-jesse__meta div {
 	display: grid;
-	grid-template-columns: 2.35rem 1fr;
-	gap: var(--rpd-space-3);
+	grid-template-columns: 1.25rem 1fr;
+	gap: var(--rpd-space-2);
 	align-items: center;
 	padding-left: 0;
 	border-left: 0;
@@ -456,21 +456,19 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 2.35rem;
-	height: 2.35rem;
-	border-radius: 0.75rem;
-	background: rgba(253, 185, 51, 0.2);
-	color: var(--rpd-gold);
+	width: 1.25rem;
+	height: 1.25rem;
+	color: var(--rpd-purple);
 }
 
 .rpd-contact-jesse__meta .rpd-contact-jesse__meta-icon {
-	color: var(--rpd-gold);
+	color: var(--rpd-purple);
 }
 
 .rpd-contact-jesse__meta-icon svg {
 	display: block;
-	width: 1.05rem;
-	height: 1.05rem;
+	width: 1.12rem;
+	height: 1.12rem;
 	fill: none;
 	stroke: currentColor;
 	stroke-linecap: round;
