@@ -1,4 +1,5 @@
 .rpd-contact-page {
+	--rpd-contact-eyebrow-radius: var(--rpd-radius);
 	overflow: hidden;
 }
 
@@ -62,6 +63,7 @@
 }
 
 .rpd-contact-hero .rpd-eyebrow,
+.rpd-contact-doors .rpd-section-header__eyebrow,
 .rpd-contact-jesse .rpd-eyebrow,
 .rpd-contact-reach .rpd-section-header__eyebrow,
 .rpd-contact-faq .rpd-section-header__eyebrow {
@@ -71,7 +73,7 @@
 	margin: 0 0 var(--rpd-space-4);
 	padding: 0.34rem 0.78rem;
 	border: 1px solid rgba(161, 84, 161, 0.12);
-	border-radius: var(--rpd-radius-pill);
+	border-radius: var(--rpd-contact-eyebrow-radius);
 	background: rgba(161, 84, 161, 0.1);
 	color: var(--rpd-purple-deep);
 	font-size: 0.72rem;
@@ -708,7 +710,7 @@
 	margin: 0 0 var(--rpd-space-4);
 	padding: 0.34rem 0.78rem;
 	border: 1px solid rgba(253, 185, 51, 0.14);
-	border-radius: var(--rpd-radius-pill);
+	border-radius: var(--rpd-contact-eyebrow-radius);
 	background: rgba(253, 185, 51, 0.14);
 	color: var(--rpd-gold);
 	font-size: 0.72rem;
@@ -876,7 +878,7 @@
 	margin: 0 auto var(--rpd-space-4);
 	padding: 0.34rem 0.78rem;
 	border: 1px solid rgba(255, 255, 255, 0.12);
-	border-radius: var(--rpd-radius-pill);
+	border-radius: var(--rpd-contact-eyebrow-radius);
 	background: rgba(255, 255, 255, 0.13);
 	color: var(--rpd-white);
 	font-size: 0.72rem;
