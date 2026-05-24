@@ -752,10 +752,10 @@
 }
 
 .rpd-contact-form-section h2 {
-	max-width: 11.5ch;
+	max-width: 16ch;
 	color: var(--rpd-white);
-	font-size: clamp(2.25rem, 3.8vw, 3.2rem);
-	line-height: 1;
+	font-size: clamp(2.15rem, 3.4vw, 3rem);
+	line-height: 1.05;
 }
 
 .rpd-contact-form-section__list {
