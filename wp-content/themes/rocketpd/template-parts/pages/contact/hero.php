@@ -74,7 +74,12 @@ $quick_items = array(
 					<?php foreach ( $trust_items as $item ) : ?>
 						<?php $text = isset( $item['text'] ) ? $item['text'] : ''; ?>
 						<?php if ( $text ) : ?>
-							<li><?php echo esc_html( $text ); ?></li>
+							<li>
+								<span class="rpd-contact-hero__trust-icon" aria-hidden="true">
+									<svg viewBox="0 0 24 24" focusable="false"><path d="m5 12 4 4 10-10"/></svg>
+								</span>
+								<span><?php echo esc_html( $text ); ?></span>
+							</li>
 						<?php endif; ?>
 					<?php endforeach; ?>
 				</ul>
