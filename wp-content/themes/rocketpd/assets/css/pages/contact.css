@@ -600,33 +600,36 @@
 }
 
 .rpd-contact-method__icon {
+	width: 3.05rem;
+	height: 3.05rem;
 	margin-bottom: var(--rpd-space-4);
+	border-radius: 0.72rem;
 }
 
 .rpd-contact-method__icon svg {
 	display: block;
-	width: 1.12rem;
-	height: 1.12rem;
+	width: 1.38rem;
+	height: 1.38rem;
 	fill: none;
 	stroke: currentColor;
 	stroke-linecap: round;
 	stroke-linejoin: round;
-	stroke-width: 2.2;
+	stroke-width: 2.45;
 }
 
 .rpd-contact-method--phone .rpd-contact-method__icon {
-	background: rgba(253, 185, 51, 0.24);
-	color: #b36f00;
+	background: var(--rpd-gold);
+	color: var(--rpd-navy);
 }
 
 .rpd-contact-method--email .rpd-contact-method__icon {
-	background: rgba(161, 84, 161, 0.13);
-	color: var(--rpd-purple-deep);
+	background: var(--rpd-purple);
+	color: var(--rpd-white);
 }
 
 .rpd-contact-method--address .rpd-contact-method__icon {
-	background: rgba(85, 82, 177, 0.13);
-	color: var(--rpd-purple);
+	background: var(--rpd-purple-deep);
+	color: var(--rpd-white);
 }
 
 .rpd-contact-method--phone .rpd-contact-method__eyebrow {
