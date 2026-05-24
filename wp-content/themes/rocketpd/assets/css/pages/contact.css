@@ -867,6 +867,10 @@
 	margin-bottom: var(--rpd-space-8);
 }
 
+.rpd-contact-faq .rpd-section-header__body {
+	color: var(--rpd-body);
+}
+
 .rpd-contact-faq__item h3 {
 	display: grid;
 	grid-template-columns: 1.1rem minmax(0, 1fr);
