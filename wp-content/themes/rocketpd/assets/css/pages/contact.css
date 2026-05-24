@@ -705,6 +705,17 @@
 	color: var(--rpd-body);
 }
 
+.rpd-contact-support .rpd-btn--outline-purple {
+	border-color: var(--rpd-purple-deep);
+	color: var(--rpd-purple-deep);
+}
+
+.rpd-contact-support .rpd-btn--outline-purple:hover,
+.rpd-contact-support .rpd-btn--outline-purple:focus-visible {
+	background: var(--rpd-purple-deep);
+	color: var(--rpd-white);
+}
+
 .rpd-contact-form-section {
 	position: relative;
 	background: var(--rpd-navy-deep);
