@@ -914,6 +914,8 @@
 
 .rpd-contact-final h2 {
 	color: var(--rpd-white);
+	font-size: clamp(3rem, 5.8vw, 4.75rem);
+	line-height: 1.05;
 }
 
 .rpd-contact-final .rpd-eyebrow {
