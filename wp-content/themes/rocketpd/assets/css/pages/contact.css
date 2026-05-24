@@ -264,7 +264,8 @@
 	color: var(--rpd-navy);
 }
 
-.rpd-contact-doors .rpd-section-header__body {
+.rpd-contact-doors .rpd-section-header__body,
+.rpd-contact-reach .rpd-section-header__body {
 	color: var(--rpd-body);
 }
 
