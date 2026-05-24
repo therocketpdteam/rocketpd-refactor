@@ -258,6 +258,12 @@
 	margin-bottom: var(--rpd-space-10);
 }
 
+.rpd-contact-doors .rpd-section-header__eyebrow {
+	border-color: rgba(253, 185, 51, 0.22);
+	background: rgba(253, 185, 51, 0.18);
+	color: var(--rpd-navy);
+}
+
 .rpd-contact-doors .rpd-section-header__body {
 	color: var(--rpd-body);
 }
