@@ -428,6 +428,10 @@
 	background: linear-gradient(135deg, rgba(85, 82, 177, 0.06), var(--rpd-white), rgba(253, 185, 51, 0.12));
 }
 
+.rpd-contact-jesse .rpd-lede {
+	color: var(--rpd-body);
+}
+
 .rpd-contact-jesse__actions {
 	margin-top: var(--rpd-space-6);
 }
