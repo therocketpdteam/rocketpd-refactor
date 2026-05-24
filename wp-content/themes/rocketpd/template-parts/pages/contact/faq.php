@@ -60,7 +60,14 @@ if ( count( $faqs ) < 6 ) {
 					?>
 					<?php if ( $question && $answer ) : ?>
 						<article class="rpd-card rpd-contact-faq__item">
-							<h3><?php echo esc_html( $question ); ?></h3>
+							<h3>
+								<span class="rpd-contact-faq__icon" aria-hidden="true">
+									<svg viewBox="0 0 24 24" focusable="false">
+										<path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.6 8.6 0 0 1-7.7 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.5a8.4 8.4 0 0 1-.9-3.9 8.5 8.5 0 0 1 17 0Z" />
+									</svg>
+								</span>
+								<span><?php echo esc_html( $question ); ?></span>
+							</h3>
 							<p><?php echo esc_html( $answer ); ?></p>
 						</article>
 					<?php endif; ?>

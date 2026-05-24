@@ -868,37 +868,36 @@
 }
 
 .rpd-contact-faq__item h3 {
-	position: relative;
-	padding-left: var(--rpd-space-6);
+	display: grid;
+	grid-template-columns: 1.1rem minmax(0, 1fr);
+	gap: var(--rpd-space-3);
+	align-items: start;
 	font-size: var(--rpd-font-size-md);
 }
 
-.rpd-contact-faq__item h3::before {
-	position: absolute;
-	left: 0;
-	top: 0.16rem;
-	width: 0.92rem;
-	height: 0.74rem;
-	border: 2px solid var(--rpd-purple);
-	border-radius: 0.55rem;
-	content: "";
+.rpd-contact-faq__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.1rem;
+	height: 1.1rem;
+	margin-top: 0.15rem;
+	color: var(--rpd-purple);
 }
 
-.rpd-contact-faq__item h3::after {
-	position: absolute;
-	left: 0.18rem;
-	top: 0.82rem;
-	width: 0.32rem;
-	height: 0.32rem;
-	border-left: 2px solid var(--rpd-purple);
-	border-bottom: 2px solid var(--rpd-purple);
-	border-bottom-left-radius: 0.18rem;
-	content: "";
-	transform: skew(-18deg);
+.rpd-contact-faq__icon svg {
+	display: block;
+	width: 1rem;
+	height: 1rem;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2.1;
 }
 
 .rpd-contact-faq__item p {
-	padding-left: var(--rpd-space-6);
+	padding-left: calc(1.1rem + var(--rpd-space-3));
 }
 
 .rpd-contact-final {
