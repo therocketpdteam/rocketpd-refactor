@@ -346,10 +346,10 @@
 
 .rpd-section-header__eyebrow {
 	margin-bottom: var(--rpd-space-3);
-	color: var(--rpd-purple);
+	color: var(--rpd-purple-deep);
 	font-size: var(--rpd-font-size-xs);
 	font-weight: 800;
-	letter-spacing: 0;
+	letter-spacing: 0.14em;
 	line-height: 1.2;
 	text-transform: uppercase;
 }

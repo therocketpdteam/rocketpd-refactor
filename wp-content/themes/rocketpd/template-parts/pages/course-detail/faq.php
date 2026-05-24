@@ -20,7 +20,7 @@ if ( ! $faqs ) {
 <section class="rpd-course-faq">
 	<div class="rpd-container rpd-course-split">
 		<div>
-			<p class="rpd-course-section-kicker"><?php esc_html_e( 'FAQ', 'rocketpd' ); ?></p>
+			<p class="rpd-course-section-kicker rpd-section-header__eyebrow"><?php esc_html_e( 'FAQ', 'rocketpd' ); ?></p>
 			<h2><?php esc_html_e( 'Common questions.', 'rocketpd' ); ?></h2>
 			<p>
 				<?php esc_html_e( 'Everything you need to know before enrolling - or to share with your team.', 'rocketpd' ); ?>
