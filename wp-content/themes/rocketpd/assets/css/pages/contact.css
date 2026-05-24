@@ -317,18 +317,21 @@
 }
 
 .rpd-contact-door__icon {
+	flex: 0 0 3.25rem;
+	width: 3.25rem;
+	height: 3.25rem;
 	border-radius: 0.7rem;
 }
 
 .rpd-contact-door__icon svg {
 	display: block;
-	width: 1.15rem;
-	height: 1.15rem;
+	width: 1.42rem;
+	height: 1.42rem;
 	fill: none;
 	stroke: currentColor;
 	stroke-linecap: round;
 	stroke-linejoin: round;
-	stroke-width: 2.15;
+	stroke-width: 2.45;
 }
 
 .rpd-contact-door--dark-featured .rpd-contact-door__icon {
