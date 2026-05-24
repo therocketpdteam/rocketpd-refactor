@@ -1,5 +1,32 @@
 # RocketPD UI Patterns
 
+## Typography
+
+Use the shared RocketPD type hierarchy consistently across page templates.
+
+Headings:
+- H1/H2/H3 should use the heading family, `var(--font-heading)`, with navy text on light surfaces.
+- H1 and H2 may use responsive `clamp()` sizing to match the page design, but should keep tight line-height around `1.06-1.12`.
+- H3 and card headings should stay visibly below section headings and should not use hero-scale type.
+
+Section eyebrows:
+- Use one canonical section-eyebrow treatment for standard section labels.
+- Preferred class: `.rpd-section-header__eyebrow` for shared components; page-specific templates should match the same values when using scoped classes such as `.rpd-course-section-kicker`.
+- Font family: `var(--font-heading)`.
+- Font size: `var(--rpd-font-size-xs)` / `0.75rem` / `12px`.
+- Font weight: `800`.
+- Line height: `1.15-1.2`.
+- Letter spacing: `0.14em`.
+- Text transform: uppercase.
+- Color on light surfaces: `var(--rpd-purple-deep)` / `#a154a1`.
+- Dark or inverted sections may use white or gold only when needed for contrast or when the approved design explicitly calls for it.
+- Eyebrows must remain subordinate to headings; they should not look like small headings.
+
+Paragraph/body text:
+- Use `var(--font-body)` through inherited body styles.
+- Use navy/body tones for primary copy and muted purple for supporting text.
+- Avoid letting body paragraph rules override eyebrow classes; scoped eyebrow selectors should be at least as specific as local body-copy selectors.
+
 ## Circular Icon Link
 
 Use `.rpd-icon-link` for compact icon-only links or buttons that need the standard RocketPD circular hover interaction.

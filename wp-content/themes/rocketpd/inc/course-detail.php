@@ -43,10 +43,22 @@ function rocketpd_get_course_detail_fallback() {
 			'href'  => '#course-trailer',
 		),
 		'meta'             => array(
-			__( '1 hour', 'rocketpd' ),
-			__( '5 video modules', 'rocketpd' ),
-			__( 'Workbook PDF', 'rocketpd' ),
-			__( 'Certificate', 'rocketpd' ),
+			array(
+				'icon'  => 'clock',
+				'label' => __( '1 hour', 'rocketpd' ),
+			),
+			array(
+				'icon'  => 'video',
+				'label' => __( '5 video modules', 'rocketpd' ),
+			),
+			array(
+				'icon'  => 'file',
+				'label' => __( 'Workbook PDF', 'rocketpd' ),
+			),
+			array(
+				'icon'  => 'award',
+				'label' => __( 'Certificate', 'rocketpd' ),
+			),
 		),
 		'instructor'       => array(
 			'name'        => __( 'Kim Marshall', 'rocketpd' ),
@@ -306,6 +318,69 @@ function rocketpd_get_current_course_detail() {
 	);
 
 	return rocketpd_course_detail_merge( $fallback, $override );
+}
+
+/**
+ * Return display metadata for a course resource type.
+ *
+ * @param string $type Resource type key.
+ * @return array
+ */
+function rocketpd_get_course_resource_type_meta( $type ) {
+	$type = sanitize_key( $type );
+	$map  = array(
+		'guide'    => array(
+			'label' => __( 'Guide', 'rocketpd' ),
+			'icon'  => 'book',
+			'tone'  => 'purple',
+		),
+		'podcast'  => array(
+			'label' => __( 'Podcast', 'rocketpd' ),
+			'icon'  => 'mic',
+			'tone'  => 'purple',
+		),
+		'webinar'  => array(
+			'label' => __( 'Webinar', 'rocketpd' ),
+			'icon'  => 'video',
+			'tone'  => 'blue',
+		),
+		'blog'     => array(
+			'label' => __( 'Blog', 'rocketpd' ),
+			'icon'  => 'article',
+			'tone'  => 'magenta',
+		),
+		'playbook' => array(
+			'label' => __( 'Playbook', 'rocketpd' ),
+			'icon'  => 'book',
+			'tone'  => 'purple',
+		),
+		'video'    => array(
+			'label' => __( 'Video', 'rocketpd' ),
+			'icon'  => 'video',
+			'tone'  => 'blue',
+		),
+		'download' => array(
+			'label' => __( 'Download', 'rocketpd' ),
+			'icon'  => 'download',
+			'tone'  => 'purple',
+		),
+		'course'   => array(
+			'label' => __( 'Course', 'rocketpd' ),
+			'icon'  => 'course',
+			'tone'  => 'gold',
+		),
+		'cohort'   => array(
+			'label' => __( 'Cohort', 'rocketpd' ),
+			'icon'  => 'users',
+			'tone'  => 'blue',
+		),
+	);
+
+	return $map[ $type ] ?? array(
+		'label' => ucwords( str_replace( '-', ' ', $type ) ),
+		'icon'  => 'article',
+		'tone'  => 'purple',
+	);
 }
 
 /**
