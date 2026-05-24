@@ -40,7 +40,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	min-height: 76px;
+	min-height: 64px;
 	gap: var(--rpd-space-6);
 }
 
@@ -57,11 +57,38 @@
 
 .rpd-site-header__logo {
 	width: auto;
-	max-height: 42px;
+	max-height: 36px;
 }
 
 .rpd-site-header__wordmark {
-	font-size: var(--rpd-font-size-lg);
+	font-size: clamp(1.35rem, 2vw, 1.65rem);
+}
+
+.rpd-brand-wordmark {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.28rem;
+	color: var(--rpd-navy);
+	font-family: var(--font-heading);
+	font-weight: 900;
+	letter-spacing: -0.01em;
+	line-height: 1;
+}
+
+.rpd-brand-wordmark__rocket,
+.rpd-brand-wordmark__pd {
+	display: inline-flex;
+	align-items: center;
+	min-height: 1.55em;
+}
+
+.rpd-brand-wordmark__pd {
+	padding: 0.13em 0.26em 0.1em;
+	border-radius: 0.22em;
+	background: var(--rpd-navy);
+	color: var(--rpd-gold);
+	font-size: 0.82em;
+	letter-spacing: 0;
 }
 
 .rpd-site-header__nav {
@@ -117,7 +144,7 @@
 .rpd-menu a {
 	display: inline-flex;
 	align-items: center;
-	min-height: 44px;
+	min-height: 38px;
 	color: var(--rpd-navy);
 	font-size: var(--rpd-font-size-sm);
 	font-weight: 700;
@@ -162,7 +189,7 @@
 }
 
 .rpd-site-header__cta {
-	min-height: 42px;
+	min-height: 38px;
 	padding-inline: var(--rpd-space-4);
 	font-size: var(--rpd-font-size-sm);
 }
@@ -285,7 +312,7 @@
 	}
 
 	.rpd-site-header__inner {
-		min-height: 68px;
+		min-height: 60px;
 	}
 
 	.rpd-site-header__toggle-text {

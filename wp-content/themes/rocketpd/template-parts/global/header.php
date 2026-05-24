@@ -55,7 +55,10 @@ $about_nav_links    = array(
 				);
 				?>
 			<?php else : ?>
-				<span class="rpd-site-header__wordmark"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
+				<span class="rpd-site-header__wordmark rpd-brand-wordmark" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+					<span class="rpd-brand-wordmark__rocket" aria-hidden="true"><?php esc_html_e( 'Rocket', 'rocketpd' ); ?></span>
+					<span class="rpd-brand-wordmark__pd" aria-hidden="true"><?php esc_html_e( 'PD', 'rocketpd' ); ?></span>
+				</span>
 			<?php endif; ?>
 		</a>
 

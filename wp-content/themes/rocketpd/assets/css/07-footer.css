@@ -29,6 +29,16 @@
 	max-height: 46px;
 }
 
+.rpd-site-footer__wordmark.rpd-brand-wordmark {
+	color: var(--rpd-white);
+	font-size: clamp(1.65rem, 3vw, 2.1rem);
+}
+
+.rpd-site-footer__wordmark .rpd-brand-wordmark__pd {
+	background: var(--rpd-gold);
+	color: var(--rpd-navy);
+}
+
 .rpd-site-footer__description {
 	color: var(--rpd-lavender-soft);
 }
