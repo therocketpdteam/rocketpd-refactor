@@ -256,6 +256,10 @@
 	margin-bottom: var(--rpd-space-10);
 }
 
+.rpd-contact-doors .rpd-section-header__body {
+	color: var(--rpd-body);
+}
+
 .rpd-contact-door-grid,
 .rpd-contact-reach__grid,
 .rpd-contact-faq__grid {
