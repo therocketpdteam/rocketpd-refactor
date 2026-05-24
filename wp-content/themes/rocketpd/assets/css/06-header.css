@@ -58,8 +58,12 @@
 }
 
 .rpd-site-header__logo {
-	width: auto;
-	max-height: 34px;
+	display: block;
+	width: 132px;
+	height: auto;
+	max-width: 132px;
+	max-height: none;
+	object-fit: contain;
 }
 
 .rpd-site-header__wordmark {

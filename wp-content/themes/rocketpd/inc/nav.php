@@ -133,27 +133,22 @@ function rocketpd_nav_menu( $location = 'primary' ) {
 			$items = array(
 				array(
 					'label'   => __( 'Topics', 'rocketpd' ),
-					'url'     => home_url( '/topic/' ),
+					'url'     => home_url( '/topics/' ),
 					'current' => $is_topics,
 				),
 				array(
 					'label'   => __( 'Instructors', 'rocketpd' ),
-					'url'     => home_url( '/instructor/' ),
+					'url'     => home_url( '/instructors/' ),
 					'current' => $is_instructors,
-				),
-				array(
-					'label'   => __( 'Courses', 'rocketpd' ),
-					'url'     => home_url( '/launchpad/courses/' ),
-					'current' => $is_courses,
-				),
-				array(
-					'label'   => __( 'Cohorts', 'rocketpd' ),
-					'url'     => home_url( '/cohorts/' ),
-					'current' => $is_cohorts,
 				),
 				array(
 					'label' => __( 'Solutions', 'rocketpd' ),
 					'url'   => home_url( '/solutions/' ),
+				),
+				array(
+					'label'   => __( 'Resources', 'rocketpd' ),
+					'url'     => home_url( '/resources/' ),
+					'current' => $is_courses || $is_cohorts,
 				),
 				array(
 					'label' => __( 'About', 'rocketpd' ),

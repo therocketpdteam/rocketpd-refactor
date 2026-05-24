@@ -9,9 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$header_logo_id        = rocketpd_get_option( 'rpd_logo' );
-$custom_logo_id        = get_theme_mod( 'custom_logo' );
-$header_logo_alt       = rocketpd_get_option( 'rpd_logo_alt', get_bloginfo( 'name' ) );
+$header_logo_url       = 'https://rocketgoeshigh.wpenginepowered.com/wp-content/uploads/2026/05/RocketPD_LOGO_blk.png';
 $community_signup_url  = rocketpd_get_option( 'rpd_community_signup_url', home_url( '/community/' ) );
 $nav_cta_label         = rocketpd_get_option( 'rpd_primary_nav_cta_label', __( 'Join the Community', 'rocketpd' ) );
 $nav_cta_url           = rocketpd_get_option( 'rpd_primary_nav_cta_url', $community_signup_url );
@@ -25,31 +23,8 @@ $has_header_actions    = ( $nav_cta_label && $nav_cta_url ) || ( $login_label &&
 <header class="rpd-site-header">
 	<div class="rpd-container rpd-site-header__inner">
 		<a class="rpd-site-header__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<?php if ( $header_logo_id ) : ?>
-				<?php
-				echo rocketpd_get_image_markup(
-					$header_logo_id,
-					'rpd-site-header__logo',
-					$header_logo_alt
-				);
-				?>
-			<?php elseif ( $custom_logo_id ) : ?>
-				<?php
-				echo wp_get_attachment_image(
-					(int) $custom_logo_id,
-					'full',
-					false,
-					array(
-						'class' => 'rpd-site-header__logo',
-						'alt'   => $header_logo_alt,
-					)
-				);
-				?>
-			<?php else : ?>
-				<span class="rpd-site-header__wordmark">
-					<span><?php echo esc_html_x( 'Rocket', 'Header wordmark text', 'rocketpd' ); ?></span><span class="rpd-site-header__wordmark-badge"><?php echo esc_html_x( 'PD', 'Header wordmark badge', 'rocketpd' ); ?></span>
-				</span>
-			<?php endif; ?>
+			<?php // Temporary canonical theme logo until ACF global logo settings are finalized. ?>
+			<img class="rpd-site-header__logo" src="<?php echo esc_url( $header_logo_url ); ?>" alt="<?php esc_attr_e( 'RocketPD', 'rocketpd' ); ?>">
 		</a>
 
 		<nav class="rpd-site-header__nav" aria-label="<?php esc_attr_e( 'Primary navigation', 'rocketpd' ); ?>">

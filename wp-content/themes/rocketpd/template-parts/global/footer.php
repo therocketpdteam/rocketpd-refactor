@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$footer_logo_id = rocketpd_get_option( 'rpd_footer_logo' );
+$footer_logo_url = 'https://rocketgoeshigh.wpenginepowered.com/wp-content/uploads/2026/05/RocketPD_LOGO_wht.png';
 
 $fallback_footer_description = __( 'RocketPD helps educators keep learning practical, connected, and built for the real work of schools.', 'rocketpd' );
 $footer_description          = rocketpd_get_option( 'rpd_footer_description', $fallback_footer_description );
@@ -199,19 +199,8 @@ $copyright = rocketpd_get_option(
 	<div class="rpd-container rpd-site-footer__inner">
 		<div class="rpd-site-footer__brand">
 			<a class="rpd-site-footer__brand-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<?php if ( $footer_logo_id ) : ?>
-					<?php
-					echo rocketpd_get_image_markup(
-						$footer_logo_id,
-						'rpd-site-footer__logo',
-						get_bloginfo( 'name' )
-					);
-					?>
-				<?php else : ?>
-					<span class="rpd-site-footer__wordmark">
-						<span><?php echo esc_html_x( 'Rocket', 'Footer wordmark text', 'rocketpd' ); ?></span><span class="rpd-site-footer__wordmark-badge"><?php echo esc_html_x( 'PD', 'Footer wordmark badge', 'rocketpd' ); ?></span>
-					</span>
-				<?php endif; ?>
+				<?php // Temporary canonical theme logo until ACF global logo settings are finalized. ?>
+				<img class="rpd-site-footer__logo" src="<?php echo esc_url( $footer_logo_url ); ?>" alt="<?php esc_attr_e( 'RocketPD', 'rocketpd' ); ?>">
 			</a>
 
 			<?php if ( $footer_description ) : ?>
