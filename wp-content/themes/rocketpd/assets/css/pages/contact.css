@@ -168,20 +168,6 @@
 	color: var(--rpd-purple);
 }
 
-.rpd-contact-quick__item::after {
-	color: rgba(85, 82, 177, 0.72);
-	font-size: var(--rpd-font-size-lg);
-	font-weight: 800;
-	line-height: 1;
-	content: "+";
-	transition: transform var(--rpd-transition), color var(--rpd-transition);
-}
-
-.rpd-contact-quick__item:hover::after {
-	color: var(--rpd-purple);
-	transform: translateX(0.12rem);
-}
-
 .rpd-contact-quick__chip {
 	display: inline-flex;
 	align-items: center;
@@ -212,6 +198,32 @@
 .rpd-contact-quick__chip--deep {
 	background: rgba(161, 84, 161, 0.14);
 	color: var(--rpd-purple-deep);
+}
+
+.rpd-contact-quick__arrow {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.25rem;
+	height: 1.25rem;
+	color: rgba(85, 82, 177, 0.78);
+	transition: color var(--rpd-transition), transform var(--rpd-transition);
+}
+
+.rpd-contact-quick__arrow svg {
+	display: block;
+	width: 1rem;
+	height: 1rem;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 2.25;
+}
+
+.rpd-contact-quick__item:hover .rpd-contact-quick__arrow {
+	color: var(--rpd-purple);
+	transform: translateX(0.12rem);
 }
 
 .rpd-contact-quick__label,
