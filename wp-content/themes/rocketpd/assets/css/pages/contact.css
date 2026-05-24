@@ -356,8 +356,8 @@
 .rpd-contact-door--dark-featured .rpd-contact-door__badge {
 	position: absolute;
 	top: 0;
-	left: var(--rpd-space-8);
-	transform: translateY(-50%);
+	left: 50%;
+	transform: translate(-50%, -50%);
 	box-shadow: 0 0.75rem 1.4rem rgba(35, 31, 88, 0.16);
 }
 
@@ -989,7 +989,4 @@
 		padding-top: calc(var(--rpd-space-6) + 0.85rem);
 	}
 
-	.rpd-contact-door--dark-featured .rpd-contact-door__badge {
-		left: var(--rpd-space-6);
-	}
 }
