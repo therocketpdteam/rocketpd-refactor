@@ -19,6 +19,7 @@ $body          = rocketpd_get_field( 'rpd_contact_doors_body', __( 'Each path la
 $fallback_doors = array(
 	array(
 		'style'     => 'light',
+		'icon'      => 'learning',
 		'title'     => __( "I'm an educator.", 'rocketpd' ),
 		'body'      => __( 'Teacher, instructional coach, or anyone who works with kids? Start with LaunchPad - or just come hang out in the Community for free.', 'rocketpd' ),
 		'bullets'   => array(
@@ -31,6 +32,7 @@ $fallback_doors = array(
 	),
 	array(
 		'style'          => 'dark-featured',
+		'icon'           => 'building',
 		'featured_badge' => __( 'Most contact us here', 'rocketpd' ),
 		'title'          => __( 'I lead a school or district.', 'rocketpd' ),
 		'body'           => __( "Looking at this for your team, building, or system? Book 20 minutes with Jesse - he'll listen first, then walk you through what fits.", 'rocketpd' ),
@@ -46,6 +48,7 @@ $fallback_doors = array(
 	),
 	array(
 		'style'     => 'light-alt',
+		'icon'      => 'member',
 		'title'     => __( "I'm already a member.", 'rocketpd' ),
 		'body'      => __( "Need help with your account, billing, a course, or your district rollout? Our support team's got you.", 'rocketpd' ),
 		'bullets'   => array(
@@ -78,6 +81,7 @@ if ( count( $doors ) < 3 ) {
 				<?php foreach ( $doors as $door ) : ?>
 					<?php
 					$style         = isset( $door['style'] ) ? sanitize_html_class( $door['style'] ) : 'light';
+					$icon          = isset( $door['icon'] ) ? sanitize_key( $door['icon'] ) : '';
 					$featured_badge = isset( $door['featured_badge'] ) ? $door['featured_badge'] : '';
 					$title         = isset( $door['title'] ) ? $door['title'] : '';
 					$door_body     = isset( $door['body'] ) ? $door['body'] : '';
@@ -87,12 +91,23 @@ if ( count( $doors ) < 3 ) {
 					$cta_is_jesse  = $cta_url && $jesse_url && $cta_url === $jesse_url;
 					$subcta_label  = isset( $door['subcta_label'] ) ? $door['subcta_label'] : '';
 					$subcta_url    = isset( $door['subcta_url'] ) ? $door['subcta_url'] : '';
+					if ( ! $icon ) {
+						$icon = 'dark-featured' === $style ? 'building' : ( 'light-alt' === $style ? 'member' : 'learning' );
+					}
 					?>
 					<article class="rpd-contact-door rpd-contact-door--<?php echo esc_attr( $style ); ?>">
 						<?php if ( $featured_badge ) : ?>
 							<p class="rpd-contact-door__badge"><?php echo esc_html( $featured_badge ); ?></p>
 						<?php endif; ?>
-						<span class="rpd-icon-chip" aria-hidden="true"></span>
+						<span class="rpd-icon-chip rpd-contact-door__icon" aria-hidden="true">
+							<?php if ( 'building' === $icon ) : ?>
+								<svg viewBox="0 0 24 24" focusable="false"><path d="M4 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/><path d="M8 9h.01M12 9h.01M16 9h.01M8 13h.01M16 13h.01"/></svg>
+							<?php elseif ( 'member' === $icon ) : ?>
+								<svg viewBox="0 0 24 24" focusable="false"><path d="M20 21a8 8 0 0 0-16 0"/><path d="M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path d="m16.5 7.5-4.8 4.8-2.2-2.2"/></svg>
+							<?php else : ?>
+								<svg viewBox="0 0 24 24" focusable="false"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H21"/><path d="M6.5 2H21v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M8 6h8"/></svg>
+							<?php endif; ?>
+						</span>
 						<h3><?php echo esc_html( $title ); ?></h3>
 						<p><?php echo esc_html( $door_body ); ?></p>
 						<?php if ( ! empty( $door_bullets ) ) : ?>

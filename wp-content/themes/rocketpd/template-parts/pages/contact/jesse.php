@@ -19,14 +19,17 @@ $metadata  = array(
 	array(
 		'label' => __( '20 minutes', 'rocketpd' ),
 		'body'  => __( 'No pitch deck', 'rocketpd' ),
+		'icon'  => 'clock',
 	),
 	array(
 		'label' => __( 'Just you & Jesse', 'rocketpd' ),
 		'body'  => __( 'No SDR handoff', 'rocketpd' ),
+		'icon'  => 'conversation',
 	),
 	array(
 		'label' => __( 'You leave with', 'rocketpd' ),
 		'body'  => __( 'A real next step', 'rocketpd' ),
+		'icon'  => 'next-step',
 	),
 );
 ?>
@@ -40,8 +43,19 @@ $metadata  = array(
 			<div class="rpd-contact-jesse__meta">
 				<?php foreach ( $metadata as $item ) : ?>
 					<div>
-						<strong><?php echo esc_html( $item['label'] ); ?></strong>
-						<span><?php echo esc_html( $item['body'] ); ?></span>
+						<span class="rpd-contact-jesse__meta-icon" aria-hidden="true">
+							<?php if ( 'conversation' === $item['icon'] ) : ?>
+								<svg viewBox="0 0 24 24" focusable="false"><path d="M7 18a7 7 0 1 1 6.3 3.95L10 22l.8-2.7A6.97 6.97 0 0 1 7 18Z"/><path d="M8 10h8M8 14h5"/></svg>
+							<?php elseif ( 'next-step' === $item['icon'] ) : ?>
+								<svg viewBox="0 0 24 24" focusable="false"><path d="M4 12h14"/><path d="m13 7 5 5-5 5"/><path d="m5 17 3 3 5-8"/></svg>
+							<?php else : ?>
+								<svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg>
+							<?php endif; ?>
+						</span>
+						<span>
+							<strong><?php echo esc_html( $item['label'] ); ?></strong>
+							<span><?php echo esc_html( $item['body'] ); ?></span>
+						</span>
 					</div>
 				<?php endforeach; ?>
 			</div>
@@ -66,7 +80,12 @@ $metadata  = array(
 				</ul>
 			</div>
 			<div class="rpd-contact-profile__booking">
-				<span><?php esc_html_e( 'Pick a time that works for you', 'rocketpd' ); ?></span>
+				<span class="rpd-contact-profile__booking-label">
+					<span class="rpd-contact-profile__booking-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" focusable="false"><path d="M8 3v4M16 3v4"/><path d="M4 9h16"/><path d="M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/><path d="M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01"/></svg>
+					</span>
+					<?php esc_html_e( 'Pick a time that works for you', 'rocketpd' ); ?>
+				</span>
 				<strong><?php esc_html_e( '20 min', 'rocketpd' ); ?></strong>
 			</div>
 		</aside>

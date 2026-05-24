@@ -47,12 +47,12 @@ $fallback_fields = array(
 			<?php else : ?>
 				<div class="rpd-contact-form-fallback" role="note" aria-label="<?php esc_attr_e( 'Contact form preview', 'rocketpd' ); ?>">
 					<?php foreach ( $fallback_fields as $field_label ) : ?>
-						<label>
+						<label class="rpd-contact-form-fallback__field rpd-contact-form-fallback__field--half">
 							<span><?php echo esc_html( $field_label ); ?></span>
 							<input type="text" disabled>
 						</label>
 					<?php endforeach; ?>
-					<label>
+					<label class="rpd-contact-form-fallback__field rpd-contact-form-fallback__field--full">
 						<span><?php esc_html_e( "I'm reaching out about", 'rocketpd' ); ?></span>
 						<select disabled>
 							<option><?php esc_html_e( 'School or district walkthrough', 'rocketpd' ); ?></option>
@@ -62,7 +62,7 @@ $fallback_fields = array(
 							<option><?php esc_html_e( 'Something else', 'rocketpd' ); ?></option>
 						</select>
 					</label>
-					<label>
+					<label class="rpd-contact-form-fallback__field rpd-contact-form-fallback__field--full">
 						<span><?php esc_html_e( "What's on your mind?", 'rocketpd' ); ?></span>
 						<textarea disabled rows="4" placeholder="<?php esc_attr_e( "A sentence or two is plenty - we'll follow up to learn more.", 'rocketpd' ); ?>"></textarea>
 					</label>
