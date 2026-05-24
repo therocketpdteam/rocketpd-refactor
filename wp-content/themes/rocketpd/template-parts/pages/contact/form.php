@@ -15,10 +15,22 @@ $headline        = rocketpd_get_field( 'rpd_contact_form_headline', __( "Walkthr
 $body            = rocketpd_get_field( 'rpd_contact_form_body', __( "Drop the details and we'll route it to the right person on our team. Schools, districts, education associations, ed-tech partners, conference organizers - all welcome here.", 'rocketpd' ) );
 $promise         = rocketpd_get_field( 'rpd_contact_form_promise', __( "Replies typically within 1 business day. We don't add you to a drip sequence - promise.", 'rocketpd' ) );
 $checklist       = array(
-	__( 'School or district walkthroughs', 'rocketpd' ),
-	__( 'Association partnerships', 'rocketpd' ),
-	__( 'Ed-tech partner inquiries', 'rocketpd' ),
-	__( 'Press, speaking, or media', 'rocketpd' ),
+	array(
+		'emphasis' => __( 'School or district', 'rocketpd' ),
+		'detail'   => __( 'walkthroughs', 'rocketpd' ),
+	),
+	array(
+		'emphasis' => __( 'Association', 'rocketpd' ),
+		'detail'   => __( 'partnerships', 'rocketpd' ),
+	),
+	array(
+		'emphasis' => __( 'Ed-tech partner', 'rocketpd' ),
+		'detail'   => __( 'inquiries', 'rocketpd' ),
+	),
+	array(
+		'emphasis' => __( 'Press, speaking,', 'rocketpd' ),
+		'detail'   => __( 'or media', 'rocketpd' ),
+	),
 );
 $fallback_fields = array(
 	__( 'Your name', 'rocketpd' ),
@@ -36,7 +48,10 @@ $fallback_fields = array(
 			<p><?php echo esc_html( $body ); ?></p>
 			<ul class="rpd-contact-form-section__list">
 				<?php foreach ( $checklist as $item ) : ?>
-					<li><?php echo esc_html( $item ); ?></li>
+					<li>
+						<strong><?php echo esc_html( $item['emphasis'] ); ?></strong>
+						<span><?php echo esc_html( $item['detail'] ); ?></span>
+					</li>
 				<?php endforeach; ?>
 			</ul>
 		</div>

@@ -769,9 +769,18 @@
 .rpd-contact-form-section__list li {
 	min-height: 1.7rem;
 	padding-left: 2.25rem;
+	color: var(--rpd-lavender-soft);
+	font-weight: 500;
+	line-height: 1.45;
+}
+
+.rpd-contact-form-section__list strong {
 	color: var(--rpd-white);
 	font-weight: 800;
-	line-height: 1.45;
+}
+
+.rpd-contact-form-section__list span {
+	margin-left: 0.18rem;
 }
 
 .rpd-contact-form-section__list li::before {
