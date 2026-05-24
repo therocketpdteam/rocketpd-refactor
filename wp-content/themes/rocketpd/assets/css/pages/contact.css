@@ -951,7 +951,7 @@
 	align-items: center;
 	justify-content: center;
 	gap: var(--rpd-space-2);
-	margin-top: var(--rpd-space-6);
+	margin-top: var(--rpd-space-8);
 	color: rgba(255, 255, 255, 0.68);
 	font-size: var(--rpd-font-size-sm);
 	font-weight: 700;
