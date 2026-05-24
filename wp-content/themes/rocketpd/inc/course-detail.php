@@ -296,6 +296,22 @@ function rocketpd_course_detail_merge( $fallback, $override ) {
 }
 
 /**
+ * Normalize related learning-experience cards inside course detail data.
+ *
+ * @param array $course Course detail data.
+ * @return array
+ */
+function rocketpd_normalize_course_detail_related_cards( $course ) {
+	if ( empty( $course['related'] ) || ! is_array( $course['related'] ) || ! function_exists( 'rocketpd_normalize_learning_experience_cards' ) ) {
+		return $course;
+	}
+
+	$course['related'] = rocketpd_normalize_learning_experience_cards( $course['related'] );
+
+	return $course;
+}
+
+/**
  * Return course detail data for the current page.
  *
  * @return array
@@ -304,7 +320,7 @@ function rocketpd_get_current_course_detail() {
 	$fallback = rocketpd_get_course_detail_fallback();
 
 	if ( ! function_exists( 'get_field' ) ) {
-		return $fallback;
+		return rocketpd_normalize_course_detail_related_cards( $fallback );
 	}
 
 	$override = array(
@@ -317,7 +333,7 @@ function rocketpd_get_current_course_detail() {
 		'topic'            => rocketpd_get_field( 'rpd_course_topic', '' ),
 	);
 
-	return rocketpd_course_detail_merge( $fallback, $override );
+	return rocketpd_normalize_course_detail_related_cards( rocketpd_course_detail_merge( $fallback, $override ) );
 }
 
 /**
