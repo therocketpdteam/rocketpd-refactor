@@ -317,7 +317,7 @@
 }
 
 .rpd-contact-door h3 {
-	font-size: clamp(1.45rem, 2vw, 1.6rem);
+	font-size: clamp(1.35rem, 1.8vw, 1.45rem);
 	line-height: 1.15;
 }
 
