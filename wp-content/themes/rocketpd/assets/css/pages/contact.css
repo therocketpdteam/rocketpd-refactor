@@ -679,8 +679,8 @@
 	width: 2.75rem;
 	height: 2.75rem;
 	border-radius: 999px;
-	background: rgba(85, 82, 177, 0.12);
-	color: var(--rpd-purple);
+	background: rgba(161, 84, 161, 0.11);
+	color: var(--rpd-purple-deep);
 	flex: 0 0 auto;
 }
 
