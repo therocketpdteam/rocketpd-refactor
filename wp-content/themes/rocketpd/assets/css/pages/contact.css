@@ -316,6 +316,11 @@
 	color: var(--rpd-white);
 }
 
+.rpd-contact-door h3 {
+	font-size: clamp(1.45rem, 2vw, 1.6rem);
+	line-height: 1.15;
+}
+
 .rpd-contact-door__icon {
 	flex: 0 0 3.25rem;
 	width: 3.25rem;
