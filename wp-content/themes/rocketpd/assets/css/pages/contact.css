@@ -121,13 +121,12 @@
 	gap: 0;
 	padding: clamp(1.45rem, 3vw, 1.9rem);
 	border-color: rgba(35, 31, 88, 0.1);
-	background: rgba(255, 255, 255, 0.96);
-	box-shadow: 0 1.25rem 2.75rem rgba(35, 31, 88, 0.14);
+	background: var(--rpd-white);
+	box-shadow: 0.75rem 0.75rem 0 rgba(196, 196, 229, 0.6), 0 1.45rem 2.9rem rgba(35, 31, 88, 0.16);
 }
 
 .rpd-contact-quick::after {
-	inset: 0.8rem -0.8rem -0.8rem 0.8rem;
-	background: rgba(196, 196, 229, 0.58);
+	content: none;
 }
 
 .rpd-contact-quick__eyebrow,
@@ -139,6 +138,14 @@
 	font-weight: 800;
 	letter-spacing: 0;
 	text-transform: uppercase;
+}
+
+.rpd-contact-quick__eyebrow {
+	margin-bottom: var(--rpd-space-4);
+	color: var(--rpd-purple);
+	font-size: 0.72rem;
+	letter-spacing: 0.14em;
+	line-height: 1.15;
 }
 
 .rpd-contact-quick__item {
