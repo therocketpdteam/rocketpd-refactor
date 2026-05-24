@@ -702,7 +702,7 @@
 
 .rpd-contact-support p {
 	margin-top: var(--rpd-space-1);
-	color: var(--rpd-color-text-muted);
+	color: var(--rpd-body);
 }
 
 .rpd-contact-form-section {
