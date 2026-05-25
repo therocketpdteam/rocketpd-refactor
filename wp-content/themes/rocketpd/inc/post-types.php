@@ -125,6 +125,22 @@ function rocketpd_register_post_types() {
 			'slug'     => 'resource-library',
 			'icon'     => 'dashicons-portfolio',
 		),
+		'course'      => array(
+			'singular'    => __( 'Course', 'rocketpd' ),
+			'plural'      => __( 'Courses', 'rocketpd' ),
+			'slug'        => 'courses',
+			'icon'        => 'dashicons-welcome-learn-more',
+			'has_archive' => false,
+			'supports'    => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', 'revisions' ),
+		),
+		'topic_hub'   => array(
+			'singular'    => __( 'Topic Hub', 'rocketpd' ),
+			'plural'      => __( 'Topics', 'rocketpd' ),
+			'slug'        => 'topic',
+			'icon'        => 'dashicons-index-card',
+			'has_archive' => false,
+			'supports'    => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', 'revisions' ),
+		),
 		'instructor'  => array(
 			'singular' => __( 'Instructor', 'rocketpd' ),
 			'plural'   => __( 'Instructors', 'rocketpd' ),

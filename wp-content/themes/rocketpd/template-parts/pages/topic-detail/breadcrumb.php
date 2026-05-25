@@ -22,7 +22,7 @@ if ( function_exists( 'rocketpd_render_breadcrumbs' ) ) {
 			),
 			array(
 				'label' => __( 'Topics', 'rocketpd' ),
-				'url'   => home_url( '/topic/' ),
+				'url'   => home_url( '/topics/' ),
 			),
 			array(
 				'label'   => $title,

@@ -19,7 +19,7 @@ $cta   = $topic['finalCta'] ?? array();
 		<p><?php echo esc_html( $cta['body'] ?? '' ); ?></p>
 		<div class="rpd-topic-detail-actions">
 			<a class="rpd-btn rpd-btn--gold" href="<?php echo esc_url( $cta['primaryHref'] ?? '#related-resources' ); ?>"><?php echo esc_html( $cta['primaryLabel'] ?? __( 'Browse Related Resources', 'rocketpd' ) ); ?> <span aria-hidden="true">-&gt;</span></a>
-			<a class="rpd-btn rpd-btn--outline-purple" href="<?php echo esc_url( $cta['secondaryHref'] ?? home_url( '/topic/' ) ); ?>"><?php echo esc_html( $cta['secondaryLabel'] ?? __( 'All Topics', 'rocketpd' ) ); ?></a>
+			<a class="rpd-btn rpd-btn--outline-purple" href="<?php echo esc_url( $cta['secondaryHref'] ?? home_url( '/topics/' ) ); ?>"><?php echo esc_html( $cta['secondaryLabel'] ?? __( 'All Topics', 'rocketpd' ) ); ?></a>
 		</div>
 	</div>
 </section>

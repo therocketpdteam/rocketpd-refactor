@@ -339,6 +339,13 @@
                 "operator": "==",
                 "value": "page-templates/topics-template.php"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "topic_hub"
+            }
         ]
     ],
     "menu_order": 0,
@@ -348,6 +355,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Page-level fields for the RocketPD individual topic detail template. Empty fields preserve code fallbacks.",
+    "description": "Fields for the RocketPD individual topic detail template and topic hub records. Empty fields preserve code fallbacks.",
     "show_in_rest": 0
 }

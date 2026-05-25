@@ -15,7 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return bool
  */
 function rocketpd_is_topic_detail_context() {
-	return is_page_template( 'page-templates/template-topic-detail.php' )
+	return is_singular( 'topic_hub' )
+		|| is_page_template( 'page-templates/template-topic-detail.php' )
 		|| is_page_template( 'page-templates/topics-template.php' )
 		|| is_page( 'teacher-supervision-evaluation-coaching' );
 }
@@ -233,7 +234,7 @@ function rocketpd_get_topic_detail_fallback( $slug = 'teacher-supervision-evalua
 			'primaryLabel'   => __( 'Browse Related Resources', 'rocketpd' ),
 			'primaryHref'    => '#related-resources',
 			'secondaryLabel' => __( 'All Topics', 'rocketpd' ),
-			'secondaryHref'  => home_url( '/topic/' ),
+			'secondaryHref'  => home_url( '/topics/' ),
 		),
 	);
 }
@@ -245,6 +246,12 @@ function rocketpd_get_topic_detail_fallback( $slug = 'teacher-supervision-evalua
  */
 function rocketpd_get_current_topic_detail() {
 	$fallback = rocketpd_get_topic_detail_fallback();
+
+	if ( is_singular( 'topic_hub' ) ) {
+		$fallback['slug']     = get_post_field( 'post_name', get_the_ID() ) ?: $fallback['slug'];
+		$fallback['title']    = get_the_title() ?: $fallback['title'];
+		$fallback['subtitle'] = has_excerpt() ? get_the_excerpt() : $fallback['subtitle'];
+	}
 
 	if ( ! function_exists( 'get_field' ) ) {
 		return $fallback;
