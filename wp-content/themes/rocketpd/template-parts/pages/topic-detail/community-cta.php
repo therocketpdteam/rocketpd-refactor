@@ -16,7 +16,10 @@ $cta   = $topic['communityCta'] ?? array();
 <section class="rpd-topic-community">
 	<div class="rpd-container rpd-topic-community__grid">
 		<div>
-			<p class="rpd-topic-dark-kicker"><?php esc_html_e( 'RocketPD Community', 'rocketpd' ); ?></p>
+			<p class="rpd-topic-dark-kicker">
+				<?php echo rocketpd_topic_icon_svg( 'users', 'rpd-topic-dark-kicker__icon' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<?php esc_html_e( 'RocketPD Community', 'rocketpd' ); ?>
+			</p>
 			<h2><?php echo esc_html( $cta['headline'] ?? '' ); ?></h2>
 			<p><?php echo esc_html( $cta['body'] ?? '' ); ?></p>
 			<div class="rpd-topic-detail-actions">

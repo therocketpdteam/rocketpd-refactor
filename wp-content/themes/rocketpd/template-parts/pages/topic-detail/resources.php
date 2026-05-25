@@ -11,6 +11,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $topic     = $args['topic'] ?? array();
 $resources = $topic['resources'] ?? array();
+$resource_icon_map = array(
+	'guide'    => 'book',
+	'course'   => 'screen',
+	'cohort'   => 'users',
+	'podcast'  => 'chat',
+	'webinar'  => 'webinar',
+	'blog'     => 'file',
+	'playbook' => 'clipboard',
+	'video'    => 'webinar',
+	'download' => 'file',
+);
 ?>
 
 <section class="rpd-topic-resources rpd-topic-detail-section rpd-topic-detail-anchor" id="related-resources">
@@ -24,8 +35,19 @@ $resources = $topic['resources'] ?? array();
 		</header>
 		<div class="rpd-topic-resource-grid">
 			<?php foreach ( $resources as $resource ) : ?>
+				<?php
+				$type_label = $resource['type'] ?? '';
+				$type_key   = sanitize_title( $type_label );
+				$type_icon  = $resource_icon_map[ $type_key ] ?? 'file';
+				?>
 				<a class="rpd-topic-resource-card rpd-topic-format--<?php echo esc_attr( $resource['tone'] ?? 'purple' ); ?>" href="<?php echo esc_url( $resource['href'] ?? '#' ); ?>">
-					<header><span><?php echo esc_html( $resource['type'] ?? '' ); ?></span><small><?php echo esc_html( $resource['meta'] ?? '' ); ?></small></header>
+					<header>
+						<span class="rpd-topic-resource-card__type">
+							<span class="rpd-topic-type-icon" aria-hidden="true"><?php echo rocketpd_topic_icon_svg( $type_icon, 'rpd-topic-type-icon__svg' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+							<span><?php echo esc_html( $type_label ); ?></span>
+						</span>
+						<small><?php echo esc_html( $resource['meta'] ?? '' ); ?></small>
+					</header>
 					<h3><?php echo esc_html( $resource['title'] ?? '' ); ?></h3>
 					<p><?php echo esc_html( $resource['description'] ?? '' ); ?></p>
 					<footer><span><?php echo esc_html( $resource['instructor'] ?? '' ); ?></span><strong><?php esc_html_e( 'Open', 'rocketpd' ); ?> <span aria-hidden="true">-&gt;</span></strong></footer>
