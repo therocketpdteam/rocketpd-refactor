@@ -21,8 +21,8 @@ $stats  = $topic['stats'] ?? array();
 	<div class="rpd-container rpd-topic-detail-hero__grid">
 		<div class="rpd-topic-detail-hero__copy">
 			<div class="rpd-topic-detail-pill-row">
-				<span class="rpd-topic-pill rpd-topic-pill--category"><?php echo esc_html( $topic['categoryLabel'] ?? __( 'Leadership', 'rocketpd' ) ); ?></span>
-				<span class="rpd-topic-pill rpd-topic-pill--hub"><?php echo esc_html( $topic['badge'] ?? __( 'Topic Hub', 'rocketpd' ) ); ?></span>
+				<span class="rpd-topic-pill rpd-topic-pill--category"><span class="rpd-topic-pill__dot" aria-hidden="true"></span><?php echo esc_html( $topic['categoryLabel'] ?? __( 'Leadership', 'rocketpd' ) ); ?></span>
+				<span class="rpd-topic-pill rpd-topic-pill--hub"><?php echo rocketpd_topic_icon_svg( 'spark', 'rpd-topic-pill__icon' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><?php echo esc_html( $topic['badge'] ?? __( 'Topic Hub', 'rocketpd' ) ); ?></span>
 			</div>
 			<h1><?php echo esc_html( $topic['title'] ?? get_the_title() ); ?></h1>
 			<p><?php echo esc_html( $topic['subtitle'] ?? '' ); ?></p>
