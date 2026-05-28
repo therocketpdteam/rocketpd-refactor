@@ -134,7 +134,7 @@ function rocketpd_register_post_types() {
 			'supports'    => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', 'revisions' ),
 		),
 		'topic_hub'   => array(
-			'singular'    => __( 'Topic Hub', 'rocketpd' ),
+			'singular'    => __( 'Topic', 'rocketpd' ),
 			'plural'      => __( 'Topics', 'rocketpd' ),
 			'slug'        => 'topic',
 			'icon'        => 'dashicons-index-card',
