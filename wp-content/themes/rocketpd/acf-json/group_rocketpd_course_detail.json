@@ -86,6 +86,13 @@
                 "operator": "==",
                 "value": "page-templates/template-course-detail.php"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "course"
+            }
         ]
     ],
     "menu_order": 0,
@@ -94,7 +101,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "active": true,
-    "description": "Page-level fields for RocketPD individual course detail pages.",
+    "description": "Fields for RocketPD individual course detail pages and course records.",
     "show_in_rest": 0,
     "modified": 1715900000
 }

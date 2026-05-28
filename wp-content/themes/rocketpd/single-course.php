@@ -1,7 +1,6 @@
 <?php
 /**
- * Template Name: RocketPD Course Detail
- * Description: Reusable RocketPD individual course page.
+ * Single Course template.
  *
  * @package RocketPD
  */

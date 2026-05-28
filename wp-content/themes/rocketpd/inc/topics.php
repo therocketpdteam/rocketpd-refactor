@@ -10,13 +10,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Return true on the Topic Index templates or the current /topic/ page.
+ * Return true on the Topic Index templates or the current topic index page.
  *
  * @return bool
  */
 function rocketpd_is_topics_context() {
 	return is_page_template( 'page-templates/template-topics.php' )
 		|| is_page_template( 'page-templates/global-topics-template.php' )
+		|| is_page( 'topics' )
 		|| is_page( 'topic' );
 }
 

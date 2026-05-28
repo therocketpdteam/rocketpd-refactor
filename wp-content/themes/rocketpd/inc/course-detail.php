@@ -260,7 +260,7 @@ function rocketpd_get_course_detail_fallback() {
  * @return bool
  */
 function rocketpd_is_course_detail_context() {
-	if ( is_page_template( 'page-templates/template-course-detail.php' ) ) {
+	if ( is_singular( 'course' ) || is_page_template( 'page-templates/template-course-detail.php' ) ) {
 		return true;
 	}
 
@@ -318,6 +318,16 @@ function rocketpd_normalize_course_detail_related_cards( $course ) {
  */
 function rocketpd_get_current_course_detail() {
 	$fallback = rocketpd_get_course_detail_fallback();
+
+	if ( is_singular( 'course' ) ) {
+		$fallback['slug']    = get_post_field( 'post_name', get_the_ID() ) ?: $fallback['slug'];
+		$fallback['title']   = get_the_title() ?: $fallback['title'];
+		$fallback['promise'] = has_excerpt() ? get_the_excerpt() : $fallback['promise'];
+
+		if ( has_post_thumbnail() ) {
+			$fallback['courseImage'] = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+		}
+	}
 
 	if ( ! function_exists( 'get_field' ) ) {
 		return rocketpd_normalize_course_detail_related_cards( $fallback );
