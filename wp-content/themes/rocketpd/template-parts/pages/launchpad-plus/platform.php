@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$cards = rocketpd_get_field(
+$cards = rocketpd_lpp_get_field(
 	'rpd_lpp_platform_cards',
 	array(
 		array( 'title' => __( 'RocketPD course library', 'rocketpd' ), 'body' => __( "Provide access to RocketPD's expert-led professional learning library.", 'rocketpd' ) ),
@@ -24,9 +24,9 @@ $cards = rocketpd_get_field(
 <section class="rpd-lpp-platform rpd-lpp-section">
 	<div class="rpd-container">
 		<header class="rpd-lpp-section-header rpd-lpp-section-header--center">
-			<p class="rpd-lpp-eyebrow"><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_platform_eyebrow', __( 'What It Is', 'rocketpd' ) ) ); ?></p>
-			<h2><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_platform_headline', __( 'A Central Platform for District Professional Learning.', 'rocketpd' ) ) ); ?></h2>
-			<p><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_platform_intro', __( 'LaunchPad+ gives districts a structured way to manage professional learning across their organization.', 'rocketpd' ) ) ); ?></p>
+			<p class="rpd-lpp-eyebrow"><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_platform_eyebrow', __( 'What It Is', 'rocketpd' ) ) ); ?></p>
+			<h2><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_platform_headline', __( 'A Central Platform for District Professional Learning.', 'rocketpd' ) ) ); ?></h2>
+			<p><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_platform_intro', __( 'LaunchPad+ gives districts a structured way to manage professional learning across their organization.', 'rocketpd' ) ) ); ?></p>
 		</header>
 		<div class="rpd-lpp-card-row rpd-lpp-card-row--five">
 			<?php foreach ( $cards as $card ) : ?>
@@ -39,6 +39,6 @@ $cards = rocketpd_get_field(
 				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>
-		<p class="rpd-lpp-centered-note"><?php echo wp_kses_post( rocketpd_get_field( 'rpd_lpp_platform_closing', __( "All within a platform <strong>customized to reflect your district's brand and priorities.</strong>", 'rocketpd' ) ) ); ?></p>
+		<p class="rpd-lpp-centered-note"><?php echo wp_kses_post( rocketpd_lpp_get_field( 'rpd_lpp_platform_closing', __( "All within a platform <strong>customized to reflect your district's brand and priorities.</strong>", 'rocketpd' ) ) ); ?></p>
 	</div>
 </section>

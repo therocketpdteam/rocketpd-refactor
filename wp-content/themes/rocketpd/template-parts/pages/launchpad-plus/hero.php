@@ -10,14 +10,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $demo_url       = rocketpd_get_option( 'rpd_walkthrough_url', home_url( '/contact/' ) );
-$eyebrow        = rocketpd_get_field( 'rpd_lpp_hero_eyebrow', __( 'RocketPD LaunchPad+', 'rocketpd' ) );
-$headline       = rocketpd_get_field( 'rpd_lpp_hero_headline', __( 'LaunchPad+', 'rocketpd' ) );
-$subheadline    = rocketpd_get_field( 'rpd_lpp_hero_subheadline', __( 'A Branded Professional Learning Platform for Your District', 'rocketpd' ) );
-$body           = rocketpd_get_field( 'rpd_lpp_hero_body', __( "Bring your district's professional learning into one place - combining RocketPD's expert-led content with your own resources inside a fully branded platform.", 'rocketpd' ) );
-$primary_label  = rocketpd_get_field( 'rpd_lpp_hero_primary_label', __( 'Schedule a LaunchPad+ Demo', 'rocketpd' ) );
-$primary_url    = rocketpd_get_field( 'rpd_lpp_hero_primary_url', $demo_url );
-$secondary_label = rocketpd_get_field( 'rpd_lpp_hero_secondary_label', __( 'Explore LaunchPad', 'rocketpd' ) );
-$secondary_url  = rocketpd_get_field( 'rpd_lpp_hero_secondary_url', home_url( '/launchpad/' ) );
+$eyebrow        = rocketpd_lpp_get_field( 'rpd_lpp_hero_eyebrow', __( 'RocketPD LaunchPad+', 'rocketpd' ) );
+$headline       = rocketpd_lpp_get_field( 'rpd_lpp_hero_headline', __( 'LaunchPad+', 'rocketpd' ) );
+$subheadline    = rocketpd_lpp_get_field( 'rpd_lpp_hero_subheadline', __( 'A Branded Professional Learning Platform for Your District', 'rocketpd' ) );
+$body           = rocketpd_lpp_get_field( 'rpd_lpp_hero_body', __( "Bring your district's professional learning into one place - combining RocketPD's expert-led content with your own resources inside a fully branded platform.", 'rocketpd' ) );
+$primary_label  = rocketpd_lpp_get_field( 'rpd_lpp_hero_primary_label', __( 'Schedule a LaunchPad+ Demo', 'rocketpd' ) );
+$primary_url    = rocketpd_lpp_get_field( 'rpd_lpp_hero_primary_url', $demo_url );
+$secondary_label = rocketpd_lpp_get_field( 'rpd_lpp_hero_secondary_label', __( 'Explore LaunchPad', 'rocketpd' ) );
+$secondary_url  = rocketpd_lpp_get_field( 'rpd_lpp_hero_secondary_url', home_url( '/launchpad/' ) );
 ?>
 
 <section class="rpd-lpp-hero rpd-lpp-section">
