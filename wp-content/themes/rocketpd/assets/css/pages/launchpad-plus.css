@@ -96,7 +96,7 @@
 }
 
 .rpd-lpp-hero {
-	padding: clamp(5rem, 8vw, 7.6rem) 0;
+	padding: clamp(4.6rem, 6.4vw, 6.4rem) 0;
 	background:
 		linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
 		linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
@@ -120,7 +120,7 @@
 
 .rpd-lpp-hero h1 {
 	margin: 0;
-	font-size: clamp(4rem, 9vw, 7.4rem);
+	font-size: clamp(3.5rem, 7vw, 5.8rem);
 	line-height: 0.9;
 }
 
@@ -912,6 +912,10 @@
 	.rpd-lpp-pillars__grid {
 		grid-template-columns: 1fr;
 	}
+
+	.rpd-lpp-float {
+		display: none;
+	}
 }
 
 @media (max-width: 700px) {
@@ -937,10 +941,6 @@
 	.rpd-lpp-package-card div,
 	.rpd-lpp-compare-table footer {
 		grid-template-columns: 1fr;
-	}
-
-	.rpd-lpp-float {
-		display: none;
 	}
 
 	.rpd-lpp-platform-preview nav {

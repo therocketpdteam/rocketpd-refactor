@@ -10,6 +10,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! function_exists( 'rocketpd_lpp_get_field' ) ) {
+	/**
+	 * Return LaunchPad Plus field content, falling back when saved values are blank.
+	 *
+	 * @param string $field_name ACF field name.
+	 * @param mixed  $fallback   Fallback value.
+	 * @param int    $post_id    Optional post ID.
+	 * @return mixed
+	 */
+	function rocketpd_lpp_get_field( $field_name, $fallback = '', $post_id = 0 ) {
+		$value = function_exists( 'rocketpd_get_field' ) ? rocketpd_get_field( $field_name, null, $post_id ) : null;
+
+		if ( null === $value || false === $value ) {
+			return $fallback;
+		}
+
+		if ( is_string( $value ) && '' === trim( $value ) ) {
+			return $fallback;
+		}
+
+		if ( is_array( $value ) && empty( $value ) && is_array( $fallback ) && ! empty( $fallback ) ) {
+			return $fallback;
+		}
+
+		return $value;
+	}
+}
+
 get_header();
 
 while ( have_posts() ) {
