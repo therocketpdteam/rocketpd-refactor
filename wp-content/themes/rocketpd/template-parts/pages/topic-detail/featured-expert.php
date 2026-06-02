@@ -49,16 +49,15 @@ $quote  = trim( (string) ( $expert['quote'] ?? '' ), " \t\n\r\0\x0B\"'“”‘�
 					</svg>
 					<?php esc_html_e( 'LinkedIn', 'rocketpd' ); ?>
 				</a>
-				<a href="<?php echo esc_url( $expert['website'] ?? '#' ); ?>" target="_blank" rel="noopener noreferrer">
+				<a href="<?php echo esc_url( $expert['website'] ?? '#' ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e( 'Website', 'rocketpd' ); ?>">
 					<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
 						<circle cx="12" cy="12" r="9" />
 						<path d="M3 12h18M12 3c2.2 2.4 3.3 5.4 3.3 9S14.2 18.6 12 21M12 3c-2.2 2.4-3.3 5.4-3.3 9S9.8 18.6 12 21" />
 					</svg>
-					<span class="rpd-sr-only"><?php esc_html_e( 'Website', 'rocketpd' ); ?></span>
 				</a>
 			</div>
 			<div class="rpd-topic-detail-actions">
-				<a class="rpd-btn rpd-btn--gold" href="<?php echo esc_url( $expert['cohortHref'] ?? '#' ); ?>"><?php printf( esc_html__( "See %s's Cohort", 'rocketpd' ), esc_html( explode( ' ', trim( $expert['name'] ?? 'Expert' ) )[0] ) ); ?> <span aria-hidden="true">-&gt;</span></a>
+				<a class="rpd-btn rpd-btn--gold" href="<?php echo esc_url( $expert['cohortHref'] ?? '#' ); ?>"><?php printf( esc_html__( "See %s's Cohort", 'rocketpd' ), esc_html( $expert['name'] ?? 'Expert' ) ); ?> <span aria-hidden="true">-&gt;</span></a>
 				<a class="rpd-btn rpd-btn--outline-purple" href="<?php echo esc_url( $expert['profileHref'] ?? '#' ); ?>"><?php esc_html_e( 'View Full Profile', 'rocketpd' ); ?></a>
 			</div>
 		</div>
