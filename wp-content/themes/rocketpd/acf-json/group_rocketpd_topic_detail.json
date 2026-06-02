@@ -57,7 +57,7 @@
             "key": "field_rpd_topic_detail_primary_cta_url",
             "label": "Primary CTA URL",
             "name": "rpd_topic_detail_primary_cta_url",
-            "type": "url"
+            "type": "text"
         },
         {
             "key": "field_rpd_topic_detail_secondary_cta_label",
@@ -69,7 +69,7 @@
             "key": "field_rpd_topic_detail_secondary_cta_url",
             "label": "Secondary CTA URL",
             "name": "rpd_topic_detail_secondary_cta_url",
-            "type": "url"
+            "type": "text"
         },
         {
             "key": "field_rpd_topic_detail_tab_overview",
@@ -267,25 +267,25 @@
             "key": "field_rpd_topic_detail_expert_linkedin",
             "label": "Expert LinkedIn URL",
             "name": "rpd_topic_detail_expert_linkedin",
-            "type": "url"
+            "type": "text"
         },
         {
             "key": "field_rpd_topic_detail_expert_website",
             "label": "Expert Website URL",
             "name": "rpd_topic_detail_expert_website",
-            "type": "url"
+            "type": "text"
         },
         {
             "key": "field_rpd_topic_detail_expert_profile_href",
             "label": "Expert Profile URL",
             "name": "rpd_topic_detail_expert_profile_href",
-            "type": "url"
+            "type": "text"
         },
         {
             "key": "field_rpd_topic_detail_expert_cohort_href",
             "label": "Expert Cohort URL",
             "name": "rpd_topic_detail_expert_cohort_href",
-            "type": "url"
+            "type": "text"
         },
         {
             "key": "field_rpd_topic_detail_tab_cards",
@@ -422,7 +422,7 @@
                     "key": "field_rpd_topic_detail_resource_href",
                     "label": "URL",
                     "name": "href",
-                    "type": "url"
+                    "type": "text"
                 }
             ]
         },
@@ -487,7 +487,7 @@
                     "key": "field_rpd_topic_detail_opportunity_href",
                     "label": "URL",
                     "name": "href",
-                    "type": "url"
+                    "type": "text"
                 }
             ]
         },
@@ -548,7 +548,7 @@
                     "key": "field_rpd_topic_detail_framework_href",
                     "label": "URL",
                     "name": "href",
-                    "type": "url"
+                    "type": "text"
                 }
             ]
         },
@@ -605,7 +605,7 @@
             "key": "field_rpd_topic_detail_final_primary_url",
             "label": "Final Primary URL",
             "name": "rpd_topic_detail_final_primary_url",
-            "type": "url"
+            "type": "text"
         },
         {
             "key": "field_rpd_topic_detail_final_secondary_label",
@@ -617,7 +617,7 @@
             "key": "field_rpd_topic_detail_final_secondary_url",
             "label": "Final Secondary URL",
             "name": "rpd_topic_detail_final_secondary_url",
-            "type": "url"
+            "type": "text"
         }
     ],
     "location": [
