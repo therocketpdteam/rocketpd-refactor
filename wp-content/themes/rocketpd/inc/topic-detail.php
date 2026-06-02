@@ -300,9 +300,73 @@ function rocketpd_get_current_topic_detail() {
 			'secondaryLabel' => rocketpd_get_field( 'rpd_topic_detail_final_secondary_label', '' ),
 			'secondaryHref'  => rocketpd_get_field( 'rpd_topic_detail_final_secondary_url', '' ),
 		),
+		'featuredExpert' => array(
+			'name'        => rocketpd_get_field( 'rpd_topic_detail_expert_name', '' ),
+			'title'       => rocketpd_get_field( 'rpd_topic_detail_expert_title', '' ),
+			'image'       => rocketpd_get_field( 'rpd_topic_detail_expert_image', '' ),
+			'quote'       => rocketpd_get_field( 'rpd_topic_detail_expert_quote', '' ),
+			'bio'         => rocketpd_get_field( 'rpd_topic_detail_expert_bio', '' ),
+			'linkedin'    => rocketpd_get_field( 'rpd_topic_detail_expert_linkedin', '' ),
+			'website'     => rocketpd_get_field( 'rpd_topic_detail_expert_website', '' ),
+			'profileHref' => rocketpd_get_field( 'rpd_topic_detail_expert_profile_href', '' ),
+			'cohortHref'  => rocketpd_get_field( 'rpd_topic_detail_expert_cohort_href', '' ),
+		),
 	);
 
-	return rocketpd_topic_detail_merge( $fallback, $override );
+	$merged = rocketpd_topic_detail_merge( $fallback, $override );
+
+	// Normalize section rows from ACF flat structure to nested template structure.
+	if ( ! empty( $merged['overview']['sections'] ) ) {
+		$merged['overview']['sections'] = array_map(
+			'rocketpd_normalize_topic_section',
+			$merged['overview']['sections']
+		);
+	}
+
+	return $merged;
+}
+
+/**
+ * Normalize a flat ACF overview section row into the nested structure
+ * expected by the overview.php template.
+ *
+ * @param array $row Flat ACF repeater row.
+ * @return array Normalized section.
+ */
+function rocketpd_normalize_topic_section( $row ) {
+	// Body: ACF stores as a single textarea string; template expects an array.
+	$body = isset( $row['body'] ) ? $row['body'] : '';
+	if ( is_string( $body ) && '' !== $body ) {
+		$body = array_values( array_filter( array_map( 'trim', explode( "\n\n", $body ) ) ) );
+	} elseif ( ! is_array( $body ) ) {
+		$body = array();
+	}
+
+	// Callout: rebuild nested array from flat keys.
+	$callout = array();
+	if ( ! empty( $row['callout_title'] ) || ! empty( $row['callout_body'] ) ) {
+		$callout = array(
+			'title' => $row['callout_title'] ?? '',
+			'body'  => $row['callout_body'] ?? '',
+			'icon'  => $row['callout_icon'] ?? 'spark',
+		);
+	}
+
+	// Quote: rebuild nested array from flat keys.
+	$quote = array();
+	if ( ! empty( $row['quote_text'] ) ) {
+		$quote = array(
+			'text'        => $row['quote_text'] ?? '',
+			'attribution' => $row['quote_attribution'] ?? '',
+		);
+	}
+
+	return array(
+		'heading' => $row['heading'] ?? '',
+		'body'    => $body,
+		'callout' => $callout,
+		'quote'   => $quote,
+	);
 }
 
 /**
