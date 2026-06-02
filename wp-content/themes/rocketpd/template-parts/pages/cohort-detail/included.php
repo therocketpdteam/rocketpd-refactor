@@ -28,8 +28,22 @@ $included = $cohort['included'] ?? array();
 			</div>
 		</div>
 		<div class="rpd-cohort-device-visual" aria-hidden="true">
-			<div><span>LaunchPad</span></div>
-			<i></i><b></b><em></em>
+			<div class="rpd-cohort-device-visual__screen">
+				<div class="rpd-cohort-device-visual__brand"><?php esc_html_e( 'LaunchPad', 'rocketpd' ); ?><span>&raquo;</span></div>
+				<div class="rpd-cohort-device-visual__phone">
+					<span></span>
+					<strong><?php esc_html_e( 'My cohorts', 'rocketpd' ); ?></strong>
+					<em><?php echo esc_html( $cohort['title'] ?? __( 'Live cohort', 'rocketpd' ) ); ?></em>
+				</div>
+				<div class="rpd-cohort-device-visual__laptop">
+					<div>
+						<span><?php esc_html_e( 'Session recordings + cohort toolkit', 'rocketpd' ); ?></span>
+					</div>
+				</div>
+				<div class="rpd-cohort-device-visual__book">
+					<span><?php esc_html_e( 'Guide', 'rocketpd' ); ?></span>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

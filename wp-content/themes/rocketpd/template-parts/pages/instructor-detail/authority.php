@@ -12,10 +12,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 $instructor = function_exists( 'rocketpd_get_current_instructor_detail' ) ? rocketpd_get_current_instructor_detail() : array();
 $name       = $instructor['name'] ?? __( 'Kim Marshall', 'rocketpd' );
 $first_name = function_exists( 'rocketpd_get_instructor_first_name' ) ? rocketpd_get_instructor_first_name( $name ) : trim( strtok( $name, ' ' ) );
+$gender     = $instructor['gender'] ?? 'neutral';
 $bio        = $instructor['bio'] ?? array();
 $paragraphs = isset( $bio['paragraphs'] ) && is_array( $bio['paragraphs'] ) ? $bio['paragraphs'] : array();
 $focus      = isset( $bio['focus'] ) && is_array( $bio['focus'] ) ? $bio['focus'] : array();
-$focus_heading = ! empty( $bio['focus_heading'] ) ? $bio['focus_heading'] : __( 'His work focuses on', 'rocketpd' );
+
+$focus_label = 'male' === $gender
+	? __( 'His work focuses on', 'rocketpd' )
+	: ( 'female' === $gender
+		? __( 'Her work focuses on', 'rocketpd' )
+		: __( 'Their work focuses on', 'rocketpd' ) );
 ?>
 
 <section class="rpd-instructor-authority">
@@ -40,7 +46,7 @@ $focus_heading = ! empty( $bio['focus_heading'] ) ? $bio['focus_heading'] : __( 
 			<?php endforeach; ?>
 
 			<?php if ( $focus ) : ?>
-				<h3><?php echo esc_html( $focus_heading ); ?></h3>
+				<h3><?php echo esc_html( $focus_label ); ?></h3>
 				<ul class="rpd-instructor-focus-grid">
 					<?php foreach ( $focus as $item ) : ?>
 						<li><span aria-hidden="true"></span><?php echo esc_html( $item ); ?></li>
