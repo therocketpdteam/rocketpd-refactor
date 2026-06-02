@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$cards = rocketpd_get_field(
+$cards = rocketpd_lpp_get_field(
 	'rpd_lpp_includes_cards',
 	array(
 		array( 'title' => __( 'Custom-Branded Platform', 'rocketpd' ), 'body' => __( 'A district-specific environment with your logo, colors, and subdomain - creating a consistent experience for staff.', 'rocketpd' ), 'proof' => __( 'Your brand, your subdomain', 'rocketpd' ) ),
@@ -22,8 +22,8 @@ $cards = rocketpd_get_field(
 <section class="rpd-lpp-includes rpd-lpp-section rpd-lpp-dark">
 	<div class="rpd-container">
 		<header class="rpd-lpp-section-header rpd-lpp-section-header--center">
-			<p class="rpd-lpp-eyebrow"><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_includes_eyebrow', __( "What's Included", 'rocketpd' ) ) ); ?></p>
-			<h2><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_includes_headline', __( 'What LaunchPad+ Includes.', 'rocketpd' ) ) ); ?></h2>
+			<p class="rpd-lpp-eyebrow"><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_includes_eyebrow', __( "What's Included", 'rocketpd' ) ) ); ?></p>
+			<h2><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_includes_headline', __( 'What LaunchPad+ Includes.', 'rocketpd' ) ) ); ?></h2>
 		</header>
 		<div class="rpd-lpp-card-row rpd-lpp-card-row--three">
 			<?php foreach ( $cards as $card ) : ?>

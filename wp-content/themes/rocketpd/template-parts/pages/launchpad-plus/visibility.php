@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$bullets = rocketpd_get_field(
+$bullets = rocketpd_lpp_get_field(
 	'rpd_lpp_visibility_bullets',
 	array(
 		array( 'text' => __( 'Track course enrollment and completion', 'rocketpd' ) ),
@@ -22,9 +22,9 @@ $bullets = rocketpd_get_field(
 <section class="rpd-lpp-visibility rpd-lpp-section">
 	<div class="rpd-container rpd-lpp-visibility__grid">
 		<div>
-			<p class="rpd-lpp-eyebrow"><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_visibility_eyebrow', __( 'Built for Leaders', 'rocketpd' ) ) ); ?></p>
-			<h2><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_visibility_headline', __( 'Visibility Into Participation and Progress.', 'rocketpd' ) ) ); ?></h2>
-			<p><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_visibility_body', __( 'LaunchPad+ provides district leaders with a clearer view of how professional learning is being used across the district.', 'rocketpd' ) ) ); ?></p>
+			<p class="rpd-lpp-eyebrow"><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_visibility_eyebrow', __( 'Built for Leaders', 'rocketpd' ) ) ); ?></p>
+			<h2><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_visibility_headline', __( 'Visibility Into Participation and Progress.', 'rocketpd' ) ) ); ?></h2>
+			<p><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_visibility_body', __( 'LaunchPad+ provides district leaders with a clearer view of how professional learning is being used across the district.', 'rocketpd' ) ) ); ?></p>
 			<ul class="rpd-lpp-checks rpd-lpp-checks--icon">
 				<?php foreach ( $bullets as $bullet ) : ?>
 					<?php $text = isset( $bullet['text'] ) ? $bullet['text'] : ''; ?>
@@ -33,7 +33,7 @@ $bullets = rocketpd_get_field(
 					<?php endif; ?>
 				<?php endforeach; ?>
 			</ul>
-			<p><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_visibility_closing', __( 'This helps districts better manage and support professional learning over time.', 'rocketpd' ) ) ); ?></p>
+			<p><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_visibility_closing', __( 'This helps districts better manage and support professional learning over time.', 'rocketpd' ) ) ); ?></p>
 		</div>
 		<div class="rpd-lpp-analytics" aria-label="<?php esc_attr_e( 'Professional learning activity dashboard preview', 'rocketpd' ); ?>">
 			<div class="rpd-lpp-browser__bar"><span></span><span></span><span></span><b><?php esc_html_e( 'pd.riverside-usd.org/admin/analytics', 'rocketpd' ); ?></b></div>

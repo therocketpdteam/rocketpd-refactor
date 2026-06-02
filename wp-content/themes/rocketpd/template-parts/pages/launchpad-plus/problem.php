@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$tools = rocketpd_get_field(
+$tools = rocketpd_lpp_get_field(
 	'rpd_lpp_problem_tools',
 	array(
 		array( 'label' => __( 'PD Day slides', 'rocketpd' ), 'type' => 'pdf' ),
@@ -25,11 +25,11 @@ $tools = rocketpd_get_field(
 <section class="rpd-lpp-problem rpd-lpp-section">
 	<div class="rpd-container rpd-lpp-problem__grid">
 		<div>
-			<p class="rpd-lpp-eyebrow"><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_problem_eyebrow', __( 'The Gap', 'rocketpd' ) ) ); ?></p>
-			<h2><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_problem_headline', __( 'When Professional Learning Needs More Than Access.', 'rocketpd' ) ) ); ?></h2>
-			<p><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_problem_body_1', __( 'Access to high-quality professional learning is important - but many districts need a better way to organize and deliver it across teams.', 'rocketpd' ) ) ); ?></p>
-			<p><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_problem_body_2', __( 'LaunchPad+ provides a centralized, branded platform where districts can bring together professional learning content, internal resources, and educator growth in one place.', 'rocketpd' ) ) ); ?></p>
-			<p class="rpd-lpp-strong"><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_problem_closing', __( "Built on RocketPD's LaunchPad platform, LaunchPad+ helps districts move beyond one-time PD and create a more consistent, accessible learning experience for staff.", 'rocketpd' ) ) ); ?></p>
+			<p class="rpd-lpp-eyebrow"><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_problem_eyebrow', __( 'The Gap', 'rocketpd' ) ) ); ?></p>
+			<h2><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_problem_headline', __( 'When Professional Learning Needs More Than Access.', 'rocketpd' ) ) ); ?></h2>
+			<p><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_problem_body_1', __( 'Access to high-quality professional learning is important - but many districts need a better way to organize and deliver it across teams.', 'rocketpd' ) ) ); ?></p>
+			<p><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_problem_body_2', __( 'LaunchPad+ provides a centralized, branded platform where districts can bring together professional learning content, internal resources, and educator growth in one place.', 'rocketpd' ) ) ); ?></p>
+			<p class="rpd-lpp-strong"><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_problem_closing', __( "Built on RocketPD's LaunchPad platform, LaunchPad+ helps districts move beyond one-time PD and create a more consistent, accessible learning experience for staff.", 'rocketpd' ) ) ); ?></p>
 		</div>
 		<div class="rpd-lpp-unified">
 			<p><?php esc_html_e( 'Today: Scattered across tools', 'rocketpd' ); ?></p>

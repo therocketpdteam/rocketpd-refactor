@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$bullets = rocketpd_get_field(
+$bullets = rocketpd_lpp_get_field(
 	'rpd_lpp_creator_bullets',
 	array(
 		array( 'text' => __( 'Produce high-quality asynchronous courses', 'rocketpd' ) ),
@@ -22,10 +22,10 @@ $bullets = rocketpd_get_field(
 <section class="rpd-lpp-creator rpd-lpp-section">
 	<div class="rpd-container rpd-lpp-creator__grid">
 		<div>
-			<p class="rpd-lpp-eyebrow"><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_creator_eyebrow', __( "Creator's Package", 'rocketpd' ) ) ); ?></p>
-			<h2><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_creator_headline', __( 'Create and Scale Your Own Professional Learning Content.', 'rocketpd' ) ) ); ?></h2>
-			<p><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_creator_body_1', __( 'Many districts have strong internal expertise but limited ways to scale it.', 'rocketpd' ) ) ); ?></p>
-			<p><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_creator_body_2', __( "With LaunchPad+ and RocketPD's Creator's Package, districts can:", 'rocketpd' ) ) ); ?></p>
+			<p class="rpd-lpp-eyebrow"><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_creator_eyebrow', __( "Creator's Package", 'rocketpd' ) ) ); ?></p>
+			<h2><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_creator_headline', __( 'Create and Scale Your Own Professional Learning Content.', 'rocketpd' ) ) ); ?></h2>
+			<p><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_creator_body_1', __( 'Many districts have strong internal expertise but limited ways to scale it.', 'rocketpd' ) ) ); ?></p>
+			<p><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_creator_body_2', __( "With LaunchPad+ and RocketPD's Creator's Package, districts can:", 'rocketpd' ) ) ); ?></p>
 			<ul class="rpd-lpp-checks">
 				<?php foreach ( $bullets as $bullet ) : ?>
 					<?php $text = isset( $bullet['text'] ) ? $bullet['text'] : ''; ?>
@@ -44,6 +44,6 @@ $bullets = rocketpd_get_field(
 		</div>
 	</div>
 	<div class="rpd-container">
-		<p class="rpd-lpp-centered-note"><?php echo wp_kses_post( rocketpd_get_field( 'rpd_lpp_creator_closing', __( 'This allows districts to <strong>build a reusable library of professional learning aligned to their goals.</strong>', 'rocketpd' ) ) ); ?></p>
+		<p class="rpd-lpp-centered-note"><?php echo wp_kses_post( rocketpd_lpp_get_field( 'rpd_lpp_creator_closing', __( 'This allows districts to <strong>build a reusable library of professional learning aligned to their goals.</strong>', 'rocketpd' ) ) ); ?></p>
 	</div>
 </section>

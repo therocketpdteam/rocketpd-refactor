@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$pillars = rocketpd_get_field(
+$pillars = rocketpd_lpp_get_field(
 	'rpd_lpp_pillars',
 	array(
 		array( 'title' => __( 'Learning', 'rocketpd' ), 'items' => array( array( 'text' => __( 'RocketPD expert-led courses', 'rocketpd' ) ), array( 'text' => __( 'District-created courses', 'rocketpd' ) ), array( 'text' => __( 'Legacy district content', 'rocketpd' ) ) ) ),
@@ -22,9 +22,9 @@ $pillars = rocketpd_get_field(
 <section class="rpd-lpp-pillars rpd-lpp-section">
 	<div class="rpd-container">
 		<header class="rpd-lpp-section-header rpd-lpp-section-header--center">
-			<p class="rpd-lpp-eyebrow"><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_pillars_eyebrow', __( "How It's Organized", 'rocketpd' ) ) ); ?></p>
-			<h2><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_pillars_headline', __( 'One Platform for Learning and Resources.', 'rocketpd' ) ) ); ?></h2>
-			<p><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_pillars_intro', __( 'LaunchPad+ brings together the key components districts need to support professional learning.', 'rocketpd' ) ) ); ?></p>
+			<p class="rpd-lpp-eyebrow"><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_pillars_eyebrow', __( "How It's Organized", 'rocketpd' ) ) ); ?></p>
+			<h2><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_pillars_headline', __( 'One Platform for Learning and Resources.', 'rocketpd' ) ) ); ?></h2>
+			<p><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_pillars_intro', __( 'LaunchPad+ brings together the key components districts need to support professional learning.', 'rocketpd' ) ) ); ?></p>
 		</header>
 		<div class="rpd-lpp-pillars__grid">
 			<?php foreach ( $pillars as $index => $pillar ) : ?>
@@ -45,7 +45,7 @@ $pillars = rocketpd_get_field(
 				</article>
 			<?php endforeach; ?>
 		</div>
-		<p class="rpd-lpp-band-note"><span aria-hidden="true">⚡</span><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_pillars_callout', __( 'All in one branded LaunchPad+ platform - one place for staff to learn', 'rocketpd' ) ) ); ?></p>
-		<p class="rpd-lpp-centered-note"><?php echo esc_html( rocketpd_get_field( 'rpd_lpp_pillars_closing', __( 'This helps reduce fragmentation and keeps professional learning organized in one place.', 'rocketpd' ) ) ); ?></p>
+		<p class="rpd-lpp-band-note"><span aria-hidden="true">⚡</span><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_pillars_callout', __( 'All in one branded LaunchPad+ platform - one place for staff to learn', 'rocketpd' ) ) ); ?></p>
+		<p class="rpd-lpp-centered-note"><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_pillars_closing', __( 'This helps reduce fragmentation and keeps professional learning organized in one place.', 'rocketpd' ) ) ); ?></p>
 	</div>
 </section>
