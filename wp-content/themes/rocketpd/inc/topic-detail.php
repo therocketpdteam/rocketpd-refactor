@@ -29,8 +29,17 @@ function rocketpd_is_topic_detail_context() {
  * @return array
  */
 function rocketpd_topic_detail_merge( $fallback, $override ) {
+	// These keys are repeater fields — ACF is authoritative if populated; never merge with fallback.
+	$replace_keys = array( 'faqs', 'resources', 'opportunities', 'frameworks', 'whyMatters', 'intro', 'sections', 'takeaways', 'sideStats' );
+
 	foreach ( $override as $key => $value ) {
 		if ( is_array( $value ) ) {
+			// Repeater fields: replace entirely, even if empty.
+			if ( in_array( $key, $replace_keys, true ) ) {
+				$fallback[ $key ] = $value;
+				continue;
+			}
+
 			if ( empty( $value ) ) {
 				continue;
 			}
@@ -41,7 +50,7 @@ function rocketpd_topic_detail_merge( $fallback, $override ) {
 			continue;
 		}
 
-		if ( null !== $value && '' !== trim( (string) $value ) ) {
+		if ( null !== $value && false !== $value ) {
 			$fallback[ $key ] = $value;
 		}
 	}
