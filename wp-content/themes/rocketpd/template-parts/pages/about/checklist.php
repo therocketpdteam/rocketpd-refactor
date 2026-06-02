@@ -13,7 +13,7 @@ $headline        = rocketpd_get_field( 'rpd_about_checklist_headline', __( 'Unli
 $body            = rocketpd_get_field( 'rpd_about_checklist_body', __( 'RocketPD is designed to support continuous growth. We combine expert insight, practical frameworks, and collaborative learning experiences so educators can apply new ideas directly to their work.', 'rocketpd' ) );
 $list_heading    = rocketpd_get_field( 'rpd_about_checklist_list_heading', __( 'Every RocketPD experience is designed to be:', 'rocketpd' ) );
 $closing         = rocketpd_get_field( 'rpd_about_checklist_closing', __( 'This is professional learning designed for real schools.', 'rocketpd' ) );
-$image           = rocketpd_get_field( 'rpd_about_checklist_image', '' );
+$image           = rocketpd_get_field( 'rpd_about_checklist_image', home_url( '/wp-content/uploads/2024/02/educators-workshop.jpg' ) );
 $image_alt       = rocketpd_get_field( 'rpd_about_checklist_image_alt', __( 'Educators collaborating around a laptop', 'rocketpd' ) );
 $checklist_items = rocketpd_get_field(
 	'rpd_about_checklist_items',

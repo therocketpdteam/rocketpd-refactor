@@ -325,6 +325,10 @@
 	line-height: 1.4;
 }
 
+.rpd-instructor-detail-page .rpd-instructor-focus-grid li + li {
+	margin-top: 0;
+}
+
 .rpd-instructor-detail-page .rpd-instructor-focus-grid span {
 	display: grid;
 	place-items: center;

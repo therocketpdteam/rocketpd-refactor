@@ -15,9 +15,6 @@ $stats      = isset( $trust['stats'] ) && is_array( $trust['stats'] ) ? $trust['
 $person     = isset( $trust['person'] ) ? trim( wp_strip_all_tags( (string) $trust['person'] ) ) : '';
 $image      = $trust['image'] ?? '';
 $image_url  = '';
-$impact_eyebrow = ! empty( $trust['impact_eyebrow'] ) ? $trust['impact_eyebrow'] : __( 'Trusted by school leaders', 'rocketpd' );
-$impact_heading = ! empty( $trust['impact_heading'] ) ? $trust['impact_heading'] : __( 'Used in 850+ districts across 47 states.', 'rocketpd' );
-$impact_body = ! empty( $trust['impact_body'] ) ? $trust['impact_body'] : __( 'School leaders nationwide use Kim’s frameworks to rebuild teacher trust, free up principal time, and turn evaluation into a real engine for instructional growth.', 'rocketpd' );
 
 if ( is_array( $image ) && ! empty( $image['url'] ) ) {
 	$image_url = $image['url'];
@@ -71,9 +68,9 @@ $initials = $initials ? strtoupper( $initials ) : '?';
 		</figure>
 		<?php if ( $stats ) : ?>
 			<div class="rpd-instructor-trust__impact">
-				<p class="rpd-instructor-section-kicker"><?php echo esc_html( $impact_eyebrow ); ?></p>
-				<h2><?php echo esc_html( $impact_heading ); ?></h2>
-				<p><?php echo esc_html( $impact_body ); ?></p>
+				<p class="rpd-instructor-section-kicker"><?php esc_html_e( 'Trusted by school leaders', 'rocketpd' ); ?></p>
+				<h2><?php echo esc_html( $trust['headline'] ?? __( 'Trusted by school leaders nationwide.', 'rocketpd' ) ); ?></h2>
+				<p><?php echo esc_html( $trust['body'] ?? '' ); ?></p>
 				<div class="rpd-instructor-trust__stats" aria-label="<?php esc_attr_e( 'Instructor impact stats', 'rocketpd' ); ?>">
 					<?php foreach ( $stats as $stat ) : ?>
 						<div>

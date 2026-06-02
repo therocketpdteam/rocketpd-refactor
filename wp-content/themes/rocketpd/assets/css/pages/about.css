@@ -11,7 +11,7 @@
 }
 
 .rpd-about-section {
-	padding-block: clamp(4.75rem, 7.5vw, 8.75rem);
+	padding-block: clamp(4.25rem, 6.4vw, 7.25rem);
 }
 
 .rpd-about-band {
@@ -35,11 +35,11 @@
 }
 
 .rpd-about-page h1 {
-	font-size: clamp(3.4rem, 7vw, 5.8rem);
+	font-size: clamp(3.25rem, 6.4vw, 5.25rem);
 }
 
 .rpd-about-page h2 {
-	font-size: clamp(2.25rem, 4.8vw, 4rem);
+	font-size: clamp(2.15rem, 4.2vw, 3.45rem);
 }
 
 .rpd-about-page h3 {
@@ -63,7 +63,7 @@
 }
 
 .rpd-about-section-header {
-	margin-bottom: clamp(2.75rem, 5vw, 4.75rem);
+	margin-bottom: clamp(2.5rem, 4.5vw, 4.25rem);
 }
 
 .rpd-about-section-header p {
@@ -72,10 +72,10 @@
 }
 
 .rpd-about-section-title {
-	max-width: 52rem;
-	margin: 0 auto clamp(2.5rem, 4vw, 4rem);
+	max-width: 58rem;
+	margin: 0 auto clamp(2.75rem, 4.5vw, 4.25rem);
 	text-align: center;
-	font-size: clamp(2rem, 3.2vw, 3rem);
+	font-size: clamp(2rem, 2.65vw, 2.55rem);
 }
 
 .rpd-about-copy > * {
@@ -112,7 +112,7 @@
 .rpd-about-hero {
 	display: flex;
 	align-items: center;
-	min-height: clamp(40rem, 58vw, 48rem);
+	min-height: clamp(35rem, 48vw, 40.5rem);
 	background:
 		radial-gradient(circle at 50% 100%, rgba(196, 196, 229, 0.18), transparent 34rem),
 		linear-gradient(180deg, #fbfdff 0%, #f8fafc 100%);
@@ -124,13 +124,13 @@
 }
 
 .rpd-about-hero__intro {
-	margin: 2.2rem auto 0;
+	margin: 2rem auto 0;
 	font-size: clamp(1.1rem, 1.7vw, 1.35rem);
 }
 
 .rpd-about-hero__body {
 	max-width: 51rem;
-	margin: 1.9rem auto 0;
+	margin: 1.65rem auto 0;
 }
 
 .rpd-about-hero__body p {
@@ -158,8 +158,8 @@
 }
 
 .rpd-about-focus-card {
-	min-height: 19.25rem;
-	padding: clamp(2rem, 3vw, 2.75rem);
+	min-height: 16.5rem;
+	padding: clamp(1.65rem, 2.35vw, 2.15rem);
 	border: 1px solid var(--about-border);
 	border-radius: var(--rpd-radius);
 	background: var(--rpd-white);
@@ -168,12 +168,12 @@
 
 .rpd-about-focus-card h3 {
 	max-width: 16rem;
-	margin-top: 1.65rem;
-	font-size: clamp(1.2rem, 1.6vw, 1.45rem);
+	margin-top: 1.35rem;
+	font-size: clamp(1.1rem, 1.35vw, 1.28rem);
 }
 
 .rpd-about-focus-card p {
-	margin: 1.35rem 0 0;
+	margin: 1.1rem 0 0;
 	font-size: var(--rpd-font-size-base);
 }
 
@@ -194,12 +194,12 @@
 }
 
 .rpd-about-icon--community::before {
-	width: 1.35rem;
+	width: 1.5rem;
 	height: 1.1rem;
 	border: 2px solid currentColor;
-	border-top: 0;
-	border-radius: 0 0 1rem 1rem;
-	box-shadow: -0.42rem -0.35rem 0 -0.18rem currentColor, 0.42rem -0.35rem 0 -0.18rem currentColor;
+	border-radius: 0.35rem 0.35rem 0.7rem 0.7rem;
+	box-shadow: -0.48rem -0.28rem 0 -0.22rem currentColor, 0.48rem -0.28rem 0 -0.22rem currentColor;
+	transform: translateY(0.1rem);
 }
 
 .rpd-about-icon--learning {
@@ -208,11 +208,19 @@
 }
 
 .rpd-about-icon--learning::before {
-	width: 1.45rem;
-	height: 1rem;
+	width: 1.55rem;
+	height: 1.18rem;
 	border: 2px solid currentColor;
-	border-radius: 50% 50% 45% 45%;
-	transform: rotate(8deg);
+	border-radius: 0.18rem 0.18rem 0.5rem 0.5rem;
+	box-shadow: inset 0 -0.28rem 0 rgba(161, 84, 161, 0.16);
+}
+
+.rpd-about-icon--learning::after {
+	width: 1.2rem;
+	height: 0.25rem;
+	margin-top: -0.24rem;
+	border-radius: 999px;
+	background: currentColor;
 }
 
 .rpd-about-icon--outcomes {
@@ -230,14 +238,14 @@
 
 .rpd-about-checklist__grid {
 	display: grid;
-	grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-	gap: clamp(3rem, 8vw, 7.5rem);
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+	gap: clamp(2.75rem, 5.8vw, 5.35rem);
 	align-items: center;
 }
 
 .rpd-about-checklist__copy h2 {
-	max-width: 36rem;
-	font-size: clamp(2.15rem, 3.9vw, 3.4rem);
+	max-width: 40rem;
+	font-size: clamp(2.05rem, 3.1vw, 2.8rem);
 }
 
 .rpd-about-checklist__copy > p {
@@ -287,6 +295,11 @@
 
 .rpd-about-checklist__media {
 	position: relative;
+	overflow: hidden;
+	aspect-ratio: 1.42;
+	border-radius: 0.75rem;
+	background: #d8e4ec;
+	box-shadow: var(--rpd-shadow-md);
 }
 
 .rpd-about-checklist__media::after {
@@ -305,10 +318,16 @@
 .rpd-about-checklist__fallback {
 	display: block;
 	width: 100%;
+	height: 100%;
 	aspect-ratio: 1.5;
 	border-radius: 0.75rem;
-	box-shadow: var(--rpd-shadow-md);
 	object-fit: cover;
+}
+
+.rpd-about-checklist__image {
+	filter: saturate(1.16) contrast(1.08);
+	transform: scale(2.35);
+	transform-origin: 20% 80%;
 }
 
 .rpd-about-checklist__fallback {
@@ -358,12 +377,12 @@
 .rpd-about-district h2 {
 	max-width: 57rem;
 	margin-inline: auto;
-	font-size: clamp(2.45rem, 5vw, 4.35rem);
+	font-size: clamp(2.15rem, 3.75vw, 3.25rem);
 }
 
 .rpd-about-district .rpd-about-copy {
 	max-width: 58rem;
-	margin: 2.4rem auto 0;
+	margin: 2rem auto 0;
 }
 
 .rpd-about-district p {
@@ -385,17 +404,17 @@
 }
 
 .rpd-about-platform h2 {
-	font-size: clamp(2rem, 3.8vw, 3.35rem);
+	font-size: clamp(2rem, 3.1vw, 2.8rem);
 }
 
 .rpd-about-platform__body {
 	max-width: 48rem;
-	margin: 2rem auto 0;
+	margin: 1.75rem auto 0;
 }
 
 .rpd-about-belief-card {
-	margin-top: 3rem;
-	padding: clamp(2.25rem, 4vw, 3.5rem) clamp(2rem, 5vw, 4.75rem);
+	margin-top: 2.6rem;
+	padding: clamp(2.15rem, 3.6vw, 3.2rem) clamp(1.85rem, 4.5vw, 4.25rem);
 	border: 1px solid var(--about-border);
 	border-radius: 0.75rem;
 	background: var(--rpd-white);
@@ -429,15 +448,16 @@
 .rpd-about-beliefs li::before {
 	position: absolute;
 	left: 0;
-	top: -0.15rem;
+	top: -0.12rem;
 	width: 2.25rem;
 	height: 2.25rem;
 	border-radius: 50%;
-	background: rgba(85, 82, 177, 0.1);
-	color: var(--rpd-purple);
+	background: rgba(253, 185, 51, 0.22);
+	color: var(--about-ink);
+	font-weight: 900;
 	text-align: center;
 	line-height: 2.25rem;
-	content: "○";
+	content: "✓";
 }
 
 .rpd-about-belief-card > p {
@@ -574,7 +594,7 @@
 }
 
 .rpd-about-final-cta h2 {
-	font-size: clamp(2.25rem, 4.8vw, 4rem);
+	font-size: clamp(2.2rem, 4.2vw, 3.45rem);
 }
 
 .rpd-about-final-cta p {
@@ -593,6 +613,7 @@
 
 .rpd-about-final-cta__actions .rpd-btn {
 	min-width: 14.25rem;
+	border-radius: 0.65rem;
 }
 
 @media (max-width: 1023px) {

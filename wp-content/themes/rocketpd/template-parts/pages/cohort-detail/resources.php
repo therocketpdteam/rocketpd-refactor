@@ -28,8 +28,9 @@ if ( ! $resources ) {
 <section class="rpd-cohort-resources" id="free-resources">
 	<div class="rpd-container">
 		<header class="rpd-cohort-section-header">
-			<p class="rpd-cohort-kicker"><?php esc_html_e( 'Free resources from Kim Marshall', 'rocketpd' ); ?></p>
-			<h2><?php esc_html_e( 'Start exploring the work now.', 'rocketpd' ); ?></h2>
+			<p class="rpd-cohort-kicker"><?php esc_html_e( 'Free resources', 'rocketpd' ); ?></p>
+			<h2><?php esc_html_e( 'Free resources from Kim Marshall.', 'rocketpd' ); ?></h2>
+			<span><?php esc_html_e( 'Want a head start? These free resources from Kim are the best way to preview the ideas you will practice in the cohort.', 'rocketpd' ); ?></span>
 		</header>
 		<?php if ( $guide && ( ! empty( $guide['title'] ) || ! empty( $guide['summary'] ) ) ) : ?>
 			<article class="rpd-cohort-featured-resource">

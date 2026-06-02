@@ -13,15 +13,6 @@ $instructor = function_exists( 'rocketpd_get_current_instructor_detail' ) ? rock
 $name       = $instructor['name'] ?? __( 'Kim Marshall', 'rocketpd' );
 $first_name = function_exists( 'rocketpd_get_instructor_first_name' ) ? rocketpd_get_instructor_first_name( $name ) : trim( strtok( $name, ' ' ) );
 $faqs       = isset( $instructor['faqs'] ) && is_array( $instructor['faqs'] ) ? $instructor['faqs'] : array();
-$faq_intro  = isset( $instructor['faq_intro'] ) && is_array( $instructor['faq_intro'] ) ? $instructor['faq_intro'] : array();
-$faq_heading = ! empty( $faq_intro['heading'] ) ? $faq_intro['heading'] : sprintf(
-	/* translators: %s: instructor first name. */
-	__( 'Questions leaders ask about learning with %s.', 'rocketpd' ),
-	$first_name
-);
-$faq_help_text = ! empty( $faq_intro['help_text'] ) ? $faq_intro['help_text'] : __( 'Need help deciding?', 'rocketpd' );
-$faq_contact_label = ! empty( $faq_intro['contact_label'] ) ? $faq_intro['contact_label'] : __( 'Talk with the RocketPD team.', 'rocketpd' );
-$faq_contact_url = ! empty( $faq_intro['contact_url'] ) ? $faq_intro['contact_url'] : home_url( '/contact/' );
 
 if ( ! $faqs ) {
 	return;
@@ -32,12 +23,18 @@ if ( ! $faqs ) {
 	<div class="rpd-container rpd-instructor-split">
 		<div class="rpd-instructor-split__intro">
 			<p class="rpd-instructor-section-kicker"><?php esc_html_e( 'FAQ', 'rocketpd' ); ?></p>
-			<h2><?php echo esc_html( $faq_heading ); ?></h2>
+			<h2>
+				<?php
+				printf(
+					/* translators: %s: instructor first name. */
+					esc_html__( 'Questions leaders ask about learning with %s.', 'rocketpd' ),
+					esc_html( $first_name )
+				);
+				?>
+			</h2>
 			<p>
-				<?php echo esc_html( $faq_help_text ); ?>
-				<?php if ( $faq_contact_label && $faq_contact_url ) : ?>
-					<a href="<?php echo esc_url( $faq_contact_url ); ?>"><?php echo esc_html( $faq_contact_label ); ?></a>
-				<?php endif; ?>
+				<?php esc_html_e( 'Need help deciding?', 'rocketpd' ); ?>
+				<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Talk with the RocketPD team.', 'rocketpd' ); ?></a>
 			</p>
 		</div>
 		<div class="rpd-instructor-faq__list" data-rpd-instructor-faq>
