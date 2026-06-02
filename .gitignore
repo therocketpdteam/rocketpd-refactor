@@ -5,7 +5,7 @@ wp-config.php
 .env
 .env.local
 
-.vscode/sftp.json
+.vscode/
 
 wp-content/uploads/
 wp-content/cache/
