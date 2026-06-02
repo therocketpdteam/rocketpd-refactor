@@ -12,7 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 $instructor = function_exists( 'rocketpd_get_current_instructor_detail' ) ? rocketpd_get_current_instructor_detail() : array();
 $name       = $instructor['name'] ?? __( 'Kim Marshall', 'rocketpd' );
 $first_name = function_exists( 'rocketpd_get_instructor_first_name' ) ? rocketpd_get_instructor_first_name( $name ) : trim( strtok( $name, ' ' ) );
-$resources  = isset( $instructor['resources'] ) && is_array( $instructor['resources'] ) ? $instructor['resources'] : array();
 $guide      = $instructor['guide'] ?? array();
 $podcast    = $instructor['podcast'] ?? array();
 $webinar    = $instructor['webinar'] ?? array();
@@ -21,20 +20,6 @@ $has_guide  = ! empty( $guide['enabled'] );
 $has_podcast = ! empty( $podcast['enabled'] );
 $has_webinar = ! empty( $webinar['enabled'] );
 $has_blog   = ! empty( $blog['enabled'] ) && ! empty( $blog['posts'] ) && is_array( $blog['posts'] );
-$resources_eyebrow = ! empty( $resources['eyebrow'] ) ? $resources['eyebrow'] : __( 'Free resources', 'rocketpd' );
-$resources_heading = ! empty( $resources['heading'] ) ? $resources['heading'] : sprintf(
-	/* translators: %s: instructor first name. */
-	__( "Start exploring %s's work - free.", 'rocketpd' ),
-	$first_name
-);
-$resources_body = ! empty( $resources['body'] ) ? $resources['body'] : __( 'Read, watch, and listen. Every resource below is designed to help school leaders take a single concrete step this week.', 'rocketpd' );
-$guide_eyebrow = ! empty( $guide['eyebrow'] ) ? $guide['eyebrow'] : __( 'Featured Guide - Free', 'rocketpd' );
-$guide_primary_label = ! empty( $guide['primary_label'] ) ? $guide['primary_label'] : __( 'Get the Free Guide', 'rocketpd' );
-$guide_secondary_label = ! empty( $guide['secondary_label'] ) ? $guide['secondary_label'] : __( 'Preview a sample chapter', 'rocketpd' );
-$blog_eyebrow = ! empty( $blog['eyebrow'] ) ? $blog['eyebrow'] : __( 'LATEST FROM THE BLOG', 'rocketpd' );
-$blog_heading = ! empty( $blog['heading'] ) ? $blog['heading'] : sprintf( __( 'Recent articles featuring %s', 'rocketpd' ), $first_name );
-$blog_cta_label = ! empty( $blog['cta_label'] ) ? $blog['cta_label'] : __( 'See all articles', 'rocketpd' );
-$blog_cta_url = ! empty( $blog['cta_url'] ) ? $blog['cta_url'] : home_url( '/resources/' );
 
 if ( ! $has_guide && ! $has_podcast && ! $has_webinar && ! $has_blog ) {
 	return;
@@ -44,9 +29,17 @@ if ( ! $has_guide && ! $has_podcast && ! $has_webinar && ! $has_blog ) {
 <section class="rpd-instructor-resources" id="free-resources">
 	<div class="rpd-container">
 		<header class="rpd-instructor-section-header">
-			<p class="rpd-instructor-section-kicker"><?php echo esc_html( $resources_eyebrow ); ?></p>
-			<h2><?php echo esc_html( $resources_heading ); ?></h2>
-			<p><?php echo esc_html( $resources_body ); ?></p>
+			<p class="rpd-instructor-section-kicker"><?php esc_html_e( 'Free resources', 'rocketpd' ); ?></p>
+			<h2>
+				<?php
+				printf(
+					/* translators: %s: instructor first name. */
+					esc_html__( "Start exploring %s's work - free.", 'rocketpd' ),
+					esc_html( $first_name )
+				);
+				?>
+			</h2>
+			<p><?php esc_html_e( 'Read, watch, and listen. Every resource below is designed to help school leaders take a single concrete step this week.', 'rocketpd' ); ?></p>
 		</header>
 
 		<?php if ( $has_guide ) : ?>
@@ -58,7 +51,7 @@ if ( ! $has_guide && ! $has_podcast && ! $has_webinar && ! $has_blog ) {
 							<path d="M8 19.5h9.5M8.25 8h6.25M8.25 11h5"/>
 						</svg>
 					</span>
-					<p><?php echo esc_html( $guide_eyebrow ); ?></p>
+					<p><?php esc_html_e( 'Featured Guide - Free', 'rocketpd' ); ?></p>
 					<h3><?php echo esc_html( $guide['title'] ?? '' ); ?></h3>
 					<span><?php echo esc_html( $guide['meta'] ?? '' ); ?></span>
 				</div>
@@ -73,8 +66,8 @@ if ( ! $has_guide && ! $has_podcast && ! $has_webinar && ! $has_blog ) {
 					<?php endif; ?>
 					<?php if ( ! empty( $guide['href'] ) ) : ?>
 						<div class="rpd-instructor-resource-actions">
-							<a class="rpd-btn rpd-btn--gold" href="<?php echo esc_url( $guide['href'] ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $guide_primary_label ); ?> <span aria-hidden="true">→</span></a>
-							<a class="rpd-btn rpd-btn--outline-purple" href="<?php echo esc_url( $guide['href'] ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $guide_secondary_label ); ?></a>
+							<a class="rpd-btn rpd-btn--gold" href="<?php echo esc_url( $guide['href'] ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Get the Free Guide', 'rocketpd' ); ?> <span aria-hidden="true">→</span></a>
+							<a class="rpd-btn rpd-btn--outline-purple" href="<?php echo esc_url( $guide['href'] ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Preview a sample chapter', 'rocketpd' ); ?></a>
 						</div>
 					<?php endif; ?>
 				</div>
@@ -91,7 +84,6 @@ if ( ! $has_guide && ! $has_podcast && ! $has_webinar && ! $has_blog ) {
 						<?php
 						$embed_id      = $resource['embed_id'] ?? '';
 						$thumbnail_url = $embed_id ? 'https://img.youtube.com/vi/' . rawurlencode( $embed_id ) . '/hqdefault.jpg' : '';
-						$resource_cta_label = ! empty( $resource['cta_label'] ) ? $resource['cta_label'] : ( 'podcast' === $type ? __( 'Listen on YouTube', 'rocketpd' ) : __( 'Watch the webinar', 'rocketpd' ) );
 						?>
 						<div class="rpd-instructor-embed"<?php echo $thumbnail_url ? ' style="--rpd-instructor-embed-poster: url(' . esc_url( $thumbnail_url ) . ');"' : ''; ?>>
 							<iframe loading="lazy" src="<?php echo esc_url( 'https://www.youtube-nocookie.com/embed/' . rawurlencode( $resource['embed_id'] ?? '' ) ); ?>" title="<?php echo esc_attr( $resource['title'] ?? sprintf( 'podcast' === $type ? __( '%s podcast episode', 'rocketpd' ) : __( '%s webinar', 'rocketpd' ), $name ) ); ?>" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -102,7 +94,7 @@ if ( ! $has_guide && ! $has_podcast && ! $has_webinar && ! $has_blog ) {
 							<span><?php echo esc_html( $resource['summary'] ?? '' ); ?></span>
 							<?php if ( ! empty( $resource['href'] ) ) : ?>
 								<a href="<?php echo esc_url( $resource['href'] ); ?>" target="_blank" rel="noopener noreferrer">
-									<?php echo esc_html( $resource_cta_label ); ?>
+									<?php echo 'podcast' === $type ? esc_html__( 'Listen on YouTube', 'rocketpd' ) : esc_html__( 'Watch the webinar', 'rocketpd' ); ?>
 									<span aria-hidden="true">-></span>
 								</a>
 							<?php endif; ?>
@@ -115,11 +107,11 @@ if ( ! $has_guide && ! $has_podcast && ! $has_webinar && ! $has_blog ) {
 		<?php if ( $has_blog ) : ?>
 			<div class="rpd-instructor-blog-header">
 				<div>
-					<p class="rpd-instructor-section-kicker"><?php echo esc_html( $blog_eyebrow ); ?></p>
-					<h3><?php echo esc_html( $blog_heading ); ?></h3>
+					<p class="rpd-instructor-section-kicker"><?php esc_html_e( 'LATEST FROM THE BLOG', 'rocketpd' ); ?></p>
+					<h3><?php echo esc_html( sprintf( __( 'Recent articles featuring %s', 'rocketpd' ), $first_name ) ); ?></h3>
 				</div>
-				<a class="rpd-instructor-blog-header__link" href="<?php echo esc_url( $blog_cta_url ); ?>">
-					<?php echo esc_html( $blog_cta_label ); ?> <span aria-hidden="true">&rarr;</span>
+				<a class="rpd-instructor-blog-header__link" href="<?php echo esc_url( home_url( '/resources/' ) ); ?>">
+					<?php esc_html_e( 'See all articles', 'rocketpd' ); ?> <span aria-hidden="true">&rarr;</span>
 				</a>
 			</div>
 			<div class="rpd-instructor-blog-grid">

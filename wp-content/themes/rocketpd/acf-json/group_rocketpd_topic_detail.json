@@ -57,7 +57,7 @@
             "key": "field_rpd_topic_detail_primary_cta_url",
             "label": "Primary CTA URL",
             "name": "rpd_topic_detail_primary_cta_url",
-            "type": "url"
+            "type": "text"
         },
         {
             "key": "field_rpd_topic_detail_secondary_cta_label",
@@ -69,7 +69,7 @@
             "key": "field_rpd_topic_detail_secondary_cta_url",
             "label": "Secondary CTA URL",
             "name": "rpd_topic_detail_secondary_cta_url",
-            "type": "url"
+            "type": "text"
         },
         {
             "key": "field_rpd_topic_detail_tab_overview",
@@ -122,6 +122,66 @@
                     "name": "body",
                     "type": "textarea",
                     "rows": 5
+                },
+                {
+                    "key": "field_rpd_topic_detail_overview_section_callout_title",
+                    "label": "Callout Title",
+                    "name": "callout_title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_topic_detail_overview_section_callout_body",
+                    "label": "Callout Body",
+                    "name": "callout_body",
+                    "type": "textarea",
+                    "rows": 3
+                },
+                {
+                    "key": "field_rpd_topic_detail_overview_section_callout_icon",
+                    "label": "Callout Icon",
+                    "name": "callout_icon",
+                    "type": "select",
+                    "choices": {
+                        "book": "Book",
+                        "brain": "Brain",
+                        "bulb": "Bulb",
+                        "calculator": "Calculator",
+                        "calendar": "Calendar",
+                        "cap": "Cap",
+                        "chat": "Chat",
+                        "clipboard": "Clipboard",
+                        "crown": "Crown",
+                        "file": "File",
+                        "heart": "Heart",
+                        "megaphone": "Megaphone",
+                        "pencil": "Pencil",
+                        "pulse": "Pulse",
+                        "puzzle": "Puzzle",
+                        "screen": "Screen",
+                        "shield": "Shield",
+                        "spark": "Spark",
+                        "stethoscope": "Stethoscope",
+                        "target": "Target",
+                        "users": "Users",
+                        "webinar": "Webinar"
+                    },
+                    "default_value": "spark",
+                    "allow_null": 1,
+                    "ui": 1,
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_rpd_topic_detail_overview_section_quote_text",
+                    "label": "Quote Text",
+                    "name": "quote_text",
+                    "type": "textarea",
+                    "rows": 3
+                },
+                {
+                    "key": "field_rpd_topic_detail_overview_section_quote_attribution",
+                    "label": "Quote Attribution",
+                    "name": "quote_attribution",
+                    "type": "text"
                 }
             ]
         },
@@ -162,6 +222,72 @@
             ]
         },
         {
+            "key": "field_rpd_topic_detail_tab_expert",
+            "label": "Featured Expert",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_topic_detail_expert_name",
+            "label": "Expert Name",
+            "name": "rpd_topic_detail_expert_name",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_topic_detail_expert_title",
+            "label": "Expert Title",
+            "name": "rpd_topic_detail_expert_title",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_topic_detail_expert_image",
+            "label": "Expert Image",
+            "name": "rpd_topic_detail_expert_image",
+            "type": "image",
+            "return_format": "url",
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_rpd_topic_detail_expert_quote",
+            "label": "Expert Quote",
+            "name": "rpd_topic_detail_expert_quote",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "field_rpd_topic_detail_expert_bio",
+            "label": "Expert Bio",
+            "name": "rpd_topic_detail_expert_bio",
+            "type": "textarea",
+            "rows": 4
+        },
+        {
+            "key": "field_rpd_topic_detail_expert_linkedin",
+            "label": "Expert LinkedIn URL",
+            "name": "rpd_topic_detail_expert_linkedin",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_topic_detail_expert_website",
+            "label": "Expert Website URL",
+            "name": "rpd_topic_detail_expert_website",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_topic_detail_expert_profile_href",
+            "label": "Expert Profile URL",
+            "name": "rpd_topic_detail_expert_profile_href",
+            "type": "text"
+        },
+        {
+            "key": "field_rpd_topic_detail_expert_cohort_href",
+            "label": "Expert Cohort URL",
+            "name": "rpd_topic_detail_expert_cohort_href",
+            "type": "text"
+        },
+        {
             "key": "field_rpd_topic_detail_tab_cards",
             "label": "Cards & Lists",
             "name": "",
@@ -176,6 +302,39 @@
             "type": "repeater",
             "button_label": "Add benefit",
             "sub_fields": [
+                {
+                    "key": "field_rpd_topic_detail_why_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "choices": {
+                        "book": "Book",
+                        "brain": "Brain",
+                        "bulb": "Bulb",
+                        "calculator": "Calculator",
+                        "calendar": "Calendar",
+                        "cap": "Cap",
+                        "chat": "Chat",
+                        "clipboard": "Clipboard",
+                        "crown": "Crown",
+                        "file": "File",
+                        "heart": "Heart",
+                        "megaphone": "Megaphone",
+                        "pencil": "Pencil",
+                        "pulse": "Pulse",
+                        "puzzle": "Puzzle",
+                        "screen": "Screen",
+                        "shield": "Shield",
+                        "spark": "Spark",
+                        "stethoscope": "Stethoscope",
+                        "target": "Target",
+                        "users": "Users",
+                        "webinar": "Webinar"
+                    },
+                    "default_value": "spark",
+                    "ui": 1,
+                    "return_format": "value"
+                },
                 {
                     "key": "field_rpd_topic_detail_why_title",
                     "label": "Title",
@@ -199,6 +358,42 @@
             "button_label": "Add resource",
             "sub_fields": [
                 {
+                    "key": "field_rpd_topic_detail_resource_type",
+                    "label": "Type",
+                    "name": "type",
+                    "type": "select",
+                    "choices": {
+                        "Guide": "Guide",
+                        "Course": "Course",
+                        "Cohort": "Cohort",
+                        "Podcast": "Podcast",
+                        "Webinar": "Webinar",
+                        "Blog": "Blog",
+                        "Playbook": "Playbook",
+                        "Video": "Video",
+                        "Download": "Download"
+                    },
+                    "default_value": "Guide",
+                    "ui": 1,
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_rpd_topic_detail_resource_tone",
+                    "label": "Tone",
+                    "name": "tone",
+                    "type": "select",
+                    "choices": {
+                        "blue": "Blue",
+                        "gold": "Gold",
+                        "magenta": "Magenta",
+                        "emerald": "Emerald",
+                        "navy": "Navy"
+                    },
+                    "default_value": "blue",
+                    "ui": 1,
+                    "return_format": "value"
+                },
+                {
                     "key": "field_rpd_topic_detail_resource_title",
                     "label": "Title",
                     "name": "title",
@@ -210,6 +405,24 @@
                     "name": "description",
                     "type": "textarea",
                     "rows": 3
+                },
+                {
+                    "key": "field_rpd_topic_detail_resource_meta",
+                    "label": "Meta",
+                    "name": "meta",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_topic_detail_resource_instructor",
+                    "label": "Instructor",
+                    "name": "instructor",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_topic_detail_resource_href",
+                    "label": "URL",
+                    "name": "href",
+                    "type": "text"
                 }
             ]
         },
@@ -220,6 +433,37 @@
             "type": "repeater",
             "button_label": "Add opportunity",
             "sub_fields": [
+                {
+                    "key": "field_rpd_topic_detail_opportunity_format",
+                    "label": "Format",
+                    "name": "format",
+                    "type": "select",
+                    "choices": {
+                        "Live-Virtual Cohort": "Live-Virtual Cohort",
+                        "Free Webinar": "Free Webinar",
+                        "Self-Paced": "Self-Paced",
+                        "Workshop": "Workshop"
+                    },
+                    "default_value": "Live-Virtual Cohort",
+                    "ui": 1,
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_rpd_topic_detail_opportunity_tone",
+                    "label": "Tone",
+                    "name": "tone",
+                    "type": "select",
+                    "choices": {
+                        "blue": "Blue",
+                        "gold": "Gold",
+                        "magenta": "Magenta",
+                        "emerald": "Emerald",
+                        "navy": "Navy"
+                    },
+                    "default_value": "blue",
+                    "ui": 1,
+                    "return_format": "value"
+                },
                 {
                     "key": "field_rpd_topic_detail_opportunity_title",
                     "label": "Title",
@@ -232,6 +476,18 @@
                     "name": "meta",
                     "type": "textarea",
                     "rows": 2
+                },
+                {
+                    "key": "field_rpd_topic_detail_opportunity_price",
+                    "label": "Price",
+                    "name": "price",
+                    "type": "text"
+                },
+                {
+                    "key": "field_rpd_topic_detail_opportunity_href",
+                    "label": "URL",
+                    "name": "href",
+                    "type": "text"
                 }
             ]
         },
@@ -242,6 +498,39 @@
             "type": "repeater",
             "button_label": "Add framework",
             "sub_fields": [
+                {
+                    "key": "field_rpd_topic_detail_framework_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "choices": {
+                        "book": "Book",
+                        "brain": "Brain",
+                        "bulb": "Bulb",
+                        "calculator": "Calculator",
+                        "calendar": "Calendar",
+                        "cap": "Cap",
+                        "chat": "Chat",
+                        "clipboard": "Clipboard",
+                        "crown": "Crown",
+                        "file": "File",
+                        "heart": "Heart",
+                        "megaphone": "Megaphone",
+                        "pencil": "Pencil",
+                        "pulse": "Pulse",
+                        "puzzle": "Puzzle",
+                        "screen": "Screen",
+                        "shield": "Shield",
+                        "spark": "Spark",
+                        "stethoscope": "Stethoscope",
+                        "target": "Target",
+                        "users": "Users",
+                        "webinar": "Webinar"
+                    },
+                    "default_value": "spark",
+                    "ui": 1,
+                    "return_format": "value"
+                },
                 {
                     "key": "field_rpd_topic_detail_framework_title",
                     "label": "Title",
@@ -254,6 +543,12 @@
                     "name": "body",
                     "type": "textarea",
                     "rows": 3
+                },
+                {
+                    "key": "field_rpd_topic_detail_framework_href",
+                    "label": "URL",
+                    "name": "href",
+                    "type": "text"
                 }
             ]
         },
@@ -310,7 +605,7 @@
             "key": "field_rpd_topic_detail_final_primary_url",
             "label": "Final Primary URL",
             "name": "rpd_topic_detail_final_primary_url",
-            "type": "url"
+            "type": "text"
         },
         {
             "key": "field_rpd_topic_detail_final_secondary_label",
@@ -322,7 +617,7 @@
             "key": "field_rpd_topic_detail_final_secondary_url",
             "label": "Final Secondary URL",
             "name": "rpd_topic_detail_final_secondary_url",
-            "type": "url"
+            "type": "text"
         }
     ],
     "location": [

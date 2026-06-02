@@ -40,7 +40,9 @@ function rocketpd_get_field( $field_name, $fallback = '', $post_id = 0 ) {
 	if ( function_exists( 'get_field' ) ) {
 		$value = get_field( $field_name, $post_id ?: false );
 
-		if ( null !== $value && '' !== $value && array() !== $value ) {
+		// null or false = field never saved — use fallback.
+		// Any other value (including '', [], 0) = intentional editor input — use as-is.
+		if ( null !== $value && false !== $value ) {
 			return $value;
 		}
 	}
@@ -58,10 +60,25 @@ function rocketpd_get_field( $field_name, $fallback = '', $post_id = 0 ) {
  * @return array
  */
 function rocketpd_get_repeater_rows( $field_name, $fallback = array(), $required_keys = array(), $post_id = 0 ) {
-	$rows = rocketpd_get_field( $field_name, array(), $post_id );
+	$rows = rocketpd_get_field( $field_name, null, $post_id );
+
+	// ACF field has never been saved — use PHP fallback.
+	if ( null === $rows ) {
+		return $fallback;
+	}
+
+	// ACF returned false — field exists but was cleared by editor.
+	if ( false === $rows ) {
+		return array();
+	}
 
 	if ( ! is_array( $rows ) ) {
 		return $fallback;
+	}
+
+	// ACF field exists but has no rows — editor intentionally cleared it.
+	if ( empty( $rows ) ) {
+		return array();
 	}
 
 	$filtered = array();
@@ -81,7 +98,8 @@ function rocketpd_get_repeater_rows( $field_name, $fallback = array(), $required
 		}
 	}
 
-	return $filtered ?: $fallback;
+	// Rows exist in ACF but all were blank — treat as intentionally empty.
+	return $filtered ?: array();
 }
 
 /**

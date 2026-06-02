@@ -12,20 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 $instructor = function_exists( 'rocketpd_get_current_instructor_detail' ) ? rocketpd_get_current_instructor_detail() : array();
 $name       = $instructor['name'] ?? __( 'Kim Marshall', 'rocketpd' );
 $first_name = function_exists( 'rocketpd_get_instructor_first_name' ) ? rocketpd_get_instructor_first_name( $name ) : trim( strtok( $name, ' ' ) );
-$learning   = isset( $instructor['learning'] ) && is_array( $instructor['learning'] ) ? $instructor['learning'] : array();
 $offerings  = isset( $instructor['offerings'] ) && is_array( $instructor['offerings'] ) ? array_filter(
 	$instructor['offerings'],
 	function ( $offering ) {
 		return ! empty( $offering['enabled'] );
 	}
 ) : array();
-$learning_eyebrow = ! empty( $learning['eyebrow'] ) ? $learning['eyebrow'] : __( 'Go deeper', 'rocketpd' );
-$learning_heading = ! empty( $learning['heading'] ) ? $learning['heading'] : sprintf(
-	/* translators: %s: instructor first name. */
-	__( 'Work with %s through RocketPD.', 'rocketpd' ),
-	$first_name
-);
-$learning_body = ! empty( $learning['body'] ) ? $learning['body'] : __( 'Three flexible ways to bring this work directly into your school or district.', 'rocketpd' );
 
 if ( ! $offerings ) {
 	return;
@@ -35,9 +27,17 @@ if ( ! $offerings ) {
 <section class="rpd-instructor-learning" id="professional-learning">
 	<div class="rpd-container">
 		<header class="rpd-instructor-section-header">
-			<p class="rpd-instructor-section-kicker"><?php echo esc_html( $learning_eyebrow ); ?></p>
-			<h2><?php echo esc_html( $learning_heading ); ?></h2>
-			<p><?php echo esc_html( $learning_body ); ?></p>
+			<p class="rpd-instructor-section-kicker"><?php esc_html_e( 'Go deeper', 'rocketpd' ); ?></p>
+			<h2>
+				<?php
+				printf(
+					/* translators: %s: instructor first name. */
+					esc_html__( 'Work with %s through RocketPD.', 'rocketpd' ),
+					esc_html( $first_name )
+				);
+				?>
+			</h2>
+			<p><?php esc_html_e( 'Three flexible ways to bring this work directly into your school or district.', 'rocketpd' ); ?></p>
 		</header>
 		<div class="rpd-instructor-offerings">
 			<?php foreach ( $offerings as $key => $offering ) : ?>
