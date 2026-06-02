@@ -23,3 +23,5 @@ wp-content/themes/salient-child/
 *.tar.gzwp-content/themes/index.php
 
 /wp-content/themes/index.php
+
+**/.gitignore
