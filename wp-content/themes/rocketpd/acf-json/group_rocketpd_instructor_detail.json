@@ -48,7 +48,7 @@
       "label": "Hero Eyebrow",
       "name": "rpd_instructor_hero_eyebrow",
       "type": "text",
-      "default_value": "RocketPD Instructor · Featured Expert"
+      "default_value": "RocketPD Instructor \u00b7 Featured Expert"
     },
     {
       "key": "field_rpd_instructor_hero_primary_label",
@@ -283,7 +283,7 @@
       "key": "field_rpd_instructor_guide_href",
       "label": "Guide URL",
       "name": "rpd_instructor_guide_href",
-      "type": "url",
+      "type": "text",
       "conditional_logic": [
         [
           {
@@ -418,7 +418,7 @@
       "key": "field_rpd_instructor_podcast_href",
       "label": "Podcast URL",
       "name": "rpd_instructor_podcast_href",
-      "type": "url",
+      "type": "text",
       "conditional_logic": [
         [
           {
@@ -520,7 +520,7 @@
       "key": "field_rpd_instructor_webinar_href",
       "label": "Webinar URL",
       "name": "rpd_instructor_webinar_href",
-      "type": "url",
+      "type": "text",
       "conditional_logic": [
         [
           {
@@ -608,7 +608,7 @@
       "key": "field_rpd_instructor_blog_cta_url",
       "label": "Blog CTA URL",
       "name": "rpd_instructor_blog_cta_url",
-      "type": "url",
+      "type": "text",
       "instructions": "Internal or external URL for the blog section link. Leave blank to use /resources/.",
       "conditional_logic": [
         [
@@ -652,7 +652,7 @@
           "key": "field_rpd_instructor_blog_post_href",
           "label": "URL",
           "name": "href",
-          "type": "url"
+          "type": "text"
         },
         {
           "key": "field_rpd_instructor_blog_post_placeholder",
@@ -751,7 +751,7 @@
       "key": "field_rpd_instructor_launchpad_href",
       "label": "LaunchPad URL",
       "name": "rpd_instructor_launchpad_href",
-      "type": "url"
+      "type": "text"
     },
     {
       "key": "field_rpd_instructor_launchpad_cta",
@@ -814,7 +814,7 @@
       "key": "field_rpd_instructor_cohort_href",
       "label": "Cohort URL",
       "name": "rpd_instructor_cohort_href",
-      "type": "url"
+      "type": "text"
     },
     {
       "key": "field_rpd_instructor_cohort_cta",
@@ -861,7 +861,7 @@
       "key": "field_rpd_instructor_workshop_href",
       "label": "Workshop URL",
       "name": "rpd_instructor_workshop_href",
-      "type": "url"
+      "type": "text"
     },
     {
       "key": "field_rpd_instructor_workshop_cta",
@@ -1000,7 +1000,7 @@
           "key": "field_rpd_instructor_related_headshot",
           "label": "Headshot URL",
           "name": "headshot",
-          "type": "url"
+          "type": "text"
         }
       ],
       "instructions": "Manual fallback related expert cards. A future pass may replace this with an Instructor relationship field."
@@ -1091,7 +1091,7 @@
       "key": "field_rpd_instructor_faq_contact_url",
       "label": "FAQ Contact Link URL",
       "name": "rpd_instructor_faq_contact_url",
-      "type": "url",
+      "type": "text",
       "instructions": "Destination for the FAQ intro contact link. Leave blank to use /contact/."
     },
     {
