@@ -469,11 +469,11 @@ add_action( 'save_post', 'rocketpd_seed_course_acf_fields' );
  *   resync  — overwrite ACF fields on existing posts if true
  */
 function rocketpd_seed_course_posts() {
-	if ( ! function_exists( 'rocketpd_get_courses' ) ) {
+	if ( ! function_exists( 'rocketpd_get_course_seed_data' ) ) {
 		return;
 	}
 
-	foreach ( rocketpd_get_courses() as $course ) {
+	foreach ( rocketpd_get_course_seed_data() as $course ) {
 		if ( empty( $course['enabled'] ) ) {
 			continue;
 		}
