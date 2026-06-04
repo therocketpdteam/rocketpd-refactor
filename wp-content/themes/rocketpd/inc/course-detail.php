@@ -90,6 +90,7 @@ function rocketpd_get_course_detail_fallback() {
 			),
 		),
 		'audienceIntro'    => __( 'If your job touches teacher growth - whether you observe, coach, supervise, or support - this course is built for you. Many districts run it together as a leadership team.', 'rocketpd' ),
+		'outcomesHeading'  => __( "Three concrete shifts you'll be ready to make on Monday.", 'rocketpd' ),
 		'included'         => array(
 			'self-paced' => array(
 				'heading' => __( 'Every RocketPD self-paced course includes', 'rocketpd' ),
@@ -377,8 +378,9 @@ function rocketpd_get_current_course_detail() {
 	);
 
 	// Outcomes.
-	$course['audienceIntro'] = get_field( 'rpd_course_audience_intro', $post_id );
-	$course['outcomes']      = get_field( 'rpd_course_outcomes', $post_id ) ?: array();
+	$course['outcomesHeading'] = get_field( 'rpd_course_outcomes_heading', $post_id ) ?: __( "Three concrete shifts you'll be ready to make on Monday.", 'rocketpd' );
+	$course['audienceIntro']   = get_field( 'rpd_course_audience_intro', $post_id ) ?? '';
+	$course['outcomes']        = get_field( 'rpd_course_outcomes', $post_id ) ?: array();
 
 	// Included.
 	$format                           = $course['format'] ?: 'self-paced';

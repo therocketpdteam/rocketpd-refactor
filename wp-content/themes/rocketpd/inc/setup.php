@@ -373,6 +373,7 @@ function rocketpd_seed_course_acf_fields( $post_id ) {
 	}
 
 	// Outcomes.
+	update_field( 'rpd_course_outcomes_heading', $d['outcomesHeading'] ?? '', $post_id );
 	update_field( 'rpd_course_audience_intro', $d['audienceIntro'] ?? '', $post_id );
 
 	if ( ! empty( $d['outcomes'] ) ) {

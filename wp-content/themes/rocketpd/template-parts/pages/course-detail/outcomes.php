@@ -21,7 +21,7 @@ if ( ! $outcomes ) {
 	<div class="rpd-container">
 		<header class="rpd-course-section-header">
 			<p><?php esc_html_e( "What You'll Learn", 'rocketpd' ); ?></p>
-			<h2><?php esc_html_e( "Three concrete shifts you'll be ready to make on Monday.", 'rocketpd' ); ?></h2>
+			<h2><?php echo esc_html( $course['outcomesHeading'] ?? __( "Three concrete shifts you'll be ready to make on Monday.", 'rocketpd' ) ); ?></h2>
 		</header>
 		<div class="rpd-course-outcomes__grid">
 			<?php foreach ( array_slice( $outcomes, 0, 3 ) as $index => $outcome ) : ?>

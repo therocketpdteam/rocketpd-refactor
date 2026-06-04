@@ -225,6 +225,14 @@
       "placement": "top"
     },
     {
+      "key": "field_rpd_course_outcomes_heading",
+      "label": "Outcomes Heading",
+      "name": "rpd_course_outcomes_heading",
+      "type": "text",
+      "default_value": "Three concrete shifts you'll be ready to make on Monday.",
+      "instructions": "Main heading above the outcomes cards."
+    },
+    {
       "key": "field_rpd_course_audience_intro",
       "label": "Audience Intro",
       "name": "rpd_course_audience_intro",
