@@ -314,36 +314,166 @@ function rocketpd_normalize_course_detail_related_cards( $course ) {
 /**
  * Return course detail data for the current page.
  *
+ * Sentinel pattern: if rpd_course_title is null/false the post has never been
+ * seeded — return the full fallback. Once seeded, every ACF value is honoured
+ * as-is, including empty strings and empty repeaters.
+ *
  * @return array
  */
 function rocketpd_get_current_course_detail() {
 	$fallback = rocketpd_get_course_detail_fallback();
 
-	if ( is_singular( 'course' ) ) {
-		$fallback['slug']    = get_post_field( 'post_name', get_the_ID() ) ?: $fallback['slug'];
-		$fallback['title']   = get_the_title() ?: $fallback['title'];
-		$fallback['promise'] = has_excerpt() ? get_the_excerpt() : $fallback['promise'];
-
-		if ( has_post_thumbnail() ) {
-			$fallback['courseImage'] = get_the_post_thumbnail_url( get_the_ID(), 'large' );
-		}
-	}
-
-	if ( ! function_exists( 'get_field' ) ) {
+	if ( ! is_singular( 'course' ) || ! function_exists( 'get_field' ) ) {
 		return rocketpd_normalize_course_detail_related_cards( $fallback );
 	}
 
-	$override = array(
-		'title'            => rocketpd_get_field( 'rpd_course_title', '' ),
-		'format'           => rocketpd_get_field( 'rpd_course_format', '' ),
-		'price'            => rocketpd_get_field( 'rpd_course_price', '' ),
-		'priceMeta'        => rocketpd_get_field( 'rpd_course_price_meta', '' ),
-		'promise'          => rocketpd_get_field( 'rpd_course_promise', '' ),
-		'trailerYouTubeId' => rocketpd_get_field( 'rpd_course_trailer_youtube_id', '' ),
-		'topic'            => rocketpd_get_field( 'rpd_course_topic', '' ),
+	// Sentinel: null/false means never seeded — use full fallback.
+	$sentinel = get_field( 'rpd_course_title' );
+	if ( null === $sentinel || false === $sentinel ) {
+		$fallback['slug'] = get_post_field( 'post_name', get_the_ID() ) ?: $fallback['slug'];
+		return rocketpd_normalize_course_detail_related_cards( $fallback );
+	}
+
+	// Post has been seeded — read all ACF fields directly, honour every value.
+	$post_id = get_the_ID();
+
+	// Hero.
+	$course                   = array();
+	$course['slug']           = get_post_field( 'post_name', $post_id ) ?: $fallback['slug'];
+	$course['title']          = get_field( 'rpd_course_title', $post_id );
+	$course['format']         = get_field( 'rpd_course_format', $post_id );
+	$course['topic']          = get_field( 'rpd_course_topic', $post_id );
+	$course['price']          = get_field( 'rpd_course_price', $post_id );
+	$course['priceMeta']      = get_field( 'rpd_course_price_meta', $post_id );
+	$course['promise']        = get_field( 'rpd_course_promise', $post_id );
+	$course['trailerYouTubeId'] = get_field( 'rpd_course_trailer_youtube_id', $post_id );
+	$course['courseImage']    = get_field( 'rpd_course_image', $post_id ) ?: '';
+
+	$audience_rows = get_field( 'rpd_course_audiences', $post_id );
+	$course['audiences'] = is_array( $audience_rows )
+		? array_column( $audience_rows, 'label' )
+		: array();
+
+	$course['primaryCta'] = array(
+		'label' => get_field( 'rpd_course_primary_cta_label', $post_id ),
+		'href'  => get_field( 'rpd_course_primary_cta_href', $post_id ),
+	);
+	$course['secondaryCta'] = array(
+		'label' => get_field( 'rpd_course_secondary_cta_label', $post_id ),
+		'href'  => get_field( 'rpd_course_secondary_cta_href', $post_id ),
+	);
+	$course['meta'] = get_field( 'rpd_course_meta_items', $post_id ) ?: array();
+
+	// Instructor.
+	$course['instructor'] = array(
+		'name'        => get_field( 'rpd_course_instructor_name', $post_id ),
+		'slug'        => get_field( 'rpd_course_instructor_slug', $post_id ),
+		'headshot'    => get_field( 'rpd_course_instructor_headshot', $post_id ) ?: '',
+		'title'       => get_field( 'rpd_course_instructor_title', $post_id ),
+		'roleLine'    => get_field( 'rpd_course_instructor_role_line', $post_id ),
+		'bio'         => get_field( 'rpd_course_instructor_bio', $post_id ),
+		'specialties' => array_column( get_field( 'rpd_course_instructor_specialties', $post_id ) ?: array(), 'label' ),
+		'href'        => get_field( 'rpd_course_instructor_href', $post_id ),
 	);
 
-	return rocketpd_normalize_course_detail_related_cards( rocketpd_course_detail_merge( $fallback, $override ) );
+	// Outcomes.
+	$course['audienceIntro'] = get_field( 'rpd_course_audience_intro', $post_id );
+	$course['outcomes']      = get_field( 'rpd_course_outcomes', $post_id ) ?: array();
+
+	// Included.
+	$format                           = $course['format'] ?: 'self-paced';
+	$included_heading                 = get_field( 'rpd_course_included_heading', $post_id );
+	$included_visual                  = get_field( 'rpd_course_included_visual', $post_id );
+	$included_items                   = get_field( 'rpd_course_included_items', $post_id );
+	$course['included'][$format] = array(
+		'heading' => $included_heading ?: ( $fallback['included'][$format]['heading'] ?? '' ),
+		'visual'  => $included_visual  ?: ( $fallback['included'][$format]['visual']  ?? '' ),
+		'items'   => is_array( $included_items ) && count( $included_items ) > 0
+			? $included_items
+			: ( $fallback['included'][$format]['items'] ?? array() ),
+	);
+
+	// Resources.
+	$course['resources'] = array(
+		'guide' => array(
+			'enabled'      => (bool) get_field( 'rpd_course_guide_enabled', $post_id ),
+			'title'        => get_field( 'rpd_course_guide_title', $post_id ),
+			'meta'         => get_field( 'rpd_course_guide_meta', $post_id ),
+			'summary'      => get_field( 'rpd_course_guide_summary', $post_id ),
+			'href'         => get_field( 'rpd_course_guide_href', $post_id ),
+			'deliverables' => array_column( get_field( 'rpd_course_guide_deliverables', $post_id ) ?: array(), 'text' ),
+		),
+		'podcast' => array(
+			'enabled'  => (bool) get_field( 'rpd_course_podcast_enabled', $post_id ),
+			'title'    => get_field( 'rpd_course_podcast_title', $post_id ),
+			'meta'     => get_field( 'rpd_course_podcast_meta', $post_id ),
+			'summary'  => get_field( 'rpd_course_podcast_summary', $post_id ),
+			'embedId'  => get_field( 'rpd_course_podcast_embed_id', $post_id ),
+			'href'     => get_field( 'rpd_course_podcast_href', $post_id ),
+		),
+		'webinar' => array(
+			'enabled'  => (bool) get_field( 'rpd_course_webinar_enabled', $post_id ),
+			'title'    => get_field( 'rpd_course_webinar_title', $post_id ),
+			'meta'     => get_field( 'rpd_course_webinar_meta', $post_id ),
+			'summary'  => get_field( 'rpd_course_webinar_summary', $post_id ),
+			'embedId'  => get_field( 'rpd_course_webinar_embed_id', $post_id ),
+			'href'     => get_field( 'rpd_course_webinar_href', $post_id ),
+		),
+		'blog' => array(
+			'enabled' => (bool) get_field( 'rpd_course_blog_enabled', $post_id ),
+			'title'   => get_field( 'rpd_course_blog_title', $post_id ),
+			'meta'    => get_field( 'rpd_course_blog_meta', $post_id ),
+			'summary' => get_field( 'rpd_course_blog_summary', $post_id ),
+			'href'    => get_field( 'rpd_course_blog_href', $post_id ),
+		),
+		'playbook' => $fallback['resources']['playbook'] ?? array( 'enabled' => false ),
+	);
+
+	// Pricing — use ACF cards if any rows exist, else format-based fallback.
+	$pricing_rows = get_field( 'rpd_course_pricing_cards', $post_id );
+	if ( is_array( $pricing_rows ) && count( $pricing_rows ) > 0 ) {
+		$cards = array();
+		foreach ( $pricing_rows as $row ) {
+			$bullets = array_filter( array_map( 'trim', explode( "\n", $row['bullets'] ?? '' ) ) );
+			$cards[] = array(
+				'eyebrow'     => $row['eyebrow']     ?? '',
+				'title'       => $row['title']       ?? '',
+				'price'       => $row['price']       ?? '',
+				'priceMeta'   => $row['price_meta']  ?? '',
+				'bullets'     => array_values( $bullets ),
+				'ctaLabel'    => $row['cta_label']   ?? '',
+				'ctaHref'     => $row['cta_href']    ?? '',
+				'highlighted' => ! empty( $row['highlighted'] ),
+			);
+		}
+		$course['pricing'] = array( $format => $cards );
+	} else {
+		$course['pricing'] = $fallback['pricing'];
+	}
+
+	// Related — use ACF rows if any exist, else fallback.
+	$related_rows = get_field( 'rpd_course_related', $post_id );
+	$course['related'] = ( is_array( $related_rows ) && count( $related_rows ) > 0 )
+		? $related_rows
+		: $fallback['related'];
+
+	// FAQs — use ACF rows if any exist, else fallback.
+	$faq_rows = get_field( 'rpd_course_faqs', $post_id );
+	$course['faqs'] = ( is_array( $faq_rows ) && count( $faq_rows ) > 0 )
+		? $faq_rows
+		: $fallback['faqs'];
+
+	// Final CTA.
+	$course['finalCta'] = array(
+		'headline'       => get_field( 'rpd_course_final_headline', $post_id ),
+		'body'           => get_field( 'rpd_course_final_body', $post_id ),
+		'primaryLabel'   => get_field( 'rpd_course_final_primary_label', $post_id ),
+		'primaryHref'    => get_field( 'rpd_course_final_primary_href', $post_id ),
+		'secondaryLabel' => get_field( 'rpd_course_final_secondary_label', $post_id ),
+		'secondaryHref'  => get_field( 'rpd_course_final_secondary_href', $post_id ),
+	);
+
+	return rocketpd_normalize_course_detail_related_cards( $course );
 }
 
 /**

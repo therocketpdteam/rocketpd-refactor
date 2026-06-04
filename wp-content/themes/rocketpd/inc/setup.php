@@ -298,6 +298,168 @@ function rocketpd_seed_topic_acf_fields( $post_id ) {
 add_action( 'save_post', 'rocketpd_seed_topic_acf_fields' );
 
 /**
+ * Seed ACF fields for a new course post with the Kim Marshall fallback data.
+ * Fires on first save only — skips if fields are already populated.
+ *
+ * @param int $post_id Post ID.
+ */
+function rocketpd_seed_course_acf_fields( $post_id ) {
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+
+	if ( 'course' !== get_post_type( $post_id ) ) {
+		return;
+	}
+
+	if ( ! function_exists( 'update_field' ) || ! function_exists( 'get_field' ) ) {
+		return;
+	}
+
+	if ( ! function_exists( 'rocketpd_get_course_detail_fallback' ) ) {
+		return;
+	}
+
+	// Only seed if the title field is null/false — proxy for "never been populated".
+	$sentinel = get_field( 'rpd_course_title', $post_id );
+	if ( null !== $sentinel && false !== $sentinel ) {
+		return;
+	}
+
+	$d = rocketpd_get_course_detail_fallback();
+
+	if ( empty( $d ) ) {
+		return;
+	}
+
+	// Hero.
+	update_field( 'rpd_course_title', $d['title'] ?? '', $post_id );
+	update_field( 'rpd_course_format', $d['format'] ?? 'self-paced', $post_id );
+	update_field( 'rpd_course_topic', $d['topic'] ?? '', $post_id );
+	update_field( 'rpd_course_price', $d['price'] ?? '', $post_id );
+	update_field( 'rpd_course_price_meta', $d['priceMeta'] ?? '', $post_id );
+	update_field( 'rpd_course_promise', $d['promise'] ?? '', $post_id );
+	update_field( 'rpd_course_trailer_youtube_id', $d['trailerYouTubeId'] ?? '', $post_id );
+	update_field( 'rpd_course_primary_cta_label', $d['primaryCta']['label'] ?? '', $post_id );
+	update_field( 'rpd_course_primary_cta_href', $d['primaryCta']['href'] ?? '', $post_id );
+	update_field( 'rpd_course_secondary_cta_label', $d['secondaryCta']['label'] ?? '', $post_id );
+	update_field( 'rpd_course_secondary_cta_href', $d['secondaryCta']['href'] ?? '', $post_id );
+
+	if ( ! empty( $d['audiences'] ) ) {
+		$audience_rows = array_map( function( $a ) { return array( 'label' => $a ); }, $d['audiences'] );
+		update_field( 'rpd_course_audiences', $audience_rows, $post_id );
+	}
+
+	if ( ! empty( $d['meta'] ) ) {
+		update_field( 'rpd_course_meta_items', $d['meta'], $post_id );
+	}
+
+	// Instructor.
+	$ins = $d['instructor'] ?? array();
+	update_field( 'rpd_course_instructor_name', $ins['name'] ?? '', $post_id );
+	update_field( 'rpd_course_instructor_slug', $ins['slug'] ?? '', $post_id );
+	update_field( 'rpd_course_instructor_title', $ins['title'] ?? '', $post_id );
+	update_field( 'rpd_course_instructor_role_line', $ins['roleLine'] ?? '', $post_id );
+	update_field( 'rpd_course_instructor_bio', $ins['bio'] ?? '', $post_id );
+	update_field( 'rpd_course_instructor_href', $ins['href'] ?? '', $post_id );
+
+	if ( ! empty( $ins['specialties'] ) ) {
+		$specialty_rows = array_map( function( $s ) { return array( 'label' => $s ); }, $ins['specialties'] );
+		update_field( 'rpd_course_instructor_specialties', $specialty_rows, $post_id );
+	}
+
+	// Outcomes.
+	update_field( 'rpd_course_audience_intro', $d['audienceIntro'] ?? '', $post_id );
+
+	if ( ! empty( $d['outcomes'] ) ) {
+		update_field( 'rpd_course_outcomes', $d['outcomes'], $post_id );
+	}
+
+	// Included — seed the format-specific set.
+	$format   = $d['format'] ?? 'self-paced';
+	$included = $d['included'][$format] ?? array();
+	update_field( 'rpd_course_included_heading', $included['heading'] ?? '', $post_id );
+
+	if ( ! empty( $included['items'] ) ) {
+		update_field( 'rpd_course_included_items', $included['items'], $post_id );
+	}
+
+	// Resources.
+	$res = $d['resources'] ?? array();
+	update_field( 'rpd_course_guide_enabled', ! empty( $res['guide']['enabled'] ) ? 1 : 0, $post_id );
+	update_field( 'rpd_course_guide_title', $res['guide']['title'] ?? '', $post_id );
+	update_field( 'rpd_course_guide_meta', $res['guide']['meta'] ?? '', $post_id );
+	update_field( 'rpd_course_guide_summary', $res['guide']['summary'] ?? '', $post_id );
+	update_field( 'rpd_course_guide_href', $res['guide']['href'] ?? '', $post_id );
+
+	if ( ! empty( $res['guide']['deliverables'] ) ) {
+		$deliverable_rows = array_map( function( $t ) { return array( 'text' => $t ); }, $res['guide']['deliverables'] );
+		update_field( 'rpd_course_guide_deliverables', $deliverable_rows, $post_id );
+	}
+
+	update_field( 'rpd_course_podcast_enabled', ! empty( $res['podcast']['enabled'] ) ? 1 : 0, $post_id );
+	update_field( 'rpd_course_podcast_title', $res['podcast']['title'] ?? '', $post_id );
+	update_field( 'rpd_course_podcast_meta', $res['podcast']['meta'] ?? '', $post_id );
+	update_field( 'rpd_course_podcast_summary', $res['podcast']['summary'] ?? '', $post_id );
+	update_field( 'rpd_course_podcast_href', $res['podcast']['href'] ?? '', $post_id );
+
+	update_field( 'rpd_course_webinar_enabled', ! empty( $res['webinar']['enabled'] ) ? 1 : 0, $post_id );
+	update_field( 'rpd_course_webinar_title', $res['webinar']['title'] ?? '', $post_id );
+	update_field( 'rpd_course_webinar_meta', $res['webinar']['meta'] ?? '', $post_id );
+	update_field( 'rpd_course_webinar_summary', $res['webinar']['summary'] ?? '', $post_id );
+	update_field( 'rpd_course_webinar_href', $res['webinar']['href'] ?? '', $post_id );
+
+	update_field( 'rpd_course_blog_enabled', ! empty( $res['blog']['enabled'] ) ? 1 : 0, $post_id );
+	update_field( 'rpd_course_blog_title', $res['blog']['title'] ?? '', $post_id );
+	update_field( 'rpd_course_blog_meta', $res['blog']['meta'] ?? '', $post_id );
+	update_field( 'rpd_course_blog_summary', $res['blog']['summary'] ?? '', $post_id );
+	update_field( 'rpd_course_blog_href', $res['blog']['href'] ?? '', $post_id );
+
+	// Pricing — seed self-paced cards.
+	$pricing_cards = $d['pricing'][$format] ?? array();
+	if ( ! empty( $pricing_cards ) ) {
+		$card_rows = array();
+		foreach ( $pricing_cards as $card ) {
+			$card_rows[] = array(
+				'eyebrow'     => $card['eyebrow']     ?? '',
+				'title'       => $card['title']       ?? '',
+				'price'       => $card['price']       ?? '',
+				'price_meta'  => $card['priceMeta']   ?? '',
+				'bullets'     => implode( "\n", (array) ( $card['bullets'] ?? array() ) ),
+				'cta_label'   => $card['ctaLabel']    ?? '',
+				'cta_href'    => $card['ctaHref']     ?? '',
+				'highlighted' => ! empty( $card['highlighted'] ) ? 1 : 0,
+			);
+		}
+		update_field( 'rpd_course_pricing_cards', $card_rows, $post_id );
+	}
+
+	// Related.
+	if ( ! empty( $d['related'] ) ) {
+		update_field( 'rpd_course_related', $d['related'], $post_id );
+	}
+
+	// FAQs.
+	if ( ! empty( $d['faqs'] ) ) {
+		update_field( 'rpd_course_faqs', $d['faqs'], $post_id );
+	}
+
+	// Final CTA.
+	$cta = $d['finalCta'] ?? array();
+	update_field( 'rpd_course_final_headline', $cta['headline'] ?? '', $post_id );
+	update_field( 'rpd_course_final_body', $cta['body'] ?? '', $post_id );
+	update_field( 'rpd_course_final_primary_label', $cta['primaryLabel'] ?? '', $post_id );
+	update_field( 'rpd_course_final_primary_href', $cta['primaryHref'] ?? '', $post_id );
+	update_field( 'rpd_course_final_secondary_label', $cta['secondaryLabel'] ?? '', $post_id );
+	update_field( 'rpd_course_final_secondary_href', $cta['secondaryHref'] ?? '', $post_id );
+}
+add_action( 'save_post', 'rocketpd_seed_course_acf_fields' );
+
+/**
  * Populate ACF fields for an instructor post from seed data.
  *
  * @param int    $post_id WordPress post ID.

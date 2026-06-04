@@ -1,107 +1,731 @@
 {
-    "key": "group_rocketpd_course_detail",
-    "title": "RocketPD Course Detail",
-    "fields": [
+  "key": "group_rocketpd_course_detail",
+  "title": "RocketPD Course Detail",
+  "fields": [
+    {
+      "key": "field_rpd_course_tab_hero",
+      "label": "Hero",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_rpd_course_title",
+      "label": "Course Title",
+      "name": "rpd_course_title",
+      "type": "text",
+      "default_value": "Rethinking Teacher Supervision, Coaching & Evaluation"
+    },
+    {
+      "key": "field_rpd_course_format",
+      "label": "Format",
+      "name": "rpd_course_format",
+      "type": "select",
+      "choices": {
+        "webinar": "Free Webinar",
+        "self-paced": "Self-Paced Course",
+        "cohort": "Live-Virtual Cohort"
+      },
+      "default_value": "self-paced"
+    },
+    {
+      "key": "field_rpd_course_topic",
+      "label": "Topic",
+      "name": "rpd_course_topic",
+      "type": "text",
+      "default_value": "Teacher Evaluation"
+    },
+    {
+      "key": "field_rpd_course_price",
+      "label": "Price",
+      "name": "rpd_course_price",
+      "type": "text",
+      "default_value": "$49"
+    },
+    {
+      "key": "field_rpd_course_price_meta",
+      "label": "Price Meta",
+      "name": "rpd_course_price_meta",
+      "type": "text",
+      "default_value": "single course \u00b7 anytime access"
+    },
+    {
+      "key": "field_rpd_course_promise",
+      "label": "Promise",
+      "name": "rpd_course_promise",
+      "type": "textarea",
+      "rows": 4,
+      "default_value": "Build a more practical, trust-centered approach to teacher evaluation through frequent mini-observations, better feedback conversations, and stronger coaching systems."
+    },
+    {
+      "key": "field_rpd_course_trailer_youtube_id",
+      "label": "Trailer YouTube ID",
+      "name": "rpd_course_trailer_youtube_id",
+      "type": "text",
+      "default_value": "1lOJDsHcCPQ"
+    },
+    {
+      "key": "field_rpd_course_image",
+      "label": "Course Image",
+      "name": "rpd_course_image",
+      "type": "image",
+      "return_format": "url",
+      "preview_size": "medium",
+      "instructions": "Hero course image. If blank, falls back to instructor headshot."
+    },
+    {
+      "key": "field_rpd_course_audiences",
+      "label": "Audiences",
+      "name": "rpd_course_audiences",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Add Audience",
+      "sub_fields": [
         {
-            "key": "field_rpd_course_tab_hero",
-            "label": "Hero",
-            "name": "",
-            "type": "tab",
-            "placement": "top"
-        },
-        {
-            "key": "field_rpd_course_title",
-            "label": "Course Title",
-            "name": "rpd_course_title",
-            "type": "text",
-            "default_value": "Rethinking Teacher Supervision, Coaching & Evaluation"
-        },
-        {
-            "key": "field_rpd_course_format",
-            "label": "Format",
-            "name": "rpd_course_format",
-            "type": "select",
-            "choices": {
-                "webinar": "Free Webinar",
-                "self-paced": "Self-Paced Course",
-                "cohort": "Live-Virtual Cohort"
-            },
-            "default_value": "self-paced"
-        },
-        {
-            "key": "field_rpd_course_topic",
-            "label": "Topic",
-            "name": "rpd_course_topic",
-            "type": "text",
-            "default_value": "Teacher Evaluation"
-        },
-        {
-            "key": "field_rpd_course_price",
-            "label": "Price",
-            "name": "rpd_course_price",
-            "type": "text",
-            "default_value": "$49"
-        },
-        {
-            "key": "field_rpd_course_price_meta",
-            "label": "Price Meta",
-            "name": "rpd_course_price_meta",
-            "type": "text",
-            "default_value": "single course \u00b7 anytime access"
-        },
-        {
-            "key": "field_rpd_course_promise",
-            "label": "Promise",
-            "name": "rpd_course_promise",
-            "type": "textarea",
-            "rows": 4,
-            "default_value": "Build a more practical, trust-centered approach to teacher evaluation through frequent mini-observations, better feedback conversations, and stronger coaching systems."
-        },
-        {
-            "key": "field_rpd_course_trailer_youtube_id",
-            "label": "Trailer YouTube ID",
-            "name": "rpd_course_trailer_youtube_id",
-            "type": "text",
-            "default_value": "1lOJDsHcCPQ"
-        },
-        {
-            "key": "field_rpd_course_tab_sections",
-            "label": "Sections",
-            "name": "",
-            "type": "tab",
-            "placement": "top"
-        },
-        {
-            "key": "field_rpd_course_editor_note",
-            "label": "Editor Note",
-            "name": "rpd_course_editor_note",
-            "type": "message",
-            "message": "This first template renders from the theme fallback COURSE contract. Future CMS fields can map to outcomes, included items, resources, pricing, related courses, and FAQs without changing the front-end structure."
+          "key": "field_rpd_course_audience_label",
+          "label": "Audience",
+          "name": "label",
+          "type": "text"
         }
+      ],
+      "instructions": "Who this course is for. One entry per audience type."
+    },
+    {
+      "key": "field_rpd_course_primary_cta_label",
+      "label": "Primary CTA Label",
+      "name": "rpd_course_primary_cta_label",
+      "type": "text",
+      "default_value": "Start Learning"
+    },
+    {
+      "key": "field_rpd_course_primary_cta_href",
+      "label": "Primary CTA URL",
+      "name": "rpd_course_primary_cta_href",
+      "type": "text",
+      "default_value": "#pricing"
+    },
+    {
+      "key": "field_rpd_course_secondary_cta_label",
+      "label": "Secondary CTA Label",
+      "name": "rpd_course_secondary_cta_label",
+      "type": "text",
+      "default_value": "Watch Trailer"
+    },
+    {
+      "key": "field_rpd_course_secondary_cta_href",
+      "label": "Secondary CTA URL",
+      "name": "rpd_course_secondary_cta_href",
+      "type": "text",
+      "default_value": "#course-trailer"
+    },
+    {
+      "key": "field_rpd_course_meta_items",
+      "label": "Hero Meta Items",
+      "name": "rpd_course_meta_items",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Add Meta Item",
+      "sub_fields": [
+        {
+          "key": "field_rpd_course_meta_icon",
+          "label": "Icon",
+          "name": "icon",
+          "type": "text",
+          "instructions": "Icon key e.g. clock, video, file, award"
+        },
+        {
+          "key": "field_rpd_course_meta_label",
+          "label": "Label",
+          "name": "label",
+          "type": "text"
+        }
+      ],
+      "instructions": "Small icon+label items shown in the hero (e.g. 1 hour, 5 video modules)."
+    },
+    {
+      "key": "field_rpd_course_tab_instructor",
+      "label": "Instructor",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_rpd_course_instructor_name",
+      "label": "Instructor Name",
+      "name": "rpd_course_instructor_name",
+      "type": "text",
+      "default_value": "Kim Marshall"
+    },
+    {
+      "key": "field_rpd_course_instructor_slug",
+      "label": "Instructor Slug",
+      "name": "rpd_course_instructor_slug",
+      "type": "text",
+      "default_value": "kim-marshall",
+      "instructions": "Used to build the instructor profile link e.g. kim-marshall"
+    },
+    {
+      "key": "field_rpd_course_instructor_headshot",
+      "label": "Instructor Headshot",
+      "name": "rpd_course_instructor_headshot",
+      "type": "image",
+      "return_format": "url",
+      "preview_size": "thumbnail"
+    },
+    {
+      "key": "field_rpd_course_instructor_title",
+      "label": "Instructor Title",
+      "name": "rpd_course_instructor_title",
+      "type": "text",
+      "default_value": "K-12 Leadership Expert \u00b7 Marshall Memo Founder"
+    },
+    {
+      "key": "field_rpd_course_instructor_role_line",
+      "label": "Instructor Role Line",
+      "name": "rpd_course_instructor_role_line",
+      "type": "text",
+      "default_value": "Former principal, author, and nationally recognized school leadership coach"
+    },
+    {
+      "key": "field_rpd_course_instructor_bio",
+      "label": "Instructor Bio",
+      "name": "rpd_course_instructor_bio",
+      "type": "textarea",
+      "rows": 4
+    },
+    {
+      "key": "field_rpd_course_instructor_specialties",
+      "label": "Instructor Specialties",
+      "name": "rpd_course_instructor_specialties",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Add Specialty",
+      "sub_fields": [
+        {
+          "key": "field_rpd_course_instructor_specialty_label",
+          "label": "Specialty",
+          "name": "label",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "key": "field_rpd_course_instructor_href",
+      "label": "Instructor Profile URL",
+      "name": "rpd_course_instructor_href",
+      "type": "text",
+      "default_value": "/instructors/kim-marshall/",
+      "instructions": "Relative path to the instructor profile page."
+    },
+    {
+      "key": "field_rpd_course_tab_outcomes",
+      "label": "Outcomes",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_rpd_course_audience_intro",
+      "label": "Audience Intro",
+      "name": "rpd_course_audience_intro",
+      "type": "textarea",
+      "rows": 3,
+      "instructions": "Short paragraph describing who the course is built for."
+    },
+    {
+      "key": "field_rpd_course_outcomes",
+      "label": "Outcomes",
+      "name": "rpd_course_outcomes",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Add Outcome",
+      "sub_fields": [
+        {
+          "key": "field_rpd_course_outcome_title",
+          "label": "Title",
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "key": "field_rpd_course_outcome_summary",
+          "label": "Summary",
+          "name": "summary",
+          "type": "textarea",
+          "rows": 3
+        }
+      ]
+    },
+    {
+      "key": "field_rpd_course_tab_included",
+      "label": "Included",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_rpd_course_included_heading",
+      "label": "Included Heading",
+      "name": "rpd_course_included_heading",
+      "type": "text",
+      "instructions": "Heading above the included items list. Leave blank to use format-based fallback."
+    },
+    {
+      "key": "field_rpd_course_included_visual",
+      "label": "Included Visual",
+      "name": "rpd_course_included_visual",
+      "type": "image",
+      "return_format": "url",
+      "preview_size": "medium",
+      "instructions": "Image shown beside the included items list."
+    },
+    {
+      "key": "field_rpd_course_included_items",
+      "label": "Included Items",
+      "name": "rpd_course_included_items",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Add Item",
+      "sub_fields": [
+        {
+          "key": "field_rpd_course_included_item_icon",
+          "label": "Icon",
+          "name": "icon",
+          "type": "text",
+          "instructions": "Icon key e.g. clock, layers, book, award, screen, users"
+        },
+        {
+          "key": "field_rpd_course_included_item_label",
+          "label": "Label",
+          "name": "label",
+          "type": "text"
+        }
+      ],
+      "instructions": "What is included in this course. Leave empty to use format-based fallback items."
+    },
+    {
+      "key": "field_rpd_course_tab_resources",
+      "label": "Resources",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_rpd_course_guide_enabled",
+      "label": "Guide Enabled",
+      "name": "rpd_course_guide_enabled",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 1
+    },
+    {
+      "key": "field_rpd_course_guide_title",
+      "label": "Guide Title",
+      "name": "rpd_course_guide_title",
+      "type": "text",
+      "conditional_logic": [[{"field": "field_rpd_course_guide_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_guide_meta",
+      "label": "Guide Meta",
+      "name": "rpd_course_guide_meta",
+      "type": "text",
+      "conditional_logic": [[{"field": "field_rpd_course_guide_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_guide_summary",
+      "label": "Guide Summary",
+      "name": "rpd_course_guide_summary",
+      "type": "textarea",
+      "rows": 3,
+      "conditional_logic": [[{"field": "field_rpd_course_guide_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_guide_href",
+      "label": "Guide URL",
+      "name": "rpd_course_guide_href",
+      "type": "text",
+      "conditional_logic": [[{"field": "field_rpd_course_guide_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_guide_deliverables",
+      "label": "Guide Deliverables",
+      "name": "rpd_course_guide_deliverables",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Add Deliverable",
+      "sub_fields": [
+        {
+          "key": "field_rpd_course_guide_deliverable_text",
+          "label": "Deliverable",
+          "name": "text",
+          "type": "text"
+        }
+      ],
+      "conditional_logic": [[{"field": "field_rpd_course_guide_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_podcast_enabled",
+      "label": "Podcast Enabled",
+      "name": "rpd_course_podcast_enabled",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 1
+    },
+    {
+      "key": "field_rpd_course_podcast_title",
+      "label": "Podcast Title",
+      "name": "rpd_course_podcast_title",
+      "type": "text",
+      "conditional_logic": [[{"field": "field_rpd_course_podcast_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_podcast_meta",
+      "label": "Podcast Meta",
+      "name": "rpd_course_podcast_meta",
+      "type": "text",
+      "conditional_logic": [[{"field": "field_rpd_course_podcast_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_podcast_summary",
+      "label": "Podcast Summary",
+      "name": "rpd_course_podcast_summary",
+      "type": "textarea",
+      "rows": 3,
+      "conditional_logic": [[{"field": "field_rpd_course_podcast_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_podcast_embed_id",
+      "label": "Podcast YouTube Embed ID",
+      "name": "rpd_course_podcast_embed_id",
+      "type": "text",
+      "conditional_logic": [[{"field": "field_rpd_course_podcast_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_podcast_href",
+      "label": "Podcast URL",
+      "name": "rpd_course_podcast_href",
+      "type": "text",
+      "conditional_logic": [[{"field": "field_rpd_course_podcast_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_webinar_enabled",
+      "label": "Webinar Enabled",
+      "name": "rpd_course_webinar_enabled",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 1
+    },
+    {
+      "key": "field_rpd_course_webinar_title",
+      "label": "Webinar Title",
+      "name": "rpd_course_webinar_title",
+      "type": "text",
+      "conditional_logic": [[{"field": "field_rpd_course_webinar_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_webinar_meta",
+      "label": "Webinar Meta",
+      "name": "rpd_course_webinar_meta",
+      "type": "text",
+      "conditional_logic": [[{"field": "field_rpd_course_webinar_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_webinar_summary",
+      "label": "Webinar Summary",
+      "name": "rpd_course_webinar_summary",
+      "type": "textarea",
+      "rows": 3,
+      "conditional_logic": [[{"field": "field_rpd_course_webinar_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_webinar_embed_id",
+      "label": "Webinar YouTube Embed ID",
+      "name": "rpd_course_webinar_embed_id",
+      "type": "text",
+      "conditional_logic": [[{"field": "field_rpd_course_webinar_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_webinar_href",
+      "label": "Webinar URL",
+      "name": "rpd_course_webinar_href",
+      "type": "text",
+      "conditional_logic": [[{"field": "field_rpd_course_webinar_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_blog_enabled",
+      "label": "Blog Enabled",
+      "name": "rpd_course_blog_enabled",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 1
+    },
+    {
+      "key": "field_rpd_course_blog_title",
+      "label": "Blog Title",
+      "name": "rpd_course_blog_title",
+      "type": "text",
+      "conditional_logic": [[{"field": "field_rpd_course_blog_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_blog_meta",
+      "label": "Blog Meta",
+      "name": "rpd_course_blog_meta",
+      "type": "text",
+      "conditional_logic": [[{"field": "field_rpd_course_blog_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_blog_summary",
+      "label": "Blog Summary",
+      "name": "rpd_course_blog_summary",
+      "type": "textarea",
+      "rows": 3,
+      "conditional_logic": [[{"field": "field_rpd_course_blog_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_blog_href",
+      "label": "Blog URL",
+      "name": "rpd_course_blog_href",
+      "type": "text",
+      "conditional_logic": [[{"field": "field_rpd_course_blog_enabled", "operator": "==", "value": "1"}]]
+    },
+    {
+      "key": "field_rpd_course_tab_pricing",
+      "label": "Pricing",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_rpd_course_pricing_cards",
+      "label": "Pricing Cards",
+      "name": "rpd_course_pricing_cards",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Add Pricing Card",
+      "sub_fields": [
+        {
+          "key": "field_rpd_course_pricing_eyebrow",
+          "label": "Eyebrow",
+          "name": "eyebrow",
+          "type": "text"
+        },
+        {
+          "key": "field_rpd_course_pricing_title",
+          "label": "Title",
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "key": "field_rpd_course_pricing_price",
+          "label": "Price",
+          "name": "price",
+          "type": "text"
+        },
+        {
+          "key": "field_rpd_course_pricing_price_meta",
+          "label": "Price Meta",
+          "name": "price_meta",
+          "type": "text"
+        },
+        {
+          "key": "field_rpd_course_pricing_bullets",
+          "label": "Bullets",
+          "name": "bullets",
+          "type": "textarea",
+          "rows": 4,
+          "instructions": "One bullet per line."
+        },
+        {
+          "key": "field_rpd_course_pricing_cta_label",
+          "label": "CTA Label",
+          "name": "cta_label",
+          "type": "text"
+        },
+        {
+          "key": "field_rpd_course_pricing_cta_href",
+          "label": "CTA URL",
+          "name": "cta_href",
+          "type": "text"
+        },
+        {
+          "key": "field_rpd_course_pricing_highlighted",
+          "label": "Highlighted",
+          "name": "highlighted",
+          "type": "true_false",
+          "ui": 1,
+          "default_value": 0,
+          "instructions": "Renders this card as the featured/raised option."
+        }
+      ],
+      "instructions": "Leave empty to use format-based fallback pricing cards."
+    },
+    {
+      "key": "field_rpd_course_tab_related",
+      "label": "Related",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_rpd_course_related",
+      "label": "Related Courses",
+      "name": "rpd_course_related",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Add Related Course",
+      "sub_fields": [
+        {
+          "key": "field_rpd_course_related_slug",
+          "label": "Slug",
+          "name": "slug",
+          "type": "text"
+        },
+        {
+          "key": "field_rpd_course_related_title",
+          "label": "Title",
+          "name": "title",
+          "type": "text"
+        },
+        {
+          "key": "field_rpd_course_related_instructor",
+          "label": "Instructor",
+          "name": "instructor",
+          "type": "text"
+        },
+        {
+          "key": "field_rpd_course_related_format",
+          "label": "Format",
+          "name": "format",
+          "type": "select",
+          "choices": {
+            "webinar": "Free Webinar",
+            "self-paced": "Self-Paced Course",
+            "cohort": "Live-Virtual Cohort"
+          }
+        },
+        {
+          "key": "field_rpd_course_related_price",
+          "label": "Price",
+          "name": "price",
+          "type": "text"
+        },
+        {
+          "key": "field_rpd_course_related_topic",
+          "label": "Topic",
+          "name": "topic",
+          "type": "text"
+        },
+        {
+          "key": "field_rpd_course_related_image",
+          "label": "Image",
+          "name": "image",
+          "type": "image",
+          "return_format": "url",
+          "preview_size": "thumbnail"
+        },
+        {
+          "key": "field_rpd_course_related_href",
+          "label": "URL",
+          "name": "href",
+          "type": "text"
+        }
+      ],
+      "instructions": "Leave empty to use fallback related courses."
+    },
+    {
+      "key": "field_rpd_course_tab_faq",
+      "label": "FAQ & Final CTA",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_rpd_course_faqs",
+      "label": "FAQs",
+      "name": "rpd_course_faqs",
+      "type": "repeater",
+      "layout": "block",
+      "button_label": "Add FAQ",
+      "sub_fields": [
+        {
+          "key": "field_rpd_course_faq_question",
+          "label": "Question",
+          "name": "question",
+          "type": "text"
+        },
+        {
+          "key": "field_rpd_course_faq_answer",
+          "label": "Answer",
+          "name": "answer",
+          "type": "textarea",
+          "rows": 3
+        }
+      ],
+      "instructions": "Leave empty to use fallback FAQs."
+    },
+    {
+      "key": "field_rpd_course_final_headline",
+      "label": "Final CTA Headline",
+      "name": "rpd_course_final_headline",
+      "type": "text",
+      "default_value": "Ready to rethink teacher evaluation?"
+    },
+    {
+      "key": "field_rpd_course_final_body",
+      "label": "Final CTA Body",
+      "name": "rpd_course_final_body",
+      "type": "textarea",
+      "rows": 3
+    },
+    {
+      "key": "field_rpd_course_final_primary_label",
+      "label": "Primary Button Label",
+      "name": "rpd_course_final_primary_label",
+      "type": "text"
+    },
+    {
+      "key": "field_rpd_course_final_primary_href",
+      "label": "Primary Button URL",
+      "name": "rpd_course_final_primary_href",
+      "type": "text",
+      "default_value": "#pricing"
+    },
+    {
+      "key": "field_rpd_course_final_secondary_label",
+      "label": "Secondary Button Label",
+      "name": "rpd_course_final_secondary_label",
+      "type": "text"
+    },
+    {
+      "key": "field_rpd_course_final_secondary_href",
+      "label": "Secondary Button URL",
+      "name": "rpd_course_final_secondary_href",
+      "type": "text"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_template",
+        "operator": "==",
+        "value": "page-templates/template-course-detail.php"
+      }
     ],
-    "location": [
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "page-templates/template-course-detail.php"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "course"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "active": true,
-    "description": "Fields for RocketPD individual course detail pages and course records.",
-    "show_in_rest": 0,
-    "modified": 1715900000
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "course"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true,
+  "description": "Fields for RocketPD individual course detail pages and course records.",
+  "show_in_rest": 0,
+  "modified": 1749081600
 }
