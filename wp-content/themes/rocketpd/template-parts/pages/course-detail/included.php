@@ -64,9 +64,12 @@ if ( ! $items ) {
 				</div>
 				<div class="rpd-course-device-card__laptop" aria-hidden="true">
 					<div>
-						<?php if ( ! empty( $included['visual'] ) ) : ?>
-							<img src="<?php echo esc_url( $included['visual'] ); ?>" alt="">
-						<?php endif; ?>
+						<?php
+						$visual = ! empty( $included['visual'] ) ? $included['visual'] : ( $course['instructor']['headshot'] ?? '' );
+						if ( $visual ) :
+					?>
+						<img src="<?php echo esc_url( $visual ); ?>" alt="">
+					<?php endif; ?>
 						<span><?php esc_html_e( 'Workbook + video modules', 'rocketpd' ); ?></span>
 					</div>
 				</div>

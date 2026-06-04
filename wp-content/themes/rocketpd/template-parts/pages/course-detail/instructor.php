@@ -35,7 +35,7 @@ $instructor = $course['instructor'] ?? array();
 					</div>
 				<?php endif; ?>
 				<?php if ( ! empty( $instructor['href'] ) ) : ?>
-					<a class="rpd-btn rpd-btn--outline-purple" href="<?php echo esc_url( $instructor['href'] ); ?>"><?php esc_html_e( "View Kim Marshall's Instructor Page", 'rocketpd' ); ?></a>
+					<a class="rpd-btn rpd-btn--outline-purple" href="<?php echo esc_url( $instructor['href'] ); ?>"><?php echo esc_html( sprintf( __( "View %s's Instructor Page", 'rocketpd' ), $instructor['name'] ?? __( 'Instructor', 'rocketpd' ) ) ); ?></a>
 				<?php endif; ?>
 			</div>
 		</article>
