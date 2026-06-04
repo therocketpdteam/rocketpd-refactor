@@ -9,9 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$course    = function_exists( 'rocketpd_get_current_course_detail' ) ? rocketpd_get_current_course_detail() : array();
-$resources = function_exists( 'rocketpd_get_enabled_course_resources' ) ? rocketpd_get_enabled_course_resources( $course ) : array();
-$guide     = $resources['guide'] ?? array();
+$course        = function_exists( 'rocketpd_get_current_course_detail' ) ? rocketpd_get_current_course_detail() : array();
+$resources     = function_exists( 'rocketpd_get_enabled_course_resources' ) ? rocketpd_get_enabled_course_resources( $course ) : array();
+$guide         = $resources['guide'] ?? array();
+$instructor    = $course['instructor']['name'] ?? __( 'our instructor', 'rocketpd' );
+$first_name    = explode( ' ', trim( $instructor ) );
+$first_name    = end( $first_name ); // Last name as fallback; override below.
+// Use first name if not prefixed with Dr./Mr./Ms. etc., otherwise use full name.
+$display_name  = preg_match( '/^(Dr\.|Mr\.|Ms\.|Mrs\.|Prof\.)/i', $instructor ) ? $instructor : $first_name;
 
 if ( ! $resources ) {
 	return;
@@ -22,10 +27,10 @@ if ( ! $resources ) {
 	<div class="rpd-container">
 		<header class="rpd-course-resources__header">
 			<div>
-				<p class="rpd-course-section-kicker"><?php esc_html_e( 'Free resources from Kim Marshall', 'rocketpd' ); ?></p>
-				<h2><?php esc_html_e( "Start exploring Kim's work - free.", 'rocketpd' ); ?></h2>
+				<p class="rpd-course-section-kicker"><?php echo esc_html( sprintf( __( 'Free resources from %s', 'rocketpd' ), $instructor ) ); ?></p>
+				<h2><?php echo esc_html( sprintf( __( "Start exploring %s's work - free.", 'rocketpd' ), $display_name ) ); ?></h2>
 			</div>
-			<span><?php esc_html_e( "Want a feel for Kim's voice before you enroll? These are all free and instantly accessible.", 'rocketpd' ); ?></span>
+			<span><?php echo esc_html( sprintf( __( "Want a feel for %s's voice before you enroll? These are all free and instantly accessible.", 'rocketpd' ), $display_name ) ); ?></span>
 		</header>
 		<?php if ( $guide ) : ?>
 			<article class="rpd-course-featured-guide">
@@ -33,7 +38,7 @@ if ( ! $resources ) {
 					<p class="rpd-course-featured-guide__badge"><span aria-hidden="true">▱</span><?php esc_html_e( 'Featured Free Guide', 'rocketpd' ); ?></p>
 					<h3><?php echo esc_html( $guide['title'] ?? '' ); ?></h3>
 					<span><?php echo esc_html( $guide['meta'] ?? '' ); ?></span>
-					<small class="rpd-course-featured-guide__footer"><span aria-hidden="true">☆</span> <?php esc_html_e( 'Most-downloaded resource from Kim Marshall', 'rocketpd' ); ?></small>
+					<small class="rpd-course-featured-guide__footer"><span aria-hidden="true">☆</span> <?php echo esc_html( sprintf( __( 'Most-downloaded resource from %s', 'rocketpd' ), $instructor ) ); ?></small>
 				</div>
 				<div>
 					<p><?php echo esc_html( $guide['summary'] ?? '' ); ?></p>
