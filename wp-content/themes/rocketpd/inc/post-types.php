@@ -128,7 +128,7 @@ function rocketpd_register_post_types() {
 		'course'      => array(
 			'singular'    => __( 'Course', 'rocketpd' ),
 			'plural'      => __( 'Courses', 'rocketpd' ),
-			'slug'        => 'courses',
+			'slug'        => 'launchpad/courses',
 			'icon'        => 'dashicons-welcome-learn-more',
 			'has_archive' => false,
 			'supports'    => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', 'revisions' ),
