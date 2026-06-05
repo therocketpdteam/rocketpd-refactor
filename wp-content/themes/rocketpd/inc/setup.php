@@ -675,8 +675,6 @@ add_action( 'admin_init', 'rocketpd_register_course_seed_action' );
  * Add 'Seed Courses' button above the Courses list table.
  */
 function rocketpd_course_seed_button() {
-	return; // Seeding disabled — enable when needed.
-
 	$screen = get_current_screen();
 
 	if ( ! $screen || 'edit-course' !== $screen->id ) {
