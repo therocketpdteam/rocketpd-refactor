@@ -405,6 +405,9 @@ function rocketpd_get_courses_by_format() {
  *   enabled — include this course in the seeder (false = skip entirely)
  *   resync  — overwrite ACF fields if the post already exists (false = skip existing, only create new)
  *
+ * To seed a course:   set enabled => true, deploy, click Seed Courses, set back to false.
+ * To update a course: set enabled => true, resync => true, deploy, click Seed Courses, set both back to false.
+ *
  * @return array
  */
 function rocketpd_get_course_seed_data() {
@@ -415,7 +418,7 @@ function rocketpd_get_course_seed_data() {
 		// ─────────────────────────────────────────────────────────────────────
 		array(
 			'slug'    => 'rethinking-teacher-supervision-coaching-evaluation-self-paced-video-course',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'   => 'Rethinking Teacher Supervision, Coaching & Evaluation',
 			'format'  => 'self-paced',
@@ -526,7 +529,7 @@ function rocketpd_get_course_seed_data() {
 		// ─────────────────────────────────────────────────────────────────────
 		array(
 			'slug'    => 'creating-a-culture-of-love',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'   => 'Creating a Culture of Love',
 			'format'  => 'self-paced',
@@ -628,7 +631,7 @@ function rocketpd_get_course_seed_data() {
 		// ─────────────────────────────────────────────────────────────────────
 		array(
 			'slug'    => 'blended-learning-universal-design-for-learning',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'   => 'Supercharge Your Classroom with Blended Learning',
 			'format'  => 'self-paced',
@@ -716,21 +719,21 @@ function rocketpd_get_course_seed_data() {
 				array( 'question' => 'Can my school or district purchase access for a team?', 'answer' => 'Yes. RocketPD supports school and district team access. Contact us and we will help map the best option for your team.' ),
 			),
 			'final_cta' => array(
-			'headline'        => "Bring Catlin's work to your district.",
-			'body'            => "Explore Catlin's free resources, bring her blended learning work into a cohort, or talk with RocketPD about a custom district experience built around your instructional goals.",
-			'primary_label'   => 'Start Learning — $49',
-			'primary_href'    => '#pricing',
-			'secondary_label' => 'Talk About District Pricing',
-			'secondary_href'  => '/contact/',
+				'headline'        => "Bring Catlin's work to your district.",
+				'body'            => "Explore Catlin's free resources, bring her blended learning work into a cohort, or talk with RocketPD about a custom district experience built around your instructional goals.",
+				'primary_label'   => 'Start Learning — $49',
+				'primary_href'    => '#pricing',
+				'secondary_label' => 'Talk About District Pricing',
+				'secondary_href'  => '/contact/',
 			),
-			),
+		),
 
-			 // ─────────────────────────────────────────────────────────────────────
+		// ─────────────────────────────────────────────────────────────────────
 		// A.J. Juliani — Artificial Intelligence in K-12 Schools
 		// ─────────────────────────────────────────────────────────────────────
 		array(
 			'slug'    => 'artificial-intelligence-in-k-12-schools',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'   => 'Artificial Intelligence in K-12 Schools',
 			'format'  => 'self-paced',
@@ -832,7 +835,7 @@ function rocketpd_get_course_seed_data() {
 		// ─────────────────────────────────────────────────────────────────────
 		array(
 			'slug'    => 'building-thinking-classrooms-in-mathematics',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'   => 'Building Thinking Classrooms in Mathematics',
 			'format'  => 'self-paced',
@@ -934,7 +937,7 @@ function rocketpd_get_course_seed_data() {
 		// ─────────────────────────────────────────────────────────────────────
 		array(
 			'slug'    => 'adult-well-being-staff-engagement',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'   => 'Adult Well-Being & Staff Engagement',
 			'format'  => 'self-paced',
@@ -961,7 +964,7 @@ function rocketpd_get_course_seed_data() {
 				'headshot'    => '',
 				'title'       => 'Adult Well-Being Expert · Author & Entrepreneur',
 				'role_line'   => 'Author, entrepreneur, and former classroom educator',
-				'bio'         => 'Author, entrepreneur and former classroom educator Carla Tantillo Philibert is one of the nation’s leading voices on the power of collective well-being and staff retention in schools. She helps school leaders support the personal and professional needs of front-line staff by showing busy educators a practical framework that they can use to advocate for and care for themselves — so that every student can benefit from the support of a caring adult.',
+				'bio'         => "Author, entrepreneur and former classroom educator Carla Tantillo Philibert is one of the nation's leading voices on the power of collective well-being and staff retention in schools. She helps school leaders support the personal and professional needs of front-line staff by showing busy educators a practical framework that they can use to advocate for and care for themselves — so that every student can benefit from the support of a caring adult.",
 				'specialties' => array( 'Adult Well-Being', 'Staff Retention', 'Mindfulness in Schools', 'Social-Emotional Learning' ),
 				'href'        => '/instructors/carla-tantillo-philibert/',
 			),
@@ -1036,7 +1039,7 @@ function rocketpd_get_course_seed_data() {
 		// ─────────────────────────────────────────────────────────────────────
 		array(
 			'slug'    => 'redesigning-instruction-to-meet-every-learners-needs-with-robert-barnett',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'   => "Redesigning Instruction to Meet Every Learner's Needs",
 			'format'  => 'self-paced',
@@ -1062,8 +1065,8 @@ function rocketpd_get_course_seed_data() {
 				'slug'        => 'robert-barnett',
 				'headshot'    => '',
 				'title'       => 'Individualized Instruction Expert · Modern Classrooms Project Co-Founder',
-				'role_line'   => 'Former teacher, author of Meet Every Learner’s Needs, and co-founder of Modern Classrooms Project',
-				'bio'         => 'Robert Barnett is a former teacher, co-founder of Modern Classrooms Project, and author of Meet Every Learner’s Needs. He has helped thousands of educators rethink how they deliver instruction — making it more personalized, equitable, and effective through digitized direct instruction, self-paced lessons, and mastery-based learning. This course is presented by RocketPD in partnership with Modern Classrooms Project.',
+				'role_line'   => "Former teacher, author of Meet Every Learner's Needs, and co-founder of Modern Classrooms Project",
+				'bio'         => "Robert Barnett is a former teacher, co-founder of Modern Classrooms Project, and author of Meet Every Learner's Needs. He has helped thousands of educators rethink how they deliver instruction — making it more personalized, equitable, and effective through digitized direct instruction, self-paced lessons, and mastery-based learning. This course is presented by RocketPD in partnership with Modern Classrooms Project.",
 				'specialties' => array( 'Individualized Instruction', 'Mastery-Based Learning', 'Self-Paced Learning', 'Blended Learning' ),
 				'href'        => '/instructors/robert-barnett/',
 			),
@@ -1138,7 +1141,7 @@ function rocketpd_get_course_seed_data() {
 		// ─────────────────────────────────────────────────────────────────────
 		array(
 			'slug'    => 'engaging-every-family-self-paced-course',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'   => 'Engaging Every Family',
 			'format'  => 'self-paced',
@@ -1165,7 +1168,7 @@ function rocketpd_get_course_seed_data() {
 				'headshot'    => '',
 				'title'       => 'Family Engagement Expert · Best-Selling Author',
 				'role_line'   => 'Best-selling author of Engage Every Family, college professor, keynote speaker, and career educator',
-				'bio'         => 'Dr. Steve Constantino is one of the nation’s foremost experts on action-oriented family engagement. As a best-selling author, college professor, and career educator, he combines research and personal experience with concrete examples and practical exercises to help school leaders build genuine trust with families — turning engagement from a checkbox into a catalyst for student success.',
+				'bio'         => "Dr. Steve Constantino is one of the nation's foremost experts on action-oriented family engagement. As a best-selling author, college professor, and career educator, he combines research and personal experience with concrete examples and practical exercises to help school leaders build genuine trust with families — turning engagement from a checkbox into a catalyst for student success.",
 				'specialties' => array( 'Family Engagement', 'School-Community Partnerships', 'Student Attendance', 'Equity in Education' ),
 				'href'        => '/instructors/dr-steve-constantino/',
 			),
@@ -1240,7 +1243,7 @@ function rocketpd_get_course_seed_data() {
 		// ─────────────────────────────────────────────────────────────────────
 		array(
 			'slug'    => 'close-learning-gaps-through-reading-instruction-self-paced-video-course',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'   => 'Close Learning Gaps Through Reading Instruction',
 			'format'  => 'self-paced',
@@ -1342,7 +1345,7 @@ function rocketpd_get_course_seed_data() {
 		// ─────────────────────────────────────────────────────────────────────
 		array(
 			'slug'    => 'fine-tune-your-lessons-with-the-fundamentals-with-jennifer-gonzalez',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'   => 'Fine-Tune Your Lessons with the Fundamentals',
 			'format'  => 'self-paced',
@@ -1444,7 +1447,7 @@ function rocketpd_get_course_seed_data() {
 		// ─────────────────────────────────────────────────────────────────────
 		array(
 			'slug'    => 'transformational-school-leadership-with-dr-michael-hinojosa',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'   => 'Transformational School Leadership',
 			'format'  => 'self-paced',
@@ -1478,7 +1481,7 @@ function rocketpd_get_course_seed_data() {
 			'outcomes_heading' => 'Three strategies Dr. Hinojosa wants every school leader to master:',
 			'audience_intro'   => '',
 			'outcomes'         => array(
-				array( 'title' => 'Learn to identify and manage key organizational talent', 'summary' => 'Understand how to spot, develop, and retain the people who drive your school or district forward — and how to make the hard calls when it’s time to move on.' ),
+				array( 'title' => 'Learn to identify and manage key organizational talent', 'summary' => "Understand how to spot, develop, and retain the people who drive your school or district forward — and how to make the hard calls when it's time to move on." ),
 				array( 'title' => 'Embrace strategic thinking vs. strategic planning', 'summary' => 'Move beyond the annual planning cycle and develop the adaptive, in-the-moment thinking that separates good managers from transformational leaders.' ),
 				array( 'title' => 'Master the art of politics in school leadership', 'summary' => 'Learn how to navigate the political realities of district leadership — building relationships, managing boards, and moving initiatives forward without losing your integrity.' ),
 			),
@@ -1496,7 +1499,7 @@ function rocketpd_get_course_seed_data() {
 				'enabled'  => true,
 				'title'    => 'Transformational School Leadership with Dr. Michael Hinojosa',
 				'meta'     => 'Podcast episode',
-				'summary'  => 'Dr. Hinojosa reflects on 30+ years of urban school leadership — what worked, what didn’t, and the three things he wishes every superintendent knew going in.',
+				'summary'  => "Dr. Hinojosa reflects on 30+ years of urban school leadership — what worked, what didn't, and the three things he wishes every superintendent knew going in.",
 				'embed_id' => 'fK2y-vobtAs',
 				'href'     => 'https://www.youtube.com/watch?v=fK2y-vobtAs',
 			),
@@ -1546,7 +1549,7 @@ function rocketpd_get_course_seed_data() {
 		// ─────────────────────────────────────────────────────────────────────
 		array(
 			'slug'    => 'fearless-school-communications-with-veronica-v-sopher',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'   => 'Fearless School Communications',
 			'format'  => 'self-paced',
@@ -1582,7 +1585,7 @@ function rocketpd_get_course_seed_data() {
 			'outcomes'         => array(
 				array( 'title' => 'Master the art and science of school communications', 'summary' => 'Understand the principles that separate reactive, damage-control communication from proactive, trust-building communication — and build the habits that make the difference.' ),
 				array( 'title' => 'Communicate with authenticity and confidence', 'summary' => 'Develop your own communication voice and learn how to deliver difficult messages — around security, mental health, academic performance — in ways that build rather than erode trust.' ),
-				array( 'title' => 'Align your message to your school or district’s goals', 'summary' => 'Learn how to connect every communication touchpoint back to your strategic priorities, so your messaging moves stakeholders toward the outcomes that matter most.' ),
+				array( 'title' => "Align your message to your school or district's goals", 'summary' => 'Learn how to connect every communication touchpoint back to your strategic priorities, so your messaging moves stakeholders toward the outcomes that matter most.' ),
 			),
 			'included_heading' => '',
 			'included_items'   => array(),
@@ -1590,9 +1593,9 @@ function rocketpd_get_course_seed_data() {
 				'enabled'      => true,
 				'title'        => 'The Ultimate Guide to Fearless School Communications',
 				'meta'         => 'Free guide',
-				'summary'      => 'A practical resource for school leaders who want to build trust with families and communicate with confidence — especially around the sensitive topics that can’t be avoided.',
+				'summary'      => "A practical resource for school leaders who want to build trust with families and communicate with confidence — especially around the sensitive topics that can't be avoided.",
 				'href'         => '/k-12-guides/',
-				'deliverables' => array( "Veronica's actionable template for school communications", 'Strategies for engaging stakeholders around sensitive issues', 'A framework for aligning messaging to your district’s goals' ),
+				'deliverables' => array( "Veronica's actionable template for school communications", 'Strategies for engaging stakeholders around sensitive issues', "A framework for aligning messaging to your district's goals" ),
 			),
 			'podcast' => array(
 				'enabled'  => true,
