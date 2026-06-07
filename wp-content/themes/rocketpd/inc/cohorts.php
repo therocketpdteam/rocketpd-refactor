@@ -178,7 +178,7 @@ function rocketpd_get_cohort_seed_data() {
 	return array(
 		array(
 			'slug'    => 'building-thinking-classrooms-summer-refresh',
-			'enabled' => false,
+			'enabled' => true,
 			'resync'  => false,
 			// Basics.
 			'title'             => 'Building Thinking Classrooms Summer Refresh',
@@ -288,9 +288,9 @@ function rocketpd_get_cohort_seed_data() {
 				'team_cta_label'     => 'Contact RocketPD',
 				'team_cta_url'       => '/contact/?source=cohort-team',
 				'team_pricing_tiers' => array(
-					array( 'tier_label' => 'Team of 5',   'tier_price' => '$285',        'tier_unit' => 'per person' ),
-					array( 'tier_label' => 'Team of 10',  'tier_price' => '$275',        'tier_unit' => 'per person' ),
-					array( 'tier_label' => 'Team of 30+', 'tier_price' => 'Contact us',  'tier_unit' => 'for rates'  ),
+					array( 'tier_label' => 'Team of 5',   'tier_price' => '$285',       'tier_unit' => 'per person' ),
+					array( 'tier_label' => 'Team of 10',  'tier_price' => '$275',       'tier_unit' => 'per person' ),
+					array( 'tier_label' => 'Team of 30+', 'tier_price' => 'Contact us', 'tier_unit' => 'for rates'  ),
 				),
 				'team_capabilities' => array(
 					array( 'capability_label' => 'Group discounts' ),
@@ -319,9 +319,9 @@ function rocketpd_get_cohort_seed_data() {
 			),
 			// Testimonials.
 			'testimonials' => array(
-				array( 'quote' => 'Building Thinking Classrooms in Mathematics exudes enthusiasm for students, how they think, and how those thoughts coalesce into powerful thinking classrooms. It\'s also deeply practical.', 'name' => 'Dan Meyer',       'role' => '',        'organization' => '', 'image' => '' ),
-				array( 'quote' => 'Peter Liljedahl\'s Thinking Classroom framework transformed my mathematics classroom overnight. This framework gave me a starting point I started implementing the very next day.',       'name' => 'Laura Wheeler', 'role' => 'Teacher', 'organization' => '', 'image' => '' ),
-				array( 'quote' => 'An in-depth action plan backed with significant research and data — Liljedahl\'s plan is one that can improve every classroom for the better.',                                          'name' => 'Leslie Mohlman', 'role' => '',       'organization' => '', 'image' => '' ),
+				array( 'quote' => 'Building Thinking Classrooms in Mathematics exudes enthusiasm for students, how they think, and how those thoughts coalesce into powerful thinking classrooms. It\'s also deeply practical.', 'name' => 'Dan Meyer',        'role' => '',        'organization' => '', 'image' => '' ),
+				array( 'quote' => 'Peter Liljedahl\'s Thinking Classroom framework transformed my mathematics classroom overnight. This framework gave me a starting point I started implementing the very next day.',       'name' => 'Laura Wheeler',  'role' => 'Teacher', 'organization' => '', 'image' => '' ),
+				array( 'quote' => 'An in-depth action plan backed with significant research and data — Liljedahl\'s plan is one that can improve every classroom for the better.',                                          'name' => 'Leslie Mohlman', 'role' => '',        'organization' => '', 'image' => '' ),
 			),
 			// CTAs.
 			'primaryCta'   => array( 'label' => 'Register Now', 'href' => '/cohorts/building-thinking-classrooms-summer-refresh/#register' ),
