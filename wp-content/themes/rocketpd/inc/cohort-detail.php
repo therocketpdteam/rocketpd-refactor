@@ -255,11 +255,21 @@ function rocketpd_normalize_cohort_detail_resources( $resources ) {
 	$normalized = array();
 
 	foreach ( $resources as $key => $resource ) {
-		if ( ! is_array( $resource ) || ! rocketpd_cohort_detail_group_has_content( $resource ) ) {
+		if ( ! is_array( $resource ) ) {
 			continue;
 		}
 
-		$normalized[ $key ] = $resource;
+		// Always pass through if ACF explicitly set the enabled flag — even if
+		// disabled and otherwise empty. This lets enabled:false suppress fallback data.
+		if ( array_key_exists( 'enabled', $resource ) ) {
+			$normalized[ $key ] = $resource;
+			continue;
+		}
+
+		// No enabled key — only include if there is real content.
+		if ( rocketpd_cohort_detail_group_has_content( $resource ) ) {
+			$normalized[ $key ] = $resource;
+		}
 	}
 
 	return $normalized;
