@@ -82,6 +82,34 @@ function rocketpd_get_cohorts() {
 
 	return array(
 		array(
+			'slug'                     => 'building-thinking-classrooms-in-mathematics-with-peter-liljedahl',
+			'title'                    => __( 'Building Thinking Classrooms', 'rocketpd' ),
+			'cohort_subtitle'          => __( 'Master a process for enhancing student learning through a process of enhancing student thinking.', 'rocketpd' ),
+			'cohort_short_description' => __( 'A 5-session virtual cohort with Dr. Peter Liljedahl: learn how to create an ideal setting for mathematical thinking and launch Thinking Classrooms in your school.', 'rocketpd' ),
+			'cohort_topic'             => __( 'Mathematics Instruction', 'rocketpd' ),
+			'cohort_audience'          => array( __( 'Classroom Teachers', 'rocketpd' ), __( 'Instructional Coaches', 'rocketpd' ), __( 'Curriculum Coordinators', 'rocketpd' ) ),
+			'cohort_status'            => 'registration-open',
+			'featured_toggle'          => true,
+			'start_date'               => '2026-10-29',
+			'end_date'                 => '2026-12-03',
+			'session_count'            => 5,
+			'session_count_label'      => __( '5 live sessions', 'rocketpd' ),
+			'total_hours'              => __( '10 hours', 'rocketpd' ),
+			'format_label'             => __( '120 min · Live via Zoom', 'rocketpd' ),
+			'price_type'               => 'paid',
+			'price_label'              => __( '$495/person', 'rocketpd' ),
+			'price_amount'             => 495,
+			'instructor'               => array(
+				'name'     => __( 'Dr. Peter Liljedahl', 'rocketpd' ),
+				'title'    => __( 'Professor, SFU · Author, Building Thinking Classrooms', 'rocketpd' ),
+				'headshot' => $liljedahl_image,
+			),
+			'card_image'               => $liljedahl_image,
+			'sponsor_enabled'          => false,
+			'sponsor_name'             => '',
+			'href'                     => home_url( '/cohorts/building-thinking-classrooms-in-mathematics-with-peter-liljedahl/' ),
+		),
+		array(
 			'slug'                     => 'building-thinking-classrooms-summer-refresh',
 			'title'                    => __( 'Building Thinking Classrooms Summer Refresh', 'rocketpd' ),
 			'cohort_subtitle'          => __( 'Master a process for enhancing student learning through a process of enhancing student thinking.', 'rocketpd' ),
@@ -176,6 +204,183 @@ function rocketpd_get_sorted_cohorts() {
  */
 function rocketpd_get_cohort_seed_data() {
 	return array(
+		array(
+			'slug'    => 'building-thinking-classrooms-in-mathematics-with-peter-liljedahl',
+			'enabled' => false,
+			'resync'  => false,
+			// Basics.
+			'title'             => 'Building Thinking Classrooms',
+			'subtitle'          => 'Master a process for enhancing student learning through a process of enhancing student thinking.',
+			'shortDescription'  => 'A 5-session virtual cohort with Dr. Peter Liljedahl: learn how to create an ideal setting for mathematical thinking and launch Thinking Classrooms in your school.',
+			'longDescription'   => '<p>In a time when more students are falling further behind, the old way of teaching mathematics isn\'t going to close the learning gap.</p><p>In this five-session virtual cohort, Dr. Peter Liljedahl shows you and your instructional team how to create an ideal setting for processing mathematics and other academic disciplines by meeting learners where they\'re at and promoting the practice of thinking as opposed to activity or memorization in classrooms.</p><p>Learn what pieces make up a Thinking Classroom, master ways to engage students in the practice of thinking, and get actionable strategies to launch and sustain Thinking Classrooms in your schools — with help from Liljedahl\'s proven, research-backed method.</p>',
+			'topic'             => 'Mathematics Instruction',
+			'category'          => 'Instruction',
+			'status'            => 'registration-open',
+			'featured'          => true,
+			'startDate'         => '2026-10-29',
+			'endDate'           => '2026-12-03',
+			'sessionCountLabel' => '5 live sessions',
+			'totalHours'        => '10 hours of live instruction',
+			'formatLabel'       => 'Live via Zoom',
+			'cadenceLabel'      => 'Weekly - Thursdays',
+			'sessionLength'     => '120 minutes',
+			'cardImage'         => '/wp-content/uploads/2024/03/Peter_Liljedahl.jpg',
+			// Instructor.
+			'instructor' => array(
+				'slug'        => 'dr-peter-liljedahl',
+				'name'        => 'Dr. Peter Liljedahl',
+				'title'       => 'Professor of Mathematics Education, Simon Fraser University',
+				'roleLine'    => 'Author, Building Thinking Classrooms in Mathematics',
+				'headshot'    => '/wp-content/uploads/2024/03/Peter_Liljedahl.jpg',
+				'bio'         => 'Dr. Peter Liljedahl is a Professor of Mathematics Education in the Faculty of Education at Simon Fraser University and author of the best-selling book, Building Thinking Classrooms in Mathematics (Grades K-12): 14 Teaching Practices for Enhancing Learning. A former high school mathematics teacher, Peter has dedicated his career to reshaping classroom environments through thinking, collaborative learning, and problem solving. His Building Thinking Classrooms model has been applied by tens of thousands of schools across academic disciplines worldwide.',
+				'quote'       => '',
+				'specialties' => array( 'Mathematics Instruction', 'Thinking Classrooms', 'Problem-Based Learning', 'Instructional Design' ),
+				'href'        => '/instructors/dr-peter-liljedahl/',
+				'links'       => array(),
+			),
+			// Pricing.
+			'priceType'           => 'paid',
+			'priceLabel'          => '$495/person',
+			'priceAmount'         => '$495',
+			'priceMeta'           => 'per person - 5 sessions',
+			'registrationUrl'     => 'https://pci.jotform.com/form/243226275018049',
+			'waitlistUrl'         => '',
+			'closedMessage'       => 'Registration is currently closed. Join the notification list and we will let you know when the next cohort opens.',
+			'registrationFillsBy' => '',
+			'invoiceNote'         => 'Need an invoice or purchase order? Contact RocketPD before registering.',
+			// Schedule.
+			'schedule' => array(
+				array(
+					'session_number'        => 1,
+					'session_title'         => 'Introduction to a Thinking Classroom',
+					'session_date'          => '2026-10-29',
+					'session_time'          => '3:30-5:30 PM PST | 6:30-8:30 PM EST',
+					'session_description'   => 'The importance of thinking tasks, visibly random groups, and vertical non-permanent surfaces (VNPS).',
+					'session_resource_link' => '',
+					'coming_soon'           => false,
+				),
+				array(
+					'session_number'        => 2,
+					'session_title'         => 'Engagement in the Thinking Classroom',
+					'session_date'          => '2026-11-05',
+					'session_time'          => '3:30-5:30 PM PST | 6:30-8:30 PM EST',
+					'session_description'   => 'The important relationship between thinking and engagement, how to increase engagement through flow, and the relationship between flow and productive struggle.',
+					'session_resource_link' => '',
+					'coming_soon'           => false,
+				),
+				array(
+					'session_number'        => 3,
+					'session_title'         => 'A Thinking Classroom Lesson: From Launch to Closing',
+					'session_date'          => '2026-11-12',
+					'session_time'          => '3:30-5:30 PM PST | 6:30-8:30 PM EST',
+					'session_description'   => 'The importance of the launch, how to consolidate, how to do meaningful notes, and how to use check-your-understanding questions.',
+					'session_resource_link' => '',
+					'coming_soon'           => false,
+				),
+				array(
+					'session_number'        => 4,
+					'session_title'         => 'Thin-Slicing 101',
+					'session_date'          => '2026-11-19',
+					'session_time'          => '3:30-5:30 PM PST | 6:30-8:30 PM EST',
+					'session_description'   => 'What is thin-slicing, the value of thin-slicing, and how to do thin-slicing.',
+					'session_resource_link' => '',
+					'coming_soon'           => false,
+				),
+				array(
+					'session_number'        => 5,
+					'session_title'         => 'Formative and Summative Assessment',
+					'session_date'          => '2026-12-03',
+					'session_time'          => '3:30-5:30 PM PST | 6:30-8:30 PM EST',
+					'session_description'   => 'The importance of formative assessment, helping students know where they are and where they are going, and grading based on data rather than points.',
+					'session_resource_link' => '',
+					'coming_soon'           => false,
+				),
+			),
+			// Outcomes.
+			'outcomes' => array(
+				array( 'outcome_icon' => '', 'outcome_title' => 'Build a Thinking Classroom',                  'outcome_description' => 'Learn the structures and practices that create an environment where students genuinely think.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Teach content through a Thinking Classroom',  'outcome_description' => 'Apply the BTC framework to real classroom content across disciplines.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Use assessment to shape learning',            'outcome_description' => 'Implement formative and summative assessment strategies grounded in Liljedahl\'s research.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Improve student outcomes',                    'outcome_description' => 'Give students the conditions they need to engage, think, and succeed.' ),
+			),
+			// Audience.
+			'audience' => array(
+				array( 'audience_label' => 'Classroom Teachers',      'audience_description' => 'Launch a Thinking Classroom with a proven, research-backed framework.' ),
+				array( 'audience_label' => 'Instructional Coaches',   'audience_description' => 'Support teachers in adopting and sustaining the BTC model.' ),
+				array( 'audience_label' => 'Curriculum Coordinators', 'audience_description' => 'Align the BTC approach with school or district instructional goals.' ),
+			),
+			// Included items.
+			'included' => array(
+				array( 'included_item_icon' => 'users',     'included_item_label' => 'Live sessions with Dr. Peter Liljedahl' ),
+				array( 'included_item_icon' => 'video',     'included_item_label' => 'Session recordings (available for 30 days)' ),
+				array( 'included_item_icon' => 'community', 'included_item_label' => 'Breakout discussions with educators worldwide' ),
+				array( 'included_item_icon' => 'mobile',    'included_item_label' => 'Access via the RocketPD Learning Portal' ),
+				array( 'included_item_icon' => 'award',     'included_item_label' => 'Certificate of Completion' ),
+			),
+			// Sponsor.
+			'sponsor' => array(
+				'enabled'     => false,
+				'name'        => '',
+				'logo'        => '',
+				'description' => '',
+				'url'         => '',
+				'cta_label'   => 'Learn More',
+			),
+			// Team options.
+			'teamOptions' => array(
+				'team_eyebrow'       => 'Team & District Options',
+				'team_headline'      => 'Build a team of any size and save.',
+				'team_body'          => 'RocketPD offers group discounts for schools and districts registering teams. Contact us for large group rates of 30 or more.',
+				'team_ideal_for'     => 'Ideal for instructional teams, math departments, and district-wide professional learning initiatives.',
+				'team_cta_label'     => 'Contact RocketPD',
+				'team_cta_url'       => '/contact/?source=cohort-team',
+				'team_pricing_tiers' => array(
+					array( 'tier_label' => 'Team of 5',   'tier_price' => '$485',       'tier_unit' => 'per person' ),
+					array( 'tier_label' => 'Team of 10',  'tier_price' => '$465',       'tier_unit' => 'per person' ),
+					array( 'tier_label' => 'Team of 30+', 'tier_price' => 'Contact us', 'tier_unit' => 'for rates'  ),
+				),
+				'team_capabilities' => array(
+					array( 'capability_label' => 'Group discounts' ),
+					array( 'capability_label' => 'Invoice and PO support' ),
+					array( 'capability_label' => 'Centralized registration' ),
+					array( 'capability_label' => 'Custom cohorts for teams of 50+' ),
+				),
+			),
+			// Resources.
+			'resources' => array(
+				'guide'   => array( 'enabled' => true,  'title' => 'The Ultimate Guide to Thinking Teaching Practices', 'meta' => 'Free guide', 'summary' => 'A practical introduction to the Building Thinking Classrooms framework and how to apply it in your school.', 'href' => '/k-12-guides/' ),
+				'podcast' => array( 'enabled' => false, 'title' => '', 'meta' => '', 'summary' => '', 'href' => '' ),
+				'webinar' => array( 'enabled' => false, 'title' => '', 'meta' => '', 'summary' => '', 'href' => '' ),
+				'playbook' => array( 'enabled' => false, 'title' => '', 'meta' => '', 'summary' => '', 'href' => '' ),
+			),
+			// FAQs.
+			'faqs' => array(
+				array( 'question' => 'What is Building your Thinking Classroom — and how can it help?', 'answer' => 'In this 5-session virtual cohort, Dr. Peter Liljedahl shows you and your instructional team how to create an ideal setting for processing mathematics and other academic disciplines by meeting learners where they\'re at and promoting the practice of thinking as opposed to activity or memorization. Learn what pieces make up a Thinking Classroom, master ways to engage students in the practice of thinking, and get actionable strategies to launch and sustain Thinking Classrooms in your schools.' ),
+				array( 'question' => 'Why do this as part of a cohort?', 'answer' => 'The live-virtual sessions give educators and school district leaders an easy and reliable way to collaborate with a best-selling author and other colleagues from around the world on a topic of strategic importance to schools and teachers. Individual teachers can register or school district teams can register select members of their building or central-office teams for open cohorts.' ),
+				array( 'question' => 'What\'s included in this program?', 'answer' => 'Delivered over five weeks, the program includes 5 scheduled structured learning conversations delivered virtually over Zoom, plus password-protected access to the RocketPD Learning Portal where participants can access recordings for a limited time, and a customized Certificate of Completion.' ),
+				array( 'question' => 'Who should participate?', 'answer' => 'Building your Thinking Classroom is a 5-session (120 minutes each) collaborative professional-learning experience for classroom teachers, instructional coaches, and other instructional leaders.' ),
+				array( 'question' => 'Can I register if I am not a math instructor or coach?', 'answer' => 'Yes. While Peter\'s book has Mathematics in the title, the research-backed Thinking Classrooms model can be applied to other disciplines. Teachers and instructional coaches in other disciplines can still use and apply the framework in their classrooms.' ),
+				array( 'question' => 'Are sessions recorded?', 'answer' => 'Yes. Sessions are recorded and accessible via the RocketPD Learning Portal for a limited time during the cohort experience.' ),
+				array( 'question' => 'How can I participate?', 'answer' => 'Save your spot by registering on this page. Once you sign up, you\'ll receive more information about the program including payment and invoicing details, and a detailed follow-up email with scheduled session dates and times.' ),
+			),
+			// Testimonials.
+			'testimonials' => array(
+				array( 'quote' => 'Building Thinking Classrooms in Mathematics exudes enthusiasm for students, how they think, and how those thoughts coalesce into powerful thinking classrooms. It\'s also deeply practical.', 'name' => 'Dan Meyer',        'role' => '',        'organization' => '', 'image' => '' ),
+				array( 'quote' => 'Peter Liljedahl\'s Thinking Classroom framework transformed my mathematics classroom overnight. This framework gave me a starting point I started implementing the very next day.',       'name' => 'Laura Wheeler',  'role' => 'Teacher', 'organization' => '', 'image' => '' ),
+				array( 'quote' => 'An in-depth action plan backed with significant research and data — Liljedahl\'s plan is one that can improve every classroom for the better.',                                          'name' => 'Leslie Mohlman', 'role' => '',        'organization' => '', 'image' => '' ),
+			),
+			// CTAs.
+			'primaryCta'   => array( 'label' => 'Register Now', 'href' => 'https://pci.jotform.com/form/243226275018049' ),
+			'secondaryCta' => array( 'label' => 'See Full Schedule', 'href' => '#cohort-schedule' ),
+			'finalCta'     => array(
+				'headline'       => 'Ready to Join the Cohort?',
+				'body'           => 'Give your teachers and instructional coaches a new way to approach instruction.',
+				'primaryLabel'   => 'Yes, let\'s get started',
+				'primaryHref'    => 'https://pci.jotform.com/form/243226275018049',
+				'secondaryLabel' => 'Contact Us With Questions',
+				'secondaryHref'  => '/contact/?source=cohort-btc',
+			),
+		),
 		array(
 			'slug'    => 'building-thinking-classrooms-summer-refresh',
 			'enabled' => true,
