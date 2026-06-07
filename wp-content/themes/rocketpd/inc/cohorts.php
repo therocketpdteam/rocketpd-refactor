@@ -206,7 +206,7 @@ function rocketpd_get_cohort_seed_data() {
 	return array(
 		array(
 			'slug'    => 'building-thinking-classrooms-in-mathematics-with-peter-liljedahl',
-			'enabled' => false,
+			'enabled' => true,
 			'resync'  => false,
 			// Basics.
 			'title'             => 'Building Thinking Classrooms',
@@ -542,7 +542,7 @@ function rocketpd_get_cohort_seed_data() {
 		),
 		array(
 			'slug'    => 'rethinking-teacher-supervision-coaching-evaluation',
-			'enabled' => false,
+			'enabled' => true,
 			'resync'  => false,
 			// Basics.
 			'title'             => 'Rethinking Teacher Supervision, Coaching & Evaluation',
