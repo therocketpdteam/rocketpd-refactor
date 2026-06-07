@@ -700,6 +700,170 @@ function rocketpd_course_seed_button() {
 add_action( 'all_admin_notices', 'rocketpd_course_seed_button' );
 
 /**
+ * Seed ACF fields for a new cohort post with the Kim Marshall fallback data.
+ * Fires on first save only — skips if fields are already populated.
+ *
+ * @param int $post_id Post ID.
+ */
+function rocketpd_seed_cohort_acf_fields( $post_id ) {
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+
+	if ( 'cohort' !== get_post_type( $post_id ) ) {
+		return;
+	}
+
+	if ( ! function_exists( 'update_field' ) || ! function_exists( 'get_field' ) ) {
+		return;
+	}
+
+	if ( ! function_exists( 'rocketpd_get_cohort_detail_fallback' ) ) {
+		return;
+	}
+
+	// Only seed if the title field is null/false — proxy for "never been populated".
+	$sentinel = get_field( 'rpd_cohort_title', $post_id );
+	if ( null !== $sentinel && false !== $sentinel ) {
+		return;
+	}
+
+	$d = rocketpd_get_cohort_detail_fallback();
+
+	if ( empty( $d ) ) {
+		return;
+	}
+
+	// Basics.
+	update_field( 'rpd_cohort_title',               $d['title']            ?? '', $post_id );
+	update_field( 'rpd_cohort_subtitle',            $d['subtitle']         ?? '', $post_id );
+	update_field( 'rpd_cohort_short_description',   $d['shortDescription'] ?? '', $post_id );
+	$long = $d['longDescription'] ?? '';
+	if ( is_array( $long ) ) {
+		$long = implode( "\n\n", array_map( function( $p ) { return "<p>{$p}</p>"; }, $long ) );
+	}
+	update_field( 'rpd_cohort_long_description',    $long, $post_id );
+	update_field( 'rpd_cohort_topic',               $d['topic']            ?? '', $post_id );
+	update_field( 'rpd_cohort_category',            $d['category']         ?? '', $post_id );
+	update_field( 'rpd_cohort_status',              $d['status']           ?? 'registration-open', $post_id );
+	update_field( 'rpd_cohort_featured',            ! empty( $d['featured'] ) ? 1 : 0, $post_id );
+	update_field( 'rpd_cohort_start_date',          $d['startDate']        ?? '', $post_id );
+	update_field( 'rpd_cohort_end_date',            $d['endDate']          ?? '', $post_id );
+	update_field( 'rpd_cohort_session_count_label', $d['sessionCountLabel'] ?? '', $post_id );
+	update_field( 'rpd_cohort_total_hours',         $d['totalHours']       ?? '', $post_id );
+	update_field( 'rpd_cohort_format_label',        $d['formatLabel']      ?? '', $post_id );
+	update_field( 'rpd_cohort_cadence_label',       $d['cadenceLabel']     ?? '', $post_id );
+	update_field( 'rpd_cohort_session_length',      $d['sessionLength']    ?? '', $post_id );
+	update_field( 'rpd_cohort_card_image',          $d['cardImage']        ?? '', $post_id );
+
+	// Pricing & Registration.
+	update_field( 'rpd_cohort_price_type',            $d['priceType']           ?? 'paid', $post_id );
+	update_field( 'rpd_cohort_price_label',           $d['priceLabel']          ?? '', $post_id );
+	update_field( 'rpd_cohort_price_amount',          $d['priceAmount']         ?? '', $post_id );
+	update_field( 'rpd_cohort_price_meta',            $d['priceMeta']           ?? '', $post_id );
+	update_field( 'rpd_cohort_registration_url',      $d['registrationUrl']     ?? '', $post_id );
+	update_field( 'rpd_cohort_waitlist_url',          $d['waitlistUrl']         ?? '', $post_id );
+	update_field( 'rpd_cohort_closed_message',        $d['closedMessage']       ?? '', $post_id );
+	update_field( 'rpd_cohort_registration_fills_by', $d['registrationFillsBy'] ?? '', $post_id );
+	update_field( 'rpd_cohort_invoice_note',          $d['invoiceNote']         ?? '', $post_id );
+
+	// Schedule repeater.
+	if ( ! empty( $d['schedule'] ) ) {
+		$schedule_rows = array_map( function( $s ) {
+			return array(
+				'session_number'        => $s['number']      ?? '',
+				'session_title'         => $s['title']       ?? '',
+				'session_date'          => $s['date']        ?? '',
+				'session_time'          => $s['time']        ?? '',
+				'session_description'   => $s['description'] ?? '',
+				'session_resource_link' => $s['resourceLink'] ?? '',
+				'coming_soon'           => ! empty( $s['comingSoon'] ) ? 1 : 0,
+			);
+		}, $d['schedule'] );
+		update_field( 'rpd_cohort_schedule', $schedule_rows, $post_id );
+	}
+
+	// Outcomes repeater.
+	if ( ! empty( $d['outcomes'] ) ) {
+		$outcome_rows = array_map( function( $o ) {
+			return array(
+				'outcome_icon'        => $o['icon']        ?? '',
+				'outcome_title'       => $o['title']       ?? '',
+				'outcome_description' => $o['description'] ?? '',
+			);
+		}, $d['outcomes'] );
+		update_field( 'rpd_cohort_outcomes', $outcome_rows, $post_id );
+	}
+
+	// Audience repeater.
+	if ( ! empty( $d['audience'] ) ) {
+		$audience_rows = array_map( function( $a ) {
+			return array(
+				'audience_label'       => $a['label']       ?? '',
+				'audience_description' => $a['description'] ?? '',
+			);
+		}, $d['audience'] );
+		update_field( 'rpd_cohort_audience_detail', $audience_rows, $post_id );
+	}
+
+	// Included items repeater.
+	if ( ! empty( $d['included'] ) ) {
+		$included_rows = array_map( function( $i ) {
+			return array(
+				'included_item_icon'  => $i['icon']  ?? '',
+				'included_item_label' => $i['label'] ?? '',
+			);
+		}, $d['included'] );
+		update_field( 'rpd_cohort_included_items', $included_rows, $post_id );
+	}
+
+	// Sponsor group.
+	if ( ! empty( $d['sponsor'] ) ) {
+		update_field( 'rpd_cohort_sponsor', $d['sponsor'], $post_id );
+	}
+
+	// Team options group.
+	if ( ! empty( $d['teamOptions'] ) ) {
+		update_field( 'rpd_cohort_team_options', $d['teamOptions'], $post_id );
+	}
+
+	// Resources group.
+	if ( ! empty( $d['resources'] ) ) {
+		update_field( 'rpd_cohort_resources', $d['resources'], $post_id );
+	}
+
+	// FAQs repeater.
+	if ( ! empty( $d['faqs'] ) ) {
+		update_field( 'rpd_cohort_faqs', $d['faqs'], $post_id );
+	}
+
+	// Testimonials repeater.
+	if ( ! empty( $d['testimonials'] ) ) {
+		update_field( 'rpd_cohort_testimonials', $d['testimonials'], $post_id );
+	}
+
+	// CTAs.
+	$primary   = $d['primaryCta']   ?? array();
+	$secondary = $d['secondaryCta'] ?? array();
+	$final     = $d['finalCta']     ?? array();
+	update_field( 'rpd_cohort_primary_cta_label',     $primary['label']           ?? '', $post_id );
+	update_field( 'rpd_cohort_primary_cta_url',       $primary['href']            ?? '', $post_id );
+	update_field( 'rpd_cohort_secondary_cta_label',   $secondary['label']         ?? '', $post_id );
+	update_field( 'rpd_cohort_secondary_cta_url',     $secondary['href']          ?? '', $post_id );
+	update_field( 'rpd_cohort_final_headline',        $final['headline']          ?? '', $post_id );
+	update_field( 'rpd_cohort_final_body',            $final['body']              ?? '', $post_id );
+	update_field( 'rpd_cohort_final_primary_label',   $final['primaryLabel']      ?? '', $post_id );
+	update_field( 'rpd_cohort_final_primary_url',     $final['primaryHref']       ?? '', $post_id );
+	update_field( 'rpd_cohort_final_secondary_label', $final['secondaryLabel']    ?? '', $post_id );
+	update_field( 'rpd_cohort_final_secondary_url',   $final['secondaryHref']     ?? '', $post_id );
+}
+add_action( 'save_post', 'rocketpd_seed_cohort_acf_fields' );
+
+/**
  * Seed cohort posts from the cohort seed data roster.
  * Triggered via the admin button on the Cohorts list screen.
  *
