@@ -26,8 +26,8 @@
     { "key": "field_rpd_cohort_price_label", "label": "Price Label", "name": "rpd_cohort_price_label", "type": "text" },
     { "key": "field_rpd_cohort_price_amount", "label": "Price Amount", "name": "rpd_cohort_price_amount", "type": "text" },
     { "key": "field_rpd_cohort_price_meta", "label": "Price Meta", "name": "rpd_cohort_price_meta", "type": "text" },
-    { "key": "field_rpd_cohort_registration_url", "label": "Registration URL", "name": "rpd_cohort_registration_url", "type": "url" },
-    { "key": "field_rpd_cohort_waitlist_url", "label": "Waitlist URL", "name": "rpd_cohort_waitlist_url", "type": "url" },
+    { "key": "field_rpd_cohort_registration_url", "label": "Registration URL", "name": "rpd_cohort_registration_url", "type": "text" },
+    { "key": "field_rpd_cohort_waitlist_url", "label": "Waitlist URL", "name": "rpd_cohort_waitlist_url", "type": "text" },
     { "key": "field_rpd_cohort_closed_message", "label": "Closed Message", "name": "rpd_cohort_closed_message", "type": "textarea", "rows": 3 },
     { "key": "field_rpd_cohort_registration_fills_by", "label": "Registration Fills By Note", "name": "rpd_cohort_registration_fills_by", "type": "text" },
     { "key": "field_rpd_cohort_invoice_note", "label": "Invoice Note", "name": "rpd_cohort_invoice_note", "type": "textarea", "rows": 2 },
@@ -38,7 +38,7 @@
       { "key": "field_rpd_cohort_schedule_session_date", "label": "Session Date", "name": "session_date", "type": "date_picker", "display_format": "M j, Y", "return_format": "Y-m-d" },
       { "key": "field_rpd_cohort_schedule_session_time", "label": "Session Time", "name": "session_time", "type": "text" },
       { "key": "field_rpd_cohort_schedule_session_description", "label": "Session Description", "name": "session_description", "type": "textarea", "rows": 3 },
-      { "key": "field_rpd_cohort_schedule_session_resource_link", "label": "Session Resource Link", "name": "session_resource_link", "type": "url" },
+      { "key": "field_rpd_cohort_schedule_session_resource_link", "label": "Session Resource Link", "name": "session_resource_link", "type": "text" },
       { "key": "field_rpd_cohort_schedule_coming_soon", "label": "Coming Soon", "name": "coming_soon", "type": "true_false", "ui": 1 }
     ] },
     { "key": "field_rpd_cohort_tab_repeaters", "label": "Cards & Repeaters", "type": "tab" },
@@ -61,7 +61,7 @@
       { "key": "field_rpd_cohort_sponsor_name", "label": "Name", "name": "name", "type": "text" },
       { "key": "field_rpd_cohort_sponsor_logo", "label": "Logo", "name": "logo", "type": "image", "return_format": "array" },
       { "key": "field_rpd_cohort_sponsor_description", "label": "Description", "name": "description", "type": "textarea", "rows": 3 },
-      { "key": "field_rpd_cohort_sponsor_url", "label": "URL", "name": "url", "type": "url" },
+      { "key": "field_rpd_cohort_sponsor_url", "label": "URL", "name": "url", "type": "text" },
       { "key": "field_rpd_cohort_sponsor_cta_label", "label": "CTA Label", "name": "cta_label", "type": "text" }
     ] },
     { "key": "field_rpd_cohort_team_options", "label": "Team & District Options", "name": "rpd_cohort_team_options", "type": "group", "sub_fields": [
@@ -78,7 +78,7 @@
       ] },
       { "key": "field_rpd_cohort_team_ideal_for", "label": "Ideal For", "name": "team_ideal_for", "type": "textarea", "rows": 2 },
       { "key": "field_rpd_cohort_team_cta_label", "label": "CTA Label", "name": "team_cta_label", "type": "text" },
-      { "key": "field_rpd_cohort_team_cta_url", "label": "CTA URL", "name": "team_cta_url", "type": "url" }
+      { "key": "field_rpd_cohort_team_cta_url", "label": "CTA URL", "name": "team_cta_url", "type": "text" }
     ] },
     { "key": "field_rpd_cohort_tab_social_resources", "label": "Social Proof & Resources", "type": "tab" },
     { "key": "field_rpd_cohort_faqs", "label": "FAQs", "name": "rpd_cohort_faqs", "type": "repeater", "button_label": "Add FAQ", "sub_fields": [
@@ -98,41 +98,41 @@
         { "key": "field_rpd_cohort_resource_guide_title", "label": "Title", "name": "title", "type": "text" },
         { "key": "field_rpd_cohort_resource_guide_meta", "label": "Meta", "name": "meta", "type": "text" },
         { "key": "field_rpd_cohort_resource_guide_summary", "label": "Summary", "name": "summary", "type": "textarea", "rows": 3 },
-        { "key": "field_rpd_cohort_resource_guide_href", "label": "URL", "name": "href", "type": "url" }
+        { "key": "field_rpd_cohort_resource_guide_href", "label": "URL", "name": "href", "type": "text" }
       ] },
       { "key": "field_rpd_cohort_resource_podcast", "label": "Podcast", "name": "podcast", "type": "group", "sub_fields": [
         { "key": "field_rpd_cohort_resource_podcast_enabled", "label": "Enabled", "name": "enabled", "type": "true_false", "ui": 1 },
         { "key": "field_rpd_cohort_resource_podcast_title", "label": "Title", "name": "title", "type": "text" },
         { "key": "field_rpd_cohort_resource_podcast_meta", "label": "Meta", "name": "meta", "type": "text" },
         { "key": "field_rpd_cohort_resource_podcast_summary", "label": "Summary", "name": "summary", "type": "textarea", "rows": 3 },
-        { "key": "field_rpd_cohort_resource_podcast_href", "label": "URL", "name": "href", "type": "url" }
+        { "key": "field_rpd_cohort_resource_podcast_href", "label": "URL", "name": "href", "type": "text" }
       ] },
       { "key": "field_rpd_cohort_resource_webinar", "label": "Webinar", "name": "webinar", "type": "group", "sub_fields": [
         { "key": "field_rpd_cohort_resource_webinar_enabled", "label": "Enabled", "name": "enabled", "type": "true_false", "ui": 1 },
         { "key": "field_rpd_cohort_resource_webinar_title", "label": "Title", "name": "title", "type": "text" },
         { "key": "field_rpd_cohort_resource_webinar_meta", "label": "Meta", "name": "meta", "type": "text" },
         { "key": "field_rpd_cohort_resource_webinar_summary", "label": "Summary", "name": "summary", "type": "textarea", "rows": 3 },
-        { "key": "field_rpd_cohort_resource_webinar_href", "label": "URL", "name": "href", "type": "url" }
+        { "key": "field_rpd_cohort_resource_webinar_href", "label": "URL", "name": "href", "type": "text" }
       ] },
       { "key": "field_rpd_cohort_resource_playbook", "label": "Playbook", "name": "playbook", "type": "group", "sub_fields": [
         { "key": "field_rpd_cohort_resource_playbook_enabled", "label": "Enabled", "name": "enabled", "type": "true_false", "ui": 1 },
         { "key": "field_rpd_cohort_resource_playbook_title", "label": "Title", "name": "title", "type": "text" },
         { "key": "field_rpd_cohort_resource_playbook_meta", "label": "Meta", "name": "meta", "type": "text" },
         { "key": "field_rpd_cohort_resource_playbook_summary", "label": "Summary", "name": "summary", "type": "textarea", "rows": 3 },
-        { "key": "field_rpd_cohort_resource_playbook_href", "label": "URL", "name": "href", "type": "url" }
+        { "key": "field_rpd_cohort_resource_playbook_href", "label": "URL", "name": "href", "type": "text" }
       ] }
     ] },
     { "key": "field_rpd_cohort_tab_cta", "label": "CTA Fields", "type": "tab" },
     { "key": "field_rpd_cohort_primary_cta_label", "label": "Primary CTA Label Override", "name": "rpd_cohort_primary_cta_label", "type": "text" },
-    { "key": "field_rpd_cohort_primary_cta_url", "label": "Primary CTA URL Override", "name": "rpd_cohort_primary_cta_url", "type": "url" },
+    { "key": "field_rpd_cohort_primary_cta_url", "label": "Primary CTA URL Override", "name": "rpd_cohort_primary_cta_url", "type": "text" },
     { "key": "field_rpd_cohort_secondary_cta_label", "label": "Secondary CTA Label", "name": "rpd_cohort_secondary_cta_label", "type": "text" },
-    { "key": "field_rpd_cohort_secondary_cta_url", "label": "Secondary CTA URL", "name": "rpd_cohort_secondary_cta_url", "type": "url" },
+    { "key": "field_rpd_cohort_secondary_cta_url", "label": "Secondary CTA URL", "name": "rpd_cohort_secondary_cta_url", "type": "text" },
     { "key": "field_rpd_cohort_final_headline", "label": "Final Headline", "name": "rpd_cohort_final_headline", "type": "text" },
     { "key": "field_rpd_cohort_final_body", "label": "Final Body", "name": "rpd_cohort_final_body", "type": "textarea", "rows": 3 },
     { "key": "field_rpd_cohort_final_primary_label", "label": "Final Primary Label", "name": "rpd_cohort_final_primary_label", "type": "text" },
-    { "key": "field_rpd_cohort_final_primary_url", "label": "Final Primary URL", "name": "rpd_cohort_final_primary_url", "type": "url" },
+    { "key": "field_rpd_cohort_final_primary_url", "label": "Final Primary URL", "name": "rpd_cohort_final_primary_url", "type": "text" },
     { "key": "field_rpd_cohort_final_secondary_label", "label": "Final Secondary Label", "name": "rpd_cohort_final_secondary_label", "type": "text" },
-    { "key": "field_rpd_cohort_final_secondary_url", "label": "Final Secondary URL", "name": "rpd_cohort_final_secondary_url", "type": "url" }
+    { "key": "field_rpd_cohort_final_secondary_url", "label": "Final Secondary URL", "name": "rpd_cohort_final_secondary_url", "type": "text" }
   ],
   "location": [[{ "param": "post_type", "operator": "==", "value": "cohort" }]],
   "menu_order": 0,
