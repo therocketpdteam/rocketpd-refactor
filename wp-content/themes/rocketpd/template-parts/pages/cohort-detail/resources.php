@@ -11,6 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $cohort    = function_exists( 'rocketpd_get_current_cohort_detail' ) ? rocketpd_get_current_cohort_detail() : array();
 $resources = function_exists( 'rocketpd_get_enabled_cohort_detail_resources' ) ? rocketpd_get_enabled_cohort_detail_resources( $cohort ) : array();
+$instructor = $cohort['instructor'] ?? array();
 $guide     = $resources['guide'] ?? array();
 $cards     = array_filter(
 	$resources,
@@ -29,8 +30,8 @@ if ( ! $resources ) {
 	<div class="rpd-container">
 		<header class="rpd-cohort-section-header">
 			<p class="rpd-cohort-kicker"><?php esc_html_e( 'Free resources', 'rocketpd' ); ?></p>
-			<h2><?php esc_html_e( 'Free resources from Kim Marshall.', 'rocketpd' ); ?></h2>
-			<span><?php esc_html_e( 'Want a head start? These free resources from Kim are the best way to preview the ideas you will practice in the cohort.', 'rocketpd' ); ?></span>
+			<h2><?php printf( esc_html__( 'Free resources from %s.', 'rocketpd' ), esc_html( $instructor['name'] ?? __( 'your instructor', 'rocketpd' ) ) ); ?></h2>
+			<span><?php printf( esc_html__( 'Want a head start? These free resources from %s are the best way to preview the ideas you will practice in the cohort.', 'rocketpd' ), esc_html( $instructor['name'] ?? __( 'your instructor', 'rocketpd' ) ) ); ?></span>
 		</header>
 		<?php if ( $guide && ( ! empty( $guide['title'] ) || ! empty( $guide['summary'] ) ) ) : ?>
 			<article class="rpd-cohort-featured-resource">

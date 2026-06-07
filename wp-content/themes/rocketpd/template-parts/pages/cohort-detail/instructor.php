@@ -20,7 +20,6 @@ $headshot   = function_exists( 'rocketpd_get_image_markup' ) ? rocketpd_get_imag
 		<article class="rpd-cohort-instructor__card">
 			<div class="rpd-cohort-instructor__portrait">
 				<?php echo $headshot; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				<span><?php esc_html_e( '30+ Years', 'rocketpd' ); ?></span>
 			</div>
 			<div class="rpd-cohort-instructor__content">
 				<h2><?php printf( esc_html__( 'Led by %s.', 'rocketpd' ), esc_html( $instructor['name'] ?? '' ) ); ?></h2>

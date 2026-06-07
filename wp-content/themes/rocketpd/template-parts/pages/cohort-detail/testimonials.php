@@ -11,6 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $cohort       = function_exists( 'rocketpd_get_current_cohort_detail' ) ? rocketpd_get_current_cohort_detail() : array();
 $testimonials = $cohort['testimonials'] ?? array();
+$instructor   = $cohort['instructor'] ?? array();
 
 if ( ! $testimonials ) {
 	return;
@@ -21,7 +22,7 @@ if ( ! $testimonials ) {
 	<div class="rpd-container">
 		<header class="rpd-cohort-section-header">
 			<p class="rpd-cohort-kicker"><?php esc_html_e( 'Testimonials', 'rocketpd' ); ?></p>
-			<h2><?php esc_html_e( 'What school leaders say about learning with Kim.', 'rocketpd' ); ?></h2>
+			<h2><?php printf( esc_html__( 'What educators say about learning with %s.', 'rocketpd' ), esc_html( $instructor['name'] ?? __( 'this instructor', 'rocketpd' ) ) ); ?></h2>
 		</header>
 		<div class="rpd-cohort-testimonials__grid">
 			<?php foreach ( $testimonials as $testimonial ) : ?>

@@ -47,7 +47,7 @@ $support_url = function_exists( 'rocketpd_get_cohort_detail_support_href' ) ? ro
 	<div class="rpd-container">
 		<header class="rpd-cohort-section-header rpd-cohort-section-header--center">
 			<p class="rpd-cohort-kicker"><?php esc_html_e( 'Pricing & Registration', 'rocketpd' ); ?></p>
-			<h2><?php esc_html_e( 'Reserve your seat in the Rethinking Teacher Supervision cohort.', 'rocketpd' ); ?></h2>
+			<h2><?php printf( esc_html__( 'Reserve your seat in %s.', 'rocketpd' ), esc_html( $cohort['title'] ?? __( 'this cohort', 'rocketpd' ) ) ); ?></h2>
 		</header>
 		<div class="rpd-cohort-pricing__grid">
 			<article class="rpd-cohort-pricing-card rpd-cohort-pricing-card--primary">
