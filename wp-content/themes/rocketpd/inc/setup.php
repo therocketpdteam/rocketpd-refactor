@@ -162,12 +162,6 @@ function rocketpd_seed_instructor_posts() {
 }
 
 /**
- * Populate ACF fields for an instructor post from seed data.
- *
- * @param int    $post_id WordPress post ID.
- * @param string $slug    Instructor slug.
- */
-/**
  * Seed ACF fields for a new topic_hub post with the default fallback data.
  * Fires on first save only — skips if fields are already populated.
  *
@@ -704,6 +698,241 @@ function rocketpd_course_seed_button() {
 	<?php
 }
 add_action( 'all_admin_notices', 'rocketpd_course_seed_button' );
+
+/**
+ * Seed cohort posts from the cohort seed data roster.
+ * Triggered via the admin button on the Cohorts list screen.
+ *
+ * Each cohort entry supports two flags:
+ *   enabled — skip entirely if false
+ *   resync  — overwrite ACF fields on existing posts if true
+ */
+function rocketpd_seed_cohort_posts() {
+	if ( ! function_exists( 'rocketpd_get_cohort_seed_data' ) ) {
+		return;
+	}
+
+	foreach ( rocketpd_get_cohort_seed_data() as $cohort ) {
+		if ( empty( $cohort['enabled'] ) ) {
+			continue;
+		}
+
+		$slug = sanitize_title( $cohort['slug'] ?? '' );
+
+		if ( ! $slug ) {
+			continue;
+		}
+
+		// Check if post already exists (including trashed).
+		$existing = get_posts( array(
+			'name'             => $slug,
+			'post_type'        => 'cohort',
+			'post_status'      => array( 'publish', 'draft', 'pending', 'private' ),
+			'numberposts'      => 1,
+			'suppress_filters' => true,
+		) );
+
+		if ( ! $existing ) {
+			$existing = get_posts( array(
+				'name'             => $slug . '__trashed',
+				'post_type'        => 'cohort',
+				'post_status'      => array( 'trash' ),
+				'numberposts'      => 1,
+				'suppress_filters' => true,
+			) );
+		}
+
+		if ( $existing ) {
+			// Post exists — only update ACF if resync is flagged.
+			if ( ! empty( $cohort['resync'] ) ) {
+				rocketpd_populate_cohort_acf_fields( $existing[0]->ID, $cohort );
+			}
+			continue;
+		}
+
+		// Create the post.
+		$post_id = wp_insert_post( array(
+			'post_title'  => $cohort['title'] ?? $slug,
+			'post_name'   => $slug,
+			'post_type'   => 'cohort',
+			'post_status' => 'publish',
+		) );
+
+		if ( $post_id && ! is_wp_error( $post_id ) ) {
+			rocketpd_populate_cohort_acf_fields( $post_id, $cohort );
+		}
+	}
+}
+
+/**
+ * Populate ACF fields for a cohort post from seeder data.
+ *
+ * @param int   $post_id Post ID.
+ * @param array $d       Cohort data array from rocketpd_get_cohort_seed_data().
+ */
+function rocketpd_populate_cohort_acf_fields( $post_id, $d ) {
+	if ( ! function_exists( 'update_field' ) ) {
+		return;
+	}
+
+	// Basics.
+	update_field( 'rpd_cohort_title',               $d['title']             ?? '', $post_id );
+	update_field( 'rpd_cohort_subtitle',            $d['subtitle']          ?? '', $post_id );
+	update_field( 'rpd_cohort_short_description',   $d['shortDescription']  ?? '', $post_id );
+	update_field( 'rpd_cohort_long_description',    $d['longDescription']   ?? '', $post_id );
+	update_field( 'rpd_cohort_topic',               $d['topic']             ?? '', $post_id );
+	update_field( 'rpd_cohort_category',            $d['category']          ?? '', $post_id );
+	update_field( 'rpd_cohort_status',              $d['status']            ?? 'registration-open', $post_id );
+	update_field( 'rpd_cohort_featured',            ! empty( $d['featured'] ) ? 1 : 0, $post_id );
+	update_field( 'rpd_cohort_start_date',          $d['startDate']         ?? '', $post_id );
+	update_field( 'rpd_cohort_end_date',            $d['endDate']           ?? '', $post_id );
+	update_field( 'rpd_cohort_session_count_label', $d['sessionCountLabel'] ?? '', $post_id );
+	update_field( 'rpd_cohort_total_hours',         $d['totalHours']        ?? '', $post_id );
+	update_field( 'rpd_cohort_format_label',        $d['formatLabel']       ?? '', $post_id );
+	update_field( 'rpd_cohort_cadence_label',       $d['cadenceLabel']      ?? '', $post_id );
+	update_field( 'rpd_cohort_session_length',      $d['sessionLength']     ?? '', $post_id );
+	update_field( 'rpd_cohort_card_image',          $d['cardImage']         ?? '', $post_id );
+
+	// Instructor — look up by slug; gracefully skip if not found.
+	$instructor_slug = $d['instructor']['slug'] ?? '';
+	if ( $instructor_slug ) {
+		$instructor_posts = get_posts( array(
+			'name'             => sanitize_title( $instructor_slug ),
+			'post_type'        => 'instructor',
+			'post_status'      => 'publish',
+			'numberposts'      => 1,
+			'suppress_filters' => true,
+		) );
+		if ( ! empty( $instructor_posts ) ) {
+			update_field( 'rpd_cohort_instructor', $instructor_posts[0]->ID, $post_id );
+		}
+	}
+
+	// Pricing & Registration.
+	update_field( 'rpd_cohort_price_type',            $d['priceType']           ?? 'paid', $post_id );
+	update_field( 'rpd_cohort_price_label',           $d['priceLabel']          ?? '', $post_id );
+	update_field( 'rpd_cohort_price_amount',          $d['priceAmount']         ?? '', $post_id );
+	update_field( 'rpd_cohort_price_meta',            $d['priceMeta']           ?? '', $post_id );
+	update_field( 'rpd_cohort_registration_url',      $d['registrationUrl']     ?? '', $post_id );
+	update_field( 'rpd_cohort_waitlist_url',          $d['waitlistUrl']         ?? '', $post_id );
+	update_field( 'rpd_cohort_closed_message',        $d['closedMessage']       ?? '', $post_id );
+	update_field( 'rpd_cohort_registration_fills_by', $d['registrationFillsBy'] ?? '', $post_id );
+	update_field( 'rpd_cohort_invoice_note',          $d['invoiceNote']         ?? '', $post_id );
+
+	// Schedule repeater.
+	if ( ! empty( $d['schedule'] ) ) {
+		update_field( 'rpd_cohort_schedule', $d['schedule'], $post_id );
+	}
+
+	// Outcomes repeater.
+	if ( ! empty( $d['outcomes'] ) ) {
+		update_field( 'rpd_cohort_outcomes', $d['outcomes'], $post_id );
+	}
+
+	// Audience repeater.
+	if ( ! empty( $d['audience'] ) ) {
+		update_field( 'rpd_cohort_audience_detail', $d['audience'], $post_id );
+	}
+
+	// Included items repeater.
+	if ( ! empty( $d['included'] ) ) {
+		update_field( 'rpd_cohort_included_items', $d['included'], $post_id );
+	}
+
+	// Sponsor group.
+	if ( ! empty( $d['sponsor'] ) ) {
+		update_field( 'rpd_cohort_sponsor', $d['sponsor'], $post_id );
+	}
+
+	// Team options group.
+	if ( ! empty( $d['teamOptions'] ) ) {
+		update_field( 'rpd_cohort_team_options', $d['teamOptions'], $post_id );
+	}
+
+	// Resources group.
+	if ( ! empty( $d['resources'] ) ) {
+		update_field( 'rpd_cohort_resources', $d['resources'], $post_id );
+	}
+
+	// FAQs repeater.
+	if ( ! empty( $d['faqs'] ) ) {
+		update_field( 'rpd_cohort_faqs', $d['faqs'], $post_id );
+	}
+
+	// Testimonials repeater.
+	if ( ! empty( $d['testimonials'] ) ) {
+		update_field( 'rpd_cohort_testimonials', $d['testimonials'], $post_id );
+	}
+
+	// CTAs.
+	update_field( 'rpd_cohort_primary_cta_label',     $d['primaryCta']['label']        ?? '', $post_id );
+	update_field( 'rpd_cohort_primary_cta_url',       $d['primaryCta']['href']         ?? '', $post_id );
+	update_field( 'rpd_cohort_secondary_cta_label',   $d['secondaryCta']['label']      ?? '', $post_id );
+	update_field( 'rpd_cohort_secondary_cta_url',     $d['secondaryCta']['href']       ?? '', $post_id );
+	update_field( 'rpd_cohort_final_headline',        $d['finalCta']['headline']       ?? '', $post_id );
+	update_field( 'rpd_cohort_final_body',            $d['finalCta']['body']           ?? '', $post_id );
+	update_field( 'rpd_cohort_final_primary_label',   $d['finalCta']['primaryLabel']   ?? '', $post_id );
+	update_field( 'rpd_cohort_final_primary_url',     $d['finalCta']['primaryHref']    ?? '', $post_id );
+	update_field( 'rpd_cohort_final_secondary_label', $d['finalCta']['secondaryLabel'] ?? '', $post_id );
+	update_field( 'rpd_cohort_final_secondary_url',   $d['finalCta']['secondaryHref']  ?? '', $post_id );
+}
+
+/**
+ * Register the cohort seeding admin action.
+ */
+function rocketpd_register_cohort_seed_action() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
+	if (
+		isset( $_GET['action'] ) &&
+		'rocketpd_seed_cohorts' === $_GET['action'] &&
+		check_admin_referer( 'rocketpd_seed_cohorts' )
+	) {
+		rocketpd_seed_cohort_posts();
+		wp_redirect( add_query_arg(
+			array( 'post_type' => 'cohort', 'seeded' => '1' ),
+			admin_url( 'edit.php' )
+		) );
+		exit;
+	}
+}
+add_action( 'admin_init', 'rocketpd_register_cohort_seed_action' );
+
+/**
+ * Add 'Seed Cohorts' button above the Cohorts list table.
+ */
+function rocketpd_cohort_seed_button() {
+	return; // Seeding disabled — remove this line when ready to seed.
+
+	$screen = get_current_screen();
+
+	if ( ! $screen || 'edit-cohort' !== $screen->id ) {
+		return;
+	}
+
+	$url = wp_nonce_url(
+		add_query_arg(
+			array( 'post_type' => 'cohort', 'action' => 'rocketpd_seed_cohorts' ),
+			admin_url( 'edit.php' )
+		),
+		'rocketpd_seed_cohorts'
+	);
+
+	$seeded = isset( $_GET['seeded'] ) && '1' === $_GET['seeded'];
+	?>
+	<div class="wrap" style="margin-bottom: -10px;">
+		<?php if ( $seeded ) : ?>
+			<div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Cohorts seeded successfully.', 'rocketpd' ); ?></p></div>
+		<?php endif; ?>
+		<a href="<?php echo esc_url( $url ); ?>" class="button button-primary" style="margin: 10px 0;">
+			<?php esc_html_e( 'Seed Cohorts', 'rocketpd' ); ?>
+		</a>
+	</div>
+	<?php
+}
+add_action( 'all_admin_notices', 'rocketpd_cohort_seed_button' );
 
 /**
  * Populate ACF fields for an instructor post from seed data.
