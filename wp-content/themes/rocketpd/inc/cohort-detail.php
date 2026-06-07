@@ -509,30 +509,42 @@ function rocketpd_get_cohort_detail_instructor_from_post( $post, $fallback ) {
 /**
  * Return current cohort detail data.
  *
+ * Uses a sentinel check on rpd_cohort_title to determine whether this post
+ * has been seeded (first save has fired). If not seeded, returns the fallback
+ * so new posts display example content in the preview. Once seeded, ACF is
+ * the sole source of truth — no fallback merge occurs, so intentionally
+ * cleared fields stay empty.
+ *
  * @return array
  */
 function rocketpd_get_current_cohort_detail() {
-	$fallback = rocketpd_get_cohort_detail_fallback();
-
 	if ( ! function_exists( 'get_field' ) ) {
-		return $fallback;
+		return rocketpd_get_cohort_detail_fallback();
 	}
 
-	$instructor_post = rocketpd_get_field( 'rpd_cohort_instructor', 0 );
-	$instructor      = rocketpd_get_cohort_detail_instructor_from_post( $instructor_post, $fallback['instructor'] );
-	$sponsor         = rocketpd_get_field( 'rpd_cohort_sponsor', array() );
-	$team_options    = rocketpd_get_field( 'rpd_cohort_team_options', array() );
-	$resources       = rocketpd_get_field( 'rpd_cohort_resources', array() );
+	// Sentinel: null/false means the post has never been seeded — return fallback.
+	$sentinel = get_field( 'rpd_cohort_title', get_the_ID() );
+	if ( null === $sentinel || false === $sentinel ) {
+		return rocketpd_get_cohort_detail_fallback();
+	}
 
-	$override = array(
+	// Post has been seeded — ACF is the source of truth. No fallback merge.
+	$instructor_post = rocketpd_get_field( 'rpd_cohort_instructor', 0 );
+	$fallback_instructor = rocketpd_get_cohort_detail_fallback()['instructor'];
+	$instructor  = rocketpd_get_cohort_detail_instructor_from_post( $instructor_post, $fallback_instructor );
+	$sponsor     = rocketpd_get_field( 'rpd_cohort_sponsor', array() );
+	$team_options = rocketpd_get_field( 'rpd_cohort_team_options', array() );
+	$resources   = rocketpd_get_field( 'rpd_cohort_resources', array() );
+
+	return array(
 		'title'               => rocketpd_get_field( 'rpd_cohort_title', get_the_title() ),
 		'subtitle'            => rocketpd_get_field( 'rpd_cohort_subtitle', '' ),
 		'shortDescription'    => rocketpd_get_field( 'rpd_cohort_short_description', '' ),
 		'longDescription'     => rocketpd_get_field( 'rpd_cohort_long_description', '' ),
 		'topic'               => rocketpd_get_field( 'rpd_cohort_topic', '' ),
 		'category'            => rocketpd_get_field( 'rpd_cohort_category', '' ),
-		'status'              => rocketpd_get_field( 'rpd_cohort_status', '' ),
-		'featured'            => rocketpd_get_field( 'rpd_cohort_featured', null ),
+		'status'              => rocketpd_get_field( 'rpd_cohort_status', 'registration-open' ),
+		'featured'            => (bool) rocketpd_get_field( 'rpd_cohort_featured', false ),
 		'startDate'           => rocketpd_get_field( 'rpd_cohort_start_date', '' ),
 		'endDate'             => rocketpd_get_field( 'rpd_cohort_end_date', '' ),
 		'sessionCountLabel'   => rocketpd_get_field( 'rpd_cohort_session_count_label', '' ),
@@ -540,8 +552,9 @@ function rocketpd_get_current_cohort_detail() {
 		'formatLabel'         => rocketpd_get_field( 'rpd_cohort_format_label', '' ),
 		'cadenceLabel'        => rocketpd_get_field( 'rpd_cohort_cadence_label', '' ),
 		'sessionLength'       => rocketpd_get_field( 'rpd_cohort_session_length', '' ),
+		'certificateLabel'    => __( 'Certificate of Completion', 'rocketpd' ),
 		'cardImage'           => rocketpd_get_field( 'rpd_cohort_card_image', '' ),
-		'priceType'           => rocketpd_get_field( 'rpd_cohort_price_type', '' ),
+		'priceType'           => rocketpd_get_field( 'rpd_cohort_price_type', 'paid' ),
 		'priceLabel'          => rocketpd_get_field( 'rpd_cohort_price_label', '' ),
 		'priceAmount'         => rocketpd_get_field( 'rpd_cohort_price_amount', '' ),
 		'priceMeta'           => rocketpd_get_field( 'rpd_cohort_price_meta', '' ),
@@ -558,7 +571,7 @@ function rocketpd_get_current_cohort_detail() {
 		'faqs'                => rocketpd_get_repeater_rows( 'rpd_cohort_faqs', array(), array( 'question' ) ),
 		'testimonials'        => rocketpd_get_repeater_rows( 'rpd_cohort_testimonials', array(), array( 'quote' ) ),
 		'sponsor'             => is_array( $sponsor ) ? $sponsor : array(),
-		'teamOptions'         => rocketpd_normalize_cohort_detail_team_options( $team_options ),
+		'teamOptions'         => is_array( $team_options ) ? $team_options : array(),
 		'resources'           => rocketpd_normalize_cohort_detail_resources( $resources ),
 		'primaryCta'          => array(
 			'label' => rocketpd_get_field( 'rpd_cohort_primary_cta_label', '' ),
@@ -577,6 +590,4 @@ function rocketpd_get_current_cohort_detail() {
 			'secondaryHref'  => rocketpd_get_field( 'rpd_cohort_final_secondary_url', '' ),
 		),
 	);
-
-	return rocketpd_cohort_detail_merge( $fallback, $override );
 }
