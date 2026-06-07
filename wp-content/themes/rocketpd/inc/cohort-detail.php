@@ -96,6 +96,13 @@ function rocketpd_cohort_detail_merge( $fallback, $override ) {
 				continue;
 			}
 
+			// Indexed arrays are repeater rows — replace wholesale, never recurse.
+			$is_indexed = array_keys( $value ) === range( 0, count( $value ) - 1 );
+			if ( $is_indexed ) {
+				$fallback[ $key ] = $value;
+				continue;
+			}
+
 			$fallback[ $key ] = isset( $fallback[ $key ] ) && is_array( $fallback[ $key ] )
 				? rocketpd_cohort_detail_merge( $fallback[ $key ], $value )
 				: $value;
