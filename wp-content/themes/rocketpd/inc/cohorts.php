@@ -246,7 +246,7 @@ function rocketpd_get_cohort_seed_data() {
 			'registrationUrl'     => 'https://pci.jotform.com/form/243226275018049',
 			'waitlistUrl'         => '',
 			'closedMessage'       => 'Registration is currently closed. Join the notification list and we will let you know when the next cohort opens.',
-			'registrationFillsBy' => '',
+			'registrationFillsBy' => 'Seats typically fill by October 1.',
 			'invoiceNote'         => 'Need an invoice or purchase order? Contact RocketPD before registering.',
 			// Schedule.
 			'schedule' => array(
@@ -423,7 +423,7 @@ function rocketpd_get_cohort_seed_data() {
 			'registrationUrl'     => '/cohorts/building-thinking-classrooms-summer-refresh/#register',
 			'waitlistUrl'         => '',
 			'closedMessage'       => 'Registration is currently closed. Join the notification list and we will let you know when the next cohort opens.',
-			'registrationFillsBy' => '',
+			'registrationFillsBy' => 'Seats typically fill by July 1.',
 			'invoiceNote'         => 'Need an invoice or purchase order? Contact RocketPD before registering.',
 			// Schedule.
 			'schedule' => array(
