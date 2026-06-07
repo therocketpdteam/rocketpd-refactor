@@ -1564,7 +1564,7 @@ function rocketpd_get_course_seed_data() {
 		// ─────────────────────────────────────────────────────────────────────
 		array(
 			'slug'    => 'using-pbl-to-spark-real-world-learning-with-john-spencer',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'   => 'Using PBL to Spark Real-World Learning',
 			'format'  => 'self-paced',
