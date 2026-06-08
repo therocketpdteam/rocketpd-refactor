@@ -295,6 +295,13 @@
 	border-top: 1px solid var(--rpd-color-border);
 	background: var(--rpd-white);
 	box-shadow: var(--rpd-shadow-sm);
+	position: fixed;
+	top: 64px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 19;
+	overflow-y: auto;
 }
 
 .rpd-mobile-menu .rpd-menu {
@@ -424,8 +431,7 @@
 	}
 
 	.rpd-mobile-menu {
-		overflow-y: auto;
-		max-height: calc(100vh - 64px);
+		top: 60px;
 	}
 
 	.rpd-mobile-menu .rpd-container {
