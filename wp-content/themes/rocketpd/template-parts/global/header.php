@@ -14,8 +14,8 @@ $header_logo_id     = rocketpd_get_option( 'rpd_logo', '/wp-content/uploads/2026
 $header_logo_alt    = rocketpd_get_option( 'rpd_logo_alt', get_bloginfo( 'name' ) );
 $nav_cta_label      = rocketpd_get_option( 'rpd_primary_nav_cta_label', $is_about_template ? __( 'Join the Community', 'rocketpd' ) : '' );
 $nav_cta_url        = rocketpd_get_option( 'rpd_primary_nav_cta_url', $is_about_template ? home_url( '/' ) : '' );
-$login_label        = rocketpd_get_option( 'rpd_login_label', __( 'Login', 'rocketpd' ) );
-$login_url          = rocketpd_get_option( 'rpd_login_url', home_url( '/login/' ) );
+$login_label        = rocketpd_get_option( 'rpd_login_label', $is_about_template ? __( 'Login', 'rocketpd' ) : '' );
+$login_url          = rocketpd_get_option( 'rpd_login_url', $is_about_template ? home_url( '/login/' ) : '' );
 $has_header_actions = ( $nav_cta_label && $nav_cta_url ) || ( $login_label && $login_url );
 $about_nav_links    = array(
 	array(
@@ -78,7 +78,7 @@ $about_nav_links    = array(
 
 		<div class="rpd-site-header__actions">
 			<?php if ( $login_label && $login_url ) : ?>
-				<a class="rpd-btn rpd-btn--outline-purple rpd-site-header__login" href="<?php echo esc_url( $login_url ); ?>">
+				<a class="rpd-site-header__login" href="<?php echo esc_url( $login_url ); ?>">
 					<?php echo esc_html( $login_label ); ?>
 				</a>
 			<?php endif; ?>
