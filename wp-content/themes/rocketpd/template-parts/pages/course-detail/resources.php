@@ -35,7 +35,7 @@ if ( ! $resources ) {
 		<?php if ( $guide ) : ?>
 			<article class="rpd-course-featured-guide">
 				<div>
-					<p class="rpd-course-featured-guide__badge"><span aria-hidden="true">▱</span><?php esc_html_e( 'Featured Free Guide', 'rocketpd' ); ?></p>
+					<p class="rpd-course-featured-guide__badge"><span aria-hidden="true"><?php echo rocketpd_get_icon( 'book', 14 ); ?></span><?php esc_html_e( 'Featured Free Guide', 'rocketpd' ); ?></p>
 					<h3><?php echo esc_html( $guide['title'] ?? '' ); ?></h3>
 					<span><?php echo esc_html( $guide['meta'] ?? '' ); ?></span>
 					<small class="rpd-course-featured-guide__footer"><span aria-hidden="true">☆</span> <?php echo esc_html( sprintf( __( 'Most-downloaded resource from %s', 'rocketpd' ), $instructor ) ); ?></small>
