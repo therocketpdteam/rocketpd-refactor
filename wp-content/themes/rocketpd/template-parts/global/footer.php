@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $is_about_template       = is_page_template( 'page-templates/template-about.php' );
-$footer_logo_id          = rocketpd_get_option( 'rpd_footer_logo' );
+$footer_logo_id          = rocketpd_get_option( 'rpd_footer_logo', '/wp-content/uploads/2026/05/RocketPD_LOGO_blk.png' );
 $default_footer_columns  = array(
 		array(
 			'title' => __( 'Product', 'rocketpd' ),
