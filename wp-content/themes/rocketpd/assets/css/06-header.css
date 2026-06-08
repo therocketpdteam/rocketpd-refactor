@@ -163,12 +163,13 @@
 	margin-left: var(--rpd-space-4);
 }
 
-.rpd-menu a.rpd-btn--outline-purple {
+.rpd-site-header .rpd-menu a.rpd-btn--outline-purple {
 	border: 1px solid var(--rpd-purple);
+	background: transparent;
 	color: var(--rpd-purple);
 }
 
-.rpd-menu a.rpd-btn--outline-purple:hover {
+.rpd-site-header .rpd-menu a.rpd-btn--outline-purple:hover {
 	background: var(--rpd-purple);
 	color: var(--rpd-white);
 }
