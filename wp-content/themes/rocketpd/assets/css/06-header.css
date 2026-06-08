@@ -375,6 +375,13 @@
 
 	.rpd-mobile-menu .rpd-container {
 		overflow: visible;
+		width: 100%;
+		max-width: 100%;
+		padding-inline: var(--rpd-container-gutter);
+	}
+
+	.rpd-mobile-menu .rpd-menu li {
+		position: static;
 	}
 }
 
