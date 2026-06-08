@@ -78,7 +78,7 @@ $about_nav_links    = array(
 
 		<div class="rpd-site-header__actions">
 			<?php if ( $login_label && $login_url ) : ?>
-				<a class="rpd-site-header__login" href="<?php echo esc_url( $login_url ); ?>">
+				<a class="rpd-btn rpd-btn--outline-purple rpd-site-header__login" href="<?php echo esc_url( $login_url ); ?>">
 					<?php echo esc_html( $login_label ); ?>
 				</a>
 			<?php endif; ?>
