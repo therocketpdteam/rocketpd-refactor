@@ -46,10 +46,7 @@ if ( ! $has_guide && ! $has_podcast && ! $has_webinar && ! $has_blog ) {
 			<article class="rpd-instructor-guide-card">
 				<div class="rpd-instructor-guide-card__feature">
 					<span class="rpd-instructor-resource-icon" aria-hidden="true">
-						<svg viewBox="0 0 24 24" focusable="false">
-							<path d="M6.5 4.5h8.25A2.75 2.75 0 0 1 17.5 7.25v12.25H8A2.5 2.5 0 0 0 5.5 22V5.5a1 1 0 0 1 1-1Z"/>
-							<path d="M8 19.5h9.5M8.25 8h6.25M8.25 11h5"/>
-						</svg>
+					<?php echo rocketpd_get_icon( 'book-open', 16 ); ?>
 					</span>
 					<p><?php esc_html_e( 'Featured Guide - Free', 'rocketpd' ); ?></p>
 					<h3><?php echo esc_html( $guide['title'] ?? '' ); ?></h3>
