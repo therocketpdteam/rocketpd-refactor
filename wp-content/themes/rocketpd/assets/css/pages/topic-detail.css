@@ -39,13 +39,6 @@
 	color: inherit;
 }
 
-.rpd-topic-detail-page .rpd-container {
-	margin-inline: auto;
-	max-width: var(--rpd-container);
-	padding-inline: var(--rpd-container-gutter);
-	width: 100%;
-}
-
 .rpd-topic-detail-anchor {
 	scroll-margin-top: 104px;
 }
@@ -1296,10 +1289,6 @@
 }
 
 @media (max-width: 760px) {
-	.rpd-topic-detail-page .rpd-container {
-		padding-inline: 1rem;
-	}
-
 	.rpd-topic-detail-section,
 	.rpd-topic-community,
 	.rpd-topic-final-cta {
