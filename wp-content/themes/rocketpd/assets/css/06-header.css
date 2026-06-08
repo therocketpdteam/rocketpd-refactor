@@ -182,14 +182,15 @@
 	padding: 0 var(--rpd-space-4);
 	min-height: 36px;
 	border: 1px solid var(--rpd-purple);
-	border-radius: var(--rpd-radius-pill);
-	background: transparent;
-	color: var(--rpd-purple);
+	border-radius: var(--rpd-radius);
+	background: var(--rpd-purple);
+	color: var(--rpd-white);
 	font-size: var(--rpd-font-size-sm);
 }
 
 .rpd-menu li.rpd-menu-item--login > a:hover {
-	background: var(--rpd-purple);
+	background: var(--rpd-purple-deep);
+	border-color: var(--rpd-purple-deep);
 	color: var(--rpd-white);
 }
 
