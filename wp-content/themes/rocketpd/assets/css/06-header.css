@@ -103,6 +103,11 @@
 	justify-content: center;
 }
 
+.rpd-mobile-menu .rpd-menu {
+	width: auto;
+	justify-content: initial;
+}
+
 .rpd-site-header__nav .rpd-menu li.rpd-menu-item--login {
 	position: absolute;
 	right: 0;
@@ -311,6 +316,7 @@
 	box-shadow: none;
 	opacity: 1;
 	pointer-events: auto;
+	visibility: visible;
 	transform: none;
 }
 
