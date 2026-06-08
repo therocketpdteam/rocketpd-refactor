@@ -321,6 +321,8 @@
 	pointer-events: auto;
 	visibility: visible;
 	transform: none;
+	left: auto;
+	top: auto;
 }
 
 .rpd-mobile-menu .rpd-menu a {
@@ -375,8 +377,9 @@
 
 	.rpd-mobile-menu .rpd-container {
 		overflow: visible;
-		width: 100%;
-		max-width: 100%;
+		width: auto;
+		max-width: none;
+		margin-inline: 0;
 		padding-inline: var(--rpd-container-gutter);
 	}
 
