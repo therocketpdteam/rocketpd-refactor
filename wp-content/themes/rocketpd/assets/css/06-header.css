@@ -325,6 +325,16 @@
 	top: auto;
 }
 
+.rpd-mobile-menu .rpd-menu li:hover > .sub-menu,
+.rpd-mobile-menu .rpd-menu li:focus-within > .sub-menu {
+	transform: none;
+	left: auto;
+	top: auto;
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+
 .rpd-mobile-menu .rpd-menu a {
 	width: 100%;
 	justify-content: space-between;
