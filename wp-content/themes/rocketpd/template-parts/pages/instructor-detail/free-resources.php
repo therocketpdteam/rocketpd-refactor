@@ -45,9 +45,7 @@ if ( ! $has_guide && ! $has_podcast && ! $has_webinar && ! $has_blog ) {
 		<?php if ( $has_guide ) : ?>
 			<article class="rpd-instructor-guide-card">
 				<div class="rpd-instructor-guide-card__feature">
-					<span class="rpd-instructor-resource-icon" aria-hidden="true">
-					<?php echo rocketpd_get_icon( 'book-open', 24 ); ?>
-					</span>
+					<?php echo rocketpd_get_icon( 'book-open', 32 ); ?>
 					<p><?php esc_html_e( 'Featured Guide - Free', 'rocketpd' ); ?></p>
 					<h3><?php echo esc_html( $guide['title'] ?? '' ); ?></h3>
 					<span><?php echo esc_html( $guide['meta'] ?? '' ); ?></span>
