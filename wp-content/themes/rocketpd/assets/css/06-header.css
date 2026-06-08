@@ -97,6 +97,11 @@
 	flex: 1 1 auto;
 }
 
+.rpd-site-header__nav .rpd-menu {
+	width: 100%;
+	justify-content: center;
+}
+
 .rpd-menu {
 	display: flex;
 	align-items: center;
