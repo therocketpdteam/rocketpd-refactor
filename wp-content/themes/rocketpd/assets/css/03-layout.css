@@ -1,5 +1,5 @@
 .rpd-container {
-	width: min(100% - var(--rpd-container-gutter), var(--rpd-container));
+	width: min(100% - var(--rpd-container-gutter) * 2, var(--rpd-container));
 	margin-inline: auto;
 }
 
