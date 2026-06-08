@@ -665,6 +665,12 @@
 	text-decoration: none;
 }
 
+.rpd-instructor-detail-page .rpd-instructor-related-card a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+}
+
 .rpd-instructor-detail-page .rpd-instructor-blog-card.is-placeholder {
 	border-style: dashed;
 	background:
@@ -892,6 +898,7 @@
 }
 
 .rpd-instructor-detail-page .rpd-instructor-related-card {
+	position: relative;
 	display: grid;
 	grid-template-rows: auto 1fr;
 	gap: 0;
