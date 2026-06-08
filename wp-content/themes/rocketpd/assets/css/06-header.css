@@ -147,7 +147,16 @@
 	pointer-events: none;
 	transform: translate(-50%, -0.25rem);
 	visibility: hidden;
-	transition: opacity var(--rpd-transition), transform var(--rpd-transition);
+	transition: opacity var(--rpd-transition), transform var(--rpd-transition), visibility 0s linear 200ms;
+}
+
+.rpd-menu .sub-menu::before {
+	content: "";
+	position: absolute;
+	top: calc(-1 * var(--rpd-space-2) - 4px);
+	left: 0;
+	right: 0;
+	height: calc(var(--rpd-space-2) + 4px);
 }
 
 .rpd-menu li:hover > .sub-menu,
@@ -156,6 +165,7 @@
 	pointer-events: auto;
 	transform: translate(-50%, 0);
 	visibility: visible;
+	transition: opacity var(--rpd-transition), transform var(--rpd-transition), visibility 0s linear 0s;
 }
 
 .rpd-menu a {
