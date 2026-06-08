@@ -92,6 +92,7 @@
 }
 
 .rpd-site-header__nav {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	flex: 1 1 auto;
@@ -100,6 +101,12 @@
 .rpd-site-header__nav .rpd-menu {
 	width: 100%;
 	justify-content: center;
+}
+
+.rpd-site-header__nav .rpd-menu li.rpd-menu-item--login {
+	position: absolute;
+	right: 0;
+	margin-left: 0;
 }
 
 .rpd-menu {
