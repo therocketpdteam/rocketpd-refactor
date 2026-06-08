@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $is_about_template  = is_page_template( 'page-templates/template-about.php' );
-$header_logo_id     = rocketpd_get_option( 'rpd_logo' );
+$header_logo_id     = rocketpd_get_option( 'rpd_logo', '/wp-content/uploads/2026/05/RocketPD_LOGO_blk.png' );
 $header_logo_alt    = rocketpd_get_option( 'rpd_logo_alt', get_bloginfo( 'name' ) );
 $nav_cta_label      = rocketpd_get_option( 'rpd_primary_nav_cta_label', $is_about_template ? __( 'Join the Community', 'rocketpd' ) : '' );
 $nav_cta_url        = rocketpd_get_option( 'rpd_primary_nav_cta_url', $is_about_template ? home_url( '/' ) : '' );
