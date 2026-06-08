@@ -41,8 +41,8 @@
 
 .rpd-topic-detail-page .rpd-container {
 	margin-inline: auto;
-	max-width: 1180px;
-	padding-inline: 24px;
+	max-width: var(--rpd-container);
+	padding-inline: var(--rpd-container-gutter);
 	width: 100%;
 }
 
@@ -1297,7 +1297,7 @@
 
 @media (max-width: 760px) {
 	.rpd-topic-detail-page .rpd-container {
-		padding-inline: 18px;
+		padding-inline: 1rem;
 	}
 
 	.rpd-topic-detail-section,
