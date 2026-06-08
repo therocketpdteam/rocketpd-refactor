@@ -301,6 +301,9 @@
 	display: grid;
 	gap: var(--rpd-space-3);
 	padding-block: var(--rpd-space-5);
+	width: auto;
+	justify-content: initial;
+	overflow: visible;
 }
 
 .rpd-mobile-menu .rpd-menu .sub-menu {
@@ -359,6 +362,19 @@
 	.rpd-site-header__actions .rpd-site-header__login,
 	.rpd-site-header__actions .rpd-site-header__cta {
 		display: none;
+	}
+
+	.rpd-site-header__nav .rpd-menu li.rpd-menu-item--login {
+		position: static;
+	}
+
+	.rpd-mobile-menu {
+		overflow-y: auto;
+		max-height: calc(100vh - 64px);
+	}
+
+	.rpd-mobile-menu .rpd-container {
+		overflow: visible;
 	}
 }
 
