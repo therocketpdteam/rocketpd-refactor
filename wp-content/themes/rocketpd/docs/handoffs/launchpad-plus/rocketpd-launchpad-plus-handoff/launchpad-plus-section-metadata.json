@@ -1,0 +1,41 @@
+{
+  "page": "RocketPD LaunchPad+",
+  "source": {
+    "route": "/__mockup/preview/rocketpd-launchpad-plus/Home",
+    "file": "artifacts/mockup-sandbox/src/components/mockups/rocketpd-launchpad-plus/Home.tsx",
+    "component": "Home",
+    "exportDate": "2026-06-09",
+    "sourceOfTruth": "replit-mockup",
+    "note": "Inline source comments are numbered 1..11 starting at the hero and skipping the header; this metadata uses TRUE visual order (header=01, footer=13)."
+  },
+  "fonts": { "heading": "Poppins", "body": "Inter" },
+  "assets": {
+    "realImages": ["/__mockup/images/rocketpd-logo.png"],
+    "cssOrSvgMocks": ["hero district dashboard", "fragmented-to-unified diagram", "admin analytics dashboard", "creator example-package card", "gradient orbs", "gold grid overlay"]
+  },
+  "icons": "lucide-react (inline svg)",
+  "uiPrimitives": "shadcn Button + Badge",
+  "sections": [
+    { "order": 1, "id": "01-header", "name": "Header / Sticky Nav", "selector": "header", "bg": "white/95 blur", "type": "shared-chrome", "mobileReflow": true },
+    { "order": 2, "id": "02-hero", "name": "Hero (branded district platform)", "selector": "main > section:nth-of-type(1)", "bg": "dark navy gradient + grid", "type": "two-col", "cards": 0, "mock": "browser district dashboard", "mobileReflow": true },
+    { "order": 3, "id": "03-intro-problem", "name": "Intro / The Gap", "selector": "main > section:nth-of-type(2)", "bg": "white", "type": "two-col", "eyebrow": "The Gap", "mock": "fragmented-to-unified diagram", "mobileReflow": true },
+    { "order": 4, "id": "04-platform-positioning", "name": "Platform Positioning (What It Is)", "selector": "main > section:nth-of-type(3)", "bg": "#f8fafc band", "type": "card-grid", "cards": 5, "eyebrow": "What It Is", "mobileReflow": true },
+    { "order": 5, "id": "05-system-overview", "name": "System Overview (How It's Organized)", "selector": "main > section:nth-of-type(4)", "bg": "white", "type": "pillar-grid", "cards": 3, "eyebrow": "How It's Organized", "mobileReflow": true },
+    { "order": 6, "id": "06-features-included", "name": "What's Included", "selector": "main > section:nth-of-type(5)", "bg": "dark navy gradient", "type": "card-grid", "cards": 3, "eyebrow": "What's Included", "mobileReflow": true },
+    { "order": 7, "id": "07-admin-visibility", "name": "Admin Visibility", "selector": "main > section:nth-of-type(6)", "bg": "white", "type": "two-col", "checklist": 3, "eyebrow": "Built for Leaders", "mock": "analytics dashboard + svg donut", "mobileReflow": true },
+    { "order": 8, "id": "08-value-outcomes", "name": "Value / Outcomes (Why It Matters)", "selector": "main > section:nth-of-type(7)", "bg": "#f8fafc band", "type": "card-grid", "cards": 5, "eyebrow": "Why It Matters", "mobileReflow": true },
+    { "order": 9, "id": "09-creator-package", "name": "Creator's Package", "selector": "main > section:nth-of-type(8)", "bg": "white", "type": "two-col", "checklist": 3, "eyebrow": "Creator's Package", "mock": "example-package card", "mobileReflow": true },
+    { "order": 10, "id": "10-learning-experiences", "name": "Connected to RocketPD", "selector": "main > section:nth-of-type(9)", "bg": "dark navy gradient", "type": "card-grid", "cards": 3, "eyebrow": "Beyond the Platform", "mobileReflow": true },
+    { "order": 11, "id": "11-comparison-table", "name": "Comparison (LaunchPad vs LaunchPad+)", "selector": "main > section:nth-of-type(10)", "bg": "white", "type": "two-col-table", "rows": 6, "eyebrow": "How They Compare", "mobileReflow": true },
+    { "order": 12, "id": "12-final-cta", "name": "Final CTA", "selector": "main > section:nth-of-type(11)", "bg": "dark navy gradient + grid", "type": "centered", "eyebrow": "Get Started", "mobileReflow": false },
+    { "order": 13, "id": "13-footer", "name": "Footer", "selector": "footer", "bg": "#1a1744", "type": "shared-chrome", "mobileReflow": true }
+  ],
+  "comparisonRows": [
+    { "capability": "RocketPD Courses", "launchpad": true, "launchpadPlus": true },
+    { "capability": "Workbooks & Certificates", "launchpad": true, "launchpadPlus": true },
+    { "capability": "Searchable Learning", "launchpad": true, "launchpadPlus": true },
+    { "capability": "District Branding", "launchpad": false, "launchpadPlus": true },
+    { "capability": "District Content Hosting", "launchpad": false, "launchpadPlus": true },
+    { "capability": "Central Resource Hub", "launchpad": false, "launchpadPlus": true }
+  ]
+}
