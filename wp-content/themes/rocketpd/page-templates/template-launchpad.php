@@ -10,6 +10,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! function_exists( 'rocketpd_lp_value_is_blank' ) ) {
+	/**
+	 * Determine whether a LaunchPad ACF value is effectively blank.
+	 *
+	 * ACF repeaters can return rows whose subfields are all empty. Treat those
+	 * as blank so the Replit fallback content still renders.
+	 *
+	 * @param mixed $value Value to inspect.
+	 * @return bool
+	 */
+	function rocketpd_lp_value_is_blank( $value ) {
+		if ( null === $value || false === $value ) {
+			return true;
+		}
+
+		if ( is_string( $value ) ) {
+			return '' === trim( $value );
+		}
+
+		if ( is_array( $value ) ) {
+			if ( empty( $value ) ) {
+				return true;
+			}
+
+			foreach ( $value as $item ) {
+				if ( ! rocketpd_lp_value_is_blank( $item ) ) {
+					return false;
+				}
+			}
+
+			return true;
+		}
+
+		return false;
+	}
+}
+
 if ( ! function_exists( 'rocketpd_lp_get_field' ) ) {
 	/**
 	 * Return LaunchPad field content, falling back when saved values are blank.
@@ -21,15 +58,7 @@ if ( ! function_exists( 'rocketpd_lp_get_field' ) ) {
 	function rocketpd_lp_get_field( $field_name, $fallback = '' ) {
 		$value = function_exists( 'rocketpd_get_field' ) ? rocketpd_get_field( $field_name, null ) : null;
 
-		if ( null === $value || false === $value ) {
-			return $fallback;
-		}
-
-		if ( is_string( $value ) && '' === trim( $value ) ) {
-			return $fallback;
-		}
-
-		if ( is_array( $value ) && empty( $value ) && is_array( $fallback ) && ! empty( $fallback ) ) {
+		if ( rocketpd_lp_value_is_blank( $value ) ) {
 			return $fallback;
 		}
 

@@ -9,22 +9,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$instructors = rocketpd_lp_get_field(
-	'instructors',
-	array(
-		array( 'image' => 'inst-barnett.png', 'focus' => 'Individualized Instruction', 'name' => 'Robert Barnett', 'desc' => "Redesigning instruction to meet every learner's needs (with Modern Classrooms Project)." ),
-		array( 'image' => 'inst-brown.png', 'focus' => 'School Culture & Engagement', 'name' => 'Dr. Luvelle Brown', 'desc' => "Create a 'Culture of Love' that supports the needs of every learner." ),
-		array( 'image' => 'inst-constantino.png', 'focus' => 'Family Engagement', 'name' => 'Dr. Steve Constantino', 'desc' => '5 Simple Principles to engage parents in the academic lives of their children.' ),
-		array( 'image' => 'inst-estill.png', 'focus' => 'Reading Instruction', 'name' => 'Beth P. Estill', 'desc' => 'Identify and address learning gaps with personalized reading instruction.' ),
-		array( 'image' => 'inst-gonzalez.jpeg', 'focus' => 'Teaching Efficacy', 'name' => 'Jennifer Gonzalez', 'desc' => 'Fine-tune your lessons with the fundamentals.', 'is_new' => true ),
-		array( 'image' => 'inst-hinojosa.png', 'focus' => 'School Leadership', 'name' => 'Dr. Michael Hinojosa', 'desc' => 'Identify and manage talent while navigating school politics.' ),
-		array( 'image' => 'inst-juliani.png', 'focus' => 'AI & Technology', 'name' => 'A.J. Juliani', 'desc' => 'Use A.I. to make learning real and relevant for students now and in the future.' ),
-		array( 'image' => 'inst-marshall.png', 'focus' => 'Teacher Evaluation', 'name' => 'Kim Marshall', 'desc' => "Drive efficiencies and staff engagement through 'mini-observations.'" ),
-		array( 'image' => 'inst-philibert.png', 'focus' => 'Adult Well-Being & Retention', 'name' => 'Carla Tantillo Philibert', 'desc' => 'Empower teachers and staff to advocate for their personal and professional needs.' ),
-		array( 'image' => 'inst-sopher.png', 'focus' => 'School Communications', 'name' => 'Veronica V. Sopher', 'desc' => 'Build trust and address sensitive topics with parents and community members.' ),
-		array( 'image' => 'inst-tucker.png', 'focus' => 'UDL & Blended Learning', 'name' => 'Dr. Catlin Tucker', 'desc' => 'Use blended-learning models to put students at the center of their academic journey.' ),
-	)
+$fallback_instructors = array(
+	array( 'image' => 'inst-barnett.png', 'focus' => 'Individualized Instruction', 'name' => 'Robert Barnett', 'desc' => "Redesigning instruction to meet every learner's needs (with Modern Classrooms Project)." ),
+	array( 'image' => 'inst-brown.png', 'focus' => 'School Culture & Engagement', 'name' => 'Dr. Luvelle Brown', 'desc' => "Create a 'Culture of Love' that supports the needs of every learner." ),
+	array( 'image' => 'inst-constantino.png', 'focus' => 'Family Engagement', 'name' => 'Dr. Steve Constantino', 'desc' => '5 Simple Principles to engage parents in the academic lives of their children.' ),
+	array( 'image' => 'inst-estill.png', 'focus' => 'Reading Instruction', 'name' => 'Beth P. Estill', 'desc' => 'Identify and address learning gaps with personalized reading instruction.' ),
+	array( 'image' => 'inst-gonzalez.jpeg', 'focus' => 'Teaching Efficacy', 'name' => 'Jennifer Gonzalez', 'desc' => 'Fine-tune your lessons with the fundamentals.', 'is_new' => true ),
+	array( 'image' => 'inst-hinojosa.png', 'focus' => 'School Leadership', 'name' => 'Dr. Michael Hinojosa', 'desc' => 'Identify and manage talent while navigating school politics.' ),
+	array( 'image' => 'inst-juliani.png', 'focus' => 'AI & Technology', 'name' => 'A.J. Juliani', 'desc' => 'Use A.I. to make learning real and relevant for students now and in the future.' ),
+	array( 'image' => 'inst-marshall.png', 'focus' => 'Teacher Evaluation', 'name' => 'Kim Marshall', 'desc' => "Drive efficiencies and staff engagement through 'mini-observations.'" ),
+	array( 'image' => 'inst-philibert.png', 'focus' => 'Adult Well-Being & Retention', 'name' => 'Carla Tantillo Philibert', 'desc' => 'Empower teachers and staff to advocate for their personal and professional needs.' ),
+	array( 'image' => 'inst-sopher.png', 'focus' => 'School Communications', 'name' => 'Veronica V. Sopher', 'desc' => 'Build trust and address sensitive topics with parents and community members.' ),
+	array( 'image' => 'inst-tucker.png', 'focus' => 'UDL & Blended Learning', 'name' => 'Dr. Catlin Tucker', 'desc' => 'Use blended-learning models to put students at the center of their academic journey.' ),
 );
+$instructors          = rocketpd_lp_get_field( 'instructors', $fallback_instructors );
+$has_instructor_name  = false;
+
+foreach ( $instructors as $instructor ) {
+	if ( is_array( $instructor ) && ! empty( $instructor['name'] ) ) {
+		$has_instructor_name = true;
+		break;
+	}
+}
+
+if ( ! $has_instructor_name ) {
+	$instructors = $fallback_instructors;
+}
 $all = rocketpd_lp_get_field( 'instructors_all_link', array( 'title' => __( 'See all instructors', 'rocketpd' ), 'url' => home_url( '/instructors/' ) ) );
 ?>
 <section class="rpd-lp-section rpd-lp-instructors">
