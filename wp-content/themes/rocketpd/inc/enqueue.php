@@ -143,7 +143,7 @@ function rocketpd_enqueue_assets() {
 		);
 	}
 
-	if ( is_page_template( 'page-templates/template-instructors.php' ) ) {
+	if ( is_page_template( 'page-templates/template-instructors.php' ) || is_post_type_archive( 'instructor' ) ) {
 		$enqueue_page_style( 'rocketpd-instructors', '/assets/css/pages/instructors.css' );
 
 		$instructors_script_path = get_template_directory() . '/assets/js/instructors.js';

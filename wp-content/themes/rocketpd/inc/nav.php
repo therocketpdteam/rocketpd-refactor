@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return bool
  */
 function rocketpd_is_instructors_context() {
-	return is_page_template( 'page-templates/template-instructors.php' ) || is_singular( 'instructor' );
+	return is_page_template( 'page-templates/template-instructors.php' ) || is_post_type_archive( 'instructor' ) || is_singular( 'instructor' );
 }
 
 /**
