@@ -30,7 +30,8 @@ $opportunities = function_exists( 'rocketpd_get_topic_opportunities' ) ? rocketp
 						<?php echo rocketpd_topic_icon_svg( $icon, 'rpd-topics-icon' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</span>
 					<h3><?php echo esc_html( $opportunity['title'] ); ?></h3>
-					<p><?php echo esc_html( $opportunity['meta'] ); ?></p>
+					<p><?php echo esc_html( $opportunity['expert'] ); ?></p>
+					<span class="rpd-topics-opportunity-card__date"><?php echo esc_html( $opportunity['date'] ); ?></span>
 					<footer><span><?php echo esc_html( $opportunity['topic'] ); ?></span><strong><?php esc_html_e( 'View', 'rocketpd' ); ?> <span aria-hidden="true">-&gt;</span></strong></footer>
 				</a>
 			<?php endforeach; ?>

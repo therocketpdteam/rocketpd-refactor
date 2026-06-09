@@ -15,20 +15,18 @@ $headline = str_replace( 'K-12', '<span class="rpd-topics-nowrap">K-12</span>', 
 ?>
 
 <section class="rpd-topics-hero">
-	<span class="rpd-topics-orb rpd-topics-orb--blue" aria-hidden="true"></span>
-	<span class="rpd-topics-orb rpd-topics-orb--magenta" aria-hidden="true"></span>
 	<div class="rpd-container rpd-topics-hero__inner">
 		<div class="rpd-topics-hero__copy">
 			<p class="rpd-topics-eyebrow"><?php echo esc_html( rocketpd_get_field( 'rpd_topics_hero_eyebrow', __( '16 Educator Topic Hubs · Updated Weekly', 'rocketpd' ) ) ); ?></p>
 			<h1><?php echo wp_kses( $headline, array( 'span' => array( 'class' => true ) ) ); ?></h1>
 			<p><?php echo esc_html( rocketpd_get_field( 'rpd_topics_hero_body', __( 'Discover practical resources, expert guidance, professional learning opportunities, and community conversations designed to help educators solve real challenges in schools and classrooms.', 'rocketpd' ) ) ); ?></p>
-			<form class="rpd-topics-hero-search" action="#topic-gallery" role="search">
+			<form class="rpd-topics-hero-search" action="#gallery" role="search">
 				<label class="screen-reader-text" for="rpd-topics-hero-search"><?php esc_html_e( 'Search topics', 'rocketpd' ); ?></label>
 				<span aria-hidden="true"></span>
 				<input id="rpd-topics-hero-search" type="search" placeholder="<?php esc_attr_e( 'Search topics - teacher evaluation, AI, family engagement...', 'rocketpd' ); ?>" data-rpd-topics-hero-search>
 			</form>
 			<div class="rpd-topics-hero__actions">
-				<a class="rpd-btn rpd-btn--gold" href="#topic-gallery"><?php echo esc_html( rocketpd_get_field( 'rpd_topics_hero_primary_label', __( 'Explore Topics', 'rocketpd' ) ) ); ?> <span aria-hidden="true">-&gt;</span></a>
+				<a class="rpd-btn rpd-btn--gold" href="#gallery"><?php echo esc_html( rocketpd_get_field( 'rpd_topics_hero_primary_label', __( 'Explore Topics', 'rocketpd' ) ) ); ?> <span aria-hidden="true">-&gt;</span></a>
 				<a class="rpd-btn rpd-btn--outline-purple" href="<?php echo esc_url( rocketpd_get_field( 'rpd_topics_hero_secondary_url', home_url( '/community/' ) ) ); ?>"><?php echo esc_html( rocketpd_get_field( 'rpd_topics_hero_secondary_label', __( 'Join the RocketPD Community', 'rocketpd' ) ) ); ?></a>
 			</div>
 			<div class="rpd-topics-hero__stats" aria-label="<?php esc_attr_e( 'RocketPD topic hub statistics', 'rocketpd' ); ?>">

@@ -19,7 +19,7 @@ $topics = function_exists( 'rocketpd_get_featured_topics' ) ? array_slice( rocke
 				<p class="rpd-topics-kicker"><?php esc_html_e( 'Featured This Season', 'rocketpd' ); ?></p>
 				<h2><?php esc_html_e( 'Topics educators are exploring right now.', 'rocketpd' ); ?></h2>
 			</div>
-			<a href="#topic-gallery"><?php esc_html_e( 'See all topics', 'rocketpd' ); ?> <span aria-hidden="true">-&gt;</span></a>
+			<a href="#gallery"><?php esc_html_e( 'See all topics', 'rocketpd' ); ?> <span aria-hidden="true">-&gt;</span></a>
 		</header>
 		<div class="rpd-topics-featured-grid">
 			<?php foreach ( $topics as $topic ) : ?>

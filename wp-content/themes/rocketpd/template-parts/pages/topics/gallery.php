@@ -23,7 +23,7 @@ $filters    = array(
 );
 ?>
 
-<section class="rpd-topics-gallery rpd-topics-section" id="topic-gallery" data-rpd-topics>
+<section class="rpd-topics-gallery rpd-topics-section" id="gallery" data-rpd-topics>
 	<div class="rpd-container">
 		<header class="rpd-topics-section__header">
 			<p class="rpd-topics-kicker"><?php esc_html_e( 'Topic Gallery', 'rocketpd' ); ?></p>
@@ -31,8 +31,12 @@ $filters    = array(
 			<span><?php esc_html_e( 'Search by keyword or filter by category to find the educational hub aligned to the work in front of you.', 'rocketpd' ); ?></span>
 		</header>
 		<div class="rpd-topics-gallery__controls">
-			<label class="screen-reader-text" for="rpd-topics-search"><?php esc_html_e( 'Search topic hubs', 'rocketpd' ); ?></label>
-			<input id="rpd-topics-search" type="search" data-rpd-topics-search placeholder="<?php esc_attr_e( 'Search topics, instructors, or descriptions...', 'rocketpd' ); ?>">
+			<div class="rpd-topics-gallery__search-row">
+				<label class="screen-reader-text" for="rpd-topics-search"><?php esc_html_e( 'Search topic hubs', 'rocketpd' ); ?></label>
+				<span aria-hidden="true"></span>
+				<input id="rpd-topics-search" type="search" data-rpd-topics-search placeholder="<?php esc_attr_e( 'Search topics, instructors, or descriptions...', 'rocketpd' ); ?>">
+				<button type="button" data-rpd-topics-clear data-rpd-topics-clear-inline hidden><?php esc_html_e( 'Clear all', 'rocketpd' ); ?> <span data-rpd-topics-active-count></span></button>
+			</div>
 			<div class="rpd-topics-filter-row" aria-label="<?php esc_attr_e( 'Topic filters', 'rocketpd' ); ?>">
 				<span><?php esc_html_e( 'Category', 'rocketpd' ); ?></span>
 				<?php foreach ( $filters as $filter => $label ) : ?>
@@ -75,8 +79,13 @@ $filters    = array(
 					<h3><?php echo esc_html( $topic['title'] ); ?></h3>
 					<p><?php echo esc_html( $topic['description'] ); ?></p>
 					<div class="rpd-topic-card__expert">
-						<span><?php esc_html_e( 'Featured Expert', 'rocketpd' ); ?></span>
-						<strong><?php echo esc_html( $topic['expert'] ); ?></strong>
+						<?php if ( ! empty( $topic['headshot'] ) ) : ?>
+							<img src="<?php echo esc_url( $topic['headshot'] ); ?>" alt="" loading="lazy" decoding="async">
+						<?php endif; ?>
+						<div>
+							<span><?php esc_html_e( 'Featured Expert', 'rocketpd' ); ?></span>
+							<strong><?php echo esc_html( $topic['expert'] ); ?></strong>
+						</div>
 					</div>
 					<footer>
 						<span><?php echo esc_html( $topic['resources'] ); ?> <?php esc_html_e( 'resources', 'rocketpd' ); ?></span>
