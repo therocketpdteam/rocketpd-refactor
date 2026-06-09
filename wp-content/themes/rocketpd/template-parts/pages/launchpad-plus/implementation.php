@@ -26,7 +26,7 @@ $cards = rocketpd_lpp_get_field(
 		<header class="rpd-lpp-section-header rpd-lpp-section-header--center">
 			<p class="rpd-lpp-eyebrow"><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_implementation_eyebrow', __( 'Why It Matters', 'rocketpd' ) ) ); ?></p>
 			<h2><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_implementation_headline', __( 'Designed to Support District Implementation.', 'rocketpd' ) ) ); ?></h2>
-			<p><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_implementation_intro', __( 'LaunchPad+ helps districts build a more consistent approach to educator development - not just deliver another tool.', 'rocketpd' ) ) ); ?></p>
+			<p><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_implementation_intro', __( 'LaunchPad+ helps districts build a more consistent approach to educator development — not just deliver another tool.', 'rocketpd' ) ) ); ?></p>
 		</header>
 		<div class="rpd-lpp-card-row rpd-lpp-card-row--five">
 			<?php foreach ( $cards as $card ) : ?>

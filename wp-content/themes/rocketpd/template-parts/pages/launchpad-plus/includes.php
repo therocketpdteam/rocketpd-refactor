@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 $cards = rocketpd_lpp_get_field(
 	'rpd_lpp_includes_cards',
 	array(
-		array( 'title' => __( 'Custom-Branded Platform', 'rocketpd' ), 'body' => __( 'A district-specific environment with your logo, colors, and subdomain - creating a consistent experience for staff.', 'rocketpd' ), 'proof' => __( 'Your brand, your subdomain', 'rocketpd' ) ),
-		array( 'title' => __( 'RocketPD Content Library Included', 'rocketpd' ), 'body' => __( "Full access to RocketPD's expert-led video courses, workbooks, and certificates - already in your platform on day one.", 'rocketpd' ), 'proof' => __( '100s of courses, ready to go', 'rocketpd' ) ),
+		array( 'title' => __( 'Custom-Branded Platform', 'rocketpd' ), 'body' => __( 'A district-specific environment with your logo, colors, and subdomain — creating a consistent experience for staff.', 'rocketpd' ), 'proof' => __( 'Your brand, your subdomain', 'rocketpd' ) ),
+		array( 'title' => __( 'RocketPD Content Library Included', 'rocketpd' ), 'body' => __( "Full access to RocketPD's expert-led video courses, workbooks, and certificates — already in your platform on day one.", 'rocketpd' ), 'proof' => __( '100s of courses, ready to go', 'rocketpd' ) ),
 		array( 'title' => __( 'District Content Hosting', 'rocketpd' ), 'body' => __( 'Upload and organize your own training materials, courses, and resources alongside RocketPD content.', 'rocketpd' ), 'proof' => __( 'Combine internal + external content', 'rocketpd' ) ),
 	)
 );

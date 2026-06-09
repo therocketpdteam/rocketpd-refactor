@@ -38,7 +38,7 @@ $bullets = rocketpd_lpp_get_field(
 		<div class="rpd-lpp-analytics" aria-label="<?php esc_attr_e( 'Professional learning activity dashboard preview', 'rocketpd' ); ?>">
 			<div class="rpd-lpp-browser__bar"><span></span><span></span><span></span><b><?php esc_html_e( 'pd.riverside-usd.org/admin/analytics', 'rocketpd' ); ?></b></div>
 			<div class="rpd-lpp-analytics__body">
-				<header><small><?php esc_html_e( 'Admin - Analytics', 'rocketpd' ); ?></small><h3><?php esc_html_e( 'Professional Learning Activity', 'rocketpd' ); ?></h3></header>
+				<header><small><?php esc_html_e( 'Admin · Analytics', 'rocketpd' ); ?></small><h3><?php esc_html_e( 'Professional Learning Activity', 'rocketpd' ); ?></h3></header>
 				<div class="rpd-lpp-analytics__stats"><span><?php esc_html_e( 'Active learners', 'rocketpd' ); ?><b>1,247</b></span><span><?php esc_html_e( 'Enrollments', 'rocketpd' ); ?><b>2,894</b></span><span><?php esc_html_e( 'Completions', 'rocketpd' ); ?><b>1,142</b></span><span><?php esc_html_e( 'Avg. progress', 'rocketpd' ); ?><b>64%</b></span></div>
 				<div class="rpd-lpp-chart"><b></b></div>
 				<div class="rpd-lpp-donut"><strong>78%</strong><span><?php esc_html_e( 'avg. completion rate', 'rocketpd' ); ?></span></div>

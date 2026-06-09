@@ -45,7 +45,7 @@ $pillars = rocketpd_lpp_get_field(
 				</article>
 			<?php endforeach; ?>
 		</div>
-		<p class="rpd-lpp-band-note"><span aria-hidden="true">⚡</span><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_pillars_callout', __( 'All in one branded LaunchPad+ platform - one place for staff to learn', 'rocketpd' ) ) ); ?></p>
+		<p class="rpd-lpp-band-note"><span aria-hidden="true">⚡</span><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_pillars_callout', __( 'All in one branded LaunchPad+ platform — one place for staff to learn', 'rocketpd' ) ) ); ?></p>
 		<p class="rpd-lpp-centered-note"><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_pillars_closing', __( 'This helps reduce fragmentation and keeps professional learning organized in one place.', 'rocketpd' ) ) ); ?></p>
 	</div>
 </section>
