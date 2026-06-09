@@ -9,46 +9,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$eyebrow  = rocketpd_get_field( 'rpd_about_team_eyebrow', __( 'THE TEAM', 'rocketpd' ) );
-$headline = rocketpd_get_field( 'rpd_about_team_headline', __( 'The people behind the platform.', 'rocketpd' ) );
-$people   = rocketpd_get_field(
-	'rpd_about_team_people',
+$team = rocketpd_about_get_rows(
+	'team',
 	array(
-		array(
-			'name'     => __( 'Gerardo Grosso', 'rocketpd' ),
-			'initials' => __( 'GG', 'rocketpd' ),
-			'role'     => __( 'OPERATIONS & ACCOUNTS', 'rocketpd' ),
-			'accent'   => 'blue',
-		),
-		array(
-			'name'     => __( 'Patricia Useche', 'rocketpd' ),
-			'initials' => __( 'PU', 'rocketpd' ),
-			'role'     => __( 'CUSTOMER SUCCESS & IMPLEMENTATION', 'rocketpd' ),
-			'accent'   => 'pink',
-		),
-		array(
-			'name'     => __( 'Kevin Adkins', 'rocketpd' ),
-			'initials' => __( 'KA', 'rocketpd' ),
-			'role'     => __( 'VISUAL DESIGNER', 'rocketpd' ),
-			'accent'   => 'sand',
-		),
-	)
+		array( 'initials' => 'GG', 'gradient' => 'team-one', 'name' => __( 'Gerardo Grosso', 'rocketpd' ), 'role' => __( 'Operations & Accounts', 'rocketpd' ) ),
+		array( 'initials' => 'PU', 'gradient' => 'team-two', 'name' => __( 'Patricia Useche', 'rocketpd' ), 'role' => __( 'Customer Success & Implementation', 'rocketpd' ) ),
+		array( 'initials' => 'KA', 'gradient' => 'team-three', 'name' => __( 'Kevin Adkins', 'rocketpd' ), 'role' => __( 'Visual Designer', 'rocketpd' ) ),
+	),
+	array( 'name' )
 );
 ?>
 
-<section class="rpd-about-team rpd-about-section rpd-about-band">
+<section class="rpd-about-team rpd-about-section rpd-about-band" aria-labelledby="rpd-about-team-title">
 	<div class="rpd-container">
 		<header class="rpd-about-section-header">
-			<p class="rpd-about-eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
-			<h2><?php echo esc_html( $headline ); ?></h2>
+			<p class="rpd-about-eyebrow"><?php echo esc_html( rocketpd_about_get_field( 'team_eyebrow', __( 'The Team', 'rocketpd' ) ) ); ?></p>
+			<h2 id="rpd-about-team-title"><?php echo esc_html( rocketpd_about_get_field( 'team_heading', __( 'The people behind the platform.', 'rocketpd' ) ) ); ?></h2>
 		</header>
-
-		<?php if ( is_array( $people ) && ! empty( $people ) ) : ?>
-			<div class="rpd-about-people-grid rpd-about-people-grid--team">
-				<?php foreach ( $people as $person ) : ?>
-					<?php get_template_part( 'template-parts/pages/about/person-card', null, array( 'person' => $person ) ); ?>
-				<?php endforeach; ?>
-			</div>
-		<?php endif; ?>
+		<div class="rpd-about-team__grid">
+			<?php foreach ( $team as $person ) : ?>
+				<?php get_template_part( 'template-parts/pages/about/person-card', null, array( 'person' => $person, 'variant' => 'team' ) ); ?>
+			<?php endforeach; ?>
+		</div>
 	</div>
 </section>

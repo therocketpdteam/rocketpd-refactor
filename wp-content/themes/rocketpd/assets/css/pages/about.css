@@ -1,685 +1,699 @@
 .rpd-about-page {
-	--about-ink: #28245f;
-	--about-copy: #25225f;
-	--about-muted: #53508b;
-	--about-band: #f7f9fc;
-	--about-border: rgba(40, 36, 95, 0.14);
-	--about-card-shadow: 0 2px 0 rgba(40, 36, 95, 0.05), 0 18px 44px rgba(40, 36, 95, 0.08);
-	color: var(--about-copy);
-	background: var(--rpd-white);
+	--about-navy: #231f58;
+	--about-navy-2: #343465;
+	--about-purple: #5552b1;
+	--about-magenta: #a154a1;
+	--about-gold: #fdb933;
+	--about-gold-dark: #92580d;
+	--about-lavender: #c4c4e5;
+	--about-blue: #b6cfdc;
+	--about-body: #45417c;
+	--about-muted: #7670b3;
+	--about-tint: #f8fafc;
+	color: var(--about-navy);
+	background: #fff;
+	font-family: "Inter", sans-serif;
 	overflow-x: clip;
 }
 
-.rpd-about-section {
-	padding-block: clamp(4.25rem, 6.4vw, 7.25rem);
-}
-
-.rpd-about-band {
-	background: var(--about-band);
-	border-block: 1px solid rgba(40, 36, 95, 0.08);
+.rpd-about-page *,
+.rpd-about-page *::before,
+.rpd-about-page *::after {
+	box-sizing: border-box;
 }
 
 .rpd-about-page h1,
 .rpd-about-page h2,
 .rpd-about-page h3 {
-	color: var(--about-ink);
-	font-family: var(--font-heading);
+	margin: 0;
+	color: var(--about-navy);
+	font-family: "Poppins", sans-serif;
 	letter-spacing: 0;
 }
 
-.rpd-about-page h1,
-.rpd-about-page h2 {
-	margin: 0;
-	font-weight: 900;
-	line-height: 1.1;
-}
-
-.rpd-about-page h1 {
-	font-size: clamp(3.25rem, 6.4vw, 5.25rem);
-}
-
-.rpd-about-page h2 {
-	font-size: clamp(2.15rem, 4.2vw, 3.45rem);
-}
-
-.rpd-about-page h3 {
-	margin: 0;
-	font-size: var(--rpd-font-size-lg);
-	font-weight: 900;
-	line-height: 1.25;
-}
-
 .rpd-about-page p {
-	color: var(--about-copy);
-	font-size: var(--rpd-font-size-md);
-	line-height: 1.7;
+	margin: 0;
+}
+
+.rpd-about-svg {
+	width: 1em;
+	height: 1em;
+	flex: 0 0 auto;
+}
+
+.rpd-about-section {
+	position: relative;
+	padding: 6rem 0;
+	overflow: hidden;
+}
+
+.rpd-about-band {
+	border-block: 1px solid rgba(196, 196, 229, 0.3);
+	background: var(--about-tint);
+}
+
+.rpd-about-section--dark {
+	background: var(--about-navy);
+	color: #fff;
 }
 
 .rpd-about-centered,
 .rpd-about-section-header {
-	width: min(100%, 56rem);
+	max-width: 52rem;
 	margin-inline: auto;
 	text-align: center;
 }
 
 .rpd-about-section-header {
-	margin-bottom: clamp(2.5rem, 4.5vw, 4.25rem);
+	margin-bottom: 4rem;
 }
 
 .rpd-about-section-header p {
 	max-width: 48rem;
-	margin: 1.4rem auto 0;
+	margin: 1.25rem auto 0;
+	color: var(--about-body);
+	font-size: 1.125rem;
+	line-height: 1.75;
 }
 
 .rpd-about-section-title {
-	max-width: 58rem;
-	margin: 0 auto clamp(2.75rem, 4.5vw, 4.25rem);
+	max-width: 48rem;
+	margin: 0 auto 4rem;
 	text-align: center;
-	font-size: clamp(2rem, 2.65vw, 2.55rem);
-}
-
-.rpd-about-copy > * {
-	margin: 0;
-}
-
-.rpd-about-copy > * + * {
-	margin-top: 1.45rem;
+	font-size: clamp(2.15rem, 4vw, 3rem);
+	font-weight: 700;
+	line-height: 1.15;
 }
 
 .rpd-about-eyebrow {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 1.75rem;
-	margin: 0 0 1rem;
-	padding: 0.2rem 0.75rem;
-	border-radius: var(--rpd-radius-pill);
-	background: rgba(161, 84, 161, 0.11);
-	color: var(--rpd-purple-deep);
-	font-size: var(--rpd-font-size-xs);
-	font-weight: 900;
-	line-height: 1.2;
+	margin-bottom: 1rem;
+	color: var(--about-magenta);
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
 	text-transform: uppercase;
 }
 
-.rpd-about-emphasis,
-.rpd-about-small-heading,
-.rpd-about-linkline,
-.rpd-about-district__emphasis {
-	font-weight: 900;
+.rpd-about-badge {
+	display: inline-flex;
+	width: fit-content;
+	margin: 0 auto 1.5rem;
+	padding: 0.38rem 1rem;
+	border-radius: 999px;
+	background: rgba(161, 84, 161, 0.1);
+	color: var(--about-magenta);
+	font-size: 0.875rem;
+	font-weight: 700;
+}
+
+.rpd-about-copy {
+	display: grid;
+	gap: 1.5rem;
+}
+
+.rpd-about-copy p {
+	color: var(--about-body);
+	font-size: 1.125rem;
+	line-height: 1.75;
 }
 
 .rpd-about-hero {
-	display: flex;
-	align-items: center;
-	min-height: clamp(35rem, 48vw, 40.5rem);
-	background:
-		radial-gradient(circle at 50% 100%, rgba(196, 196, 229, 0.18), transparent 34rem),
-		linear-gradient(180deg, #fbfdff 0%, #f8fafc 100%);
+	padding: clamp(5rem, 9vw, 8rem) 0 clamp(6rem, 10vw, 9rem);
+	background: linear-gradient(135deg, #fff 0%, rgba(182, 207, 220, 0.1) 48%, rgba(196, 196, 229, 0.2) 100%);
 	text-align: center;
 }
 
 .rpd-about-hero__inner {
-	width: min(100% - var(--rpd-container-gutter), 62rem);
+	max-width: 56rem;
 }
 
-.rpd-about-hero__intro {
-	margin: 2rem auto 0;
-	font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+.rpd-about-hero h1 {
+	margin-bottom: 2rem;
+	font-size: clamp(3rem, 7vw, 4.5rem);
+	font-weight: 800;
+	line-height: 1.1;
+}
+
+.rpd-about-hero h1::first-line {
+	line-height: 1.05;
+}
+
+.rpd-about-hero h1 {
+	max-width: 13ch;
+	margin-inline: auto;
 }
 
 .rpd-about-hero__body {
-	max-width: 51rem;
-	margin: 1.65rem auto 0;
+	display: grid;
+	gap: 1.5rem;
+	max-width: 56rem;
+	margin-inline: auto;
 }
 
 .rpd-about-hero__body p {
-	font-size: clamp(1.05rem, 1.55vw, 1.25rem);
+	color: var(--about-body);
+	font-size: clamp(1.125rem, 2vw, 1.25rem);
+	line-height: 1.75;
 }
 
-.rpd-about-intro {
-	text-align: center;
+.rpd-about-intro h2 {
+	margin-bottom: 2rem;
+	font-size: clamp(2.25rem, 4vw, 3rem);
+	font-weight: 700;
+	line-height: 1.12;
 }
 
 .rpd-about-intro .rpd-about-copy {
-	max-width: 52rem;
-	margin: 2.5rem auto 0;
+	max-width: 48rem;
+	margin-inline: auto;
 }
 
-.rpd-about-intro .rpd-about-emphasis {
-	margin: 2.4rem 0 0;
-	font-size: var(--rpd-font-size-md);
+.rpd-about-emphasis {
+	margin-top: 2rem;
+	color: var(--about-navy);
+	font-size: 1.25rem;
+	font-weight: 800;
+	line-height: 1.45;
 }
 
 .rpd-about-focus__grid {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: clamp(1.5rem, 3vw, 2.5rem);
+	gap: 2.5rem;
+}
+
+.rpd-about-focus-card,
+.rpd-about-belief-card,
+.rpd-about-person-card {
+	border: 1px solid rgba(196, 196, 229, 0.38);
+	border-radius: 1rem;
+	background: #fff;
+	box-shadow: 0 5px 18px rgba(35, 31, 88, 0.05);
 }
 
 .rpd-about-focus-card {
-	min-height: 16.5rem;
-	padding: clamp(1.65rem, 2.35vw, 2.15rem);
-	border: 1px solid var(--about-border);
-	border-radius: var(--rpd-radius);
-	background: var(--rpd-white);
-	box-shadow: var(--about-card-shadow);
+	padding: 2rem;
+	transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.rpd-about-focus-card h3 {
-	max-width: 16rem;
-	margin-top: 1.35rem;
-	font-size: clamp(1.1rem, 1.35vw, 1.28rem);
-}
-
-.rpd-about-focus-card p {
-	margin: 1.1rem 0 0;
-	font-size: var(--rpd-font-size-base);
+.rpd-about-focus-card:hover,
+.rpd-about-person-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 22px 44px rgba(35, 31, 88, 0.12);
 }
 
 .rpd-about-icon {
-	display: inline-grid;
+	display: grid;
+	width: 3.5rem;
+	height: 3.5rem;
 	place-items: center;
-	width: 3.2rem;
-	height: 3.2rem;
+	margin-bottom: 1.5rem;
 	border-radius: 0.75rem;
-	background: #f0ecff;
-	color: var(--rpd-purple);
+	background: rgba(85, 82, 177, 0.1);
+	color: var(--about-purple);
+	font-size: 1.75rem;
 }
 
-.rpd-about-icon::before,
-.rpd-about-icon::after {
-	display: block;
-	content: "";
+.rpd-about-focus-card--magenta .rpd-about-icon {
+	background: rgba(161, 84, 161, 0.1);
+	color: var(--about-magenta);
 }
 
-.rpd-about-icon--community::before {
-	width: 1.5rem;
-	height: 1.1rem;
-	border: 2px solid currentColor;
-	border-radius: 0.35rem 0.35rem 0.7rem 0.7rem;
-	box-shadow: -0.48rem -0.28rem 0 -0.22rem currentColor, 0.48rem -0.28rem 0 -0.22rem currentColor;
-	transform: translateY(0.1rem);
+.rpd-about-focus-card--gold .rpd-about-icon {
+	background: rgba(253, 185, 51, 0.14);
+	color: var(--about-gold);
 }
 
-.rpd-about-icon--learning {
-	background: #faeefa;
-	color: var(--rpd-purple-deep);
+.rpd-about-focus-card h3 {
+	margin-bottom: 1rem;
+	font-size: 1.25rem;
+	font-weight: 800;
+	line-height: 1.25;
 }
 
-.rpd-about-icon--learning::before {
-	width: 1.55rem;
-	height: 1.18rem;
-	border: 2px solid currentColor;
-	border-radius: 0.18rem 0.18rem 0.5rem 0.5rem;
-	box-shadow: inset 0 -0.28rem 0 rgba(161, 84, 161, 0.16);
-}
-
-.rpd-about-icon--learning::after {
-	width: 1.2rem;
-	height: 0.25rem;
-	margin-top: -0.24rem;
-	border-radius: 999px;
-	background: currentColor;
-}
-
-.rpd-about-icon--outcomes {
-	background: #fff4de;
-	color: var(--rpd-orange);
-}
-
-.rpd-about-icon--outcomes::before {
-	width: 1.65rem;
-	height: 1.65rem;
-	border: 2px solid currentColor;
-	border-radius: 50%;
-	box-shadow: inset 0 0 0 0.28rem #fff4de, inset 0 0 0 0.45rem currentColor;
+.rpd-about-focus-card p {
+	color: var(--about-body);
+	font-size: 1rem;
+	line-height: 1.7;
 }
 
 .rpd-about-checklist__grid {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-	gap: clamp(2.75rem, 5.8vw, 5.35rem);
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 4rem;
 	align-items: center;
 }
 
 .rpd-about-checklist__copy h2 {
-	max-width: 40rem;
-	font-size: clamp(2.05rem, 3.1vw, 2.8rem);
+	margin-bottom: 1.5rem;
+	font-size: clamp(2.15rem, 4vw, 3rem);
+	font-weight: 700;
+	line-height: 1.12;
 }
 
 .rpd-about-checklist__copy > p {
-	margin: 1.9rem 0 0;
+	color: var(--about-body);
+	font-size: 1.125rem;
+	line-height: 1.75;
 }
 
 .rpd-about-small-heading {
 	margin-top: 2rem;
+	color: var(--about-navy) !important;
+	font-size: 1.25rem !important;
+	font-weight: 800;
 }
 
 .rpd-about-check-list {
 	display: grid;
-	gap: 1.15rem;
-	margin: 1.4rem 0 0;
+	gap: 1rem;
+	margin: 1.5rem 0 2rem;
 	padding: 0;
 	list-style: none;
 }
 
 .rpd-about-check-list li {
-	position: relative;
-	min-height: 2rem;
-	padding-left: 2.6rem;
-	color: var(--about-copy);
-	font-size: var(--rpd-font-size-md);
-	line-height: 1.5;
+	display: flex;
+	gap: 0.75rem;
+	align-items: center;
+	color: var(--about-navy-2);
+	font-size: 1.125rem;
+	font-weight: 600;
+	line-height: 1.45;
 }
 
-.rpd-about-check-list li::before {
-	position: absolute;
-	top: -0.05rem;
-	left: 0;
+.rpd-about-check-list span {
 	display: grid;
+	width: 2rem;
+	height: 2rem;
+	flex: 0 0 auto;
 	place-items: center;
-	width: 1.8rem;
-	height: 1.8rem;
 	border-radius: 50%;
-	background: #ffedcc;
-	color: var(--about-ink);
-	font-weight: 900;
-	content: "✓";
+	background: rgba(253, 185, 51, 0.2);
+	color: var(--about-gold-dark);
 }
 
 .rpd-about-linkline {
-	margin-top: 2.35rem;
-	color: var(--rpd-purple);
+	color: var(--about-purple) !important;
+	font-size: 1.125rem !important;
+	font-weight: 800;
 }
 
 .rpd-about-checklist__media {
 	position: relative;
-	overflow: hidden;
-	aspect-ratio: 1.42;
-	border-radius: 0.75rem;
-	background: #d8e4ec;
-	box-shadow: var(--rpd-shadow-md);
 }
 
-.rpd-about-checklist__media::after {
+.rpd-about-checklist__media::before {
 	position: absolute;
-	right: -1rem;
-	bottom: -1rem;
-	z-index: -1;
-	width: 92%;
-	height: 92%;
-	border-radius: 0.75rem;
-	background: linear-gradient(135deg, rgba(253, 185, 51, 0.28), rgba(161, 84, 161, 0.18));
+	inset: 1rem -1rem -1rem 1rem;
+	border-radius: 1rem;
+	background: rgba(161, 84, 161, 0.1);
 	content: "";
 }
 
-.rpd-about-checklist__image,
-.rpd-about-checklist__fallback {
+.rpd-about-checklist__image {
+	position: relative;
+	z-index: 1;
 	display: block;
 	width: 100%;
-	height: 100%;
-	aspect-ratio: 1.5;
-	border-radius: 0.75rem;
+	aspect-ratio: 4 / 3;
+	border-radius: 1rem;
+	box-shadow: 0 24px 50px rgba(35, 31, 88, 0.16);
 	object-fit: cover;
 }
 
-.rpd-about-checklist__image {
-	filter: saturate(1.16) contrast(1.08);
-	transform: scale(2.35);
-	transform-origin: 20% 80%;
-}
-
-.rpd-about-checklist__fallback {
+.rpd-about-dark-inner {
 	position: relative;
-	overflow: hidden;
-	background:
-		linear-gradient(135deg, rgba(35, 31, 88, 0.14), rgba(253, 185, 51, 0.08)),
-		linear-gradient(135deg, #d9e8ef, #f7dfc1 48%, #cfc8e8);
-}
-
-.rpd-about-checklist__fallback span {
-	position: absolute;
-	bottom: 16%;
-	width: 23%;
-	aspect-ratio: 0.75;
-	border-radius: 999px 999px 0.8rem 0.8rem;
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(85, 82, 177, 0.45));
-	box-shadow: 0 1rem 2.5rem rgba(35, 31, 88, 0.18);
-}
-
-.rpd-about-checklist__fallback span:nth-child(1) {
-	left: 16%;
-}
-
-.rpd-about-checklist__fallback span:nth-child(2) {
-	left: 39%;
-	bottom: 12%;
-	background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(35, 31, 88, 0.46));
-}
-
-.rpd-about-checklist__fallback span:nth-child(3) {
-	right: 15%;
-}
-
-.rpd-about-district {
-	background:
-		radial-gradient(circle at 52% 48%, rgba(85, 82, 177, 0.32), transparent 26rem),
-		linear-gradient(135deg, #231f58, #28245f 48%, #343465);
+	z-index: 1;
+	max-width: 56rem;
 	text-align: center;
 }
 
 .rpd-about-district h2,
-.rpd-about-district p {
-	color: var(--rpd-white);
+.rpd-about-final h2 {
+	margin-bottom: 2rem;
+	color: #fff;
+	font-size: clamp(2.25rem, 4vw, 3rem);
+	font-weight: 700;
+	line-height: 1.12;
 }
 
-.rpd-about-district h2 {
-	max-width: 57rem;
-	margin-inline: auto;
-	font-size: clamp(2.15rem, 3.75vw, 3.25rem);
-}
-
-.rpd-about-district .rpd-about-copy {
-	max-width: 58rem;
-	margin: 2rem auto 0;
-}
-
-.rpd-about-district p {
-	color: rgba(255, 255, 255, 0.84);
+.rpd-about-district .rpd-about-copy p {
+	color: var(--about-lavender);
+	font-size: clamp(1.125rem, 2vw, 1.25rem);
 }
 
 .rpd-about-district__emphasis {
-	max-width: 54rem;
-	margin: 2.35rem auto 0;
-	color: var(--rpd-white) !important;
-	font-size: clamp(1.25rem, 2vw, 1.6rem) !important;
-	line-height: 1.35 !important;
+	margin-top: 2rem;
+	color: #fff;
+	font-size: clamp(1.35rem, 2.6vw, 1.5rem);
+	font-weight: 800;
+	line-height: 1.45;
 }
 
-.rpd-about-platform__inner {
-	width: min(100%, 58rem);
-	margin-inline: auto;
+.rpd-about-orb {
+	position: absolute;
+	width: 40rem;
+	height: 40rem;
+	border-radius: 50%;
+	filter: blur(100px);
+	pointer-events: none;
+}
+
+.rpd-about-orb--purple {
+	top: -14rem;
+	right: -12rem;
+	background: rgba(85, 82, 177, 0.25);
+}
+
+.rpd-about-orb--magenta {
+	bottom: -18rem;
+	left: -14rem;
+	background: rgba(161, 84, 161, 0.2);
+}
+
+.rpd-about-mission__inner {
+	max-width: 56rem;
 	text-align: center;
 }
 
-.rpd-about-platform h2 {
-	font-size: clamp(2rem, 3.1vw, 2.8rem);
+.rpd-about-mission h2 {
+	margin-bottom: 2rem;
+	font-size: clamp(2.15rem, 4vw, 3rem);
+	font-weight: 700;
+	line-height: 1.15;
 }
 
-.rpd-about-platform__body {
-	max-width: 48rem;
-	margin: 1.75rem auto 0;
+.rpd-about-mission__body {
+	margin: 0 auto 3rem;
+	color: var(--about-body);
+	font-size: 1.25rem;
+	line-height: 1.65;
 }
 
 .rpd-about-belief-card {
-	margin-top: 2.6rem;
-	padding: clamp(2.15rem, 3.6vw, 3.2rem) clamp(1.85rem, 4.5vw, 4.25rem);
-	border: 1px solid var(--about-border);
-	border-radius: 0.75rem;
-	background: var(--rpd-white);
-	box-shadow: var(--about-card-shadow);
+	padding: clamp(2rem, 4vw, 2.5rem);
+	text-align: left;
 }
 
 .rpd-about-belief-card h3 {
+	margin-bottom: 1.5rem;
 	text-align: center;
+	font-size: 1.25rem;
+	font-weight: 800;
 }
 
 .rpd-about-beliefs {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 1.75rem 4rem;
-	margin: 2.25rem 0 0;
-	padding: 0 0 2.35rem;
-	border-bottom: 1px solid rgba(40, 36, 95, 0.08);
-	list-style: none;
-	text-align: left;
+	gap: 1.5rem;
 }
 
-.rpd-about-beliefs li {
-	position: relative;
-	min-height: 2.4rem;
-	padding-left: 3.2rem;
-	color: var(--about-copy);
-	font-size: var(--rpd-font-size-base);
-	line-height: 1.45;
+.rpd-about-beliefs div {
+	display: flex;
+	gap: 1rem;
+	align-items: flex-start;
 }
 
-.rpd-about-beliefs li::before {
-	position: absolute;
-	left: 0;
-	top: -0.12rem;
-	width: 2.25rem;
-	height: 2.25rem;
-	border-radius: 50%;
-	background: rgba(253, 185, 51, 0.22);
-	color: var(--about-ink);
-	font-weight: 900;
-	text-align: center;
-	line-height: 2.25rem;
-	content: "✓";
-}
-
-.rpd-about-belief-card > p {
-	margin: 2.25rem 0 0;
-	color: var(--rpd-purple-deep);
-	font-family: var(--font-heading);
-	font-size: clamp(1.35rem, 2.4vw, 2rem);
-	font-weight: 900;
-	line-height: 1.25;
-	text-align: center;
-}
-
-.rpd-about-people-grid {
+.rpd-about-beliefs span {
 	display: grid;
-	gap: clamp(1.75rem, 3vw, 2.5rem);
+	width: 2.5rem;
+	height: 2.5rem;
+	flex: 0 0 auto;
+	place-items: center;
+	border-radius: 50%;
+	background: rgba(85, 82, 177, 0.1);
+	color: var(--about-purple);
 }
 
-.rpd-about-people-grid--founders,
-.rpd-about-people-grid--team {
+.rpd-about-beliefs p {
+	padding-top: 0.45rem;
+	color: var(--about-navy-2);
+	font-weight: 700;
+	line-height: 1.5;
+}
+
+.rpd-about-belief-card__closing {
+	margin-top: 2rem;
+	padding-top: 2rem;
+	border-top: 1px solid rgba(196, 196, 229, 0.4);
+	color: var(--about-magenta);
+	text-align: center;
+	font-weight: 800;
+}
+
+.rpd-about-founders__grid,
+.rpd-about-team__grid,
+.rpd-about-board__grid {
+	display: grid;
+	gap: 2rem;
+}
+
+.rpd-about-founders__grid {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.rpd-about-people-grid--board {
+.rpd-about-team__grid {
+	max-width: 72rem;
+	margin-inline: auto;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.rpd-about-board__grid {
 	grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .rpd-about-person-card {
 	overflow: hidden;
-	border: 1px solid var(--about-border);
-	border-radius: 0.75rem;
-	background: var(--rpd-white);
-	box-shadow: var(--about-card-shadow);
+	transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .rpd-about-person-card__visual {
 	display: grid;
 	place-items: center;
-	min-height: clamp(14rem, 24vw, 22rem);
-	background: linear-gradient(135deg, #a154a1, #5552b1 52%, #231f58);
+	overflow: hidden;
+	background: linear-gradient(135deg, var(--about-purple), var(--about-navy));
+	color: #fff;
+	font-family: "Poppins", sans-serif;
+	font-size: clamp(2.6rem, 5vw, 4rem);
+	font-weight: 800;
 }
 
-.rpd-about-people-grid--team .rpd-about-person-card__visual,
-.rpd-about-people-grid--board .rpd-about-person-card__visual {
-	min-height: clamp(12rem, 20vw, 18rem);
+.rpd-about-person-card--founder .rpd-about-person-card__visual {
+	aspect-ratio: 4 / 5;
 }
 
-.rpd-about-person-card__visual span {
-	color: rgba(255, 255, 255, 0.48);
-	font-family: var(--font-heading);
-	font-size: clamp(3rem, 7vw, 5rem);
-	font-weight: 900;
-	line-height: 1;
+.rpd-about-person-card--team .rpd-about-person-card__visual,
+.rpd-about-person-card--board .rpd-about-person-card__visual {
+	aspect-ratio: 1;
 }
 
-.rpd-about-person-card__image {
+.rpd-about-person-card__visual img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 }
 
+.rpd-about-person-card__visual--founder-one {
+	background: linear-gradient(135deg, var(--about-magenta), var(--about-purple), var(--about-navy));
+}
+
+.rpd-about-person-card__visual--founder-two {
+	background: linear-gradient(135deg, var(--about-purple), var(--about-navy-2), var(--about-navy));
+}
+
+.rpd-about-person-card__visual--founder-three {
+	background: linear-gradient(135deg, var(--about-gold), var(--about-magenta), var(--about-navy));
+}
+
+.rpd-about-person-card__visual--team-one {
+	background: linear-gradient(135deg, var(--about-blue), var(--about-purple));
+}
+
+.rpd-about-person-card__visual--team-two {
+	background: linear-gradient(135deg, var(--about-lavender), var(--about-magenta));
+}
+
+.rpd-about-person-card__visual--team-three {
+	background: linear-gradient(135deg, rgba(253, 185, 51, 0.72), var(--about-purple));
+}
+
+.rpd-about-person-card__visual--board-one {
+	background: linear-gradient(135deg, var(--about-navy), var(--about-purple));
+}
+
+.rpd-about-person-card__visual--board-two {
+	background: linear-gradient(135deg, var(--about-magenta), var(--about-navy));
+}
+
+.rpd-about-person-card__visual--board-three {
+	background: linear-gradient(135deg, var(--about-purple), var(--about-magenta));
+}
+
+.rpd-about-person-card__visual--board-four {
+	background: linear-gradient(135deg, rgba(253, 185, 51, 0.8), var(--about-navy));
+}
+
 .rpd-about-person-card__body {
-	padding: clamp(1.4rem, 2.5vw, 2rem);
+	padding: 1.75rem;
 }
 
-.rpd-about-person-card__body h3 {
-	font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+.rpd-about-person-card--team .rpd-about-person-card__body {
+	text-align: center;
 }
 
-.rpd-about-person-card__body p {
-	margin: 1.1rem 0 0;
-	font-size: var(--rpd-font-size-sm);
-	line-height: 1.65;
-}
-
-.rpd-about-person-card__role,
-.rpd-about-person-card__specialty {
-	color: var(--rpd-purple) !important;
-	font-size: var(--rpd-font-size-xs) !important;
+.rpd-about-person-card h3 {
+	margin-bottom: 0.55rem;
+	font-size: 1.5rem;
 	font-weight: 800;
-	letter-spacing: 0.06em;
-	line-height: 1.4 !important;
+	line-height: 1.2;
+}
+
+.rpd-about-person-card--team h3 {
+	font-size: 1.25rem;
+}
+
+.rpd-about-person-card--board h3 {
+	font-size: 1.1rem;
+}
+
+.rpd-about-person-card__title {
+	margin-bottom: 0.45rem;
+	color: var(--about-magenta);
+	font-size: 0.82rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
 	text-transform: uppercase;
 }
 
 .rpd-about-person-card__specialty {
-	margin-top: 0.45rem !important;
+	margin-bottom: 1rem;
+	color: var(--about-muted);
+	font-size: 0.93rem;
 	font-style: italic;
-	letter-spacing: 0;
-	text-transform: none;
+	line-height: 1.5;
 }
 
-.rpd-about-person-card--navy .rpd-about-person-card__visual {
-	background: linear-gradient(135deg, #343465, #231f58 66%, #1a1744);
+.rpd-about-person-card__role {
+	color: var(--about-magenta);
+	font-size: 0.78rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	line-height: 1.45;
+	text-transform: uppercase;
 }
 
-.rpd-about-person-card--gold .rpd-about-person-card__visual {
-	background: linear-gradient(135deg, #fdb933, #a154a1 56%, #231f58);
+.rpd-about-person-card__org {
+	margin-top: 0.65rem;
+	color: var(--about-muted);
+	font-size: 0.92rem;
+	line-height: 1.55;
 }
 
-.rpd-about-person-card--blue .rpd-about-person-card__visual {
-	background: linear-gradient(135deg, #b6cfdc, #5552b1);
+.rpd-about-person-card__body > p:not([class]) {
+	color: var(--about-body);
+	font-size: 0.96rem;
+	line-height: 1.7;
 }
 
-.rpd-about-person-card--pink .rpd-about-person-card__visual {
-	background: linear-gradient(135deg, #c4c4e5, #a154a1);
-}
-
-.rpd-about-person-card--sand .rpd-about-person-card__visual {
-	background: linear-gradient(135deg, #f0c36a, #9d8b90 45%, #5552b1);
-}
-
-.rpd-about-person-card--plum .rpd-about-person-card__visual {
-	background: linear-gradient(135deg, #a154a1, #231f58);
-}
-
-.rpd-about-team {
-	padding-block: clamp(4.5rem, 7vw, 7.5rem);
-}
-
-.rpd-about-final-cta {
-	background:
-		radial-gradient(circle at 20% 30%, rgba(161, 84, 161, 0.35), transparent 24rem),
-		linear-gradient(135deg, #231f58, #343465);
+.rpd-about-final {
+	padding: 6rem 0;
+	background: linear-gradient(135deg, var(--about-navy-2), var(--about-navy));
 	text-align: center;
 }
 
-.rpd-about-final-cta__inner {
-	width: min(100% - var(--rpd-container-gutter), 55rem);
+.rpd-about-final__inner {
+	position: relative;
+	z-index: 1;
+	max-width: 56rem;
 }
 
-.rpd-about-final-cta h2,
-.rpd-about-final-cta p {
-	color: var(--rpd-white);
+.rpd-about-final p {
+	max-width: 48rem;
+	margin: 0 auto 2.5rem;
+	color: var(--about-lavender);
+	font-size: 1.25rem;
+	line-height: 1.65;
 }
 
-.rpd-about-final-cta h2 {
-	font-size: clamp(2.2rem, 4.2vw, 3.45rem);
-}
-
-.rpd-about-final-cta p {
-	max-width: 42rem;
-	margin: 1.65rem auto 0;
-	color: rgba(255, 255, 255, 0.78);
-}
-
-.rpd-about-final-cta__actions {
+.rpd-about-final__actions {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
 	gap: 1rem;
-	margin-top: 2.65rem;
+	justify-content: center;
 }
 
-.rpd-about-final-cta__actions .rpd-btn {
-	min-width: 14.25rem;
-	border-radius: 0.65rem;
+.rpd-about-btn {
+	display: inline-flex;
+	min-height: 3.5rem;
+	align-items: center;
+	justify-content: center;
+	padding: 0.9rem 2.5rem;
+	border: 1px solid transparent;
+	border-radius: 0.45rem;
+	font-size: 1.08rem;
+	font-weight: 800;
+	line-height: 1.1;
+	text-decoration: none;
+	transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.rpd-about-btn:hover {
+	transform: translateY(-1px);
+}
+
+.rpd-about-btn--gold {
+	background: var(--about-gold);
+	color: var(--about-navy);
+}
+
+.rpd-about-btn--outline {
+	border-color: rgba(255, 255, 255, 0.35);
+	background: transparent;
+	color: #fff;
+}
+
+.rpd-about-btn--outline:hover {
+	background: rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 1023px) {
-	.rpd-about-focus__grid,
-	.rpd-about-checklist__grid,
-	.rpd-about-people-grid--founders,
-	.rpd-about-people-grid--team,
-	.rpd-about-people-grid--board {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-
 	.rpd-about-checklist__grid {
-		gap: 3.5rem;
-	}
-
-	.rpd-about-checklist__copy,
-	.rpd-about-checklist__copy h2 {
-		max-width: none;
-	}
-}
-
-@media (max-width: 720px) {
-	.rpd-about-section {
-		padding-block: 4.5rem;
-	}
-
-	.rpd-about-page h1 {
-		font-size: clamp(2.8rem, 12vw, 4rem);
-	}
-
-	.rpd-about-page h2 {
-		font-size: clamp(2rem, 9vw, 3rem);
-	}
-
-	.rpd-about-hero {
-		min-height: 34rem;
-	}
-
-	.rpd-about-focus__grid,
-	.rpd-about-checklist__grid,
-	.rpd-about-beliefs,
-	.rpd-about-people-grid--founders,
-	.rpd-about-people-grid--team,
-	.rpd-about-people-grid--board {
 		grid-template-columns: 1fr;
 	}
 
-	.rpd-about-focus-card {
-		min-height: auto;
+	.rpd-about-board__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 767px) {
+	.rpd-about-section {
+		padding: 4rem 0;
 	}
 
-	.rpd-about-belief-card {
-		padding: 2rem 1.35rem;
+	.rpd-about-hero {
+		padding: 4.5rem 0 5rem;
 	}
 
-	.rpd-about-person-card__visual {
-		min-height: 13.5rem;
+	.rpd-about-hero h1 {
+		font-size: clamp(2.85rem, 12vw, 3.5rem);
 	}
 
-	.rpd-about-final-cta__actions {
-		align-items: stretch;
-		flex-direction: column;
+	.rpd-about-focus__grid,
+	.rpd-about-founders__grid,
+	.rpd-about-team__grid,
+	.rpd-about-board__grid,
+	.rpd-about-beliefs {
+		grid-template-columns: 1fr;
 	}
 
-	.rpd-about-final-cta__actions .rpd-btn {
+	.rpd-about-checklist__media::before {
+		inset: 0.75rem -0.75rem -0.75rem 0.75rem;
+	}
+
+	.rpd-about-final__actions,
+	.rpd-about-final__actions .rpd-about-btn {
 		width: 100%;
-		min-width: 0;
 	}
 }
