@@ -41,7 +41,7 @@ $card_body  = rocketpd_get_field( 'rpd_home_launchpad_card_body', __( 'School Le
 			}
 			?>
 			<div class="rpd-home-cohort-card">
-				<span aria-hidden="true">[]</span>
+				<span class="rpd-home-cohort-card__icon" aria-hidden="true"></span>
 				<strong><?php echo esc_html( $card_label ); ?></strong>
 				<small><?php echo esc_html( $card_body ); ?></small>
 			</div>

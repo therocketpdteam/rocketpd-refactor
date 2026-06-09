@@ -39,23 +39,29 @@ $plans    = $plans ? $plans : $fallback_plans;
 					<?php if ( ! empty( $plan['badge'] ) ) : ?>
 						<p class="rpd-home-plan__badge"><?php echo esc_html( $plan['badge'] ); ?></p>
 					<?php endif; ?>
-					<h3><?php echo esc_html( $plan['title'] ); ?></h3>
-					<strong><?php echo esc_html( $plan['price'] ?? '' ); ?></strong>
-					<?php if ( ! empty( $plan['subtitle'] ) ) : ?>
-						<p><?php echo esc_html( $plan['subtitle'] ); ?></p>
-					<?php endif; ?>
-					<?php if ( ! empty( $plan['bullets'] ) ) : ?>
-						<ul>
-							<?php foreach ( preg_split( '/\r\n|\r|\n/', $plan['bullets'] ) as $bullet ) : ?>
-								<?php if ( $bullet ) : ?>
-									<li><?php echo esc_html( $bullet ); ?></li>
-								<?php endif; ?>
-							<?php endforeach; ?>
-						</ul>
-					<?php endif; ?>
-					<?php if ( ! empty( $plan['cta_label'] ) && ! empty( $plan['cta_url'] ) ) : ?>
-						<a class="rpd-btn <?php echo ! empty( $plan['featured'] ) ? 'rpd-btn--gold' : 'rpd-btn--outline-purple'; ?>" href="<?php echo esc_url( $plan['cta_url'] ); ?>"><?php echo esc_html( $plan['cta_label'] ); ?></a>
-					<?php endif; ?>
+					<header class="rpd-home-plan__header">
+						<h3><?php echo esc_html( $plan['title'] ); ?></h3>
+						<strong><?php echo esc_html( $plan['price'] ?? '' ); ?></strong>
+						<?php if ( ! empty( $plan['subtitle'] ) ) : ?>
+							<p><?php echo esc_html( $plan['subtitle'] ); ?></p>
+						<?php endif; ?>
+					</header>
+					<div class="rpd-home-plan__content">
+						<?php if ( ! empty( $plan['bullets'] ) ) : ?>
+							<ul>
+								<?php foreach ( preg_split( '/\r\n|\r|\n/', $plan['bullets'] ) as $bullet ) : ?>
+									<?php if ( trim( $bullet ) ) : ?>
+										<li><?php echo esc_html( trim( $bullet ) ); ?></li>
+									<?php endif; ?>
+								<?php endforeach; ?>
+							</ul>
+						<?php endif; ?>
+					</div>
+					<footer class="rpd-home-plan__footer">
+						<?php if ( ! empty( $plan['cta_label'] ) && ! empty( $plan['cta_url'] ) ) : ?>
+							<a class="rpd-btn <?php echo ! empty( $plan['featured'] ) ? 'rpd-btn--gold' : 'rpd-btn--outline-purple'; ?>" href="<?php echo esc_url( $plan['cta_url'] ); ?>"><?php echo esc_html( $plan['cta_label'] ); ?></a>
+						<?php endif; ?>
+					</footer>
 				</article>
 			<?php endforeach; ?>
 		</div>

@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$headline        = rocketpd_get_field( 'rpd_home_final_headline', __( "Join the RocketPD Professional Learning Community Today - It's Free.", 'rocketpd' ) );
+$headline        = rocketpd_get_field( 'rpd_home_final_headline', __( "Join the RocketPD Professional Learning Community Today — It's Free.", 'rocketpd' ) );
 $body            = rocketpd_get_field( 'rpd_home_final_body', __( 'Start exploring resources, connecting with peers, and taking control of your professional growth.', 'rocketpd' ) );
 $primary_label   = rocketpd_get_field( 'rpd_home_final_primary_label', __( 'Join the Community', 'rocketpd' ) );
 $primary_url     = rocketpd_get_field( 'rpd_home_final_primary_url', home_url( '/community/' ) );

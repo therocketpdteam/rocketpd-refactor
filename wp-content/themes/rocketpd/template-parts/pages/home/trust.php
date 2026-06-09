@@ -11,15 +11,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $partnership_label = rocketpd_get_field( 'rpd_home_partnership_label', __( 'Featured State Partnership', 'rocketpd' ) );
 $partnership_name  = rocketpd_get_field( 'rpd_home_partnership_name', __( 'Colorado Association of School Boards', 'rocketpd' ) );
-$partnership_body  = rocketpd_get_field( 'rpd_home_partnership_body', __( 'Statewide partner for board-level professional learning - bringing RocketPD into districts across Colorado.', 'rocketpd' ) );
+$partnership_body  = rocketpd_get_field( 'rpd_home_partnership_body', __( 'Statewide partner for board-level professional learning — bringing RocketPD into districts across Colorado.', 'rocketpd' ) );
 $stat_value        = rocketpd_get_field( 'rpd_home_partnership_stat_value', __( '178', 'rocketpd' ) );
 $stat_label        = rocketpd_get_field( 'rpd_home_partnership_stat_label', __( 'Colorado school boards served', 'rocketpd' ) );
 $fallback_endorsements = array( array( 'name' => 'Digital Promise' ), array( 'name' => 'Center for Educational Leadership' ), array( 'name' => 'Modern Classrooms Project' ), array( 'name' => 'Cult of Pedagogy' ), array( 'name' => 'Marshall Memo' ), array( 'name' => 'NESDEC' ), array( 'name' => 'Building Thinking Classrooms' ) );
 $endorsements      = rocketpd_get_field( 'rpd_home_endorsements', $fallback_endorsements );
 $district_eyebrow  = rocketpd_get_field( 'rpd_home_district_eyebrow', __( 'District Community', 'rocketpd' ) );
 $district_headline = rocketpd_get_field( 'rpd_home_district_headline', __( 'Districts learning with RocketPD', 'rocketpd' ) );
-$district_stat     = rocketpd_get_field( 'rpd_home_district_stat', __( '850+ districts in 47 states - and counting', 'rocketpd' ) );
-$district_note     = rocketpd_get_field( 'rpd_home_district_note', __( 'A representative sample. Want your district featured? Bring RocketPD to your team ->', 'rocketpd' ) );
+$district_stat     = rocketpd_get_field( 'rpd_home_district_stat', __( '850+ districts in 47 states · and counting', 'rocketpd' ) );
+$district_note     = rocketpd_get_field( 'rpd_home_district_note', __( 'A representative sample. Want your district featured?', 'rocketpd' ) );
+$district_note_url = rocketpd_get_field( 'rpd_home_district_note_url', home_url( '/contact/' ) );
 $fallback_districts = array(
 	array( 'name' => 'Denver Public Schools', 'state' => 'CO' ),
 	array( 'name' => 'Cherry Creek Schools', 'state' => 'CO' ),
@@ -54,7 +55,7 @@ $districts         = $districts ? $districts : $fallback_districts;
 <section class="rpd-home-trust rpd-home-section rpd-home-section--soft">
 	<div class="rpd-container">
 		<div class="rpd-home-partnership">
-			<span class="rpd-home-medal" aria-hidden="true">O</span>
+			<span class="rpd-home-medal" aria-hidden="true"></span>
 			<div>
 				<p class="rpd-home-eyebrow"><?php echo esc_html( $partnership_label ); ?></p>
 				<h2><?php echo esc_html( $partnership_name ); ?></h2>
@@ -95,7 +96,12 @@ $districts         = $districts ? $districts : $fallback_districts;
 					</div>
 				<?php endforeach; ?>
 			</div>
-			<p class="rpd-home-districts__note"><?php echo esc_html( $district_note ); ?></p>
+			<p class="rpd-home-districts__note">
+				<em><?php echo esc_html( $district_note ); ?></em>
+				<?php if ( $district_note_url ) : ?>
+					<a href="<?php echo esc_url( $district_note_url ); ?>"><?php esc_html_e( 'Bring RocketPD to your team', 'rocketpd' ); ?> <span aria-hidden="true">&rarr;</span></a>
+				<?php endif; ?>
+			</p>
 		</div>
 	</div>
 </section>

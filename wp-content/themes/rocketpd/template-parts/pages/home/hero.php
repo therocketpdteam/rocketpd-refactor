@@ -19,13 +19,14 @@ $secondary_url   = rocketpd_get_field( 'rpd_home_hero_secondary_url', home_url( 
 $image           = rocketpd_get_field( 'rpd_home_hero_image' );
 $stat_value      = rocketpd_get_field( 'rpd_home_hero_stat_value', __( '40,000+', 'rocketpd' ) );
 $stat_label      = rocketpd_get_field( 'rpd_home_hero_stat_label', __( 'Educators joined', 'rocketpd' ) );
+$headline_markup = str_replace( 'Community for', 'Community<br class="rpd-home-hero__break"> for', esc_html( $headline ) );
 ?>
 
 <section class="rpd-home-hero rpd-home-section">
 	<div class="rpd-container rpd-home-hero__grid">
 		<div class="rpd-home-hero__copy">
 			<p class="rpd-home-pill"><?php echo esc_html( $eyebrow ); ?></p>
-			<h1><?php echo esc_html( $headline ); ?></h1>
+			<h1><?php echo wp_kses( $headline_markup, array( 'br' => array( 'class' => true ) ) ); ?></h1>
 			<p><?php echo esc_html( $body ); ?></p>
 			<div class="rpd-home-actions">
 				<?php if ( $primary_label && $primary_url ) : ?>
@@ -37,6 +38,7 @@ $stat_label      = rocketpd_get_field( 'rpd_home_hero_stat_label', __( 'Educator
 			</div>
 		</div>
 		<div class="rpd-home-hero__media">
+			<span class="rpd-home-hero__depth" aria-hidden="true"></span>
 			<?php
 			$image_markup = rocketpd_get_image_markup( $image, 'rpd-home-hero__image', __( 'Educator standing in a classroom', 'rocketpd' ) );
 			if ( $image_markup ) {
@@ -48,7 +50,7 @@ $stat_label      = rocketpd_get_field( 'rpd_home_hero_stat_label', __( 'Educator
 			}
 			?>
 			<div class="rpd-home-hero-stat">
-				<span aria-hidden="true">+</span>
+				<span class="rpd-home-hero-stat__icon" aria-hidden="true"></span>
 				<strong><?php echo esc_html( $stat_value ); ?></strong>
 				<small><?php echo esc_html( $stat_label ); ?></small>
 			</div>
