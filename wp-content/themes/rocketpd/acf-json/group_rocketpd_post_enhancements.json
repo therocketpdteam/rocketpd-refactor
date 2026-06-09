@@ -1,0 +1,266 @@
+{
+  "key": "group_rocketpd_post_enhancements",
+  "title": "RocketPD Post Enhancements",
+  "fields": [
+    {
+      "key": "field_rpd_post_tab_hero",
+      "label": "Hero",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_rpd_post_hero_style",
+      "label": "Hero Style",
+      "name": "rpd_post_hero_style",
+      "type": "select",
+      "choices": {
+        "default": "Default",
+        "image-right": "Image Right",
+        "no-image": "No Image"
+      },
+      "default_value": "default",
+      "return_format": "value"
+    },
+    {
+      "key": "field_rpd_post_dek",
+      "label": "Dek Override",
+      "name": "rpd_post_dek",
+      "type": "textarea",
+      "rows": 3,
+      "new_lines": "",
+      "instructions": "Optional hero summary. Falls back to the native post excerpt."
+    },
+    {
+      "key": "field_rpd_post_hero_image_override",
+      "label": "Hero Image Override",
+      "name": "rpd_post_hero_image_override",
+      "type": "image",
+      "return_format": "array",
+      "preview_size": "medium",
+      "instructions": "Optional hero image. Falls back to featured image, then branded gradient."
+    },
+    {
+      "key": "field_rpd_post_featured_instructor",
+      "label": "Featured Instructor",
+      "name": "rpd_post_featured_instructor",
+      "type": "post_object",
+      "post_type": [
+        "instructor"
+      ],
+      "return_format": "object",
+      "ui": 1,
+      "allow_null": 1
+    },
+    {
+      "key": "field_rpd_post_reading_time_override",
+      "label": "Reading Time Override",
+      "name": "rpd_post_reading_time_override",
+      "type": "text",
+      "instructions": "Optional display value, e.g. 8 min read. Falls back to calculated reading time."
+    },
+    {
+      "key": "field_rpd_post_tab_sidebar",
+      "label": "Sidebar",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_rpd_post_sidebar_cta_enabled",
+      "label": "Enable Sidebar CTA",
+      "name": "rpd_post_sidebar_cta_enabled",
+      "type": "true_false",
+      "default_value": 1,
+      "ui": 1
+    },
+    {
+      "key": "field_rpd_post_sidebar_cta_title",
+      "label": "Sidebar CTA Title",
+      "name": "rpd_post_sidebar_cta_title",
+      "type": "text",
+      "default_value": "Join the RocketPD Community"
+    },
+    {
+      "key": "field_rpd_post_sidebar_cta_body",
+      "label": "Sidebar CTA Body",
+      "name": "rpd_post_sidebar_cta_body",
+      "type": "textarea",
+      "rows": 3,
+      "default_value": "Get practical, expert-led K-12 professional learning delivered the way educators actually learn."
+    },
+    {
+      "key": "field_rpd_post_sidebar_cta_label",
+      "label": "Sidebar CTA Label",
+      "name": "rpd_post_sidebar_cta_label",
+      "type": "text",
+      "default_value": "Join Free"
+    },
+    {
+      "key": "field_rpd_post_sidebar_cta_url",
+      "label": "Sidebar CTA URL",
+      "name": "rpd_post_sidebar_cta_url",
+      "type": "url",
+      "instructions": "Falls back to the global community URL when available."
+    },
+    {
+      "key": "field_rpd_post_tab_related",
+      "label": "Related Learning",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_rpd_post_related_resources",
+      "label": "Related Resources",
+      "name": "rpd_post_related_resources",
+      "type": "relationship",
+      "post_type": [
+        "post",
+        "guide",
+        "webinar",
+        "course",
+        "cohort",
+        "resource",
+        "podcast",
+        "playbook",
+        "lead_magnet"
+      ],
+      "filters": [
+        "search",
+        "post_type",
+        "taxonomy"
+      ],
+      "elements": [
+        "featured_image"
+      ],
+      "return_format": "object",
+      "min": 0,
+      "max": 6,
+      "instructions": "Manual selections win. If empty, same-topic content is queried."
+    },
+    {
+      "key": "field_rpd_post_tab_bottom_cta",
+      "label": "Bottom CTA",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_rpd_post_bottom_cta_enabled",
+      "label": "Enable Bottom CTA",
+      "name": "rpd_post_bottom_cta_enabled",
+      "type": "true_false",
+      "default_value": 1,
+      "ui": 1
+    },
+    {
+      "key": "field_rpd_post_bottom_cta_variant",
+      "label": "Bottom CTA Variant",
+      "name": "rpd_post_bottom_cta_variant",
+      "type": "select",
+      "choices": {
+        "community": "Community",
+        "newsletter": "Newsletter",
+        "custom": "Custom",
+        "hidden": "Hidden"
+      },
+      "default_value": "community",
+      "return_format": "value"
+    },
+    {
+      "key": "field_rpd_post_bottom_cta_title",
+      "label": "Bottom CTA Title",
+      "name": "rpd_post_bottom_cta_title",
+      "type": "text"
+    },
+    {
+      "key": "field_rpd_post_bottom_cta_body",
+      "label": "Bottom CTA Body",
+      "name": "rpd_post_bottom_cta_body",
+      "type": "textarea",
+      "rows": 3
+    },
+    {
+      "key": "field_rpd_post_bottom_cta_primary_label",
+      "label": "Bottom CTA Primary Label",
+      "name": "rpd_post_bottom_cta_primary_label",
+      "type": "text"
+    },
+    {
+      "key": "field_rpd_post_bottom_cta_primary_url",
+      "label": "Bottom CTA Primary URL",
+      "name": "rpd_post_bottom_cta_primary_url",
+      "type": "url"
+    },
+    {
+      "key": "field_rpd_post_bottom_cta_secondary_label",
+      "label": "Bottom CTA Secondary Label",
+      "name": "rpd_post_bottom_cta_secondary_label",
+      "type": "text"
+    },
+    {
+      "key": "field_rpd_post_bottom_cta_secondary_url",
+      "label": "Bottom CTA Secondary URL",
+      "name": "rpd_post_bottom_cta_secondary_url",
+      "type": "url"
+    },
+    {
+      "key": "field_rpd_post_tab_faq",
+      "label": "FAQ",
+      "name": "",
+      "type": "tab",
+      "placement": "top"
+    },
+    {
+      "key": "field_rpd_post_faq_enabled",
+      "label": "Enable FAQ",
+      "name": "rpd_post_faq_enabled",
+      "type": "true_false",
+      "default_value": 0,
+      "ui": 1
+    },
+    {
+      "key": "field_rpd_post_faq_items",
+      "label": "FAQ Items",
+      "name": "rpd_post_faq_items",
+      "type": "repeater",
+      "layout": "row",
+      "button_label": "Add FAQ",
+      "sub_fields": [
+        {
+          "key": "field_rpd_post_faq_question",
+          "label": "Question",
+          "name": "question",
+          "type": "text"
+        },
+        {
+          "key": "field_rpd_post_faq_answer",
+          "label": "Answer",
+          "name": "answer",
+          "type": "wysiwyg",
+          "tabs": "visual",
+          "toolbar": "basic",
+          "media_upload": 0
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "post"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true,
+  "description": "Structured RocketPD enhancements for native WordPress posts. Article body remains Gutenberg content.",
+  "show_in_rest": 0
+}

@@ -219,6 +219,10 @@ function rocketpd_enqueue_assets() {
 		$enqueue_page_style( 'rocketpd-trust-cycle-guide', '/assets/css/pages/trust-cycle-guide.css' );
 	}
 
+	if ( is_singular( 'post' ) ) {
+		$enqueue_page_style( 'rocketpd-post', '/assets/css/pages/post.css' );
+	}
+
 	if ( is_front_page() ) {
 		$enqueue_page_style( 'rocketpd-home', '/assets/css/pages/home.css' );
 	}

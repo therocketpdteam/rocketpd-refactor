@@ -26,6 +26,7 @@ $rocketpd_includes = array(
 	'cohort-detail',
 	'topics',
 	'topic-detail',
+	'posts',
 	'icons',
 	'template-tags',
 	'nav',
