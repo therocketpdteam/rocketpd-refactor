@@ -15,9 +15,9 @@ $body    = rocketpd_get_field( 'rpd_courses_formats_body', __( 'Every RocketPD e
 $cards   = rocketpd_get_repeater_rows(
 	'rpd_courses_format_cards',
 	array(
-		array( 'format' => 'webinar', 'badge' => __( 'Free', 'rocketpd' ), 'title' => __( 'Free Webinars', 'rocketpd' ), 'body' => __( 'Explore timely conversations and practical strategies from nationally recognized K-12 experts.', 'rocketpd' ), 'cta_label' => __( 'Watch Free Webinars', 'rocketpd' ), 'cta_url' => '#course-gallery', 'featured' => 0 ),
-		array( 'format' => 'self-paced', 'badge' => __( '$49 / Course', 'rocketpd' ), 'title' => __( 'Self-Paced Courses', 'rocketpd' ), 'body' => __( 'Learn on your schedule with expert-led video lessons, downloadable workbooks, and certificates of completion.', 'rocketpd' ), 'cta_label' => __( 'Browse Self-Paced Courses', 'rocketpd' ), 'cta_url' => '#course-gallery', 'featured' => 1 ),
-		array( 'format' => 'cohort', 'badge' => __( 'Starting At $295 / Person', 'rocketpd' ), 'title' => __( 'Live-Virtual Cohorts', 'rocketpd' ), 'body' => __( 'Join interactive, multi-session learning experiences with direct expert guidance and practical implementation support.', 'rocketpd' ), 'cta_label' => __( 'View Live Cohorts', 'rocketpd' ), 'cta_url' => '#course-gallery', 'featured' => 0 ),
+		array( 'format' => 'webinar', 'badge' => __( 'Free', 'rocketpd' ), 'title' => __( 'Free Webinars', 'rocketpd' ), 'body' => __( 'Explore timely conversations and practical strategies from nationally recognized K-12 experts.', 'rocketpd' ), 'cta_label' => __( 'Watch Free Webinars', 'rocketpd' ), 'cta_url' => '#gallery', 'featured' => 0 ),
+		array( 'format' => 'self-paced', 'badge' => __( '$49 / Course', 'rocketpd' ), 'title' => __( 'Self-Paced Courses', 'rocketpd' ), 'body' => __( 'Learn on your schedule with expert-led video lessons, downloadable workbooks, and certificates of completion.', 'rocketpd' ), 'cta_label' => __( 'Browse Self-Paced Courses', 'rocketpd' ), 'cta_url' => '#gallery', 'featured' => 1 ),
+		array( 'format' => 'cohort', 'badge' => __( 'Starting At $295 / Person', 'rocketpd' ), 'title' => __( 'Live-Virtual Cohorts', 'rocketpd' ), 'body' => __( 'Join interactive, multi-session learning experiences with direct expert guidance and practical implementation support.', 'rocketpd' ), 'cta_label' => __( 'View Live Cohorts', 'rocketpd' ), 'cta_url' => '#gallery', 'featured' => 0 ),
 	),
 	array( 'title', 'body' )
 );
@@ -49,7 +49,7 @@ $cards   = rocketpd_get_repeater_rows(
 					<h3><?php echo esc_html( $card['title'] ?? '' ); ?></h3>
 					<p><?php echo esc_html( $card['body'] ?? '' ); ?></p>
 					<?php if ( ! empty( $card['cta_label'] ) && ! empty( $card['cta_url'] ) ) : ?>
-						<a href="<?php echo esc_url( $card['cta_url'] ); ?>"><?php echo esc_html( $card['cta_label'] ); ?><span aria-hidden="true">-&gt;</span></a>
+						<a href="<?php echo esc_url( $card['cta_url'] ); ?>" data-rpd-set-format="<?php echo esc_attr( $format_key ); ?>"><?php echo esc_html( $card['cta_label'] ); ?><span aria-hidden="true">-&gt;</span></a>
 					<?php endif; ?>
 				</article>
 			<?php endforeach; ?>

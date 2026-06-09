@@ -9,31 +9,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$courses       = function_exists( 'rocketpd_get_courses' ) ? rocketpd_get_courses() : array();
-$floating_keys = array(
-	'rethinking-teacher-supervision-coaching-evaluation',
-	'build-ownership-not-buy-in-live-cohort',
-	'mini-observations-that-actually-move-teaching',
-);
-$floating      = array();
-
-foreach ( $floating_keys as $key ) {
-	foreach ( $courses as $course ) {
-		if ( isset( $course['slug'] ) && $key === $course['slug'] ) {
-			$floating[] = $course;
-			break;
-		}
-	}
-}
-
+$floating        = function_exists( 'rocketpd_get_courses_hero_features' ) ? rocketpd_get_courses_hero_features() : array();
 $eyebrow         = rocketpd_get_field( 'rpd_courses_hero_eyebrow', __( 'Courses & Learning Experiences', 'rocketpd' ) );
 $default_headline = __( 'Expert-Led K-12 Professional Learning, Built Around the Way Educators Actually Learn.', 'rocketpd' );
 $headline         = rocketpd_get_field( 'rpd_courses_hero_headline', $default_headline );
 $body            = rocketpd_get_field( 'rpd_courses_hero_body', __( 'Browse free webinars, self-paced video courses, and live-virtual cohorts led by nationally recognized K-12 experts. Choose the format that fits your team - or blend all three.', 'rocketpd' ) );
 $primary_label   = rocketpd_get_field( 'rpd_courses_hero_primary_label', __( 'Browse Courses', 'rocketpd' ) );
-$primary_url     = rocketpd_get_field( 'rpd_courses_hero_primary_url', '#course-gallery' );
+$primary_url     = rocketpd_get_field( 'rpd_courses_hero_primary_url', '#gallery' );
 $secondary_label = rocketpd_get_field( 'rpd_courses_hero_secondary_label', __( 'Explore Free Webinars', 'rocketpd' ) );
-$secondary_url   = rocketpd_get_field( 'rpd_courses_hero_secondary_url', '#course-gallery' );
+$secondary_url   = rocketpd_get_field( 'rpd_courses_hero_secondary_url', '#gallery' );
 $trust_items     = rocketpd_get_repeater_rows(
 	'rpd_courses_hero_trust_items',
 	array(
@@ -71,7 +55,7 @@ $is_default_headline = trim( $headline ) === $default_headline;
 					<a class="rpd-btn rpd-btn--gold" href="<?php echo esc_url( $primary_url ); ?>"><?php echo esc_html( $primary_label ); ?><span aria-hidden="true">-&gt;</span></a>
 				<?php endif; ?>
 				<?php if ( $secondary_label && $secondary_url ) : ?>
-					<a class="rpd-btn rpd-btn--outline-purple" href="<?php echo esc_url( $secondary_url ); ?>"><?php echo esc_html( $secondary_label ); ?></a>
+					<a class="rpd-btn rpd-btn--outline-purple" href="<?php echo esc_url( $secondary_url ); ?>" data-rpd-set-format="webinar"><?php echo esc_html( $secondary_label ); ?></a>
 				<?php endif; ?>
 			</div>
 			<?php if ( $trust_items ) : ?>

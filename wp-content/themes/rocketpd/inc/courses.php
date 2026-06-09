@@ -66,7 +66,8 @@ function rocketpd_get_course_format( $format ) {
 function rocketpd_get_courses() {
 	$base = '/wp-content/uploads/';
 
-	return array(
+	return rocketpd_filter_courses_index_items(
+		array(
 		array(
 			'slug'           => 'mini-observations-that-actually-move-teaching',
 			'title'          => __( 'Mini-Observations That Actually Move Teaching', 'rocketpd' ),
@@ -354,6 +355,74 @@ function rocketpd_get_courses() {
 			'description'    => __( 'Reclaim 5 hours every week. A 3-session live cohort on time-management strategies that protect teacher energy and prevent burnout.', 'rocketpd' ),
 			'meta'           => __( '3 live sessions · 60 min each · Worksheets included', 'rocketpd' ),
 			'href'           => home_url( '/launchpad/courses/unlocking-teacher-productivity-live-cohort/' ),
+		),
+		)
+	);
+}
+
+/**
+ * Limit the Course Index gallery to the approved handoff catalog.
+ *
+ * The full seed data below supports detail pages and future sync work; the
+ * index page intentionally displays the 3 webinar / 6 course / 3 cohort set.
+ *
+ * @param array $courses Course records.
+ * @return array
+ */
+function rocketpd_filter_courses_index_items( $courses ) {
+	$allowed_slugs = array(
+		'mini-observations-that-actually-move-teaching',
+		'building-your-districts-ai-strategy',
+		'action-oriented-family-engagement',
+		'rethinking-teacher-supervision-coaching-evaluation-self-paced-video-course',
+		'creating-a-culture-of-love',
+		'blended-learning-universal-design-for-learning',
+		'artificial-intelligence-in-k-12-schools',
+		'building-thinking-classrooms-in-mathematics',
+		'adult-well-being-staff-engagement',
+		'mini-observations-mastery-live-cohort',
+		'build-ownership-not-buy-in-live-cohort',
+		'unlocking-teacher-productivity-live-cohort',
+	);
+
+	$allowed = array_flip( $allowed_slugs );
+
+	return array_values(
+		array_filter(
+			$courses,
+			function ( $course ) use ( $allowed ) {
+				return isset( $course['slug'], $allowed[ $course['slug'] ] );
+			}
+		)
+	);
+}
+
+/**
+ * Return decorative hero feature cards from the handoff.
+ *
+ * @return array
+ */
+function rocketpd_get_courses_hero_features() {
+	$asset_base = get_template_directory_uri() . '/assets/images/courses/';
+
+	return array(
+		array(
+			'title'      => __( 'Rethinking Teacher Supervision, Coaching & Evaluation', 'rocketpd' ),
+			'instructor' => __( 'Kim Marshall', 'rocketpd' ),
+			'format'     => 'self-paced',
+			'image'      => $asset_base . 'kim-marshall-video-course.png',
+		),
+		array(
+			'title'      => __( 'Fine-Tune Your Lessons with the Fundamentals', 'rocketpd' ),
+			'instructor' => __( 'Jennifer Gonzalez', 'rocketpd' ),
+			'format'     => 'self-paced',
+			'image'      => $asset_base . 'jennifer-gonzalez.jpg',
+		),
+		array(
+			'title'      => __( 'Blended Learning & Universal Design for Learning', 'rocketpd' ),
+			'instructor' => __( 'Dr. Catlin Tucker', 'rocketpd' ),
+			'format'     => 'self-paced',
+			'image'      => $asset_base . 'catlin-tucker.png',
 		),
 	);
 }

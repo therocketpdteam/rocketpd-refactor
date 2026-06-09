@@ -18,8 +18,8 @@ $audiences   = function_exists( 'rocketpd_get_course_filter_values' ) ? rocketpd
 $eyebrow     = rocketpd_get_field( 'rpd_courses_gallery_eyebrow', __( 'Learning Gallery', 'rocketpd' ) );
 $headline    = rocketpd_get_field( 'rpd_courses_gallery_headline', __( 'Find the right course for your team.', 'rocketpd' ) );
 $body        = rocketpd_get_field( 'rpd_courses_gallery_body', __( 'Filter by format, topic, instructor, or audience. Every course is built and delivered by a nationally recognized K-12 thought leader.', 'rocketpd' ) );
-$empty_title = rocketpd_get_field( 'rpd_courses_empty_title', __( 'No courses match', 'rocketpd' ) );
-$empty_body  = rocketpd_get_field( 'rpd_courses_empty_body', __( 'Try clearing a filter or searching for a broader topic.', 'rocketpd' ) );
+$empty_title = rocketpd_get_field( 'rpd_courses_empty_title', __( 'No courses match these filters yet.', 'rocketpd' ) );
+$empty_body  = rocketpd_get_field( 'rpd_courses_empty_body', __( 'Try clearing one or two filters to see more.', 'rocketpd' ) );
 
 $render_course = function ( $course ) {
 	$format      = rocketpd_get_course_format( $course['format'] ?? 'self-paced' );
@@ -37,54 +37,57 @@ $render_course = function ( $course ) {
 		data-audiences="<?php echo esc_attr( implode( '|', $audiences ) ); ?>"
 		data-search="<?php echo esc_attr( $search_text ); ?>"
 	>
-		<div class="rpd-course-card__media">
-			<?php if ( $image ) : ?>
-				<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $course['title'] ?? '' ); ?>">
-			<?php else : ?>
-				<span class="rpd-course-card__fallback"><?php echo esc_html( substr( $course['instructor'] ?? 'RPD', 0, 2 ) ); ?></span>
-			<?php endif; ?>
-			<span class="rpd-course-card__badge"><?php echo esc_html( $format['label'] ); ?></span>
-			<span class="rpd-course-card__price"><?php echo esc_html( $course['price'] ?? '' ); ?></span>
-			<span class="rpd-course-card__glyph" data-icon="<?php echo esc_attr( $format['icon'] ); ?>" aria-hidden="true"></span>
-			<span class="rpd-course-card__meta"><?php echo esc_html( $course['meta'] ?? '' ); ?></span>
-		</div>
-		<div class="rpd-course-card__body">
-			<p class="rpd-course-card__topic"><span aria-hidden="true"></span><?php echo esc_html( $course['topic'] ?? '' ); ?></p>
-			<h3><?php echo esc_html( $course['title'] ?? '' ); ?></h3>
-			<p class="rpd-course-card__instructor">
-				<?php if ( $headshot ) : ?>
-					<img src="<?php echo esc_url( $headshot ); ?>" alt="">
+		<a class="rpd-course-card__link" href="<?php echo esc_url( $course['href'] ?? '#' ); ?>" aria-label="<?php echo esc_attr( sprintf( '%1$s: %2$s with %3$s', $format['label'], $course['title'] ?? '', $course['instructor'] ?? '' ) ); ?>">
+			<div class="rpd-course-card__media">
+				<?php if ( $image ) : ?>
+					<img src="<?php echo esc_url( $image ); ?>" alt="">
+				<?php else : ?>
+					<span class="rpd-course-card__fallback"><?php echo esc_html( substr( $course['instructor'] ?? 'RPD', 0, 2 ) ); ?></span>
 				<?php endif; ?>
-				<?php
-				printf(
-					/* translators: %s: instructor name. */
-					esc_html__( 'with %s', 'rocketpd' ),
-					esc_html( $course['instructor'] ?? '' )
-				);
-				?>
-			</p>
-			<p class="rpd-course-card__description"><?php echo esc_html( $course['description'] ?? '' ); ?></p>
-			<?php if ( $audiences ) : ?>
-				<div class="rpd-course-card__audiences">
-					<?php foreach ( array_slice( $audiences, 0, 2 ) as $audience ) : ?>
-						<span><?php echo esc_html( $audience ); ?></span>
-					<?php endforeach; ?>
-					<?php if ( count( $audiences ) > 2 ) : ?>
-						<span><?php echo esc_html( '+' . ( count( $audiences ) - 2 ) ); ?></span>
+				<span class="rpd-course-card__badge"><?php echo esc_html( $format['label'] ); ?></span>
+				<span class="rpd-course-card__price"><?php echo esc_html( $course['price'] ?? '' ); ?></span>
+				<span class="rpd-course-card__glyph" data-icon="<?php echo esc_attr( $format['icon'] ); ?>" aria-hidden="true"></span>
+				<span class="rpd-course-card__meta"><?php echo esc_html( $course['meta'] ?? '' ); ?></span>
+			</div>
+			<div class="rpd-course-card__body">
+				<p class="rpd-course-card__topic"><span aria-hidden="true"></span><?php echo esc_html( $course['topic'] ?? '' ); ?></p>
+				<h3><?php echo esc_html( $course['title'] ?? '' ); ?></h3>
+				<p class="rpd-course-card__instructor">
+					<?php if ( $headshot ) : ?>
+						<img src="<?php echo esc_url( $headshot ); ?>" alt="">
 					<?php endif; ?>
-				</div>
-			<?php endif; ?>
-			<footer>
-				<span><i aria-hidden="true"></i><?php echo esc_html( $format['label'] ); ?></span>
-				<a href="<?php echo esc_url( $course['href'] ?? '#' ); ?>"><?php echo esc_html( $format['cta'] ); ?><span aria-hidden="true">-&gt;</span></a>
-			</footer>
-		</div>
+					<?php
+					printf(
+						/* translators: %s: instructor name. */
+						esc_html__( 'with %s', 'rocketpd' ),
+						esc_html( $course['instructor'] ?? '' )
+					);
+					?>
+				</p>
+				<p class="rpd-course-card__description"><?php echo esc_html( $course['description'] ?? '' ); ?></p>
+				<?php if ( $audiences ) : ?>
+					<div class="rpd-course-card__audiences">
+						<?php foreach ( array_slice( $audiences, 0, 2 ) as $audience ) : ?>
+							<span><?php echo esc_html( $audience ); ?></span>
+						<?php endforeach; ?>
+						<?php if ( count( $audiences ) > 2 ) : ?>
+							<span><?php echo esc_html( '+' . ( count( $audiences ) - 2 ) ); ?></span>
+						<?php endif; ?>
+					</div>
+				<?php endif; ?>
+				<footer>
+					<span><i aria-hidden="true"></i><?php echo esc_html( $format['label'] ); ?></span>
+					<strong><?php echo esc_html( $format['cta'] ); ?><span aria-hidden="true">-&gt;</span></strong>
+				</footer>
+			</div>
+		</a>
 	</article>
 	<?php
 };
 ?>
 
 <section class="rpd-courses-gallery" id="course-gallery" data-rpd-courses>
+	<span class="rpd-courses-gallery__anchor" id="gallery" aria-hidden="true"></span>
 	<div class="rpd-container">
 		<header class="rpd-courses-gallery__header">
 			<div>
