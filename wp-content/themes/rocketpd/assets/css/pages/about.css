@@ -85,6 +85,11 @@
 	line-height: 1.15;
 }
 
+.rpd-about-focus .rpd-about-section-title {
+	width: 100%;
+	max-width: none;
+}
+
 .rpd-about-eyebrow {
 	margin-bottom: 1rem;
 	color: var(--about-magenta);
