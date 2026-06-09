@@ -12,9 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 $cards = rocketpd_lpp_get_field(
 	'rpd_lpp_experiences_cards',
 	array(
-		array( 'title' => __( 'Live-virtual cohorts', 'rocketpd' ), 'body' => __( 'Join expert-led cohorts and learning experiences offered throughout the year.', 'rocketpd' ) ),
-		array( 'title' => __( 'New course releases', 'rocketpd' ), 'body' => __( "Get continuous access to new RocketPD courses as they're added to the library.", 'rocketpd' ) ),
-		array( 'title' => __( 'Guides and PL resources', 'rocketpd' ), 'body' => __( 'Access ongoing guides, frameworks, and professional learning resources.', 'rocketpd' ) ),
+		array( 'title' => __( 'Live-virtual cohorts', 'rocketpd' ), 'body' => __( 'Join expert-led cohorts and learning experiences offered throughout the year.', 'rocketpd' ), 'icon' => 'users' ),
+		array( 'title' => __( 'New course releases', 'rocketpd' ), 'body' => __( "Get continuous access to new RocketPD courses as they're added to the library.", 'rocketpd' ), 'icon' => 'sparkles' ),
+		array( 'title' => __( 'Guides and PL resources', 'rocketpd' ), 'body' => __( 'Access ongoing guides, frameworks, and professional learning resources.', 'rocketpd' ), 'icon' => 'library' ),
 	)
 );
 ?>
@@ -31,8 +31,9 @@ $cards = rocketpd_lpp_get_field(
 				<?php
 				$title = isset( $card['title'] ) ? $card['title'] : '';
 				$body = isset( $card['body'] ) ? $card['body'] : '';
+				$icon = isset( $card['icon'] ) ? $card['icon'] : 'library';
 				?>
-				<article class="rpd-lpp-dark-card"><span class="rpd-lpp-icon rpd-lpp-icon--gold" aria-hidden="true"></span><h3><?php echo esc_html( $title ); ?></h3><p><?php echo esc_html( $body ); ?></p></article>
+				<article class="rpd-lpp-dark-card"><span class="rpd-lpp-icon rpd-lpp-icon--gold" aria-hidden="true"><?php rocketpd_lpp_icon( $icon ); ?></span><h3><?php echo esc_html( $title ); ?></h3><p><?php echo esc_html( $body ); ?></p></article>
 			<?php endforeach; ?>
 		</div>
 		<p class="rpd-lpp-centered-note rpd-lpp-centered-note--dark rpd-lpp-centered-note--italic"><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_experiences_closing', __( 'These experiences complement the platform and extend learning beyond asynchronous content.', 'rocketpd' ) ) ); ?></p>

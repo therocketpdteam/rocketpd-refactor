@@ -25,19 +25,19 @@ $bullets = rocketpd_lpp_get_field(
 			<p class="rpd-lpp-eyebrow"><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_creator_eyebrow', __( "Creator's Package", 'rocketpd' ) ) ); ?></p>
 			<h2><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_creator_headline', __( 'Create and Scale Your Own Professional Learning Content.', 'rocketpd' ) ) ); ?></h2>
 			<p><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_creator_body_1', __( 'Many districts have strong internal expertise but limited ways to scale it.', 'rocketpd' ) ) ); ?></p>
-			<p><?php echo esc_html( rocketpd_lpp_get_field( 'rpd_lpp_creator_body_2', __( "With LaunchPad+ and RocketPD's Creator's Package, districts can:", 'rocketpd' ) ) ); ?></p>
+			<p><?php echo wp_kses_post( rocketpd_lpp_get_field( 'rpd_lpp_creator_body_2', __( "With LaunchPad+ and RocketPD's <strong>Creator's Package</strong>, districts can:", 'rocketpd' ) ) ); ?></p>
 			<ul class="rpd-lpp-checks">
 				<?php foreach ( $bullets as $bullet ) : ?>
 					<?php $text = isset( $bullet['text'] ) ? $bullet['text'] : ''; ?>
 					<?php if ( $text ) : ?>
-						<li><?php echo esc_html( $text ); ?></li>
+						<li><span aria-hidden="true"><?php rocketpd_lpp_icon( 'check' ); ?></span><?php echo esc_html( $text ); ?></li>
 					<?php endif; ?>
 				<?php endforeach; ?>
 			</ul>
 		</div>
-		<div class="rpd-lpp-package-card">
-			<header><span><?php esc_html_e( "Creator's Package", 'rocketpd' ); ?></span><b><?php esc_html_e( 'Example Package', 'rocketpd' ); ?></b><h3><?php esc_html_e( 'Six-course district build', 'rocketpd' ); ?></h3></header>
-			<ul><?php foreach ( array( 'Six custom courses produced with RocketPD', 'Hosted inside your LaunchPad+ platform', 'Ongoing access and support' ) as $item ) : ?><li><?php echo esc_html( $item ); ?></li><?php endforeach; ?></ul>
+		<div class="rpd-lpp-package-card" aria-hidden="true">
+			<header><span><?php rocketpd_lpp_icon( 'sparkles' ); ?><?php esc_html_e( "Creator's Package", 'rocketpd' ); ?></span><b><?php esc_html_e( 'Example Package', 'rocketpd' ); ?></b><h3><?php esc_html_e( 'Six-course district build', 'rocketpd' ); ?></h3></header>
+			<ul><?php foreach ( array( 'Six custom courses produced with RocketPD' => 'video', 'Hosted inside your LaunchPad+ platform' => 'building', 'Ongoing access and support' => 'shield' ) as $item => $icon ) : ?><li><span><?php rocketpd_lpp_icon( $icon ); ?></span><?php echo esc_html( $item ); ?></li><?php endforeach; ?></ul>
 			<p><?php esc_html_e( 'Example district-built courses', 'rocketpd' ); ?></p>
 			<div><?php foreach ( array( 'RU Strategic Plan', 'MTSS at RU', 'RU Onboarding', 'RU Coaching', 'RU Family Engage.', 'RU Tech Stack' ) as $course ) : ?><span><b><?php esc_html_e( 'RU', 'rocketpd' ); ?></b><?php echo esc_html( $course ); ?></span><?php endforeach; ?></div>
 			<footer><?php esc_html_e( 'Final scope and pricing tailored per district during onboarding.', 'rocketpd' ); ?></footer>

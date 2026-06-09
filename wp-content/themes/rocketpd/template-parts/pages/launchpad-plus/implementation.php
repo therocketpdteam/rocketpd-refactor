@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 $cards = rocketpd_lpp_get_field(
 	'rpd_lpp_implementation_cards',
 	array(
-		array( 'title' => __( 'Bring PL into one accessible platform', 'rocketpd' ) ),
-		array( 'title' => __( 'Reduce fragmentation across tools and resources', 'rocketpd' ) ),
-		array( 'title' => __( 'Support consistent learning experiences across teams', 'rocketpd' ) ),
-		array( 'title' => __( 'Provide flexible access to training and materials', 'rocketpd' ) ),
-		array( 'title' => __( 'Maintain and grow a reusable content library', 'rocketpd' ) ),
+		array( 'title' => __( 'Bring PL into one accessible platform', 'rocketpd' ), 'icon' => 'library' ),
+		array( 'title' => __( 'Reduce fragmentation across tools and resources', 'rocketpd' ), 'icon' => 'network' ),
+		array( 'title' => __( 'Support consistent learning experiences across teams', 'rocketpd' ), 'icon' => 'workflow' ),
+		array( 'title' => __( 'Provide flexible access to training and materials', 'rocketpd' ), 'icon' => 'compass' ),
+		array( 'title' => __( 'Maintain and grow a reusable content library', 'rocketpd' ), 'icon' => 'library' ),
 	)
 );
 ?>
@@ -32,7 +32,7 @@ $cards = rocketpd_lpp_get_field(
 			<?php foreach ( $cards as $card ) : ?>
 				<?php $title = isset( $card['title'] ) ? $card['title'] : ''; ?>
 				<?php if ( $title ) : ?>
-					<article class="rpd-lpp-light-card rpd-lpp-light-card--short"><span class="rpd-lpp-icon" aria-hidden="true"></span><h3><?php echo esc_html( $title ); ?></h3></article>
+					<article class="rpd-lpp-light-card rpd-lpp-light-card--short"><span class="rpd-lpp-icon" aria-hidden="true"><?php rocketpd_lpp_icon( isset( $card['icon'] ) ? $card['icon'] : 'library' ); ?></span><h3><?php echo esc_html( $title ); ?></h3></article>
 				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>

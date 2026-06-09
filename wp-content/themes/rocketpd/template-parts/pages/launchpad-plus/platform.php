@@ -12,11 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 $cards = rocketpd_lpp_get_field(
 	'rpd_lpp_platform_cards',
 	array(
-		array( 'title' => __( 'RocketPD course library', 'rocketpd' ), 'body' => __( "Provide access to RocketPD's expert-led professional learning library.", 'rocketpd' ) ),
-		array( 'title' => __( 'District content hosting', 'rocketpd' ), 'body' => __( 'Host your own asynchronous professional learning content alongside it.', 'rocketpd' ) ),
-		array( 'title' => __( 'Resource organization', 'rocketpd' ), 'body' => __( 'Organize internal guides, webinars, and training materials in one place.', 'rocketpd' ) ),
-		array( 'title' => __( 'User management', 'rocketpd' ), 'body' => __( 'Manage users and permissions across schools, departments, and roles.', 'rocketpd' ) ),
-		array( 'title' => __( 'Participation tracking', 'rocketpd' ), 'body' => __( 'Track enrollment, participation, and course completion across teams.', 'rocketpd' ) ),
+		array( 'title' => __( 'RocketPD course library', 'rocketpd' ), 'body' => __( "Provide access to RocketPD's expert-led professional learning library.", 'rocketpd' ), 'icon' => 'library' ),
+		array( 'title' => __( 'District content hosting', 'rocketpd' ), 'body' => __( 'Host your own asynchronous professional learning content alongside it.', 'rocketpd' ), 'icon' => 'upload' ),
+		array( 'title' => __( 'Resource organization', 'rocketpd' ), 'body' => __( 'Organize internal guides, webinars, and training materials in one place.', 'rocketpd' ), 'icon' => 'folder' ),
+		array( 'title' => __( 'User management', 'rocketpd' ), 'body' => __( 'Manage users and permissions across schools, departments, and roles.', 'rocketpd' ), 'icon' => 'users' ),
+		array( 'title' => __( 'Participation tracking', 'rocketpd' ), 'body' => __( 'Track enrollment, participation, and course completion across teams.', 'rocketpd' ), 'icon' => 'chart' ),
 	)
 );
 ?>
@@ -33,9 +33,10 @@ $cards = rocketpd_lpp_get_field(
 				<?php
 				$title = isset( $card['title'] ) ? $card['title'] : '';
 				$body  = isset( $card['body'] ) ? $card['body'] : '';
+				$icon  = isset( $card['icon'] ) ? $card['icon'] : 'library';
 				?>
 				<?php if ( $title || $body ) : ?>
-					<article class="rpd-lpp-light-card"><span class="rpd-lpp-icon" aria-hidden="true"></span><h3><?php echo esc_html( $title ); ?></h3><p><?php echo esc_html( $body ); ?></p></article>
+					<article class="rpd-lpp-light-card"><span class="rpd-lpp-icon" aria-hidden="true"><?php rocketpd_lpp_icon( $icon ); ?></span><h3><?php echo esc_html( $title ); ?></h3><p><?php echo esc_html( $body ); ?></p></article>
 				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>
