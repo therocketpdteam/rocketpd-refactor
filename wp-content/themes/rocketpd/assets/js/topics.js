@@ -14,6 +14,8 @@
 	const status = root.querySelector('[data-rpd-topics-status]');
 	const empty = root.querySelector('[data-rpd-topics-empty]');
 	const clearButtons = Array.from(document.querySelectorAll('[data-rpd-topics-clear]'));
+	const inlineClear = root.querySelector('[data-rpd-topics-clear-inline]');
+	const activeCount = root.querySelector('[data-rpd-topics-active-count]');
 	const faq = document.querySelector('[data-rpd-topics-faq]');
 	let activeFilter = 'all';
 
@@ -48,6 +50,7 @@
 	const updateGallery = () => {
 		const query = normalize(search ? search.value : '');
 		let visibleCount = 0;
+		const activeFilters = (query ? 1 : 0) + (activeFilter !== 'all' ? 1 : 0);
 
 		cards.forEach((card) => {
 			const haystack = normalize(card.dataset.search);
@@ -68,6 +71,23 @@
 		if (empty) {
 			empty.hidden = visibleCount > 0;
 		}
+
+		if (inlineClear) {
+			inlineClear.hidden = activeFilters < 1;
+		}
+
+		if (activeCount) {
+			activeCount.textContent = activeFilters > 0 ? `(${activeFilters})` : '';
+		}
+	};
+
+	const focusGallerySearch = () => {
+		if (!search) {
+			return;
+		}
+
+		root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		window.setTimeout(() => search.focus({ preventScroll: true }), 250);
 	};
 
 	filters.forEach((button) => {
@@ -82,10 +102,21 @@
 	}
 
 	if (heroSearch && search) {
+		const heroForm = heroSearch.closest('form');
+
 		heroSearch.addEventListener('input', () => {
 			search.value = heroSearch.value;
 			updateGallery();
 		});
+
+		if (heroForm) {
+			heroForm.addEventListener('submit', (event) => {
+				event.preventDefault();
+				search.value = heroSearch.value;
+				updateGallery();
+				focusGallerySearch();
+			});
+		}
 	}
 
 	clearButtons.forEach((button) => {
@@ -104,6 +135,13 @@
 			if (search) {
 				search.focus({ preventScroll: true });
 			}
+		});
+	});
+
+	document.querySelectorAll('a[href="#gallery"]').forEach((link) => {
+		link.addEventListener('click', (event) => {
+			event.preventDefault();
+			focusGallerySearch();
 		});
 	});
 

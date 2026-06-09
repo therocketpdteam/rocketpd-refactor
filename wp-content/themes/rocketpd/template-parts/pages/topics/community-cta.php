@@ -9,12 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$perks = array(
-	array( 'icon' => 'file', 'value' => __( '400+', 'rocketpd' ), 'label' => __( 'free resources', 'rocketpd' ) ),
-	array( 'icon' => 'calendar', 'value' => __( 'Weekly', 'rocketpd' ), 'label' => __( 'community events', 'rocketpd' ) ),
-	array( 'icon' => 'chat', 'value' => __( 'Educator', 'rocketpd' ), 'label' => __( 'conversations', 'rocketpd' ) ),
-	array( 'icon' => 'cap', 'value' => __( 'Direct', 'rocketpd' ), 'label' => __( 'expert access', 'rocketpd' ) ),
-);
+$perks = function_exists( 'rocketpd_get_topic_community_perks' ) ? rocketpd_get_topic_community_perks() : array();
 ?>
 
 <section class="rpd-topics-community">
@@ -34,7 +29,6 @@ $perks = array(
 					<span class="rpd-topics-icon-shell" aria-hidden="true">
 						<?php echo rocketpd_topic_icon_svg( $perk['icon'], 'rpd-topics-icon' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</span>
-					<strong><?php echo esc_html( $perk['value'] ); ?></strong>
 					<span><?php echo esc_html( $perk['label'] ); ?></span>
 				</div>
 			<?php endforeach; ?>

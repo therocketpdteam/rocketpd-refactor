@@ -26,6 +26,10 @@ while ( have_posts() ) {
 		get_template_part( 'template-parts/pages/topics/community-cta' );
 		get_template_part( 'template-parts/pages/topics/faq' );
 		get_template_part( 'template-parts/pages/topics/final-cta' );
+
+		if ( function_exists( 'rocketpd_print_topics_schema' ) ) {
+			rocketpd_print_topics_schema();
+		}
 		?>
 	</main>
 	<?php

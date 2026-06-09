@@ -30,10 +30,11 @@ $resources = function_exists( 'rocketpd_get_topic_resources' ) ? rocketpd_get_to
 					</span>
 					<p><?php echo esc_html( $resource['type'] ); ?></p>
 					<h3><?php echo esc_html( $resource['title'] ); ?></h3>
+					<em><?php echo esc_html( $resource['description'] ); ?></em>
 					<span><?php echo esc_html( $resource['meta'] ); ?></span>
 					<footer>
 						<span><?php echo esc_html( $resource['expert'] ); ?></span>
-						<strong><?php echo esc_html( $resource['topic'] ); ?></strong>
+						<strong><?php echo esc_html( $resource['topic'] ); ?> <span aria-hidden="true">-&gt;</span></strong>
 					</footer>
 				</a>
 			<?php endforeach; ?>
