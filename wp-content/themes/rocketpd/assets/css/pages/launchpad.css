@@ -201,12 +201,15 @@
 	position: relative;
 	z-index: 2;
 	max-width: 37rem;
+	overflow: visible;
 }
 
 .rpd-lp-hero h1 {
 	color: #fff;
 	font-size: clamp(4.5rem, 8vw, 6.9rem);
-	line-height: 0.92;
+	line-height: 1.06;
+	overflow: visible;
+	padding-block: 0.04em;
 }
 
 .rpd-lp-hero__subhead {
