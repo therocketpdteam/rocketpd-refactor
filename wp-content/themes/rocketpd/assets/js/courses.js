@@ -17,6 +17,7 @@
 	const status = root.querySelector('[data-rpd-course-status]');
 	const statusText = root.querySelector('[data-rpd-course-status-text]');
 	const clearButtons = Array.from(root.querySelectorAll('[data-rpd-course-clear]'));
+	const formatJumpLinks = Array.from(page.querySelectorAll('[data-rpd-set-format]'));
 	const groupsWrap = root.querySelector('[data-rpd-course-groups]');
 	const flatGrid = root.querySelector('[data-rpd-course-flat-grid]');
 	const emptyState = root.querySelector('[data-rpd-course-empty]');
@@ -119,6 +120,27 @@
 	formatButtons.forEach((button) => {
 		button.addEventListener('click', () => {
 			state.format = button.dataset.rpdFormatFilter || 'all';
+
+			formatButtons.forEach((formatButton) => {
+				const active = formatButton === button;
+				formatButton.classList.toggle('is-active', active);
+				formatButton.setAttribute('aria-pressed', active ? 'true' : 'false');
+			});
+
+			update();
+		});
+	});
+
+	formatJumpLinks.forEach((link) => {
+		link.addEventListener('click', () => {
+			const nextFormat = link.dataset.rpdSetFormat || 'all';
+			const button = formatButtons.find((formatButton) => formatButton.dataset.rpdFormatFilter === nextFormat);
+
+			if (!button) {
+				return;
+			}
+
+			state.format = nextFormat;
 
 			formatButtons.forEach((formatButton) => {
 				const active = formatButton === button;
