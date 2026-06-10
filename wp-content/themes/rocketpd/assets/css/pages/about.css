@@ -273,6 +273,36 @@
 	line-height: 1.5;
 }
 
+.rpd-about-check-list li > span[aria-hidden="true"],
+.rpd-about-beliefs li > span[aria-hidden="true"] {
+	position: absolute;
+	left: 0;
+	top: -0.05rem;
+	display: grid;
+	place-items: center;
+	width: 1.8rem;
+	height: 1.8rem;
+	border-radius: 50%;
+	background: #ffedcc;
+	color: var(--about-ink);
+}
+
+.rpd-about-beliefs li > span[aria-hidden="true"] {
+	top: -0.12rem;
+	width: 2.25rem;
+	height: 2.25rem;
+	background: rgba(253, 185, 51, 0.22);
+}
+
+.rpd-about-page .rpd-about-svg,
+.rpd-about-check-list svg,
+.rpd-about-beliefs svg {
+	display: block;
+	width: 1rem;
+	height: 1rem;
+	flex: 0 0 auto;
+}
+
 .rpd-about-check-list li::before {
 	position: absolute;
 	top: -0.05rem;
