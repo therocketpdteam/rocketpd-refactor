@@ -1,0 +1,248 @@
+{
+    "key": "group_rocketpd_settings_contact_ctas",
+    "title": "RocketPD Settings - Contact & CTAs",
+    "fields": [
+        {
+            "key": "field_rpd_settings_contact_tab",
+            "label": "Contact",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_phone_display",
+            "label": "Phone Display",
+            "name": "rpd_phone_display",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Human-readable phone number.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "(855) 757-6253",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_phone_tel",
+            "label": "Phone Link Value",
+            "name": "rpd_phone_tel",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Telephone value used in tel: links.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "8557576253",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_general_email",
+            "label": "General Email",
+            "name": "rpd_general_email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "info@rocketpd.com",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_support_email",
+            "label": "Support Email",
+            "name": "rpd_support_email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "support@rocketpd.com",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_address_line_1",
+            "label": "Address Line 1",
+            "name": "rpd_address_line_1",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_address_line_2",
+            "label": "Address Line 2",
+            "name": "rpd_address_line_2",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_city_state_zip",
+            "label": "City, State, ZIP",
+            "name": "rpd_city_state_zip",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rpd_settings_ctas_tab",
+            "label": "CTAs",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_community_signup_url",
+            "label": "Community Signup URL",
+            "name": "rpd_community_signup_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Used by shared community CTA links.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_rpd_jesse_schedule_url",
+            "label": "Jesse Schedule URL",
+            "name": "rpd_jesse_schedule_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Used by contact and scheduling CTA links.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_rpd_walkthrough_url",
+            "label": "Walkthrough URL",
+            "name": "rpd_walkthrough_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Used by LaunchPad Plus walkthrough CTA links.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "rocketpd-contact-ctas"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Global contact and CTA settings for the RocketPD theme.",
+    "show_in_rest": 0,
+    "modified": 1781104523
+}
