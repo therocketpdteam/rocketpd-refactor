@@ -549,6 +549,27 @@
 	text-transform: none;
 }
 
+.rpd-about-person-card__links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-top: 1.25rem;
+}
+
+.rpd-about-person-card__links a {
+	color: var(--rpd-purple);
+	font-size: var(--rpd-font-size-xs);
+	font-weight: 800;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.rpd-about-person-card__links a:hover,
+.rpd-about-person-card__links a:focus {
+	color: var(--rpd-purple-deep);
+	text-decoration: underline;
+}
+
 .rpd-about-person-card--navy .rpd-about-person-card__visual {
 	background: linear-gradient(135deg, #343465, #231f58 66%, #1a1744);
 }

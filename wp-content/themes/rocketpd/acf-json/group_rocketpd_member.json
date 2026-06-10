@@ -1,0 +1,173 @@
+{
+    "key": "group_rocketpd_member",
+    "title": "RocketPD Member",
+    "fields": [
+        {
+            "key": "field_rocketpd_member_type",
+            "label": "Member Type",
+            "name": "member_type",
+            "type": "select",
+            "instructions": "Controls which About page section this member appears in.",
+            "required": 1,
+            "choices": {
+                "founder": "Founder",
+                "team": "Team",
+                "board": "Board"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_rocketpd_member_role",
+            "label": "Role",
+            "name": "member_role",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rocketpd_member_bio",
+            "label": "Bio",
+            "name": "member_bio",
+            "type": "textarea",
+            "instructions": "Short card bio only. Do not add long-form profile content here.",
+            "required": 0,
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_rocketpd_member_initials",
+            "label": "Initials",
+            "name": "member_initials",
+            "type": "text",
+            "instructions": "Optional. If blank, initials are generated from the title.",
+            "required": 0,
+            "default_value": "",
+            "maxlength": 4,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rocketpd_member_sort_order",
+            "label": "Sort Order",
+            "name": "member_sort_order",
+            "type": "number",
+            "instructions": "Lower numbers appear first within each member type.",
+            "required": 0,
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": 1,
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rocketpd_member_card_gradient",
+            "label": "Card Gradient",
+            "name": "member_card_gradient",
+            "type": "select",
+            "instructions": "Used for the initials card when no headshot is set.",
+            "required": 0,
+            "choices": {
+                "purple": "Purple",
+                "navy": "Navy",
+                "gold": "Gold",
+                "blue": "Blue",
+                "pink": "Pink",
+                "sand": "Sand",
+                "plum": "Plum"
+            },
+            "default_value": "purple",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_rocketpd_member_headshot",
+            "label": "Headshot",
+            "name": "member_headshot",
+            "type": "image",
+            "instructions": "Optional. If blank, the card renders initials on the selected gradient.",
+            "required": 0,
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_rocketpd_member_linkedin_url",
+            "label": "LinkedIn URL",
+            "name": "member_linkedin_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_rocketpd_member_website_url",
+            "label": "Website URL",
+            "name": "member_website_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_rocketpd_member_email",
+            "label": "Email",
+            "name": "member_email",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "member"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Reusable member cards for RocketPD About page people sections.",
+    "show_in_rest": 0,
+    "modified": 1781107000
+}

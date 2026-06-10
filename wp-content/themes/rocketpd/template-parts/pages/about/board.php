@@ -12,39 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 $eyebrow  = rocketpd_get_field( 'rpd_about_board_eyebrow', __( 'OUR BOARD', 'rocketpd' ) );
 $headline = rocketpd_get_field( 'rpd_about_board_headline', __( 'Guided by the people who have led the work.', 'rocketpd' ) );
 $body     = rocketpd_get_field( 'rpd_about_board_body', __( 'Our board brings deep operating experience from public school districts and higher-education research institutions across the country.', 'rocketpd' ) );
-$people   = rocketpd_get_field(
-	'rpd_about_board_people',
-	array(
-		array(
-			'name'     => __( 'John Gamba', 'rocketpd' ),
-			'initials' => __( 'JG', 'rocketpd' ),
-			'role'     => __( 'ENTREPRENEUR IN RESIDENCE & DIRECTOR OF SPECIAL PROGRAMS', 'rocketpd' ),
-			'bio'      => __( 'University of Pennsylvania, Graduate School of Education', 'rocketpd' ),
-			'accent'   => 'navy',
-		),
-		array(
-			'name'     => __( 'Shannon Cox', 'rocketpd' ),
-			'initials' => __( 'SC', 'rocketpd' ),
-			'role'     => __( 'SUPERINTENDENT', 'rocketpd' ),
-			'bio'      => __( 'Montgomery County Educational Service Center, Ohio', 'rocketpd' ),
-			'accent'   => 'plum',
-		),
-		array(
-			'name'     => __( 'Dr. Luvelle Brown', 'rocketpd' ),
-			'initials' => __( 'LB', 'rocketpd' ),
-			'role'     => __( 'SUPERINTENDENT', 'rocketpd' ),
-			'bio'      => __( 'Ithaca City School District, New York', 'rocketpd' ),
-			'accent'   => 'purple',
-		),
-		array(
-			'name'     => __( 'Dr. Stephen Murley', 'rocketpd' ),
-			'initials' => __( 'SM', 'rocketpd' ),
-			'role'     => __( 'FORMER SUPERINTENDENT', 'rocketpd' ),
-			'bio'      => __( 'Green Bay Area School District, Wisconsin', 'rocketpd' ),
-			'accent'   => 'sand',
-		),
-	)
-);
+$people   = function_exists( 'rocketpd_get_members_by_type' ) ? rocketpd_get_members_by_type( 'board' ) : array();
+
+if ( ! $people ) {
+	return;
+}
 ?>
 
 <section class="rpd-about-board rpd-about-section">
@@ -60,7 +32,7 @@ $people   = rocketpd_get_field(
 		<?php if ( is_array( $people ) && ! empty( $people ) ) : ?>
 			<div class="rpd-about-people-grid rpd-about-people-grid--board">
 				<?php foreach ( $people as $person ) : ?>
-					<?php get_template_part( 'template-parts/pages/about/person-card', null, array( 'person' => $person ) ); ?>
+					<?php get_template_part( 'template-parts/components/member-card', null, array( 'member' => $person ) ); ?>
 				<?php endforeach; ?>
 			</div>
 		<?php endif; ?>
