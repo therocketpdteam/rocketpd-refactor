@@ -61,6 +61,64 @@ function rocketpd_get_icon( $name, $size = 20, $class = '' ) {
 	);
 }
 
+if ( ! function_exists( 'rocketpd_get_instructor_icon' ) ) {
+	/**
+	 * Return an inline SVG for Instructor Index templates.
+	 *
+	 * This keeps deployed Instructor Index template parts compatible with the
+	 * shared icon helper while supporting page-specific icon aliases.
+	 *
+	 * @param string $name  Icon key.
+	 * @param string $class Additional CSS classes.
+	 * @return string SVG markup, or empty string if the icon is not supported.
+	 */
+	function rocketpd_get_instructor_icon( $name, $class = '' ) {
+		$name = sanitize_key( $name );
+
+		if ( ! $name ) {
+			return '';
+		}
+
+		$class_tokens = preg_split( '/\s+/', (string) $class );
+		$class_tokens = array_filter(
+			array_map(
+				'sanitize_html_class',
+				is_array( $class_tokens ) ? $class_tokens : array()
+			)
+		);
+		$class        = implode( ' ', $class_tokens );
+		$shared_paths = function_exists( 'rocketpd_get_icon_paths' ) ? rocketpd_get_icon_paths() : array();
+
+		if ( isset( $shared_paths[ $name ] ) && function_exists( 'rocketpd_get_icon' ) ) {
+			return rocketpd_get_icon( $name, 20, $class );
+		}
+
+		$paths = array(
+			'audio'       => '<path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/>',
+			'board'       => '<path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/>',
+			'compass'     => '<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>',
+			'group'       => '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+			'headphones'  => '<path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>',
+			'play'        => '<circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/>',
+			'play-circle' => '<circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/>',
+			'search'      => '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+			'video'       => '<path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/>',
+		);
+
+		if ( ! isset( $paths[ $name ] ) ) {
+			return '';
+		}
+
+		$classes = trim( 'rpd-svg-icon rpd-svg-icon--' . sanitize_html_class( $name ) . ( $class ? ' ' . $class : '' ) );
+
+		return sprintf(
+			'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="%1$s" aria-hidden="true">%2$s</svg>',
+			esc_attr( $classes ),
+			$paths[ $name ] // SVG internals are trusted, defined in this helper only.
+		);
+	}
+}
+
 /**
  * Return an inline SVG for a social media brand icon.
  *
