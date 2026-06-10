@@ -23,6 +23,11 @@ function rocketpd_register_content_type( $post_type, $args ) {
 	$slug     = $args['slug'];
 	$icon     = $args['icon'];
 	$supports = isset( $args['supports'] ) ? $args['supports'] : array( 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' );
+	$public   = isset( $args['public'] ) ? (bool) $args['public'] : true;
+	$rewrite  = isset( $args['rewrite'] ) ? $args['rewrite'] : array(
+		'slug'       => $slug,
+		'with_front' => false,
+	);
 	$labels   = array(
 		'name'                  => $plural,
 		'singular_name'         => $singular,
@@ -97,19 +102,20 @@ function rocketpd_register_content_type( $post_type, $args ) {
 		$post_type,
 		array(
 			'labels'             => $labels,
-			'public'             => true,
-			'show_in_rest'       => true,
+			'public'             => $public,
+			'show_ui'            => isset( $args['show_ui'] ) ? (bool) $args['show_ui'] : true,
+			'show_in_rest'       => isset( $args['show_in_rest'] ) ? (bool) $args['show_in_rest'] : true,
 			'show_in_menu'       => isset( $args['show_in_menu'] ) ? $args['show_in_menu'] : true,
 			'menu_icon'          => $icon,
 			'supports'           => $supports,
 			'has_archive'        => isset( $args['has_archive'] ) ? (bool) $args['has_archive'] : true,
-			'rewrite'            => array(
-				'slug'       => $slug,
-				'with_front' => false,
-			),
+			'rewrite'            => $rewrite,
 			'capability_type'    => 'post',
 			'map_meta_cap'       => true,
-			'publicly_queryable' => true,
+			'publicly_queryable' => isset( $args['publicly_queryable'] ) ? (bool) $args['publicly_queryable'] : $public,
+			'exclude_from_search' => isset( $args['exclude_from_search'] ) ? (bool) $args['exclude_from_search'] : ! $public,
+			'query_var'          => isset( $args['query_var'] ) ? $args['query_var'] : $public,
+			'show_in_nav_menus'  => isset( $args['show_in_nav_menus'] ) ? (bool) $args['show_in_nav_menus'] : $public,
 		)
 	);
 }
@@ -176,6 +182,23 @@ function rocketpd_register_post_types() {
 			'plural'   => __( 'Instructors', 'rocketpd' ),
 			'slug'     => 'instructors',
 			'icon'     => 'dashicons-welcome-learn-more',
+		),
+		'member'      => array(
+			'singular'            => __( 'Member', 'rocketpd' ),
+			'plural'              => __( 'Members', 'rocketpd' ),
+			'slug'                => 'member',
+			'icon'                => 'dashicons-groups',
+			'public'              => false,
+			'publicly_queryable'  => false,
+			'has_archive'         => false,
+			'rewrite'             => false,
+			'query_var'           => false,
+			'show_in_nav_menus'   => false,
+			'supports'            => array( 'title', 'thumbnail', 'page-attributes', 'revisions' ),
+			'labels'              => array(
+				'menu_name' => __( 'Members', 'rocketpd' ),
+				'all_items' => __( 'All Members', 'rocketpd' ),
+			),
 		),
 		'cohort'      => array(
 			'singular'    => __( 'Cohort', 'rocketpd' ),
