@@ -23,12 +23,47 @@
             "placeholder": ""
         },
         {
+            "key": "field_rocketpd_member_title",
+            "label": "Title",
+            "name": "member_title",
+            "type": "text",
+            "instructions": "Displayed on Founder, Team, and Board cards.",
+            "required": 0,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_rocketpd_member_role",
-            "label": "Role",
+            "label": "Legacy Role",
             "name": "member_role",
             "type": "text",
-            "instructions": "",
+            "instructions": "Legacy fallback only. Use Title for new entries.",
             "required": 0,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_rocketpd_member_tagline",
+            "label": "Tagline",
+            "name": "member_tagline",
+            "type": "text",
+            "instructions": "Founder cards only. Displayed below the title.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rocketpd_member_type",
+                        "operator": "==",
+                        "value": "founder"
+                    }
+                ]
+            ],
             "default_value": "",
             "maxlength": "",
             "placeholder": "",
@@ -40,13 +75,44 @@
             "label": "Bio",
             "name": "member_bio",
             "type": "textarea",
-            "instructions": "Short card bio only. Do not add long-form profile content here.",
+            "instructions": "Founder cards only. For legacy Board records, this may temporarily fall back as Association when Association is blank.",
             "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rocketpd_member_type",
+                        "operator": "==",
+                        "value": "founder"
+                    }
+                ]
+            ],
             "default_value": "",
             "maxlength": "",
             "rows": 4,
             "placeholder": "",
             "new_lines": ""
+        },
+        {
+            "key": "field_rocketpd_member_association",
+            "label": "Association",
+            "name": "member_association",
+            "type": "text",
+            "instructions": "Board cards only. Displayed below the title.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rocketpd_member_type",
+                        "operator": "==",
+                        "value": "board"
+                    }
+                ]
+            ],
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_rocketpd_member_initials",
