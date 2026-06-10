@@ -515,6 +515,8 @@
 }
 
 .rpd-about-person-card {
+	display: flex;
+	flex-direction: column;
 	overflow: hidden;
 	border: 1px solid var(--about-border);
 	border-radius: 0.75rem;
@@ -525,13 +527,15 @@
 .rpd-about-person-card__visual {
 	display: grid;
 	place-items: center;
-	min-height: clamp(14rem, 24vw, 22rem);
+	aspect-ratio: 4 / 5;
+	min-height: 0;
 	background: linear-gradient(135deg, #a154a1, #5552b1 52%, #231f58);
 }
 
 .rpd-about-people-grid--team .rpd-about-person-card__visual,
 .rpd-about-people-grid--board .rpd-about-person-card__visual {
-	min-height: clamp(12rem, 20vw, 18rem);
+	aspect-ratio: 1 / 1;
+	min-height: 0;
 }
 
 .rpd-about-person-card__visual span {
@@ -552,6 +556,15 @@
 	padding: clamp(1.4rem, 2.5vw, 2rem);
 }
 
+.rpd-about-person-card--team .rpd-about-person-card__body,
+.rpd-about-person-card--board .rpd-about-person-card__body {
+	padding: clamp(1.35rem, 2vw, 1.65rem);
+}
+
+.rpd-about-person-card--team .rpd-about-person-card__body {
+	text-align: center;
+}
+
 .rpd-about-person-card__body h3 {
 	font-size: clamp(1.25rem, 1.8vw, 1.65rem);
 }
@@ -562,8 +575,13 @@
 	line-height: 1.65;
 }
 
+.rpd-about-person-card--team .rpd-about-person-card__body h3,
+.rpd-about-person-card--board .rpd-about-person-card__body h3 {
+	font-size: clamp(1.15rem, 1.45vw, 1.4rem);
+}
+
 .rpd-about-person-card__role,
-.rpd-about-person-card__specialty {
+.rpd-about-person-card__title {
 	color: var(--rpd-purple) !important;
 	font-size: var(--rpd-font-size-xs) !important;
 	font-weight: 800;
@@ -572,32 +590,24 @@
 	text-transform: uppercase;
 }
 
-.rpd-about-person-card__specialty {
+.rpd-about-person-card__tagline {
 	margin-top: 0.45rem !important;
+	color: var(--rpd-purple) !important;
+	font-size: var(--rpd-font-size-sm) !important;
 	font-style: italic;
 	letter-spacing: 0;
+	line-height: 1.55 !important;
 	text-transform: none;
 }
 
-.rpd-about-person-card__links {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.75rem;
-	margin-top: 1.25rem;
-}
-
-.rpd-about-person-card__links a {
-	color: var(--rpd-purple);
-	font-size: var(--rpd-font-size-xs);
-	font-weight: 800;
-	text-decoration: none;
-	text-transform: uppercase;
-}
-
-.rpd-about-person-card__links a:hover,
-.rpd-about-person-card__links a:focus {
+.rpd-about-person-card__bio {
 	color: var(--rpd-purple-deep);
-	text-decoration: underline;
+}
+
+.rpd-about-person-card__association {
+	color: var(--rpd-purple) !important;
+	font-size: var(--rpd-font-size-sm) !important;
+	line-height: 1.55 !important;
 }
 
 .rpd-about-person-card--navy .rpd-about-person-card__visual {
@@ -721,7 +731,7 @@
 	}
 
 	.rpd-about-person-card__visual {
-		min-height: 13.5rem;
+		min-height: 0;
 	}
 
 	.rpd-about-final-cta__actions {
