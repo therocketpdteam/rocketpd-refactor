@@ -13,6 +13,7 @@ $instructor = function_exists( 'rocketpd_get_current_instructor_detail' ) ? rock
 $name       = $instructor['name'] ?? __( 'Kim Marshall', 'rocketpd' );
 $first_name = function_exists( 'rocketpd_get_instructor_first_name' ) ? rocketpd_get_instructor_first_name( $name ) : trim( strtok( $name, ' ' ) );
 $faqs       = isset( $instructor['faqs'] ) && is_array( $instructor['faqs'] ) ? $instructor['faqs'] : array();
+$faq_intro  = isset( $instructor['faq_intro'] ) && is_array( $instructor['faq_intro'] ) ? $instructor['faq_intro'] : array();
 
 if ( ! $faqs ) {
 	return;
@@ -25,16 +26,20 @@ if ( ! $faqs ) {
 			<p class="rpd-instructor-section-kicker"><?php esc_html_e( 'FAQ', 'rocketpd' ); ?></p>
 			<h2>
 				<?php
-				printf(
-					/* translators: %s: instructor first name. */
-					esc_html__( 'Questions leaders ask about learning with %s.', 'rocketpd' ),
-					esc_html( $first_name )
+				echo esc_html(
+					$faq_intro['heading'] ?? sprintf(
+						/* translators: %s: instructor first name. */
+						__( 'Questions leaders ask about learning with %s.', 'rocketpd' ),
+						$first_name
+					)
 				);
 				?>
 			</h2>
 			<p>
-				<?php esc_html_e( 'Need help deciding?', 'rocketpd' ); ?>
-				<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Talk with the RocketPD team.', 'rocketpd' ); ?></a>
+				<?php echo esc_html( $faq_intro['help_text'] ?? __( 'Need help deciding?', 'rocketpd' ) ); ?>
+				<?php if ( ! empty( $faq_intro['contact_url'] ) && ! empty( $faq_intro['contact_label'] ) ) : ?>
+					<a href="<?php echo esc_url( $faq_intro['contact_url'] ); ?>"><?php echo esc_html( $faq_intro['contact_label'] ); ?></a>
+				<?php endif; ?>
 			</p>
 		</div>
 		<div class="rpd-instructor-faq__list" data-rpd-instructor-faq>

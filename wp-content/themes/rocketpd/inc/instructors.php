@@ -574,12 +574,12 @@ function rocketpd_get_instructor_detail_defaults( $slug = 'kim-marshall' ) {
 		),
 		'resources'        => array(
 			'eyebrow' => __( 'Free Resources', 'rocketpd' ),
-			'heading' => __( "Start exploring Kim's work - free.", 'rocketpd' ),
+			'heading' => __( "Start exploring Kim's work — free.", 'rocketpd' ),
 			'body'    => __( 'Read, watch, and listen. Every resource below is designed to help school leaders take a single concrete step this week.', 'rocketpd' ),
 		),
 		'guide'            => array(
 			'enabled'         => true,
-			'eyebrow'         => __( 'Featured Guide - Free', 'rocketpd' ),
+			'eyebrow'         => __( 'Featured Guide · Free', 'rocketpd' ),
 			'title'           => __( 'Rethinking Teacher Supervision, Coaching & Evaluation', 'rocketpd' ),
 			'summary'         => __( 'A practical guide for leaders who want teacher evaluation to feel less stressful, more useful, and more connected to the everyday work of improving instruction.', 'rocketpd' ),
 			'meta'            => __( 'PDF guide - 20 minute read', 'rocketpd' ),
@@ -892,6 +892,17 @@ function rocketpd_get_current_instructor_detail() {
 
 	foreach ( array( 'eyebrow', 'title', 'summary', 'meta', 'href', 'primary_label', 'secondary_label' ) as $key ) {
 		$value = get_field( 'rpd_instructor_guide_' . $key, $post_id );
+
+		if ( is_string( $value ) && $value ) {
+			$data['guide'][ $key ] = $value;
+		}
+	}
+
+	foreach ( array(
+		'primary_label'   => 'rpd_instructor_guide_primary_cta_label',
+		'secondary_label' => 'rpd_instructor_guide_secondary_cta_label',
+	) as $key => $field_name ) {
+		$value = get_field( $field_name, $post_id );
 
 		if ( is_string( $value ) && $value ) {
 			$data['guide'][ $key ] = $value;
