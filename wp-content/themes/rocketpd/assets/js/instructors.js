@@ -9,6 +9,7 @@
 	const searchInput = page.querySelector('[data-rpd-instructor-search]');
 	const cards = Array.from(page.querySelectorAll('[data-rpd-instructor-card]'));
 	const status = page.querySelector('[data-rpd-instructor-status]');
+	const emptyState = page.querySelector('[data-rpd-instructor-empty]');
 	const portraitImages = Array.from(page.querySelectorAll('.rpd-instructors-collage__tile img, .rpd-instructor-card__image img'));
 
 	if (!cards.length) {
@@ -40,6 +41,10 @@
 
 		if (status) {
 			status.textContent = `${visibleCount} instructor${visibleCount === 1 ? '' : 's'} shown.`;
+		}
+
+		if (emptyState) {
+			emptyState.hidden = visibleCount > 0;
 		}
 	};
 

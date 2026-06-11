@@ -366,6 +366,11 @@
 	transition: box-shadow var(--rpd-transition), transform var(--rpd-transition);
 }
 
+.rpd-instructor-card[hidden],
+.rpd-instructors-empty[hidden] {
+	display: none;
+}
+
 .rpd-instructor-card:hover {
 	box-shadow: var(--rpd-shadow-md);
 	transform: translateY(-2px);
@@ -487,6 +492,18 @@
 	display: flex;
 	justify-content: center;
 	margin-top: 3rem;
+}
+
+.rpd-instructors-empty {
+	max-width: 38rem;
+	margin: 2rem auto 0;
+	padding: 1.1rem 1.25rem;
+	border: 1px solid rgba(196, 196, 229, 0.7);
+	border-radius: 0.75rem;
+	background: #f8fafc;
+	color: #343465;
+	font-weight: 800;
+	text-align: center;
 }
 
 .rpd-instructors-learning {
