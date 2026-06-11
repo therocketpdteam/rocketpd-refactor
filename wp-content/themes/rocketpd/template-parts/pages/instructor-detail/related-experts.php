@@ -11,6 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $instructor = function_exists( 'rocketpd_get_current_instructor_detail' ) ? rocketpd_get_current_instructor_detail() : array();
 $experts    = isset( $instructor['related_experts'] ) && is_array( $instructor['related_experts'] ) ? $instructor['related_experts'] : array();
+$related    = isset( $instructor['related'] ) && is_array( $instructor['related'] ) ? $instructor['related'] : array();
 
 if ( ! $experts ) {
 	return;
@@ -20,8 +21,8 @@ if ( ! $experts ) {
 <section class="rpd-instructor-related">
 	<div class="rpd-container">
 		<header class="rpd-instructor-section-header">
-			<p class="rpd-instructor-section-kicker"><?php esc_html_e( 'Explore related experts', 'rocketpd' ); ?></p>
-			<h2><?php esc_html_e( 'Related experts you might explore.', 'rocketpd' ); ?></h2>
+			<p class="rpd-instructor-section-kicker"><?php echo esc_html( $related['eyebrow'] ?? __( 'Explore related experts', 'rocketpd' ) ); ?></p>
+			<h2><?php echo esc_html( $related['heading'] ?? __( 'Related experts you might explore.', 'rocketpd' ) ); ?></h2>
 		</header>
 		<div class="rpd-instructor-related__grid">
 			<?php foreach ( $experts as $expert ) : ?>

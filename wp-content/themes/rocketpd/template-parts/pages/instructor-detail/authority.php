@@ -17,11 +17,11 @@ $bio        = $instructor['bio'] ?? array();
 $paragraphs = isset( $bio['paragraphs'] ) && is_array( $bio['paragraphs'] ) ? $bio['paragraphs'] : array();
 $focus      = isset( $bio['focus'] ) && is_array( $bio['focus'] ) ? $bio['focus'] : array();
 
-$focus_label = 'male' === $gender
+$focus_label = ! empty( $bio['focus_heading'] ) ? $bio['focus_heading'] : ( 'male' === $gender
 	? __( 'His work focuses on', 'rocketpd' )
 	: ( 'female' === $gender
 		? __( 'Her work focuses on', 'rocketpd' )
-		: __( 'Their work focuses on', 'rocketpd' ) );
+		: __( 'Their work focuses on', 'rocketpd' ) ) );
 ?>
 
 <section class="rpd-instructor-authority">

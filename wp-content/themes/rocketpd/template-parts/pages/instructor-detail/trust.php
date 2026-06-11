@@ -68,9 +68,9 @@ $initials = $initials ? strtoupper( $initials ) : '?';
 		</figure>
 		<?php if ( $stats ) : ?>
 			<div class="rpd-instructor-trust__impact">
-				<p class="rpd-instructor-section-kicker"><?php esc_html_e( 'Trusted by school leaders', 'rocketpd' ); ?></p>
-				<h2><?php echo esc_html( $trust['headline'] ?? __( 'Trusted by school leaders nationwide.', 'rocketpd' ) ); ?></h2>
-				<p><?php echo esc_html( $trust['body'] ?? '' ); ?></p>
+				<p class="rpd-instructor-section-kicker"><?php echo esc_html( $trust['impact_eyebrow'] ?? __( 'Trusted by school leaders', 'rocketpd' ) ); ?></p>
+				<h2><?php echo esc_html( $trust['impact_heading'] ?? __( 'Trusted by school leaders nationwide.', 'rocketpd' ) ); ?></h2>
+				<p><?php echo esc_html( $trust['impact_body'] ?? '' ); ?></p>
 				<div class="rpd-instructor-trust__stats" aria-label="<?php esc_attr_e( 'Instructor impact stats', 'rocketpd' ); ?>">
 					<?php foreach ( $stats as $stat ) : ?>
 						<div>
