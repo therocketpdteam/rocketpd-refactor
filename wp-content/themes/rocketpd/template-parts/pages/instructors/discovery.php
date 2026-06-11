@@ -65,6 +65,7 @@ $view_url     = rocketpd_get_field( 'rpd_instructors_view_all_url', '#instructor
 				$initials       = $instructor['initials'] ?? '';
 				$first_name     = trim( strtok( str_replace( array( 'Dr. ', 'A.J.' ), array( '', 'A.J.' ), $name ), ' ' ) );
 				$search_terms   = strtolower( implode( ' ', array_merge( array( $name, $authority, $transformation ), $tags, $formats ) ) );
+				$transformation_icon = function_exists( 'rocketpd_get_instructor_icon' ) ? rocketpd_get_instructor_icon( 'sparkles', 'rpd-instructor-card__transformation-icon' ) : '';
 				?>
 				<article class="rpd-instructor-card" data-rpd-instructor-card data-tags="<?php echo esc_attr( implode( '|', $tag_slugs ) ); ?>" data-topics="<?php echo esc_attr( implode( '|', $tag_slugs ) ); ?>" data-search="<?php echo esc_attr( $search_terms ); ?>">
 					<div class="rpd-instructor-card__image">
@@ -76,7 +77,7 @@ $view_url     = rocketpd_get_field( 'rpd_instructors_view_all_url', '#instructor
 					<div class="rpd-instructor-card__body">
 						<h3><?php echo esc_html( $name ); ?></h3>
 						<p class="rpd-instructor-card__authority"><?php echo esc_html( $authority ); ?></p>
-						<p class="rpd-instructor-card__transformation"><span aria-hidden="true">*</span><?php echo esc_html( $transformation ); ?></p>
+						<p class="rpd-instructor-card__transformation"><?php echo $transformation_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trusted SVG from theme icon helper. ?><?php echo esc_html( $transformation ); ?></p>
 						<?php if ( $tags ) : ?>
 							<div class="rpd-instructor-card__tags">
 								<?php foreach ( $tags as $tag ) : ?>
