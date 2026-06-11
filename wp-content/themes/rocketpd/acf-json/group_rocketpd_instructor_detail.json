@@ -31,7 +31,7 @@
       "label": "Tags",
       "name": "rpd_instructor_tags",
       "type": "textarea",
-      "instructions": "One tag per line. Leave blank to use fallback tags.",
+      "instructions": "Legacy fallback/override. Preferred source for tags is the Learning Topic taxonomy assigned to this instructor. Leave blank to use assigned Learning Topic terms or default fallback tags.",
       "rows": 4
     },
     {

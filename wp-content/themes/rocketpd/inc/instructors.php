@@ -976,14 +976,17 @@ function rocketpd_get_current_instructor_detail() {
 		}
 	}
 
-	$line_fields = array(
-		'tags' => get_field( 'rpd_instructor_tags', $post_id ),
-	);
+	$legacy_tags = $data['tags'] ?? array();
+	$acf_tags    = get_field( 'rpd_instructor_tags', $post_id );
 
-	foreach ( $line_fields as $key => $value ) {
-		if ( is_string( $value ) && trim( $value ) ) {
-			$data[ $key ] = array_values( array_filter( array_map( 'trim', preg_split( '/\r\n|\r|\n/', $value ) ) ) );
-		}
+	if ( is_string( $acf_tags ) && trim( $acf_tags ) ) {
+		$legacy_tags = array_values( array_filter( array_map( 'trim', preg_split( '/\r\n|\r|\n/', $acf_tags ) ) ) );
+	}
+
+	$tag_terms = rocketpd_get_instructor_tag_terms( $slug, $legacy_tags );
+
+	if ( $tag_terms ) {
+		$data['tags'] = wp_list_pluck( $tag_terms, 'name' );
 	}
 
 	foreach ( array(
