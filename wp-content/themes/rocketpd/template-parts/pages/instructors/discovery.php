@@ -111,6 +111,7 @@ $view_url     = rocketpd_get_field( 'rpd_instructors_view_all_url', '#instructor
 				</article>
 			<?php endforeach; ?>
 		</div>
+		<p class="rpd-instructors-empty" data-rpd-instructor-empty hidden><?php esc_html_e( 'No instructors match those filters.', 'rocketpd' ); ?></p>
 
 		<?php if ( $view_label && $view_url ) : ?>
 			<div class="rpd-instructors-view-all">
