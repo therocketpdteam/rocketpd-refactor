@@ -10,13 +10,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Return the Instructor Index topic labels.
+ * Return the fallback Instructor Index topic labels.
+ *
+ * learning_topic terms are the canonical source for Instructor Index tags.
+ * These labels remain as migration fallback while instructor terms are filled.
  *
  * @return array
  */
-function rocketpd_get_instructor_topics() {
+function rocketpd_get_instructor_topic_fallback_labels() {
 	return array(
-		__( 'All Experts', 'rocketpd' ),
 		__( 'Instructional Leadership', 'rocketpd' ),
 		__( 'Teacher Evaluation', 'rocketpd' ),
 		__( 'Coaching', 'rocketpd' ),
@@ -30,7 +32,165 @@ function rocketpd_get_instructor_topics() {
 		__( 'Math Instruction', 'rocketpd' ),
 		__( 'Literacy', 'rocketpd' ),
 		__( 'Change Management', 'rocketpd' ),
+		__( 'Teacher Productivity', 'rocketpd' ),
 	);
+}
+
+/**
+ * Add one normalized instructor tag term to a list.
+ *
+ * @param array  $terms Existing normalized terms.
+ * @param string $name  Display label.
+ * @param string $slug  Term slug.
+ * @return array
+ */
+function rocketpd_add_instructor_tag_term( $terms, $name, $slug = '' ) {
+	$name = is_string( $name ) ? trim( $name ) : '';
+	$slug = is_string( $slug ) && $slug ? sanitize_title( $slug ) : sanitize_title( $name );
+
+	if ( ! $name || ! $slug ) {
+		return $terms;
+	}
+
+	foreach ( $terms as $term ) {
+		if ( isset( $term['slug'] ) && $slug === $term['slug'] ) {
+			return $terms;
+		}
+	}
+
+	$terms[] = array(
+		'name' => $name,
+		'slug' => $slug,
+	);
+
+	return $terms;
+}
+
+/**
+ * Return a published instructor post ID by slug when available.
+ *
+ * @param string $slug Instructor slug.
+ * @return int
+ */
+function rocketpd_get_instructor_post_id_by_slug( $slug ) {
+	$slug = sanitize_title( $slug );
+
+	if ( ! $slug || ! function_exists( 'get_posts' ) ) {
+		return 0;
+	}
+
+	$posts = get_posts(
+		array(
+			'name'             => $slug,
+			'post_type'        => 'instructor',
+			'post_status'      => 'publish',
+			'numberposts'      => 1,
+			'fields'           => 'ids',
+			'suppress_filters' => true,
+		)
+	);
+
+	return $posts ? (int) $posts[0] : 0;
+}
+
+/**
+ * Return normalized topic terms for an instructor, falling back to seed tags.
+ *
+ * The Instructor Index uses learning_topic terms as the canonical source.
+ * rpd_instructor_tags remains a detail-page override/fallback, not the index
+ * filtering source.
+ *
+ * @param string $slug          Instructor slug.
+ * @param array  $fallback_tags Fallback display labels from seed data.
+ * @return array
+ */
+function rocketpd_get_instructor_tag_terms( $slug = '', $fallback_tags = array() ) {
+	$tag_terms = array();
+	$post_id   = rocketpd_get_instructor_post_id_by_slug( $slug );
+
+	if ( $post_id && function_exists( 'taxonomy_exists' ) && taxonomy_exists( 'learning_topic' ) && function_exists( 'wp_get_post_terms' ) ) {
+		$terms = wp_get_post_terms(
+			$post_id,
+			'learning_topic',
+			array(
+				'orderby' => 'name',
+				'order'   => 'ASC',
+			)
+		);
+
+		if ( ! is_wp_error( $terms ) && $terms ) {
+			foreach ( $terms as $term ) {
+				$tag_terms = rocketpd_add_instructor_tag_term( $tag_terms, $term->name, $term->slug );
+			}
+
+			return $tag_terms;
+		}
+	}
+
+	foreach ( (array) $fallback_tags as $tag ) {
+		$tag_terms = rocketpd_add_instructor_tag_term( $tag_terms, $tag );
+	}
+
+	return $tag_terms;
+}
+
+/**
+ * Return the Instructor Index topic filters.
+ *
+ * @return array
+ */
+function rocketpd_get_instructor_topics() {
+	$topics = array(
+		array(
+			'name' => __( 'All Experts', 'rocketpd' ),
+			'slug' => 'all',
+		),
+	);
+
+	if ( function_exists( 'get_posts' ) && function_exists( 'taxonomy_exists' ) && taxonomy_exists( 'learning_topic' ) && function_exists( 'wp_get_post_terms' ) ) {
+		$post_ids = get_posts(
+			array(
+				'post_type'        => 'instructor',
+				'post_status'      => 'publish',
+				'numberposts'      => -1,
+				'fields'           => 'ids',
+				'suppress_filters' => true,
+			)
+		);
+
+		foreach ( $post_ids as $post_id ) {
+			$terms = wp_get_post_terms(
+				(int) $post_id,
+				'learning_topic',
+				array(
+					'orderby' => 'name',
+					'order'   => 'ASC',
+				)
+			);
+
+			if ( is_wp_error( $terms ) || ! $terms ) {
+				continue;
+			}
+
+			foreach ( $terms as $term ) {
+				$topics = rocketpd_add_instructor_tag_term( $topics, $term->name, $term->slug );
+			}
+		}
+	}
+
+	foreach ( rocketpd_get_instructor_topic_fallback_labels() as $label ) {
+		$topics = rocketpd_add_instructor_tag_term( $topics, $label );
+	}
+
+	if ( function_exists( 'rocketpd_get_instructor_fallback_records' ) ) {
+		foreach ( rocketpd_get_instructor_fallback_records() as $record ) {
+			foreach ( (array) ( $record['tags'] ?? array() ) as $tag ) {
+				$topics = rocketpd_add_instructor_tag_term( $topics, $tag );
+			}
+		}
+	}
+
+	return $topics;
 }
 
 /**
@@ -66,11 +226,11 @@ function rocketpd_get_instructor_format_icons() {
 }
 
 /**
- * Return the Instructor Index data contract.
+ * Return the Instructor Index fallback records.
  *
  * @return array
  */
-function rocketpd_get_instructors() {
+function rocketpd_get_instructor_fallback_records() {
 	return array(
 		array(
 			'slug'           => 'kim-marshall',
@@ -172,6 +332,25 @@ function rocketpd_get_instructors() {
 			'initials'       => 'AJ',
 		),
 	);
+}
+
+/**
+ * Return the Instructor Index data contract.
+ *
+ * @return array
+ */
+function rocketpd_get_instructors() {
+	$instructors = rocketpd_get_instructor_fallback_records();
+
+	foreach ( $instructors as $index => $instructor ) {
+		$tag_terms = rocketpd_get_instructor_tag_terms( $instructor['slug'] ?? '', $instructor['tags'] ?? array() );
+
+		$instructors[ $index ]['tag_terms'] = $tag_terms;
+		$instructors[ $index ]['tag_slugs'] = wp_list_pluck( $tag_terms, 'slug' );
+		$instructors[ $index ]['tags']      = wp_list_pluck( $tag_terms, 'name' );
+	}
+
+	return $instructors;
 }
 
 /**

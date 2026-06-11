@@ -15,18 +15,19 @@
 		return;
 	}
 
-	let activeTopic = 'All Experts';
+	let activeTopic = 'all';
 
 	const normalize = (value) => String(value || '').toLowerCase().trim();
+	const parseTopics = (value) => String(value || '').split('|').filter(Boolean);
 
 	const updateCards = () => {
 		const query = normalize(searchInput ? searchInput.value : '');
 		let visibleCount = 0;
 
 		cards.forEach((card) => {
-			const tags = String(card.dataset.tags || '').split('|');
+			const topics = parseTopics(card.dataset.topics || card.dataset.tags);
 			const haystack = normalize(card.dataset.search || card.textContent);
-			const matchesTopic = activeTopic === 'All Experts' || tags.includes(activeTopic);
+			const matchesTopic = activeTopic === 'all' || topics.includes(activeTopic);
 			const matchesQuery = !query || haystack.includes(query);
 			const visible = matchesTopic && matchesQuery;
 
@@ -44,7 +45,7 @@
 
 	topicButtons.forEach((button) => {
 		button.addEventListener('click', () => {
-			activeTopic = button.dataset.topic || 'All Experts';
+			activeTopic = button.dataset.topic || 'all';
 
 			topicButtons.forEach((topicButton) => {
 				const isActive = topicButton === button;

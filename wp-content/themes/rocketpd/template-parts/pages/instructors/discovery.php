@@ -32,8 +32,12 @@ $view_url     = rocketpd_get_field( 'rpd_instructors_view_all_url', '#instructor
 		<?php if ( $topics ) : ?>
 			<div class="rpd-instructors-topics" id="instructor-topics" data-rpd-instructor-topics>
 				<?php foreach ( $topics as $index => $topic ) : ?>
-					<button class="rpd-instructors-topic<?php echo 0 === $index ? ' is-active' : ''; ?>" type="button" data-topic="<?php echo esc_attr( $topic ); ?>" aria-pressed="<?php echo 0 === $index ? 'true' : 'false'; ?>">
-						<?php echo esc_html( $topic ); ?>
+					<?php
+					$topic_name = is_array( $topic ) ? ( $topic['name'] ?? '' ) : $topic;
+					$topic_slug = is_array( $topic ) ? ( $topic['slug'] ?? '' ) : sanitize_title( $topic_name );
+					?>
+					<button class="rpd-instructors-topic<?php echo 0 === $index ? ' is-active' : ''; ?>" type="button" data-topic="<?php echo esc_attr( $topic_slug ); ?>" aria-pressed="<?php echo 0 === $index ? 'true' : 'false'; ?>">
+						<?php echo esc_html( $topic_name ); ?>
 					</button>
 				<?php endforeach; ?>
 			</div>
@@ -53,14 +57,16 @@ $view_url     = rocketpd_get_field( 'rpd_instructors_view_all_url', '#instructor
 				$slug           = $instructor['slug'] ?? '';
 				$authority      = $instructor['authority'] ?? '';
 				$transformation = $instructor['transformation'] ?? '';
-				$tags           = isset( $instructor['tags'] ) && is_array( $instructor['tags'] ) ? $instructor['tags'] : array();
+				$tag_terms      = isset( $instructor['tag_terms'] ) && is_array( $instructor['tag_terms'] ) ? $instructor['tag_terms'] : array();
+				$tags           = isset( $instructor['tags'] ) && is_array( $instructor['tags'] ) ? $instructor['tags'] : wp_list_pluck( $tag_terms, 'name' );
+				$tag_slugs      = isset( $instructor['tag_slugs'] ) && is_array( $instructor['tag_slugs'] ) ? $instructor['tag_slugs'] : wp_list_pluck( $tag_terms, 'slug' );
 				$formats        = isset( $instructor['formats'] ) && is_array( $instructor['formats'] ) ? $instructor['formats'] : array();
 				$headshot       = $instructor['headshot'] ?? '';
 				$initials       = $instructor['initials'] ?? '';
 				$first_name     = trim( strtok( str_replace( array( 'Dr. ', 'A.J.' ), array( '', 'A.J.' ), $name ), ' ' ) );
 				$search_terms   = strtolower( implode( ' ', array_merge( array( $name, $authority, $transformation ), $tags, $formats ) ) );
 				?>
-				<article class="rpd-instructor-card" data-rpd-instructor-card data-tags="<?php echo esc_attr( implode( '|', $tags ) ); ?>" data-search="<?php echo esc_attr( $search_terms ); ?>">
+				<article class="rpd-instructor-card" data-rpd-instructor-card data-tags="<?php echo esc_attr( implode( '|', $tag_slugs ) ); ?>" data-topics="<?php echo esc_attr( implode( '|', $tag_slugs ) ); ?>" data-search="<?php echo esc_attr( $search_terms ); ?>">
 					<div class="rpd-instructor-card__image">
 						<?php if ( $headshot ) : ?>
 							<img src="<?php echo esc_url( $headshot ); ?>" alt="<?php echo esc_attr( $name ); ?>">
