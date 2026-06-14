@@ -1068,7 +1068,7 @@ add_action( 'admin_init', 'rocketpd_register_cohort_seed_action' );
  * Add 'Seed Cohorts' button above the Cohorts list table.
  */
 function rocketpd_cohort_seed_button() {
-	return; // Seeding disabled — enable when needed.
+	$screen = get_current_screen();
 
 	if ( ! $screen || 'edit-cohort' !== $screen->id ) {
 		return;
