@@ -28,7 +28,7 @@ function rocketpd_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'rocketpd_setup' );
+//add_action( 'after_setup_theme', 'rocketpd_setup' );
 
 /**
  * Register the instructor seeding admin action.
