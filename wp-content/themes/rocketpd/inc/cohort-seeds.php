@@ -24,7 +24,7 @@ function rocketpd_get_cohort_seed_data() {
 	return array(
 		array(
 			'slug'    => 'building-thinking-classrooms-in-mathematics-with-peter-liljedahl',
-			'enabled' => false,
+			'enabled' => true,
 			'resync'  => false,
 			// Basics.
 			'title'             => 'Building Thinking Classrooms',
@@ -201,13 +201,13 @@ function rocketpd_get_cohort_seed_data() {
 		),
 		array(
 			'slug'    => 'building-thinking-classrooms-summer-refresh',
-			'enabled' => false,
+			'enabled' => true,
 			'resync'  => false,
 			// Basics.
 			'title'             => 'Building Thinking Classrooms Summer Refresh',
 			'subtitle'          => 'Master a process for enhancing student learning through a process of enhancing student thinking.',
 			'shortDescription'  => 'A 3-session summer refresh with Dr. Peter Liljedahl: launch or relaunch your Thinking Classroom with confidence starting on Day 1.',
-			'longDescription'   => '<p>Educator and best-selling author Peter Liljedahl\'s Building Thinking Classrooms has taken K–12 classrooms by storm.</p><p>Whether you\'ve launched your own Thinking Classroom with your students or you\'ve been considering launching one, Peter created this hands-on summer refresh to help you hit the ground running in the critical year ahead.</p><p>Join educators from across the globe live over three 120-minute virtual sessions as Peter Liljedahl personally walks you and/or your instructional team through a series of practical challenges and exercises designed to help you embrace and model a replicable process for teaching thinking, strike an intentional balance between flow and productive struggle in classroom groups, and successfully launch or relaunch your Thinking Classroom starting on Day 1.</p>',
+			'longDescription'   => '<p>Educator and best-selling author Peter Liljedahl\'s Building Thinking Classrooms has taken K-12 classrooms by storm.</p><p>Whether you\'ve launched your own Thinking Classroom with your students or you\'ve been considering launching one, Peter created this hands-on summer refresh to help you hit the ground running in the critical year ahead.</p><p>Join educators from across the globe live over three 120-minute virtual sessions as Peter Liljedahl personally walks you and/or your instructional team through a series of practical challenges and exercises designed to help you embrace and model a replicable process for teaching thinking, strike an intentional balance between flow and productive struggle in classroom groups, and successfully launch or relaunch your Thinking Classroom starting on Day 1.</p>',
 			'topic'             => 'Mathematics Instruction',
 			'category'          => 'Instruction',
 			'status'            => 'registration-open',
@@ -360,7 +360,7 @@ function rocketpd_get_cohort_seed_data() {
 		),
 		array(
 			'slug'    => 'rethinking-teacher-supervision-coaching-evaluation',
-			'enabled' => false,
+			'enabled' => true,
 			'resync'  => false,
 			// Basics.
 			'title'             => 'Rethinking Teacher Supervision, Coaching & Evaluation',
@@ -419,14 +419,14 @@ function rocketpd_get_cohort_seed_data() {
 			),
 			// Outcomes.
 			'outcomes' => array(
-				array( 'outcome_icon' => '', 'outcome_title' => 'Increase supervisors\' classroom visits',                      'outcome_description' => 'Build a sustainable cadence of frequent, short classroom visits.' ),
-				array( 'outcome_icon' => '', 'outcome_title' => 'Improve observation skills',                                   'outcome_description' => 'Develop a sharper eye for what matters in classroom instruction.' ),
-				array( 'outcome_icon' => '', 'outcome_title' => 'Focus on checks for understanding and student learning',       'outcome_description' => 'Shift the lens from teacher activity to evidence of student learning.' ),
-				array( 'outcome_icon' => '', 'outcome_title' => 'Fine-tune debriefs and written feedback to teachers',          'outcome_description' => 'Practice face-to-face feedback conversations that are honest, specific, and useful.' ),
-				array( 'outcome_icon' => '', 'outcome_title' => 'Use student surveys as a coaching tool',                       'outcome_description' => 'Introduce low-stakes student feedback as part of the supervision cycle.' ),
-				array( 'outcome_icon' => '', 'outcome_title' => 'Navigate difficult conversations with confidence',             'outcome_description' => 'Engage teachers in honest conversations about performance and growth.' ),
-				array( 'outcome_icon' => '', 'outcome_title' => 'Use rubrics for goal-setting and summative evaluations',       'outcome_description' => 'Connect observation evidence to fair, standards-aligned summative ratings.' ),
-				array( 'outcome_icon' => '', 'outcome_title' => 'Manage time so the most important work gets done',             'outcome_description' => 'Build a priority system that keeps supervision at the center of the leadership role.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Increase supervisors\' classroom visits',                'outcome_description' => 'Build a sustainable cadence of frequent, short classroom visits.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Improve observation skills',                            'outcome_description' => 'Develop a sharper eye for what matters in classroom instruction.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Focus on checks for understanding and student learning', 'outcome_description' => 'Shift the lens from teacher activity to evidence of student learning.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Fine-tune debriefs and written feedback to teachers',   'outcome_description' => 'Practice face-to-face feedback conversations that are honest, specific, and useful.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Use student surveys as a coaching tool',                'outcome_description' => 'Introduce low-stakes student feedback as part of the supervision cycle.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Navigate difficult conversations with confidence',      'outcome_description' => 'Engage teachers in honest conversations about performance and growth.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Use rubrics for goal-setting and summative evaluations','outcome_description' => 'Connect observation evidence to fair, standards-aligned summative ratings.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Manage time so the most important work gets done',      'outcome_description' => 'Build a priority system that keeps supervision at the center of the leadership role.' ),
 			),
 			// Audience.
 			'audience' => array(
@@ -509,6 +509,183 @@ function rocketpd_get_cohort_seed_data() {
 				'primaryHref'    => '',
 				'secondaryLabel' => 'Contact Us About Team Registration',
 				'secondaryHref'  => '/contact/?source=cohort-team',
+			),
+		),
+		array(
+			'slug'    => 'a-call-to-courage-standing-up-to-intolerance-in-k-12-schools-with-drs-luvelle-brown-shelley-berman',
+			'enabled' => true,
+			'resync'  => false,
+			// Basics.
+			'title'             => 'A Call to Courage: Standing Up to Intolerance in K-12 Schools',
+			'subtitle'          => 'A five-session cohort with Drs. Luvelle Brown and Shelley Berman on leading with courage against rising attacks on public education.',
+			'shortDescription'  => 'Join award-winning superintendents Drs. Luvelle Brown and Shelley Berman for five live sessions on standing up to intolerance, reclaiming the narrative, and building courageous school culture.',
+			'longDescription'   => '<p>In their book A Call to Courage, Drs. Sheldon Berman and Luvelle Brown issue a clarion call to stand up to rising instances of unjust and intolerant attacks on K-12 public schools.</p><p>In this five-session virtual cohort, Brown and Berman share ideas for dealing with and managing these attacks, while giving your teams practical tools and strategies for responding and reclaiming the narrative, and instilling courage to change the culture in your schools and your community.</p>',
+			'topic'             => 'School Culture',
+			'category'          => 'Leadership',
+			'status'            => 'closed',
+			'featured'          => false,
+			'startDate'         => '2024-11-13',
+			'endDate'           => '2024-12-18',
+			'sessionCountLabel' => '5 live sessions',
+			'totalHours'        => '7.5 hours of live instruction',
+			'formatLabel'       => 'Live via Zoom',
+			'cadenceLabel'      => 'Weekly',
+			'sessionLength'     => '90 minutes',
+			'cardImage'         => '/wp-content/uploads/2024/04/dr-luvelle-brown-rocketpd-instructor.jpg',
+			// Instructor.
+			'instructor' => array(
+				'slug'        => 'dr-luvelle-brown',
+				'name'        => 'Dr. Luvelle Brown',
+				'title'       => 'Former New York State Superintendent of the Year',
+				'roleLine'    => 'Co-author, A Call to Courage &#183; with Dr. Shelley Berman',
+				'headshot'    => '/wp-content/uploads/2024/04/dr-luvelle-brown-rocketpd-instructor.jpg',
+				'bio'         => 'A former New York State Superintendent of the Year, Dr. Luvelle Brown has emerged as one of the nation\'s foremost voices on innovation and school and district culture in K-12 schools. His book Culture of Love has been called transformative and powerful. Dr. Brown received the 2022 AASA Dr. Effie Jones Humanitarian Award for his national and international leadership. He co-authored A Call to Courage with Dr. Sheldon Berman, AASA\'s Lead Superintendent for Social-Emotional Learning, who has served as superintendent in four districts over 28 years and authored five books on democracy, education, and social responsibility.',
+				'quote'       => '',
+				'specialties' => array( 'School Culture', 'Equity and Inclusion', 'Courageous Leadership', 'District Innovation' ),
+				'href'        => '/instructors/dr-luvelle-brown/',
+				'links'       => array(),
+			),
+			// Pricing.
+			'priceType'           => 'paid',
+			'priceLabel'          => '$495/person',
+			'priceAmount'         => '$495',
+			'priceMeta'           => 'per person - 5 sessions',
+			'registrationUrl'     => '',
+			'waitlistUrl'         => '',
+			'closedMessage'       => 'Registration is currently closed. Join the notification list and we will let you know when the next cohort opens.',
+			'registrationFillsBy' => '',
+			'invoiceNote'         => 'Need an invoice or purchase order? Contact RocketPD before registering.',
+			// Schedule.
+			'schedule' => array(
+				array(
+					'session_number'        => 1,
+					'session_title'         => 'A Call to Courage: Why, What, and How?',
+					'session_date'          => '2024-11-13',
+					'session_time'          => '3:30 - 5:00 PM EST',
+					'session_description'   => 'Explore how current political divisiveness is compromising school operations and student achievement, and why the courage of education leaders is so critical. Analyze assaults on education, learn to articulate your motivations as an educator, and explore key terms including Culture, Equity, Diversity, and Anti-Racism.',
+					'session_resource_link' => '',
+					'coming_soon'           => false,
+				),
+				array(
+					'session_number'        => 2,
+					'session_title'         => 'Define Your Journey',
+					'session_date'          => '2024-11-20',
+					'session_time'          => '3:30 - 5:00 PM EST',
+					'session_description'   => 'Discuss what motivates courageous action and how those sources of courage can serve as resources for current challenges. Identify real-life examples of courageous leadership and apply that motivation to your own context.',
+					'session_resource_link' => '',
+					'coming_soon'           => false,
+				),
+				array(
+					'session_number'        => 3,
+					'session_title'         => 'What\'s Happening? And What Do You Do About It?',
+					'session_date'          => '2024-12-04',
+					'session_time'          => '3:30 - 5:00 PM EST',
+					'session_description'   => 'Review current sources of divisiveness participants are experiencing and how to mitigate and manage resistance through leadership actions that keep the focus on what is right for students.',
+					'session_resource_link' => '',
+					'coming_soon'           => false,
+				),
+				array(
+					'session_number'        => 4,
+					'session_title'         => 'How to Reclaim the Narrative',
+					'session_date'          => '2024-12-11',
+					'session_time'          => '3:30 - 5:00 PM EST',
+					'session_description'   => 'Share messages and strategies to reframe issues, reduce divisiveness, and reclaim the narrative for students. Learn to identify metrics and communicate with stakeholders about equity, inclusion, and student achievement.',
+					'session_resource_link' => '',
+					'coming_soon'           => false,
+				),
+				array(
+					'session_number'        => 5,
+					'session_title'         => 'What Will You Do Tomorrow, Next Year, Over the Next Five Years?',
+					'session_date'          => '2024-12-18',
+					'session_time'          => '3:30 - 5:00 PM EST',
+					'session_description'   => 'Master strategies that defuse divisiveness and promote common understanding. Learn how education leaders can respond directly to extreme attacks on public education while moving the organization forward.',
+					'session_resource_link' => '',
+					'coming_soon'           => false,
+				),
+			),
+			// Outcomes.
+			'outcomes' => array(
+				array( 'outcome_icon' => '', 'outcome_title' => 'Define and speak to critical issues',        'outcome_description' => 'Articulate your position on diversity, academic excellence, and inclusion for all.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Foster productive conversations',            'outcome_description' => 'Engage students and staff in programs that promote safer, more inclusive learning environments.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Build effective support structures',         'outcome_description' => 'Establish relationships and systems that power equity and inclusion work.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Establish metrics and communicate success', 'outcome_description' => 'Define a repeatable system for measuring and communicating progress to stakeholders.' ),
+				array( 'outcome_icon' => '', 'outcome_title' => 'Lead challenging conversations',            'outcome_description' => 'Invite and lead difficult conversations with productive outcomes for students, families, boards, and community members.' ),
+			),
+			// Audience.
+			'audience' => array(
+				array( 'audience_label' => 'Superintendents',            'audience_description' => 'Lead with courage in the face of rising attacks on public education.' ),
+				array( 'audience_label' => 'Assistant Superintendents', 'audience_description' => 'Support district-wide culture and equity efforts.' ),
+				array( 'audience_label' => 'Central-Office Teams',      'audience_description' => 'Align your team around courageous, equity-centered leadership.' ),
+				array( 'audience_label' => 'Building Administrators',   'audience_description' => 'Reclaim the narrative and build culture at the school level.' ),
+				array( 'audience_label' => 'School Board Members',      'audience_description' => 'Strengthen your role in advancing public education.' ),
+			),
+			// Included items.
+			'included' => array(
+				array( 'included_item_icon' => 'users',     'included_item_label' => 'Live sessions with Drs. Luvelle Brown and Shelley Berman' ),
+				array( 'included_item_icon' => 'video',     'included_item_label' => 'Session recordings via the RocketPD Learning Portal' ),
+				array( 'included_item_icon' => 'book',      'included_item_label' => 'A copy of A Call to Courage by Berman and Brown' ),
+				array( 'included_item_icon' => 'community', 'included_item_label' => 'Breakout discussions with educators worldwide' ),
+				array( 'included_item_icon' => 'award',     'included_item_label' => 'Certificate of Completion' ),
+			),
+			// Sponsor.
+			'sponsor' => array(
+				'enabled'     => false,
+				'name'        => '',
+				'logo'        => '',
+				'description' => '',
+				'url'         => '',
+				'cta_label'   => 'Learn More',
+			),
+			// Team options.
+			'teamOptions' => array(
+				'team_eyebrow'       => 'Team & District Options',
+				'team_headline'      => 'Build a team of any size and save.',
+				'team_body'          => 'RocketPD offers group discounts for schools and districts registering teams. Contact us for large group rates of 10 or more.',
+				'team_ideal_for'     => 'Ideal for superintendent cabinets, central-office teams, and school board members.',
+				'team_cta_label'     => 'Contact RocketPD',
+				'team_cta_url'       => '/contact/?source=cohort-team',
+				'team_pricing_tiers' => array(
+					array( 'tier_label' => 'Team of 5',   'tier_price' => '$485',       'tier_unit' => 'per person' ),
+					array( 'tier_label' => 'Team of 10+', 'tier_price' => 'Contact us', 'tier_unit' => 'for rates'  ),
+				),
+				'team_capabilities' => array(
+					array( 'capability_label' => 'Group discounts' ),
+					array( 'capability_label' => 'Invoice and PO support' ),
+					array( 'capability_label' => 'Centralized registration' ),
+				),
+			),
+			// Resources.
+			'resources' => array(
+				'guide'    => array( 'enabled' => false, 'title' => '', 'meta' => '', 'summary' => '', 'href' => '' ),
+				'podcast'  => array( 'enabled' => false, 'title' => '', 'meta' => '', 'summary' => '', 'href' => '' ),
+				'webinar'  => array( 'enabled' => false, 'title' => '', 'meta' => '', 'summary' => '', 'href' => '' ),
+				'playbook' => array( 'enabled' => false, 'title' => '', 'meta' => '', 'summary' => '', 'href' => '' ),
+			),
+			// FAQs.
+			'faqs' => array(
+				array( 'question' => 'What is the A Call to Courage cohort?',  'answer' => 'In their book A Call to Courage, award-winning educators Drs. Sheldon Berman and Luvelle Brown issue a clarion call to stand up to rising instances of unjust and intolerant attacks on K-12 public schools. In this five-session cohort, Brown and Berman share ideas for dealing with and managing these attacks, while giving your teams practical tools and strategies for responding and reclaiming the narrative, and instilling courage to change the culture in your schools and your community.' ),
+				array( 'question' => 'Why do this as part of a cohort?',       'answer' => 'The RocketPD cohort experience is designed to give school district leaders an actionable, affordable, and convenient way to facilitate difficult but necessary strategic conversations and initiatives. Districts can register select members of their building or central-office teams for open cohorts.' ),
+				array( 'question' => 'What is included in this program?',      'answer' => 'Attendees will participate in five collaborative 90-minute virtual learning sessions over Zoom. They will also have access to the RocketPD Learning Portal for recordings and resources, and will receive a copy of Drs. Berman and Brown\'s book, A Call to Courage.' ),
+				array( 'question' => 'Who should participate?',                'answer' => 'This cohort is designed for superintendents, assistant superintendents, central-office and school administrators, directors, coaches, and team leads.' ),
+				array( 'question' => 'How will this help my team?',            'answer' => 'The goal of this cohort is to empower school leaders and public school supporters to take action to meet resistance in the community or state, and to take proactive action to further advance equity and inclusion work within their professional organizations and legislatively.' ),
+				array( 'question' => 'How can I participate?',                 'answer' => 'Join the notification list to be the first to know when this cohort opens again. Once you sign up, you will receive information about the program including payment and invoicing details and scheduled session dates and times.' ),
+			),
+			// Testimonials.
+			'testimonials' => array(
+				array( 'quote' => 'The Call to Courage responds to the urgent need for educative leadership in times of political divisiveness. Its pragmatic ideas for reducing polarization while advancing justice will serve the field for years to come.', 'name' => 'Linda Darling-Hammond', 'role' => 'Professor Emeritus, Stanford University; President, Learning Policy Institute', 'organization' => '', 'image' => '' ),
+				array( 'quote' => 'The Call to Courage will inspire and sustain leaders who want to do the right thing, even when it is difficult.',                                                                                                        'name' => 'Joshua P. Starr',        'role' => 'Managing Partner, Center for Model Schools; Former Superintendent',          'organization' => '', 'image' => '' ),
+				array( 'quote' => 'The Call to Courage is a must-read for those fighting to ensure public schools continue to be students\' and families\' pathway to success.',                                                                           'name' => 'Gustavo Balderas',       'role' => 'Superintendent, Beaverton School District, Oregon; President-elect, AASA',  'organization' => '', 'image' => '' ),
+			),
+			// CTAs.
+			'primaryCta'   => array( 'label' => 'Join the Notification List', 'href' => '/contact/?source=cohort-call-to-courage' ),
+			'secondaryCta' => array( 'label' => 'See Full Schedule', 'href' => '#cohort-schedule' ),
+			'finalCta'     => array(
+				'headline'       => 'Be the First to Know When This Cohort Opens',
+				'body'           => 'This cohort is currently closed. Join the notification list and we will let you know when the next session is available.',
+				'primaryLabel'   => 'Join the Notification List',
+				'primaryHref'    => '/contact/?source=cohort-call-to-courage',
+				'secondaryLabel' => 'Contact Us With Questions',
+				'secondaryHref'  => '/contact/?source=cohort-call-to-courage',
 			),
 		),
 	);
