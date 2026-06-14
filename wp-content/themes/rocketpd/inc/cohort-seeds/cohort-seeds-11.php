@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 return array(
 	'slug'                => 'redesigning-instruction-a-three-step-process-to-meet-every-learners-needs',
-	'enabled'             => false,
+	'enabled'             => true,
 	'resync'              => false,
 	'title'               => 'Redesigning Instruction: A Three-Step Process to Meet Every Learner\'s Needs',
 	'subtitle'            => 'Master classroom-tested techniques that help all students - and their teachers - succeed.',

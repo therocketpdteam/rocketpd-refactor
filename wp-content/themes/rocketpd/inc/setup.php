@@ -1094,7 +1094,7 @@ function rocketpd_cohort_seed_button() {
 	</div>
 	<?php
 }
-// add_action( 'all_admin_notices', 'rocketpd_cohort_seed_button' );
+add_action( 'all_admin_notices', 'rocketpd_cohort_seed_button' );
 
 /**
  * Populate ACF fields for an instructor post from seed data.
