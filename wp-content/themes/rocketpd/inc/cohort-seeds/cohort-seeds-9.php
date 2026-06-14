@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 return array(
 	'slug'                => 'improving-behaviors-by-solving-the-problems-that-are-causing-them',
-	'enabled'             => true,
+	'enabled'             => false,
 	'resync'              => false,
 	'title'               => 'Improving Behaviors By Solving The Problems That Are Causing Them',
 	'subtitle'            => 'Why tiers, crisis management, and traditional discipline are not helping our most time-consuming, difficult, and disruptive students - and what to do differently.',

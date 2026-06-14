@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 return array(
 	'slug'                => 'pbl-by-design-empowering-student-engagement-real-world-learning',
-	'enabled'             => true,
+	'enabled'             => false,
 	'resync'              => false,
 	'title'               => 'PBL by Design: Empowering Student Engagement &amp; Real-World Learning',
 	'subtitle'            => 'Master classroom-tested techniques that help all students - and their teachers - succeed.',

@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 return array(
 	'slug'                => 'retain-teachers-improve-learning-through-innovative-personalized-professional-development-with-george-couros',
-	'enabled'             => true,
+	'enabled'             => false,
 	'resync'              => false,
 	'title'               => 'Igniting Passion: Retain Teachers &amp; Improve Learning Through Innovative &amp; Personalized Professional Development',
 	'subtitle'            => 'Create professional learning experiences that energize educators, strengthen culture, and improve outcomes for students.',

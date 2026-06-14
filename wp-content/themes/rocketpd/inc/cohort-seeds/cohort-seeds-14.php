@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 return array(
 	'slug'                => 'unlocking-teacher-productivity-with-angela-watson',
-	'enabled'             => true,
+	'enabled'             => false,
 	'resync'              => false,
 	'title'               => 'Unlocking Teacher Productivity: A Process to Help Prioritize, Organize &amp; Find Your Flow',
 	'subtitle'            => 'Streamline your workload, reclaim your time, and focus on what truly matters.',

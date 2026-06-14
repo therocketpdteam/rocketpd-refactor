@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 return array(
 	'slug'                => 'using-family-engagement-to-solve-real-problems-in-k-12-schools',
-	'enabled'             => true,
+	'enabled'             => false,
 	'resync'              => false,
 	'title'               => 'Using Family Engagement to Solve Real Problems in K-12 Schools',
 	'subtitle'            => 'Deploy Five Simple Principles to fight chronic absenteeism, engage hard-to-reach families, and improve student outcomes.',

@@ -27,7 +27,7 @@ function rocketpd_get_cohort_seed_data() {
 		// =========================================================================
 		array(
 			'slug'    => 'building-thinking-classrooms-in-mathematics-with-peter-liljedahl',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'             => 'Building Thinking Classrooms',
 			'subtitle'          => 'Master a process for enhancing student learning through a process of enhancing student thinking.',
@@ -144,7 +144,7 @@ function rocketpd_get_cohort_seed_data() {
 		),
 		array(
 			'slug'    => 'building-thinking-classrooms-summer-refresh',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'             => 'Building Thinking Classrooms Summer Refresh',
 			'subtitle'          => 'Master a process for enhancing student learning through a process of enhancing student thinking.',
@@ -259,7 +259,7 @@ function rocketpd_get_cohort_seed_data() {
 		),
 		array(
 			'slug'    => 'rethinking-teacher-supervision-coaching-evaluation',
-			'enabled' => true,
+			'enabled' => false,
 			'resync'  => false,
 			'title'             => 'Rethinking Teacher Supervision, Coaching & Evaluation',
 			'subtitle'          => 'A practical 90-day blueprint for the evaluation system your faculty actually deserves.',

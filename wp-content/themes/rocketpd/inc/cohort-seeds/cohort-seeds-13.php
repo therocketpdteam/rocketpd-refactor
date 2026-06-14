@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 return array(
 	'slug'                => 'tech-like-a-pirate-how-to-create-a-buzzworthy-classroom-that-captures-students-attention-and-holds-it',
-	'enabled'             => true,
+	'enabled'             => false,
 	'resync'              => false,
 	'title'               => 'Tech Like a Pirate: How to Create a Buzzworthy Classroom That Captures Students\' Attention and Holds It',
 	'subtitle'            => 'Create technology-powered learning experiences that capture students\' attention and keep it.',

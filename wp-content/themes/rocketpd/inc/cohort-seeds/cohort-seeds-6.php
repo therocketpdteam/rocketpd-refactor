@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 return array(
 	'slug'                => 'elevate-advocate-a-5-part-framework-for-supporting-adult-wellbeing-in-k-12-schools',
-	'enabled'             => true,
+	'enabled'             => false,
 	'resync'              => false,
 	'title'               => 'Elevate &amp; Advocate: A 5-Part Framework for Supporting Adult Well-Being in K-12 Schools',
 	'subtitle'            => 'A five-session virtual cohort with Carla Tantillo Philibert on building personal well-being, advocating for your needs, and achieving sustained fulfillment in your education career.',
