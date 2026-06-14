@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array
  */
 function rocketpd_get_cohort_seed_data() {
-	return array(
+	$cohorts = array(
 		// =========================================================================
 		// ACTIVE COHORTS
 		// =========================================================================
@@ -997,4 +997,26 @@ function rocketpd_get_cohort_seed_data() {
 			),
 		),
 	);
+
+	// =========================================================================
+	// SPLIT-FILE COHORTS — loaded from inc/cohort-seeds/
+	// Each file must return a single cohort array with at least a 'slug' key.
+	// =========================================================================
+	$split_dir = get_template_directory() . '/inc/cohort-seeds/';
+
+	if ( is_dir( $split_dir ) ) {
+		$split_files = glob( $split_dir . 'cohort-seeds-*.php' );
+
+		if ( $split_files ) {
+			foreach ( $split_files as $split_file ) {
+				$entry = require $split_file;
+
+				if ( is_array( $entry ) && ! empty( $entry['slug'] ) ) {
+					$cohorts[] = $entry;
+				}
+			}
+		}
+	}
+
+	return $cohorts;
 }
