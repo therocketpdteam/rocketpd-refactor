@@ -390,15 +390,34 @@ function rocketpd_get_cohort_seed_data() {
 				'secondaryHref'  => '/contact/?source=cohort-team',
 			),
 		),
-		// =========================================================================
-		// NON-ACTIVE COHORTS — newest first
-		// INSERT NEW ENTRIES BELOW THIS LINE
-		// =========================================================================
+	// =========================================================================
+	// NON-ACTIVE COHORTS — now in inc/cohort-seeds/cohort-seeds-[N].php
+	// Loaded by the glob loader below.
+	// =========================================================================
+	);
 
-		// -------------------------------------------------------------------------
-		// #5 — Design for Diverse Classrooms (Dr. Catlin Tucker) — Nov-Dec 2025 — closed
-		// -------------------------------------------------------------------------
-		array(
+	// =========================================================================
+	// SPLIT-FILE COHORTS — loaded from inc/cohort-seeds/
+	// Each file must return a single cohort array with at least a 'slug' key.
+	// =========================================================================
+	$split_dir = get_template_directory() . '/inc/cohort-seeds/';
+
+	if ( is_dir( $split_dir ) ) {
+		$split_files = glob( $split_dir . 'cohort-seeds-*.php' );
+
+		if ( $split_files ) {
+			foreach ( $split_files as $split_file ) {
+				$entry = require $split_file;
+
+				if ( is_array( $entry ) && ! empty( $entry['slug'] ) ) {
+					$cohorts[] = $entry;
+				}
+			}
+		}
+	}
+
+	return $cohorts;
+}
 			'slug'    => 'design-for-diverse-classrooms-udl-mtss-blended-learning-practice-dr-catlin-tucker',
 			'enabled' => true,
 			'resync'  => false,
