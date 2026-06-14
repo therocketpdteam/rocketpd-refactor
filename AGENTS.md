@@ -425,6 +425,44 @@ Remaining gaps:
 Next recommended task:
 - ...
 
+## Commit Message Format
+
+Every commit must follow this format:
+
+```
+<type>(<scope>): <short summary of what changed>
+
+<What was broken or missing — user-facing impact first.>
+<What caused it — technical root cause.>
+<What the fix does.>
+
+Files changed:
+- 
+- 
+```
+
+**Type:** `fix`, `feat`, `refactor`, `style`, `chore`, `docs`
+
+**Scope:** the area of the theme affected, e.g. `mobile-nav`, `home-hero`, `header`, `acf`, `enqueue`
+
+**Summary line:** plain English, lowercase, no period, 72 chars max
+
+**Body rules:**
+- Write each thought as a single unbroken paragraph — no manual line breaks within a sentence or idea
+- Lead with user-facing impact, not the code change
+- State the technical root cause
+- Describe what the fix or addition does
+- Separate distinct thoughts with a blank line
+- Keep it factual — no filler words
+
+**Files changed:** list every file touched, relative to `wp-content/themes/rocketpd/`
+
+A `.gitmessage` template is included at the repo root. Activate it with:
+
+```bash
+git config commit.template .gitmessage
+```
+
 ## Coding Standards
 
 PHP:

@@ -1,0 +1,21 @@
+# <type>(<scope>): <short summary of what changed>
+#
+# Types: fix | feat | refactor | style | chore | docs
+# Scope: mobile-nav | header | footer | home-hero | acf | enqueue | etc.
+# Summary: plain English, lowercase, no period, 72 chars max
+#
+# ─────────────────────────────────────────────────────────────
+# BODY — answer these three questions as single unbroken paragraphs.
+# Do not add manual line breaks within a sentence or idea.
+# Separate distinct thoughts with a blank line.
+#
+# 1. What was broken or missing? (user-facing impact first)
+# 2. What caused it? (technical root cause)
+# 3. What does this fix or add?
+#
+# Keep it factual. No filler words.
+# ─────────────────────────────────────────────────────────────
+
+# Files changed:
+# - 
+# - 
