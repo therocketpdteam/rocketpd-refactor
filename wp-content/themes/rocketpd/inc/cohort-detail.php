@@ -513,6 +513,28 @@ function rocketpd_get_cohort_detail_instructor_from_post( $post, $fallback ) {
 }
 
 /**
+ * Return instructor fallback data from the matching cohort seed.
+ *
+ * @param string $cohort_slug Cohort post slug.
+ * @return array
+ */
+function rocketpd_get_cohort_detail_seed_instructor( $cohort_slug ) {
+	if ( ! function_exists( 'rocketpd_get_cohort_seed_data' ) ) {
+		return array();
+	}
+
+	$cohort_slug = sanitize_title( $cohort_slug );
+
+	foreach ( rocketpd_get_cohort_seed_data() as $cohort ) {
+		if ( $cohort_slug === sanitize_title( $cohort['slug'] ?? '' ) && ! empty( $cohort['instructor'] ) && is_array( $cohort['instructor'] ) ) {
+			return $cohort['instructor'];
+		}
+	}
+
+	return array();
+}
+
+/**
  * Return current cohort detail data.
  *
  * Uses a sentinel check on rpd_cohort_title to determine whether this post
@@ -536,7 +558,8 @@ function rocketpd_get_current_cohort_detail() {
 
 	// Post has been seeded — ACF is the source of truth. No fallback merge.
 	$instructor_post = rocketpd_get_field( 'rpd_cohort_instructor', 0 );
-	$fallback_instructor = rocketpd_get_cohort_detail_fallback()['instructor'];
+	$seed_instructor = rocketpd_get_cohort_detail_seed_instructor( get_post_field( 'post_name', get_the_ID() ) );
+	$fallback_instructor = ! empty( $seed_instructor ) ? $seed_instructor : rocketpd_get_cohort_detail_fallback()['instructor'];
 	$instructor  = rocketpd_get_cohort_detail_instructor_from_post( $instructor_post, $fallback_instructor );
 	$sponsor     = rocketpd_get_field( 'rpd_cohort_sponsor', array() );
 	$team_options = rocketpd_get_field( 'rpd_cohort_team_options', array() );
