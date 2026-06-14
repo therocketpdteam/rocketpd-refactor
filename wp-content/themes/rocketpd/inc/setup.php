@@ -28,7 +28,7 @@ function rocketpd_setup() {
 		)
 	);
 }
-//add_action( 'after_setup_theme', 'rocketpd_setup' );
+add_action( 'after_setup_theme', 'rocketpd_setup' );
 
 /**
  * Register the instructor seeding admin action.
@@ -1068,6 +1068,7 @@ add_action( 'admin_init', 'rocketpd_register_cohort_seed_action' );
  * Add 'Seed Cohorts' button above the Cohorts list table.
  */
 function rocketpd_cohort_seed_button() {
+	return; // Seeding disabled — enable when needed.
 	$screen = get_current_screen();
 
 	if ( ! $screen || 'edit-cohort' !== $screen->id ) {
