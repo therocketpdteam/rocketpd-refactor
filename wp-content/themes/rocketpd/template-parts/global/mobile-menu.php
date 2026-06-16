@@ -14,28 +14,14 @@ $login_label        = isset( $args['login_label'] ) ? $args['login_label'] : '';
 $login_url          = isset( $args['login_url'] ) ? $args['login_url'] : '';
 $nav_cta_label      = isset( $args['nav_cta_label'] ) ? $args['nav_cta_label'] : '';
 $nav_cta_url        = isset( $args['nav_cta_url'] ) ? $args['nav_cta_url'] : '';
-$nav_links          = isset( $args['nav_links'] ) && is_array( $args['nav_links'] ) ? $args['nav_links'] : array();
+$is_about_template  = isset( $args['is_about_template'] ) ? (bool) $args['is_about_template'] : false;
 
 ?>
 <div class="rpd-mobile-menu" id="rpd-mobile-menu" data-rpd-mobile-menu hidden>
 	<div class="rpd-container">
 		<nav aria-label="<?php esc_attr_e( 'Mobile navigation', 'rocketpd' ); ?>">
-			<?php if ( ! empty( $nav_links ) ) : ?>
-				<ul class="rpd-menu rpd-menu--primary">
-					<?php foreach ( $nav_links as $nav_link ) : ?>
-						<?php
-						$nav_label = isset( $nav_link['label'] ) ? $nav_link['label'] : '';
-						$nav_url   = isset( $nav_link['url'] ) ? $nav_link['url'] : '';
-
-						if ( ! $nav_label || ! $nav_url ) {
-							continue;
-						}
-						?>
-						<li>
-							<a href="<?php echo esc_url( $nav_url ); ?>"><?php echo esc_html( $nav_label ); ?></a>
-						</li>
-					<?php endforeach; ?>
-				</ul>
+			<?php if ( $is_about_template ) : ?>
+				<?php rocketpd_nav_menu( 'about-primary' ); ?>
 			<?php else : ?>
 				<?php rocketpd_nav_menu( 'primary' ); ?>
 			<?php endif; ?>

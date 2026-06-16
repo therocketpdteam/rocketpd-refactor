@@ -179,7 +179,7 @@ function rocketpd_nav_menu( $location = 'primary' ) {
 		array(
 			'theme_location' => $location,
 			'container'      => false,
-			'menu_class'     => 'rpd-menu rpd-menu--' . sanitize_html_class( $location ),
+			'menu_class'     => 'rpd-menu rpd-menu--primary',
 			'fallback_cb'    => false,
 			'depth'          => 2,
 		)

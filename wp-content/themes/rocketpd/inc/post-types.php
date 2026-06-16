@@ -178,10 +178,11 @@ function rocketpd_register_post_types() {
 			),
 		),
 		'instructor'  => array(
-			'singular' => __( 'Instructor', 'rocketpd' ),
-			'plural'   => __( 'Instructors', 'rocketpd' ),
-			'slug'     => 'instructors',
-			'icon'     => 'dashicons-welcome-learn-more',
+			'singular'          => __( 'Instructor', 'rocketpd' ),
+			'plural'            => __( 'Instructors', 'rocketpd' ),
+			'slug'              => 'instructors',
+			'icon'              => 'dashicons-welcome-learn-more',
+			'show_in_nav_menus' => true,
 		),
 		'member'      => array(
 			'singular'            => __( 'Member', 'rocketpd' ),

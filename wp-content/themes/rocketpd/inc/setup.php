@@ -23,8 +23,9 @@ function rocketpd_setup() {
 
 	register_nav_menus(
 		array(
-			'primary' => esc_html__( 'Primary Menu', 'rocketpd' ),
-			'footer'  => esc_html__( 'Footer Menu', 'rocketpd' ),
+			'primary'       => esc_html__( 'Primary Menu', 'rocketpd' ),
+			'about-primary' => esc_html__( 'About Page Menu', 'rocketpd' ),
+			'footer'        => esc_html__( 'Footer Menu', 'rocketpd' ),
 		)
 	);
 }
