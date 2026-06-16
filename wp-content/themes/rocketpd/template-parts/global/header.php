@@ -17,6 +17,46 @@ $nav_cta_url        = rocketpd_get_option( 'rpd_primary_nav_cta_url', $is_about_
 $login_label        = rocketpd_get_option( 'rpd_login_label', $is_about_template ? __( 'Login', 'rocketpd' ) : '' );
 $login_url          = rocketpd_get_option( 'rpd_login_url', $is_about_template ? home_url( '/login/' ) : '' );
 $has_header_actions = ( $nav_cta_label && $nav_cta_url ) || ( $login_label && $login_url );
+$about_nav_links    = array(
+	array(
+		'label'    => __( 'Topics', 'rocketpd' ),
+		'url'      => home_url( '/topics/' ),
+		'children' => array_map(
+			function( $topic ) {
+				return array( 'label' => $topic['title'], 'url' => $topic['href'] );
+			},
+			rocketpd_get_topics()
+		),
+	),
+	array(
+		'label'    => __( 'Instructors', 'rocketpd' ),
+		'url'      => home_url( '/instructors/' ),
+		'children' => array_map(
+			function( $post ) {
+				return array( 'label' => $post->post_title, 'url' => get_permalink( $post->ID ) );
+			},
+			get_posts( array(
+				'post_type'      => 'instructor',
+				'posts_per_page' => -1,
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+				'post_status'    => 'publish',
+			) )
+		),
+	),
+	array(
+		'label' => __( 'Solutions', 'rocketpd' ),
+		'url'   => home_url( '/solutions/' ),
+	),
+	array(
+		'label' => __( 'Resources', 'rocketpd' ),
+		'url'   => home_url( '/resources/' ),
+	),
+	array(
+		'label' => __( 'About', 'rocketpd' ),
+		'url'   => home_url( '/about/' ),
+	),
+);
 
 ?>
 <?php get_template_part( 'template-parts/global/announcement-bar' ); ?>
@@ -42,7 +82,23 @@ $has_header_actions = ( $nav_cta_label && $nav_cta_url ) || ( $login_label && $l
 
 		<nav class="rpd-site-header__nav" aria-label="<?php esc_attr_e( 'Primary navigation', 'rocketpd' ); ?>">
 			<?php if ( $is_about_template ) : ?>
-				<?php rocketpd_nav_menu( 'about-primary' ); ?>
+				<ul class="rpd-menu rpd-menu--primary">
+					<?php foreach ( $about_nav_links as $nav_link ) : ?>
+						<?php $has_children = ! empty( $nav_link['children'] ); ?>
+						<li<?php echo $has_children ? ' class="menu-item-has-children"' : ''; ?>>
+							<a href="<?php echo esc_url( $nav_link['url'] ); ?>"><?php echo esc_html( $nav_link['label'] ); ?></a>
+							<?php if ( $has_children ) : ?>
+								<ul class="sub-menu">
+									<?php foreach ( $nav_link['children'] as $child ) : ?>
+										<li>
+											<a href="<?php echo esc_url( $child['url'] ); ?>"><?php echo esc_html( $child['label'] ); ?></a>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+							<?php endif; ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
 			<?php else : ?>
 				<?php rocketpd_nav_menu( 'primary' ); ?>
 			<?php endif; ?>
@@ -84,7 +140,7 @@ $has_header_actions = ( $nav_cta_label && $nav_cta_url ) || ( $login_label && $l
 			'login_url'          => $login_url,
 			'nav_cta_label'      => $nav_cta_label,
 			'nav_cta_url'        => $nav_cta_url,
-			'is_about_template'  => $is_about_template,
+			'nav_links'          => $is_about_template ? $about_nav_links : array(),
 		)
 	);
 	?>
