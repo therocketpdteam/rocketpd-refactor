@@ -32,6 +32,7 @@ $rocketpd_includes = array(
 	'nav',
 	'shortcodes',
 	'gravity-forms',
+	'posts',
 );
 
 foreach ( $rocketpd_includes as $rocketpd_file ) {
