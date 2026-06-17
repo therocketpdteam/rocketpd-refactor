@@ -20,16 +20,31 @@ if ( ! defined( 'ABSPATH' ) ) {
  * post views so it doesn't affect other post types or page templates.
  */
 /**
- * To restore the plugin output on single posts, simply comment out or
- * delete the remove_action() call below. The plugin and its meta box
- * are unaffected — this only controls frontend output.
+ * Suppress the "Header and Footer Scripts" plugin (by Anand Kumar) output
+ * on the frontend for single posts.
+ *
+ * The plugin uses an object method (array( &$this, 'wp_head' )) which can't
+ * be removed via remove_action() without a reference to the instance.
+ * Instead we filter the post meta value to return empty on the frontend,
+ * which causes the plugin to output nothing.
+ *
+ * The meta value is unaffected in the DB — the editor meta box still shows
+ * and saves correctly. Only the frontend output is suppressed.
+ *
+ * To restore: comment out the add_filter() call below.
  */
-add_action(
-	'wp',
-	function () {
-		if ( is_singular( 'post' ) ) {
-			// Comment out the line below to re-enable the plugin output on posts.
-			remove_action( 'wp_head', 'hfs_header_footer_scripts', 1 );
+add_filter(
+	'get_post_metadata',
+	function ( $value, $object_id, $meta_key, $single ) {
+		if (
+			! is_admin()
+			&& is_singular( 'post' )
+			&& '_shfs_head_scripts' === $meta_key // Comment out to re-enable.
+		) {
+			return $single ? '' : array( '' );
 		}
-	}
+		return $value;
+	},
+	10,
+	4
 );
