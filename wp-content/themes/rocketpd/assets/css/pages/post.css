@@ -198,6 +198,14 @@
 	color: var(--rpd-color-heading);
 }
 
+/* Section divider */
+
+.rpd-post-content .rpd-post-divider {
+	border: none;
+	border-top: 1px solid var(--rpd-color-border);
+	margin: var(--rpd-space-8) 0;
+}
+
 /* Strip WPBakery layout chrome — keep only the prose */
 .rpd-post-content .vc_row,
 .rpd-post-content .wpb_column,

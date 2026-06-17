@@ -64,10 +64,18 @@ function rocketpd_strip_wpbakery( $content ) {
 	// Step 1: convert vc_custom_heading to <h2> before anything is stripped.
 	$content = rocketpd_convert_vc_headings( $content );
 
-	// Step 2: strip all vc_, wpb_, nectar_, and divider shortcode tags.
+	// Step 2: convert [divider ...] to <hr> — preserves the visual section
+	// break without depending on WPBakery or Salient to render it.
+	$content = preg_replace(
+		'/\[divider[^]]*\]/is',
+		'<hr class="rpd-post-divider">',
+		$content
+	);
+
+	// Step 3: strip all vc_, wpb_, nectar_ shortcode tags.
 	// [^]]* is safe here — WPBakery never puts ] inside attribute values.
 	$content = preg_replace(
-		'/\[\/?\s*(?:vc_|wpb_|nectar_|divider)[^]]*\]/is',
+		'/\[\/?\s*(?:vc_|wpb_|nectar_)[^]]*\]/is',
 		'',
 		$content
 	);
