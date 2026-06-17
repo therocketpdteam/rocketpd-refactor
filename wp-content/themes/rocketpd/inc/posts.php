@@ -39,7 +39,7 @@ add_filter(
 		if (
 			! is_admin()
 			&& is_singular( 'post' )
-			&& '_shfs_head_scripts' === $meta_key // Comment out to re-enable.
+			&& '_inpost_head_script' === $meta_key // Comment out to re-enable.
 		) {
 			return $single ? '' : array( '' );
 		}
