@@ -3,8 +3,11 @@
  * Post body content.
  *
  * Strips WPBakery and Nectar shortcodes from post content before rendering,
- * leaving only the prose. This avoids a WPBakery dependency on staging and
- * production while keeping all migrated content intact in the DB.
+ * leaving only the prose. Handles vc_custom_heading by extracting the text
+ * attribute and converting it to a semantic <h2> before stripping.
+ *
+ * This runs at render time only — the DB is never modified, so posts remain
+ * fully editable. New Gutenberg posts are unaffected (no vc_ tags present).
  *
  * @package RocketPD
  */
@@ -14,45 +17,62 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Strip WPBakery and Nectar shortcode tags from content.
+ * Convert [vc_custom_heading text="..."] to <h2> before stripping.
+ * The heading text lives inside the tag attribute, not between tags,
+ * so it would be lost if we stripped blindly.
+ *
+ * @param string $content Raw post content.
+ * @return string Content with vc_custom_heading replaced by <h2> tags.
+ */
+function rocketpd_convert_vc_headings( $content ) {
+	return preg_replace_callback(
+		'/\[\s*vc_custom_heading\b(?:"[^"]*"|\'[^\']*\'|[^\]])*\btext=["\']([^"\']+)["\'](?:"[^"]*"|\'[^\']*\'|[^\]])*\/?\]/is',
+		function ( $matches ) {
+			return '<h2>' . wp_kses_post( $matches[1] ) . '</h2>';
+		},
+		$content
+	);
+}
+
+/**
+ * Strip all WPBakery, Nectar, and Salient shortcode tags from content.
  *
  * Handles:
- * - Multiline tags (attributes spanning multiple lines).
- * - Quoted attribute values that contain ] characters (e.g. inline CSS).
- * - Self-closing tags [vc_tag /] and block tags [vc_tag]...[/vc_tag].
- * - nectar_global_section and other nectar_ tags from the live theme.
- * - Leftover blank lines / empty paragraphs after stripping.
+ * - Multiline tags (s flag / DOTALL).
+ * - Quoted attribute values containing ] (e.g. inline CSS).
+ * - Self-closing [vc_tag /] and block [vc_tag]...[/vc_tag] tags.
+ * - vc_, wpb_, nectar_ prefixes.
+ * - Standalone [divider ...] tags from the Salient/Nectar theme.
+ * - Leftover blank lines after stripping.
  *
  * Does NOT strip content between shortcode tags — only the tags themselves.
+ * Does NOT modify the database — runs at render time only.
  *
  * @param string $content Raw post content.
  * @return string Cleaned content.
  */
 function rocketpd_strip_wpbakery( $content ) {
-	// Pattern explanation:
-	// \[        — opening bracket
-	// \/?       — optional / for closing tags
-	// \s*       — optional whitespace
-	// (vc_|nectar_|wpb_) — tag prefixes to strip
-	// (?:       — non-capturing group for attribute matching
-	//   "[^"]*" — double-quoted value (may contain ])
-	//   |'[^']*'— single-quoted value (may contain ])
-	//   |[^\]]  — any char that isn't ] (unquoted values, whitespace)
-	// )*        — zero or more of the above
-	// \/?       — optional trailing / for self-closing tags
-	// \]        — closing bracket
-	// The s flag (DOTALL) allows . to match newlines for multiline tags.
+	// Convert vc_custom_heading to <h2> before stripping so text is preserved.
+	$content = rocketpd_convert_vc_headings( $content );
 
-	$pattern = '/\[\/?\s*(?:vc_|nectar_|wpb_)(?:"[^"]*"|\'[^\']*\'|[^\]])*\/?\]/is';
-	$content = preg_replace( $pattern, '', $content );
+	// Strip all vc_, wpb_, nectar_ shortcode tags.
+	$content = preg_replace(
+		'/\[\/?\s*(?:vc_|wpb_|nectar_)(?:"[^"]*"|\'[^\']*\'|[^\]])*\/?\]/is',
+		'',
+		$content
+	);
 
-	// Collapse runs of blank lines left after stripping tags (3+ newlines → 2).
+	// Strip standalone [divider ...] tags from Salient/Nectar theme.
+	$content = preg_replace(
+		'/\[\/?\s*divider(?:"[^"]*"|\'[^\']*\'|[^\]])*\/?\]/is',
+		'',
+		$content
+	);
+
+	// Collapse runs of blank lines left after stripping (3+ newlines → 2).
 	$content = preg_replace( '/\n{3,}/', "\n\n", $content );
 
-	// Trim leading/trailing whitespace.
-	$content = trim( $content );
-
-	return $content;
+	return trim( $content );
 }
 ?>
 <div class="rpd-post-content">
