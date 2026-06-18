@@ -15,6 +15,7 @@ while ( have_posts() ) {
 	the_post();
 	?>
 	<main id="primary" class="rpd-site-main rpd-post-page">
+		<?php get_template_part( 'template-parts/posts/breadcrumb' ); ?>
 		<?php get_template_part( 'template-parts/posts/hero' ); ?>
 
 		<div class="rpd-post-body rpd-container">

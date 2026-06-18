@@ -558,14 +558,13 @@ The single-post template was built directly on `main` without a feature branch. 
 - `functions.php` — `posts` added to includes array
 - `AGENTS.md` — blog post template section added
 
-**Stubs that exist but are empty — pick these up in Claude Code:**
+**Also complete (feature/blog-breadcrumb-schema, pending merge):**
 
-- `template-parts/posts/breadcrumb.php` — needs building
-- `template-parts/posts/schema.php` — Article, BreadcrumbList, FAQPage JSON-LD
+- `template-parts/posts/breadcrumb.php` — Home → Blog → Post Title via `rocketpd_render_breadcrumbs()`
+- `template-parts/posts/schema.php` — intentionally empty stub; Yoast SEO owns schema (see Schema Rule below)
 
 **Not started:**
 
-- Breadcrumb and schema template parts (see stubs above)
 - Playwright QA on the post template
 - 35-post migration deferred — `rocketpd_strip_wpbakery()` handles legacy content at render time, so bulk DB migration is not required. Individual posts with irregular content will be handled case-by-case in Claude Code.
 
@@ -605,6 +604,12 @@ Migrated posts contain legacy WPBakery shortcodes in `post_content`. The theme s
 - Runs `apply_filters( 'the_content', $cleaned )` after stripping
 
 The DB is never modified — stripping is render-time only. New Gutenberg posts are unaffected.
+
+### Schema Rule
+
+Yoast SEO is active on this site and owns all JSON-LD structured data. It outputs a connected schema graph (`Article`, `WebPage`, `BreadcrumbList`, `Person`, `ImageObject`, `WebSite`) with proper `@id` cross-references — the format Google recommends for rich results. Do not add custom JSON-LD schema on any post or page while Yoast is active. Duplicate schema types on the same page suppress rich results rather than improving them.
+
+`template-parts/posts/schema.php` exists as an intentional empty stub. If Yoast is ever removed, that file is where post schema should be rebuilt. See the file header for the expected output types.
 
 ### Plugin suppression
 
