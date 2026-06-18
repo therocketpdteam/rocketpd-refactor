@@ -68,6 +68,26 @@
             "return_format": "string"
         },
         {
+            "key": "field_rpd_post_hero_text_dark",
+            "label": "Use Dark Text",
+            "name": "rpd_post_hero_text_dark",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Switch hero text to dark (navy) instead of white. Use this when the background is light — e.g. a bright Background Color or a light Featured Image.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Dark",
+            "ui_off_text": "Light"
+        },
+        {
             "key": "field_rpd_post_hero_gradient_enabled",
             "label": "Enable Gradient Overlay",
             "name": "rpd_post_hero_gradient_enabled",
@@ -712,5 +732,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1781999999
+    "modified": 1782086400
 }

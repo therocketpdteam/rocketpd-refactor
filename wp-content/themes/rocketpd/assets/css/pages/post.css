@@ -180,6 +180,37 @@
 	color: rgba(255, 255, 255, 0.65);
 }
 
+/* Dark text mode — for light backgrounds */
+.rpd-post-hero--text-dark .rpd-post-hero__title {
+	color: var(--rpd-navy);
+}
+
+.rpd-post-hero--text-dark .rpd-post-hero__dek {
+	color: var(--rpd-body);
+}
+
+.rpd-post-hero--text-dark .rpd-post-hero__meta {
+	color: var(--rpd-body);
+}
+
+.rpd-post-hero--text-dark .rpd-post-hero__author {
+	color: var(--rpd-navy);
+}
+
+.rpd-post-hero--text-dark .rpd-post-hero__author-role {
+	color: var(--rpd-body);
+}
+
+.rpd-post-hero--text-dark .rpd-post-hero__avatar {
+	border-color: var(--rpd-navy);
+}
+
+.rpd-post-hero--text-dark .rpd-tag {
+	background: rgba(35, 31, 88, 0.08);
+	color: var(--rpd-navy);
+	border-color: rgba(35, 31, 88, 0.2);
+}
+
 .rpd-post-hero__image-wrap {
 	border-radius: var(--rpd-radius);
 	overflow: hidden;

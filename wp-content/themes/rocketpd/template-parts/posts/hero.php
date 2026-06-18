@@ -96,8 +96,13 @@ if ( $instructor_obj instanceof WP_Post ) {
 // Categories.
 $categories = get_the_category();
 
+$text_dark = (bool) rocketpd_get_field( 'rpd_post_hero_text_dark', false );
+
 // Modifier classes.
 $modifier = 'rpd-post-hero--' . sanitize_html_class( $hero_style ?: 'default' );
+if ( $text_dark ) {
+	$modifier .= ' rpd-post-hero--text-dark';
+}
 $has_side = ( $side_image_url || $side_image_id ) && 'no-image' !== $hero_style;
 
 if ( 'image' === $active_bg ) {
