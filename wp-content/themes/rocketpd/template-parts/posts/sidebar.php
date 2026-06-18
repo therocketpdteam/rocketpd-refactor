@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$enabled = rocketpd_get_field( 'rpd_post_sidebar_cta_enabled', true );
+$enabled = rocketpd_get_field( 'rpd_post_sidebar_cta_enabled', false );
 
 if ( ! $enabled ) {
 	return;

@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$enabled = rocketpd_get_field( 'rpd_post_bottom_cta_enabled', true );
+$enabled = rocketpd_get_field( 'rpd_post_bottom_cta_enabled', false );
 $variant = rocketpd_get_field( 'rpd_post_bottom_cta_variant', 'community' );
 
 if ( ! $enabled || 'hidden' === $variant ) {
