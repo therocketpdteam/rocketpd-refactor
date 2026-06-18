@@ -511,7 +511,16 @@
 .rpd-post-related__grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
+	justify-content: center;
 	gap: var(--rpd-space-6);
+}
+
+.rpd-post-related__grid--1 {
+	grid-template-columns: minmax(0, 33.333%);
+}
+
+.rpd-post-related__grid--2 {
+	grid-template-columns: repeat(2, minmax(0, 33.333%));
 }
 
 .rpd-post-related__card {
