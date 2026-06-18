@@ -77,12 +77,12 @@ if ( ! $title && ! $body ) {
 		</div>
 		<div class="rpd-post-cta-band__actions">
 			<?php if ( $primary_label && $primary_url ) : ?>
-				<a class="rpd-btn rpd-btn--primary" href="<?php echo esc_url( $primary_url ); ?>">
+				<a class="rpd-btn rpd-btn--gold" href="<?php echo esc_url( $primary_url ); ?>">
 					<?php echo esc_html( $primary_label ); ?>
 				</a>
 			<?php endif; ?>
 			<?php if ( $secondary_label && $secondary_url ) : ?>
-				<a class="rpd-btn rpd-btn--outline" href="<?php echo esc_url( $secondary_url ); ?>">
+				<a class="rpd-btn rpd-btn--outline-white" href="<?php echo esc_url( $secondary_url ); ?>">
 					<?php echo esc_html( $secondary_label ); ?>
 				</a>
 			<?php endif; ?>

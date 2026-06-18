@@ -49,7 +49,7 @@ if ( ! $url ) {
 	<?php endif; ?>
 
 	<?php if ( $label && $url ) : ?>
-		<a class="rpd-btn rpd-btn--primary rpd-btn--full" href="<?php echo esc_url( $url ); ?>">
+		<a class="rpd-btn rpd-btn--purple rpd-btn--full" href="<?php echo esc_url( $url ); ?>">
 			<?php echo esc_html( $label ); ?>
 		</a>
 	<?php endif; ?>
