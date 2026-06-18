@@ -450,7 +450,7 @@
    -------------------------------------------------------------------------- */
 
 .rpd-post-cta-band {
-	background: var(--gradient-navy);
+	background: linear-gradient(135deg, var(--rpd-purple), var(--rpd-purple-deep));
 	color: var(--rpd-white);
 	padding: var(--rpd-space-16) 0;
 }
