@@ -3,7 +3,8 @@
  * Post related learning section.
  *
  * ACF fields used:
- *   rpd_post_related_resources — relationship field; falls back to same-category posts
+ *   rpd_post_related_mode      — 'hidden' | 'auto' | 'custom'
+ *   rpd_post_related_resources — relationship field; only used when mode = 'custom'
  *
  * @package RocketPD
  */
@@ -12,10 +13,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$related = rocketpd_get_field( 'rpd_post_related_resources', null );
+$mode = rocketpd_get_field( 'rpd_post_related_mode', 'auto' );
 
-// If no manual selections, fall back to up to 3 posts in the same category.
-if ( empty( $related ) ) {
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$related = array();
+
+if ( 'custom' === $mode ) {
+	$related = rocketpd_get_field( 'rpd_post_related_resources', array() ) ?: array();
+} else {
+	// Auto: query same-category posts.
 	$cats = wp_get_post_categories( get_the_ID(), array( 'fields' => 'ids' ) );
 
 	if ( ! empty( $cats ) ) {

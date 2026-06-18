@@ -428,14 +428,51 @@
             "selected": 0
         },
         {
+            "key": "field_rpd_post_related_mode",
+            "label": "Related Learning",
+            "name": "rpd_post_related_mode",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Hidden = section not shown. Auto = same-category posts queried automatically. Custom = pick specific posts below.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "hidden": "Hidden",
+                "auto": "Auto",
+                "custom": "Custom"
+            },
+            "default_value": "auto",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
             "key": "field_rpd_post_related_resources",
             "label": "Related Resources",
             "name": "rpd_post_related_resources",
             "aria-label": "",
             "type": "relationship",
-            "instructions": "Manual selections win. If empty, same-topic content is queried.",
+            "instructions": "Pick up to 6 posts to show. Only used when mode is set to Custom.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rpd_post_related_mode",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
