@@ -376,6 +376,45 @@ Required when applicable:
 
 If a tool is unavailable, report that clearly.
 
+### ACF JSON — Smart Quote Warning
+
+Writing ACF JSON on Windows can silently corrupt the file with typographic/curly double quotes (U+201C `"` and U+201D `"`) instead of straight ASCII double quotes (`"`). This makes the entire file unparseable — ACF will silently fail to load it with no useful error.
+
+**Detect:** run `php -r "json_decode(file_get_contents('path/to/file.json'), true); echo json_last_error_msg();"` — any result other than `No error` means the file is invalid.
+
+**Fix:** replace all curly quote bytes in-place:
+
+```php
+$content = file_get_contents($file);
+$fixed = str_replace(["\xe2\x80\x9c", "\xe2\x80\x9d"], '"', $content);
+file_put_contents($file, $fixed);
+```
+
+After writing or editing any ACF JSON file, always validate with PHP before committing.
+
+## ACF Field Group Recovery (WP-CLI)
+
+If an ACF field group is deleted from the database (e.g. after `wp post delete <id> --force`), ACF does not auto-recreate it from JSON. Use WP-CLI to force-import:
+
+```bash
+wp eval '
+$file = "/sites/rocketgoeshigh/wp-content/themes/rocketpd/acf-json/group_rocketpd_post_enhancements.json";
+$data = json_decode(file_get_contents($file), true);
+if ($data) {
+    acf_import_field_group($data);
+    echo "Done: " . $data["title"];
+} else {
+    echo json_last_error_msg();
+}
+'
+```
+
+**Path note:** WP Engine's `open_basedir` blocks `/nas/content/live/` from PHP. Always use the `/sites/rocketgoeshigh/` path when referencing theme files in `wp eval`. The SSH shell uses `/nas/` paths; PHP (and WP-CLI `wp eval`) uses `/sites/` paths.
+
+`wp acf sync` is not registered as a WP-CLI subcommand in the ACF Pro version on this site — do not attempt it.
+
+PHP Warnings from ACF's own `compatibility.php` or `admin-field-groups.php` during import are harmless noise and do not indicate failure. A successful import prints `Done: <field group title>`.
+
 ## Required Report After Every Task
 
 Use this format:
