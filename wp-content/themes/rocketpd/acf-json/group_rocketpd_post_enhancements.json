@@ -50,27 +50,64 @@
             "save_options": 0
         },
         {
-            "key": "field_rpd_post_hero_use_featured_bg",
-            "label": "Use Featured Image as Header Background",
-            "name": "rpd_post_hero_use_featured_bg",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "When enabled, the featured image fills the hero background (with a dark overlay) instead of the navy gradient. Equivalent to Salient’s “Featured Image Header” post style. Has no effect if no featured image is set.",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
+            “key”: “field_rpd_post_hero_gradient_start”,
+            “label”: “Page Header Gradient Start”,
+            “name”: “rpd_post_hero_gradient_start”,
+            “aria-label”: “”,
+            “type”: “color_picker”,
+            “instructions”: “Start color of the header gradient (top-left). Leave both gradient fields empty to use the default navy gradient. When a Featured Image is set, the gradient overlays the image — use the Opacity field to control transparency.”,
+            “required”: false,
+            “conditional_logic”: false,
+            “wrapper”: {
+                “width”: “33”,
+                “class”: “”,
+                “id”: “”
             },
-            "default_value": 0,
-            "ui": 1,
-            "message": "",
-            "ui_on_text": "",
-            "ui_off_text": ""
+            “default_value”: “”,
+            “enable_opacity”: false,
+            “return_format”: “string”
         },
         {
-            "key": "field_rpd_post_dek",
+            “key”: “field_rpd_post_hero_gradient_end”,
+            “label”: “Page Header Gradient End”,
+            “name”: “rpd_post_hero_gradient_end”,
+            “aria-label”: “”,
+            “type”: “color_picker”,
+            “instructions”: “End color of the header gradient (bottom-right).”,
+            “required”: false,
+            “conditional_logic”: false,
+            “wrapper”: {
+                “width”: “33”,
+                “class”: “”,
+                “id”: “”
+            },
+            “default_value”: “”,
+            “enable_opacity”: false,
+            “return_format”: “string”
+        },
+        {
+            “key”: “field_rpd_post_hero_gradient_opacity”,
+            “label”: “Page Header Gradient Opacity”,
+            “name”: “rpd_post_hero_gradient_opacity”,
+            “aria-label”: “”,
+            “type”: “range”,
+            “instructions”: “Controls gradient transparency (0 = fully transparent, 100 = fully opaque). Only applies when a Featured Image is set — the gradient overlays the image at this opacity.”,
+            “required”: false,
+            “conditional_logic”: false,
+            “wrapper”: {
+                “width”: “33”,
+                “class”: “”,
+                “id”: “”
+            },
+            “default_value”: 80,
+            “min”: 0,
+            “max”: 100,
+            “step”: 5,
+            “prepend”: “”,
+            “append”: “%”
+        },
+        {
+            “key”: “field_rpd_post_dek”,
             "label": "Dek Override",
             "name": "rpd_post_dek",
             "aria-label": "",

@@ -2,18 +2,23 @@
 /**
  * Post hero section.
  *
- * ACF fields used:
+ * ACF fields used (Hero tab):
  *   rpd_post_hero_style              — 'default' | 'image-right' | 'no-image'
- *   rpd_post_hero_use_featured_bg    — true/false; use featured image as hero background
+ *   rpd_post_hero_gradient_start     — hex color; Page Header Gradient Start
+ *   rpd_post_hero_gradient_end       — hex color; Page Header Gradient End
+ *   rpd_post_hero_gradient_opacity   — 0–100; overlay opacity when Featured Image is set
  *   rpd_post_dek                     — optional summary; falls back to post excerpt
- *   rpd_post_hero_image_override     — optional side image; falls back to featured image
+ *   rpd_post_hero_image_override     — optional side image (ACF only — not featured image)
  *   rpd_post_reading_time_override   — optional string e.g. '5 min read'
  *   rpd_post_featured_instructor     — post object (instructor CPT)
  *
- * Background image mode (rpd_post_hero_use_featured_bg):
- *   Equivalent to Salient's "Featured Image Header" post style. The featured
- *   image fills the hero background with a dark overlay; content is centered.
- *   Falls back to the navy gradient if no featured image is set.
+ * Background behavior (mirrors Salient's "Post Header Settings"):
+ *   - Featured Image (set via Gutenberg) always fills the hero background when present.
+ *     Equivalent to Salient's "Page Header Image" field.
+ *   - The gradient overlays the featured image at the specified opacity, or fills the
+ *     background directly when no featured image is set.
+ *   - Falls back to the default navy gradient when no featured image and no custom
+ *     gradient colors are configured.
  *
  * @package RocketPD
  */
@@ -23,9 +28,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // --- Data ---
-$hero_style   = rocketpd_get_field( 'rpd_post_hero_style', 'default' );
-$use_bg_image = rocketpd_get_field( 'rpd_post_hero_use_featured_bg', false );
-$dek          = rocketpd_get_field( 'rpd_post_dek', '' );
+$hero_style = rocketpd_get_field( 'rpd_post_hero_style', 'default' );
+$dek        = rocketpd_get_field( 'rpd_post_dek', '' );
 $reading_time = rocketpd_get_field( 'rpd_post_reading_time_override', '' );
 
 if ( ! $dek ) {
@@ -38,21 +42,28 @@ if ( ! $reading_time ) {
 	$reading_time = $minutes . ' min read';
 }
 
-// Side image: ACF override → featured image → none.
-$hero_image_id  = 0;
-$hero_image_url = '';
+// Featured image → always used as Page Header Image (Salient equivalent).
+$bg_image_url = has_post_thumbnail()
+	? get_the_post_thumbnail_url( get_the_ID(), 'full' )
+	: '';
+
+// Gradient fields (Page Header Gradient Start/End + Opacity).
+$gradient_start   = rocketpd_get_field( 'rpd_post_hero_gradient_start', '' );
+$gradient_end     = rocketpd_get_field( 'rpd_post_hero_gradient_end', '' );
+$gradient_opacity = (int) rocketpd_get_field( 'rpd_post_hero_gradient_opacity', 80 );
+$gradient_opacity = max( 0, min( 100, $gradient_opacity ) );
+$has_gradient     = $gradient_start && $gradient_end;
+
+// Side image: ACF override only — featured image is reserved for the background.
+$side_image_id  = 0;
+$side_image_url = '';
 $image_override = rocketpd_get_field( 'rpd_post_hero_image_override', null );
 
 if ( $image_override && is_array( $image_override ) && ! empty( $image_override['url'] ) ) {
-	$hero_image_url = $image_override['url'];
-} elseif ( has_post_thumbnail() ) {
-	$hero_image_id = get_post_thumbnail_id();
-}
-
-// Background image mode: featured image as hero bg.
-$bg_image_url = '';
-if ( $use_bg_image && has_post_thumbnail() ) {
-	$bg_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+	$side_image_url = $image_override['url'];
+} elseif ( ! $bg_image_url && get_post_thumbnail_id() ) {
+	// Only fall back to featured image for side slot when no bg image is in use.
+	$side_image_id = get_post_thumbnail_id();
 }
 
 // Featured instructor pull-through.
@@ -77,21 +88,33 @@ $categories = get_the_category();
 
 // Modifier classes.
 $modifier = 'rpd-post-hero--' . sanitize_html_class( $hero_style ?: 'default' );
-$has_side = ( $hero_image_url || $hero_image_id ) && 'no-image' !== $hero_style && ! $bg_image_url;
+$has_side = ( $side_image_url || $side_image_id ) && 'no-image' !== $hero_style;
 
 if ( $bg_image_url ) {
 	$modifier .= ' rpd-post-hero--bg-image';
+	$has_side  = false; // suppress side image when featured image fills the background
 }
 
-$section_attrs = 'class="rpd-post-hero ' . esc_attr( $modifier ) . '" aria-label="' . esc_attr__( 'Article header', 'rocketpd' ) . '"';
+// Build inline styles for section and overlay.
+$section_style = '';
 if ( $bg_image_url ) {
-	$section_attrs .= ' style="background-image: url(\'' . esc_url( $bg_image_url ) . '\');"';
+	$section_style = ' style="background-image: url(\'' . esc_url( $bg_image_url ) . '\');"';
+}
+
+$overlay_style = '';
+if ( $bg_image_url && $has_gradient ) {
+	$opacity_decimal = round( $gradient_opacity / 100, 2 );
+	$overlay_style   = ' style="background: linear-gradient(135deg, ' . esc_attr( $gradient_start ) . ', ' . esc_attr( $gradient_end ) . '); opacity: ' . $opacity_decimal . ';"';
+} elseif ( $has_gradient && ! $bg_image_url ) {
+	// No featured image: gradient is the section background itself.
+	$section_style = ' style="background: linear-gradient(135deg, ' . esc_attr( $gradient_start ) . ', ' . esc_attr( $gradient_end ) . ');"';
 }
 ?>
 
-<section <?php echo $section_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- all parts escaped above ?>>
+<section class="rpd-post-hero <?php echo esc_attr( $modifier ); ?>"<?php echo $section_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above ?> aria-label="<?php esc_attr_e( 'Article header', 'rocketpd' ); ?>">
+
 	<?php if ( $bg_image_url ) : ?>
-		<div class="rpd-post-hero__overlay" aria-hidden="true"></div>
+		<div class="rpd-post-hero__overlay"<?php echo $overlay_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above ?> aria-hidden="true"></div>
 	<?php endif; ?>
 
 	<div class="rpd-container rpd-post-hero__inner">
@@ -139,10 +162,10 @@ if ( $bg_image_url ) {
 
 		<?php if ( $has_side ) : ?>
 			<div class="rpd-post-hero__image-wrap">
-				<?php if ( $hero_image_url ) : ?>
-					<img class="rpd-post-hero__image" src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php the_title_attribute(); ?>">
-				<?php elseif ( $hero_image_id ) : ?>
-					<?php echo wp_get_attachment_image( $hero_image_id, 'large', false, array( 'class' => 'rpd-post-hero__image', 'alt' => get_the_title() ) ); ?>
+				<?php if ( $side_image_url ) : ?>
+					<img class="rpd-post-hero__image" src="<?php echo esc_url( $side_image_url ); ?>" alt="<?php the_title_attribute(); ?>">
+				<?php elseif ( $side_image_id ) : ?>
+					<?php echo wp_get_attachment_image( $side_image_id, 'large', false, array( 'class' => 'rpd-post-hero__image', 'alt' => get_the_title() ) ); ?>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>
