@@ -123,10 +123,10 @@
 .rpd-post-hero .rpd-tag {
 	display: inline-block;
 	padding: 0.25rem 0.75rem;
-	border-radius: 0.375rem;
-	border: 1.5px solid rgba(255, 255, 255, 0.6);
+	border-radius: var(--rpd-radius-pill);
+	border: 1.5px solid rgba(255, 255, 255, 0.4);
 	color: var(--rpd-white);
-	background: transparent;
+	background: rgba(255, 255, 255, 0.12);
 	font-size: var(--rpd-font-size-sm);
 	font-weight: 600;
 	text-decoration: none;
