@@ -19,12 +19,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$enabled = rocketpd_get_field( 'rpd_post_bottom_cta_enabled', true );
-$variant = rocketpd_get_field( 'rpd_post_bottom_cta_variant', 'community' );
+$mode = rocketpd_get_field( 'rpd_post_bottom_cta_mode', 'hidden' );
 
-if ( ! $enabled || 'hidden' === $variant ) {
+if ( 'hidden' === $mode ) {
 	return;
 }
+
+$variant = ( 'custom' === $mode )
+	? rocketpd_get_field( 'rpd_post_bottom_cta_variant', 'community' )
+	: 'community';
 
 // Resolve content by variant.
 switch ( $variant ) {

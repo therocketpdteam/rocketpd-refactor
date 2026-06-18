@@ -272,12 +272,12 @@
             "selected": 0
         },
         {
-            "key": "field_rpd_post_sidebar_cta_enabled",
-            "label": "Enable Sidebar CTA",
-            "name": "rpd_post_sidebar_cta_enabled",
+            "key": "field_rpd_post_sidebar_cta_mode",
+            "label": "Sidebar CTA",
+            "name": "rpd_post_sidebar_cta_mode",
             "aria-label": "",
-            "type": "true_false",
-            "instructions": "",
+            "type": "select",
+            "instructions": "Hidden = not shown. Use Defaults = shown with site default content. Customize = shown with the fields below.",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -285,11 +285,20 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 1,
-            "ui": 1,
-            "message": "",
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "choices": {
+                "hidden": "Hidden",
+                "defaults": "Use Defaults",
+                "custom": "Customize"
+            },
+            "default_value": "hidden",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_rpd_post_sidebar_cta_title",
@@ -299,7 +308,15 @@
             "type": "text",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rpd_post_sidebar_cta_mode",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -319,7 +336,15 @@
             "type": "textarea",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rpd_post_sidebar_cta_mode",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -339,7 +364,15 @@
             "type": "text",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rpd_post_sidebar_cta_mode",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -357,9 +390,17 @@
             "name": "rpd_post_sidebar_cta_url",
             "aria-label": "",
             "type": "url",
-            "instructions": "Falls back to the global community URL when available.",
+            "instructions": "Falls back to the global community URL when empty.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rpd_post_sidebar_cta_mode",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -444,12 +485,12 @@
             "selected": 0
         },
         {
-            "key": "field_rpd_post_bottom_cta_enabled",
-            "label": "Enable Bottom CTA",
-            "name": "rpd_post_bottom_cta_enabled",
+            "key": "field_rpd_post_bottom_cta_mode",
+            "label": "Bottom CTA",
+            "name": "rpd_post_bottom_cta_mode",
             "aria-label": "",
-            "type": "true_false",
-            "instructions": "",
+            "type": "select",
+            "instructions": "Hidden = not shown. Use Defaults = community CTA with site default content. Customize = choose a variant and edit content below.",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -457,11 +498,20 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 1,
-            "ui": 1,
-            "message": "",
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "choices": {
+                "hidden": "Hidden",
+                "defaults": "Use Defaults",
+                "custom": "Customize"
+            },
+            "default_value": "hidden",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_rpd_post_bottom_cta_variant",
@@ -471,7 +521,15 @@
             "type": "select",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rpd_post_bottom_cta_mode",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -480,8 +538,7 @@
             "choices": {
                 "community": "Community",
                 "newsletter": "Newsletter",
-                "custom": "Custom",
-                "hidden": "Hidden"
+                "custom": "Custom"
             },
             "default_value": "community",
             "return_format": "value",
@@ -501,7 +558,20 @@
             "type": "text",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rpd_post_bottom_cta_mode",
+                        "operator": "==",
+                        "value": "custom"
+                    },
+                    {
+                        "field": "field_rpd_post_bottom_cta_variant",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -521,7 +591,20 @@
             "type": "textarea",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rpd_post_bottom_cta_mode",
+                        "operator": "==",
+                        "value": "custom"
+                    },
+                    {
+                        "field": "field_rpd_post_bottom_cta_variant",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -541,7 +624,20 @@
             "type": "text",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rpd_post_bottom_cta_mode",
+                        "operator": "==",
+                        "value": "custom"
+                    },
+                    {
+                        "field": "field_rpd_post_bottom_cta_variant",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -561,7 +657,20 @@
             "type": "url",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rpd_post_bottom_cta_mode",
+                        "operator": "==",
+                        "value": "custom"
+                    },
+                    {
+                        "field": "field_rpd_post_bottom_cta_variant",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -578,7 +687,20 @@
             "type": "text",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rpd_post_bottom_cta_mode",
+                        "operator": "==",
+                        "value": "custom"
+                    },
+                    {
+                        "field": "field_rpd_post_bottom_cta_variant",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -598,7 +720,20 @@
             "type": "url",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_rpd_post_bottom_cta_mode",
+                        "operator": "==",
+                        "value": "custom"
+                    },
+                    {
+                        "field": "field_rpd_post_bottom_cta_variant",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -732,5 +867,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1781755042
+    "modified": 1781841600
 }

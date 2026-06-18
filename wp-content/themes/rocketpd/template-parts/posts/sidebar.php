@@ -16,16 +16,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$enabled = rocketpd_get_field( 'rpd_post_sidebar_cta_enabled', true );
+$mode = rocketpd_get_field( 'rpd_post_sidebar_cta_mode', 'hidden' );
 
-if ( ! $enabled ) {
+if ( 'hidden' === $mode ) {
 	return;
 }
 
-$title = rocketpd_get_field( 'rpd_post_sidebar_cta_title', 'Join the RocketPD Community' );
-$body  = rocketpd_get_field( 'rpd_post_sidebar_cta_body', 'Get practical, expert-led K-12 professional learning delivered the way educators actually learn.' );
-$label = rocketpd_get_field( 'rpd_post_sidebar_cta_label', 'Join Free' );
-$url   = rocketpd_get_field( 'rpd_post_sidebar_cta_url', '' );
+if ( 'custom' === $mode ) {
+	$title = rocketpd_get_field( 'rpd_post_sidebar_cta_title', 'Join the RocketPD Community' );
+	$body  = rocketpd_get_field( 'rpd_post_sidebar_cta_body', 'Get practical, expert-led K-12 professional learning delivered the way educators actually learn.' );
+	$label = rocketpd_get_field( 'rpd_post_sidebar_cta_label', 'Join Free' );
+	$url   = rocketpd_get_field( 'rpd_post_sidebar_cta_url', '' );
+} else {
+	$title = 'Join the RocketPD Community';
+	$body  = 'Get practical, expert-led K-12 professional learning delivered the way educators actually learn.';
+	$label = 'Join Free';
+	$url   = '';
+}
 
 if ( ! $url ) {
 	$url = rocketpd_get_option( 'rpd_community_url', 'https://rocketpd.com/community/' );
