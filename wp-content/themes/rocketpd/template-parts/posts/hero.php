@@ -113,7 +113,7 @@ $section_style = '';
 if ( 'image' === $active_bg ) {
 	$section_style = ' style="background-image: url(\'' . esc_url( $bg_image_url ) . '\');"';
 } elseif ( 'color' === $active_bg ) {
-	$section_style = ' style="background-color: ' . esc_attr( $bg_color ) . ';"';
+	$section_style = ' style="background: ' . esc_attr( $bg_color ) . ';"';
 }
 
 // Gradient: overlay div when a background is present; replaces section bg when default.
