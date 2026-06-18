@@ -290,7 +290,7 @@
                 "defaults": "Use Defaults",
                 "custom": "Customize"
             },
-            "default_value": "hidden",
+            "default_value": "defaults",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -540,7 +540,7 @@
                 "defaults": "Use Defaults",
                 "custom": "Customize"
             },
-            "default_value": "hidden",
+            "default_value": "defaults",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -904,5 +904,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1781817006
+    "modified": 1781818211
 }
