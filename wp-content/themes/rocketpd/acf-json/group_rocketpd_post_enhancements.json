@@ -462,7 +462,7 @@
             "name": "rpd_post_related_resources",
             "aria-label": "",
             "type": "relationship",
-            "instructions": "Pick up to 6 posts to show. Only used when mode is set to Custom.",
+            "instructions": "Pick up to 3 posts to show. Only used when mode is set to Custom.",
             "required": false,
             "conditional_logic": [
                 [
@@ -499,7 +499,7 @@
             ],
             "return_format": "object",
             "min": 0,
-            "max": 6,
+            "max": 3,
             "taxonomy": [],
             "bidirectional_target": []
         },

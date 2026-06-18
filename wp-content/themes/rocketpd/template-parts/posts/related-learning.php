@@ -60,7 +60,7 @@ $related = array_slice( $related, 0, 3 );
 	<div class="rpd-container">
 		<h2 class="rpd-post-related__heading"><?php esc_html_e( 'You might also like', 'rocketpd' ); ?></h2>
 
-		<div class="rpd-post-related__grid">
+		<div class="rpd-post-related__grid rpd-post-related__grid--<?php echo count( $related ); ?>">
 			<?php foreach ( $related as $item ) : ?>
 				<?php
 				$item_id    = is_object( $item ) ? $item->ID : (int) $item;
