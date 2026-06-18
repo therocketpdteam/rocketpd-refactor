@@ -538,9 +538,115 @@ Base the recommendation on the current theme structure and WordPress setup.
 
 Do not assume the Home page should be a page template without checking the existing theme and site configuration.
 
-## Build Order
+## Handoff Note — Blog Post Template (June 2026)
 
-Target build sequence:
+The single-post template was built directly on `main` without a feature branch. This was intentional for the initial build session. Claude Code should not attempt to retroactively branch this work.
+
+**What is already on main and working on staging:**
+
+- `single-post.php` — complete
+- `template-parts/posts/hero.php` — complete
+- `template-parts/posts/content.php` — complete, WPBakery-aware
+- `template-parts/posts/sidebar.php` — complete
+- `template-parts/posts/faq.php` — complete
+- `template-parts/posts/cta-band.php` — complete
+- `template-parts/posts/related-learning.php` — complete
+- `assets/css/pages/post.css` — complete
+- `assets/js/post.js` — FAQ accordion, complete
+- `inc/posts.php` — Header and Footer Scripts plugin suppression, complete
+- `inc/enqueue.php` — `is_singular( 'post' )` block added
+- `functions.php` — `posts` added to includes array
+- `AGENTS.md` — blog post template section added
+
+**Stubs that exist but are empty — pick these up in Claude Code:**
+
+- `template-parts/posts/breadcrumb.php` — needs building
+- `template-parts/posts/schema.php` — Article, BreadcrumbList, FAQPage JSON-LD
+
+**Not started:**
+
+- Breadcrumb and schema template parts (see stubs above)
+- Playwright QA on the post template
+- 35-post migration deferred — `rocketpd_strip_wpbakery()` handles legacy content at render time, so bulk DB migration is not required. Individual posts with irregular content will be handled case-by-case in Claude Code.
+
+**Branching going forward:**
+
+All new work in Claude Code should use feature branches per the Branching Workflow section above. The blog post template work on `main` is the exception, not the pattern.
+
+
+The blog post template (`single-post.php`) is fully built. Do not rebuild it unless explicitly instructed.
+
+File structure:
+
+```
+single-post.php
+template-parts/posts/hero.php         — title, dek, meta, featured image, instructor byline
+template-parts/posts/content.php      — post body (WPBakery-aware, see below)
+template-parts/posts/sidebar.php      — sticky sidebar CTA
+template-parts/posts/faq.php          — optional FAQ accordion
+template-parts/posts/related-learning.php — 3-up related posts grid
+template-parts/posts/cta-band.php     — bottom CTA band (3 variants)
+assets/css/pages/post.css             — scoped post styles
+assets/js/post.js                     — FAQ accordion JS
+inc/posts.php                         — post-specific hooks (plugin suppression etc.)
+```
+
+ACF field group: `acf-json/group_rocketpd_post_enhancements.json`
+Tabs: Hero, Sidebar, Related Learning, Bottom CTA, FAQ
+
+### WPBakery content handling
+
+Migrated posts contain legacy WPBakery shortcodes in `post_content`. The theme strips these at render time in `template-parts/posts/content.php` using `rocketpd_strip_wpbakery()`. This function:
+
+- Converts `[vc_custom_heading text="..."]` → `<h2>`
+- Converts `[divider]` → `<hr class="rpd-post-divider">`
+- Replaces container tags (`[vc_row]`, `[vc_column_text]` etc.) with `\n\n`
+- Strips remaining `vc_`, `wpb_`, `nectar_` shortcode tags
+- Runs `apply_filters( 'the_content', $cleaned )` after stripping
+
+The DB is never modified — stripping is render-time only. New Gutenberg posts are unaffected.
+
+### Plugin suppression
+
+`inc/posts.php` suppresses the "Header and Footer Scripts" plugin (by Anand Kumar, slug: `header-and-footer-scripts`) per-post head script output on single post pages. It does this by filtering `get_post_metadata` to return empty for the `_inpost_head_script` meta key on the frontend. The DB value and editor meta box are unaffected. To re-enable: comment out the `add_filter()` call in `inc/posts.php`.
+
+## Staging Domain
+
+Staging URL: `https://rocketgoeshigh.wpenginepowered.com`
+SFTP: `rocketgoeshigh.sftp.wpengine.com`
+
+## Helper Functions
+
+All helpers live in `inc/helpers.php`. Use these in all templates — do not call `get_field()` directly.
+
+```php
+// ACF field for current post, with fallback.
+rocketpd_get_field( 'field_name', $fallback, $post_id = 0 );
+
+// ACF global option, with fallback.
+rocketpd_get_option( 'field_name', $fallback );
+
+// ACF repeater rows, with fallback rows and required-key filtering.
+rocketpd_get_repeater_rows( 'field_name', $fallback_rows, $required_keys, $post_id = 0 );
+
+// Render an ACF image value (ID, array, or URL string) as <img> markup.
+rocketpd_get_image_markup( $image, $class, $alt );
+```
+
+`rocketpd_get_field()` distinguishes between a field that was never saved (returns fallback) and one intentionally cleared by an editor (returns the cleared value). Do not replicate this logic inline.
+
+## inc/ Pattern
+
+Post-type or feature-specific hooks and filters belong in a dedicated `inc/` file, not in `functions.php` or inline in templates.
+
+Current `inc/` files relevant to posts:
+- `inc/posts.php` — single post hooks (plugin suppression, future post-specific filters)
+- `inc/helpers.php` — shared helper functions
+- `inc/enqueue.php` — all asset enqueuing incl. `is_singular( 'post' )` block
+
+When adding a new `inc/` file, register it in the `$rocketpd_includes` array in `functions.php`.
+
+
 
 1. Theme scaffold
 2. Global CSS foundation
