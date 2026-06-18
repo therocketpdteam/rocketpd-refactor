@@ -392,6 +392,10 @@ file_put_contents($file, $fixed);
 
 After writing or editing any ACF JSON file, always validate with PHP before committing.
 
+### ACF JSON — modified timestamp
+
+When bumping `modified` to signal a change, always use the **current** Unix timestamp (`php -r "echo time();"`), never a future date. ACF's Sync sets the DB `modified` to `time()` — if the JSON timestamp is in the future, JSON always appears newer than DB and "Sync available" reappears after every sync. Fields work regardless of timestamp since ACF reads JSON directly at runtime; the timestamp only controls the Sync badge in the admin.
+
 ## ACF Field Group Recovery (WP-CLI)
 
 If an ACF field group is deleted from the database (e.g. after `wp post delete <id> --force`), ACF does not auto-recreate it from JSON. Use WP-CLI to force-import:
