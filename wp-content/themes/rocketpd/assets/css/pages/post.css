@@ -46,9 +46,67 @@
 }
 
 .rpd-post-hero--no-image .rpd-post-hero__inner,
-.rpd-post-hero--default:not(:has(.rpd-post-hero__image-wrap)) .rpd-post-hero__inner {
+.rpd-post-hero--default:not(:has(.rpd-post-hero__image-wrap)) .rpd-post-hero__inner,
+.rpd-post-hero--bg-image .rpd-post-hero__inner,
+.rpd-post-hero--bg-color .rpd-post-hero__inner {
 	grid-template-columns: 1fr;
 	max-width: var(--rpd-container-md);
+}
+
+/* Center text when no side image — matches Salient's default centered post header */
+.rpd-post-hero--no-image .rpd-post-hero__content,
+.rpd-post-hero--default:not(:has(.rpd-post-hero__image-wrap)) .rpd-post-hero__content,
+.rpd-post-hero--bg-image .rpd-post-hero__content,
+.rpd-post-hero--bg-color .rpd-post-hero__content {
+	text-align: center;
+	align-items: center;
+}
+
+.rpd-post-hero--no-image .rpd-post-hero__cats,
+.rpd-post-hero--default:not(:has(.rpd-post-hero__image-wrap)) .rpd-post-hero__cats,
+.rpd-post-hero--bg-image .rpd-post-hero__cats,
+.rpd-post-hero--bg-color .rpd-post-hero__cats {
+	justify-content: center;
+}
+
+.rpd-post-hero--no-image .rpd-post-hero__dek,
+.rpd-post-hero--default:not(:has(.rpd-post-hero__image-wrap)) .rpd-post-hero__dek,
+.rpd-post-hero--bg-image .rpd-post-hero__dek,
+.rpd-post-hero--bg-color .rpd-post-hero__dek {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.rpd-post-hero--no-image .rpd-post-hero__meta,
+.rpd-post-hero--default:not(:has(.rpd-post-hero__image-wrap)) .rpd-post-hero__meta,
+.rpd-post-hero--bg-image .rpd-post-hero__meta,
+.rpd-post-hero--bg-color .rpd-post-hero__meta {
+	justify-content: center;
+}
+
+/* Featured image as hero background — Salient "Featured Image Header" equivalent */
+.rpd-post-hero--bg-image {
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+/* Solid background color override */
+.rpd-post-hero--bg-color {
+	position: relative;
+}
+
+.rpd-post-hero__overlay {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+
+.rpd-post-hero--bg-image .rpd-container,
+.rpd-post-hero--bg-color .rpd-container {
+	position: relative;
+	z-index: 1;
 }
 
 .rpd-post-hero--image-right .rpd-post-hero__inner {
@@ -63,9 +121,16 @@
 }
 
 .rpd-post-hero .rpd-tag {
-	background: rgba(255, 255, 255, 0.15);
+	display: inline-block;
+	padding: 0.25rem 0.75rem;
+	border-radius: 8px;
+	border: 1.5px solid rgba(255, 255, 255, 0.4);
 	color: var(--rpd-white);
-	border-color: rgba(255, 255, 255, 0.3);
+	background: rgba(255, 255, 255, 0.12);
+	font-size: var(--rpd-font-size-sm);
+	font-weight: 600;
+	text-decoration: none;
+	letter-spacing: 0.02em;
 }
 
 .rpd-post-hero__title {
@@ -120,6 +185,37 @@
 	font-weight: 400;
 	font-size: var(--rpd-font-size-xs);
 	color: rgba(255, 255, 255, 0.65);
+}
+
+/* Dark text mode — for light backgrounds */
+.rpd-post-hero--text-dark .rpd-post-hero__title {
+	color: var(--rpd-navy);
+}
+
+.rpd-post-hero--text-dark .rpd-post-hero__dek {
+	color: var(--rpd-body);
+}
+
+.rpd-post-hero--text-dark .rpd-post-hero__meta {
+	color: var(--rpd-body);
+}
+
+.rpd-post-hero--text-dark .rpd-post-hero__author {
+	color: var(--rpd-navy);
+}
+
+.rpd-post-hero--text-dark .rpd-post-hero__author-role {
+	color: var(--rpd-body);
+}
+
+.rpd-post-hero--text-dark .rpd-post-hero__avatar {
+	border-color: var(--rpd-navy);
+}
+
+.rpd-post-hero--text-dark .rpd-tag {
+	border-color: rgba(35, 31, 88, 0.35);
+	color: var(--rpd-navy);
+	background: transparent;
 }
 
 .rpd-post-hero__image-wrap {
