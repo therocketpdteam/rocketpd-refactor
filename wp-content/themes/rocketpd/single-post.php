@@ -18,14 +18,17 @@ while ( have_posts() ) {
 		<?php get_template_part( 'template-parts/posts/breadcrumb' ); ?>
 		<?php get_template_part( 'template-parts/posts/hero' ); ?>
 
-		<div class="rpd-post-body rpd-container">
+		<?php $sidebar_mode = rocketpd_get_field( 'rpd_post_sidebar_cta_mode', 'hidden' ); ?>
+		<div class="rpd-post-body rpd-container<?php echo 'hidden' === $sidebar_mode ? ' rpd-post-body--no-sidebar' : ''; ?>">
 			<div class="rpd-post-body__main">
 				<?php get_template_part( 'template-parts/posts/content' ); ?>
 				<?php get_template_part( 'template-parts/posts/faq' ); ?>
 			</div>
-			<aside class="rpd-post-body__sidebar">
-				<?php get_template_part( 'template-parts/posts/sidebar' ); ?>
-			</aside>
+			<?php if ( 'hidden' !== $sidebar_mode ) : ?>
+				<aside class="rpd-post-body__sidebar">
+					<?php get_template_part( 'template-parts/posts/sidebar' ); ?>
+				</aside>
+			<?php endif; ?>
 		</div>
 
 		<?php get_template_part( 'template-parts/posts/related-learning' ); ?>

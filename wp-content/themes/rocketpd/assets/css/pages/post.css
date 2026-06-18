@@ -28,6 +28,13 @@
 	top: 6rem;
 }
 
+.rpd-post-body--no-sidebar {
+	grid-template-columns: 1fr;
+	max-width: var(--rpd-container-md);
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* --------------------------------------------------------------------------
    Hero
    -------------------------------------------------------------------------- */
