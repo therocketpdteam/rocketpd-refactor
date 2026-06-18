@@ -50,12 +50,50 @@
             "save_options": 0
         },
         {
+            "key": "field_rpd_post_hero_bg_color",
+            "label": "Page Header Background Color",
+            "name": "rpd_post_hero_bg_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "Sets a solid background color for the hero. Overrides the Featured Image as the hero background (the Featured Image is still used for post cards and SEO). Leave empty to use the Featured Image or the default navy.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "enable_opacity": false,
+            "return_format": "string"
+        },
+        {
+            "key": "field_rpd_post_hero_gradient_enabled",
+            "label": "Enable Gradient Overlay",
+            "name": "rpd_post_hero_gradient_enabled",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Applies the gradient over whichever background is active (Featured Image, Background Color, or the default navy). Toggle off to preserve saved colors without applying them.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "On",
+            "ui_off_text": "Off"
+        },
+        {
             "key": "field_rpd_post_hero_gradient_start",
-            "label": "Page Header Gradient Start",
+            "label": "Gradient Start Color",
             "name": "rpd_post_hero_gradient_start",
             "aria-label": "",
             "type": "color_picker",
-            "instructions": "Start color of the header gradient (top-left). Leave both gradient fields empty to use the default navy gradient. When a Featured Image is set, the gradient overlays the image - use the Opacity field to control transparency.",
+            "instructions": "Left/top anchor of the gradient.",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -69,11 +107,11 @@
         },
         {
             "key": "field_rpd_post_hero_gradient_end",
-            "label": "Page Header Gradient End",
+            "label": "Gradient End Color",
             "name": "rpd_post_hero_gradient_end",
             "aria-label": "",
             "type": "color_picker",
-            "instructions": "End color of the header gradient (bottom-right).",
+            "instructions": "Right/bottom anchor of the gradient.",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -87,11 +125,11 @@
         },
         {
             "key": "field_rpd_post_hero_gradient_opacity",
-            "label": "Page Header Gradient Opacity",
+            "label": "Gradient Overlay Opacity",
             "name": "rpd_post_hero_gradient_opacity",
             "aria-label": "",
             "type": "range",
-            "instructions": "Controls gradient transparency (0 = fully transparent, 100 = fully opaque). Only applies when a Featured Image is set — the gradient overlays the image at this opacity.",
+            "instructions": "How strongly the gradient covers the background (0 = fully transparent, 100 = fully opaque). Only applies when a Featured Image or Background Color is set. Ignored when the gradient is the sole background.",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -674,5 +712,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1781913600
+    "modified": 1781999999
 }

@@ -42,17 +42,27 @@ if ( ! $reading_time ) {
 	$reading_time = $minutes . ' min read';
 }
 
-// Featured image → always used as Page Header Image (Salient equivalent).
+// Background priority: BG Color Override > Featured Image > Default navy (CSS).
+$bg_color     = rocketpd_get_field( 'rpd_post_hero_bg_color', '' );
 $bg_image_url = has_post_thumbnail()
 	? get_the_post_thumbnail_url( get_the_ID(), 'full' )
 	: '';
 
-// Gradient fields (Page Header Gradient Start/End + Opacity).
+if ( $bg_color ) {
+	$active_bg = 'color';
+} elseif ( $bg_image_url ) {
+	$active_bg = 'image';
+} else {
+	$active_bg = 'default';
+}
+
+// Gradient overlay — independent of background type.
+$gradient_enabled = (bool) rocketpd_get_field( 'rpd_post_hero_gradient_enabled', false );
 $gradient_start   = rocketpd_get_field( 'rpd_post_hero_gradient_start', '' );
 $gradient_end     = rocketpd_get_field( 'rpd_post_hero_gradient_end', '' );
 $gradient_opacity = (int) rocketpd_get_field( 'rpd_post_hero_gradient_opacity', 80 );
 $gradient_opacity = max( 0, min( 100, $gradient_opacity ) );
-$has_gradient     = $gradient_start && $gradient_end;
+$has_gradient     = $gradient_enabled && $gradient_start && $gradient_end;
 
 // Side image: ACF override only — featured image is reserved for the background.
 $side_image_id  = 0;
@@ -61,8 +71,8 @@ $image_override = rocketpd_get_field( 'rpd_post_hero_image_override', null );
 
 if ( $image_override && is_array( $image_override ) && ! empty( $image_override['url'] ) ) {
 	$side_image_url = $image_override['url'];
-} elseif ( ! $bg_image_url && get_post_thumbnail_id() ) {
-	// Only fall back to featured image for side slot when no bg image is in use.
+} elseif ( 'default' === $active_bg && get_post_thumbnail_id() ) {
+	// Only fall back to featured image for side slot when it isn't used as the background.
 	$side_image_id = get_post_thumbnail_id();
 }
 
@@ -90,30 +100,40 @@ $categories = get_the_category();
 $modifier = 'rpd-post-hero--' . sanitize_html_class( $hero_style ?: 'default' );
 $has_side = ( $side_image_url || $side_image_id ) && 'no-image' !== $hero_style;
 
-if ( $bg_image_url ) {
+if ( 'image' === $active_bg ) {
 	$modifier .= ' rpd-post-hero--bg-image';
-	$has_side  = false; // suppress side image when featured image fills the background
+	$has_side  = false;
+} elseif ( 'color' === $active_bg ) {
+	$modifier .= ' rpd-post-hero--bg-color';
+	$has_side  = false;
 }
 
 // Build inline styles for section and overlay.
 $section_style = '';
-if ( $bg_image_url ) {
+if ( 'image' === $active_bg ) {
 	$section_style = ' style="background-image: url(\'' . esc_url( $bg_image_url ) . '\');"';
+} elseif ( 'color' === $active_bg ) {
+	$section_style = ' style="background-color: ' . esc_attr( $bg_color ) . ';"';
 }
 
+// Gradient: overlay div when a background is present; replaces section bg when default.
 $overlay_style = '';
-if ( $bg_image_url && $has_gradient ) {
-	$opacity_decimal = round( $gradient_opacity / 100, 2 );
-	$overlay_style   = ' style="background: linear-gradient(135deg, ' . esc_attr( $gradient_start ) . ', ' . esc_attr( $gradient_end ) . '); opacity: ' . $opacity_decimal . ';"';
-} elseif ( $has_gradient && ! $bg_image_url ) {
-	// No featured image: gradient is the section background itself.
-	$section_style = ' style="background: linear-gradient(135deg, ' . esc_attr( $gradient_start ) . ', ' . esc_attr( $gradient_end ) . ');"';
+if ( $has_gradient ) {
+	$grad_css = 'background: linear-gradient(135deg, ' . esc_attr( $gradient_start ) . ', ' . esc_attr( $gradient_end ) . ');';
+	if ( 'default' === $active_bg ) {
+		// Gradient becomes the background — no image/color behind it.
+		$section_style = ' style="' . $grad_css . '"';
+	} else {
+		// Gradient overlays the image or color at the chosen opacity.
+		$opacity_decimal = round( $gradient_opacity / 100, 2 );
+		$overlay_style   = ' style="' . $grad_css . ' opacity: ' . $opacity_decimal . ';"';
+	}
 }
 ?>
 
 <section class="rpd-post-hero <?php echo esc_attr( $modifier ); ?>"<?php echo $section_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above ?> aria-label="<?php esc_attr_e( 'Article header', 'rocketpd' ); ?>">
 
-	<?php if ( $bg_image_url ) : ?>
+	<?php if ( $overlay_style ) : ?>
 		<div class="rpd-post-hero__overlay"<?php echo $overlay_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above ?> aria-hidden="true"></div>
 	<?php endif; ?>
 
