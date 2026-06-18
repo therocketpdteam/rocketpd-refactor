@@ -13,7 +13,6 @@ get_header();
 
 while ( have_posts() ) {
 	the_post();
-	get_template_part( 'template-parts/posts/schema' );
 	?>
 	<main id="primary" class="rpd-site-main rpd-post-page">
 		<?php get_template_part( 'template-parts/posts/breadcrumb' ); ?>
