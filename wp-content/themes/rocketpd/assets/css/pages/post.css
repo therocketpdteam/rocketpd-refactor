@@ -121,9 +121,16 @@
 }
 
 .rpd-post-hero .rpd-tag {
-	background: rgba(255, 255, 255, 0.15);
+	display: inline-block;
+	padding: 0.25rem 0.75rem;
+	border-radius: 0.375rem;
+	border: 1.5px solid rgba(255, 255, 255, 0.6);
 	color: var(--rpd-white);
-	border-color: rgba(255, 255, 255, 0.3);
+	background: transparent;
+	font-size: var(--rpd-font-size-sm);
+	font-weight: 600;
+	text-decoration: none;
+	letter-spacing: 0.02em;
 }
 
 .rpd-post-hero__title {
@@ -206,9 +213,9 @@
 }
 
 .rpd-post-hero--text-dark .rpd-tag {
-	background: rgba(35, 31, 88, 0.08);
+	border-color: rgba(35, 31, 88, 0.35);
 	color: var(--rpd-navy);
-	border-color: rgba(35, 31, 88, 0.2);
+	background: transparent;
 }
 
 .rpd-post-hero__image-wrap {
