@@ -46,9 +46,57 @@
 }
 
 .rpd-post-hero--no-image .rpd-post-hero__inner,
-.rpd-post-hero--default:not(:has(.rpd-post-hero__image-wrap)) .rpd-post-hero__inner {
+.rpd-post-hero--default:not(:has(.rpd-post-hero__image-wrap)) .rpd-post-hero__inner,
+.rpd-post-hero--bg-image .rpd-post-hero__inner {
 	grid-template-columns: 1fr;
 	max-width: var(--rpd-container-md);
+}
+
+/* Center text when no side image — matches Salient's default centered post header */
+.rpd-post-hero--no-image .rpd-post-hero__content,
+.rpd-post-hero--default:not(:has(.rpd-post-hero__image-wrap)) .rpd-post-hero__content,
+.rpd-post-hero--bg-image .rpd-post-hero__content {
+	text-align: center;
+	align-items: center;
+}
+
+.rpd-post-hero--no-image .rpd-post-hero__cats,
+.rpd-post-hero--default:not(:has(.rpd-post-hero__image-wrap)) .rpd-post-hero__cats,
+.rpd-post-hero--bg-image .rpd-post-hero__cats {
+	justify-content: center;
+}
+
+.rpd-post-hero--no-image .rpd-post-hero__dek,
+.rpd-post-hero--default:not(:has(.rpd-post-hero__image-wrap)) .rpd-post-hero__dek,
+.rpd-post-hero--bg-image .rpd-post-hero__dek {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.rpd-post-hero--no-image .rpd-post-hero__meta,
+.rpd-post-hero--default:not(:has(.rpd-post-hero__image-wrap)) .rpd-post-hero__meta,
+.rpd-post-hero--bg-image .rpd-post-hero__meta {
+	justify-content: center;
+}
+
+/* Featured image as hero background — Salient "Featured Image Header" equivalent */
+.rpd-post-hero--bg-image {
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.rpd-post-hero__overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(20, 18, 50, 0.72);
+	pointer-events: none;
+}
+
+.rpd-post-hero--bg-image .rpd-container {
+	position: relative;
+	z-index: 1;
 }
 
 .rpd-post-hero--image-right .rpd-post-hero__inner {

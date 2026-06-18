@@ -3,11 +3,17 @@
  * Post hero section.
  *
  * ACF fields used:
- *   rpd_post_hero_style         — 'default' | 'image-right' | 'no-image'
- *   rpd_post_dek                — optional summary; falls back to post excerpt
- *   rpd_post_hero_image_override — optional image; falls back to featured image
- *   rpd_post_reading_time_override — optional string e.g. '5 min read'
- *   rpd_post_featured_instructor — post object (instructor CPT)
+ *   rpd_post_hero_style              — 'default' | 'image-right' | 'no-image'
+ *   rpd_post_hero_use_featured_bg    — true/false; use featured image as hero background
+ *   rpd_post_dek                     — optional summary; falls back to post excerpt
+ *   rpd_post_hero_image_override     — optional side image; falls back to featured image
+ *   rpd_post_reading_time_override   — optional string e.g. '5 min read'
+ *   rpd_post_featured_instructor     — post object (instructor CPT)
+ *
+ * Background image mode (rpd_post_hero_use_featured_bg):
+ *   Equivalent to Salient's "Featured Image Header" post style. The featured
+ *   image fills the hero background with a dark overlay; content is centered.
+ *   Falls back to the navy gradient if no featured image is set.
  *
  * @package RocketPD
  */
@@ -18,6 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // --- Data ---
 $hero_style   = rocketpd_get_field( 'rpd_post_hero_style', 'default' );
+$use_bg_image = rocketpd_get_field( 'rpd_post_hero_use_featured_bg', false );
 $dek          = rocketpd_get_field( 'rpd_post_dek', '' );
 $reading_time = rocketpd_get_field( 'rpd_post_reading_time_override', '' );
 
@@ -31,7 +38,7 @@ if ( ! $reading_time ) {
 	$reading_time = $minutes . ' min read';
 }
 
-// Hero image: ACF override → featured image → none.
+// Side image: ACF override → featured image → none.
 $hero_image_id  = 0;
 $hero_image_url = '';
 $image_override = rocketpd_get_field( 'rpd_post_hero_image_override', null );
@@ -40,6 +47,12 @@ if ( $image_override && is_array( $image_override ) && ! empty( $image_override[
 	$hero_image_url = $image_override['url'];
 } elseif ( has_post_thumbnail() ) {
 	$hero_image_id = get_post_thumbnail_id();
+}
+
+// Background image mode: featured image as hero bg.
+$bg_image_url = '';
+if ( $use_bg_image && has_post_thumbnail() ) {
+	$bg_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
 }
 
 // Featured instructor pull-through.
@@ -62,12 +75,25 @@ if ( $instructor_obj instanceof WP_Post ) {
 // Categories.
 $categories = get_the_category();
 
-// Modifier class.
+// Modifier classes.
 $modifier = 'rpd-post-hero--' . sanitize_html_class( $hero_style ?: 'default' );
-$has_img  = ( $hero_image_url || $hero_image_id ) && 'no-image' !== $hero_style;
+$has_side = ( $hero_image_url || $hero_image_id ) && 'no-image' !== $hero_style && ! $bg_image_url;
+
+if ( $bg_image_url ) {
+	$modifier .= ' rpd-post-hero--bg-image';
+}
+
+$section_attrs = 'class="rpd-post-hero ' . esc_attr( $modifier ) . '" aria-label="' . esc_attr__( 'Article header', 'rocketpd' ) . '"';
+if ( $bg_image_url ) {
+	$section_attrs .= ' style="background-image: url(\'' . esc_url( $bg_image_url ) . '\');"';
+}
 ?>
 
-<section class="rpd-post-hero <?php echo esc_attr( $modifier ); ?>" aria-label="<?php esc_attr_e( 'Article header', 'rocketpd' ); ?>">
+<section <?php echo $section_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- all parts escaped above ?>>
+	<?php if ( $bg_image_url ) : ?>
+		<div class="rpd-post-hero__overlay" aria-hidden="true"></div>
+	<?php endif; ?>
+
 	<div class="rpd-container rpd-post-hero__inner">
 
 		<div class="rpd-post-hero__content">
@@ -111,7 +137,7 @@ $has_img  = ( $hero_image_url || $hero_image_id ) && 'no-image' !== $hero_style;
 
 		</div>
 
-		<?php if ( $has_img ) : ?>
+		<?php if ( $has_side ) : ?>
 			<div class="rpd-post-hero__image-wrap">
 				<?php if ( $hero_image_url ) : ?>
 					<img class="rpd-post-hero__image" src="<?php echo esc_url( $hero_image_url ); ?>" alt="<?php the_title_attribute(); ?>">

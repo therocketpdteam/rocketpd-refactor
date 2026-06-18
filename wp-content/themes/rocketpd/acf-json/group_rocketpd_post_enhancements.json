@@ -50,6 +50,26 @@
             "save_options": 0
         },
         {
+            "key": "field_rpd_post_hero_use_featured_bg",
+            "label": "Use Featured Image as Header Background",
+            "name": "rpd_post_hero_use_featured_bg",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "When enabled, the featured image fills the hero background (with a dark overlay) instead of the navy gradient. Equivalent to Salient’s “Featured Image Header” post style. Has no effect if no featured image is set.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "ui": 1,
+            "message": "",
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_rpd_post_dek",
             "label": "Dek Override",
             "name": "rpd_post_dek",
