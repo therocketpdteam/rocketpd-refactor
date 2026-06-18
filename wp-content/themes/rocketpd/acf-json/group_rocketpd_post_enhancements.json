@@ -389,8 +389,8 @@
             "label": "Sidebar CTA URL",
             "name": "rpd_post_sidebar_cta_url",
             "aria-label": "",
-            "type": "url",
-            "instructions": "Falls back to the global community URL when empty.",
+            "type": "text",
+            "instructions": "Absolute (https://example.com) or relative (/page/) URL. Falls back to the global community URL when empty.",
             "required": false,
             "conditional_logic": [
                 [
@@ -691,8 +691,8 @@
             "label": "Bottom CTA Primary URL",
             "name": "rpd_post_bottom_cta_primary_url",
             "aria-label": "",
-            "type": "url",
-            "instructions": "",
+            "type": "text",
+            "instructions": "Absolute (https://example.com) or relative (/page/) URL.",
             "required": false,
             "conditional_logic": [
                 [
@@ -754,8 +754,8 @@
             "label": "Bottom CTA Secondary URL",
             "name": "rpd_post_bottom_cta_secondary_url",
             "aria-label": "",
-            "type": "url",
-            "instructions": "",
+            "type": "text",
+            "instructions": "Absolute (https://example.com) or relative (/page/) URL.",
             "required": false,
             "conditional_logic": [
                 [
@@ -904,5 +904,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1781815642
+    "modified": 1781817006
 }
