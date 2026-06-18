@@ -515,60 +515,66 @@
 }
 
 .rpd-post-related__card {
-	display: flex;
-	flex-direction: column;
-	background: var(--rpd-white);
-	border: 1px solid var(--rpd-color-border);
+	position: relative;
+	display: block;
+	height: 240px;
 	border-radius: var(--rpd-radius);
 	overflow: hidden;
+	background: var(--gradient-navy);
+	background-size: cover;
+	background-position: center;
 	text-decoration: none;
-	transition: box-shadow var(--rpd-transition), transform var(--rpd-transition);
-	box-shadow: var(--rpd-shadow-sm);
+	transition: transform var(--rpd-transition);
 }
 
 .rpd-post-related__card:hover {
-	box-shadow: var(--rpd-shadow-md);
-	transform: translateY(-2px);
+	transform: translateY(-3px);
 }
 
-.rpd-post-related__card-img {
-	aspect-ratio: 16 / 9;
-	overflow: hidden;
-	background: var(--rpd-bg-soft-alt);
-}
-
-.rpd-post-related__card-img img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-}
-
-.rpd-post-related__card-img--placeholder {
-	background: var(--gradient-navy);
+.rpd-post-related__card-overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to top, rgba(26, 23, 68, 0.92) 0%, rgba(26, 23, 68, 0.45) 55%, rgba(26, 23, 68, 0.1) 100%);
 }
 
 .rpd-post-related__card-body {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	padding: var(--rpd-space-5);
 	display: flex;
 	flex-direction: column;
 	gap: var(--rpd-space-2);
-	flex: 1;
+	z-index: 1;
+}
+
+.rpd-post-related__card .rpd-tag {
+	display: inline-block;
+	padding: 0.2rem 0.6rem;
+	border-radius: 6px;
+	border: 1.5px solid rgba(255, 255, 255, 0.35);
+	color: var(--rpd-white);
+	background: rgba(255, 255, 255, 0.1);
+	font-size: var(--rpd-font-size-xs);
+	font-weight: 600;
+	text-decoration: none;
+	letter-spacing: 0.02em;
+	align-self: flex-start;
 }
 
 .rpd-post-related__card-title {
 	font-family: var(--font-heading);
 	font-size: var(--rpd-font-size-base);
 	font-weight: 700;
-	color: var(--rpd-color-heading);
+	color: var(--rpd-white);
 	margin: 0;
 	line-height: var(--rpd-line-height-heading);
 }
 
 .rpd-post-related__card-date {
 	font-size: var(--rpd-font-size-xs);
-	color: var(--rpd-color-text-muted);
-	margin-top: auto;
+	color: rgba(255, 255, 255, 0.6);
 }
 
 /* --------------------------------------------------------------------------

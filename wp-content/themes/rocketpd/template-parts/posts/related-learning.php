@@ -6,6 +6,12 @@
  *   rpd_post_related_mode      — 'hidden' | 'auto' | 'custom'
  *   rpd_post_related_resources — relationship field; only used when mode = 'custom'
  *
+ * Card background priority per item:
+ *   1. Featured image
+ *   2. Instructor headshot (cohort: rpd_cohort_instructor → rpd_instructor_headshot;
+ *                           course:  rpd_course_instructor_headshot)
+ *   3. Brand gradient fallback (CSS)
+ *
  * @package RocketPD
  */
 
@@ -62,17 +68,33 @@ $related = array_slice( $related, 0, 3 );
 				$item_url   = get_permalink( $item_id );
 				$item_type  = get_post_type( $item_id );
 				$item_date  = get_the_date( '', $item_id );
-				$thumb_url  = get_the_post_thumbnail_url( $item_id, 'medium' );
 				$cats       = get_the_category( $item_id );
 				$cat_name   = ! empty( $cats ) ? $cats[0]->name : ucfirst( str_replace( '_', ' ', $item_type ) );
+
+				// Resolve card background: featured image → instructor headshot → gradient (CSS).
+				$card_bg_url = get_the_post_thumbnail_url( $item_id, 'large' );
+
+				if ( ! $card_bg_url ) {
+					if ( 'cohort' === $item_type ) {
+						$instructor_obj = get_field( 'rpd_cohort_instructor', $item_id );
+						$instructor_id  = is_object( $instructor_obj ) ? $instructor_obj->ID : (int) $instructor_obj;
+						if ( $instructor_id ) {
+							$headshot    = get_field( 'rpd_instructor_headshot', $instructor_id );
+							$card_bg_url = is_array( $headshot ) ? ( $headshot['url'] ?? '' ) : (string) $headshot;
+						}
+					} elseif ( 'course' === $item_type ) {
+						$headshot    = get_field( 'rpd_course_instructor_headshot', $item_id );
+						$card_bg_url = is_array( $headshot ) ? ( $headshot['url'] ?? '' ) : (string) $headshot;
+					}
+				}
+
+				$card_style = $card_bg_url
+					? ' style="background-image: url(\'' . esc_url( $card_bg_url ) . '\');"'
+					: '';
 				?>
-				<a class="rpd-post-related__card" href="<?php echo esc_url( $item_url ); ?>">
-					<?php if ( $thumb_url ) : ?>
-						<div class="rpd-post-related__card-img">
-							<img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php echo esc_attr( $item_title ); ?>">
-						</div>
-					<?php else : ?>
-						<div class="rpd-post-related__card-img rpd-post-related__card-img--placeholder"></div>
+				<a class="rpd-post-related__card" href="<?php echo esc_url( $item_url ); ?>"<?php echo $card_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above ?>>
+					<?php if ( $card_bg_url ) : ?>
+						<div class="rpd-post-related__card-overlay" aria-hidden="true"></div>
 					<?php endif; ?>
 					<div class="rpd-post-related__card-body">
 						<span class="rpd-tag"><?php echo esc_html( $cat_name ); ?></span>
