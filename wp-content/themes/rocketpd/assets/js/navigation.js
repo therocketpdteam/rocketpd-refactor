@@ -40,19 +40,24 @@
 		}
 	});
 
-	// Mobile sub-menu toggles — buttons are already rendered by mobile-menu.php.
-	menu.querySelectorAll('.rpd-mobile-sub-toggle').forEach((chevron) => {
-		const subMenu = chevron.nextElementSibling;
+	// Mobile sub-menu toggles — delegate from document so SVG child clicks are caught.
+	document.addEventListener('click', (e) => {
+		const chevron = e.target.closest('.rpd-mobile-sub-toggle');
 
-		if (!subMenu || !subMenu.classList.contains('sub-menu')) {
+		if (!chevron || !menu.contains(chevron)) {
 			return;
 		}
 
-		chevron.addEventListener('click', () => {
-			const isOpen = chevron.getAttribute('aria-expanded') === 'true';
-			chevron.setAttribute('aria-expanded', String(!isOpen));
-			subMenu.classList.toggle('is-open', !isOpen);
-			chevron.closest('li').classList.toggle('is-open', !isOpen);
-		});
+		const li = chevron.closest('li');
+		const subMenu = li && li.querySelector(':scope > .sub-menu');
+
+		if (!subMenu) {
+			return;
+		}
+
+		const isOpen = chevron.getAttribute('aria-expanded') === 'true';
+		chevron.setAttribute('aria-expanded', String(!isOpen));
+		subMenu.classList.toggle('is-open', !isOpen);
+		li.classList.toggle('is-open', !isOpen);
 	});
 })();
