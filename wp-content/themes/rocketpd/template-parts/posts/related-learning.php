@@ -10,7 +10,7 @@
  *   1. Featured image
  *   2. Instructor headshot (cohort: rpd_cohort_instructor → rpd_instructor_headshot;
  *                           course:  rpd_course_instructor_headshot)
- *   3. Brand gradient fallback (CSS)
+ *   3. Geometric brand image (/wp-content/uploads/2023/05/RPD-geometric_HEADER3_noperson.jpg)
  *
  * @package RocketPD
  */
@@ -71,7 +71,7 @@ $related = array_slice( $related, 0, 3 );
 				$cats       = get_the_category( $item_id );
 				$cat_name   = ! empty( $cats ) ? $cats[0]->name : ucfirst( str_replace( '_', ' ', $item_type ) );
 
-				// Resolve card background: featured image → instructor headshot → gradient (CSS).
+				// Resolve card background: featured image → instructor headshot → geometric brand image.
 				$card_bg_url = get_the_post_thumbnail_url( $item_id, 'large' );
 
 				if ( ! $card_bg_url ) {
@@ -88,14 +88,13 @@ $related = array_slice( $related, 0, 3 );
 					}
 				}
 
-				$card_style = $card_bg_url
-					? ' style="background-image: url(\'' . esc_url( $card_bg_url ) . '\');"'
-					: '';
+				if ( ! $card_bg_url ) {
+					$card_bg_url = home_url( '/wp-content/uploads/2023/05/RPD-geometric_HEADER3_noperson.jpg' );
+				}
+				$card_style = ' style="background-image: url(\'' . esc_url( $card_bg_url ) . '\');"';
 				?>
 				<a class="rpd-post-related__card" href="<?php echo esc_url( $item_url ); ?>"<?php echo $card_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above ?>>
-					<?php if ( $card_bg_url ) : ?>
-						<div class="rpd-post-related__card-overlay" aria-hidden="true"></div>
-					<?php endif; ?>
+					<div class="rpd-post-related__card-overlay" aria-hidden="true"></div>
 					<div class="rpd-post-related__card-body">
 						<span class="rpd-tag"><?php echo esc_html( $cat_name ); ?></span>
 						<h3 class="rpd-post-related__card-title"><?php echo esc_html( $item_title ); ?></h3>
