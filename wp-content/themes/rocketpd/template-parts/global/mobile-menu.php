@@ -35,9 +35,6 @@ $nav_links          = isset( $args['nav_links'] ) && is_array( $args['nav_links'
 						<li>
 							<a href="<?php echo esc_url( $nav_url ); ?>"><?php echo esc_html( $nav_label ); ?></a>
 							<?php if ( ! empty( $nav_children ) ) : ?>
-								<button class="rpd-mobile-sub-toggle" aria-expanded="false">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-								</button>
 								<ul class="sub-menu">
 									<?php foreach ( $nav_children as $child ) : ?>
 										<li>
