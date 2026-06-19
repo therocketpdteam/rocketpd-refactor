@@ -56,6 +56,7 @@
    -------------------------------------------------------------------------- */
 
 .rpd-blog-card {
+	position: relative;
 	background: var(--rpd-color-surface);
 	border: 1px solid var(--rpd-color-border);
 	border-radius: var(--rpd-radius);
@@ -70,14 +71,18 @@
 	box-shadow: var(--rpd-shadow-md);
 }
 
+.rpd-blog-card__link {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+
 .rpd-blog-card__thumb {
-	display: block;
 	position: relative;
 	height: 180px;
 	background-size: cover;
 	background-position: center;
 	background-color: var(--gradient-navy);
-	text-decoration: none;
 	flex-shrink: 0;
 }
 
@@ -132,14 +137,6 @@
 	line-height: var(--rpd-line-height-heading);
 }
 
-.rpd-blog-card__title a {
-	color: inherit;
-	text-decoration: none;
-}
-
-.rpd-blog-card__title a:hover {
-	color: var(--rpd-purple);
-}
 
 .rpd-blog-card__excerpt {
 	font-size: var(--rpd-font-size-sm);

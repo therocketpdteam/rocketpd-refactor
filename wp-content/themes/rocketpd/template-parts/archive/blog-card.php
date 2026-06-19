@@ -35,21 +35,20 @@ $reading_time = max( 1, (int) round( $word_count / 200 ) ) . ' min read';
 ?>
 
 <article class="rpd-blog-card">
-	<a class="rpd-blog-card__thumb" href="<?php echo esc_url( $permalink ); ?>" style="background-image: url('<?php echo esc_url( $thumb_url ); ?>');" aria-hidden="true" tabindex="-1">
+	<a class="rpd-blog-card__link" href="<?php echo esc_url( $permalink ); ?>" aria-label="<?php echo esc_attr( $title ); ?>"></a>
+	<div class="rpd-blog-card__thumb" style="background-image: url('<?php echo esc_url( $thumb_url ); ?>');">
 		<div class="rpd-blog-card__thumb-overlay"></div>
 		<?php if ( $cat_name ) : ?>
 			<span class="rpd-tag rpd-blog-card__tag"><?php echo esc_html( $cat_name ); ?></span>
 		<?php endif; ?>
-	</a>
+	</div>
 	<div class="rpd-blog-card__body">
 		<p class="rpd-blog-card__meta">
 			<span class="rpd-blog-card__author"><?php echo esc_html( $author ); ?></span>
 			<span class="rpd-blog-card__sep" aria-hidden="true">·</span>
 			<time class="rpd-blog-card__date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( $date ); ?></time>
 		</p>
-		<h3 class="rpd-blog-card__title">
-			<a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a>
-		</h3>
+		<h3 class="rpd-blog-card__title"><?php echo esc_html( $title ); ?></h3>
 		<?php if ( $excerpt ) : ?>
 			<p class="rpd-blog-card__excerpt"><?php echo esc_html( $excerpt ); ?></p>
 		<?php endif; ?>
