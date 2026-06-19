@@ -40,33 +40,27 @@
 		}
 	});
 
-	// Mobile sub-menu toggles
-	menu.querySelectorAll('.rpd-menu > li > a').forEach((link) => {
-		const subMenu = link.nextElementSibling;
+	// Mobile sub-menu toggles — inject chevron buttons, mirroring how the WP primary nav worked.
+	menu.querySelectorAll('.rpd-menu > li').forEach((li) => {
+		const subMenu = li.querySelector(':scope > .sub-menu');
 
-		if (!subMenu || !subMenu.classList.contains('sub-menu')) {
+		if (!subMenu) {
 			return;
 		}
 
-		// Add chevron button
 		const chevron = document.createElement('button');
+		chevron.type = 'button';
 		chevron.className = 'rpd-mobile-sub-toggle';
 		chevron.setAttribute('aria-expanded', 'false');
-		chevron.setAttribute('aria-label', 'Toggle sub-menu');
-		chevron.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+		chevron.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>';
 
-		link.parentElement.insertBefore(chevron, subMenu);
+		li.insertBefore(chevron, subMenu);
 
-		const toggleSub = () => {
+		chevron.addEventListener('click', () => {
 			const isOpen = chevron.getAttribute('aria-expanded') === 'true';
 			chevron.setAttribute('aria-expanded', String(!isOpen));
 			subMenu.classList.toggle('is-open', !isOpen);
-			link.parentElement.classList.toggle('is-open', !isOpen);
-		};
-
-		chevron.addEventListener('click', (e) => {
-			e.preventDefault();
-			toggleSub();
+			li.classList.toggle('is-open', !isOpen);
 		});
 	});
 })();
