@@ -223,6 +223,10 @@ function rocketpd_enqueue_assets() {
 		$enqueue_page_style( 'rocketpd-home', '/assets/css/pages/home.css' );
 	}
 
+	if ( is_category() ) {
+		$enqueue_page_style( 'rocketpd-blog', '/assets/css/pages/blog.css' );
+	}
+
 	if ( is_singular( 'post' ) ) {
 		$enqueue_page_style( 'rocketpd-post', '/assets/css/pages/post.css' );
 
