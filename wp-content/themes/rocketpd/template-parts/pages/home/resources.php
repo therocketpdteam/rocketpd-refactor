@@ -45,7 +45,7 @@ $resource_cards  = array_filter(
 $resource_cards  = $resource_cards ? $resource_cards : $fallback_resources;
 
 $resource_icon_map = array(
-	'book'  => 'book',
+	'book'  => 'book-open',
 	'play'  => 'play',
 	'doc'   => 'file-text',
 	'audio' => 'headphones',

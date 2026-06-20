@@ -36,12 +36,12 @@ $card_body  = rocketpd_get_field( 'rpd_home_launchpad_card_body', __( 'School Le
 				echo $image_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} else {
 				?>
-				<div class="rpd-home-image-fallback rpd-home-image-fallback--team" role="img" aria-label="<?php esc_attr_e( 'Educators collaborating around a laptop', 'rocketpd' ); ?>"></div>
+				<img src="/wp-content/uploads/2026/06/educators-collaborating-laptop-professional-learning-scaled.jpg" class="rpd-home-launchpad__image" alt="<?php esc_attr_e( 'Three educators reviewing data together around a laptop during a professional learning session', 'rocketpd' ); ?>" loading="lazy" />
 				<?php
 			}
 			?>
 			<div class="rpd-home-cohort-card">
-				<span class="rpd-home-cohort-card__icon" aria-hidden="true"></span>
+				<span class="rpd-home-cohort-card__icon" aria-hidden="true"><?php echo rocketpd_get_icon( 'users', 20 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 				<strong><?php echo esc_html( $card_label ); ?></strong>
 				<small><?php echo esc_html( $card_body ); ?></small>
 			</div>

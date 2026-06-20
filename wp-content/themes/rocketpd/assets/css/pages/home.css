@@ -209,18 +209,10 @@
 	grid-row: span 2;
 }
 
-.rpd-home-hero-stat span::before,
-.rpd-home-cohort-card span::before {
-	display: block;
+.rpd-home-hero-stat span .rpd-svg-icon,
+.rpd-home-cohort-card span .rpd-svg-icon {
 	width: 1.25rem;
 	height: 1.25rem;
-	background: currentColor;
-	content: "";
-	mask: radial-gradient(circle at 35% 35%, #000 0 22%, transparent 23%), radial-gradient(circle at 67% 35%, #000 0 18%, transparent 19%), linear-gradient(#000 0 0) center 72% / 88% 34% no-repeat;
-}
-
-.rpd-home-cohort-card span::before {
-	mask: linear-gradient(#000 0 0) center 62% / 82% 66% no-repeat, linear-gradient(#000 0 0) center 24% / 82% 18% no-repeat;
 }
 
 .rpd-home-hero-stat strong,
@@ -609,9 +601,13 @@
 }
 
 .rpd-home-resource-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
 	overflow: hidden;
 	border: 1px solid var(--rpd-home-line);
 	border-radius: 1rem;
+	cursor: pointer;
 	background: var(--rpd-white);
 	box-shadow: var(--rpd-shadow-sm);
 	transition: border-color var(--rpd-transition), box-shadow var(--rpd-transition), transform var(--rpd-transition);
@@ -697,6 +693,9 @@
 
 
 .rpd-home-resource-card__body {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
 	padding: 1.6rem;
 }
 
@@ -705,12 +704,19 @@
 	color: var(--rpd-purple-deep);
 }
 
+.rpd-home-resource-card a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+
 .rpd-home-resource-card__body footer {
 	display: flex;
 	justify-content: space-between;
 	gap: 1rem;
 	align-items: center;
-	margin-top: 1.5rem;
+	margin-top: auto;
 	padding-top: 1.2rem;
 	border-top: 1px solid rgba(196, 196, 229, 0.45);
 }
@@ -802,12 +808,9 @@
 	box-shadow: var(--rpd-shadow-sm);
 }
 
-.rpd-home-medal::before {
+.rpd-home-medal .rpd-svg-icon {
 	width: 1.7rem;
 	height: 1.7rem;
-	background: currentColor;
-	content: "";
-	clip-path: polygon(50% 0, 62% 33%, 98% 35%, 69% 56%, 79% 92%, 50% 72%, 21% 92%, 31% 56%, 2% 35%, 38% 33%);
 }
 
 .rpd-home-partnership h2 {
@@ -848,30 +851,21 @@
 }
 
 .rpd-home-endorsements div {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	justify-items: center;
 	gap: 1.2rem 2rem;
+	margin-top: 1.5rem;
 	color: rgba(35, 31, 88, 0.58);
-	font-size: 1.04rem;
-}
-
-.rpd-home-endorsements span:nth-child(odd),
-.rpd-home-district-grid div:nth-child(3n) strong {
 	font-family: Georgia, serif;
-	font-style: italic;
+	font-size: 1rem;
+	font-variant: small-caps;
+	font-weight: 400;
+	letter-spacing: 0.03em;
 }
 
-.rpd-home-endorsements span:nth-child(even),
-.rpd-home-district-grid div:nth-child(4n) strong {
-	font-family: var(--font-heading);
-	font-weight: 700;
-}
-
-.rpd-home-endorsements span:nth-child(5),
-.rpd-home-district-grid div:nth-child(5n) strong {
-	text-transform: uppercase;
-	letter-spacing: 0.04em;
+.rpd-home-endorsements span:last-child {
+	grid-column: 2;
 }
 
 .rpd-home-districts {
@@ -960,12 +954,9 @@
 	opacity: 0.55;
 }
 
-.rpd-home-quote::before {
-	color: currentColor;
-	font-family: Georgia, serif;
-	font-size: 4.2rem;
-	line-height: 0.75;
-	content: "“";
+.rpd-home-quote .rpd-svg-icon {
+	width: 2.75rem;
+	height: 2.75rem;
 }
 
 .rpd-home-testimonial--gold .rpd-home-quote {
@@ -986,7 +977,7 @@
 .rpd-home-testimonial footer {
 	display: flex;
 	gap: 1rem;
-	align-items: center;
+	align-items: flex-start;
 }
 
 .rpd-home-testimonial__avatar,
@@ -994,6 +985,7 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+	flex-shrink: 0;
 	width: 3rem;
 	height: 3rem;
 	border-radius: 50%;
