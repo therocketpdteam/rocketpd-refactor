@@ -23,7 +23,7 @@ $body     = rocketpd_get_field( 'rpd_home_pd_body', __( "Most PD is a generic ev
 				echo $image_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} else {
 				?>
-				<div class="rpd-home-image-fallback rpd-home-image-fallback--hallway" role="img" aria-label="<?php esc_attr_e( 'Educators talking in a school hallway', 'rocketpd' ); ?>"></div>
+				<img src="/wp-content/uploads/2026/06/educators-community-library-professional-learning-scaled.jpg" class="rpd-home-pd__image" alt="<?php esc_attr_e( 'Diverse group of educators laughing and collaborating together in a school library', 'rocketpd' ); ?>" loading="lazy" />
 				<?php
 			}
 			?>

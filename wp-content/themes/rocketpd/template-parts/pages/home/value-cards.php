@@ -25,7 +25,7 @@ $cards    = array_filter(
 $cards    = $cards ? $cards : $fallback_cards;
 
 $value_icon_map = array(
-	'book'   => 'book',
+	'book'   => 'book-open',
 	'cap'    => 'graduation-cap',
 	'target' => 'target',
 );

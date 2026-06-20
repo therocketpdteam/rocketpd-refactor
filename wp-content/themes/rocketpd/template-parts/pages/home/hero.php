@@ -45,12 +45,12 @@ $headline_markup = str_replace( 'Community for', 'Community<br class="rpd-home-h
 				echo $image_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} else {
 				?>
-				<div class="rpd-home-image-fallback rpd-home-image-fallback--classroom" role="img" aria-label="<?php esc_attr_e( 'Educator standing in a classroom', 'rocketpd' ); ?>"></div>
+				<img src="/wp-content/uploads/2026/06/teacher-classroom-professional-development-scaled.jpg" class="rpd-home-hero__image" alt="<?php esc_attr_e( 'Smiling teacher standing confidently in a classroom with students working in the background', 'rocketpd' ); ?>" loading="eager" />
 				<?php
 			}
 			?>
 			<div class="rpd-home-hero-stat">
-				<span class="rpd-home-hero-stat__icon" aria-hidden="true"></span>
+				<span class="rpd-home-hero-stat__icon" aria-hidden="true"><?php echo rocketpd_get_icon( 'users', 20 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 				<strong><?php echo esc_html( $stat_value ); ?></strong>
 				<small><?php echo esc_html( $stat_label ); ?></small>
 			</div>

@@ -55,7 +55,7 @@ $districts         = $districts ? $districts : $fallback_districts;
 <section class="rpd-home-trust rpd-home-section rpd-home-section--soft">
 	<div class="rpd-container">
 		<div class="rpd-home-partnership">
-			<span class="rpd-home-medal" aria-hidden="true"></span>
+			<span class="rpd-home-medal" aria-hidden="true"><?php echo rocketpd_get_icon( 'award', 28 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 			<div>
 				<p class="rpd-home-eyebrow"><?php echo esc_html( $partnership_label ); ?></p>
 				<h2><?php echo esc_html( $partnership_name ); ?></h2>
