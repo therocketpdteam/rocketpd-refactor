@@ -9,19 +9,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$partnership_label = rocketpd_get_field( 'rpd_home_partnership_label', __( 'Featured State Partnership', 'rocketpd' ) );
-$partnership_name  = rocketpd_get_field( 'rpd_home_partnership_name', __( 'Colorado Association of School Boards', 'rocketpd' ) );
-$partnership_body  = rocketpd_get_field( 'rpd_home_partnership_body', __( 'Statewide partner for board-level professional learning — bringing RocketPD into districts across Colorado.', 'rocketpd' ) );
-$stat_value        = rocketpd_get_field( 'rpd_home_partnership_stat_value', __( '178', 'rocketpd' ) );
-$stat_label        = rocketpd_get_field( 'rpd_home_partnership_stat_label', __( 'Colorado school boards served', 'rocketpd' ) );
-$fallback_endorsements = array( array( 'name' => 'Digital Promise' ), array( 'name' => 'Center for Educational Leadership' ), array( 'name' => 'Modern Classrooms Project' ), array( 'name' => 'Cult of Pedagogy' ), array( 'name' => 'Marshall Memo' ), array( 'name' => 'NESDEC' ), array( 'name' => 'Building Thinking Classrooms' ) );
-$endorsements      = rocketpd_get_field( 'rpd_home_endorsements', $fallback_endorsements );
-$district_eyebrow  = rocketpd_get_field( 'rpd_home_district_eyebrow', __( 'District Community', 'rocketpd' ) );
-$district_headline = rocketpd_get_field( 'rpd_home_district_headline', __( 'Districts learning with RocketPD', 'rocketpd' ) );
-$district_stat     = rocketpd_get_field( 'rpd_home_district_stat', __( '850+ districts in 47 states · and counting', 'rocketpd' ) );
-$district_note     = rocketpd_get_field( 'rpd_home_district_note', __( 'A representative sample. Want your district featured?', 'rocketpd' ) );
-$district_note_url = rocketpd_get_field( 'rpd_home_district_note_url', home_url( '/contact/' ) );
-$fallback_districts = array(
+$mode = rocketpd_get_field( 'rpd_home_trust_mode', 'defaults' );
+
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$default_partnership_label = __( 'Featured State Partnership', 'rocketpd' );
+$default_partnership_name  = __( 'Colorado Association of School Boards', 'rocketpd' );
+$default_partnership_body  = __( 'Statewide partner for board-level professional learning — bringing RocketPD into districts across Colorado.', 'rocketpd' );
+$default_stat_value        = __( '178', 'rocketpd' );
+$default_stat_label        = __( 'Colorado school boards served', 'rocketpd' );
+$default_endorsements      = array( array( 'name' => 'Digital Promise' ), array( 'name' => 'Center for Educational Leadership' ), array( 'name' => 'Modern Classrooms Project' ), array( 'name' => 'Cult of Pedagogy' ), array( 'name' => 'Marshall Memo' ), array( 'name' => 'NESDEC' ), array( 'name' => 'Building Thinking Classrooms' ) );
+$default_district_eyebrow  = __( 'District Community', 'rocketpd' );
+$default_district_headline = __( 'Districts learning with RocketPD', 'rocketpd' );
+$default_district_stat     = __( '850+ districts in 47 states · and counting', 'rocketpd' );
+$default_district_note     = __( 'A representative sample. Want your district featured?', 'rocketpd' );
+$default_district_note_url = home_url( '/contact/' );
+$default_districts         = array(
 	array( 'name' => 'Denver Public Schools', 'state' => 'CO' ),
 	array( 'name' => 'Cherry Creek Schools', 'state' => 'CO' ),
 	array( 'name' => 'Boulder Valley SD', 'state' => 'CO' ),
@@ -35,21 +40,48 @@ $fallback_districts = array(
 	array( 'name' => 'Mesa Public Schools', 'state' => 'AZ' ),
 	array( 'name' => 'Tulsa Public Schools', 'state' => 'OK' ),
 );
-$districts         = rocketpd_get_field( 'rpd_home_districts', $fallback_districts );
-$endorsements      = array_filter(
-	is_array( $endorsements ) ? $endorsements : array(),
-	function ( $item ) {
-		return is_array( $item ) && ! empty( $item['name'] );
-	}
-);
-$endorsements      = $endorsements ? $endorsements : $fallback_endorsements;
-$districts         = array_filter(
-	is_array( $districts ) ? $districts : array(),
-	function ( $item ) {
-		return is_array( $item ) && ! empty( $item['name'] );
-	}
-);
-$districts         = $districts ? $districts : $fallback_districts;
+
+if ( 'custom' === $mode ) {
+	$partnership_label = rocketpd_get_field( 'rpd_home_partnership_label', $default_partnership_label );
+	$partnership_name  = rocketpd_get_field( 'rpd_home_partnership_name', $default_partnership_name );
+	$partnership_body  = rocketpd_get_field( 'rpd_home_partnership_body', $default_partnership_body );
+	$stat_value        = rocketpd_get_field( 'rpd_home_partnership_stat_value', $default_stat_value );
+	$stat_label        = rocketpd_get_field( 'rpd_home_partnership_stat_label', $default_stat_label );
+	$endorsements      = rocketpd_get_field( 'rpd_home_endorsements', $default_endorsements );
+	$district_eyebrow  = rocketpd_get_field( 'rpd_home_district_eyebrow', $default_district_eyebrow );
+	$district_headline = rocketpd_get_field( 'rpd_home_district_headline', $default_district_headline );
+	$district_stat     = rocketpd_get_field( 'rpd_home_district_stat', $default_district_stat );
+	$district_note     = rocketpd_get_field( 'rpd_home_district_note', $default_district_note );
+	$district_note_url = rocketpd_get_field( 'rpd_home_district_note_url', $default_district_note_url );
+	$districts         = rocketpd_get_field( 'rpd_home_districts', $default_districts );
+	$endorsements      = array_filter(
+		is_array( $endorsements ) ? $endorsements : array(),
+		function ( $item ) {
+			return is_array( $item ) && ! empty( $item['name'] );
+		}
+	);
+	$endorsements      = $endorsements ? $endorsements : $default_endorsements;
+	$districts         = array_filter(
+		is_array( $districts ) ? $districts : array(),
+		function ( $item ) {
+			return is_array( $item ) && ! empty( $item['name'] );
+		}
+	);
+	$districts         = $districts ? $districts : $default_districts;
+} else {
+	$partnership_label = $default_partnership_label;
+	$partnership_name  = $default_partnership_name;
+	$partnership_body  = $default_partnership_body;
+	$stat_value        = $default_stat_value;
+	$stat_label        = $default_stat_label;
+	$endorsements      = $default_endorsements;
+	$district_eyebrow  = $default_district_eyebrow;
+	$district_headline = $default_district_headline;
+	$district_stat     = $default_district_stat;
+	$district_note     = $default_district_note;
+	$district_note_url = $default_district_note_url;
+	$districts         = $default_districts;
+}
 ?>
 
 <section class="rpd-home-trust rpd-home-section rpd-home-section--soft">

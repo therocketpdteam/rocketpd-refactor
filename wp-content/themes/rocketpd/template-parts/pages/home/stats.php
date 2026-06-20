@@ -9,19 +9,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$fallback_stats = array(
+$mode = rocketpd_get_field( 'rpd_home_stats_mode', 'defaults' );
+
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$default_stats = array(
 	array( 'icon' => 'people', 'value' => '40,000+', 'label' => __( 'educators', 'rocketpd' ) ),
 	array( 'icon' => 'target', 'value' => '850+', 'label' => __( 'districts', 'rocketpd' ) ),
 	array( 'icon' => 'spark', 'value' => '', 'label' => __( 'Nationally recognized experts', 'rocketpd' ) ),
 );
-$stats          = rocketpd_get_field( 'rpd_home_stats', $fallback_stats );
-$stats = array_filter(
-	is_array( $stats ) ? $stats : array(),
-	function ( $item ) {
-		return is_array( $item ) && ( ! empty( $item['value'] ) || ! empty( $item['label'] ) );
-	}
-);
-$stats = $stats ? $stats : $fallback_stats;
+
+if ( 'custom' === $mode ) {
+	$stats = rocketpd_get_field( 'rpd_home_stats', $default_stats );
+	$stats = array_filter(
+		is_array( $stats ) ? $stats : array(),
+		function ( $item ) {
+			return is_array( $item ) && ( ! empty( $item['value'] ) || ! empty( $item['label'] ) );
+		}
+	);
+	$stats = $stats ? $stats : $default_stats;
+} else {
+	$stats = $default_stats;
+}
 
 $stat_icon_map = array(
 	'people' => 'users',

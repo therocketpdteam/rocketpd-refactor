@@ -9,22 +9,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$headline = rocketpd_get_field( 'rpd_home_membership_headline', __( 'A Membership for Every Stage', 'rocketpd' ) );
-$body     = rocketpd_get_field( 'rpd_home_membership_body', __( 'Join as an individual or bring your whole district.', 'rocketpd' ) );
-$fallback_plans = array(
+$mode = rocketpd_get_field( 'rpd_home_membership_mode', 'defaults' );
+
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$default_headline = __( 'A Membership for Every Stage', 'rocketpd' );
+$default_body     = __( 'Join as an individual or bring your whole district.', 'rocketpd' );
+$default_plans    = array(
 	array( 'title' => __( 'Community', 'rocketpd' ), 'price' => __( 'Free', 'rocketpd' ), 'subtitle' => __( 'Join the conversation', 'rocketpd' ), 'bullets' => "Access to free events\nCommunity forums\nWeekly newsletter", 'cta_label' => __( 'Join Free', 'rocketpd' ), 'cta_url' => home_url( '/community/' ), 'badge' => '', 'featured' => 0 ),
 	array( 'title' => __( 'Pro Learning', 'rocketpd' ), 'price' => __( 'A la carte', 'rocketpd' ), 'subtitle' => __( 'Per course or cohort', 'rocketpd' ), 'bullets' => "Everything in Community\nExpert-led workshops\nCertificate of completion", 'cta_label' => __( 'Browse Courses', 'rocketpd' ), 'cta_url' => home_url( '/launchpad/' ), 'badge' => '', 'featured' => 0 ),
 	array( 'title' => __( 'LaunchPad District', 'rocketpd' ), 'price' => __( 'Annual', 'rocketpd' ), 'subtitle' => __( 'For schools & districts', 'rocketpd' ), 'bullets' => "Unlimited staff access\nPrivate district cohorts\nEngagement analytics\nDedicated success manager", 'cta_label' => __( 'Get a Quote', 'rocketpd' ), 'cta_url' => home_url( '/contact/' ), 'badge' => __( 'Most Popular', 'rocketpd' ), 'featured' => 1 ),
 	array( 'title' => __( 'LaunchPad+', 'rocketpd' ), 'price' => __( 'Premium', 'rocketpd' ), 'subtitle' => __( 'Custom implementation', 'rocketpd' ), 'bullets' => "Everything in District\nCustom course creation\nExecutive coaching", 'cta_label' => __( 'Contact Us', 'rocketpd' ), 'cta_url' => home_url( '/contact/' ), 'badge' => '', 'featured' => 0 ),
 );
-$plans          = rocketpd_get_field( 'rpd_home_membership_plans', $fallback_plans );
-$plans    = array_filter(
-	is_array( $plans ) ? $plans : array(),
-	function ( $plan ) {
-		return is_array( $plan ) && ! empty( $plan['title'] );
-	}
-);
-$plans    = $plans ? $plans : $fallback_plans;
+
+if ( 'custom' === $mode ) {
+	$headline = rocketpd_get_field( 'rpd_home_membership_headline', $default_headline );
+	$body     = rocketpd_get_field( 'rpd_home_membership_body', $default_body );
+	$plans    = rocketpd_get_field( 'rpd_home_membership_plans', $default_plans );
+	$plans    = array_filter(
+		is_array( $plans ) ? $plans : array(),
+		function ( $plan ) {
+			return is_array( $plan ) && ! empty( $plan['title'] );
+		}
+	);
+	$plans    = $plans ? $plans : $default_plans;
+} else {
+	$headline = $default_headline;
+	$body     = $default_body;
+	$plans    = $default_plans;
+}
 ?>
 
 <section class="rpd-home-membership rpd-home-section rpd-home-section--soft">

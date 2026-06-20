@@ -9,20 +9,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$headline = rocketpd_get_field( 'rpd_home_value_headline', __( "The World's Most Engaged Professional Learning Community", 'rocketpd' ) );
-$fallback_cards = array(
+$mode = rocketpd_get_field( 'rpd_home_value_mode', 'defaults' );
+
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$default_headline = __( "The World's Most Engaged Professional Learning Community", 'rocketpd' );
+$default_cards    = array(
 	array( 'icon' => 'book', 'title' => __( 'Explore Resources', 'rocketpd' ), 'body' => __( 'Discover topical resources, ongoing learning, and fresh ideas tailored to the challenges you face in your classroom or district.', 'rocketpd' ) ),
 	array( 'icon' => 'cap', 'title' => __( 'Expert-led Upskilling', 'rocketpd' ), 'body' => __( 'Deliver practical, engaging upskilling and career growth opportunities led by top educational experts and practitioners.', 'rocketpd' ) ),
 	array( 'icon' => 'target', 'title' => __( 'Measurable Outcomes', 'rocketpd' ), 'body' => __( 'Turn learning into action with structures designed to produce measurable outcomes for both staff development and student success.', 'rocketpd' ) ),
 );
-$cards          = rocketpd_get_field( 'rpd_home_value_cards', $fallback_cards );
-$cards    = array_filter(
-	is_array( $cards ) ? $cards : array(),
-	function ( $card ) {
-		return is_array( $card ) && ! empty( $card['title'] );
-	}
-);
-$cards    = $cards ? $cards : $fallback_cards;
+
+if ( 'custom' === $mode ) {
+	$headline = rocketpd_get_field( 'rpd_home_value_headline', $default_headline );
+	$cards    = rocketpd_get_field( 'rpd_home_value_cards', $default_cards );
+	$cards    = array_filter(
+		is_array( $cards ) ? $cards : array(),
+		function ( $card ) {
+			return is_array( $card ) && ! empty( $card['title'] );
+		}
+	);
+	$cards    = $cards ? $cards : $default_cards;
+} else {
+	$headline = $default_headline;
+	$cards    = $default_cards;
+}
 
 $value_icon_map = array(
 	'book'   => 'book-open',

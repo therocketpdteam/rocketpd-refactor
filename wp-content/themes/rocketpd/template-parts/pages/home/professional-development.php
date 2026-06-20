@@ -9,9 +9,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$image    = rocketpd_get_field( 'rpd_home_pd_image' );
-$headline = rocketpd_get_field( 'rpd_home_pd_headline', __( 'More Than Professional Development.', 'rocketpd' ) );
-$body     = rocketpd_get_field( 'rpd_home_pd_body', __( "Most PD is a generic event—something you attend once and forget. RocketPD is a connected ecosystem. We believe that the best professional learning feels like a vibrant teacher's lounge crossed with a serious professional society.\n\nHere, you're not just taking courses. You're joining a nationwide network of passionate educators sharing what works, wrestling with what doesn't, and pushing the boundaries of what's possible in our schools.", 'rocketpd' ) );
+$mode = rocketpd_get_field( 'rpd_home_pd_mode', 'defaults' );
+
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$default_headline = __( 'More Than Professional Development.', 'rocketpd' );
+$default_body     = __( "Most PD is a generic event—something you attend once and forget. RocketPD is a connected ecosystem. We believe that the best professional learning feels like a vibrant teacher's lounge crossed with a serious professional society.\n\nHere, you're not just taking courses. You're joining a nationwide network of passionate educators sharing what works, wrestling with what doesn't, and pushing the boundaries of what's possible in our schools.", 'rocketpd' );
+
+if ( 'custom' === $mode ) {
+	$image    = rocketpd_get_field( 'rpd_home_pd_image' );
+	$headline = rocketpd_get_field( 'rpd_home_pd_headline', $default_headline );
+	$body     = rocketpd_get_field( 'rpd_home_pd_body', $default_body );
+} else {
+	$image    = null;
+	$headline = $default_headline;
+	$body     = $default_body;
+}
 ?>
 
 <section class="rpd-home-pd rpd-home-section">
