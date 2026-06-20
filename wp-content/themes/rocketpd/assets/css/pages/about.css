@@ -256,7 +256,8 @@
 	top: -0.12rem;
 	width: 2.25rem;
 	height: 2.25rem;
-	background: rgba(253, 185, 51, 0.22);
+	background: rgba(85, 82, 177, 0.12);
+	color: var(--rpd-purple);
 }
 
 .rpd-about-page .rpd-about-svg,
@@ -428,7 +429,7 @@
 	margin: 2.25rem 0 0;
 	color: var(--rpd-purple-deep);
 	font-family: var(--font-heading);
-	font-size: clamp(1.35rem, 2.4vw, 2rem);
+	font-size: clamp(1.1rem, 1.85vw, 1.5rem);
 	font-weight: 900;
 	line-height: 1.25;
 	text-align: center;
@@ -439,13 +440,31 @@
 	gap: clamp(1.75rem, 3vw, 2.5rem);
 }
 
-.rpd-about-people-grid--founders,
-.rpd-about-people-grid--team {
+.rpd-about-people-grid--founders {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.rpd-about-people-grid--team {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	grid-auto-rows: 1fr auto;
+}
+
+.rpd-about-people-grid--team .rpd-about-person-card {
+	grid-row: span 2;
+	display: grid;
+	grid-template-rows: subgrid;
+}
+
+.rpd-about-people-grid--team > *:last-child:nth-child(3n + 1) {
+	grid-column: 2;
+}
+
 .rpd-about-people-grid--board {
-	grid-template-columns: repeat(4, minmax(0, 1fr));
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.rpd-about-people-grid--board > *:last-child:nth-child(3n + 1) {
+	grid-column: 2;
 }
 
 .rpd-about-person-card {
@@ -468,8 +487,13 @@
 
 .rpd-about-people-grid--team .rpd-about-person-card__visual,
 .rpd-about-people-grid--board .rpd-about-person-card__visual {
+	aspect-ratio: unset;
+	min-height: 10rem;
+}
+
+.rpd-about-people-grid--board .rpd-about-person-card__visual {
 	aspect-ratio: 1 / 1;
-	min-height: 0;
+	overflow: hidden;
 }
 
 .rpd-about-person-card__visual span {
@@ -493,6 +517,11 @@
 .rpd-about-person-card--team .rpd-about-person-card__body,
 .rpd-about-person-card--board .rpd-about-person-card__body {
 	padding: clamp(1.35rem, 2vw, 1.65rem);
+}
+
+.rpd-about-person-card--team .rpd-about-person-card__body,
+.rpd-about-person-card--board .rpd-about-person-card__body {
+	padding-top: clamp(0.85rem, 1.2vw, 1.1rem);
 }
 
 .rpd-about-person-card--team .rpd-about-person-card__body {
@@ -542,6 +571,7 @@
 	color: var(--rpd-purple) !important;
 	font-size: var(--rpd-font-size-sm) !important;
 	line-height: 1.55 !important;
+	text-transform: capitalize;
 }
 
 .rpd-about-person-card--navy .rpd-about-person-card__visual {

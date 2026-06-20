@@ -15,10 +15,10 @@ $default_body     = __( 'Our mission is to empower educators to grow, collaborat
 $default_heading  = __( 'We believe professional learning should:', 'rocketpd' );
 $default_closing  = __( 'Because when educators feel supported, schools thrive.', 'rocketpd' );
 $default_beliefs  = array(
-	array( 'text' => __( 'create agency for educators', 'rocketpd' ) ),
-	array( 'text' => __( 'strengthen school communities', 'rocketpd' ) ),
-	array( 'text' => __( 'support career growth (without the paperwork)', 'rocketpd' ) ),
-	array( 'text' => __( 'align to real school challenges', 'rocketpd' ) ),
+	array( 'icon' => 'rocket', 'text' => __( 'Create agency for educators', 'rocketpd' ) ),
+	array( 'icon' => 'heart',  'text' => __( 'Strengthen school communities', 'rocketpd' ) ),
+	array( 'icon' => 'globe',  'text' => __( 'Support career growth (without the paperwork)', 'rocketpd' ) ),
+	array( 'icon' => 'target', 'text' => __( 'Align to real school challenges', 'rocketpd' ) ),
 );
 
 $mode = rocketpd_get_field( 'rpd_about_platform_mode', 'defaults' );
@@ -61,9 +61,12 @@ if ( 'custom' === $mode ) {
 			<?php if ( is_array( $beliefs ) && ! empty( $beliefs ) ) : ?>
 				<ul class="rpd-about-beliefs">
 					<?php foreach ( $beliefs as $belief ) : ?>
-						<?php $text = isset( $belief['text'] ) ? $belief['text'] : ''; ?>
+						<?php
+						$text      = isset( $belief['text'] ) ? $belief['text'] : '';
+						$icon_name = isset( $belief['icon'] ) ? $belief['icon'] : 'check';
+						?>
 						<?php if ( $text ) : ?>
-							<li><span aria-hidden="true"><?php echo rocketpd_get_icon( 'check', 14 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span><?php echo esc_html( $text ); ?></li>
+							<li><span aria-hidden="true"><?php echo rocketpd_get_icon( $icon_name, 16 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span><?php echo esc_html( $text ); ?></li>
 						<?php endif; ?>
 					<?php endforeach; ?>
 				</ul>
