@@ -93,18 +93,31 @@ Do not hand-tune each section from scratch unless the design requires it.
 Base button classes:
 
 ```text
-.rpd-btn
-.rpd-btn--gold
-.rpd-btn--purple
-.rpd-btn--outline-purple
-.rpd-btn--outline-white
-.rpd-btn--ghost
+.rpd-btn                  base styles — always required
+.rpd-btn--gold            gold fill, navy text (primary CTA)
+.rpd-btn--purple          purple fill, white text
+.rpd-btn--outline-purple  purple border + text, fills on hover
+.rpd-btn--outline-white   white border + text, fills white on hover (dark sections)
+.rpd-btn--ghost           text-only, purple color
+.rpd-btn--full            100% width modifier
 ```
+
+Shape and sizing:
+
+- `border-radius: var(--rpd-radius)` → `0.5rem` / `8px` — rounded rectangle, not pill
+- `min-height: 44px` — meets touch target minimum
+- `padding: 0.78rem 1.2rem`
+- `font-weight: 700`
+- Hover: `translateY(-1px)` lift on all variants
+- Gold hover: shifts to `--rpd-orange` (`#f99d33`)
+- Purple hover: shifts to `--rpd-purple-deep` (`#a154a1`)
+- Outline-white hover: fills white, text becomes navy
 
 Rules:
 
-- Gold buttons work best on dark/navy sections.
-- Do not use gold text on white backgrounds due to contrast.
+- Gold is the primary brand CTA color. Use `.rpd-btn--gold` on both light and dark backgrounds — gold fill with dark text reads well on white.
+- Do not use gold-colored text (no fill) on white backgrounds due to contrast.
+- On dark/navy sections, prefer `.rpd-btn--gold` or `.rpd-btn--outline-white`.
 - CTA labels should be action-oriented.
 - Avoid generic "Click Here."
 
@@ -123,6 +136,8 @@ Component classes:
 
 The lifted effect is part of the RocketPD visual signature. Use it on contact cards, resource cards, lead magnet cards, and selected CTAs.
 
+People/team cards use `--gradient-purple` (`linear-gradient(135deg, #5552b1, #a154a1)`) as their background. This is the canonical treatment for instructor, team member, and expert cards where a photo is not available or the design calls for a branded tile.
+
 ## Gradients
 
 Common gradients:
@@ -133,6 +148,37 @@ Common gradients:
 --gradient-navy-deep: linear-gradient(135deg, #0f0d2e, #1a1744, #231F58);
 --gradient-soft: linear-gradient(135deg, #ffffff, #f8fafc, rgba(196,196,229,.25));
 ```
+
+## Section backgrounds
+
+Map background tokens to section types consistently:
+
+| Section type | Background |
+|---|---|
+| Hero / default content | White (`--rpd-white`) |
+| Soft alternating sections | `--rpd-bg-soft` or `--rpd-bg-soft-alt` |
+| Dark CTA / feature sections | `--gradient-navy` or `--gradient-navy-deep` |
+| Gold accent sections | `--rpd-gold` (`#fdb933`) — use sparingly, max one per page |
+| People / team cards | `--gradient-purple` |
+
+Note on `--rpd-purple-deep`: this token (`#a154a1`) is a magenta-pink, not a dark navy-purple. It is used as the endpoint of `--gradient-purple` and as the eyebrow label color on light surfaces. Do not use it as a section background or confuse it with the navy dark backgrounds.
+
+## Iconography
+
+Icons are inline SVGs — there is no icon font or external icon library.
+
+Standard spec:
+
+- `viewBox="0 0 24 24"`
+- `fill="none"`
+- `stroke="currentColor"`
+- `stroke-width="2"` (use `2.15` only when extra weight is needed for small sizes)
+- `stroke-linecap="round"` and `stroke-linejoin="round"` where applicable
+- Always add `focusable="false"` to prevent IE/Edge focus issues
+- Decorative icons must have `aria-hidden="true"` on the `<svg>` or its wrapper
+- Functional icons (icon-only buttons) must have an accessible label on the parent element via `aria-label` or screen-reader text
+
+Icon source: paths match the [Lucide](https://lucide.dev) icon set. Copy inline from Lucide — do not import the library.
 
 ## Decorative patterns
 
