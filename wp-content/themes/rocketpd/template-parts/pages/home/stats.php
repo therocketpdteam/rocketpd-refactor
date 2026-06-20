@@ -22,14 +22,21 @@ $stats = array_filter(
 	}
 );
 $stats = $stats ? $stats : $fallback_stats;
+
+$stat_icon_map = array(
+	'people' => 'users',
+	'target' => 'target',
+	'spark'  => 'sparkles',
+);
 ?>
 
 <?php if ( $stats ) : ?>
 	<section class="rpd-home-stats" aria-label="<?php esc_attr_e( 'RocketPD reach', 'rocketpd' ); ?>">
 		<div class="rpd-container rpd-home-stats__inner">
 			<?php foreach ( $stats as $stat ) : ?>
+				<?php $stat_icon = $stat_icon_map[ $stat['icon'] ?? 'spark' ] ?? 'sparkles'; ?>
 				<div class="rpd-home-stat">
-					<span class="rpd-home-stat__icon rpd-home-icon--<?php echo esc_attr( sanitize_html_class( $stat['icon'] ?? 'spark' ) ); ?>" aria-hidden="true"></span>
+					<span class="rpd-home-stat__icon" aria-hidden="true"><?php echo rocketpd_get_icon( $stat_icon, 20 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 					<?php if ( ! empty( $stat['value'] ) ) : ?>
 						<strong><?php echo esc_html( $stat['value'] ); ?></strong>
 					<?php endif; ?>

@@ -23,6 +23,12 @@ $cards    = array_filter(
 	}
 );
 $cards    = $cards ? $cards : $fallback_cards;
+
+$value_icon_map = array(
+	'book'   => 'book',
+	'cap'    => 'graduation-cap',
+	'target' => 'target',
+);
 ?>
 
 <section class="rpd-home-values rpd-home-section rpd-home-section--soft">
@@ -32,8 +38,9 @@ $cards    = $cards ? $cards : $fallback_cards;
 		</header>
 		<div class="rpd-home-card-grid rpd-home-card-grid--three">
 			<?php foreach ( $cards as $card ) : ?>
+				<?php $value_icon = $value_icon_map[ $card['icon'] ?? 'book' ] ?? 'book'; ?>
 				<article class="rpd-home-value-card">
-					<span class="rpd-home-icon rpd-home-icon--<?php echo esc_attr( sanitize_html_class( $card['icon'] ?? 'book' ) ); ?>" aria-hidden="true"></span>
+					<span class="rpd-home-icon" aria-hidden="true"><?php echo rocketpd_get_icon( $value_icon, 24 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 					<h3><?php echo esc_html( $card['title'] ); ?></h3>
 					<?php if ( ! empty( $card['body'] ) ) : ?>
 						<p><?php echo esc_html( $card['body'] ); ?></p>
