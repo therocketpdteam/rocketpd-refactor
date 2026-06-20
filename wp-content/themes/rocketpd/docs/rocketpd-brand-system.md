@@ -121,6 +121,34 @@ Rules:
 - CTA labels should be action-oriented.
 - Avoid generic "Click Here."
 
+## Eyebrow badges
+
+Short label lines placed above section headings to name the section or highlight a feature. Use one per section maximum.
+
+Classes:
+
+```text
+.rpd-home-pill          default — light purple tint, purple text (light sections)
+.rpd-home-pill--gold    gold tint, amber text (gold-tinted sections)
+.rpd-home-badge         magenta-pink fill, white text (dark/navy sections)
+```
+
+Shape and sizing:
+
+- `border-radius: var(--rpd-radius)` → `0.5rem` / `8px` — rounded rectangle, matching buttons. Not pill-shaped.
+- `padding: 0.4rem 0.8rem`
+- `font-size: var(--rpd-font-size-xs)` → `0.75rem`, `font-weight: 700`
+- `margin-bottom: 1rem` — consistent across all eyebrow variants (badge and plain text)
+- `display: inline-flex; width: fit-content` — never full-width
+
+Contrast:
+
+| Variant | Background | Text color | Notes |
+|---|---|---|---|
+| `.rpd-home-pill` | `rgba(85, 82, 177, 0.1)` on white | `var(--rpd-purple)` #5552b1 | Passes AA |
+| `.rpd-home-pill--gold` | `rgba(161, 84, 161, 0.15)` on `#fff9e8` | `#6d2f6d` (deep pink) | ~6.5:1 — passes AA; matches `--rpd-purple-deep` accent in section |
+| `.rpd-home-badge` | `#7a2f7a` (deep magenta-pink) | `var(--rpd-white)` | ~8.2:1 — passes AAA |
+
 ## Cards
 
 RocketPD has a recurring lifted-card pattern: a foreground card with a soft colored block offset behind it.

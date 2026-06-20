@@ -43,6 +43,14 @@ $resource_cards  = array_filter(
 	}
 );
 $resource_cards  = $resource_cards ? $resource_cards : $fallback_resources;
+
+$resource_icon_map = array(
+	'book'  => 'book',
+	'play'  => 'play',
+	'doc'   => 'file-text',
+	'audio' => 'headphones',
+	'video' => 'video',
+);
 ?>
 
 <section class="rpd-home-resources rpd-home-section">
@@ -69,11 +77,12 @@ $resource_cards  = $resource_cards ? $resource_cards : $fallback_resources;
 		</div>
 		<div class="rpd-home-resource-grid">
 			<?php foreach ( $resource_cards as $card ) : ?>
+				<?php $resource_icon = $resource_icon_map[ $card['icon'] ?? 'book' ] ?? 'book'; ?>
 				<article class="rpd-home-resource-card rpd-home-resource-card--<?php echo esc_attr( sanitize_html_class( $card['accent'] ?? 'purple' ) ); ?>">
 					<div class="rpd-home-resource-card__top">
 						<span><?php echo esc_html( $card['type'] ?? '' ); ?></span>
 						<b><?php esc_html_e( 'Free', 'rocketpd' ); ?></b>
-						<i class="rpd-home-icon--<?php echo esc_attr( sanitize_html_class( $card['icon'] ?? 'book' ) ); ?>" aria-hidden="true"></i>
+						<i aria-hidden="true"><?php echo rocketpd_get_icon( $resource_icon, 48 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></i>
 					</div>
 					<div class="rpd-home-resource-card__body">
 						<h3><?php echo esc_html( $card['title'] ); ?></h3>
