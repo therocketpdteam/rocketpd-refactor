@@ -9,13 +9,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$eyebrow  = rocketpd_get_field( 'rpd_about_board_eyebrow', __( 'OUR BOARD', 'rocketpd' ) );
-$headline = rocketpd_get_field( 'rpd_about_board_headline', __( 'Guided by the people who have led the work.', 'rocketpd' ) );
-$body     = rocketpd_get_field( 'rpd_about_board_body', __( 'Our board brings deep operating experience from public school districts and higher-education research institutions across the country.', 'rocketpd' ) );
-$people   = function_exists( 'rocketpd_get_members_by_type' ) ? rocketpd_get_members_by_type( 'board' ) : array();
+$mode = rocketpd_get_field( 'rpd_about_board_mode', 'defaults' );
+
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$people = function_exists( 'rocketpd_get_members_by_type' ) ? rocketpd_get_members_by_type( 'board' ) : array();
 
 if ( ! $people ) {
 	return;
+}
+
+$default_eyebrow  = __( 'OUR BOARD', 'rocketpd' );
+$default_headline = __( 'Guided by the people who have done the work.', 'rocketpd' );
+$default_body     = __( 'Our board brings deep operating experience from public school districts and higher-education research institutions across the country.', 'rocketpd' );
+
+if ( 'custom' === $mode ) {
+	$eyebrow  = rocketpd_get_field( 'rpd_about_board_eyebrow', $default_eyebrow );
+	$headline = rocketpd_get_field( 'rpd_about_board_headline', $default_headline );
+	$body     = rocketpd_get_field( 'rpd_about_board_body', $default_body );
+} else {
+	$eyebrow  = $default_eyebrow;
+	$headline = $default_headline;
+	$body     = $default_body;
 }
 ?>
 

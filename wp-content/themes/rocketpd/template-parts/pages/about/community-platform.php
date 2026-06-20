@@ -9,20 +9,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$eyebrow  = rocketpd_get_field( 'rpd_about_platform_eyebrow', __( 'Who We Are', 'rocketpd' ) );
-$headline = rocketpd_get_field( 'rpd_about_platform_headline', __( "RocketPD is building the nation's most engaged professional learning community for educators, school leaders, and districts.", 'rocketpd' ) );
-$body     = rocketpd_get_field( 'rpd_about_platform_body', __( 'Our mission is to empower educators to grow, collaborate, and improve student outcomes through meaningful professional learning experiences.', 'rocketpd' ) );
-$heading  = rocketpd_get_field( 'rpd_about_platform_card_heading', __( 'We believe professional learning should:', 'rocketpd' ) );
-$closing  = rocketpd_get_field( 'rpd_about_platform_closing', __( 'Because when educators feel supported, schools thrive.', 'rocketpd' ) );
-$beliefs  = rocketpd_get_field(
-	'rpd_about_platform_beliefs',
-	array(
-		array( 'text' => __( 'create agency for educators', 'rocketpd' ) ),
-		array( 'text' => __( 'strengthen school communities', 'rocketpd' ) ),
-		array( 'text' => __( 'support career growth (without the paperwork)', 'rocketpd' ) ),
-		array( 'text' => __( 'align to real school challenges', 'rocketpd' ) ),
-	)
+$default_eyebrow  = __( 'Who We Are', 'rocketpd' );
+$default_headline = __( "RocketPD is building the nation's most engaged professional learning community for educators, school leaders, and districts.", 'rocketpd' );
+$default_body     = __( 'Our mission is to empower educators to grow, collaborate, and improve student outcomes through meaningful professional learning experiences.', 'rocketpd' );
+$default_heading  = __( 'We believe professional learning should:', 'rocketpd' );
+$default_closing  = __( 'Because when educators feel supported, schools thrive.', 'rocketpd' );
+$default_beliefs  = array(
+	array( 'text' => __( 'create agency for educators', 'rocketpd' ) ),
+	array( 'text' => __( 'strengthen school communities', 'rocketpd' ) ),
+	array( 'text' => __( 'support career growth (without the paperwork)', 'rocketpd' ) ),
+	array( 'text' => __( 'align to real school challenges', 'rocketpd' ) ),
 );
+
+$mode = rocketpd_get_field( 'rpd_about_platform_mode', 'defaults' );
+
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+if ( 'custom' === $mode ) {
+	$eyebrow  = rocketpd_get_field( 'rpd_about_platform_eyebrow', $default_eyebrow );
+	$headline = rocketpd_get_field( 'rpd_about_platform_headline', $default_headline );
+	$body     = rocketpd_get_field( 'rpd_about_platform_body', $default_body );
+	$heading  = rocketpd_get_field( 'rpd_about_platform_card_heading', $default_heading );
+	$closing  = rocketpd_get_field( 'rpd_about_platform_closing', $default_closing );
+	$beliefs  = rocketpd_get_field( 'rpd_about_platform_beliefs', $default_beliefs );
+} else {
+	$eyebrow  = $default_eyebrow;
+	$headline = $default_headline;
+	$body     = $default_body;
+	$heading  = $default_heading;
+	$closing  = $default_closing;
+	$beliefs  = $default_beliefs;
+}
 ?>
 
 <section class="rpd-about-platform rpd-about-section rpd-about-band">
@@ -44,7 +63,7 @@ $beliefs  = rocketpd_get_field(
 					<?php foreach ( $beliefs as $belief ) : ?>
 						<?php $text = isset( $belief['text'] ) ? $belief['text'] : ''; ?>
 						<?php if ( $text ) : ?>
-							<li><?php echo esc_html( $text ); ?></li>
+							<li><span aria-hidden="true"><?php echo rocketpd_get_icon( 'check', 14 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span><?php echo esc_html( $text ); ?></li>
 						<?php endif; ?>
 					<?php endforeach; ?>
 				</ul>

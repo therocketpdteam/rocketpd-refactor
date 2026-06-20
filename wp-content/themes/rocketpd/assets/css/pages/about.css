@@ -71,11 +71,10 @@
 	margin: 1.4rem auto 0;
 }
 
-.rpd-about-section-title {
+.rpd-about-focus h2 {
 	max-width: 58rem;
 	margin: 0 auto clamp(2.75rem, 4.5vw, 4.25rem);
 	text-align: center;
-	font-size: clamp(2rem, 2.65vw, 2.55rem);
 }
 
 .rpd-about-copy > * {
@@ -93,7 +92,7 @@
 	min-height: 1.75rem;
 	margin: 0 0 1rem;
 	padding: 0.2rem 0.75rem;
-	border-radius: var(--rpd-radius-pill);
+	border-radius: var(--rpd-radius);
 	background: rgba(161, 84, 161, 0.11);
 	color: var(--rpd-purple-deep);
 	font-size: var(--rpd-font-size-xs);
@@ -187,40 +186,9 @@
 	color: var(--rpd-purple);
 }
 
-.rpd-about-icon::before,
-.rpd-about-icon::after {
-	display: block;
-	content: "";
-}
-
-.rpd-about-icon--community::before {
-	width: 1.5rem;
-	height: 1.1rem;
-	border: 2px solid currentColor;
-	border-radius: 0.35rem 0.35rem 0.7rem 0.7rem;
-	box-shadow: -0.48rem -0.28rem 0 -0.22rem currentColor, 0.48rem -0.28rem 0 -0.22rem currentColor;
-	transform: translateY(0.1rem);
-}
-
 .rpd-about-icon--learning {
 	background: #faeefa;
 	color: var(--rpd-purple-deep);
-}
-
-.rpd-about-icon--learning::before {
-	width: 1.55rem;
-	height: 1.18rem;
-	border: 2px solid currentColor;
-	border-radius: 0.18rem 0.18rem 0.5rem 0.5rem;
-	box-shadow: inset 0 -0.28rem 0 rgba(161, 84, 161, 0.16);
-}
-
-.rpd-about-icon--learning::after {
-	width: 1.2rem;
-	height: 0.25rem;
-	margin-top: -0.24rem;
-	border-radius: 999px;
-	background: currentColor;
 }
 
 .rpd-about-icon--outcomes {
@@ -228,12 +196,9 @@
 	color: var(--rpd-orange);
 }
 
-.rpd-about-icon--outcomes::before {
-	width: 1.65rem;
-	height: 1.65rem;
-	border: 2px solid currentColor;
-	border-radius: 50%;
-	box-shadow: inset 0 0 0 0.28rem #fff4de, inset 0 0 0 0.45rem currentColor;
+.rpd-about-icon .rpd-svg-icon {
+	width: 1.5rem;
+	height: 1.5rem;
 }
 
 .rpd-about-checklist__grid {
@@ -245,7 +210,7 @@
 
 .rpd-about-checklist__copy h2 {
 	max-width: 40rem;
-	font-size: clamp(2.05rem, 3.1vw, 2.8rem);
+	font-size: clamp(2.15rem, 4.2vw, 3.45rem);
 }
 
 .rpd-about-checklist__copy > p {
@@ -303,20 +268,6 @@
 	flex: 0 0 auto;
 }
 
-.rpd-about-check-list li::before {
-	position: absolute;
-	top: -0.05rem;
-	left: 0;
-	display: grid;
-	place-items: center;
-	width: 1.8rem;
-	height: 1.8rem;
-	border-radius: 50%;
-	background: #ffedcc;
-	color: var(--about-ink);
-	font-weight: 900;
-	content: "✓";
-}
 
 .rpd-about-linkline {
 	margin-top: 2.35rem;
@@ -329,35 +280,32 @@
 	aspect-ratio: 1.42;
 	border-radius: 0.75rem;
 	background: #d8e4ec;
-	box-shadow: var(--rpd-shadow-md);
-}
-
-.rpd-about-checklist__media::after {
-	position: absolute;
-	right: -1rem;
-	bottom: -1rem;
-	z-index: -1;
-	width: 92%;
-	height: 92%;
-	border-radius: 0.75rem;
-	background: linear-gradient(135deg, rgba(253, 185, 51, 0.28), rgba(161, 84, 161, 0.18));
-	content: "";
+	box-shadow:
+		var(--rpd-shadow-md),
+		0.9rem 0.9rem 0 0 rgba(161, 84, 161, 0.22);
 }
 
 .rpd-about-checklist__image,
 .rpd-about-checklist__fallback {
 	display: block;
+	border-radius: 0.75rem;
+}
+
+.rpd-about-checklist__image {
+	position: absolute;
+	inset: 0;
 	width: 100%;
 	height: 100%;
-	aspect-ratio: 1.5;
-	border-radius: 0.75rem;
 	object-fit: cover;
+}
+
+.rpd-about-checklist__fallback {
+	width: 100%;
+	height: 100%;
 }
 
 .rpd-about-checklist__image {
 	filter: saturate(1.16) contrast(1.08);
-	transform: scale(2.35);
-	transform-origin: 20% 80%;
 }
 
 .rpd-about-checklist__fallback {
@@ -407,7 +355,7 @@
 .rpd-about-district h2 {
 	max-width: 57rem;
 	margin-inline: auto;
-	font-size: clamp(2.15rem, 3.75vw, 3.25rem);
+	font-size: clamp(2.15rem, 4.2vw, 3.45rem);
 }
 
 .rpd-about-district .rpd-about-copy {
@@ -434,7 +382,7 @@
 }
 
 .rpd-about-platform h2 {
-	font-size: clamp(2rem, 3.1vw, 2.8rem);
+	font-size: clamp(2.15rem, 4.2vw, 3.45rem);
 }
 
 .rpd-about-platform__body {
@@ -471,24 +419,10 @@
 	min-height: 2.4rem;
 	padding-left: 3.2rem;
 	color: var(--about-copy);
-	font-size: var(--rpd-font-size-base);
+	font-size: var(--rpd-font-size-md);
 	line-height: 1.45;
 }
 
-.rpd-about-beliefs li::before {
-	position: absolute;
-	left: 0;
-	top: -0.12rem;
-	width: 2.25rem;
-	height: 2.25rem;
-	border-radius: 50%;
-	background: rgba(253, 185, 51, 0.22);
-	color: var(--about-ink);
-	font-weight: 900;
-	text-align: center;
-	line-height: 2.25rem;
-	content: "✓";
-}
 
 .rpd-about-belief-card > p {
 	margin: 2.25rem 0 0;

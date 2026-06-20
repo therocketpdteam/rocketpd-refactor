@@ -9,13 +9,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$eyebrow  = rocketpd_get_field( 'rpd_about_founders_eyebrow', __( 'MEET THE FOUNDERS', 'rocketpd' ) );
-$headline = rocketpd_get_field( 'rpd_about_founders_headline', __( 'Built by educators, for educators.', 'rocketpd' ) );
-$body     = rocketpd_get_field( 'rpd_about_founders_body', __( "RocketPD's three co-founders bring decades of K-12 experience — and a personal connection to the educators who shaped them.", 'rocketpd' ) );
-$people   = function_exists( 'rocketpd_get_members_by_type' ) ? rocketpd_get_members_by_type( 'founder' ) : array();
+$mode = rocketpd_get_field( 'rpd_about_founders_mode', 'defaults' );
+
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$people = function_exists( 'rocketpd_get_members_by_type' ) ? rocketpd_get_members_by_type( 'founder' ) : array();
 
 if ( ! $people ) {
 	return;
+}
+
+$default_eyebrow  = __( 'MEET THE FOUNDERS', 'rocketpd' );
+$default_headline = __( 'Built by educators, for educators.', 'rocketpd' );
+$default_body     = __( "RocketPD's three co-founders bring decades of K-12 experience — and a personal connection to the educators who shaped them.", 'rocketpd' );
+
+if ( 'custom' === $mode ) {
+	$eyebrow  = rocketpd_get_field( 'rpd_about_founders_eyebrow', $default_eyebrow );
+	$headline = rocketpd_get_field( 'rpd_about_founders_headline', $default_headline );
+	$body     = rocketpd_get_field( 'rpd_about_founders_body', $default_body );
+} else {
+	$eyebrow  = $default_eyebrow;
+	$headline = $default_headline;
+	$body     = $default_body;
 }
 ?>
 

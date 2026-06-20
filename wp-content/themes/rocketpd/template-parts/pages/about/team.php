@@ -9,12 +9,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$eyebrow  = rocketpd_get_field( 'rpd_about_team_eyebrow', __( 'THE TEAM', 'rocketpd' ) );
-$headline = rocketpd_get_field( 'rpd_about_team_headline', __( 'The people behind the platform.', 'rocketpd' ) );
-$people   = function_exists( 'rocketpd_get_members_by_type' ) ? rocketpd_get_members_by_type( 'team' ) : array();
+$mode = rocketpd_get_field( 'rpd_about_team_mode', 'defaults' );
+
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$people = function_exists( 'rocketpd_get_members_by_type' ) ? rocketpd_get_members_by_type( 'team' ) : array();
 
 if ( ! $people ) {
 	return;
+}
+
+$default_eyebrow  = __( 'THE TEAM', 'rocketpd' );
+$default_headline = __( 'The people behind the platform.', 'rocketpd' );
+
+if ( 'custom' === $mode ) {
+	$eyebrow  = rocketpd_get_field( 'rpd_about_team_eyebrow', $default_eyebrow );
+	$headline = rocketpd_get_field( 'rpd_about_team_headline', $default_headline );
+} else {
+	$eyebrow  = $default_eyebrow;
+	$headline = $default_headline;
 }
 ?>
 
