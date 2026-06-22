@@ -25,7 +25,7 @@ $fallback_instructors = array(
 	array( 'image' => 'inst-estill.png',    'focus' => 'Reading Instruction',              'name' => 'Beth P. Estill',          'desc' => 'Identify and address learning gaps with personalized reading instruction.' ),
 	array( 'image' => 'inst-gonzalez.jpeg', 'focus' => 'Teaching Efficacy',               'name' => 'Jennifer Gonzalez',       'desc' => 'Fine-tune your lessons with the fundamentals.', 'is_new' => true ),
 	array( 'image' => 'inst-hinojosa.png',  'focus' => 'School Leadership',               'name' => 'Dr. Michael Hinojosa',    'desc' => 'Identify and manage talent while navigating school politics.' ),
-	array( 'image' => 'inst-juliani.png',   'focus' => 'AI & Technology',                 'name' => 'A.J. Juliani',            'desc' => 'Use A.I. to make learning real and relevant for students now and in the future.' ),
+	array( 'image' => 'inst-juliani.png',   'focus' => 'AI & Technology',                 'name' => 'A.J. Juliani',            'desc' => 'Use A.I. to make learning real and relevant for students now and in the future.', 'url' => '/instructors/aj-juliani/' ),
 	array( 'image' => 'inst-marshall.png',  'focus' => 'Teacher Evaluation',              'name' => 'Kim Marshall',            'desc' => "Drive efficiencies and staff engagement through 'mini-observations.'" ),
 	array( 'image' => 'inst-philibert.png', 'focus' => 'Adult Well-Being & Retention',   'name' => 'Carla Tantillo Philibert', 'desc' => 'Empower teachers and staff to advocate for their personal and professional needs.' ),
 	array( 'image' => 'inst-sopher.png',    'focus' => 'School Communications',           'name' => 'Veronica V. Sopher',      'desc' => 'Build trust and address sensitive topics with parents and community members.' ),
@@ -61,12 +61,12 @@ if ( 'custom' === $mode ) {
 		<header class="rpd-lp-instructors__header"><div><p class="rpd-lp-eyebrow"><?php echo esc_html( $eyebrow ); ?></p><h2><?php echo esc_html( $h2 ); ?></h2><p><?php echo esc_html( $intro ); ?></p></div><a href="<?php echo esc_url( $all['url'] ?? home_url( '/instructors/' ) ); ?>"><?php echo esc_html( $all['title'] ?? __( 'See all instructors', 'rocketpd' ) ); ?> →</a></header>
 		<div class="rpd-lp-instructor-grid">
 			<?php foreach ( $instructors as $instructor ) : ?>
-				<article class="rpd-lp-instructor-card">
+				<a href="<?php echo esc_url( $instructor['url'] ?? home_url( '/instructors/' . sanitize_title( $instructor['name'] ?? '' ) . '/' ) ); ?>" class="rpd-lp-instructor-card">
 					<div class="rpd-lp-instructor-card__image"><img src="<?php echo esc_url( rocketpd_lp_image_url( $instructor['image'] ?? '', rocketpd_lp_asset( $instructor['image'] ?? 'inst-barnett.png' ) ) ); ?>" alt="<?php echo esc_attr( $instructor['name'] ?? '' ); ?>"><?php if ( ! empty( $instructor['is_new'] ) ) : ?><span><?php esc_html_e( 'New', 'rocketpd' ); ?></span><?php endif; ?><b><?php rocketpd_lp_icon( 'play' ); ?><?php esc_html_e( 'Watch trailer', 'rocketpd' ); ?><small><?php echo esc_html( $instructor['meta'] ?? '5 modules · 1 hr' ); ?></small></b></div>
 					<p><?php echo esc_html( $instructor['focus'] ?? '' ); ?></p><h3><?php echo esc_html( $instructor['name'] ?? '' ); ?></h3><span><?php echo esc_html( $instructor['desc'] ?? '' ); ?></span>
-				</article>
+				</a>
 			<?php endforeach; ?>
-			<article class="rpd-lp-instructor-more"><b>→</b><h3><?php esc_html_e( '+ More courses coming soon', 'rocketpd' ); ?></h3><p><?php esc_html_e( 'Explore the full library of nationally recognized instructors', 'rocketpd' ); ?></p><a class="rpd-lp-btn rpd-lp-btn--gold" href="<?php echo esc_url( $all['url'] ?? home_url( '/instructors/' ) ); ?>"><?php esc_html_e( 'See all instructors', 'rocketpd' ); ?></a></article>
+			<article class="rpd-lp-instructor-more"><h3><?php esc_html_e( '+ More courses coming soon', 'rocketpd' ); ?></h3><p><?php esc_html_e( 'Explore the full library of nationally recognized instructors', 'rocketpd' ); ?></p><a class="rpd-lp-btn rpd-lp-btn--gold" href="<?php echo esc_url( $all['url'] ?? home_url( '/instructors/' ) ); ?>"><?php esc_html_e( 'See all instructors', 'rocketpd' ); ?></a></article>
 		</div>
 	</div>
 </section>
