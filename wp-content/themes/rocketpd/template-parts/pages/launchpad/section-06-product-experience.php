@@ -9,16 +9,46 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$bullets = rocketpd_lp_get_field( 'product_bullets', array( 'Access a curated library of expert-led courses', 'Quickly find relevant content through search and topic organization', 'Move at their own pace or as part of a team', 'Track progress and return to learning anytime', 'Apply what they learn immediately in their role' ) );
+$mode = rocketpd_lp_get_field( 'lp_product_mode', 'defaults' );
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$default_eyebrow = __( 'Product Experience', 'rocketpd' );
+$default_h2      = __( 'A Better Learning Experience for Educators.', 'rocketpd' );
+$default_lead    = __( 'LaunchPad is designed around how educators actually learn and work. Educators can:', 'rocketpd' );
+$default_closing = __( 'This creates a consistent, high-quality learning experience across your entire team — without adding time or complexity.', 'rocketpd' );
+$default_bullets = array(
+	'Access a curated library of expert-led courses',
+	'Quickly find relevant content through search and topic organization',
+	'Move at their own pace or as part of a team',
+	'Track progress and return to learning anytime',
+	'Apply what they learn immediately in their role',
+);
+
+if ( 'custom' === $mode ) {
+	$eyebrow     = rocketpd_lp_get_field( 'product_eyebrow', $default_eyebrow );
+	$h2          = rocketpd_lp_get_field( 'product_h2', $default_h2 );
+	$lead        = rocketpd_lp_get_field( 'product_lead', $default_lead );
+	$closing     = rocketpd_lp_get_field( 'product_closing', $default_closing );
+	$acf_bullets = rocketpd_lp_get_field( 'product_bullets', null );
+	$bullets     = is_array( $acf_bullets ) && ! empty( $acf_bullets ) ? $acf_bullets : $default_bullets;
+} else {
+	$eyebrow = $default_eyebrow;
+	$h2      = $default_h2;
+	$lead    = $default_lead;
+	$closing = $default_closing;
+	$bullets = $default_bullets;
+}
 ?>
 <section class="rpd-lp-section rpd-lp-product" id="explore">
 	<div class="rpd-container rpd-lp-split rpd-lp-split--wide">
 		<div>
-			<p class="rpd-lp-eyebrow"><?php echo esc_html( rocketpd_lp_get_field( 'product_eyebrow', __( 'Product Experience', 'rocketpd' ) ) ); ?></p>
-			<h2><?php echo esc_html( rocketpd_lp_get_field( 'product_h2', __( 'A Better Learning Experience for Educators.', 'rocketpd' ) ) ); ?></h2>
-			<p><?php echo esc_html( rocketpd_lp_get_field( 'product_lead', __( 'LaunchPad is designed around how educators actually learn and work. Educators can:', 'rocketpd' ) ) ); ?></p>
+			<p class="rpd-lp-eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
+			<h2><?php echo esc_html( $h2 ); ?></h2>
+			<p><?php echo esc_html( $lead ); ?></p>
 			<ul class="rpd-lp-check-list"><?php foreach ( $bullets as $bullet ) : ?><li><?php echo esc_html( is_array( $bullet ) ? ( $bullet['text'] ?? '' ) : $bullet ); ?></li><?php endforeach; ?></ul>
-			<p><?php echo esc_html( rocketpd_lp_get_field( 'product_closing', __( 'This creates a consistent, high-quality learning experience across your entire team — without adding time or complexity.', 'rocketpd' ) ) ); ?></p>
+			<p><?php echo esc_html( $closing ); ?></p>
 		</div>
 		<div class="rpd-lp-ui-collage" aria-label="<?php esc_attr_e( 'LaunchPad product interface collage', 'rocketpd' ); ?>">
 			<div class="rpd-lp-ui rpd-lp-ui--search"><strong><?php esc_html_e( 'Search & Filter', 'rocketpd' ); ?></strong><div><?php rocketpd_lp_icon( 'search' ); ?><?php esc_html_e( 'Search courses, topics, instructors...', 'rocketpd' ); ?></div><p><span><?php esc_html_e( 'Reading', 'rocketpd' ); ?></span><span><?php esc_html_e( 'Leadership', 'rocketpd' ); ?></span><span><?php esc_html_e( 'Coaching', 'rocketpd' ); ?></span><span><?php esc_html_e( 'Family Engagement', 'rocketpd' ); ?></span><span><?php esc_html_e( 'Onboarding', 'rocketpd' ); ?></span><span><?php esc_html_e( 'Well-being', 'rocketpd' ); ?></span></p></div>
