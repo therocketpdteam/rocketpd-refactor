@@ -9,6 +9,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$mode = rocketpd_get_field( 'rpd_cohorts_gallery_mode', 'defaults' );
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$default_kicker   = __( 'Cohort Gallery', 'rocketpd' );
+$default_headline = __( 'Find the right cohort for your next step.', 'rocketpd' );
+$default_body     = __( 'Browse all upcoming cohorts. Filter by topic, audience, length, status, or price.', 'rocketpd' );
+
+if ( 'custom' === $mode ) {
+	$kicker   = rocketpd_get_field( 'rpd_cohorts_gallery_kicker', $default_kicker );
+	$headline = rocketpd_get_field( 'rpd_cohorts_gallery_headline', $default_headline );
+	$body     = rocketpd_get_field( 'rpd_cohorts_gallery_body', $default_body );
+} else {
+	$kicker   = $default_kicker;
+	$headline = $default_headline;
+	$body     = $default_body;
+}
+
 $cohorts   = rocketpd_get_sorted_cohorts();
 $topics    = rocketpd_get_cohort_filter_values( 'cohort_topic' );
 $audiences = rocketpd_get_cohort_filter_values( 'cohort_audience' );
@@ -18,9 +37,9 @@ $statuses  = rocketpd_get_cohort_status_meta();
 <section class="rpd-cohorts-section rpd-cohorts-gallery" id="cohort-gallery" data-rpd-cohorts>
 	<div class="rpd-container">
 		<header class="rpd-cohorts-section__header">
-			<p class="rpd-cohorts-kicker"><?php esc_html_e( 'Cohort Gallery', 'rocketpd' ); ?></p>
-			<h2><?php esc_html_e( 'Find the right cohort for your next step.', 'rocketpd' ); ?></h2>
-			<span><?php esc_html_e( 'Browse all upcoming cohorts. Filter by topic, audience, length, status, or price.', 'rocketpd' ); ?></span>
+			<p class="rpd-cohorts-kicker"><?php echo esc_html( $kicker ); ?></p>
+			<h2><?php echo esc_html( $headline ); ?></h2>
+			<span><?php echo esc_html( $body ); ?></span>
 		</header>
 
 		<div class="rpd-cohorts-filter-card">

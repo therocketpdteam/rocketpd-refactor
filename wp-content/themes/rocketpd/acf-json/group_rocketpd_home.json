@@ -8,9 +8,9 @@
         { "key": "field_rpd_home_0003_hero_headline", "label": "Hero Headline", "name": "rpd_home_hero_headline", "type": "text", "default_value": "The Community for Educator Growth.", "conditional_logic": [[{ "field": "field_rpd_home_0071_hero_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0004_hero_body", "label": "Hero Body", "name": "rpd_home_hero_body", "type": "textarea", "rows": 3, "new_lines": "", "default_value": "RocketPD helps schools support educator growth, strengthen retention, and turn professional learning into real outcomes for teachers and students.", "conditional_logic": [[{ "field": "field_rpd_home_0071_hero_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0005_hero_primary_label", "label": "Primary CTA Label", "name": "rpd_home_hero_primary_label", "type": "text", "default_value": "Join the Community", "conditional_logic": [[{ "field": "field_rpd_home_0071_hero_mode", "operator": "==", "value": "custom" }]] },
-        { "key": "field_rpd_home_0006_hero_primary_url", "label": "Primary CTA URL", "name": "rpd_home_hero_primary_url", "type": "url", "conditional_logic": [[{ "field": "field_rpd_home_0071_hero_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_home_0006_hero_primary_url", "label": "Primary CTA URL", "name": "rpd_home_hero_primary_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_home_0071_hero_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0007_hero_secondary_label", "label": "Secondary CTA Label", "name": "rpd_home_hero_secondary_label", "type": "text", "default_value": "Explore LaunchPad", "conditional_logic": [[{ "field": "field_rpd_home_0071_hero_mode", "operator": "==", "value": "custom" }]] },
-        { "key": "field_rpd_home_0008_hero_secondary_url", "label": "Secondary CTA URL", "name": "rpd_home_hero_secondary_url", "type": "url", "conditional_logic": [[{ "field": "field_rpd_home_0071_hero_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_home_0008_hero_secondary_url", "label": "Secondary CTA URL", "name": "rpd_home_hero_secondary_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_home_0071_hero_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0009_hero_image", "label": "Hero Image", "name": "rpd_home_hero_image", "type": "image", "return_format": "array", "preview_size": "medium", "library": "all", "conditional_logic": [[{ "field": "field_rpd_home_0071_hero_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0010_hero_stat_value", "label": "Hero Stat Value", "name": "rpd_home_hero_stat_value", "type": "text", "default_value": "40,000+", "conditional_logic": [[{ "field": "field_rpd_home_0071_hero_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0011_hero_stat_label", "label": "Hero Stat Label", "name": "rpd_home_hero_stat_label", "type": "text", "default_value": "Educators joined", "conditional_logic": [[{ "field": "field_rpd_home_0071_hero_mode", "operator": "==", "value": "custom" }]] },
@@ -43,7 +43,7 @@
         { "key": "field_rpd_home_0022_launchpad_headline", "label": "Headline", "name": "rpd_home_launchpad_headline", "type": "text", "default_value": "Professional Growth That Fits Your School's Reality.", "conditional_logic": [[{ "field": "field_rpd_home_0075_launchpad_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0023_launchpad_body", "label": "Body", "name": "rpd_home_launchpad_body", "type": "textarea", "rows": 4, "new_lines": "", "conditional_logic": [[{ "field": "field_rpd_home_0075_launchpad_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0024_launchpad_cta_label", "label": "CTA Label", "name": "rpd_home_launchpad_cta_label", "type": "text", "default_value": "Learn about LaunchPad", "conditional_logic": [[{ "field": "field_rpd_home_0075_launchpad_mode", "operator": "==", "value": "custom" }]] },
-        { "key": "field_rpd_home_0025_launchpad_cta_url", "label": "CTA URL", "name": "rpd_home_launchpad_cta_url", "type": "url", "conditional_logic": [[{ "field": "field_rpd_home_0075_launchpad_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_home_0025_launchpad_cta_url", "label": "CTA URL", "name": "rpd_home_launchpad_cta_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_home_0075_launchpad_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0026_launchpad_image", "label": "Image", "name": "rpd_home_launchpad_image", "type": "image", "return_format": "array", "preview_size": "medium", "library": "all", "conditional_logic": [[{ "field": "field_rpd_home_0075_launchpad_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0027_launchpad_card_label", "label": "Floating Card Label", "name": "rpd_home_launchpad_card_label", "type": "text", "default_value": "Upcoming Cohort", "conditional_logic": [[{ "field": "field_rpd_home_0075_launchpad_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0028_launchpad_card_body", "label": "Floating Card Body", "name": "rpd_home_launchpad_card_body", "type": "text", "default_value": "School Leadership", "conditional_logic": [[{ "field": "field_rpd_home_0075_launchpad_mode", "operator": "==", "value": "custom" }]] },
@@ -59,7 +59,7 @@
             { "key": "field_rpd_home_0032d_subtitle", "label": "Subtitle", "name": "subtitle", "type": "text" },
             { "key": "field_rpd_home_0032e_bullets", "label": "Bullets", "name": "bullets", "type": "textarea", "rows": 4, "new_lines": "" },
             { "key": "field_rpd_home_0032f_cta_label", "label": "CTA Label", "name": "cta_label", "type": "text" },
-            { "key": "field_rpd_home_0032g_cta_url", "label": "CTA URL", "name": "cta_url", "type": "url" },
+            { "key": "field_rpd_home_0032g_cta_url", "label": "CTA URL", "name": "cta_url", "type": "text" },
             { "key": "field_rpd_home_0032h_featured", "label": "Featured", "name": "featured", "type": "true_false", "ui": 1 }
         ] },
 
@@ -85,14 +85,14 @@
             { "key": "field_rpd_home_0042e_icon", "label": "Icon Key", "name": "icon", "type": "text" },
             { "key": "field_rpd_home_0042f_accent", "label": "Accent", "name": "accent", "type": "text" },
             { "key": "field_rpd_home_0042g_cta_label", "label": "CTA Label", "name": "cta_label", "type": "text" },
-            { "key": "field_rpd_home_0042h_cta_url", "label": "CTA URL", "name": "cta_url", "type": "url" }
+            { "key": "field_rpd_home_0042h_cta_url", "label": "CTA URL", "name": "cta_url", "type": "text" }
         ] },
         { "key": "field_rpd_home_0043_resource_cta_headline", "label": "CTA Headline", "name": "rpd_home_resource_cta_headline", "type": "text", "default_value": "Join free to unlock the full library.", "conditional_logic": [[{ "field": "field_rpd_home_0078_resources_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0044_resource_cta_body", "label": "CTA Body", "name": "rpd_home_resource_cta_body", "type": "textarea", "rows": 2, "new_lines": "", "conditional_logic": [[{ "field": "field_rpd_home_0078_resources_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0045_resource_cta_primary_label", "label": "Primary CTA Label", "name": "rpd_home_resource_cta_primary_label", "type": "text", "default_value": "Join the Community Free", "conditional_logic": [[{ "field": "field_rpd_home_0078_resources_mode", "operator": "==", "value": "custom" }]] },
-        { "key": "field_rpd_home_0046_resource_cta_primary_url", "label": "Primary CTA URL", "name": "rpd_home_resource_cta_primary_url", "type": "url", "conditional_logic": [[{ "field": "field_rpd_home_0078_resources_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_home_0046_resource_cta_primary_url", "label": "Primary CTA URL", "name": "rpd_home_resource_cta_primary_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_home_0078_resources_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0047_resource_cta_secondary_label", "label": "Secondary CTA Label", "name": "rpd_home_resource_cta_secondary_label", "type": "text", "default_value": "Browse All Resources", "conditional_logic": [[{ "field": "field_rpd_home_0078_resources_mode", "operator": "==", "value": "custom" }]] },
-        { "key": "field_rpd_home_0048_resource_cta_secondary_url", "label": "Secondary CTA URL", "name": "rpd_home_resource_cta_secondary_url", "type": "url", "conditional_logic": [[{ "field": "field_rpd_home_0078_resources_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_home_0048_resource_cta_secondary_url", "label": "Secondary CTA URL", "name": "rpd_home_resource_cta_secondary_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_home_0078_resources_mode", "operator": "==", "value": "custom" }]] },
 
         { "key": "field_rpd_home_0049_trust_tab", "label": "Trust", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
         { "key": "field_rpd_home_0079_trust_mode", "label": "Section Mode", "name": "rpd_home_trust_mode", "type": "select", "choices": { "hidden": "Hidden — skip this section", "defaults": "Defaults — use built-in content", "custom": "Custom — use fields below" }, "default_value": "defaults", "allow_null": 0, "multiple": 0, "ui": 0, "return_format": "value", "conditional_logic": 0 },
@@ -112,7 +112,7 @@
             { "key": "field_rpd_home_0059b_state", "label": "State", "name": "state", "type": "text" }
         ] },
         { "key": "field_rpd_home_0060_district_note", "label": "District Note", "name": "rpd_home_district_note", "type": "text", "default_value": "A representative sample. Want your district featured?", "conditional_logic": [[{ "field": "field_rpd_home_0079_trust_mode", "operator": "==", "value": "custom" }]] },
-        { "key": "field_rpd_home_0060a_district_note_url", "label": "District Note URL", "name": "rpd_home_district_note_url", "type": "url", "conditional_logic": [[{ "field": "field_rpd_home_0079_trust_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_home_0060a_district_note_url", "label": "District Note URL", "name": "rpd_home_district_note_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_home_0079_trust_mode", "operator": "==", "value": "custom" }]] },
 
         { "key": "field_rpd_home_0061_testimonials_tab", "label": "Testimonials", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
         { "key": "field_rpd_home_0080_testimonials_mode", "label": "Section Mode", "name": "rpd_home_testimonials_mode", "type": "select", "choices": { "hidden": "Hidden — skip this section", "defaults": "Defaults — use built-in content", "custom": "Custom — use fields below" }, "default_value": "defaults", "allow_null": 0, "multiple": 0, "ui": 0, "return_format": "value", "conditional_logic": 0 },
@@ -133,9 +133,9 @@
         { "key": "field_rpd_home_0065_final_headline", "label": "Headline", "name": "rpd_home_final_headline", "type": "text", "default_value": "Join the RocketPD Professional Learning Community Today — It's Free.", "conditional_logic": [[{ "field": "field_rpd_home_0081_final_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0066_final_body", "label": "Body", "name": "rpd_home_final_body", "type": "textarea", "rows": 2, "new_lines": "", "conditional_logic": [[{ "field": "field_rpd_home_0081_final_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0067_final_primary_label", "label": "Primary CTA Label", "name": "rpd_home_final_primary_label", "type": "text", "default_value": "Join the Community", "conditional_logic": [[{ "field": "field_rpd_home_0081_final_mode", "operator": "==", "value": "custom" }]] },
-        { "key": "field_rpd_home_0068_final_primary_url", "label": "Primary CTA URL", "name": "rpd_home_final_primary_url", "type": "url", "conditional_logic": [[{ "field": "field_rpd_home_0081_final_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_home_0068_final_primary_url", "label": "Primary CTA URL", "name": "rpd_home_final_primary_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_home_0081_final_mode", "operator": "==", "value": "custom" }]] },
         { "key": "field_rpd_home_0069_final_secondary_label", "label": "Secondary CTA Label", "name": "rpd_home_final_secondary_label", "type": "text", "default_value": "Book a Conversation", "conditional_logic": [[{ "field": "field_rpd_home_0081_final_mode", "operator": "==", "value": "custom" }]] },
-        { "key": "field_rpd_home_0070_final_secondary_url", "label": "Secondary CTA URL", "name": "rpd_home_final_secondary_url", "type": "url", "conditional_logic": [[{ "field": "field_rpd_home_0081_final_mode", "operator": "==", "value": "custom" }]] }
+        { "key": "field_rpd_home_0070_final_secondary_url", "label": "Secondary CTA URL", "name": "rpd_home_final_secondary_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_home_0081_final_mode", "operator": "==", "value": "custom" }]] }
     ],
     "location": [
         [

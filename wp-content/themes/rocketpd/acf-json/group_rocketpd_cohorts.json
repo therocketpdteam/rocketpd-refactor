@@ -1,44 +1,233 @@
 {
     "key": "group_rocketpd_cohorts",
-    "title": "RocketPD Cohorts",
+    "title": "RocketPD Cohorts Page",
     "fields": [
+
+        { "key": "field_rpd_ch_tab_hero", "label": "Hero", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
         {
-            "key": "field_rpd_cohorts_tab_page",
-            "label": "Page Copy",
-            "name": "",
-            "type": "tab",
-            "placement": "top",
-            "endpoint": 0
+            "key": "field_rpd_ch_hero_mode",
+            "label": "Section Mode",
+            "name": "rpd_cohorts_hero_mode",
+            "type": "select",
+            "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" },
+            "default_value": "defaults",
+            "return_format": "value"
         },
+        { "key": "field_rpd_cohorts_hero_eyebrow", "label": "Eyebrow", "name": "rpd_cohorts_hero_eyebrow", "type": "text", "default_value": "Live-Virtual Cohorts · 2026 Lineup", "conditional_logic": [[{ "field": "field_rpd_ch_hero_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_cohorts_hero_headline", "label": "Headline", "name": "rpd_cohorts_hero_headline", "type": "text", "default_value": "Live-Virtual Cohorts for Educator Growth", "conditional_logic": [[{ "field": "field_rpd_ch_hero_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_cohorts_hero_body", "label": "Body", "name": "rpd_cohorts_hero_body", "type": "textarea", "rows": 3, "conditional_logic": [[{ "field": "field_rpd_ch_hero_mode", "operator": "==", "value": "custom" }]] },
+
+        { "key": "field_rpd_ch_tab_why", "label": "Why Cohorts", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
         {
-            "key": "field_rpd_cohorts_hero_eyebrow",
-            "label": "Hero Eyebrow",
-            "name": "rpd_cohorts_hero_eyebrow",
-            "type": "text",
-            "default_value": "Live-Virtual Cohorts · 2026 Lineup"
+            "key": "field_rpd_ch_why_mode",
+            "label": "Section Mode",
+            "name": "rpd_cohorts_why_mode",
+            "type": "select",
+            "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" },
+            "default_value": "defaults",
+            "return_format": "value"
         },
+        { "key": "field_rpd_ch_why_kicker", "label": "Kicker", "name": "rpd_cohorts_why_kicker", "type": "text", "default_value": "Why Cohorts", "conditional_logic": [[{ "field": "field_rpd_ch_why_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_why_headline", "label": "Headline", "name": "rpd_cohorts_why_headline", "type": "text", "default_value": "More Than a Webinar. A Professional Learning Experience.", "conditional_logic": [[{ "field": "field_rpd_ch_why_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_why_body", "label": "Body", "name": "rpd_cohorts_why_body", "type": "textarea", "rows": 3, "default_value": "RocketPD cohorts give educators and school leaders direct access to trusted experts, practical frameworks, and peer collaboration across multiple live sessions.", "conditional_logic": [[{ "field": "field_rpd_ch_why_mode", "operator": "==", "value": "custom" }]] },
         {
-            "key": "field_rpd_cohorts_hero_headline",
-            "label": "Hero Headline",
-            "name": "rpd_cohorts_hero_headline",
-            "type": "text",
-            "default_value": "Live-Virtual Cohorts for Educator Growth"
+            "key": "field_rpd_ch_why_cards",
+            "label": "Value Cards",
+            "name": "rpd_cohorts_why_cards",
+            "type": "repeater",
+            "min": 1,
+            "max": 4,
+            "layout": "block",
+            "conditional_logic": [[{ "field": "field_rpd_ch_why_mode", "operator": "==", "value": "custom" }]],
+            "sub_fields": [
+                {
+                    "key": "field_rpd_ch_why_cards_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "choices": { "lightbulb": "Lightbulb", "sparkles": "Sparkles", "message-circle": "Message Circle", "shield": "Shield", "target": "Target", "graduation-cap": "Graduation Cap", "award": "Award", "users": "Users" },
+                    "default_value": "lightbulb",
+                    "return_format": "value"
+                },
+                { "key": "field_rpd_ch_why_cards_title", "label": "Title", "name": "title", "type": "text" },
+                { "key": "field_rpd_ch_why_cards_body", "label": "Body", "name": "body", "type": "textarea", "rows": 2 }
+            ]
         },
+
+        { "key": "field_rpd_ch_tab_featured", "label": "Featured Cohorts", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
         {
-            "key": "field_rpd_cohorts_hero_body",
-            "label": "Hero Body",
-            "name": "rpd_cohorts_hero_body",
-            "type": "textarea",
-            "rows": 3
+            "key": "field_rpd_ch_featured_mode",
+            "label": "Section Mode",
+            "name": "rpd_cohorts_featured_mode",
+            "type": "select",
+            "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" },
+            "default_value": "defaults",
+            "return_format": "value"
         },
+        { "key": "field_rpd_ch_featured_kicker", "label": "Kicker", "name": "rpd_cohorts_featured_kicker", "type": "text", "default_value": "Featured Cohorts", "conditional_logic": [[{ "field": "field_rpd_ch_featured_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_featured_headline", "label": "Headline", "name": "rpd_cohorts_featured_headline", "type": "text", "default_value": "Three flagship cohorts kicking off this fall.", "conditional_logic": [[{ "field": "field_rpd_ch_featured_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_featured_link_label", "label": "Link Label", "name": "rpd_cohorts_featured_link_label", "type": "text", "default_value": "See full cohort lineup", "conditional_logic": [[{ "field": "field_rpd_ch_featured_mode", "operator": "==", "value": "custom" }]] },
+
+        { "key": "field_rpd_ch_tab_gallery", "label": "Gallery", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
         {
-            "key": "field_rpd_cohorts_tab_future_card_contract",
-            "label": "Future Cohort Card Contract",
-            "name": "",
-            "type": "tab",
-            "placement": "top",
-            "endpoint": 0
+            "key": "field_rpd_ch_gallery_mode",
+            "label": "Section Mode",
+            "name": "rpd_cohorts_gallery_mode",
+            "type": "select",
+            "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" },
+            "default_value": "defaults",
+            "return_format": "value"
         },
+        { "key": "field_rpd_ch_gallery_kicker", "label": "Kicker", "name": "rpd_cohorts_gallery_kicker", "type": "text", "default_value": "Cohort Gallery", "conditional_logic": [[{ "field": "field_rpd_ch_gallery_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_gallery_headline", "label": "Headline", "name": "rpd_cohorts_gallery_headline", "type": "text", "default_value": "Find the right cohort for your next step.", "conditional_logic": [[{ "field": "field_rpd_ch_gallery_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_gallery_body", "label": "Body", "name": "rpd_cohorts_gallery_body", "type": "text", "default_value": "Browse all upcoming cohorts. Filter by topic, audience, length, status, or price.", "conditional_logic": [[{ "field": "field_rpd_ch_gallery_mode", "operator": "==", "value": "custom" }]] },
+
+        { "key": "field_rpd_ch_tab_how", "label": "How It Works", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+        {
+            "key": "field_rpd_ch_how_mode",
+            "label": "Section Mode",
+            "name": "rpd_cohorts_how_mode",
+            "type": "select",
+            "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        { "key": "field_rpd_ch_how_kicker", "label": "Kicker", "name": "rpd_cohorts_how_kicker", "type": "text", "default_value": "How It Works", "conditional_logic": [[{ "field": "field_rpd_ch_how_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_how_headline", "label": "Headline", "name": "rpd_cohorts_how_headline", "type": "text", "default_value": "From registration to real classroom change in four steps.", "conditional_logic": [[{ "field": "field_rpd_ch_how_mode", "operator": "==", "value": "custom" }]] },
+        {
+            "key": "field_rpd_ch_how_steps",
+            "label": "Steps",
+            "name": "rpd_cohorts_how_steps",
+            "type": "repeater",
+            "min": 1,
+            "max": 6,
+            "layout": "block",
+            "conditional_logic": [[{ "field": "field_rpd_ch_how_mode", "operator": "==", "value": "custom" }]],
+            "sub_fields": [
+                { "key": "field_rpd_ch_how_steps_title", "label": "Step Title", "name": "title", "type": "text" },
+                { "key": "field_rpd_ch_how_steps_body", "label": "Step Body", "name": "body", "type": "textarea", "rows": 2 }
+            ]
+        },
+
+        { "key": "field_rpd_ch_tab_district", "label": "District CTA", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+        {
+            "key": "field_rpd_ch_district_mode",
+            "label": "Section Mode",
+            "name": "rpd_cohorts_district_mode",
+            "type": "select",
+            "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        { "key": "field_rpd_ch_district_kicker", "label": "Kicker", "name": "rpd_cohorts_district_kicker", "type": "text", "default_value": "For Schools & Districts", "conditional_logic": [[{ "field": "field_rpd_ch_district_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_district_headline", "label": "Headline", "name": "rpd_cohorts_district_headline", "type": "text", "default_value": "Bring Cohort Learning to Your Team.", "conditional_logic": [[{ "field": "field_rpd_ch_district_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_district_body", "label": "Body", "name": "rpd_cohorts_district_body", "type": "textarea", "rows": 3, "default_value": "Districts use RocketPD cohorts to support leadership teams, PLCs, instructional initiatives, onboarding cycles, and strategic professional learning priorities.", "conditional_logic": [[{ "field": "field_rpd_ch_district_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_district_primary_label", "label": "Primary CTA Label", "name": "rpd_cohorts_district_primary_label", "type": "text", "default_value": "Book a Conversation", "conditional_logic": [[{ "field": "field_rpd_ch_district_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_district_primary_url", "label": "Primary CTA URL", "name": "rpd_cohorts_district_primary_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_ch_district_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_district_secondary_label", "label": "Secondary CTA Label", "name": "rpd_cohorts_district_secondary_label", "type": "text", "default_value": "See Team Pricing", "conditional_logic": [[{ "field": "field_rpd_ch_district_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_district_secondary_url", "label": "Secondary CTA URL", "name": "rpd_cohorts_district_secondary_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_ch_district_mode", "operator": "==", "value": "custom" }]] },
+        {
+            "key": "field_rpd_ch_district_perks",
+            "label": "Perks",
+            "name": "rpd_cohorts_district_perks",
+            "type": "repeater",
+            "min": 1,
+            "max": 6,
+            "layout": "table",
+            "conditional_logic": [[{ "field": "field_rpd_ch_district_mode", "operator": "==", "value": "custom" }]],
+            "sub_fields": [
+                { "key": "field_rpd_ch_district_perks_label", "label": "Label", "name": "label", "type": "text" }
+            ]
+        },
+
+        { "key": "field_rpd_ch_tab_testimonials", "label": "Testimonials", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+        {
+            "key": "field_rpd_ch_testimonials_mode",
+            "label": "Section Mode",
+            "name": "rpd_cohorts_testimonials_mode",
+            "type": "select",
+            "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        { "key": "field_rpd_ch_testimonials_kicker", "label": "Kicker", "name": "rpd_cohorts_testimonials_kicker", "type": "text", "default_value": "From Cohort Participants", "conditional_logic": [[{ "field": "field_rpd_ch_testimonials_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_testimonials_headline", "label": "Headline", "name": "rpd_cohorts_testimonials_headline", "type": "text", "default_value": "What educators say after a RocketPD cohort.", "conditional_logic": [[{ "field": "field_rpd_ch_testimonials_mode", "operator": "==", "value": "custom" }]] },
+        {
+            "key": "field_rpd_ch_testimonials",
+            "label": "Testimonials",
+            "name": "rpd_cohorts_testimonials",
+            "type": "repeater",
+            "min": 1,
+            "max": 6,
+            "layout": "block",
+            "conditional_logic": [[{ "field": "field_rpd_ch_testimonials_mode", "operator": "==", "value": "custom" }]],
+            "sub_fields": [
+                { "key": "field_rpd_ch_testimonials_quote", "label": "Quote", "name": "quote", "type": "textarea", "rows": 3 },
+                { "key": "field_rpd_ch_testimonials_name", "label": "Name", "name": "name", "type": "text" },
+                { "key": "field_rpd_ch_testimonials_role", "label": "Role & Organization", "name": "role", "type": "text" }
+            ]
+        },
+
+        { "key": "field_rpd_ch_tab_midcta", "label": "Mid CTA", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+        {
+            "key": "field_rpd_ch_midcta_mode",
+            "label": "Section Mode",
+            "name": "rpd_cohorts_midcta_mode",
+            "type": "select",
+            "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        { "key": "field_rpd_ch_midcta_headline", "label": "Headline", "name": "rpd_cohorts_midcta_headline", "type": "text", "default_value": "Find the right cohort for your next step.", "conditional_logic": [[{ "field": "field_rpd_ch_midcta_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_midcta_body", "label": "Body", "name": "rpd_cohorts_midcta_body", "type": "textarea", "rows": 2, "default_value": "New cohorts launch every season. Reserve your seat early — most fill 2–3 weeks before the first session.", "conditional_logic": [[{ "field": "field_rpd_ch_midcta_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_midcta_cta_label", "label": "CTA Label", "name": "rpd_cohorts_midcta_cta_label", "type": "text", "default_value": "Explore Upcoming Cohorts", "conditional_logic": [[{ "field": "field_rpd_ch_midcta_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_midcta_cta_url", "label": "CTA URL", "name": "rpd_cohorts_midcta_cta_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_ch_midcta_mode", "operator": "==", "value": "custom" }]] },
+
+        { "key": "field_rpd_ch_tab_faq", "label": "FAQ", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+        {
+            "key": "field_rpd_ch_faq_mode",
+            "label": "Section Mode",
+            "name": "rpd_cohorts_faq_mode",
+            "type": "select",
+            "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        { "key": "field_rpd_ch_faq_kicker", "label": "Kicker", "name": "rpd_cohorts_faq_kicker", "type": "text", "default_value": "Cohort FAQ", "conditional_logic": [[{ "field": "field_rpd_ch_faq_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_faq_headline", "label": "Headline", "name": "rpd_cohorts_faq_headline", "type": "text", "default_value": "Common questions, clear answers.", "conditional_logic": [[{ "field": "field_rpd_ch_faq_mode", "operator": "==", "value": "custom" }]] },
+        {
+            "key": "field_rpd_ch_faqs",
+            "label": "FAQ Items",
+            "name": "rpd_cohorts_faqs",
+            "type": "repeater",
+            "min": 1,
+            "max": 12,
+            "layout": "block",
+            "conditional_logic": [[{ "field": "field_rpd_ch_faq_mode", "operator": "==", "value": "custom" }]],
+            "sub_fields": [
+                { "key": "field_rpd_ch_faqs_question", "label": "Question", "name": "question", "type": "text" },
+                { "key": "field_rpd_ch_faqs_answer", "label": "Answer", "name": "answer", "type": "textarea", "rows": 3 }
+            ]
+        },
+
+        { "key": "field_rpd_ch_tab_finalcta", "label": "Final CTA", "name": "", "type": "tab", "placement": "top", "endpoint": 0 },
+        {
+            "key": "field_rpd_ch_finalcta_mode",
+            "label": "Section Mode",
+            "name": "rpd_cohorts_finalcta_mode",
+            "type": "select",
+            "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        { "key": "field_rpd_ch_finalcta_headline", "label": "Headline", "name": "rpd_cohorts_finalcta_headline", "type": "text", "default_value": "Start Learning With RocketPD.", "conditional_logic": [[{ "field": "field_rpd_ch_finalcta_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_finalcta_body", "label": "Body", "name": "rpd_cohorts_finalcta_body", "type": "textarea", "rows": 2, "default_value": "Reserve a seat in the next cohort, or join the RocketPD Community to be the first to know when new cohorts launch.", "conditional_logic": [[{ "field": "field_rpd_ch_finalcta_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_finalcta_primary_label", "label": "Primary CTA Label", "name": "rpd_cohorts_finalcta_primary_label", "type": "text", "default_value": "View Upcoming Cohorts", "conditional_logic": [[{ "field": "field_rpd_ch_finalcta_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_finalcta_primary_url", "label": "Primary CTA URL", "name": "rpd_cohorts_finalcta_primary_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_ch_finalcta_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_finalcta_secondary_label", "label": "Secondary CTA Label", "name": "rpd_cohorts_finalcta_secondary_label", "type": "text", "default_value": "Join the Community", "conditional_logic": [[{ "field": "field_rpd_ch_finalcta_mode", "operator": "==", "value": "custom" }]] },
+        { "key": "field_rpd_ch_finalcta_secondary_url", "label": "Secondary CTA URL", "name": "rpd_cohorts_finalcta_secondary_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_ch_finalcta_mode", "operator": "==", "value": "custom" }]] },
+
+        { "key": "field_rpd_ch_tab_contract", "label": "Future Cohort Card Contract", "name": "", "type": "tab", "placement": "top", "endpoint": 1 },
         {
             "key": "field_rpd_cohorts_contract_note",
             "label": "Implementation Note",
@@ -48,6 +237,7 @@
             "new_lines": "wpautop",
             "esc_html": 0
         }
+
     ],
     "location": [
         [
@@ -65,6 +255,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Page-level fields and future data-contract note for the RocketPD Cohorts Index.",
+    "description": "Page-level fields for the RocketPD Cohorts Index — 10 sections with hidden/defaults/custom three-state mode.",
     "show_in_rest": 0
 }
