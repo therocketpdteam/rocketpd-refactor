@@ -19,7 +19,7 @@ $cohorts = array_slice( rocketpd_get_featured_cohorts(), 0, 3 );
 				<p class="rpd-cohorts-kicker"><?php esc_html_e( 'Featured Cohorts', 'rocketpd' ); ?></p>
 				<h2><?php esc_html_e( 'Three flagship cohorts kicking off this fall.', 'rocketpd' ); ?></h2>
 			</div>
-			<a href="#cohort-gallery"><?php esc_html_e( 'See full cohort lineup', 'rocketpd' ); ?> <span aria-hidden="true">-&gt;</span></a>
+			<a href="#cohort-gallery"><?php esc_html_e( 'See full cohort lineup', 'rocketpd' ); ?> <span aria-hidden="true">&rarr;</span></a>
 		</header>
 		<div class="rpd-cohorts-card-grid">
 			<?php foreach ( $cohorts as $cohort ) : ?>

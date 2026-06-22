@@ -30,6 +30,8 @@
 		return;
 	}
 
+	const PAGE_SIZE = 6;
+
 	const cards = Array.from(root.querySelectorAll('[data-rpd-cohort-card]'));
 	const search = root.querySelector('[data-rpd-cohort-search]');
 	const selects = Array.from(root.querySelectorAll('[data-rpd-cohort-select]'));
@@ -37,6 +39,9 @@
 	const clearButtons = Array.from(root.querySelectorAll('[data-rpd-cohort-clear]'));
 	const status = root.querySelector('[data-rpd-cohort-status]');
 	const empty = root.querySelector('[data-rpd-cohort-empty]');
+	const loadMoreBtn = root.querySelector('[data-rpd-cohort-load-more]');
+
+	let showAll = false;
 
 	const state = {
 		query: '',
@@ -67,28 +72,40 @@
 
 	const activeCount = () => Object.keys(state).filter((key) => state[key] && state[key] !== 'all').length;
 
+	const isFiltered = () => activeCount() > 0 || normalize(state.query).length > 0;
+
 	const update = () => {
-		let visible = 0;
+		let matched = 0;
+		let shown = 0;
 
 		cards.forEach((card) => {
-			const isVisible = matches(card);
-			card.hidden = !isVisible;
+			const isMatch = matches(card);
 
-			if (isVisible) {
-				visible += 1;
+			if (isMatch) {
+				matched += 1;
+				// When unfiltered, limit to PAGE_SIZE unless showAll
+				const withinPage = isFiltered() || showAll || matched <= PAGE_SIZE;
+				card.hidden = !withinPage;
+				if (withinPage) shown += 1;
+			} else {
+				card.hidden = true;
 			}
 		});
 
 		if (status) {
-			status.textContent = `Showing ${visible} of ${cards.length} cohorts`;
+			status.textContent = `Showing ${shown} of ${cards.length} cohorts`;
+		}
+
+		if (loadMoreBtn) {
+			loadMoreBtn.hidden = isFiltered() || showAll || matched <= PAGE_SIZE;
 		}
 
 		clearButtons.forEach((button) => {
-			button.hidden = activeCount() === 0;
+			button.hidden = !isFiltered();
 		});
 
 		if (empty) {
-			empty.hidden = visible !== 0;
+			empty.hidden = matched !== 0;
 		}
 	};
 
@@ -129,6 +146,7 @@
 			state.status = 'all';
 			state.length = 'all';
 			state.price = 'all';
+			showAll = false;
 
 			if (search) {
 				search.value = '';
@@ -147,6 +165,13 @@
 			update();
 		});
 	});
+
+	if (loadMoreBtn) {
+		loadMoreBtn.addEventListener('click', () => {
+			showAll = true;
+			update();
+		});
+	}
 
 	cards.forEach((card) => {
 		const image = card.querySelector('img');
