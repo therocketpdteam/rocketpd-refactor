@@ -47,7 +47,7 @@ $search_text = strtolower(
 		<span class="rpd-cohort-card__type"><?php esc_html_e( 'Live-Virtual Cohort', 'rocketpd' ); ?></span>
 		<span class="rpd-cohort-card__price"><?php echo esc_html( $cohort['price_label'] ?? '' ); ?></span>
 		<span class="rpd-cohort-card__calendar" aria-hidden="true">
-			<svg viewBox="0 0 24 24" fill="none"><path d="M7 3v4M17 3v4M4 9h16M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+			<?php echo rocketpd_get_icon( 'calendar', 22 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</span>
 		<span class="rpd-cohort-card__date"><?php printf( esc_html__( 'Starts %1$s · %2$s', 'rocketpd' ), esc_html( rocketpd_format_cohort_start_date( $cohort['start_date'] ?? '' ) ), esc_html( $cohort['session_count_label'] ?? '' ) ); ?></span>
 	</div>
@@ -72,7 +72,7 @@ $search_text = strtolower(
 		<?php endif; ?>
 		<footer>
 			<span><?php echo esc_html( $cohort['format_label'] ?? '' ); ?></span>
-			<a href="<?php echo esc_url( $cohort['href'] ?? '#' ); ?>"><?php esc_html_e( 'View Cohort', 'rocketpd' ); ?> <span aria-hidden="true">-&gt;</span></a>
+			<a href="<?php echo esc_url( $cohort['href'] ?? '#' ); ?>"><?php esc_html_e( 'View Cohort', 'rocketpd' ); ?> <span aria-hidden="true">&rarr;</span></a>
 		</footer>
 	</div>
 </article>

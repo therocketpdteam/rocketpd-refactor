@@ -1,18 +1,11 @@
 .rpd-cohorts-page {
-	--rpd-cohorts-navy: #231f58;
-	--rpd-cohorts-footer: #1a1744;
-	--rpd-cohorts-purple: #5552b1;
-	--rpd-cohorts-magenta: #a154a1;
-	--rpd-cohorts-gold: #fdb933;
-	--rpd-cohorts-lavender: #c4c4e5;
+	/* Page-specific tokens not in global system */
 	--rpd-cohorts-blue: #3b82f6;
 	--rpd-cohorts-emerald: #10b981;
-	--rpd-cohorts-text: #45417c;
 	--rpd-cohorts-muted: #7670b3;
-	--rpd-cohorts-soft: #f8f8fc;
 	--rpd-cohorts-line: rgba(196, 196, 229, 0.46);
 	--rpd-cohorts-shadow: 0 24px 64px rgba(35, 31, 88, 0.14);
-	color: var(--rpd-cohorts-text);
+	color: var(--rpd-color-text);
 	background: #fff;
 	overflow-x: clip;
 }
@@ -31,9 +24,9 @@
 .rpd-cohorts-page h1,
 .rpd-cohorts-page h2,
 .rpd-cohorts-page h3 {
-	font-family: var(--rpd-font-heading, "Poppins", sans-serif);
-	color: var(--rpd-cohorts-navy);
-	line-height: 1.05;
+	font-family: var(--font-heading);
+	color: var(--rpd-navy);
+	line-height: var(--rpd-line-height-heading);
 	letter-spacing: 0;
 	margin: 0;
 }
@@ -100,7 +93,7 @@
 	align-items: center;
 	gap: 8px;
 	width: fit-content;
-	color: var(--rpd-cohorts-magenta);
+	color: var(--rpd-purple-deep);
 	font-size: 0.78rem;
 	font-weight: 800;
 	letter-spacing: 0.12em;
@@ -112,46 +105,10 @@
 	width: 10px;
 	height: 10px;
 	border-radius: 999px;
-	background: var(--rpd-cohorts-gold);
+	background: var(--rpd-gold);
 	box-shadow: 0 0 0 5px rgba(253, 185, 51, 0.18);
 }
 
-.rpd-cohorts-page .rpd-btn {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 48px;
-	padding: 13px 22px;
-	border-radius: 999px;
-	font-weight: 800;
-	line-height: 1.1;
-	text-decoration: none;
-	border: 2px solid transparent;
-	transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
-}
-
-.rpd-cohorts-page .rpd-btn:hover,
-.rpd-cohorts-page .rpd-btn:focus-visible {
-	transform: translateY(-2px);
-}
-
-.rpd-cohorts-page .rpd-btn--gold {
-	background: var(--rpd-cohorts-gold);
-	color: var(--rpd-cohorts-navy);
-	box-shadow: 0 14px 28px rgba(253, 185, 51, 0.26);
-}
-
-.rpd-cohorts-page .rpd-btn--outline-purple {
-	background: #fff;
-	color: var(--rpd-cohorts-purple);
-	border-color: rgba(85, 82, 177, 0.34);
-}
-
-.rpd-cohorts-page .rpd-btn--outline-white {
-	color: #fff;
-	border-color: rgba(255, 255, 255, 0.52);
-	background: rgba(255, 255, 255, 0.08);
-}
 
 .rpd-cohorts-hero {
 	position: relative;
@@ -208,13 +165,13 @@
 }
 
 .rpd-cohorts-hero h1 span {
-	color: var(--rpd-cohorts-magenta);
+	color: var(--rpd-purple-deep);
 }
 
 .rpd-cohorts-hero__lede {
 	margin-top: 22px;
 	max-width: 620px;
-	color: var(--rpd-cohorts-text);
+	color: var(--rpd-color-text);
 	font-size: clamp(1.08rem, 1.4vw, 1.26rem);
 }
 
@@ -254,8 +211,8 @@
 .rpd-cohorts-hero__stats strong {
 	display: block;
 	margin-bottom: 5px;
-	color: var(--rpd-cohorts-navy);
-	font: 800 2rem/1 var(--rpd-font-heading, "Poppins", sans-serif);
+	color: var(--rpd-navy);
+	font: 800 2rem/1 var(--font-heading);
 	letter-spacing: 0;
 }
 
@@ -296,7 +253,7 @@
 	min-height: 150px;
 	background:
 		linear-gradient(135deg, rgba(85, 82, 177, 0.85), rgba(161, 84, 161, 0.6)),
-		var(--rpd-cohorts-lavender);
+		var(--rpd-lavender-soft);
 }
 
 .rpd-cohort-floating-card__image img {
@@ -322,7 +279,7 @@
 	width: fit-content;
 	border-radius: 999px;
 	background: rgba(85, 82, 177, 0.12);
-	color: var(--rpd-cohorts-purple);
+	color: var(--rpd-purple);
 	font-size: 0.72rem;
 	font-weight: 900;
 	letter-spacing: 0.08em;
@@ -377,7 +334,7 @@
 	border-radius: 18px;
 	margin-bottom: 20px;
 	background: linear-gradient(135deg, rgba(85, 82, 177, 0.15), rgba(196, 196, 229, 0.5));
-	color: var(--rpd-cohorts-purple);
+	color: var(--rpd-purple);
 }
 
 .rpd-cohorts-value-card__icon svg {
@@ -403,7 +360,7 @@
 .rpd-cohorts-gallery,
 .rpd-cohorts-how,
 .rpd-cohorts-faq {
-	background: var(--rpd-cohorts-soft);
+	background: var(--rpd-bg-soft-alt);
 }
 
 .rpd-cohorts-card-grid {
@@ -420,6 +377,7 @@
 	display: flex;
 	flex-direction: column;
 	min-height: 100%;
+	position: relative;
 	border: 1px solid var(--rpd-cohorts-line);
 	border-radius: 30px;
 	background: #fff;
@@ -483,8 +441,8 @@
 	right: 16px;
 	padding: 8px 12px;
 	border-radius: 999px;
-	background: var(--rpd-cohorts-gold);
-	color: var(--rpd-cohorts-navy);
+	background: var(--rpd-gold);
+	color: var(--rpd-navy);
 	font-size: 0.8rem;
 	font-weight: 900;
 }
@@ -499,7 +457,7 @@
 	height: 42px;
 	border-radius: 15px;
 	background: rgba(255, 255, 255, 0.93);
-	color: var(--rpd-cohorts-purple);
+	color: var(--rpd-purple);
 }
 
 .rpd-cohort-card__calendar svg {
@@ -548,7 +506,7 @@
 	align-items: center;
 	gap: 10px;
 	margin-bottom: 15px;
-	color: var(--rpd-cohorts-text);
+	color: var(--rpd-color-text);
 }
 
 .rpd-cohort-card__instructor img {
@@ -556,7 +514,7 @@
 	height: 42px;
 	border-radius: 14px;
 	object-fit: cover;
-	background: var(--rpd-cohorts-lavender);
+	background: var(--rpd-lavender-soft);
 }
 
 .rpd-cohort-card__instructor strong,
@@ -606,9 +564,15 @@
 }
 
 .rpd-cohort-card footer a {
-	color: var(--rpd-cohorts-magenta);
+	color: var(--rpd-purple-deep);
 	text-decoration: none;
 	white-space: nowrap;
+}
+
+.rpd-cohort-card footer a::after {
+	content: '';
+	position: absolute;
+	inset: 0;
 }
 
 .rpd-cohort-status {
@@ -646,7 +610,7 @@
 
 .rpd-cohort-status--lavender {
 	background: rgba(196, 196, 229, 0.28);
-	color: var(--rpd-cohorts-text);
+	color: var(--rpd-color-text);
 }
 
 .rpd-cohorts-filter-card {
@@ -670,7 +634,7 @@
 
 .rpd-cohorts-filter-card label span,
 .rpd-cohorts-pill-group > span {
-	color: var(--rpd-cohorts-navy);
+	color: var(--rpd-navy);
 	font-size: 0.78rem;
 	font-weight: 900;
 	text-transform: uppercase;
@@ -684,8 +648,8 @@
 	border: 1px solid rgba(196, 196, 229, 0.72);
 	border-radius: 16px;
 	background: #fff;
-	color: var(--rpd-cohorts-navy);
-	font: 700 0.95rem/1.2 var(--rpd-font-body, "Inter", sans-serif);
+	color: var(--rpd-navy);
+	font: 700 0.95rem/1.2 var(--font-body);
 	padding: 0 14px;
 }
 
@@ -700,13 +664,16 @@
 	width: 100%;
 }
 
+/* Filter chips use pill radius intentionally — they are toggle selectors, not action
+   buttons. Pill shape signals "selection" vs. the rounded-rect of .rpd-btn ("action").
+   Do not align these to var(--rpd-radius). */
 .rpd-cohorts-pill-group button {
 	min-height: 38px;
 	padding: 8px 12px;
 	border: 1px solid rgba(196, 196, 229, 0.7);
 	border-radius: 999px;
 	background: #fff;
-	color: var(--rpd-cohorts-text);
+	color: var(--rpd-color-text);
 	font-weight: 800;
 	cursor: pointer;
 }
@@ -714,7 +681,7 @@
 .rpd-cohorts-pill-group button.is-active,
 .rpd-cohorts-pill-group button[aria-pressed="true"] {
 	border-color: transparent;
-	background: var(--rpd-cohorts-navy);
+	background: var(--rpd-navy);
 	color: #fff;
 }
 
@@ -732,9 +699,19 @@
 .rpd-cohorts-empty button {
 	border: 0;
 	background: transparent;
-	color: var(--rpd-cohorts-magenta);
+	color: var(--rpd-purple-deep);
 	font-weight: 900;
 	cursor: pointer;
+}
+
+.rpd-cohorts-load-more {
+	display: flex;
+	justify-content: center;
+	margin-top: 36px;
+}
+
+.rpd-cohorts-load-more[hidden] {
+	display: none;
 }
 
 .rpd-cohorts-empty {
@@ -763,7 +740,7 @@
 }
 
 .rpd-cohorts-step__number {
-	background: linear-gradient(135deg, var(--rpd-cohorts-purple), var(--rpd-cohorts-blue));
+	background: linear-gradient(135deg, var(--rpd-purple), var(--rpd-cohorts-blue));
 	color: #fff;
 	font-weight: 900;
 }
@@ -775,7 +752,7 @@
 	background:
 		radial-gradient(circle at 12% 20%, rgba(253, 185, 51, 0.16), transparent 28%),
 		radial-gradient(circle at 84% 24%, rgba(59, 130, 246, 0.18), transparent 30%),
-		linear-gradient(135deg, var(--rpd-cohorts-footer), var(--rpd-cohorts-navy));
+		linear-gradient(135deg, var(--rpd-navy-deep), var(--rpd-navy));
 	color: #fff;
 }
 
@@ -828,7 +805,7 @@
 	width: 10px;
 	height: 10px;
 	border-radius: 999px;
-	background: var(--rpd-cohorts-gold);
+	background: var(--rpd-gold);
 	box-shadow: 0 0 0 5px rgba(253, 185, 51, 0.16);
 }
 
@@ -844,7 +821,7 @@
 
 .rpd-cohorts-testimonial blockquote {
 	margin: 0 0 22px;
-	color: var(--rpd-cohorts-navy);
+	color: var(--rpd-navy);
 	font-size: 1.04rem;
 	line-height: 1.68;
 }
@@ -925,8 +902,8 @@
 	padding: 20px 22px;
 	border: 0;
 	background: transparent;
-	color: var(--rpd-cohorts-navy);
-	font: 800 1rem/1.3 var(--rpd-font-heading, "Poppins", sans-serif);
+	color: var(--rpd-navy);
+	font: 800 1rem/1.3 var(--font-heading);
 	text-align: left;
 	cursor: pointer;
 }
@@ -941,7 +918,7 @@
 	height: 28px;
 	border-radius: 999px;
 	background: rgba(85, 82, 177, 0.1);
-	color: var(--rpd-cohorts-purple);
+	color: var(--rpd-purple);
 	font-size: 1.2rem;
 }
 
@@ -973,9 +950,9 @@
 	align-items: center;
 	width: fit-content;
 	padding: 8px 12px;
-	border-radius: 999px;
+	border-radius: var(--rpd-radius);
 	background: rgba(255, 255, 255, 0.78);
-	color: var(--rpd-cohorts-magenta);
+	color: var(--rpd-purple-deep);
 	font-size: 0.78rem;
 	font-weight: 900;
 	letter-spacing: 0.1em;
@@ -984,7 +961,7 @@
 
 .rpd-cohorts-page .rpd-cohorts-dark-kicker {
 	background: rgba(255, 255, 255, 0.1);
-	color: var(--rpd-cohorts-gold);
+	color: var(--rpd-gold);
 }
 
 .rpd-cohorts-page .rpd-cohorts-actions {
@@ -997,7 +974,7 @@
 .rpd-cohorts-page .rpd-cohorts-hero__copy > p:not(.rpd-cohorts-eyebrow) {
 	margin-top: 22px;
 	max-width: 620px;
-	color: var(--rpd-cohorts-text);
+	color: var(--rpd-color-text);
 	font-size: clamp(1.08rem, 1.4vw, 1.26rem);
 }
 
@@ -1029,8 +1006,8 @@
 .rpd-cohorts-page .rpd-cohorts-stats strong {
 	display: block;
 	margin-bottom: 5px;
-	color: var(--rpd-cohorts-navy);
-	font: 800 2rem/1 var(--rpd-font-heading, "Poppins", sans-serif);
+	color: var(--rpd-navy);
+	font: 800 2rem/1 var(--font-heading);
 	letter-spacing: 0;
 }
 
@@ -1100,7 +1077,7 @@
 	object-fit: cover;
 	background:
 		linear-gradient(135deg, rgba(85, 82, 177, 0.85), rgba(161, 84, 161, 0.6)),
-		var(--rpd-cohorts-lavender);
+		var(--rpd-lavender-soft);
 }
 
 .rpd-cohorts-page .rpd-cohorts-floating-card > div {
@@ -1137,14 +1114,14 @@
 	left: 14px;
 	padding: 7px 10px;
 	background: #fff;
-	color: var(--rpd-cohorts-purple);
+	color: var(--rpd-purple);
 }
 
 .rpd-cohorts-page .rpd-cohorts-floating-card__price {
 	right: 14px;
 	padding: 7px 10px;
-	background: var(--rpd-cohorts-gold);
-	color: var(--rpd-cohorts-navy);
+	background: var(--rpd-gold);
+	color: var(--rpd-navy);
 }
 
 .rpd-cohorts-page .rpd-cohorts-value-grid,
@@ -1173,14 +1150,14 @@
 	height: 52px;
 	border-radius: 18px;
 	margin-bottom: 20px;
-	background: linear-gradient(135deg, var(--rpd-cohorts-purple), var(--rpd-cohorts-blue));
+	background: linear-gradient(135deg, var(--rpd-purple), var(--rpd-cohorts-blue));
 	color: #fff;
 	font-weight: 900;
 }
 
 .rpd-cohorts-page .rpd-cohorts-value-card > span {
 	background: linear-gradient(135deg, rgba(85, 82, 177, 0.15), rgba(196, 196, 229, 0.5));
-	color: var(--rpd-cohorts-purple);
+	color: var(--rpd-purple);
 }
 
 .rpd-cohorts-page .rpd-cohorts-icon {
@@ -1216,7 +1193,7 @@
 }
 
 .rpd-cohorts-page .rpd-cohorts-perk-grid span {
-	color: var(--rpd-cohorts-gold);
+	color: var(--rpd-gold);
 }
 
 .rpd-cohorts-page .rpd-cohorts-perk-grid strong {
@@ -1229,8 +1206,8 @@
 
 .rpd-cohorts-page .rpd-cohorts-testimonial-grid article > span {
 	display: block;
-	color: var(--rpd-cohorts-gold);
-	font: 800 3.5rem/0.8 var(--rpd-font-heading, "Poppins", sans-serif);
+	color: var(--rpd-gold);
+	font: 800 3.5rem/0.8 var(--font-heading);
 }
 
 .rpd-cohorts-page .rpd-cohorts-testimonial-grid footer {
@@ -1244,7 +1221,7 @@
 }
 
 .rpd-cohorts-page .rpd-cohorts-testimonial-grid strong {
-	color: var(--rpd-cohorts-navy);
+	color: var(--rpd-navy);
 }
 
 .rpd-cohorts-page .rpd-cohorts-final-cta,
@@ -1255,7 +1232,7 @@
 	background:
 		radial-gradient(circle at 12% 20%, rgba(253, 185, 51, 0.16), transparent 28%),
 		radial-gradient(circle at 84% 24%, rgba(59, 130, 246, 0.18), transparent 30%),
-		linear-gradient(135deg, var(--rpd-cohorts-footer), var(--rpd-cohorts-navy));
+		linear-gradient(135deg, var(--rpd-navy-deep), var(--rpd-navy));
 	color: #fff;
 }
 
@@ -1270,6 +1247,16 @@
 	color: rgba(255, 255, 255, 0.78);
 	margin-top: 16px;
 	font-size: 1.06rem;
+}
+
+.rpd-cohorts-page .rpd-cohorts-final-cta .rpd-btn--gold,
+.rpd-cohorts-page .rpd-cohorts-district .rpd-btn--gold {
+	color: var(--rpd-black);
+}
+
+.rpd-cohorts-page .rpd-cohorts-final-cta .rpd-btn--gold:hover,
+.rpd-cohorts-page .rpd-cohorts-district .rpd-btn--gold:hover {
+	color: var(--rpd-black);
 }
 
 .rpd-cohorts-page .rpd-cohorts-mid-cta .rpd-container {

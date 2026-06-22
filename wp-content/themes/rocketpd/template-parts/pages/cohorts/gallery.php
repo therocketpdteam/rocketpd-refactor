@@ -86,6 +86,10 @@ $statuses  = rocketpd_get_cohort_status_meta();
 			<?php endforeach; ?>
 		</div>
 
+		<div class="rpd-cohorts-load-more" data-rpd-cohort-load-more hidden>
+			<button class="rpd-btn rpd-btn--outline-purple" type="button"><?php esc_html_e( 'Show more cohorts', 'rocketpd' ); ?> <span aria-hidden="true">&darr;</span></button>
+		</div>
+
 		<div class="rpd-cohorts-empty" data-rpd-cohort-empty hidden>
 			<h3><?php esc_html_e( 'No cohorts match those filters.', 'rocketpd' ); ?></h3>
 			<p><?php esc_html_e( 'Try a broader topic, audience, or price filter.', 'rocketpd' ); ?></p>
