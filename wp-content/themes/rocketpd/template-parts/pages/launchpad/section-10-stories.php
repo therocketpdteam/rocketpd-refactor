@@ -9,22 +9,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$featured = rocketpd_lp_get_field(
-	'stories_featured',
-	array(
-		'video_url' => 'https://youtu.be/RQ8chrTTjIo',
-		'thumbnail' => rocketpd_lp_asset( 'testimonial-1-thumb.jpg' ),
-		'duration' => '2:14',
-		'quote' => '"We have professional learning that is personalized to our professional learning goals."',
-		'name' => 'District Leader',
-		'role' => 'Professional Learning Director',
-	)
+$mode = rocketpd_lp_get_field( 'lp_stories_mode', 'defaults' );
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$default_eyebrow  = __( 'Hear from Districts', 'rocketpd' );
+$default_h2       = __( 'Real stories from district leaders.', 'rocketpd' );
+$default_subhead  = __( 'Hear how districts use LaunchPad to support educator growth and engagement at scale.', 'rocketpd' );
+$default_featured = array(
+	'video_url' => 'https://youtu.be/RQ8chrTTjIo',
+	'thumbnail' => rocketpd_lp_asset( 'testimonial-1-thumb.jpg' ),
+	'duration'  => '2:14',
+	'quote'     => '"We have professional learning that is personalized to our professional learning goals."',
+	'name'      => 'District Leader',
+	'role'      => 'Professional Learning Director',
 );
-$all = rocketpd_lp_get_field( 'stories_all_link', array( 'title' => __( 'See all customer stories', 'rocketpd' ), 'url' => '#' ) );
+$default_all = array( 'title' => __( 'See all customer stories', 'rocketpd' ), 'url' => '#' );
+
+if ( 'custom' === $mode ) {
+	$eyebrow  = rocketpd_lp_get_field( 'stories_eyebrow', $default_eyebrow );
+	$h2       = rocketpd_lp_get_field( 'stories_h2', $default_h2 );
+	$subhead  = rocketpd_lp_get_field( 'stories_subhead', $default_subhead );
+	$featured = rocketpd_lp_get_field( 'stories_featured', $default_featured );
+	$featured = is_array( $featured ) && ! empty( $featured['video_url'] ) ? $featured : $default_featured;
+	$all      = rocketpd_lp_get_field( 'stories_all_link', $default_all );
+} else {
+	$eyebrow  = $default_eyebrow;
+	$h2       = $default_h2;
+	$subhead  = $default_subhead;
+	$featured = $default_featured;
+	$all      = $default_all;
+}
 ?>
 <section class="rpd-lp-section rpd-lp-stories">
 	<div class="rpd-container">
-		<header class="rpd-lp-section-header rpd-lp-section-header--center"><p class="rpd-lp-eyebrow"><?php echo esc_html( rocketpd_lp_get_field( 'stories_eyebrow', __( 'Hear from Districts', 'rocketpd' ) ) ); ?></p><h2><?php echo esc_html( rocketpd_lp_get_field( 'stories_h2', __( 'Real stories from district leaders.', 'rocketpd' ) ) ); ?></h2><p><?php echo esc_html( rocketpd_lp_get_field( 'stories_subhead', __( 'Hear how districts use LaunchPad to support educator growth and engagement at scale.', 'rocketpd' ) ) ); ?></p></header>
+		<header class="rpd-lp-section-header rpd-lp-section-header--center"><p class="rpd-lp-eyebrow"><?php echo esc_html( $eyebrow ); ?></p><h2><?php echo esc_html( $h2 ); ?></h2><p><?php echo esc_html( $subhead ); ?></p></header>
 		<div class="rpd-lp-stories__grid">
 			<a class="rpd-lp-story-card rpd-lp-story-card--featured" href="<?php echo esc_url( $featured['video_url'] ?? '#' ); ?>">
 				<div class="rpd-lp-story-card__media"><img src="<?php echo esc_url( rocketpd_lp_image_url( $featured['thumbnail'] ?? '', rocketpd_lp_asset( 'testimonial-1-thumb.jpg' ) ) ); ?>" alt="<?php esc_attr_e( 'District leader testimonial about RocketPD LaunchPad', 'rocketpd' ); ?>"><span><?php esc_html_e( 'Featured', 'rocketpd' ); ?></span><b><?php rocketpd_lp_icon( 'play' ); ?></b><em><?php echo esc_html( $featured['duration'] ?? '2:14' ); ?></em></div>
