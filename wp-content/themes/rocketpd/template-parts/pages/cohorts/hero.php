@@ -9,6 +9,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$mode = rocketpd_get_field( 'rpd_cohorts_hero_mode', 'defaults' );
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$default_eyebrow = __( 'Live-Virtual Cohorts · 2026 Lineup', 'rocketpd' );
+$default_headline = __( 'Live-Virtual Cohorts for Educator Growth', 'rocketpd' );
+$default_body     = __( 'Learn directly from nationally recognized K-12 experts in interactive, practical cohorts designed to help educators apply new strategies, collaborate with peers, and turn professional learning into real outcomes.', 'rocketpd' );
+
+if ( 'custom' === $mode ) {
+	$eyebrow  = rocketpd_get_field( 'rpd_cohorts_hero_eyebrow', $default_eyebrow );
+	$headline = rocketpd_get_field( 'rpd_cohorts_hero_headline', $default_headline );
+	$body     = rocketpd_get_field( 'rpd_cohorts_hero_body', $default_body );
+} else {
+	$eyebrow  = $default_eyebrow;
+	$headline = $default_headline;
+	$body     = $default_body;
+}
+
 $featured = array_slice( rocketpd_get_featured_cohorts(), 0, 3 );
 ?>
 
@@ -17,11 +36,11 @@ $featured = array_slice( rocketpd_get_featured_cohorts(), 0, 3 );
 	<span class="rpd-cohorts-orb rpd-cohorts-orb--magenta" aria-hidden="true"></span>
 	<div class="rpd-container rpd-cohorts-hero__grid">
 		<div class="rpd-cohorts-hero__copy">
-			<p class="rpd-cohorts-eyebrow"><?php esc_html_e( 'Live-Virtual Cohorts · 2026 Lineup', 'rocketpd' ); ?></p>
-			<h1><?php esc_html_e( 'Live-Virtual Cohorts for Educator Growth', 'rocketpd' ); ?></h1>
-			<p><?php esc_html_e( 'Learn directly from nationally recognized K-12 experts in interactive, practical cohorts designed to help educators apply new strategies, collaborate with peers, and turn professional learning into real outcomes.', 'rocketpd' ); ?></p>
+			<p class="rpd-cohorts-eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
+			<h1><?php echo esc_html( $headline ); ?></h1>
+			<p><?php echo esc_html( $body ); ?></p>
 			<div class="rpd-cohorts-actions">
-				<a class="rpd-btn rpd-btn--gold" href="#cohort-gallery"><?php esc_html_e( 'Explore Upcoming Cohorts', 'rocketpd' ); ?> <span aria-hidden="true">-&gt;</span></a>
+				<a class="rpd-btn rpd-btn--gold" href="#cohort-gallery"><?php esc_html_e( 'Explore Upcoming Cohorts', 'rocketpd' ); ?> <span aria-hidden="true">&rarr;</span></a>
 				<a class="rpd-btn rpd-btn--outline-purple" href="<?php echo esc_url( home_url( '/community/' ) ); ?>"><?php esc_html_e( 'Join the RocketPD Community', 'rocketpd' ); ?></a>
 			</div>
 			<div class="rpd-cohorts-stats" aria-label="<?php esc_attr_e( 'RocketPD cohort stats', 'rocketpd' ); ?>">

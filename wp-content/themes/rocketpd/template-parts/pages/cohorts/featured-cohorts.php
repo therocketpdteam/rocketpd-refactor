@@ -9,6 +9,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$mode = rocketpd_get_field( 'rpd_cohorts_featured_mode', 'defaults' );
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$default_kicker     = __( 'Featured Cohorts', 'rocketpd' );
+$default_headline   = __( 'Three flagship cohorts kicking off this fall.', 'rocketpd' );
+$default_link_label = __( 'See full cohort lineup', 'rocketpd' );
+
+if ( 'custom' === $mode ) {
+	$kicker     = rocketpd_get_field( 'rpd_cohorts_featured_kicker', $default_kicker );
+	$headline   = rocketpd_get_field( 'rpd_cohorts_featured_headline', $default_headline );
+	$link_label = rocketpd_get_field( 'rpd_cohorts_featured_link_label', $default_link_label );
+} else {
+	$kicker     = $default_kicker;
+	$headline   = $default_headline;
+	$link_label = $default_link_label;
+}
+
 $cohorts = array_slice( rocketpd_get_featured_cohorts(), 0, 3 );
 ?>
 
@@ -16,10 +35,10 @@ $cohorts = array_slice( rocketpd_get_featured_cohorts(), 0, 3 );
 	<div class="rpd-container">
 		<header class="rpd-cohorts-section__header rpd-cohorts-section__header--split">
 			<div>
-				<p class="rpd-cohorts-kicker"><?php esc_html_e( 'Featured Cohorts', 'rocketpd' ); ?></p>
-				<h2><?php esc_html_e( 'Three flagship cohorts kicking off this fall.', 'rocketpd' ); ?></h2>
+				<p class="rpd-cohorts-kicker"><?php echo esc_html( $kicker ); ?></p>
+				<h2><?php echo esc_html( $headline ); ?></h2>
 			</div>
-			<a href="#cohort-gallery"><?php esc_html_e( 'See full cohort lineup', 'rocketpd' ); ?> <span aria-hidden="true">&rarr;</span></a>
+			<a href="#cohort-gallery"><?php echo esc_html( $link_label ); ?> <span aria-hidden="true">&rarr;</span></a>
 		</header>
 		<div class="rpd-cohorts-card-grid">
 			<?php foreach ( $cohorts as $cohort ) : ?>

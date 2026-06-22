@@ -11,9 +11,9 @@
     { "key": "field_rpd_lead_0007_guide_title", "label": "Guide Card Title", "name": "rpd_lead_guide_title", "type": "text", "default_value": "Learning Meet Doing" },
     { "key": "field_rpd_lead_0008_guide_body", "label": "Guide Card Body", "name": "rpd_lead_guide_body", "type": "textarea", "rows": 3 },
     { "key": "field_rpd_lead_0009_primary_label", "label": "Primary Button Label", "name": "rpd_lead_primary_label", "type": "text", "default_value": "Download the Guide" },
-    { "key": "field_rpd_lead_0010_primary_url", "label": "Primary Button URL", "name": "rpd_lead_primary_url", "type": "url", "default_value": "#rpd-lead-download" },
+    { "key": "field_rpd_lead_0010_primary_url", "label": "Primary Button URL", "name": "rpd_lead_primary_url", "type": "text", "default_value": "#rpd-lead-download" },
     { "key": "field_rpd_lead_0011_secondary_label", "label": "Secondary Button Label", "name": "rpd_lead_secondary_label", "type": "text", "default_value": "See What This Looks Like in Practice" },
-    { "key": "field_rpd_lead_0012_secondary_url", "label": "Secondary Button URL", "name": "rpd_lead_secondary_url", "type": "url", "default_value": "#rpd-lead-proof" },
+    { "key": "field_rpd_lead_0012_secondary_url", "label": "Secondary Button URL", "name": "rpd_lead_secondary_url", "type": "text", "default_value": "#rpd-lead-proof" },
     { "key": "field_rpd_lead_0013_visual_title", "label": "Guide Visual Title", "name": "rpd_lead_guide_visual_title", "type": "text", "default_value": "Learning Meet Doing" },
     { "key": "field_rpd_lead_0014_visual_subtitle", "label": "Guide Visual Subtitle", "name": "rpd_lead_guide_visual_subtitle", "type": "textarea", "rows": 3 },
     {
@@ -189,7 +189,7 @@
         { "key": "field_rpd_lead_0089_deeper_title", "label": "Title", "name": "title", "type": "text" },
         { "key": "field_rpd_lead_0090_deeper_card_body", "label": "Body", "name": "body", "type": "textarea", "rows": 4 },
         { "key": "field_rpd_lead_0091_deeper_cta_label", "label": "CTA Label", "name": "cta_label", "type": "text" },
-        { "key": "field_rpd_lead_0092_deeper_cta_url", "label": "CTA URL", "name": "cta_url", "type": "url" },
+        { "key": "field_rpd_lead_0092_deeper_cta_url", "label": "CTA URL", "name": "cta_url", "type": "text" },
         { "key": "field_rpd_lead_0093_deeper_style", "label": "Style", "name": "style", "type": "select", "choices": { "purple": "Purple", "pink": "Pink", "gold": "Gold" }, "default_value": "purple" }
       ]
     },
@@ -199,7 +199,7 @@
     { "key": "field_rpd_lead_0096_final_headline", "label": "Headline", "name": "rpd_lead_final_headline", "type": "text" },
     { "key": "field_rpd_lead_0097_final_body", "label": "Body", "name": "rpd_lead_final_body", "type": "textarea", "rows": 2 },
     { "key": "field_rpd_lead_0098_final_cta_label", "label": "CTA Label", "name": "rpd_lead_final_cta_label", "type": "text" },
-    { "key": "field_rpd_lead_0099_final_cta_url", "label": "CTA URL", "name": "rpd_lead_final_cta_url", "type": "url", "default_value": "#rpd-lead-download" },
+    { "key": "field_rpd_lead_0099_final_cta_url", "label": "CTA URL", "name": "rpd_lead_final_cta_url", "type": "text", "default_value": "#rpd-lead-download" },
     { "key": "field_rpd_lead_0100_final_proof", "label": "Proof Text", "name": "rpd_lead_final_proof", "type": "text" }
   ],
   "location": [

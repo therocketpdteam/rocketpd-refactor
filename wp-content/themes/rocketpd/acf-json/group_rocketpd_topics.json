@@ -125,7 +125,7 @@
             "label": "Hero Secondary URL",
             "name": "rpd_topics_hero_secondary_url",
             "aria-label": "",
-            "type": "url",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,

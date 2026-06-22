@@ -17,9 +17,9 @@
     { "key": "field_rpd_trust_0009_hero_question", "label": "Question Headline", "name": "rpd_trust_hero_question", "type": "text", "default_value": "What if professional learning actually supported the work teachers do every day?" },
     { "key": "field_rpd_trust_0010_hero_question_body", "label": "Question Body", "name": "rpd_trust_hero_question_body", "type": "textarea", "rows": 3, "new_lines": "" },
     { "key": "field_rpd_trust_0011_hero_primary_label", "label": "Primary CTA Label", "name": "rpd_trust_hero_primary_label", "type": "text", "default_value": "Read the Guide" },
-    { "key": "field_rpd_trust_0012_hero_primary_url", "label": "Primary CTA URL", "name": "rpd_trust_hero_primary_url", "type": "url", "default_value": "#rpd-trust-model" },
+    { "key": "field_rpd_trust_0012_hero_primary_url", "label": "Primary CTA URL", "name": "rpd_trust_hero_primary_url", "type": "text", "default_value": "#rpd-trust-model" },
     { "key": "field_rpd_trust_0013_hero_secondary_label", "label": "Secondary CTA Label", "name": "rpd_trust_hero_secondary_label", "type": "text", "default_value": "Watch the video" },
-    { "key": "field_rpd_trust_0014_hero_secondary_url", "label": "Secondary CTA URL", "name": "rpd_trust_hero_secondary_url", "type": "url", "default_value": "#rpd-trust-final" },
+    { "key": "field_rpd_trust_0014_hero_secondary_url", "label": "Secondary CTA URL", "name": "rpd_trust_hero_secondary_url", "type": "text", "default_value": "#rpd-trust-final" },
     { "key": "field_rpd_trust_0015_hero_stats", "label": "Stats", "name": "rpd_trust_hero_stats", "type": "repeater", "layout": "block", "button_label": "Add stat", "sub_fields": [
       { "key": "field_rpd_trust_0015a_value", "label": "Value", "name": "value", "type": "text" },
       { "key": "field_rpd_trust_0015b_label", "label": "Label", "name": "label", "type": "text" }
@@ -162,7 +162,7 @@
       { "key": "field_rpd_trust_0089b_title", "label": "Title", "name": "title", "type": "text" },
       { "key": "field_rpd_trust_0089c_body", "label": "Body", "name": "body", "type": "textarea", "rows": 4, "new_lines": "" },
       { "key": "field_rpd_trust_0089d_cta_label", "label": "CTA Label", "name": "cta_label", "type": "text" },
-      { "key": "field_rpd_trust_0089e_cta_url", "label": "CTA URL", "name": "cta_url", "type": "url" },
+      { "key": "field_rpd_trust_0089e_cta_url", "label": "CTA URL", "name": "cta_url", "type": "text" },
       { "key": "field_rpd_trust_0089f_style", "label": "Button Style", "name": "style", "type": "select", "choices": { "purple": "Purple", "gold": "Gold" }, "default_value": "purple" }
     ] }
   ],
