@@ -67,6 +67,49 @@ function rocketpd_add_instructor_tag_term( $terms, $name, $slug = '' ) {
 }
 
 /**
+ * Return a fallback record by slug without triggering rocketpd_get_instructors().
+ *
+ * Use this inside rocketpd_get_instructor_from_post() to avoid circular calls.
+ *
+ * @param string $slug Instructor slug.
+ * @return array
+ */
+function rocketpd_get_fallback_record_by_slug( $slug ) {
+	$slug = sanitize_title( $slug );
+
+	foreach ( rocketpd_get_instructor_fallback_records() as $record ) {
+		if ( isset( $record['slug'] ) && $slug === $record['slug'] ) {
+			return $record;
+		}
+	}
+
+	return array();
+}
+
+/**
+ * Derive two-letter initials from an instructor display name.
+ *
+ * @param string $name Display name.
+ * @return string
+ */
+function rocketpd_get_instructor_initials( $name ) {
+	$name = trim( (string) $name );
+	$name = preg_replace( '/^(Dr\.|Mr\.|Mrs\.|Ms\.)\s+/i', '', $name );
+	$parts    = preg_split( '/\s+/', trim( $name ) );
+	$initials = '';
+
+	if ( ! empty( $parts[0] ) ) {
+		$initials .= strtoupper( mb_substr( $parts[0], 0, 1 ) );
+	}
+
+	if ( ! empty( $parts[1] ) ) {
+		$initials .= strtoupper( mb_substr( $parts[1], 0, 1 ) );
+	}
+
+	return $initials ?: strtoupper( mb_substr( $name, 0, 2 ) );
+}
+
+/**
  * Return a published instructor post ID by slug when available.
  *
  * @param string $slug Instructor slug.
@@ -335,11 +378,97 @@ function rocketpd_get_instructor_fallback_records() {
 }
 
 /**
- * Return the Instructor Index data contract.
+ * Build one instructor index record from a published CPT post.
+ *
+ * Formats are derived from the existing per-format enabled toggles so no new
+ * ACF fields are needed. Headshot falls back to the hardcoded record when the
+ * ACF field and featured image are both absent.
+ *
+ * @param WP_Post $post Published instructor post.
+ * @return array
+ */
+function rocketpd_get_instructor_from_post( $post ) {
+	if ( ! $post || ! isset( $post->ID ) ) {
+		return array();
+	}
+
+	$post_id = absint( $post->ID );
+	$slug    = $post->post_name;
+	$acf     = function_exists( 'get_field' );
+
+	$name = $acf ? (string) get_field( 'rpd_instructor_name', $post_id ) : '';
+	if ( ! $name ) {
+		$name = get_the_title( $post_id );
+	}
+
+	$authority = $acf ? (string) get_field( 'rpd_instructor_authority', $post_id ) : '';
+	if ( ! $authority ) {
+		$authority = get_the_excerpt( $post_id );
+	}
+
+	$headshot = $acf ? get_field( 'rpd_instructor_headshot', $post_id ) : '';
+	if ( $headshot ) {
+		$headshot = rocketpd_get_instructor_image_url( $headshot );
+	}
+
+	if ( ! $headshot && has_post_thumbnail( $post_id ) ) {
+		$headshot = rocketpd_get_instructor_image_url( get_post_thumbnail_id( $post_id ) );
+	}
+
+	if ( ! $headshot ) {
+		$fallback_record = rocketpd_get_fallback_record_by_slug( $slug );
+		$headshot        = $fallback_record['headshot'] ?? '';
+	}
+
+	$formats     = array();
+	$format_keys = array( 'guide', 'podcast', 'webinar', 'launchpad', 'cohort', 'workshop' );
+
+	if ( $acf ) {
+		foreach ( $format_keys as $format ) {
+			$enabled = get_field( 'rpd_instructor_' . $format . '_enabled', $post_id );
+			if ( null === $enabled || '' === $enabled || (bool) $enabled ) {
+				$formats[] = $format;
+			}
+		}
+	}
+
+	$tag_terms = rocketpd_get_instructor_tag_terms( $slug );
+
+	if ( empty( $tag_terms ) && $acf ) {
+		$acf_tags = get_field( 'rpd_instructor_tags', $post_id );
+
+		if ( is_string( $acf_tags ) && trim( $acf_tags ) ) {
+			$fallback_tags = array_values( array_filter( array_map( 'trim', preg_split( '/\r\n|\r|\n/', $acf_tags ) ) ) );
+		} else {
+			$fallback_record = isset( $fallback_record ) ? $fallback_record : rocketpd_get_fallback_record_by_slug( $slug );
+			$fallback_tags   = $fallback_record['tags'] ?? array();
+		}
+
+		$tag_terms = rocketpd_get_instructor_tag_terms( $slug, $fallback_tags );
+	}
+
+	return array(
+		'slug'      => $slug,
+		'name'      => $name,
+		'authority' => $authority,
+		'tags'      => wp_list_pluck( $tag_terms, 'name' ),
+		'tag_slugs' => wp_list_pluck( $tag_terms, 'slug' ),
+		'tag_terms' => $tag_terms,
+		'formats'   => $formats,
+		'headshot'  => $headshot,
+		'featured'  => false,
+		'initials'  => rocketpd_get_instructor_initials( $name ),
+	);
+}
+
+/**
+ * Return the Instructor Index data contract from hardcoded fallback records.
+ *
+ * Used when no published instructor posts exist (dev / pre-launch).
  *
  * @return array
  */
-function rocketpd_get_instructors() {
+function rocketpd_get_instructors_from_fallback() {
 	$instructors = rocketpd_get_instructor_fallback_records();
 
 	foreach ( $instructors as $index => $instructor ) {
@@ -351,6 +480,42 @@ function rocketpd_get_instructors() {
 	}
 
 	return $instructors;
+}
+
+/**
+ * Return the Instructor Index data contract.
+ *
+ * Queries published instructor posts first; falls back to hardcoded seed records
+ * when none are published (dev / pre-launch).
+ *
+ * @return array
+ */
+function rocketpd_get_instructors() {
+	if ( ! function_exists( 'get_posts' ) ) {
+		return rocketpd_get_instructors_from_fallback();
+	}
+
+	$posts = get_posts(
+		array(
+			'post_type'        => 'instructor',
+			'post_status'      => 'publish',
+			'numberposts'      => -1,
+			'orderby'          => array(
+				'menu_order' => 'ASC',
+				'title'      => 'ASC',
+			),
+			'order'            => 'ASC',
+			'suppress_filters' => true,
+		)
+	);
+
+	if ( empty( $posts ) ) {
+		return rocketpd_get_instructors_from_fallback();
+	}
+
+	$instructors = array_values( array_filter( array_map( 'rocketpd_get_instructor_from_post', $posts ) ) );
+
+	return $instructors ?: rocketpd_get_instructors_from_fallback();
 }
 
 /**

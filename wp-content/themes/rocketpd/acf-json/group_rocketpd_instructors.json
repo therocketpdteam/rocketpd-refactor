@@ -10,18 +10,33 @@
             "placement": "top"
         },
         {
+            "key": "field_rpd_instructors_hero_mode",
+            "label": "Section Mode",
+            "name": "rpd_instructors_hero_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden",
+                "defaults": "Use Defaults",
+                "custom": "Custom"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_instructors_hero_eyebrow",
             "label": "Hero Eyebrow",
             "name": "rpd_instructors_hero_eyebrow",
             "type": "text",
-            "default_value": "Trusted Expert Network - 18+ K-12 Thought Leaders"
+            "default_value": "Trusted Expert Network - 18+ K-12 Thought Leaders",
+            "conditional_logic": [[{"field": "field_rpd_instructors_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_hero_headline",
             "label": "Hero Headline",
             "name": "rpd_instructors_hero_headline",
             "type": "text",
-            "default_value": "Learn From the Nation's Leading K-12 Experts."
+            "default_value": "Learn From the Nation's Leading K-12 Experts.",
+            "conditional_logic": [[{"field": "field_rpd_instructors_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_hero_body",
@@ -29,35 +44,40 @@
             "name": "rpd_instructors_hero_body",
             "type": "textarea",
             "rows": 3,
-            "default_value": "Explore expert-led professional learning designed to help educators solve real-world challenges, strengthen instructional practice, and drive meaningful outcomes for students."
+            "default_value": "Explore expert-led professional learning designed to help educators solve real-world challenges, strengthen instructional practice, and drive meaningful outcomes for students.",
+            "conditional_logic": [[{"field": "field_rpd_instructors_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_hero_primary_label",
             "label": "Primary CTA Label",
             "name": "rpd_instructors_hero_primary_label",
             "type": "text",
-            "default_value": "Explore Experts"
+            "default_value": "Explore Experts",
+            "conditional_logic": [[{"field": "field_rpd_instructors_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_hero_primary_url",
             "label": "Primary CTA URL",
             "name": "rpd_instructors_hero_primary_url",
             "type": "text",
-            "default_value": "#instructor-discovery"
+            "default_value": "#instructor-discovery",
+            "conditional_logic": [[{"field": "field_rpd_instructors_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_hero_secondary_label",
             "label": "Secondary CTA Label",
             "name": "rpd_instructors_hero_secondary_label",
             "type": "text",
-            "default_value": "Browse by Topic"
+            "default_value": "Browse by Topic",
+            "conditional_logic": [[{"field": "field_rpd_instructors_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_hero_secondary_url",
             "label": "Secondary CTA URL",
             "name": "rpd_instructors_hero_secondary_url",
             "type": "text",
-            "default_value": "#instructor-topics"
+            "default_value": "#instructor-topics",
+            "conditional_logic": [[{"field": "field_rpd_instructors_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_tab_discovery",
@@ -67,18 +87,33 @@
             "placement": "top"
         },
         {
+            "key": "field_rpd_instructors_discovery_mode",
+            "label": "Section Mode",
+            "name": "rpd_instructors_discovery_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden",
+                "defaults": "Use Defaults",
+                "custom": "Custom"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_instructors_discovery_eyebrow",
             "label": "Discovery Eyebrow",
             "name": "rpd_instructors_discovery_eyebrow",
             "type": "text",
-            "default_value": "Explore by Topic"
+            "default_value": "Explore by Topic",
+            "conditional_logic": [[{"field": "field_rpd_instructors_discovery_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_discovery_headline",
             "label": "Discovery Headline",
             "name": "rpd_instructors_discovery_headline",
             "type": "text",
-            "default_value": "Find the right expert for your challenge."
+            "default_value": "Find the right expert for your challenge.",
+            "conditional_logic": [[{"field": "field_rpd_instructors_discovery_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_discovery_body",
@@ -86,28 +121,32 @@
             "name": "rpd_instructors_discovery_body",
             "type": "textarea",
             "rows": 2,
-            "default_value": "Every instructor maps to multiple topic areas - so you can explore by the work your team is doing right now."
+            "default_value": "Every instructor maps to multiple topic areas - so you can explore by the work your team is doing right now.",
+            "conditional_logic": [[{"field": "field_rpd_instructors_discovery_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_search_label",
             "label": "Search Label",
             "name": "rpd_instructors_search_label",
             "type": "text",
-            "default_value": "Search by name, topic, or format"
+            "default_value": "Search by name, topic, or format",
+            "conditional_logic": [[{"field": "field_rpd_instructors_discovery_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_view_all_label",
             "label": "View All Label",
             "name": "rpd_instructors_view_all_label",
             "type": "text",
-            "default_value": "View all 18+ instructors"
+            "default_value": "View all 18+ instructors",
+            "conditional_logic": [[{"field": "field_rpd_instructors_discovery_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_view_all_url",
             "label": "View All URL",
             "name": "rpd_instructors_view_all_url",
             "type": "text",
-            "default_value": "#instructor-discovery"
+            "default_value": "#instructor-discovery",
+            "conditional_logic": [[{"field": "field_rpd_instructors_discovery_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_tab_trust",
@@ -117,12 +156,26 @@
             "placement": "top"
         },
         {
+            "key": "field_rpd_instructors_trust_mode",
+            "label": "Section Mode",
+            "name": "rpd_instructors_trust_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden",
+                "defaults": "Use Defaults",
+                "custom": "Custom"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_instructors_trust_stats",
             "label": "Trust Band Stats",
             "name": "rpd_instructors_trust_stats",
             "type": "repeater",
             "layout": "table",
             "button_label": "Add Stat",
+            "conditional_logic": [[{"field": "field_rpd_instructors_trust_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_instructors_trust_icon",
@@ -152,18 +205,33 @@
             "placement": "top"
         },
         {
+            "key": "field_rpd_instructors_learning_mode",
+            "label": "Section Mode",
+            "name": "rpd_instructors_learning_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden",
+                "defaults": "Use Defaults",
+                "custom": "Custom"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_instructors_learning_eyebrow",
             "label": "Learning Eyebrow",
             "name": "rpd_instructors_learning_eyebrow",
             "type": "text",
-            "default_value": "The Learning Ecosystem"
+            "default_value": "The Learning Ecosystem",
+            "conditional_logic": [[{"field": "field_rpd_instructors_learning_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_learning_headline",
             "label": "Learning Headline",
             "name": "rpd_instructors_learning_headline",
             "type": "text",
-            "default_value": "Multiple ways to learn from every expert."
+            "default_value": "Multiple ways to learn from every expert.",
+            "conditional_logic": [[{"field": "field_rpd_instructors_learning_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_learning_body",
@@ -171,7 +239,8 @@
             "name": "rpd_instructors_learning_body",
             "type": "textarea",
             "rows": 2,
-            "default_value": "Whether you have 15 minutes or a full school year, there's a way to bring expert thinking into your team's work."
+            "default_value": "Whether you have 15 minutes or a full school year, there's a way to bring expert thinking into your team's work.",
+            "conditional_logic": [[{"field": "field_rpd_instructors_learning_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_learning_cards",
@@ -180,6 +249,7 @@
             "type": "repeater",
             "layout": "block",
             "button_label": "Add Card",
+            "conditional_logic": [[{"field": "field_rpd_instructors_learning_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_instructors_learning_card_icon",
@@ -243,18 +313,33 @@
             "placement": "top"
         },
         {
+            "key": "field_rpd_instructors_impact_mode",
+            "label": "Section Mode",
+            "name": "rpd_instructors_impact_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden",
+                "defaults": "Use Defaults",
+                "custom": "Custom"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_instructors_impact_eyebrow",
             "label": "Impact Eyebrow",
             "name": "rpd_instructors_impact_eyebrow",
             "type": "text",
-            "default_value": "Community Impact"
+            "default_value": "Community Impact",
+            "conditional_logic": [[{"field": "field_rpd_instructors_impact_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_impact_headline",
             "label": "Impact Headline",
             "name": "rpd_instructors_impact_headline",
             "type": "text",
-            "default_value": "Trusted by educators across 850+ districts."
+            "default_value": "Trusted by educators across 850+ districts.",
+            "conditional_logic": [[{"field": "field_rpd_instructors_impact_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_impact_body",
@@ -262,7 +347,8 @@
             "name": "rpd_instructors_impact_body",
             "type": "textarea",
             "rows": 3,
-            "default_value": "RocketPD instructors don't just teach - they shape the practice of tens of thousands of educators every year."
+            "default_value": "RocketPD instructors don't just teach - they shape the practice of tens of thousands of educators every year.",
+            "conditional_logic": [[{"field": "field_rpd_instructors_impact_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_impact_stats",
@@ -271,6 +357,7 @@
             "type": "repeater",
             "layout": "table",
             "button_label": "Add Stat",
+            "conditional_logic": [[{"field": "field_rpd_instructors_impact_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_instructors_impact_stat_value",
@@ -292,21 +379,24 @@
             "name": "rpd_instructors_quote",
             "type": "textarea",
             "rows": 3,
-            "default_value": "\"RocketPD's cohort-based learning experiences have changed the way we look at professional development.\""
+            "default_value": "\"RocketPD's cohort-based learning experiences have changed the way we look at professional development.\"",
+            "conditional_logic": [[{"field": "field_rpd_instructors_impact_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_quote_name",
             "label": "Quote Name",
             "name": "rpd_instructors_quote_name",
             "type": "text",
-            "default_value": "Joe Baeta"
+            "default_value": "Joe Baeta",
+            "conditional_logic": [[{"field": "field_rpd_instructors_impact_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_quote_role",
             "label": "Quote Role",
             "name": "rpd_instructors_quote_role",
             "type": "text",
-            "default_value": "Superintendent - Stoughton Public Schools, MA"
+            "default_value": "Superintendent - Stoughton Public Schools, MA",
+            "conditional_logic": [[{"field": "field_rpd_instructors_impact_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_tab_final",
@@ -316,11 +406,25 @@
             "placement": "top"
         },
         {
+            "key": "field_rpd_instructors_final_mode",
+            "label": "Section Mode",
+            "name": "rpd_instructors_final_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden",
+                "defaults": "Use Defaults",
+                "custom": "Custom"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_instructors_final_headline",
             "label": "Final Headline",
             "name": "rpd_instructors_final_headline",
             "type": "text",
-            "default_value": "Find the right expert for your team."
+            "default_value": "Find the right expert for your team.",
+            "conditional_logic": [[{"field": "field_rpd_instructors_final_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_final_body",
@@ -328,35 +432,40 @@
             "name": "rpd_instructors_final_body",
             "type": "textarea",
             "rows": 2,
-            "default_value": "Browse the community, explore by topic, or talk with RocketPD about custom programs for your school or district."
+            "default_value": "Browse the community, explore by topic, or talk with RocketPD about custom programs for your school or district.",
+            "conditional_logic": [[{"field": "field_rpd_instructors_final_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_final_primary_label",
             "label": "Primary CTA Label",
             "name": "rpd_instructors_final_primary_label",
             "type": "text",
-            "default_value": "Explore the Community"
+            "default_value": "Explore the Community",
+            "conditional_logic": [[{"field": "field_rpd_instructors_final_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_final_primary_url",
             "label": "Primary CTA URL",
             "name": "rpd_instructors_final_primary_url",
             "type": "text",
-            "default_value": "/community/"
+            "default_value": "/community/",
+            "conditional_logic": [[{"field": "field_rpd_instructors_final_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_final_secondary_label",
             "label": "Secondary CTA Label",
             "name": "rpd_instructors_final_secondary_label",
             "type": "text",
-            "default_value": "Talk With RocketPD"
+            "default_value": "Talk With RocketPD",
+            "conditional_logic": [[{"field": "field_rpd_instructors_final_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_instructors_final_secondary_url",
             "label": "Secondary CTA URL",
             "name": "rpd_instructors_final_secondary_url",
             "type": "text",
-            "default_value": "/contact/"
+            "default_value": "/contact/",
+            "conditional_logic": [[{"field": "field_rpd_instructors_final_mode", "operator": "==", "value": "custom"}]]
         }
     ],
     "location": [
@@ -377,5 +486,5 @@
     "active": true,
     "description": "Page-level copy for the RocketPD Instructor Index template.",
     "show_in_rest": 0,
-    "modified": 1778800000
+    "modified": 1750780000
 }

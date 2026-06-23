@@ -182,6 +182,7 @@ function rocketpd_register_post_types() {
 			'plural'            => __( 'Instructors', 'rocketpd' ),
 			'slug'              => 'instructors',
 			'icon'              => 'dashicons-welcome-learn-more',
+			'has_archive'       => false,
 			'show_in_nav_menus' => true,
 		),
 		'member'      => array(

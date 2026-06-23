@@ -9,12 +9,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$headline = rocketpd_get_field( 'rpd_instructors_final_headline', __( 'Find the right expert for your team.', 'rocketpd' ) );
-$body = rocketpd_get_field( 'rpd_instructors_final_body', __( 'Browse the community, explore by topic, or talk with RocketPD about custom programs for your school or district.', 'rocketpd' ) );
-$primary = rocketpd_get_field( 'rpd_instructors_final_primary_label', __( 'Explore the Community', 'rocketpd' ) );
-$primary_url = rocketpd_get_field( 'rpd_instructors_final_primary_url', home_url( '/community/' ) );
-$secondary = rocketpd_get_field( 'rpd_instructors_final_secondary_label', __( 'Talk With RocketPD', 'rocketpd' ) );
-$secondary_url = rocketpd_get_field( 'rpd_instructors_final_secondary_url', home_url( '/contact/' ) );
+$mode = rocketpd_get_field( 'rpd_instructors_final_mode', 'defaults' );
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$default_headline       = __( 'Find the right expert for your team.', 'rocketpd' );
+$default_body           = __( 'Browse the community, explore by topic, or talk with RocketPD about custom programs for your school or district.', 'rocketpd' );
+$default_primary        = __( 'Explore the Community', 'rocketpd' );
+$default_primary_url    = home_url( '/community/' );
+$default_secondary      = __( 'Talk With RocketPD', 'rocketpd' );
+$default_secondary_url  = home_url( '/contact/' );
+
+if ( 'custom' === $mode ) {
+	$headline      = rocketpd_get_field( 'rpd_instructors_final_headline', $default_headline );
+	$body          = rocketpd_get_field( 'rpd_instructors_final_body', $default_body );
+	$primary       = rocketpd_get_field( 'rpd_instructors_final_primary_label', $default_primary );
+	$primary_url   = rocketpd_get_field( 'rpd_instructors_final_primary_url', $default_primary_url );
+	$secondary     = rocketpd_get_field( 'rpd_instructors_final_secondary_label', $default_secondary );
+	$secondary_url = rocketpd_get_field( 'rpd_instructors_final_secondary_url', $default_secondary_url );
+} else {
+	$headline      = $default_headline;
+	$body          = $default_body;
+	$primary       = $default_primary;
+	$primary_url   = $default_primary_url;
+	$secondary     = $default_secondary;
+	$secondary_url = $default_secondary_url;
+}
 ?>
 
 <section class="rpd-instructors-final">
