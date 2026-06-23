@@ -72,6 +72,83 @@
             "type": "text"
         },
         {
+            "key": "field_rpd_topic_gallery_tab",
+            "label": "Gallery Card",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_topic_icon",
+            "label": "Icon",
+            "name": "rpd_topic_icon",
+            "type": "select",
+            "instructions": "Icon shown on the gallery card and featured card.",
+            "choices": {
+                "spark": "Sparkles (default)",
+                "book": "Book / Reading",
+                "brain": "Brain / Mental Health",
+                "bulb": "Lightbulb / Ideas",
+                "calculator": "Calculator / Maths",
+                "calendar": "Calendar / Events",
+                "cap": "Graduation Cap / Learning",
+                "chat": "Chat / Community",
+                "clipboard": "Clipboard / Evaluation",
+                "crown": "Crown / Leadership",
+                "file": "File / Resources",
+                "heart": "Heart / Engagement",
+                "megaphone": "Megaphone / Communications",
+                "pencil": "Pencil / Planning",
+                "pulse": "Pulse / Well-being",
+                "puzzle": "Puzzle / Differentiation",
+                "screen": "Screen / Technology",
+                "shield": "Shield / Behaviour",
+                "stethoscope": "Stethoscope / Health",
+                "users": "Users / Culture",
+                "webinar": "Monitor-Play / Webinars"
+            },
+            "default_value": "spark",
+            "ui": 1,
+            "return_format": "value"
+        },
+        {
+            "key": "field_rpd_topic_resources",
+            "label": "Resource Count",
+            "name": "rpd_topic_resources",
+            "type": "number",
+            "instructions": "Number of resources in this topic hub.",
+            "default_value": 0,
+            "min": 0
+        },
+        {
+            "key": "field_rpd_topic_upcoming",
+            "label": "Upcoming Events Count",
+            "name": "rpd_topic_upcoming",
+            "type": "number",
+            "instructions": "Number of upcoming events for this topic.",
+            "default_value": 0,
+            "min": 0
+        },
+        {
+            "key": "field_rpd_topic_featured",
+            "label": "Featured This Season",
+            "name": "rpd_topic_featured",
+            "type": "true_false",
+            "instructions": "Show this topic in the Featured This Season section.",
+            "default_value": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_rpd_topic_newest",
+            "label": "Newest Topic",
+            "name": "rpd_topic_newest",
+            "type": "true_false",
+            "instructions": "Show this topic when the Newest filter is active.",
+            "default_value": 0,
+            "ui": 1
+        },
+        {
             "key": "field_rpd_topic_detail_tab_overview",
             "label": "Overview",
             "name": "",

@@ -15,7 +15,7 @@ $benefits = function_exists( 'rocketpd_get_topic_benefits' ) ? rocketpd_get_topi
 <section class="rpd-topics-benefits rpd-topics-section">
 	<div class="rpd-container">
 		<header class="rpd-topics-section__header">
-			<p class="rpd-topics-kicker"><?php esc_html_e( 'Why RocketPD Topic Hubs', 'rocketpd' ); ?></p>
+			<p class="rpd-section-header__eyebrow"><?php esc_html_e( 'Why RocketPD Topic Hubs', 'rocketpd' ); ?></p>
 			<h2><?php esc_html_e( 'More Than Articles. Real Professional Learning.', 'rocketpd' ); ?></h2>
 			<span><?php esc_html_e( 'RocketPD topic hubs connect educators to expert-led learning, practical frameworks, community conversations, and implementation-focused resources designed to support real work in schools.', 'rocketpd' ); ?></span>
 		</header>

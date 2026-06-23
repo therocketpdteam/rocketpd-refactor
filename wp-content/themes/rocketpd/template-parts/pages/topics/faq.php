@@ -19,7 +19,7 @@ if ( ! $faqs ) {
 <section class="rpd-topics-faq rpd-topics-section">
 	<div class="rpd-container">
 		<header class="rpd-topics-section__header rpd-topics-section__header--center">
-			<p class="rpd-topics-kicker"><?php esc_html_e( 'Topics FAQ', 'rocketpd' ); ?></p>
+			<p class="rpd-section-header__eyebrow"><?php esc_html_e( 'Topics FAQ', 'rocketpd' ); ?></p>
 			<h2><?php esc_html_e( 'Common questions about RocketPD topic hubs.', 'rocketpd' ); ?></h2>
 		</header>
 		<div class="rpd-topics-faq__list" data-rpd-topics-faq>

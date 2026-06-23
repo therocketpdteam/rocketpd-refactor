@@ -26,14 +26,14 @@ $filters    = array(
 <section class="rpd-topics-gallery rpd-topics-section" id="gallery" data-rpd-topics>
 	<div class="rpd-container">
 		<header class="rpd-topics-section__header">
-			<p class="rpd-topics-kicker"><?php esc_html_e( 'Topic Gallery', 'rocketpd' ); ?></p>
+			<p class="rpd-section-header__eyebrow"><?php esc_html_e( 'Topic Gallery', 'rocketpd' ); ?></p>
 			<h2><?php esc_html_e( 'Browse every RocketPD topic hub.', 'rocketpd' ); ?></h2>
 			<span><?php esc_html_e( 'Search by keyword or filter by category to find the educational hub aligned to the work in front of you.', 'rocketpd' ); ?></span>
 		</header>
 		<div class="rpd-topics-gallery__controls">
 			<div class="rpd-topics-gallery__search-row">
 				<label class="screen-reader-text" for="rpd-topics-search"><?php esc_html_e( 'Search topic hubs', 'rocketpd' ); ?></label>
-				<span aria-hidden="true"></span>
+				<?php echo rocketpd_get_icon( 'search', 18, 'rpd-topics-search-icon' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				<input id="rpd-topics-search" type="search" data-rpd-topics-search placeholder="<?php esc_attr_e( 'Search topics, instructors, or descriptions...', 'rocketpd' ); ?>">
 				<button type="button" data-rpd-topics-clear data-rpd-topics-clear-inline hidden><?php esc_html_e( 'Clear all', 'rocketpd' ); ?> <span data-rpd-topics-active-count></span></button>
 			</div>
@@ -90,10 +90,13 @@ $filters    = array(
 					<footer>
 						<span><?php echo esc_html( $topic['resources'] ); ?> <?php esc_html_e( 'resources', 'rocketpd' ); ?></span>
 						<span><?php echo esc_html( $topic['upcoming'] ); ?> <?php esc_html_e( 'upcoming', 'rocketpd' ); ?></span>
-						<strong><?php esc_html_e( 'Explore', 'rocketpd' ); ?> <span aria-hidden="true">-&gt;</span></strong>
+						<strong><?php esc_html_e( 'Explore', 'rocketpd' ); ?> →</strong>
 					</footer>
 				</a>
 			<?php endforeach; ?>
+		</div>
+		<div class="rpd-topics-load-more" data-rpd-topics-load-more>
+			<button class="rpd-btn rpd-btn--outline-purple" type="button"><?php esc_html_e( 'Show all topics', 'rocketpd' ); ?></button>
 		</div>
 		<div class="rpd-topics-empty" data-rpd-topics-empty hidden>
 			<h3><?php esc_html_e( 'No topic hubs match those filters.', 'rocketpd' ); ?></h3>
