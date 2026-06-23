@@ -29,8 +29,8 @@ if ( ! $resources ) {
 			<div>
 				<p class="rpd-course-section-kicker"><?php echo esc_html( sprintf( __( 'Free resources from %s', 'rocketpd' ), $instructor ) ); ?></p>
 				<h2><?php echo esc_html( sprintf( __( "Start exploring %s's work - free.", 'rocketpd' ), $display_name ) ); ?></h2>
+				<span><?php echo esc_html( sprintf( __( "Want a feel for %s's voice before you enroll? These are all free and instantly accessible.", 'rocketpd' ), $display_name ) ); ?></span>
 			</div>
-			<span><?php echo esc_html( sprintf( __( "Want a feel for %s's voice before you enroll? These are all free and instantly accessible.", 'rocketpd' ), $display_name ) ); ?></span>
 		</header>
 		<?php if ( $guide ) : ?>
 			<article class="rpd-course-featured-guide">

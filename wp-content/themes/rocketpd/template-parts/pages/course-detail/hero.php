@@ -58,8 +58,29 @@ $poster_url  = 'https://img.youtube.com/vi/' . rawurlencode( $youtube_id ) . '/h
 			<p class="rpd-course-hero__promise"><?php echo esc_html( $course['promise'] ?? '' ); ?></p>
 			<div class="rpd-course-hero__commerce">
 				<div class="rpd-course-price-card">
-					<strong><?php echo esc_html( $course['price'] ?? '' ); ?></strong>
-					<span><?php echo esc_html( $course['priceMeta'] ?? '' ); ?></span>
+					<?php
+					$price_raw    = $course['price'] ?? '';
+					$price_symbol = '';
+					$price_number = $price_raw;
+					if ( $price_raw && ! ctype_digit( substr( $price_raw, 0, 1 ) ) ) {
+						$price_symbol = substr( $price_raw, 0, 1 );
+						$price_number = substr( $price_raw, 1 );
+					}
+					$meta_parts = array_map( 'trim', explode( '·', $course['priceMeta'] ?? '' ) );
+					?>
+					<strong class="rpd-course-price-card__price">
+						<?php if ( $price_symbol ) : ?>
+							<span class="rpd-course-price-card__symbol"><?php echo esc_html( $price_symbol ); ?></span>
+						<?php endif; ?>
+						<span class="rpd-course-price-card__amount"><?php echo esc_html( $price_number ); ?></span>
+					</strong>
+					<div class="rpd-course-price-card__meta">
+						<?php foreach ( $meta_parts as $i => $part ) : ?>
+							<?php if ( trim( $part ) ) : ?>
+								<span class="rpd-course-price-card__meta-<?php echo 0 === $i ? 'primary' : 'secondary'; ?>"><?php echo esc_html( trim( $part ) ); ?></span>
+							<?php endif; ?>
+						<?php endforeach; ?>
+					</div>
 				</div>
 				<div class="rpd-course-hero__actions">
 					<?php if ( ! empty( $primary['label'] ) && ! empty( $primary['href'] ) ) : ?>
