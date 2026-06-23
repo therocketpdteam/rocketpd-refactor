@@ -222,9 +222,23 @@ function rocketpd_get_topics_fallback() {
  * @return array
  */
 function rocketpd_get_featured_topics() {
-	return array_values(
+	$featured = array_values(
 		array_filter(
 			rocketpd_get_topics(),
+			function ( $topic ) {
+				return ! empty( $topic['featured'] );
+			}
+		)
+	);
+
+	if ( ! empty( $featured ) ) {
+		return $featured;
+	}
+
+	// No live posts are marked featured yet — fall back to hardcoded set.
+	return array_values(
+		array_filter(
+			rocketpd_get_topics_fallback(),
 			function ( $topic ) {
 				return ! empty( $topic['featured'] );
 			}

@@ -45,6 +45,17 @@ $headline = str_replace( 'K-12', '<span class="rpd-topics-nowrap">K-12</span>', 
 					<span><?php echo esc_html( $category['label'] ); ?></span>
 					<h2><?php echo esc_html( $topic['title'] ); ?></h2>
 					<p><?php echo esc_html( $topic['resources'] ); ?> <?php esc_html_e( 'resources', 'rocketpd' ); ?> · <?php echo esc_html( $topic['upcoming'] ); ?> <?php esc_html_e( 'upcoming', 'rocketpd' ); ?></p>
+					<?php if ( ! empty( $topic['expert'] ) ) : ?>
+					<div class="rpd-topics-preview-card__expert">
+						<?php if ( ! empty( $topic['headshot'] ) ) : ?>
+							<img src="<?php echo esc_url( $topic['headshot'] ); ?>" alt="" loading="lazy" decoding="async">
+						<?php endif; ?>
+						<div>
+							<span><?php esc_html_e( 'Featured Expert', 'rocketpd' ); ?></span>
+							<strong><?php echo esc_html( $topic['expert'] ); ?></strong>
+						</div>
+					</div>
+					<?php endif; ?>
 				</article>
 			<?php endforeach; ?>
 		</div>
