@@ -9,22 +9,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$eyebrow = rocketpd_get_field( 'rpd_instructors_impact_eyebrow', __( 'Community Impact', 'rocketpd' ) );
-$headline = rocketpd_get_field( 'rpd_instructors_impact_headline', __( 'Trusted by educators across 850+ districts.', 'rocketpd' ) );
-$body = rocketpd_get_field( 'rpd_instructors_impact_body', __( "RocketPD instructors don't just teach - they shape the practice of tens of thousands of educators every year.", 'rocketpd' ) );
-$stats = rocketpd_get_repeater_rows(
-	'rpd_instructors_impact_stats',
-	array(
-		array( 'value' => __( '40K+', 'rocketpd' ), 'label' => __( 'Educators reached', 'rocketpd' ) ),
-		array( 'value' => __( '850+', 'rocketpd' ), 'label' => __( 'Districts served', 'rocketpd' ) ),
-		array( 'value' => __( '47', 'rocketpd' ), 'label' => __( 'U.S. states', 'rocketpd' ) ),
-		array( 'value' => __( '$4M+', 'rocketpd' ), 'label' => __( 'PD investment supported', 'rocketpd' ) ),
-	),
-	array( 'value', 'label' )
+$mode = rocketpd_get_field( 'rpd_instructors_impact_mode', 'defaults' );
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$default_eyebrow    = __( 'Community Impact', 'rocketpd' );
+$default_headline   = __( 'Trusted by educators across 850+ districts.', 'rocketpd' );
+$default_body       = __( "RocketPD instructors don't just teach - they shape the practice of tens of thousands of educators every year.", 'rocketpd' );
+$default_stats      = array(
+	array( 'value' => __( '40K+', 'rocketpd' ), 'label' => __( 'Educators reached', 'rocketpd' ) ),
+	array( 'value' => __( '850+', 'rocketpd' ), 'label' => __( 'Districts served', 'rocketpd' ) ),
+	array( 'value' => __( '47', 'rocketpd' ), 'label' => __( 'U.S. states', 'rocketpd' ) ),
+	array( 'value' => __( '$4M+', 'rocketpd' ), 'label' => __( 'PD investment supported', 'rocketpd' ) ),
 );
-$quote = rocketpd_get_field( 'rpd_instructors_quote', __( '"RocketPD\'s cohort-based learning experiences have changed the way we look at professional development."', 'rocketpd' ) );
-$quote_name = rocketpd_get_field( 'rpd_instructors_quote_name', __( 'Joe Baeta', 'rocketpd' ) );
-$quote_role = rocketpd_get_field( 'rpd_instructors_quote_role', __( 'Superintendent - Stoughton Public Schools, MA', 'rocketpd' ) );
+$default_quote      = __( '"RocketPD\'s cohort-based learning experiences have changed the way we look at professional development."', 'rocketpd' );
+$default_quote_name = __( 'Joe Baeta', 'rocketpd' );
+$default_quote_role = __( 'Superintendent - Stoughton Public Schools, MA', 'rocketpd' );
+
+if ( 'custom' === $mode ) {
+	$eyebrow    = rocketpd_get_field( 'rpd_instructors_impact_eyebrow', $default_eyebrow );
+	$headline   = rocketpd_get_field( 'rpd_instructors_impact_headline', $default_headline );
+	$body       = rocketpd_get_field( 'rpd_instructors_impact_body', $default_body );
+	$acf_stats  = rocketpd_get_field( 'rpd_instructors_impact_stats', null );
+	$stats      = is_array( $acf_stats ) && ! empty( $acf_stats ) ? $acf_stats : $default_stats;
+	$quote      = rocketpd_get_field( 'rpd_instructors_quote', $default_quote );
+	$quote_name = rocketpd_get_field( 'rpd_instructors_quote_name', $default_quote_name );
+	$quote_role = rocketpd_get_field( 'rpd_instructors_quote_role', $default_quote_role );
+} else {
+	$eyebrow    = $default_eyebrow;
+	$headline   = $default_headline;
+	$body       = $default_body;
+	$stats      = $default_stats;
+	$quote      = $default_quote;
+	$quote_name = $default_quote_name;
+	$quote_role = $default_quote_role;
+}
 ?>
 
 <section class="rpd-instructors-proof">
