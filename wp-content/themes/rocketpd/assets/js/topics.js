@@ -16,8 +16,11 @@
 	const clearButtons = Array.from(document.querySelectorAll('[data-rpd-topics-clear]'));
 	const inlineClear = root.querySelector('[data-rpd-topics-clear-inline]');
 	const activeCount = root.querySelector('[data-rpd-topics-active-count]');
+	const loadMoreBtn = root.querySelector('[data-rpd-topics-load-more]');
 	const faq = document.querySelector('[data-rpd-topics-faq]');
+	const PAGE_SIZE = 6;
 	let activeFilter = 'all';
+	let showAll = false;
 
 	const normalize = (value) => String(value || '').trim().toLowerCase();
 
@@ -47,20 +50,28 @@
 		return card.dataset.category === activeFilter;
 	};
 
+	const isFiltered = () => activeFilter !== 'all' || normalize(search ? search.value : '').length > 0;
+
 	const updateGallery = () => {
 		const query = normalize(search ? search.value : '');
+		const filtered = isFiltered();
+		let matched = 0;
 		let visibleCount = 0;
 		const activeFilters = (query ? 1 : 0) + (activeFilter !== 'all' ? 1 : 0);
 
 		cards.forEach((card) => {
 			const haystack = normalize(card.dataset.search);
-			const isVisible = matchesFilter(card) && (!query || haystack.includes(query));
+			const isMatch = matchesFilter(card) && (!query || haystack.includes(query));
 
-			card.hidden = !isVisible;
-			card.classList.toggle('is-hidden', !isVisible);
-
-			if (isVisible) {
-				visibleCount += 1;
+			if (isMatch) {
+				matched += 1;
+				const withinPage = filtered || showAll || matched <= PAGE_SIZE;
+				card.hidden = !withinPage;
+				card.classList.toggle('is-hidden', !withinPage);
+				if (withinPage) visibleCount += 1;
+			} else {
+				card.hidden = true;
+				card.classList.add('is-hidden');
 			}
 		});
 
@@ -69,7 +80,11 @@
 		}
 
 		if (empty) {
-			empty.hidden = visibleCount > 0;
+			empty.hidden = matched > 0;
+		}
+
+		if (loadMoreBtn) {
+			loadMoreBtn.hidden = filtered || showAll || matched <= PAGE_SIZE;
 		}
 
 		if (inlineClear) {
@@ -129,6 +144,7 @@
 				heroSearch.value = '';
 			}
 
+			showAll = false;
 			setFilter('all');
 			updateGallery();
 
@@ -137,6 +153,13 @@
 			}
 		});
 	});
+
+	if (loadMoreBtn) {
+		loadMoreBtn.addEventListener('click', () => {
+			showAll = true;
+			updateGallery();
+		});
+	}
 
 	document.querySelectorAll('a[href="#gallery"]').forEach((link) => {
 		link.addEventListener('click', (event) => {

@@ -71,38 +71,33 @@ function rocketpd_get_topic_category( $key ) {
  * @return string
  */
 function rocketpd_topic_icon_svg( $icon, $class = 'rpd-topics-icon' ) {
-	$icons = array(
-		'book'        => '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5V5.5Z"/><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3"/><path d="M8 7h8"/><path d="M8 11h6"/>',
-		'brain'       => '<path d="M9 4a3 3 0 0 0-3 3v1a3 3 0 0 0 0 6v1a4 4 0 0 0 7 2.65"/><path d="M15 4a3 3 0 0 1 3 3v1a3 3 0 0 1 0 6v1a4 4 0 0 1-7 2.65"/><path d="M12 5v14"/><path d="M8 9h2"/><path d="M14 9h2"/><path d="M8 14h2"/><path d="M14 14h2"/>',
-		'bulb'        => '<path d="M9 18h6"/><path d="M10 22h4"/><path d="M8 14a6 6 0 1 1 8 0c-.9.7-1.5 1.7-1.7 2.8H9.7A5.2 5.2 0 0 0 8 14Z"/><path d="M12 2v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/>',
-		'calculator'  => '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><path d="M8 11h.01"/><path d="M12 11h.01"/><path d="M16 11h.01"/><path d="M8 15h.01"/><path d="M12 15h.01"/><path d="M16 15h.01"/>',
-		'calendar'    => '<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 10h16"/><path d="M8 14h3"/><path d="M13 14h3"/>',
-		'cap'         => '<path d="m3 8 9-4 9 4-9 4-9-4Z"/><path d="M7 10.5V15c0 1.7 2.2 3 5 3s5-1.3 5-3v-4.5"/><path d="M21 8v6"/>',
-		'chat'        => '<path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"/><path d="M8 9h8"/><path d="M8 13h5"/>',
-		'clipboard'   => '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4a3 3 0 0 1 6 0"/><path d="M9 9h6"/><path d="m9 14 2 2 4-5"/>',
-		'crown'       => '<path d="m3 7 5 5 4-8 4 8 5-5-2 11H5L3 7Z"/><path d="M5 21h14"/>',
-		'file'        => '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/>',
-		'heart'       => '<path d="M20.8 8.6a5.5 5.5 0 0 0-9-3.9l-.8.8-.8-.8a5.5 5.5 0 0 0-7.8 7.8L12 22l9.6-9.5a5.5 5.5 0 0 0-.8-3.9Z"/>',
-		'megaphone'   => '<path d="m3 11 18-5v12L3 13v-2Z"/><path d="M7 14v5a2 2 0 0 0 2 2h1"/><path d="M21 10h2"/><path d="M21 14h2"/>',
-		'pencil'      => '<path d="m18 2 4 4L8 20l-5 1 1-5L18 2Z"/><path d="m14 6 4 4"/>',
-		'pulse'       => '<path d="M3 12h4l2-6 4 12 2-6h6"/><path d="M20.8 8.6a5.5 5.5 0 0 0-8.8-3.9 5.5 5.5 0 0 0-8.8 3.9"/>',
-		'puzzle'      => '<path d="M8 3h5v4a2 2 0 1 0 4 0h4v5h-4a2 2 0 1 0 0 4h4v5h-6a2 2 0 1 1-4 0H6v-6a2 2 0 1 0 0-4V6h2V3Z"/>',
-		'screen'      => '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/>',
-		'shield'      => '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/>',
-		'spark'       => '<path d="m12 2 2.2 6.2L20 10l-5.8 1.8L12 18l-2.2-6.2L4 10l5.8-1.8L12 2Z"/><path d="m19 17 .8 2.2L22 20l-2.2.8L19 23l-.8-2.2L16 20l2.2-.8L19 17Z"/>',
-		'stethoscope' => '<path d="M6 3v5a4 4 0 0 0 8 0V3"/><path d="M10 12v3a4 4 0 0 0 8 0v-1"/><circle cx="19" cy="11" r="2"/><path d="M4 3h4"/><path d="M12 3h4"/>',
-		'users'       => '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
-		'webinar'     => '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9Z"/><path d="M7 21h10"/>',
+	$aliases = array(
+		'book'        => 'book',
+		'brain'       => 'brain',
+		'bulb'        => 'lightbulb',
+		'calculator'  => 'calculator',
+		'calendar'    => 'calendar',
+		'cap'         => 'graduation-cap',
+		'chat'        => 'message-square',
+		'clipboard'   => 'clipboard-check',
+		'crown'       => 'crown',
+		'file'        => 'file-text',
+		'heart'       => 'heart',
+		'megaphone'   => 'megaphone',
+		'pencil'      => 'pencil',
+		'pulse'       => 'heart-pulse',
+		'puzzle'      => 'puzzle',
+		'screen'      => 'monitor',
+		'shield'      => 'shield-check',
+		'spark'       => 'sparkles',
+		'stethoscope' => 'stethoscope',
+		'users'       => 'users',
+		'webinar'     => 'monitor-play',
 	);
 
-	$key  = isset( $icons[ $icon ] ) ? $icon : 'spark';
-	$path = $icons[ $key ];
+	$global_key = isset( $aliases[ $icon ] ) ? $aliases[ $icon ] : 'sparkles';
 
-	return sprintf(
-		'<svg class="%1$s" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">%2$s</svg>',
-		esc_attr( $class ),
-		$path
-	);
+	return rocketpd_get_icon( $global_key, 24, $class );
 }
 
 /**
@@ -132,28 +127,82 @@ function rocketpd_topic_record( $topic ) {
 }
 
 /**
- * Return the 16 Topic Index fallback cards.
+ * Return topics dynamically from published topic_hub posts, with hardcoded fallback.
  *
  * @return array
  */
 function rocketpd_get_topics() {
+	$posts = get_posts( array(
+		'post_type'      => 'topic_hub',
+		'posts_per_page' => -1,
+		'post_status'    => 'publish',
+		'orderby'        => 'menu_order title',
+		'order'          => 'ASC',
+	) );
+
+	if ( empty( $posts ) ) {
+		return rocketpd_get_topics_fallback();
+	}
+
+	// ACF stores wellness as 'wellness-culture'; normalize to match rocketpd_get_topic_categories().
+	$category_aliases = array( 'wellness-culture' => 'wellness' );
+
+	$has_acf = function_exists( 'get_field' );
+
+	return array_map(
+		function ( $post ) use ( $has_acf, $category_aliases ) {
+			$category = $has_acf ? get_field( 'rpd_topic_detail_category', $post->ID ) : '';
+			$category = isset( $category_aliases[ $category ] ) ? $category_aliases[ $category ] : ( $category ?: 'instruction' );
+
+			$headshot = $has_acf ? (string) get_field( 'rpd_topic_detail_expert_image', $post->ID ) : '';
+
+			return rocketpd_topic_record( array(
+				'slug'        => $post->post_name,
+				'title'       => $post->post_title,
+				'category'    => $category,
+				'description' => $post->post_excerpt
+				?: ( $has_acf ? wp_trim_words( (string) get_field( 'rpd_topic_detail_subtitle', $post->ID ), 25, '…' ) : '' )
+				?: wp_trim_words( wp_strip_all_tags( $post->post_content ), 25, '…' ),
+				'icon'        => $has_acf ? ( get_field( 'rpd_topic_icon', $post->ID ) ?: 'spark' ) : 'spark',
+				'resources'   => $has_acf ? (int) get_field( 'rpd_topic_resources', $post->ID ) : 0,
+				'upcoming'    => $has_acf ? (int) get_field( 'rpd_topic_upcoming', $post->ID ) : 0,
+				'featured'    => $has_acf ? (bool) get_field( 'rpd_topic_featured', $post->ID ) : false,
+				'newest'      => $has_acf ? (bool) get_field( 'rpd_topic_newest', $post->ID ) : false,
+				'expert'      => $has_acf ? (string) get_field( 'rpd_topic_detail_expert_name', $post->ID ) : '',
+				'headshot'    => $headshot,
+				'href'        => get_permalink( $post->ID ),
+			) );
+		},
+		$posts
+	);
+}
+
+/**
+ * Return the 16 hardcoded Topic Index fallback cards (used when no topic_hub posts exist).
+ *
+ * @return array
+ */
+function rocketpd_get_topics_fallback() {
+	$img   = get_template_directory_uri() . '/assets/images/instructors/';
+	$lpimg = get_template_directory_uri() . '/assets/images/launchpad/';
+
 	$topics = array(
-		array( 'slug' => 'teacher-supervision-evaluation-coaching', 'title' => __( 'Teacher Supervision, Evaluation & Coaching', 'rocketpd' ), 'category' => 'leadership', 'description' => __( 'Replace annual reviews with sustainable mini-observations, feedback conversations, and instructional coaching systems.', 'rocketpd' ), 'icon' => 'clipboard', 'resources' => 42, 'upcoming' => 4, 'featured' => true, 'expert' => __( 'Kim Marshall', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/kim-marshall-rocketpd-instructor-k12-pricipals-leadership.jpg' ),
-		array( 'slug' => 'ai-and-education', 'title' => __( 'AI and Education', 'rocketpd' ), 'category' => 'technology', 'description' => __( 'From responsible classroom use to school-wide policy: practical AI frameworks for K-12 educators, leaders, and instructional teams.', 'rocketpd' ), 'icon' => 'spark', 'resources' => 38, 'upcoming' => 5, 'featured' => true, 'newest' => true, 'expert' => __( 'Matt Miller', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/matt-miller-rocketpd-instructor.jpg' ),
-		array( 'slug' => 'family-engagement', 'title' => __( 'Family Engagement', 'rocketpd' ), 'category' => 'wellness', 'description' => __( 'Build trust-centered systems for two-way communication, partnership, and shared accountability with the families your school serves.', 'rocketpd' ), 'icon' => 'heart', 'resources' => 24, 'upcoming' => 3, 'featured' => true, 'expert' => __( 'Dr. Luvelle Brown', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/luvelle-brown-rocketpd-instructor.jpg' ),
-		array( 'slug' => 'student-mental-health', 'title' => __( 'Student Mental Health', 'rocketpd' ), 'category' => 'student-support', 'description' => __( 'Trauma-informed, identity-affirming approaches to supporting student well-being across tier-1, tier-2, and tier-3 systems.', 'rocketpd' ), 'icon' => 'brain', 'resources' => 31, 'upcoming' => 4, 'featured' => true, 'expert' => __( 'Carla Tantillo Philibert', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/carla-tantillo-rocketpd-instructor.jpg' ),
-		array( 'slug' => 'blended-learning-udl', 'title' => __( 'Blended Learning & UDL', 'rocketpd' ), 'category' => 'instruction', 'description' => __( 'Universal Design for Learning meets practical station-rotation, choice boards, and tech-enabled differentiation that works for every learner.', 'rocketpd' ), 'icon' => 'screen', 'resources' => 36, 'upcoming' => 6, 'expert' => __( 'Dr. Catlin Tucker', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/catlin-tucker-rocketpd-instructor.jpg' ),
-		array( 'slug' => 'project-based-learning', 'title' => __( 'Project-Based Learning', 'rocketpd' ), 'category' => 'instruction', 'description' => __( 'Design rigorous, authentic learning experiences that build student agency, transferable skills, and durable knowledge.', 'rocketpd' ), 'icon' => 'bulb', 'resources' => 22, 'upcoming' => 3, 'expert' => __( 'A.J. Juliani', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/aj-juliani-rocketpd-instructor.jpg' ),
-		array( 'slug' => 'mathematics-instruction', 'title' => __( 'Mathematics Instruction', 'rocketpd' ), 'category' => 'instruction', 'description' => __( 'Building Thinking Classrooms, discourse-rich problem solving, and assessment practices that develop confident mathematical thinkers.', 'rocketpd' ), 'icon' => 'calculator', 'resources' => 28, 'upcoming' => 4, 'expert' => __( 'Peter Liljedahl', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/peter-liljedahl-rocketpd-instructor.jpg' ),
-		array( 'slug' => 'reading-instruction', 'title' => __( 'Reading Instruction', 'rocketpd' ), 'category' => 'instruction', 'description' => __( 'Science-of-reading-aligned literacy practices, structured phonics implementation, and adolescent literacy acceleration strategies.', 'rocketpd' ), 'icon' => 'book', 'resources' => 26, 'upcoming' => 3, 'expert' => __( 'Jennifer Gonzalez', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2025/10/jg-rocketpd.jpg' ),
-		array( 'slug' => 'school-culture-inclusion', 'title' => __( 'School Culture & Inclusion', 'rocketpd' ), 'category' => 'wellness', 'description' => __( 'Belonging-first school cultures: identity-affirming practices, restorative systems, and the daily routines that build them.', 'rocketpd' ), 'icon' => 'users', 'resources' => 19, 'upcoming' => 2, 'expert' => __( 'Dr. Luvelle Brown', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/luvelle-brown-rocketpd-instructor.jpg' ),
-		array( 'slug' => 'school-leadership', 'title' => __( 'School Leadership', 'rocketpd' ), 'category' => 'leadership', 'description' => __( 'Principal practice, instructional leadership, distributed leadership models, and the systems that sustain school transformation.', 'rocketpd' ), 'icon' => 'crown', 'resources' => 34, 'upcoming' => 4, 'expert' => __( 'Kim Marshall', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/kim-marshall-rocketpd-instructor-k12-pricipals-leadership.jpg' ),
-		array( 'slug' => 'school-communications', 'title' => __( 'School Communications', 'rocketpd' ), 'category' => 'leadership', 'description' => __( 'Modern parent communication, crisis messaging, internal stakeholder engagement, and the editorial cadence that builds school brand trust.', 'rocketpd' ), 'icon' => 'megaphone', 'resources' => 16, 'upcoming' => 2, 'expert' => __( 'Dr. John Spencer', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/john-spencer-rocketpd-instructor.jpg' ),
-		array( 'slug' => 'staff-retention-adult-well-being', 'title' => __( 'Staff Retention & Adult Well-Being', 'rocketpd' ), 'category' => 'wellness', 'description' => __( 'Retain great educators: workload boundaries, structured mentoring, leader-to-staff trust signals, and burnout prevention systems.', 'rocketpd' ), 'icon' => 'pulse', 'resources' => 18, 'upcoming' => 3, 'newest' => true, 'expert' => __( 'Carla Tantillo Philibert', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/carla-tantillo-rocketpd-instructor.jpg' ),
-		array( 'slug' => 'lesson-planning-design', 'title' => __( 'Lesson Planning & Design', 'rocketpd' ), 'category' => 'instruction', 'description' => __( 'Backward-design templates, success-criteria language, and the planning routines that protect teacher time without sacrificing rigor.', 'rocketpd' ), 'icon' => 'pencil', 'resources' => 21, 'upcoming' => 2, 'expert' => __( 'Dr. Catlin Tucker', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/catlin-tucker-rocketpd-instructor.jpg' ),
-		array( 'slug' => 'classroom-management-discipline', 'title' => __( 'Classroom Management & Discipline', 'rocketpd' ), 'category' => 'student-support', 'description' => __( 'Collaborative Problem Solving, restorative discipline, and proactive classroom routines that replace reactive consequences.', 'rocketpd' ), 'icon' => 'shield', 'resources' => 25, 'upcoming' => 3, 'expert' => __( 'Dr. Ross Greene', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/ross-greene-rocketpd-instructor.jpg' ),
-		array( 'slug' => 'individualized-instruction-neurodiversity', 'title' => __( 'Individualized Instruction & Neurodiversity', 'rocketpd' ), 'category' => 'student-support', 'description' => __( 'Strengths-based, neurodiversity-affirming teaching: practical differentiation, MTSS implementation, and inclusive design.', 'rocketpd' ), 'icon' => 'puzzle', 'resources' => 17, 'upcoming' => 2, 'expert' => __( 'Dr. Ross Greene', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/ross-greene-rocketpd-instructor.jpg' ),
-		array( 'slug' => 'school-health', 'title' => __( 'School Health', 'rocketpd' ), 'category' => 'wellness', 'description' => __( 'From recess and nutrition to nurse-led care, school health programming connects the dots between student well-being and learning.', 'rocketpd' ), 'icon' => 'stethoscope', 'resources' => 12, 'upcoming' => 1, 'expert' => __( 'Carla Tantillo Philibert', 'rocketpd' ), 'headshot' => 'https://rocketpd.com/wp-content/uploads/2024/04/carla-tantillo-rocketpd-instructor.jpg' ),
+		array( 'slug' => 'teacher-supervision-evaluation-coaching', 'title' => __( 'Teacher Supervision, Evaluation & Coaching', 'rocketpd' ), 'category' => 'leadership', 'description' => __( 'Replace annual reviews with sustainable mini-observations, feedback conversations, and instructional coaching systems.', 'rocketpd' ), 'icon' => 'clipboard', 'resources' => 42, 'upcoming' => 4, 'featured' => true, 'expert' => __( 'Kim Marshall', 'rocketpd' ), 'headshot' => $img . 'kim-marshall.jpg' ),
+		array( 'slug' => 'ai-and-education', 'title' => __( 'AI and Education', 'rocketpd' ), 'category' => 'technology', 'description' => __( 'From responsible classroom use to school-wide policy: practical AI frameworks for K-12 educators, leaders, and instructional teams.', 'rocketpd' ), 'icon' => 'spark', 'resources' => 38, 'upcoming' => 5, 'featured' => true, 'newest' => true, 'expert' => __( 'Matt Miller', 'rocketpd' ), 'headshot' => $img . 'matt-miller.jpg' ),
+		array( 'slug' => 'family-engagement', 'title' => __( 'Family Engagement', 'rocketpd' ), 'category' => 'wellness', 'description' => __( 'Build trust-centered systems for two-way communication, partnership, and shared accountability with the families your school serves.', 'rocketpd' ), 'icon' => 'heart', 'resources' => 24, 'upcoming' => 3, 'featured' => true, 'expert' => __( 'Dr. Luvelle Brown', 'rocketpd' ), 'headshot' => $img . 'dr-luvelle-brown.png' ),
+		array( 'slug' => 'student-mental-health', 'title' => __( 'Student Mental Health', 'rocketpd' ), 'category' => 'student-support', 'description' => __( 'Trauma-informed, identity-affirming approaches to supporting student well-being across tier-1, tier-2, and tier-3 systems.', 'rocketpd' ), 'icon' => 'brain', 'resources' => 31, 'upcoming' => 4, 'featured' => true, 'expert' => __( 'Carla Tantillo Philibert', 'rocketpd' ), 'headshot' => $lpimg . 'inst-philibert.png' ),
+		array( 'slug' => 'blended-learning-udl', 'title' => __( 'Blended Learning & UDL', 'rocketpd' ), 'category' => 'instruction', 'description' => __( 'Universal Design for Learning meets practical station-rotation, choice boards, and tech-enabled differentiation that works for every learner.', 'rocketpd' ), 'icon' => 'screen', 'resources' => 36, 'upcoming' => 6, 'expert' => __( 'Dr. Catlin Tucker', 'rocketpd' ), 'headshot' => $img . 'dr-catlin-tucker.png' ),
+		array( 'slug' => 'project-based-learning', 'title' => __( 'Project-Based Learning', 'rocketpd' ), 'category' => 'instruction', 'description' => __( 'Design rigorous, authentic learning experiences that build student agency, transferable skills, and durable knowledge.', 'rocketpd' ), 'icon' => 'bulb', 'resources' => 22, 'upcoming' => 3, 'expert' => __( 'A.J. Juliani', 'rocketpd' ), 'headshot' => $img . 'aj-juliani.png' ),
+		array( 'slug' => 'mathematics-instruction', 'title' => __( 'Mathematics Instruction', 'rocketpd' ), 'category' => 'instruction', 'description' => __( 'Building Thinking Classrooms, discourse-rich problem solving, and assessment practices that develop confident mathematical thinkers.', 'rocketpd' ), 'icon' => 'calculator', 'resources' => 28, 'upcoming' => 4, 'expert' => __( 'Peter Liljedahl', 'rocketpd' ), 'headshot' => $img . 'dr-peter-liljedahl.png' ),
+		array( 'slug' => 'reading-instruction', 'title' => __( 'Reading Instruction', 'rocketpd' ), 'category' => 'instruction', 'description' => __( 'Science-of-reading-aligned literacy practices, structured phonics implementation, and adolescent literacy acceleration strategies.', 'rocketpd' ), 'icon' => 'book', 'resources' => 26, 'upcoming' => 3, 'expert' => __( 'Jennifer Gonzalez', 'rocketpd' ), 'headshot' => $img . 'jennifer-gonzalez.jpg' ),
+		array( 'slug' => 'school-culture-inclusion', 'title' => __( 'School Culture & Inclusion', 'rocketpd' ), 'category' => 'wellness', 'description' => __( 'Belonging-first school cultures: identity-affirming practices, restorative systems, and the daily routines that build them.', 'rocketpd' ), 'icon' => 'users', 'resources' => 19, 'upcoming' => 2, 'expert' => __( 'Dr. Luvelle Brown', 'rocketpd' ), 'headshot' => $img . 'dr-luvelle-brown.png' ),
+		array( 'slug' => 'school-leadership', 'title' => __( 'School Leadership', 'rocketpd' ), 'category' => 'leadership', 'description' => __( 'Principal practice, instructional leadership, distributed leadership models, and the systems that sustain school transformation.', 'rocketpd' ), 'icon' => 'crown', 'resources' => 34, 'upcoming' => 4, 'expert' => __( 'Kim Marshall', 'rocketpd' ), 'headshot' => $img . 'kim-marshall.jpg' ),
+		array( 'slug' => 'school-communications', 'title' => __( 'School Communications', 'rocketpd' ), 'category' => 'leadership', 'description' => __( 'Modern parent communication, crisis messaging, internal stakeholder engagement, and the editorial cadence that builds school brand trust.', 'rocketpd' ), 'icon' => 'megaphone', 'resources' => 16, 'upcoming' => 2, 'expert' => __( 'Dr. John Spencer', 'rocketpd' ), 'headshot' => $img . 'dr-john-spencer.jpg' ),
+		array( 'slug' => 'staff-retention-adult-well-being', 'title' => __( 'Staff Retention & Adult Well-Being', 'rocketpd' ), 'category' => 'wellness', 'description' => __( 'Retain great educators: workload boundaries, structured mentoring, leader-to-staff trust signals, and burnout prevention systems.', 'rocketpd' ), 'icon' => 'pulse', 'resources' => 18, 'upcoming' => 3, 'newest' => true, 'expert' => __( 'Carla Tantillo Philibert', 'rocketpd' ), 'headshot' => $lpimg . 'inst-philibert.png' ),
+		array( 'slug' => 'lesson-planning-design', 'title' => __( 'Lesson Planning & Design', 'rocketpd' ), 'category' => 'instruction', 'description' => __( 'Backward-design templates, success-criteria language, and the planning routines that protect teacher time without sacrificing rigor.', 'rocketpd' ), 'icon' => 'pencil', 'resources' => 21, 'upcoming' => 2, 'expert' => __( 'Dr. Catlin Tucker', 'rocketpd' ), 'headshot' => $img . 'dr-catlin-tucker.png' ),
+		array( 'slug' => 'classroom-management-discipline', 'title' => __( 'Classroom Management & Discipline', 'rocketpd' ), 'category' => 'student-support', 'description' => __( 'Collaborative Problem Solving, restorative discipline, and proactive classroom routines that replace reactive consequences.', 'rocketpd' ), 'icon' => 'shield', 'resources' => 25, 'upcoming' => 3, 'expert' => __( 'Dr. Ross Greene', 'rocketpd' ), 'headshot' => $img . 'dr-ross-greene.jpg' ),
+		array( 'slug' => 'individualized-instruction-neurodiversity', 'title' => __( 'Individualized Instruction & Neurodiversity', 'rocketpd' ), 'category' => 'student-support', 'description' => __( 'Strengths-based, neurodiversity-affirming teaching: practical differentiation, MTSS implementation, and inclusive design.', 'rocketpd' ), 'icon' => 'puzzle', 'resources' => 17, 'upcoming' => 2, 'expert' => __( 'Dr. Ross Greene', 'rocketpd' ), 'headshot' => $img . 'dr-ross-greene.jpg' ),
+		array( 'slug' => 'school-health', 'title' => __( 'School Health', 'rocketpd' ), 'category' => 'wellness', 'description' => __( 'From recess and nutrition to nurse-led care, school health programming connects the dots between student well-being and learning.', 'rocketpd' ), 'icon' => 'stethoscope', 'resources' => 12, 'upcoming' => 1, 'expert' => __( 'Carla Tantillo Philibert', 'rocketpd' ), 'headshot' => $lpimg . 'inst-philibert.png' ),
 	);
 
 	return array_map(
@@ -206,10 +255,10 @@ function rocketpd_get_topic_benefits() {
  */
 function rocketpd_get_topic_resources() {
 	return array(
-		array( 'type' => __( 'Guide', 'rocketpd' ), 'title' => __( 'The Mini-Observation Field Guide', 'rocketpd' ), 'description' => __( 'A practical field guide for replacing compliance observations with useful instructional feedback.', 'rocketpd' ), 'meta' => __( 'PDF · 18 pages', 'rocketpd' ), 'expert' => __( 'Kim Marshall', 'rocketpd' ), 'topic' => __( 'Teacher Evaluation', 'rocketpd' ), 'href' => home_url( '/k-12-guides/learning-meet-doing/' ) ),
-		array( 'type' => __( 'Podcast', 'rocketpd' ), 'title' => __( 'AI in the K-12 Classroom (Without Losing the Plot)', 'rocketpd' ), 'description' => __( 'A grounded conversation about classroom AI routines, policy, and teacher judgment.', 'rocketpd' ), 'meta' => __( 'Episode · 42 min', 'rocketpd' ), 'expert' => __( 'Matt Miller', 'rocketpd' ), 'topic' => __( 'AI and Education', 'rocketpd' ), 'href' => home_url( '/resources/' ) ),
-		array( 'type' => __( 'Webinar', 'rocketpd' ), 'title' => __( 'Family Communication Systems That Actually Work', 'rocketpd' ), 'description' => __( 'Build a repeatable cadence for two-way communication and trust-centered family partnership.', 'rocketpd' ), 'meta' => __( 'Free webinar · 60 min', 'rocketpd' ), 'expert' => __( 'Dr. Luvelle Brown', 'rocketpd' ), 'topic' => __( 'Family Engagement', 'rocketpd' ), 'href' => home_url( '/launchpad/courses/' ) ),
-		array( 'type' => __( 'Playbook', 'rocketpd' ), 'title' => __( 'Building Thinking Classrooms - Implementation Map', 'rocketpd' ), 'description' => __( 'A school-ready sequence for launching thinking routines, discourse, and better math tasks.', 'rocketpd' ), 'meta' => __( 'Playbook · 32 pages', 'rocketpd' ), 'expert' => __( 'Peter Liljedahl', 'rocketpd' ), 'topic' => __( 'Mathematics Instruction', 'rocketpd' ), 'href' => home_url( '/resources/' ) ),
+		array( 'type' => __( 'Guide', 'rocketpd' ), 'tone' => 'blue', 'title' => __( 'The Mini-Observation Field Guide', 'rocketpd' ), 'description' => __( 'A practical field guide for replacing compliance observations with useful instructional feedback.', 'rocketpd' ), 'meta' => __( 'PDF · 18 pages', 'rocketpd' ), 'expert' => __( 'Kim Marshall', 'rocketpd' ), 'topic' => __( 'Teacher Evaluation', 'rocketpd' ), 'href' => home_url( '/k-12-guides/learning-meet-doing/' ) ),
+		array( 'type' => __( 'Podcast', 'rocketpd' ), 'tone' => 'emerald', 'title' => __( 'AI in the K-12 Classroom (Without Losing the Plot)', 'rocketpd' ), 'description' => __( 'A grounded conversation about classroom AI routines, policy, and teacher judgment.', 'rocketpd' ), 'meta' => __( 'Episode · 42 min', 'rocketpd' ), 'expert' => __( 'Matt Miller', 'rocketpd' ), 'topic' => __( 'AI and Education', 'rocketpd' ), 'href' => home_url( '/resources/' ) ),
+		array( 'type' => __( 'Webinar', 'rocketpd' ), 'tone' => 'purple', 'title' => __( 'Family Communication Systems That Actually Work', 'rocketpd' ), 'description' => __( 'Build a repeatable cadence for two-way communication and trust-centered family partnership.', 'rocketpd' ), 'meta' => __( 'Free webinar · 60 min', 'rocketpd' ), 'expert' => __( 'Dr. Luvelle Brown', 'rocketpd' ), 'topic' => __( 'Family Engagement', 'rocketpd' ), 'href' => home_url( '/launchpad/courses/' ) ),
+		array( 'type' => __( 'Playbook', 'rocketpd' ), 'tone' => 'gold', 'title' => __( 'Building Thinking Classrooms - Implementation Map', 'rocketpd' ), 'description' => __( 'A school-ready sequence for launching thinking routines, discourse, and better math tasks.', 'rocketpd' ), 'meta' => __( 'Playbook · 32 pages', 'rocketpd' ), 'expert' => __( 'Peter Liljedahl', 'rocketpd' ), 'topic' => __( 'Mathematics Instruction', 'rocketpd' ), 'href' => home_url( '/resources/' ) ),
 	);
 }
 
@@ -220,9 +269,9 @@ function rocketpd_get_topic_resources() {
  */
 function rocketpd_get_topic_opportunities() {
 	return array(
-		array( 'format' => __( 'Live-Virtual Cohort', 'rocketpd' ), 'title' => __( 'Rethinking Teacher Supervision, Coaching & Evaluation', 'rocketpd' ), 'expert' => __( 'Kim Marshall', 'rocketpd' ), 'date' => __( 'Sept 15 - Nov 3 · 8 sessions', 'rocketpd' ), 'topic' => __( 'Teacher Evaluation', 'rocketpd' ), 'price' => __( '$795/person', 'rocketpd' ), 'tone' => 'blue', 'href' => home_url( '/launchpad/courses/mini-observations-mastery-live-cohort/' ) ),
-		array( 'format' => __( 'Free Webinar', 'rocketpd' ), 'title' => __( 'Practical AI Routines for Middle & High School Teachers', 'rocketpd' ), 'expert' => __( 'Matt Miller', 'rocketpd' ), 'date' => __( 'Oct 9 · 4:00 PM ET', 'rocketpd' ), 'topic' => __( 'AI and Education', 'rocketpd' ), 'price' => __( 'Free', 'rocketpd' ), 'tone' => 'emerald', 'href' => home_url( '/launchpad/courses/building-your-districts-ai-strategy/' ) ),
-		array( 'format' => __( 'Self-Paced Course', 'rocketpd' ), 'title' => __( 'Engaging Every Learner - On-Demand', 'rocketpd' ), 'expert' => __( 'Jennifer Gonzalez', 'rocketpd' ), 'date' => __( 'Open enrollment', 'rocketpd' ), 'topic' => __( 'Reading Instruction', 'rocketpd' ), 'price' => __( '$49', 'rocketpd' ), 'tone' => 'gold', 'href' => home_url( '/launchpad/courses/' ) ),
+		array( 'format' => __( 'Live-Virtual Cohort', 'rocketpd' ), 'title' => __( 'Rethinking Teacher Supervision, Coaching & Evaluation', 'rocketpd' ), 'expert' => __( 'Kim Marshall', 'rocketpd' ), 'date' => __( 'Sep 24 – Apr 15 · 8 sessions', 'rocketpd' ), 'topic' => __( 'Teacher Evaluation', 'rocketpd' ), 'price' => __( '$795/person', 'rocketpd' ), 'tone' => 'blue', 'href' => home_url( '/cohorts/rethinking-teacher-supervision-coaching-evaluation/' ) ),
+		array( 'format' => __( 'Free Webinar', 'rocketpd' ), 'title' => __( 'From Mini-Observations to Meaningful Debriefs', 'rocketpd' ), 'expert' => __( 'Kim Marshall', 'rocketpd' ), 'date' => __( 'Date TBD', 'rocketpd' ), 'topic' => __( 'Teacher Evaluation', 'rocketpd' ), 'price' => __( 'Free', 'rocketpd' ), 'tone' => 'emerald', 'href' => home_url( '/webinars/from-mini-observations-to-meaningful-debriefs-rethinking-teacher-evaluation-conversations-with-kim-marshall/' ) ),
+		array( 'format' => __( 'Self-Paced Course', 'rocketpd' ), 'title' => __( 'Fine-Tune Your Lessons with the Fundamentals', 'rocketpd' ), 'expert' => __( 'Jennifer Gonzalez', 'rocketpd' ), 'date' => __( 'Open enrollment', 'rocketpd' ), 'topic' => __( 'Teaching Efficacy', 'rocketpd' ), 'price' => __( '$49', 'rocketpd' ), 'tone' => 'gold', 'href' => home_url( '/launchpad/courses/fine-tune-your-lessons-with-the-fundamentals-with-jennifer-gonzalez/' ) ),
 	);
 }
 
