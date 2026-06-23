@@ -231,7 +231,7 @@
 
 .rpd-topic-pill {
 	align-items: center;
-	border-radius: 999px;
+	border-radius: var(--rpd-radius);
 	display: inline-flex;
 	font-size: 0.84rem;
 	font-weight: 900;
