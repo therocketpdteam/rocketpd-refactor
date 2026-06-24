@@ -557,6 +557,17 @@ function rocketpd_get_current_cohort_detail() {
 	}
 
 	// Post has been seeded — ACF is the source of truth. No fallback merge.
+	$basics_mode     = rocketpd_get_field( 'rpd_cohort_basics_mode', 'custom' );
+	$instructor_mode = rocketpd_get_field( 'rpd_cohort_instructor_mode', 'custom' );
+	$pricing_mode    = rocketpd_get_field( 'rpd_cohort_pricing_mode', 'custom' );
+	$schedule_mode   = rocketpd_get_field( 'rpd_cohort_schedule_mode', 'custom' );
+	$cards_mode      = rocketpd_get_field( 'rpd_cohort_cards_mode', 'custom' );
+	$sponsor_mode    = rocketpd_get_field( 'rpd_cohort_sponsor_mode', 'custom' );
+	$social_mode     = rocketpd_get_field( 'rpd_cohort_social_mode', 'custom' );
+	$cta_mode        = rocketpd_get_field( 'rpd_cohort_cta_mode', 'custom' );
+
+	$fb = 'defaults' === $basics_mode ? rocketpd_get_cohort_detail_fallback() : array();
+
 	$instructor_post = rocketpd_get_field( 'rpd_cohort_instructor', 0 );
 	$seed_instructor = rocketpd_get_cohort_detail_seed_instructor( get_post_field( 'post_name', get_the_ID() ) );
 	$fallback_instructor = ! empty( $seed_instructor ) ? $seed_instructor : rocketpd_get_cohort_detail_fallback()['instructor'];
@@ -566,23 +577,33 @@ function rocketpd_get_current_cohort_detail() {
 	$resources   = rocketpd_get_field( 'rpd_cohort_resources', array() );
 
 	return array(
-		'title'               => rocketpd_get_field( 'rpd_cohort_title', get_the_title() ),
-		'subtitle'            => rocketpd_get_field( 'rpd_cohort_subtitle', '' ),
-		'shortDescription'    => rocketpd_get_field( 'rpd_cohort_short_description', '' ),
-		'longDescription'     => rocketpd_get_field( 'rpd_cohort_long_description', '' ),
-		'topic'               => rocketpd_get_field( 'rpd_cohort_topic', '' ),
-		'category'            => rocketpd_get_field( 'rpd_cohort_category', '' ),
-		'status'              => rocketpd_get_field( 'rpd_cohort_status', 'registration-open' ),
-		'featured'            => (bool) rocketpd_get_field( 'rpd_cohort_featured', false ),
-		'startDate'           => rocketpd_get_field( 'rpd_cohort_start_date', '' ),
-		'endDate'             => rocketpd_get_field( 'rpd_cohort_end_date', '' ),
-		'sessionCountLabel'   => rocketpd_get_field( 'rpd_cohort_session_count_label', '' ),
-		'totalHours'          => rocketpd_get_field( 'rpd_cohort_total_hours', '' ),
-		'formatLabel'         => rocketpd_get_field( 'rpd_cohort_format_label', '' ),
-		'cadenceLabel'        => rocketpd_get_field( 'rpd_cohort_cadence_label', '' ),
-		'sessionLength'       => rocketpd_get_field( 'rpd_cohort_session_length', '' ),
+		'_modes'              => array(
+			'basics'     => $basics_mode,
+			'instructor' => $instructor_mode,
+			'pricing'    => $pricing_mode,
+			'schedule'   => $schedule_mode,
+			'cards'      => $cards_mode,
+			'sponsor'    => $sponsor_mode,
+			'social'     => $social_mode,
+			'cta'        => $cta_mode,
+		),
+		'title'               => 'defaults' === $basics_mode ? $fb['title']             : rocketpd_get_field( 'rpd_cohort_title', get_the_title() ),
+		'subtitle'            => 'defaults' === $basics_mode ? $fb['subtitle']          : rocketpd_get_field( 'rpd_cohort_subtitle', '' ),
+		'shortDescription'    => 'defaults' === $basics_mode ? $fb['shortDescription']  : rocketpd_get_field( 'rpd_cohort_short_description', '' ),
+		'longDescription'     => 'defaults' === $basics_mode ? $fb['longDescription']   : rocketpd_get_field( 'rpd_cohort_long_description', '' ),
+		'topic'               => 'defaults' === $basics_mode ? $fb['topic']             : rocketpd_get_field( 'rpd_cohort_topic', '' ),
+		'category'            => 'defaults' === $basics_mode ? $fb['category']          : rocketpd_get_field( 'rpd_cohort_category', '' ),
+		'status'              => 'defaults' === $basics_mode ? $fb['status']            : rocketpd_get_field( 'rpd_cohort_status', 'registration-open' ),
+		'featured'            => 'defaults' === $basics_mode ? $fb['featured']          : (bool) rocketpd_get_field( 'rpd_cohort_featured', false ),
+		'startDate'           => 'defaults' === $basics_mode ? $fb['startDate']         : rocketpd_get_field( 'rpd_cohort_start_date', '' ),
+		'endDate'             => 'defaults' === $basics_mode ? $fb['endDate']           : rocketpd_get_field( 'rpd_cohort_end_date', '' ),
+		'sessionCountLabel'   => 'defaults' === $basics_mode ? $fb['sessionCountLabel'] : rocketpd_get_field( 'rpd_cohort_session_count_label', '' ),
+		'totalHours'          => 'defaults' === $basics_mode ? $fb['totalHours']        : rocketpd_get_field( 'rpd_cohort_total_hours', '' ),
+		'formatLabel'         => 'defaults' === $basics_mode ? $fb['formatLabel']       : rocketpd_get_field( 'rpd_cohort_format_label', '' ),
+		'cadenceLabel'        => 'defaults' === $basics_mode ? $fb['cadenceLabel']      : rocketpd_get_field( 'rpd_cohort_cadence_label', '' ),
+		'sessionLength'       => 'defaults' === $basics_mode ? $fb['sessionLength']     : rocketpd_get_field( 'rpd_cohort_session_length', '' ),
 		'certificateLabel'    => __( 'Certificate of Completion', 'rocketpd' ),
-		'cardImage'           => rocketpd_get_field( 'rpd_cohort_card_image', '' ),
+		'cardImage'           => 'defaults' === $basics_mode ? $fb['cardImage']         : rocketpd_get_field( 'rpd_cohort_card_image', '' ),
 		'priceType'           => rocketpd_get_field( 'rpd_cohort_price_type', 'paid' ),
 		'priceLabel'          => rocketpd_get_field( 'rpd_cohort_price_label', '' ),
 		'priceAmount'         => rocketpd_get_field( 'rpd_cohort_price_amount', '' ),
