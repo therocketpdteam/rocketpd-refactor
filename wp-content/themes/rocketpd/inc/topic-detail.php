@@ -266,41 +266,42 @@ function rocketpd_get_current_topic_detail() {
 		return $fallback;
 	}
 
-	$overview = $fallback['overview'];
-	$override = array(
-		'title'        => rocketpd_get_field( 'rpd_topic_detail_title', '' ),
-		'subtitle'     => rocketpd_get_field( 'rpd_topic_detail_subtitle', '' ),
-		'badge'        => rocketpd_get_field( 'rpd_topic_detail_badge', '' ),
-		'category'     => rocketpd_get_field( 'rpd_topic_detail_category', '' ),
-		'primaryCta'   => array(
+	$hero_mode     = rocketpd_get_field( 'rpd_topic_detail_hero_mode', 'custom' );
+	$overview_mode = rocketpd_get_field( 'rpd_topic_detail_overview_mode', 'custom' );
+	$expert_mode   = rocketpd_get_field( 'rpd_topic_detail_expert_mode', 'custom' );
+	$cards_mode    = rocketpd_get_field( 'rpd_topic_detail_cards_mode', 'custom' );
+	$faq_mode      = rocketpd_get_field( 'rpd_topic_detail_faq_mode', 'custom' );
+
+	$fb_overview = $fallback['overview'];
+	$override    = array();
+
+	if ( 'custom' === $hero_mode ) {
+		$override['title']        = rocketpd_get_field( 'rpd_topic_detail_title', '' );
+		$override['subtitle']     = rocketpd_get_field( 'rpd_topic_detail_subtitle', '' );
+		$override['badge']        = rocketpd_get_field( 'rpd_topic_detail_badge', '' );
+		$override['category']     = rocketpd_get_field( 'rpd_topic_detail_category', '' );
+		$override['primaryCta']   = array(
 			'label' => rocketpd_get_field( 'rpd_topic_detail_primary_cta_label', '' ),
 			'href'  => rocketpd_get_field( 'rpd_topic_detail_primary_cta_url', '' ),
-		),
-		'secondaryCta' => array(
+		);
+		$override['secondaryCta'] = array(
 			'label' => rocketpd_get_field( 'rpd_topic_detail_secondary_cta_label', '' ),
 			'href'  => rocketpd_get_field( 'rpd_topic_detail_secondary_cta_url', '' ),
-		),
-		'overview'     => array(
+		);
+	}
+
+	if ( 'custom' === $overview_mode ) {
+		$override['overview'] = array(
 			'headline'  => rocketpd_get_field( 'rpd_topic_detail_overview_headline', '' ),
-			'intro'     => rocketpd_get_repeater_rows( 'rpd_topic_detail_overview_intro', $overview['intro'], array( 'paragraph' ) ),
-			'sections'  => rocketpd_get_repeater_rows( 'rpd_topic_detail_overview_sections', $overview['sections'], array( 'heading', 'body' ) ),
-			'takeaways' => rocketpd_get_repeater_rows( 'rpd_topic_detail_key_takeaways', $overview['takeaways'], array( 'text' ) ),
-			'sideStats' => rocketpd_get_repeater_rows( 'rpd_topic_detail_side_stats', $overview['sideStats'], array( 'value', 'label' ) ),
-		),
-		'whyMatters'   => rocketpd_get_repeater_rows( 'rpd_topic_detail_why_matters', $fallback['whyMatters'], array( 'title', 'body' ) ),
-		'resources'    => rocketpd_get_repeater_rows( 'rpd_topic_detail_resources', $fallback['resources'], array( 'title', 'description' ) ),
-		'opportunities' => rocketpd_get_repeater_rows( 'rpd_topic_detail_opportunities', $fallback['opportunities'], array( 'title', 'meta' ) ),
-		'frameworks'   => rocketpd_get_repeater_rows( 'rpd_topic_detail_frameworks', $fallback['frameworks'], array( 'title', 'body' ) ),
-		'faqs'         => rocketpd_get_repeater_rows( 'rpd_topic_detail_faqs', $fallback['faqs'], array( 'question', 'answer' ) ),
-		'finalCta'     => array(
-			'headline'       => rocketpd_get_field( 'rpd_topic_detail_final_headline', '' ),
-			'body'           => rocketpd_get_field( 'rpd_topic_detail_final_body', '' ),
-			'primaryLabel'   => rocketpd_get_field( 'rpd_topic_detail_final_primary_label', '' ),
-			'primaryHref'    => rocketpd_get_field( 'rpd_topic_detail_final_primary_url', '' ),
-			'secondaryLabel' => rocketpd_get_field( 'rpd_topic_detail_final_secondary_label', '' ),
-			'secondaryHref'  => rocketpd_get_field( 'rpd_topic_detail_final_secondary_url', '' ),
-		),
-		'featuredExpert' => array(
+			'intro'     => rocketpd_get_repeater_rows( 'rpd_topic_detail_overview_intro', $fb_overview['intro'], array( 'paragraph' ) ),
+			'sections'  => rocketpd_get_repeater_rows( 'rpd_topic_detail_overview_sections', $fb_overview['sections'], array( 'heading', 'body' ) ),
+			'takeaways' => rocketpd_get_repeater_rows( 'rpd_topic_detail_key_takeaways', $fb_overview['takeaways'], array( 'text' ) ),
+			'sideStats' => rocketpd_get_repeater_rows( 'rpd_topic_detail_side_stats', $fb_overview['sideStats'], array( 'value', 'label' ) ),
+		);
+	}
+
+	if ( 'custom' === $expert_mode ) {
+		$override['featuredExpert'] = array(
 			'name'        => rocketpd_get_field( 'rpd_topic_detail_expert_name', '' ),
 			'title'       => rocketpd_get_field( 'rpd_topic_detail_expert_title', '' ),
 			'image'       => rocketpd_get_field( 'rpd_topic_detail_expert_image', '' ),
@@ -310,8 +311,27 @@ function rocketpd_get_current_topic_detail() {
 			'website'     => rocketpd_get_field( 'rpd_topic_detail_expert_website', '' ),
 			'profileHref' => rocketpd_get_field( 'rpd_topic_detail_expert_profile_href', '' ),
 			'cohortHref'  => rocketpd_get_field( 'rpd_topic_detail_expert_cohort_href', '' ),
-		),
-	);
+		);
+	}
+
+	if ( 'custom' === $cards_mode ) {
+		$override['whyMatters']    = rocketpd_get_repeater_rows( 'rpd_topic_detail_why_matters', $fallback['whyMatters'], array( 'title', 'body' ) );
+		$override['resources']     = rocketpd_get_repeater_rows( 'rpd_topic_detail_resources', $fallback['resources'], array( 'title', 'description' ) );
+		$override['opportunities'] = rocketpd_get_repeater_rows( 'rpd_topic_detail_opportunities', $fallback['opportunities'], array( 'title', 'meta' ) );
+		$override['frameworks']    = rocketpd_get_repeater_rows( 'rpd_topic_detail_frameworks', $fallback['frameworks'], array( 'title', 'body' ) );
+	}
+
+	if ( 'custom' === $faq_mode ) {
+		$override['faqs']     = rocketpd_get_repeater_rows( 'rpd_topic_detail_faqs', $fallback['faqs'], array( 'question', 'answer' ) );
+		$override['finalCta'] = array(
+			'headline'       => rocketpd_get_field( 'rpd_topic_detail_final_headline', '' ),
+			'body'           => rocketpd_get_field( 'rpd_topic_detail_final_body', '' ),
+			'primaryLabel'   => rocketpd_get_field( 'rpd_topic_detail_final_primary_label', '' ),
+			'primaryHref'    => rocketpd_get_field( 'rpd_topic_detail_final_primary_url', '' ),
+			'secondaryLabel' => rocketpd_get_field( 'rpd_topic_detail_final_secondary_label', '' ),
+			'secondaryHref'  => rocketpd_get_field( 'rpd_topic_detail_final_secondary_url', '' ),
+		);
+	}
 
 	$merged = rocketpd_topic_detail_merge( $fallback, $override );
 
@@ -322,6 +342,14 @@ function rocketpd_get_current_topic_detail() {
 			$merged['overview']['sections']
 		);
 	}
+
+	$merged['_modes'] = array(
+		'hero'     => $hero_mode,
+		'overview' => $overview_mode,
+		'expert'   => $expert_mode,
+		'cards'    => $cards_mode,
+		'faq'      => $faq_mode,
+	);
 
 	return $merged;
 }
