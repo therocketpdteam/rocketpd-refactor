@@ -178,9 +178,10 @@ while ( have_posts() ) {
 		get_template_part( 'template-parts/pages/launchpad/section', '09-outcomes' );
 		get_template_part( 'template-parts/pages/launchpad/section', '10-stories' );
 		get_template_part( 'template-parts/pages/launchpad/section', '11-community' );
-		get_template_part( 'template-parts/pages/launchpad/section', '12-instructors' );
+		get_template_part( 'template-parts/pages/launchpad/section', '17-courses' );
 		get_template_part( 'template-parts/pages/launchpad/section', '13-transition' );
 		get_template_part( 'template-parts/pages/launchpad/section', '14-comparison' );
+		get_template_part( 'template-parts/pages/launchpad/section', '12-instructors' );
 		get_template_part( 'template-parts/pages/launchpad/section', '15-partners' );
 		get_template_part( 'template-parts/pages/launchpad/section', '16-final-cta' );
 		?>

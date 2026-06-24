@@ -57,6 +57,59 @@
 		return ['format', 'topic', 'instructor', 'audience'].filter((key) => state[key] !== 'all').length + (state.query ? 1 : 0);
 	};
 
+	const INITIAL_VISIBLE = 6;
+	let limitExpanded = false;
+	const showMoreWrap = root.querySelector('[data-rpd-course-show-more]');
+	const showMoreCount = showMoreWrap ? showMoreWrap.querySelector('[data-rpd-course-show-more-count]') : null;
+	const expandBtn = showMoreWrap ? showMoreWrap.querySelector('[data-rpd-course-expand]') : null;
+
+	const applyLimit = () => {
+		groupedCards.forEach((card) => {
+			if (card.dataset.hiddenByLimit) {
+				card.hidden = false;
+				delete card.dataset.hiddenByLimit;
+			}
+		});
+
+		const isFiltered = getActiveFilterCount() > 0 || state.format !== 'all';
+
+		if (isFiltered || limitExpanded) {
+			if (showMoreWrap) showMoreWrap.hidden = true;
+			return;
+		}
+
+		let shown = 0;
+		let extra = 0;
+
+		groupedCards.forEach((card) => {
+			if (card.hidden) return;
+			if (shown < INITIAL_VISIBLE) {
+				shown++;
+			} else {
+				card.hidden = true;
+				card.dataset.hiddenByLimit = '1';
+				extra++;
+			}
+		});
+
+		Array.from(groupsWrap ? groupsWrap.querySelectorAll('[data-rpd-course-group]') : []).forEach((group) => {
+			const visible = group.querySelectorAll('[data-rpd-course-card]:not([hidden])').length;
+			group.hidden = visible === 0;
+		});
+
+		if (showMoreWrap) {
+			showMoreWrap.hidden = extra === 0;
+			if (showMoreCount) showMoreCount.textContent = String(extra);
+		}
+	};
+
+	if (expandBtn) {
+		expandBtn.addEventListener('click', () => {
+			limitExpanded = true;
+			update();
+		});
+	}
+
 	const update = () => {
 		let visibleCount = 0;
 		const showGroups = state.format === 'all';
@@ -115,6 +168,8 @@
 		if (emptyState) {
 			emptyState.hidden = visibleCount !== 0;
 		}
+
+		applyLimit();
 	};
 
 	formatButtons.forEach((button) => {
