@@ -10,6 +10,50 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Query published Course CPT posts and return gallery-card data.
+ *
+ * @return array
+ */
+function rocketpd_get_courses_cpt() {
+	$query = new WP_Query(
+		array(
+			'post_type'      => 'course',
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'orderby'        => 'menu_order',
+			'order'          => 'ASC',
+		)
+	);
+
+	if ( ! $query->have_posts() ) {
+		return array();
+	}
+
+	$courses = array();
+
+	foreach ( $query->posts as $post ) {
+		$post_id     = $post->ID;
+		$meta_items  = get_field( 'rpd_course_meta_items', $post_id ) ?: array();
+		$meta_labels = is_array( $meta_items ) ? array_filter( array_column( $meta_items, 'label' ) ) : array();
+
+		$courses[] = array(
+			'title'       => get_field( 'rpd_course_title', $post_id ) ?: get_the_title( $post_id ),
+			'format'      => get_field( 'rpd_course_format', $post_id ) ?: 'self-paced',
+			'topic'       => get_field( 'rpd_course_topic', $post_id ) ?: '',
+			'image'       => get_field( 'rpd_course_image', $post_id ) ?: '',
+			'instructor'  => get_field( 'rpd_course_instructor_name', $post_id ) ?: '',
+			'description' => get_field( 'rpd_course_promise', $post_id ) ?: get_the_excerpt( $post_id ),
+			'meta'        => implode( ' · ', array_slice( $meta_labels, 0, 2 ) ),
+			'href'        => get_permalink( $post_id ),
+		);
+	}
+
+	wp_reset_postdata();
+
+	return $courses;
+}
+
+/**
  * Return the format metadata used across the Course Index.
  *
  * @return array

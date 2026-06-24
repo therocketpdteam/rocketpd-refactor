@@ -173,6 +173,16 @@ function rocketpd_enqueue_assets() {
 
 	if ( is_page_template( 'page-templates/template-launchpad.php' ) ) {
 		$enqueue_page_style( 'rocketpd-launchpad', '/assets/css/pages/launchpad.css' );
+
+		$lp_courses_script = get_template_directory() . '/assets/js/launchpad-courses.js';
+
+		wp_enqueue_script(
+			'rocketpd-launchpad-courses',
+			get_template_directory_uri() . '/assets/js/launchpad-courses.js',
+			array( 'rocketpd-main' ),
+			file_exists( $lp_courses_script ) ? filemtime( $lp_courses_script ) : $theme_version,
+			true
+		);
 	}
 
 	if ( is_page_template( 'page-templates/template-launchpad-plus.php' ) ) {

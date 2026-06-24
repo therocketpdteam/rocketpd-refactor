@@ -759,6 +759,13 @@
 	white-space: nowrap;
 }
 
+.rpd-courses-page .rpd-courses-show-more,
+.rpd-launchpad-page .rpd-courses-show-more {
+	display: flex;
+	justify-content: center;
+	margin-top: 2rem;
+}
+
 .rpd-courses-page .rpd-courses-empty {
 	padding: 3rem 1.5rem;
 	margin-top: 2rem;

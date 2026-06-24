@@ -171,6 +171,12 @@ $render_course = function ( $course ) {
 			<?php endforeach; ?>
 		</div>
 
+		<div class="rpd-courses-show-more" data-rpd-course-show-more hidden>
+			<button class="rpd-btn rpd-btn--outline-purple" type="button" data-rpd-course-expand>
+				<?php esc_html_e( 'Show', 'rocketpd' ); ?> <span data-rpd-course-show-more-count></span> <?php esc_html_e( 'more courses', 'rocketpd' ); ?> &rarr;
+			</button>
+		</div>
+
 		<div class="rpd-courses-flat-grid" data-rpd-course-flat-grid hidden>
 			<?php foreach ( $courses as $course ) : ?>
 				<?php $render_course( $course ); ?>
