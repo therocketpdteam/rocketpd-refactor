@@ -11,10 +11,34 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_td_hero_mode",
+            "label": "Section Mode",
+            "name": "rpd_topic_detail_hero_mode",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "custom",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_rpd_topic_detail_title",
             "label": "Topic Title",
             "name": "rpd_topic_detail_title",
             "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_hero_mode", "operator": "==", "value": "custom" }]
+            ],
             "default_value": "Teacher Supervision, Evaluation & Coaching"
         },
         {
@@ -22,6 +46,9 @@
             "label": "Badge",
             "name": "rpd_topic_detail_badge",
             "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_hero_mode", "operator": "==", "value": "custom" }]
+            ],
             "default_value": "Topic Hub"
         },
         {
@@ -29,6 +56,9 @@
             "label": "Category",
             "name": "rpd_topic_detail_category",
             "type": "select",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_hero_mode", "operator": "==", "value": "custom" }]
+            ],
             "choices": {
                 "leadership": "Leadership",
                 "instruction": "Instruction",
@@ -45,31 +75,46 @@
             "label": "Subtitle",
             "name": "rpd_topic_detail_subtitle",
             "type": "textarea",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_hero_mode", "operator": "==", "value": "custom" }]
+            ],
             "rows": 3
         },
         {
             "key": "field_rpd_topic_detail_primary_cta_label",
             "label": "Primary CTA Label",
             "name": "rpd_topic_detail_primary_cta_label",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_hero_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_detail_primary_cta_url",
             "label": "Primary CTA URL",
             "name": "rpd_topic_detail_primary_cta_url",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_hero_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_detail_secondary_cta_label",
             "label": "Secondary CTA Label",
             "name": "rpd_topic_detail_secondary_cta_label",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_hero_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_detail_secondary_cta_url",
             "label": "Secondary CTA URL",
             "name": "rpd_topic_detail_secondary_cta_url",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_hero_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_gallery_tab",
@@ -85,6 +130,7 @@
             "name": "rpd_topic_icon",
             "type": "select",
             "instructions": "Icon shown on the gallery card and featured card.",
+            "conditional_logic": 0,
             "choices": {
                 "spark": "Sparkles (default)",
                 "book": "Book / Reading",
@@ -118,6 +164,7 @@
             "name": "rpd_topic_resources",
             "type": "number",
             "instructions": "Number of resources in this topic hub.",
+            "conditional_logic": 0,
             "default_value": 0,
             "min": 0
         },
@@ -127,6 +174,7 @@
             "name": "rpd_topic_upcoming",
             "type": "number",
             "instructions": "Number of upcoming events for this topic.",
+            "conditional_logic": 0,
             "default_value": 0,
             "min": 0
         },
@@ -136,6 +184,7 @@
             "name": "rpd_topic_featured",
             "type": "true_false",
             "instructions": "Show this topic in the Featured This Season section.",
+            "conditional_logic": 0,
             "default_value": 0,
             "ui": 1
         },
@@ -145,6 +194,7 @@
             "name": "rpd_topic_newest",
             "type": "true_false",
             "instructions": "Show this topic when the Newest filter is active.",
+            "conditional_logic": 0,
             "default_value": 0,
             "ui": 1
         },
@@ -157,16 +207,43 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_td_overview_mode",
+            "label": "Section Mode",
+            "name": "rpd_topic_detail_overview_mode",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "custom",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_rpd_topic_detail_overview_headline",
             "label": "Overview Headline",
             "name": "rpd_topic_detail_overview_headline",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_overview_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_detail_overview_intro",
             "label": "Overview Intro Paragraphs",
             "name": "rpd_topic_detail_overview_intro",
             "type": "repeater",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_overview_mode", "operator": "==", "value": "custom" }]
+            ],
             "layout": "row",
             "button_label": "Add paragraph",
             "sub_fields": [
@@ -184,6 +261,9 @@
             "label": "Overview Sections",
             "name": "rpd_topic_detail_overview_sections",
             "type": "repeater",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_overview_mode", "operator": "==", "value": "custom" }]
+            ],
             "layout": "block",
             "button_label": "Add section",
             "sub_fields": [
@@ -267,6 +347,9 @@
             "label": "Key Takeaways",
             "name": "rpd_topic_detail_key_takeaways",
             "type": "repeater",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_overview_mode", "operator": "==", "value": "custom" }]
+            ],
             "button_label": "Add takeaway",
             "sub_fields": [
                 {
@@ -282,6 +365,9 @@
             "label": "Side Stats",
             "name": "rpd_topic_detail_side_stats",
             "type": "repeater",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_overview_mode", "operator": "==", "value": "custom" }]
+            ],
             "button_label": "Add stat",
             "sub_fields": [
                 {
@@ -307,22 +393,52 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_td_expert_mode",
+            "label": "Section Mode",
+            "name": "rpd_topic_detail_expert_mode",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "custom",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_rpd_topic_detail_expert_name",
             "label": "Expert Name",
             "name": "rpd_topic_detail_expert_name",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_expert_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_detail_expert_title",
             "label": "Expert Title",
             "name": "rpd_topic_detail_expert_title",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_expert_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_detail_expert_image",
             "label": "Expert Image",
             "name": "rpd_topic_detail_expert_image",
             "type": "image",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_expert_mode", "operator": "==", "value": "custom" }]
+            ],
             "return_format": "url",
             "preview_size": "thumbnail"
         },
@@ -331,6 +447,9 @@
             "label": "Expert Quote",
             "name": "rpd_topic_detail_expert_quote",
             "type": "textarea",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_expert_mode", "operator": "==", "value": "custom" }]
+            ],
             "rows": 3
         },
         {
@@ -338,31 +457,46 @@
             "label": "Expert Bio",
             "name": "rpd_topic_detail_expert_bio",
             "type": "textarea",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_expert_mode", "operator": "==", "value": "custom" }]
+            ],
             "rows": 4
         },
         {
             "key": "field_rpd_topic_detail_expert_linkedin",
             "label": "Expert LinkedIn URL",
             "name": "rpd_topic_detail_expert_linkedin",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_expert_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_detail_expert_website",
             "label": "Expert Website URL",
             "name": "rpd_topic_detail_expert_website",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_expert_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_detail_expert_profile_href",
             "label": "Expert Profile URL",
             "name": "rpd_topic_detail_expert_profile_href",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_expert_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_detail_expert_cohort_href",
             "label": "Expert Cohort URL",
             "name": "rpd_topic_detail_expert_cohort_href",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_expert_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_detail_tab_cards",
@@ -373,10 +507,34 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_td_cards_mode",
+            "label": "Section Mode",
+            "name": "rpd_topic_detail_cards_mode",
+            "type": "select",
+            "instructions": "Controls Why This Topic Matters, Related Resources, Upcoming Opportunities, and Frameworks.",
+            "required": 0,
+            "conditional_logic": 0,
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "custom",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_rpd_topic_detail_why_matters",
             "label": "Why This Topic Matters",
             "name": "rpd_topic_detail_why_matters",
             "type": "repeater",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_cards_mode", "operator": "==", "value": "custom" }]
+            ],
             "button_label": "Add benefit",
             "sub_fields": [
                 {
@@ -432,6 +590,9 @@
             "label": "Related Resources",
             "name": "rpd_topic_detail_resources",
             "type": "repeater",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_cards_mode", "operator": "==", "value": "custom" }]
+            ],
             "button_label": "Add resource",
             "sub_fields": [
                 {
@@ -508,6 +669,9 @@
             "label": "Upcoming Learning Opportunities",
             "name": "rpd_topic_detail_opportunities",
             "type": "repeater",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_cards_mode", "operator": "==", "value": "custom" }]
+            ],
             "button_label": "Add opportunity",
             "sub_fields": [
                 {
@@ -573,6 +737,9 @@
             "label": "Practical Strategies & Frameworks",
             "name": "rpd_topic_detail_frameworks",
             "type": "repeater",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_cards_mode", "operator": "==", "value": "custom" }]
+            ],
             "button_label": "Add framework",
             "sub_fields": [
                 {
@@ -638,10 +805,34 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_td_faq_mode",
+            "label": "Section Mode",
+            "name": "rpd_topic_detail_faq_mode",
+            "type": "select",
+            "instructions": "Controls both the FAQ accordion and the Final CTA.",
+            "required": 0,
+            "conditional_logic": 0,
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "custom",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_rpd_topic_detail_faqs",
             "label": "FAQ Items",
             "name": "rpd_topic_detail_faqs",
             "type": "repeater",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_faq_mode", "operator": "==", "value": "custom" }]
+            ],
             "button_label": "Add FAQ",
             "sub_fields": [
                 {
@@ -663,38 +854,56 @@
             "key": "field_rpd_topic_detail_final_headline",
             "label": "Final CTA Headline",
             "name": "rpd_topic_detail_final_headline",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_faq_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_detail_final_body",
             "label": "Final CTA Body",
             "name": "rpd_topic_detail_final_body",
             "type": "textarea",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_faq_mode", "operator": "==", "value": "custom" }]
+            ],
             "rows": 3
         },
         {
             "key": "field_rpd_topic_detail_final_primary_label",
             "label": "Final Primary Label",
             "name": "rpd_topic_detail_final_primary_label",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_faq_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_detail_final_primary_url",
             "label": "Final Primary URL",
             "name": "rpd_topic_detail_final_primary_url",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_faq_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_detail_final_secondary_label",
             "label": "Final Secondary Label",
             "name": "rpd_topic_detail_final_secondary_label",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_faq_mode", "operator": "==", "value": "custom" }]
+            ]
         },
         {
             "key": "field_rpd_topic_detail_final_secondary_url",
             "label": "Final Secondary URL",
             "name": "rpd_topic_detail_final_secondary_url",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [
+                [{ "field": "field_rpd_td_faq_mode", "operator": "==", "value": "custom" }]
+            ]
         }
     ],
     "location": [
@@ -728,5 +937,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for the RocketPD individual topic detail template and topic hub records. Empty fields preserve code fallbacks.",
-    "show_in_rest": 0
+    "show_in_rest": 0,
+    "modified": 1750860000
 }
