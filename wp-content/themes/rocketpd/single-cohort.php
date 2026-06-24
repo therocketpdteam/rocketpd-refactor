@@ -20,9 +20,12 @@ while ( have_posts() ) {
 	<main id="primary" class="rpd-site-main rpd-cohort-detail-page">
 		<?php
 		get_template_part( 'template-parts/pages/cohort-detail/breadcrumb' );
-		get_template_part( 'template-parts/pages/cohort-detail/hero' );
-		get_template_part( 'template-parts/pages/cohort-detail/snapshot-bar' );
-		get_template_part( 'template-parts/pages/cohort-detail/about' );
+
+		if ( 'hidden' !== ( $modes['basics'] ?? 'custom' ) ) {
+			get_template_part( 'template-parts/pages/cohort-detail/hero' );
+			get_template_part( 'template-parts/pages/cohort-detail/snapshot-bar' );
+			get_template_part( 'template-parts/pages/cohort-detail/about' );
+		}
 
 		if ( 'hidden' !== ( $modes['cards'] ?? 'custom' ) ) {
 			get_template_part( 'template-parts/pages/cohort-detail/outcomes' );
