@@ -11,39 +11,52 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $cohort   = function_exists( 'rocketpd_get_current_cohort_detail' ) ? rocketpd_get_current_cohort_detail() : array();
 $included = $cohort['included'] ?? array();
+
+$included_icon_map = array(
+	'recording'   => 'play',
+	'video'       => 'play',
+	'session'     => 'video',
+	'live'        => 'video',
+	'toolkit'     => 'clipboard-check',
+	'template'    => 'clipboard-check',
+	'script'      => 'clipboard-check',
+	'workbook'    => 'file-text',
+	'pdf'         => 'file-text',
+	'discussion'  => 'users',
+	'community'   => 'users',
+	'group'       => 'users',
+	'feedback'    => 'message-circle',
+	'coaching'    => 'message-circle',
+	'certificate' => 'award',
+	'credit'      => 'award',
+	'portal'      => 'monitor',
+	'support'     => 'life-buoy',
+	'priority'    => 'life-buoy',
+);
 ?>
 
 <section class="rpd-cohort-included">
-	<div class="rpd-container rpd-cohort-included__grid">
-		<div>
-			<p class="rpd-cohort-kicker"><?php esc_html_e( "What's included", 'rocketpd' ); ?></p>
-			<h2><?php esc_html_e( 'Everything included with your cohort seat', 'rocketpd' ); ?></h2>
-			<div class="rpd-cohort-included__items">
-				<?php foreach ( $included as $item ) : ?>
-					<div class="rpd-cohort-included__item">
-						<span aria-hidden="true"></span>
-						<p><?php echo esc_html( $item['label'] ?? $item['included_item_label'] ?? '' ); ?></p>
-					</div>
-				<?php endforeach; ?>
-			</div>
-		</div>
-		<div class="rpd-cohort-device-visual" aria-hidden="true">
-			<div class="rpd-cohort-device-visual__screen">
-				<div class="rpd-cohort-device-visual__brand"><?php esc_html_e( 'LaunchPad', 'rocketpd' ); ?><span>&raquo;</span></div>
-				<div class="rpd-cohort-device-visual__phone">
-					<span></span>
-					<strong><?php esc_html_e( 'My cohorts', 'rocketpd' ); ?></strong>
-					<em><?php echo esc_html( $cohort['title'] ?? __( 'Live cohort', 'rocketpd' ) ); ?></em>
+	<div class="rpd-container">
+		<p class="rpd-cohort-kicker"><?php esc_html_e( "What's included", 'rocketpd' ); ?></p>
+		<h2><?php esc_html_e( 'Everything included with your cohort seat', 'rocketpd' ); ?></h2>
+		<div class="rpd-cohort-included__items">
+			<?php foreach ( $included as $item ) : ?>
+				<?php
+				$label      = $item['label'] ?? $item['included_item_label'] ?? '';
+				$label_low  = strtolower( $label );
+				$icon       = 'check';
+				foreach ( $included_icon_map as $keyword => $icon_name ) {
+					if ( false !== strpos( $label_low, $keyword ) ) {
+						$icon = $icon_name;
+						break;
+					}
+				}
+				?>
+				<div class="rpd-cohort-included__item">
+					<span aria-hidden="true"><?php echo rocketpd_get_icon( $icon, 16 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+					<p><?php echo esc_html( $label ); ?></p>
 				</div>
-				<div class="rpd-cohort-device-visual__laptop">
-					<div>
-						<span><?php esc_html_e( 'Session recordings + cohort toolkit', 'rocketpd' ); ?></span>
-					</div>
-				</div>
-				<div class="rpd-cohort-device-visual__book">
-					<span><?php esc_html_e( 'Guide', 'rocketpd' ); ?></span>
-				</div>
-			</div>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </section>

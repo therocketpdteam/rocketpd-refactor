@@ -56,7 +56,7 @@ if ( ! $resources ) {
 					<h3><?php echo esc_html( $resource['title'] ?? '' ); ?></h3>
 					<span><?php echo esc_html( $resource['summary'] ?? '' ); ?></span>
 					<?php if ( ! empty( $resource['href'] ) ) : ?>
-						<a href="<?php echo esc_url( $resource['href'] ); ?>"><?php esc_html_e( 'Open resource', 'rocketpd' ); ?> <span aria-hidden="true">-&gt;</span></a>
+						<a class="rpd-cohort-resource-card__link" href="<?php echo esc_url( $resource['href'] ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'Open resource', 'rocketpd' ); ?> <span aria-hidden="true">&rarr;</span></a>
 					<?php endif; ?>
 				</article>
 			<?php endforeach; ?>

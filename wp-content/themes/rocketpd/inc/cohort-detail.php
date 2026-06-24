@@ -144,7 +144,7 @@ function rocketpd_format_cohort_detail_date( $date, $format = 'M j, Y' ) {
 function rocketpd_get_cohort_detail_primary_href( $cohort ) {
 	$status = $cohort['status'] ?? 'registration-open';
 
-	if ( ! empty( $cohort['primaryCta']['href'] ) ) {
+	if ( ! empty( $cohort['primaryCta']['href'] ) && '#' !== $cohort['primaryCta']['href'] ) {
 		return $cohort['primaryCta']['href'];
 	}
 
@@ -152,11 +152,11 @@ function rocketpd_get_cohort_detail_primary_href( $cohort ) {
 		return $cohort['waitlistUrl'];
 	}
 
-	if ( ! empty( $cohort['registrationUrl'] ) ) {
+	if ( ! empty( $cohort['registrationUrl'] ) && '#' !== $cohort['registrationUrl'] ) {
 		return $cohort['registrationUrl'];
 	}
 
-	return '#';
+	return home_url( '/contact/' );
 }
 
 /**
@@ -365,7 +365,7 @@ function rocketpd_get_cohort_detail_fallback() {
 		'priceLabel'         => __( '$795/person', 'rocketpd' ),
 		'priceAmount'        => __( '$795', 'rocketpd' ),
 		'priceMeta'          => __( 'per person - 8 sessions', 'rocketpd' ),
-		'registrationUrl'    => '#',
+		'registrationUrl'    => '',
 		'waitlistUrl'        => '#',
 		'closedMessage'      => __( 'Registration is currently closed. Join the notification list and we will let you know when the next cohort opens.', 'rocketpd' ),
 		'registrationFillsBy' => __( 'Seats typically fill by September 1.', 'rocketpd' ),

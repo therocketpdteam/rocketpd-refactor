@@ -27,6 +27,7 @@ if ( ! $testimonials ) {
 		<div class="rpd-cohort-testimonials__grid">
 			<?php foreach ( $testimonials as $testimonial ) : ?>
 				<article class="rpd-cohort-testimonial-card">
+					<?php echo rocketpd_get_icon( 'quote', 28 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<p><?php echo esc_html( $testimonial['quote'] ?? '' ); ?></p>
 					<strong><?php echo esc_html( $testimonial['name'] ?? '' ); ?></strong>
 					<span><?php echo esc_html( trim( ( $testimonial['role'] ?? '' ) . ', ' . ( $testimonial['organization'] ?? '' ), ', ' ) ); ?></span>
