@@ -20,7 +20,7 @@ $has_header_actions = ( $nav_cta_label && $nav_cta_url ) || ( $login_label && $l
 $about_nav_links    = array(
 	array(
 		'label'    => __( 'Topics', 'rocketpd' ),
-		'url'      => home_url( '/topics/' ),
+		'url'      => home_url( '/topic/' ),
 		'children' => array_map(
 			function( $topic ) {
 				return array( 'label' => $topic['title'], 'url' => $topic['href'] );
@@ -45,8 +45,12 @@ $about_nav_links    = array(
 		),
 	),
 	array(
-		'label' => __( 'Solutions', 'rocketpd' ),
-		'url'   => home_url( '/solutions/' ),
+		'label'    => __( 'Solutions', 'rocketpd' ),
+		'url'      => home_url( '/solutions/' ),
+		'children' => array(
+			array( 'label' => __( 'Live Cohorts', 'rocketpd' ), 'url' => home_url( '/cohorts/' ) ),
+			array( 'label' => __( 'Video Courses', 'rocketpd' ), 'url' => home_url( '/launchpad/' ) ),
+		),
 	),
 	array(
 		'label' => __( 'Resources', 'rocketpd' ),
