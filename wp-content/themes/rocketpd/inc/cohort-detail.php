@@ -557,6 +557,14 @@ function rocketpd_get_current_cohort_detail() {
 	}
 
 	// Post has been seeded — ACF is the source of truth. No fallback merge.
+	$instructor_mode = rocketpd_get_field( 'rpd_cohort_instructor_mode', 'custom' );
+	$pricing_mode    = rocketpd_get_field( 'rpd_cohort_pricing_mode', 'custom' );
+	$schedule_mode   = rocketpd_get_field( 'rpd_cohort_schedule_mode', 'custom' );
+	$cards_mode      = rocketpd_get_field( 'rpd_cohort_cards_mode', 'custom' );
+	$sponsor_mode    = rocketpd_get_field( 'rpd_cohort_sponsor_mode', 'custom' );
+	$social_mode     = rocketpd_get_field( 'rpd_cohort_social_mode', 'custom' );
+	$cta_mode        = rocketpd_get_field( 'rpd_cohort_cta_mode', 'custom' );
+
 	$instructor_post = rocketpd_get_field( 'rpd_cohort_instructor', 0 );
 	$seed_instructor = rocketpd_get_cohort_detail_seed_instructor( get_post_field( 'post_name', get_the_ID() ) );
 	$fallback_instructor = ! empty( $seed_instructor ) ? $seed_instructor : rocketpd_get_cohort_detail_fallback()['instructor'];
@@ -566,6 +574,15 @@ function rocketpd_get_current_cohort_detail() {
 	$resources   = rocketpd_get_field( 'rpd_cohort_resources', array() );
 
 	return array(
+		'_modes'              => array(
+			'instructor' => $instructor_mode,
+			'pricing'    => $pricing_mode,
+			'schedule'   => $schedule_mode,
+			'cards'      => $cards_mode,
+			'sponsor'    => $sponsor_mode,
+			'social'     => $social_mode,
+			'cta'        => $cta_mode,
+		),
 		'title'               => rocketpd_get_field( 'rpd_cohort_title', get_the_title() ),
 		'subtitle'            => rocketpd_get_field( 'rpd_cohort_subtitle', '' ),
 		'shortDescription'    => rocketpd_get_field( 'rpd_cohort_short_description', '' ),

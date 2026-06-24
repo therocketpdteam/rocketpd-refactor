@@ -19,20 +19,26 @@
     { "key": "field_rpd_cohort_cadence_label", "label": "Cadence Label", "name": "rpd_cohort_cadence_label", "type": "text" },
     { "key": "field_rpd_cohort_session_length", "label": "Session Length", "name": "rpd_cohort_session_length", "type": "text" },
     { "key": "field_rpd_cohort_card_image", "label": "Card Image", "name": "rpd_cohort_card_image", "type": "image", "return_format": "array", "preview_size": "medium" },
+
     { "key": "field_rpd_cohort_tab_instructor", "label": "Instructor", "type": "tab" },
-    { "key": "field_rpd_cohort_instructor", "label": "Instructor", "name": "rpd_cohort_instructor", "type": "post_object", "post_type": ["instructor"], "return_format": "object", "ui": 1 },
+    { "key": "field_rpd_cd_instructor_mode", "label": "Section Mode", "name": "rpd_cohort_instructor_mode", "type": "select", "instructions": "", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — render without customisation", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
+    { "key": "field_rpd_cohort_instructor", "label": "Instructor", "name": "rpd_cohort_instructor", "type": "post_object", "post_type": ["instructor"], "return_format": "object", "ui": 1, "conditional_logic": [[{ "field": "field_rpd_cd_instructor_mode", "operator": "==", "value": "custom" }]] },
+
     { "key": "field_rpd_cohort_tab_pricing", "label": "Pricing & Registration", "type": "tab" },
-    { "key": "field_rpd_cohort_price_type", "label": "Price Type", "name": "rpd_cohort_price_type", "type": "select", "choices": { "paid": "Paid", "free": "Free", "sponsored": "Sponsored" }, "default_value": "paid", "return_format": "value" },
-    { "key": "field_rpd_cohort_price_label", "label": "Price Label", "name": "rpd_cohort_price_label", "type": "text" },
-    { "key": "field_rpd_cohort_price_amount", "label": "Price Amount", "name": "rpd_cohort_price_amount", "type": "text" },
-    { "key": "field_rpd_cohort_price_meta", "label": "Price Meta", "name": "rpd_cohort_price_meta", "type": "text" },
-    { "key": "field_rpd_cohort_registration_url", "label": "Registration URL", "name": "rpd_cohort_registration_url", "type": "text" },
-    { "key": "field_rpd_cohort_waitlist_url", "label": "Waitlist URL", "name": "rpd_cohort_waitlist_url", "type": "text" },
-    { "key": "field_rpd_cohort_closed_message", "label": "Closed Message", "name": "rpd_cohort_closed_message", "type": "textarea", "rows": 3 },
-    { "key": "field_rpd_cohort_registration_fills_by", "label": "Registration Fills By Note", "name": "rpd_cohort_registration_fills_by", "type": "text" },
-    { "key": "field_rpd_cohort_invoice_note", "label": "Invoice Note", "name": "rpd_cohort_invoice_note", "type": "textarea", "rows": 2 },
+    { "key": "field_rpd_cd_pricing_mode", "label": "Section Mode", "name": "rpd_cohort_pricing_mode", "type": "select", "instructions": "", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — render without customisation", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
+    { "key": "field_rpd_cohort_price_type", "label": "Price Type", "name": "rpd_cohort_price_type", "type": "select", "choices": { "paid": "Paid", "free": "Free", "sponsored": "Sponsored" }, "default_value": "paid", "return_format": "value", "conditional_logic": [[{ "field": "field_rpd_cd_pricing_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_price_label", "label": "Price Label", "name": "rpd_cohort_price_label", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_pricing_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_price_amount", "label": "Price Amount", "name": "rpd_cohort_price_amount", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_pricing_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_price_meta", "label": "Price Meta", "name": "rpd_cohort_price_meta", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_pricing_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_registration_url", "label": "Registration URL", "name": "rpd_cohort_registration_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_pricing_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_waitlist_url", "label": "Waitlist URL", "name": "rpd_cohort_waitlist_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_pricing_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_closed_message", "label": "Closed Message", "name": "rpd_cohort_closed_message", "type": "textarea", "rows": 3, "conditional_logic": [[{ "field": "field_rpd_cd_pricing_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_registration_fills_by", "label": "Registration Fills By Note", "name": "rpd_cohort_registration_fills_by", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_pricing_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_invoice_note", "label": "Invoice Note", "name": "rpd_cohort_invoice_note", "type": "textarea", "rows": 2, "conditional_logic": [[{ "field": "field_rpd_cd_pricing_mode", "operator": "==", "value": "custom" }]] },
+
     { "key": "field_rpd_cohort_tab_schedule", "label": "Schedule", "type": "tab" },
-    { "key": "field_rpd_cohort_schedule", "label": "Schedule", "name": "rpd_cohort_schedule", "type": "repeater", "button_label": "Add session", "sub_fields": [
+    { "key": "field_rpd_cd_schedule_mode", "label": "Section Mode", "name": "rpd_cohort_schedule_mode", "type": "select", "instructions": "", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — render without customisation", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
+    { "key": "field_rpd_cohort_schedule", "label": "Schedule", "name": "rpd_cohort_schedule", "type": "repeater", "button_label": "Add session", "conditional_logic": [[{ "field": "field_rpd_cd_schedule_mode", "operator": "==", "value": "custom" }]], "sub_fields": [
       { "key": "field_rpd_cohort_schedule_session_number", "label": "Session Number", "name": "session_number", "type": "number" },
       { "key": "field_rpd_cohort_schedule_session_title", "label": "Session Title", "name": "session_title", "type": "text" },
       { "key": "field_rpd_cohort_schedule_session_date", "label": "Session Date", "name": "session_date", "type": "date_picker", "display_format": "M j, Y", "return_format": "Y-m-d" },
@@ -41,22 +47,26 @@
       { "key": "field_rpd_cohort_schedule_session_resource_link", "label": "Session Resource Link", "name": "session_resource_link", "type": "text" },
       { "key": "field_rpd_cohort_schedule_coming_soon", "label": "Coming Soon", "name": "coming_soon", "type": "true_false", "ui": 1 }
     ] },
+
     { "key": "field_rpd_cohort_tab_repeaters", "label": "Cards & Repeaters", "type": "tab" },
-    { "key": "field_rpd_cohort_outcomes", "label": "Outcomes", "name": "rpd_cohort_outcomes", "type": "repeater", "button_label": "Add outcome", "sub_fields": [
+    { "key": "field_rpd_cd_cards_mode", "label": "Section Mode", "name": "rpd_cohort_cards_mode", "type": "select", "instructions": "Controls Outcomes, Audience, and Included Items sections.", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — render without customisation", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
+    { "key": "field_rpd_cohort_outcomes", "label": "Outcomes", "name": "rpd_cohort_outcomes", "type": "repeater", "button_label": "Add outcome", "conditional_logic": [[{ "field": "field_rpd_cd_cards_mode", "operator": "==", "value": "custom" }]], "sub_fields": [
       { "key": "field_rpd_cohort_outcome_icon", "label": "Icon", "name": "outcome_icon", "type": "text" },
       { "key": "field_rpd_cohort_outcome_title", "label": "Title", "name": "outcome_title", "type": "text" },
       { "key": "field_rpd_cohort_outcome_description", "label": "Description", "name": "outcome_description", "type": "textarea", "rows": 3 }
     ] },
-    { "key": "field_rpd_cohort_audience_detail", "label": "Audience", "name": "rpd_cohort_audience_detail", "type": "repeater", "button_label": "Add audience", "sub_fields": [
+    { "key": "field_rpd_cohort_audience_detail", "label": "Audience", "name": "rpd_cohort_audience_detail", "type": "repeater", "button_label": "Add audience", "conditional_logic": [[{ "field": "field_rpd_cd_cards_mode", "operator": "==", "value": "custom" }]], "sub_fields": [
       { "key": "field_rpd_cohort_audience_label", "label": "Label", "name": "audience_label", "type": "text" },
       { "key": "field_rpd_cohort_audience_description", "label": "Description", "name": "audience_description", "type": "textarea", "rows": 2 }
     ] },
-    { "key": "field_rpd_cohort_included_items", "label": "Included Items", "name": "rpd_cohort_included_items", "type": "repeater", "button_label": "Add item", "sub_fields": [
+    { "key": "field_rpd_cohort_included_items", "label": "Included Items", "name": "rpd_cohort_included_items", "type": "repeater", "button_label": "Add item", "conditional_logic": [[{ "field": "field_rpd_cd_cards_mode", "operator": "==", "value": "custom" }]], "sub_fields": [
       { "key": "field_rpd_cohort_included_item_icon", "label": "Icon", "name": "included_item_icon", "type": "text" },
       { "key": "field_rpd_cohort_included_item_label", "label": "Label", "name": "included_item_label", "type": "text" }
     ] },
+
     { "key": "field_rpd_cohort_tab_sponsor_team", "label": "Sponsor & Team", "type": "tab" },
-    { "key": "field_rpd_cohort_sponsor", "label": "Sponsor", "name": "rpd_cohort_sponsor", "type": "group", "sub_fields": [
+    { "key": "field_rpd_cd_sponsor_mode", "label": "Section Mode", "name": "rpd_cohort_sponsor_mode", "type": "select", "instructions": "Controls the Sponsor block and Team & District Options block.", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — render without customisation", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
+    { "key": "field_rpd_cohort_sponsor", "label": "Sponsor", "name": "rpd_cohort_sponsor", "type": "group", "conditional_logic": [[{ "field": "field_rpd_cd_sponsor_mode", "operator": "==", "value": "custom" }]], "sub_fields": [
       { "key": "field_rpd_cohort_sponsor_enabled", "label": "Enabled", "name": "enabled", "type": "true_false", "ui": 1 },
       { "key": "field_rpd_cohort_sponsor_name", "label": "Name", "name": "name", "type": "text" },
       { "key": "field_rpd_cohort_sponsor_logo", "label": "Logo", "name": "logo", "type": "image", "return_format": "array" },
@@ -64,7 +74,7 @@
       { "key": "field_rpd_cohort_sponsor_url", "label": "URL", "name": "url", "type": "text" },
       { "key": "field_rpd_cohort_sponsor_cta_label", "label": "CTA Label", "name": "cta_label", "type": "text" }
     ] },
-    { "key": "field_rpd_cohort_team_options", "label": "Team & District Options", "name": "rpd_cohort_team_options", "type": "group", "sub_fields": [
+    { "key": "field_rpd_cohort_team_options", "label": "Team & District Options", "name": "rpd_cohort_team_options", "type": "group", "conditional_logic": [[{ "field": "field_rpd_cd_sponsor_mode", "operator": "==", "value": "custom" }]], "sub_fields": [
       { "key": "field_rpd_cohort_team_eyebrow", "label": "Eyebrow", "name": "team_eyebrow", "type": "text" },
       { "key": "field_rpd_cohort_team_headline", "label": "Headline", "name": "team_headline", "type": "text" },
       { "key": "field_rpd_cohort_team_body", "label": "Body", "name": "team_body", "type": "textarea", "rows": 3 },
@@ -80,19 +90,21 @@
       { "key": "field_rpd_cohort_team_cta_label", "label": "CTA Label", "name": "team_cta_label", "type": "text" },
       { "key": "field_rpd_cohort_team_cta_url", "label": "CTA URL", "name": "team_cta_url", "type": "text" }
     ] },
+
     { "key": "field_rpd_cohort_tab_social_resources", "label": "Social Proof & Resources", "type": "tab" },
-    { "key": "field_rpd_cohort_faqs", "label": "FAQs", "name": "rpd_cohort_faqs", "type": "repeater", "button_label": "Add FAQ", "sub_fields": [
+    { "key": "field_rpd_cd_social_mode", "label": "Section Mode", "name": "rpd_cohort_social_mode", "type": "select", "instructions": "Controls FAQs, Testimonials, and Related Resources sections.", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — render without customisation", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
+    { "key": "field_rpd_cohort_faqs", "label": "FAQs", "name": "rpd_cohort_faqs", "type": "repeater", "button_label": "Add FAQ", "conditional_logic": [[{ "field": "field_rpd_cd_social_mode", "operator": "==", "value": "custom" }]], "sub_fields": [
       { "key": "field_rpd_cohort_faq_question", "label": "Question", "name": "question", "type": "text" },
       { "key": "field_rpd_cohort_faq_answer", "label": "Answer", "name": "answer", "type": "wysiwyg", "toolbar": "basic", "media_upload": 0 }
     ] },
-    { "key": "field_rpd_cohort_testimonials", "label": "Testimonials", "name": "rpd_cohort_testimonials", "type": "repeater", "button_label": "Add testimonial", "sub_fields": [
+    { "key": "field_rpd_cohort_testimonials", "label": "Testimonials", "name": "rpd_cohort_testimonials", "type": "repeater", "button_label": "Add testimonial", "conditional_logic": [[{ "field": "field_rpd_cd_social_mode", "operator": "==", "value": "custom" }]], "sub_fields": [
       { "key": "field_rpd_cohort_testimonial_quote", "label": "Quote", "name": "quote", "type": "textarea", "rows": 3 },
       { "key": "field_rpd_cohort_testimonial_name", "label": "Name", "name": "name", "type": "text" },
       { "key": "field_rpd_cohort_testimonial_role", "label": "Role", "name": "role", "type": "text" },
       { "key": "field_rpd_cohort_testimonial_organization", "label": "Organization", "name": "organization", "type": "text" },
       { "key": "field_rpd_cohort_testimonial_image", "label": "Image", "name": "image", "type": "image", "return_format": "array" }
     ] },
-    { "key": "field_rpd_cohort_resources", "label": "Resources", "name": "rpd_cohort_resources", "type": "group", "sub_fields": [
+    { "key": "field_rpd_cohort_resources", "label": "Resources", "name": "rpd_cohort_resources", "type": "group", "conditional_logic": [[{ "field": "field_rpd_cd_social_mode", "operator": "==", "value": "custom" }]], "sub_fields": [
       { "key": "field_rpd_cohort_resource_guide", "label": "Guide", "name": "guide", "type": "group", "sub_fields": [
         { "key": "field_rpd_cohort_resource_guide_enabled", "label": "Enabled", "name": "enabled", "type": "true_false", "ui": 1 },
         { "key": "field_rpd_cohort_resource_guide_title", "label": "Title", "name": "title", "type": "text" },
@@ -122,17 +134,19 @@
         { "key": "field_rpd_cohort_resource_playbook_href", "label": "URL", "name": "href", "type": "text" }
       ] }
     ] },
+
     { "key": "field_rpd_cohort_tab_cta", "label": "CTA Fields", "type": "tab" },
-    { "key": "field_rpd_cohort_primary_cta_label", "label": "Primary CTA Label Override", "name": "rpd_cohort_primary_cta_label", "type": "text" },
-    { "key": "field_rpd_cohort_primary_cta_url", "label": "Primary CTA URL Override", "name": "rpd_cohort_primary_cta_url", "type": "text" },
-    { "key": "field_rpd_cohort_secondary_cta_label", "label": "Secondary CTA Label", "name": "rpd_cohort_secondary_cta_label", "type": "text" },
-    { "key": "field_rpd_cohort_secondary_cta_url", "label": "Secondary CTA URL", "name": "rpd_cohort_secondary_cta_url", "type": "text" },
-    { "key": "field_rpd_cohort_final_headline", "label": "Final Headline", "name": "rpd_cohort_final_headline", "type": "text" },
-    { "key": "field_rpd_cohort_final_body", "label": "Final Body", "name": "rpd_cohort_final_body", "type": "textarea", "rows": 3 },
-    { "key": "field_rpd_cohort_final_primary_label", "label": "Final Primary Label", "name": "rpd_cohort_final_primary_label", "type": "text" },
-    { "key": "field_rpd_cohort_final_primary_url", "label": "Final Primary URL", "name": "rpd_cohort_final_primary_url", "type": "text" },
-    { "key": "field_rpd_cohort_final_secondary_label", "label": "Final Secondary Label", "name": "rpd_cohort_final_secondary_label", "type": "text" },
-    { "key": "field_rpd_cohort_final_secondary_url", "label": "Final Secondary URL", "name": "rpd_cohort_final_secondary_url", "type": "text" }
+    { "key": "field_rpd_cd_cta_mode", "label": "Section Mode", "name": "rpd_cohort_cta_mode", "type": "select", "instructions": "Controls the Final CTA section and CTA button overrides.", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — render without customisation", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
+    { "key": "field_rpd_cohort_primary_cta_label", "label": "Primary CTA Label Override", "name": "rpd_cohort_primary_cta_label", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_cta_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_primary_cta_url", "label": "Primary CTA URL Override", "name": "rpd_cohort_primary_cta_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_cta_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_secondary_cta_label", "label": "Secondary CTA Label", "name": "rpd_cohort_secondary_cta_label", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_cta_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_secondary_cta_url", "label": "Secondary CTA URL", "name": "rpd_cohort_secondary_cta_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_cta_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_final_headline", "label": "Final Headline", "name": "rpd_cohort_final_headline", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_cta_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_final_body", "label": "Final Body", "name": "rpd_cohort_final_body", "type": "textarea", "rows": 3, "conditional_logic": [[{ "field": "field_rpd_cd_cta_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_final_primary_label", "label": "Final Primary Label", "name": "rpd_cohort_final_primary_label", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_cta_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_final_primary_url", "label": "Final Primary URL", "name": "rpd_cohort_final_primary_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_cta_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_final_secondary_label", "label": "Final Secondary Label", "name": "rpd_cohort_final_secondary_label", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_cta_mode", "operator": "==", "value": "custom" }]] },
+    { "key": "field_rpd_cohort_final_secondary_url", "label": "Final Secondary URL", "name": "rpd_cohort_final_secondary_url", "type": "text", "conditional_logic": [[{ "field": "field_rpd_cd_cta_mode", "operator": "==", "value": "custom" }]] }
   ],
   "location": [[{ "param": "post_type", "operator": "==", "value": "cohort" }]],
   "menu_order": 0,
@@ -143,5 +157,5 @@
   "active": true,
   "description": "Fields for individual live-virtual cohort detail pages.",
   "show_in_rest": 0,
-  "modified": 1779195600
+  "modified": 1750860000
 }
