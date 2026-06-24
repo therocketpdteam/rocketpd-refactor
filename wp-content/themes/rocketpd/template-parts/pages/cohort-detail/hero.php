@@ -17,12 +17,12 @@ $primary     = function_exists( 'rocketpd_get_cohort_detail_primary_label' ) ? r
 $secondary   = $cohort['secondaryCta'] ?? array();
 $headshot    = function_exists( 'rocketpd_get_image_markup' ) ? rocketpd_get_image_markup( $instructor['headshot'] ?? '', 'rpd-cohort-hero__instructor-image', $instructor['name'] ?? '' ) : '';
 $snapshot    = array(
-	array( 'label' => __( 'Dates', 'rocketpd' ), 'value' => trim( rocketpd_format_cohort_detail_date( $cohort['startDate'] ?? '' ) . ' - ' . rocketpd_format_cohort_detail_date( $cohort['endDate'] ?? '' ) ) ),
-	array( 'label' => __( 'Sessions', 'rocketpd' ), 'value' => $cohort['sessionCountLabel'] ?? '' ),
-	array( 'label' => __( 'Time Commitment', 'rocketpd' ), 'value' => trim( ( $cohort['sessionLength'] ?? '' ) . ' - ' . ( $cohort['totalHours'] ?? '' ) ) ),
-	array( 'label' => __( 'Format', 'rocketpd' ), 'value' => trim( ( $cohort['formatLabel'] ?? '' ) . ' - ' . ( $cohort['cadenceLabel'] ?? '' ) ) ),
-	array( 'label' => __( 'Certificate', 'rocketpd' ), 'value' => $cohort['certificateLabel'] ?? __( 'Certificate of Completion', 'rocketpd' ) ),
-	array( 'label' => __( 'Audience', 'rocketpd' ), 'value' => implode( ', ', array_map( function ( $item ) { return $item['label'] ?? $item['audience_label'] ?? ''; }, $cohort['audience'] ?? array() ) ) ),
+	array( 'icon' => 'calendar', 'label' => __( 'Dates', 'rocketpd' ), 'value' => trim( rocketpd_format_cohort_detail_date( $cohort['startDate'] ?? '' ) . ' - ' . rocketpd_format_cohort_detail_date( $cohort['endDate'] ?? '' ) ) ),
+	array( 'icon' => 'video',    'label' => __( 'Sessions', 'rocketpd' ), 'value' => $cohort['sessionCountLabel'] ?? '' ),
+	array( 'icon' => 'clock',    'label' => __( 'Time Commitment', 'rocketpd' ), 'value' => trim( ( $cohort['sessionLength'] ?? '' ) . ' - ' . ( $cohort['totalHours'] ?? '' ) ) ),
+	array( 'icon' => 'globe',    'label' => __( 'Format', 'rocketpd' ), 'value' => trim( ( $cohort['formatLabel'] ?? '' ) . ' - ' . ( $cohort['cadenceLabel'] ?? '' ) ) ),
+	array( 'icon' => 'award',    'label' => __( 'Certificate', 'rocketpd' ), 'value' => $cohort['certificateLabel'] ?? __( 'Certificate of Completion', 'rocketpd' ) ),
+	array( 'icon' => 'users',    'label' => __( 'Audience', 'rocketpd' ), 'value' => implode( ', ', array_map( function ( $item ) { return $item['label'] ?? $item['audience_label'] ?? ''; }, $cohort['audience'] ?? array() ) ) ),
 );
 ?>
 
@@ -45,8 +45,29 @@ $snapshot    = array(
 			<p class="rpd-cohort-hero__promise"><?php echo esc_html( $cohort['shortDescription'] ?? '' ); ?></p>
 			<div class="rpd-cohort-hero__commerce">
 				<div class="rpd-cohort-price-chip">
-					<strong><?php echo esc_html( $cohort['priceAmount'] ?? '' ); ?></strong>
-					<span><?php echo esc_html( $cohort['priceMeta'] ?? '' ); ?></span>
+					<?php
+					$price_raw    = $cohort['priceAmount'] ?? '';
+					$price_symbol = '';
+					$price_number = $price_raw;
+					if ( $price_raw && ! ctype_digit( substr( $price_raw, 0, 1 ) ) ) {
+						$price_symbol = substr( $price_raw, 0, 1 );
+						$price_number = substr( $price_raw, 1 );
+					}
+					$meta_parts = array_map( 'trim', explode( '·', $cohort['priceMeta'] ?? '' ) );
+					?>
+					<strong class="rpd-cohort-price-chip__price">
+						<?php if ( $price_symbol ) : ?>
+							<span class="rpd-cohort-price-chip__symbol"><?php echo esc_html( $price_symbol ); ?></span>
+						<?php endif; ?>
+						<span class="rpd-cohort-price-chip__amount"><?php echo esc_html( $price_number ); ?></span>
+					</strong>
+					<div class="rpd-cohort-price-chip__meta">
+						<?php foreach ( $meta_parts as $i => $part ) : ?>
+							<?php if ( trim( $part ) ) : ?>
+								<span class="rpd-cohort-price-chip__meta-<?php echo 0 === $i ? 'primary' : 'secondary'; ?>"><?php echo esc_html( trim( $part ) ); ?></span>
+							<?php endif; ?>
+						<?php endforeach; ?>
+					</div>
 				</div>
 				<div class="rpd-cohort-hero__actions">
 					<a class="rpd-btn rpd-btn--gold" href="<?php echo esc_url( $primary_url ); ?>"><?php echo esc_html( $primary ); ?></a>
@@ -64,7 +85,7 @@ $snapshot    = array(
 						<?php continue; ?>
 					<?php endif; ?>
 					<li>
-						<span aria-hidden="true"></span>
+						<span aria-hidden="true"><?php echo rocketpd_get_icon( $item['icon'] ?? 'check', 18 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
 						<div>
 							<strong><?php echo esc_html( $item['label'] ); ?></strong>
 							<em><?php echo esc_html( $item['value'] ); ?></em>

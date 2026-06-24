@@ -99,7 +99,6 @@ $support_url = function_exists( 'rocketpd_get_cohort_detail_support_href' ) ? ro
 		</div>
 
 		<aside class="rpd-cohort-support-banner">
-			<span aria-hidden="true"></span>
 			<div>
 				<h3><?php esc_html_e( 'Not sure if this cohort is right for you - or which option fits your team?', 'rocketpd' ); ?></h3>
 				<p><?php esc_html_e( 'We can help you choose the right registration path, group setup, or invoice workflow.', 'rocketpd' ); ?></p>

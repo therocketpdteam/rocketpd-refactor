@@ -38,7 +38,7 @@
 .rpd-cohort-detail-page .rpd-cohort-specialties span {
 	display: inline-flex;
 	align-items: center;
-	border-radius: var(--rpd-radius-pill);
+	border-radius: var(--rpd-radius);
 	background: #ffffff;
 	color: var(--rpd-purple);
 	font-size: 0.78rem;
@@ -122,19 +122,51 @@
 }
 
 .rpd-cohort-detail-page .rpd-cohort-price-chip {
-	min-width: 180px;
-	padding: 1rem 1.25rem;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	min-width: 14rem;
+	padding: 1.05rem 1.25rem;
 }
 
-.rpd-cohort-detail-page .rpd-cohort-price-chip strong,
-.rpd-cohort-detail-page .rpd-cohort-price-chip span {
-	display: block;
-}
-
-.rpd-cohort-detail-page .rpd-cohort-price-chip strong {
-	font-size: 2rem;
-	color: var(--rpd-navy);
+.rpd-cohort-detail-page .rpd-cohort-price-chip__price {
+	display: flex;
+	align-items: flex-start;
 	line-height: 1;
+	font-family: var(--font-heading);
+	font-weight: 800;
+	color: var(--rpd-navy);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-price-chip__symbol {
+	font-size: 1rem;
+	margin-top: 0.2rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-price-chip__amount {
+	font-size: 2.4rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-price-chip__meta {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-price-chip__meta-primary {
+	color: var(--rpd-purple);
+	font-size: 0.78rem;
+	font-weight: 800;
+	line-height: 1.2;
+	text-transform: capitalize;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-price-chip__meta-secondary {
+	color: #7670b3;
+	font-size: 0.78rem;
+	font-weight: 800;
+	line-height: 1.2;
+	text-transform: capitalize;
 }
 
 .rpd-cohort-detail-page .rpd-cohort-hero__actions,
@@ -176,11 +208,14 @@
 .rpd-cohort-detail-page .rpd-cohort-snapshot-bar__item > span,
 .rpd-cohort-detail-page .rpd-cohort-included__item > span,
 .rpd-cohort-detail-page .rpd-cohort-support-banner > span {
+	display: grid;
+	place-items: center;
 	flex: 0 0 auto;
 	width: 2.35rem;
 	height: 2.35rem;
 	border-radius: 0.65rem;
 	background: rgba(85, 82, 177, 0.12);
+	color: var(--rpd-purple);
 }
 
 .rpd-cohort-detail-page .rpd-cohort-snapshot-card strong,
@@ -222,7 +257,8 @@
 }
 
 .rpd-cohort-detail-page .rpd-cohort-snapshot-bar__item > span {
-	background: rgba(253, 185, 51, 0.18);
+	background: rgba(253, 185, 51, 0.35);
+	color: #fdb933;
 }
 
 .rpd-cohort-detail-page .rpd-cohort-snapshot-bar strong,
@@ -265,16 +301,15 @@
 }
 
 .rpd-cohort-detail-page .rpd-cohort-audience-pills {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 0.75rem;
 	margin-top: 1.5rem;
 }
 
 .rpd-cohort-detail-page .rpd-cohort-audience-pills span {
-	max-width: 240px;
 	border: 1px solid rgba(85, 82, 177, 0.18);
-	border-radius: 0.75rem;
+	border-radius: var(--rpd-radius);
 	background: #f7f6fb;
 	padding: 0.9rem 1rem;
 }
@@ -328,6 +363,12 @@
 	background: #fff;
 	padding: 1.25rem;
 	box-shadow: 0 12px 28px rgba(35, 31, 88, 0.07);
+	transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-outcome-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 16px 36px rgba(35, 31, 88, 0.14);
 }
 
 .rpd-cohort-detail-page .rpd-cohort-outcome-card > span {
@@ -412,7 +453,7 @@
 }
 
 .rpd-cohort-detail-page .rpd-cohort-session-card__meta em {
-	border-radius: var(--rpd-radius-pill);
+	border-radius: var(--rpd-radius);
 	background: #fff0c4;
 	color: #7a4e00;
 	font-style: normal;
@@ -462,7 +503,7 @@
 	position: absolute;
 	top: 1rem;
 	right: -1rem;
-	border-radius: var(--rpd-radius-pill);
+	border-radius: var(--rpd-radius);
 	background: var(--rpd-gold);
 	color: var(--rpd-navy);
 	font-weight: 900;
@@ -495,26 +536,33 @@
 	align-items: center;
 }
 
-.rpd-cohort-detail-page .rpd-cohort-included__grid {
-	display: grid;
-	grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-	gap: 3rem;
-	align-items: center;
-}
-
 .rpd-cohort-detail-page .rpd-cohort-included__items {
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	margin-top: 1.5rem;
+	margin: 1.5rem auto 0;
+	max-width: 44rem;
 }
 
-.rpd-cohort-detail-page .rpd-cohort-included__item {
+.rpd-cohort-detail-page .rpd-cohort-included .rpd-cohort-kicker {
 	display: flex;
-	gap: 0.8rem;
+	justify-content: center;
+	width: 100%;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-included h2 {
+	text-align: center;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-included__item,
+.rpd-cohort-detail-page .rpd-cohort-included__item + .rpd-cohort-included__item {
+	display: flex;
+	gap: 0.85rem;
 	align-items: center;
-	border: 1px solid rgba(35, 31, 88, 0.1);
-	border-radius: 0.75rem;
+	margin: 0;
+	border: 0.5px solid rgba(35, 31, 88, 0.14);
+	border-left: 3px solid var(--rpd-purple);
+	border-radius: var(--rpd-radius);
 	background: #fff;
-	padding: 0.95rem;
+	padding: 1rem 1rem 1rem 1.1rem;
 }
 
 .rpd-cohort-detail-page .rpd-cohort-included__item p {
@@ -522,58 +570,11 @@
 	font-weight: 700;
 }
 
-.rpd-cohort-detail-page .rpd-cohort-device-visual {
-	position: relative;
-	min-height: 310px;
-	border-radius: 1rem;
-	background: linear-gradient(135deg, var(--rpd-purple), #2d2a72);
-	box-shadow: var(--rpd-shadow-lg);
-}
-
-.rpd-cohort-detail-page .rpd-cohort-device-visual div,
-.rpd-cohort-detail-page .rpd-cohort-device-visual i,
-.rpd-cohort-detail-page .rpd-cohort-device-visual b,
-.rpd-cohort-detail-page .rpd-cohort-device-visual em {
-	position: absolute;
-	display: block;
-	border-radius: 0.75rem;
-	background: #fff;
-	box-shadow: 0 18px 36px rgba(26, 23, 68, 0.25);
-}
-
-.rpd-cohort-detail-page .rpd-cohort-device-visual div {
-	top: 3rem;
-	left: 2.25rem;
-	width: 62%;
-	height: 52%;
-	padding: 1rem;
-}
-
-.rpd-cohort-detail-page .rpd-cohort-device-visual div span {
-	color: var(--rpd-purple);
-	font-family: var(--font-heading);
-	font-weight: 900;
-}
-
-.rpd-cohort-detail-page .rpd-cohort-device-visual i {
-	right: 2rem;
-	bottom: 3rem;
-	width: 32%;
-	height: 42%;
-}
-
-.rpd-cohort-detail-page .rpd-cohort-device-visual b {
-	right: 5rem;
-	top: 2rem;
-	width: 26%;
-	height: 18%;
-}
-
-.rpd-cohort-detail-page .rpd-cohort-device-visual em {
-	left: 4rem;
-	bottom: 2rem;
-	width: 45%;
-	height: 16%;
+.rpd-cohort-detail-page .rpd-cohort-included__item > span {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	background: #eeedfe;
 }
 
 .rpd-cohort-detail-page .rpd-cohort-sponsor {
@@ -648,6 +649,11 @@
 	list-style: none;
 }
 
+.rpd-cohort-detail-page .rpd-cohort-pricing-card li,
+.rpd-cohort-detail-page .rpd-cohort-pricing-card li + li {
+	margin: 0;
+}
+
 .rpd-cohort-detail-page .rpd-cohort-pricing-card li::before {
 	color: var(--rpd-purple);
 	content: "+ ";
@@ -716,14 +722,14 @@
 
 .rpd-cohort-detail-page .rpd-cohort-support-banner {
 	display: grid;
-	grid-template-columns: auto minmax(0, 1fr) auto;
-	gap: 1rem;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 1.5rem;
 	align-items: center;
 	margin-top: 1.5rem;
 	border-radius: 0.85rem;
 	background: linear-gradient(135deg, var(--rpd-navy-deep), var(--rpd-navy));
 	color: #fff;
-	padding: 1.25rem;
+	padding: 1.75rem 2rem;
 }
 
 .rpd-cohort-detail-page .rpd-cohort-support-banner h3,
@@ -731,9 +737,15 @@
 	color: #fff;
 }
 
-.rpd-cohort-detail-page .rpd-cohort-support-banner h3,
+.rpd-cohort-detail-page .rpd-cohort-support-banner h3 {
+	margin: 0 0 0.35rem;
+	font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+}
+
 .rpd-cohort-detail-page .rpd-cohort-support-banner p {
 	margin: 0;
+	font-size: 0.95rem;
+	opacity: 0.8;
 }
 
 .rpd-cohort-detail-page .rpd-cohort-resources {
@@ -769,7 +781,14 @@
 }
 
 .rpd-cohort-detail-page .rpd-cohort-resource-card {
+	position: relative;
 	padding: 1.25rem;
+	transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-resource-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 16px 36px rgba(35, 31, 88, 0.14);
 }
 
 .rpd-cohort-detail-page .rpd-cohort-resource-card p {
@@ -778,10 +797,18 @@
 	font-weight: 800;
 }
 
-.rpd-cohort-detail-page .rpd-cohort-resource-card a {
+.rpd-cohort-detail-page .rpd-cohort-resource-card__link {
+	display: block;
+	margin-top: 0.85rem;
 	color: var(--rpd-purple);
 	font-weight: 800;
 	text-decoration: none;
+}
+
+.rpd-cohort-detail-page .rpd-cohort-resource-card__link::after {
+	content: '';
+	position: absolute;
+	inset: 0;
 }
 
 .rpd-cohort-detail-page .rpd-cohort-testimonials__grid {
@@ -790,15 +817,18 @@
 
 .rpd-cohort-detail-page .rpd-cohort-testimonial-card {
 	padding: 1.5rem;
+	transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
-.rpd-cohort-detail-page .rpd-cohort-testimonial-card::before {
+.rpd-cohort-detail-page .rpd-cohort-testimonial-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 16px 36px rgba(35, 31, 88, 0.14);
+}
+
+.rpd-cohort-detail-page .rpd-cohort-testimonial-card > .rpd-svg-icon--quote {
 	display: block;
 	margin-bottom: 0.75rem;
 	color: var(--rpd-gold);
-	font-size: 2rem;
-	line-height: 1;
-	content: "\"";
 }
 
 .rpd-cohort-detail-page .rpd-cohort-testimonial-card strong,
@@ -873,7 +903,6 @@
 	.rpd-cohort-detail-page .rpd-cohort-hero__grid,
 	.rpd-cohort-detail-page .rpd-cohort-about__grid,
 	.rpd-cohort-detail-page .rpd-cohort-instructor__card,
-	.rpd-cohort-detail-page .rpd-cohort-included__grid,
 	.rpd-cohort-detail-page .rpd-cohort-pricing__grid,
 	.rpd-cohort-detail-page .rpd-cohort-featured-resource {
 		grid-template-columns: 1fr;
