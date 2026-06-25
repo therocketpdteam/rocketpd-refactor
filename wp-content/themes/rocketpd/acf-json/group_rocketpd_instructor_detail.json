@@ -20,6 +20,7 @@
             "endpoint": 0,
             "selected": 0
         },
+        { "key": "field_rpd_id_hero_mode", "label": "Section Mode", "name": "rpd_instructor_hero_mode", "type": "select", "instructions": "Controls the Hero section.", "required": 0, "conditional_logic": 0, "wrapper": {"width": "", "class": "", "id": ""}, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
         {
             "key": "field_rpd_instructor_name",
             "label": "Name",
@@ -28,7 +29,7 @@
             "type": "text",
             "instructions": "Optional display name. If blank, the post title or fallback instructor name is used.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_hero_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -48,7 +49,7 @@
             "type": "textarea",
             "instructions": "Main authority\/dek text in the hero. Leave blank to use fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_hero_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -68,7 +69,7 @@
             "type": "textarea",
             "instructions": "One tag per line. Leave blank to use fallback tags.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_hero_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -88,7 +89,7 @@
             "type": "image",
             "instructions": "Portrait used in the hero. If blank, the fallback image or initials treatment is used. Leave blank to use the instructor fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_hero_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -113,7 +114,7 @@
             "type": "text",
             "instructions": "Leave blank to use the instructor fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_hero_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -133,7 +134,7 @@
             "type": "text",
             "instructions": "Leave blank to use the instructor fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_hero_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -153,7 +154,7 @@
             "type": "text",
             "instructions": "Can be a page URL or an anchor such as #free-resources. Leave blank to use the fallback anchor.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_hero_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -173,7 +174,7 @@
             "type": "text",
             "instructions": "Leave blank to use the instructor fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_hero_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -193,7 +194,7 @@
             "type": "text",
             "instructions": "Can be a page URL or an anchor such as #professional-learning. Leave blank to use the fallback anchor.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_hero_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -213,7 +214,7 @@
             "type": "text",
             "instructions": "Leave blank to use the instructor fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_hero_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -233,7 +234,7 @@
             "type": "repeater",
             "instructions": "Add the small hero stat tiles. Leave empty to use fallback stats. Rows with missing value or label are ignored.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_hero_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -316,7 +317,7 @@
             "type": "text",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_hero_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -333,7 +334,7 @@
             "type": "text",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_hero_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -350,7 +351,7 @@
             "type": "text",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_hero_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -377,6 +378,7 @@
             "endpoint": 0,
             "selected": 0
         },
+        { "key": "field_rpd_id_authority_mode", "label": "Section Mode", "name": "rpd_instructor_authority_mode", "type": "select", "instructions": "Controls the Authority section.", "required": 0, "conditional_logic": 0, "wrapper": {"width": "", "class": "", "id": ""}, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
         {
             "key": "field_rpd_instructor_bio_eyebrow",
             "label": "Authority Eyebrow",
@@ -385,7 +387,7 @@
             "type": "text",
             "instructions": "Leave blank to use the instructor fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_authority_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -405,7 +407,7 @@
             "type": "text",
             "instructions": "Leave blank to use the instructor fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_authority_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -425,7 +427,7 @@
             "type": "text",
             "instructions": "Small heading above the authority checklist. Leave blank to use fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_authority_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -445,7 +447,7 @@
             "type": "textarea",
             "instructions": "Separate paragraphs with line breaks.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_authority_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -465,7 +467,7 @@
             "type": "textarea",
             "instructions": "One focus area per line.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_authority_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -495,6 +497,7 @@
             "endpoint": 0,
             "selected": 0
         },
+        { "key": "field_rpd_id_resources_mode", "label": "Section Mode", "name": "rpd_instructor_resources_mode", "type": "select", "instructions": "Controls the Free Resources section.", "required": 0, "conditional_logic": 0, "wrapper": {"width": "", "class": "", "id": ""}, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
         {
             "key": "field_rpd_instructor_resources_eyebrow",
             "label": "Free Resources Eyebrow",
@@ -503,7 +506,7 @@
             "type": "text",
             "instructions": "Small badge above the Free Resources heading. Leave blank to use fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_resources_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -523,7 +526,7 @@
             "type": "text",
             "instructions": "Main Free Resources heading. Leave blank to use the instructor-specific fallback heading.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_resources_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -543,7 +546,7 @@
             "type": "textarea",
             "instructions": "Short supporting sentence below the Free Resources heading. Leave blank to use fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_resources_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -563,7 +566,7 @@
             "type": "true_false",
             "instructions": "Controls whether the Featured Guide card appears.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_resources_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -804,7 +807,7 @@
             "type": "true_false",
             "instructions": "Controls whether the podcast card appears.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_resources_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -989,7 +992,7 @@
             "type": "true_false",
             "instructions": "Controls whether the webinar card appears.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_resources_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1174,7 +1177,7 @@
             "type": "true_false",
             "instructions": "Controls whether the blog subsection appears.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_resources_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -1422,6 +1425,7 @@
             "endpoint": 0,
             "selected": 0
         },
+        { "key": "field_rpd_id_learning_mode", "label": "Section Mode", "name": "rpd_instructor_learning_mode", "type": "select", "instructions": "Controls the Professional Learning section.", "required": 0, "conditional_logic": 0, "wrapper": {"width": "", "class": "", "id": ""}, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
         {
             "key": "field_rpd_instructor_learning_eyebrow",
             "label": "Professional Learning Eyebrow",
@@ -1430,7 +1434,7 @@
             "type": "text",
             "instructions": "Small badge above the Professional Learning heading. Leave blank to use fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_learning_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {"width": "", "class": "", "id": ""},
             "default_value": "",
             "maxlength": "",
@@ -1446,7 +1450,7 @@
             "type": "text",
             "instructions": "Main Professional Learning heading. Leave blank to use fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_learning_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {"width": "", "class": "", "id": ""},
             "default_value": "",
             "maxlength": "",
@@ -1462,7 +1466,7 @@
             "type": "textarea",
             "instructions": "Supporting copy below the Professional Learning heading. Leave blank to use fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_learning_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {"width": "", "class": "", "id": ""},
             "rows": 3,
             "default_value": "",
@@ -1484,6 +1488,7 @@
             "endpoint": 0,
             "selected": 0
         },
+        { "key": "field_rpd_id_trust_mode", "label": "Section Mode", "name": "rpd_instructor_trust_mode", "type": "select", "instructions": "Controls the Trust section.", "required": 0, "conditional_logic": 0, "wrapper": {"width": "", "class": "", "id": ""}, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
         {
             "key": "field_rpd_instructor_trust_quote",
             "label": "Trust Quote",
@@ -1492,7 +1497,7 @@
             "type": "textarea",
             "instructions": "Leave blank to use the instructor fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_trust_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {"width": "", "class": "", "id": ""},
             "rows": 3,
             "default_value": "",
@@ -1508,7 +1513,7 @@
             "type": "text",
             "instructions": "Leave blank to use the instructor fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_trust_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {"width": "", "class": "", "id": ""},
             "default_value": "",
             "maxlength": "",
@@ -1524,7 +1529,7 @@
             "type": "text",
             "instructions": "Leave blank to use the instructor fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_trust_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {"width": "", "class": "", "id": ""},
             "default_value": "",
             "maxlength": "",
@@ -1546,6 +1551,7 @@
             "endpoint": 0,
             "selected": 0
         },
+        { "key": "field_rpd_id_related_mode", "label": "Section Mode", "name": "rpd_instructor_related_mode", "type": "select", "instructions": "Controls the Related Experts section.", "required": 0, "conditional_logic": 0, "wrapper": {"width": "", "class": "", "id": ""}, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
         {
             "key": "field_rpd_instructor_related_eyebrow",
             "label": "Related Experts Eyebrow",
@@ -1554,7 +1560,7 @@
             "type": "text",
             "instructions": "Small label above related expert cards. Leave blank to use fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_related_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {"width": "", "class": "", "id": ""},
             "default_value": "",
             "maxlength": "",
@@ -1570,7 +1576,7 @@
             "type": "text",
             "instructions": "Heading above related expert cards. Leave blank to use fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_related_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {"width": "", "class": "", "id": ""},
             "default_value": "",
             "maxlength": "",
@@ -1592,6 +1598,7 @@
             "endpoint": 0,
             "selected": 0
         },
+        { "key": "field_rpd_id_final_cta_mode", "label": "Section Mode", "name": "rpd_instructor_final_cta_mode", "type": "select", "instructions": "Controls the Final CTA section.", "required": 0, "conditional_logic": 0, "wrapper": {"width": "", "class": "", "id": ""}, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
         {
             "key": "field_rpd_instructor_final_headline",
             "label": "Final CTA Headline",
@@ -1600,7 +1607,7 @@
             "type": "text",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_final_cta_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {"width": "", "class": "", "id": ""},
             "default_value": "Bring Kim's work to your district.",
             "maxlength": "",
@@ -1616,7 +1623,7 @@
             "type": "textarea",
             "instructions": "",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_final_cta_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {"width": "", "class": "", "id": ""},
             "rows": 3,
             "default_value": "",
@@ -1638,6 +1645,7 @@
             "endpoint": 0,
             "selected": 0
         },
+        { "key": "field_rpd_id_faq_mode", "label": "Section Mode", "name": "rpd_instructor_faq_mode", "type": "select", "instructions": "Controls the FAQ section.", "required": 0, "conditional_logic": 0, "wrapper": {"width": "", "class": "", "id": ""}, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
         {
             "key": "field_rpd_instructor_faq_heading",
             "label": "FAQ Heading",
@@ -1646,7 +1654,7 @@
             "type": "text",
             "instructions": "Intro heading beside the FAQ accordion. Leave blank to use instructor-specific fallback copy.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_faq_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {"width": "", "class": "", "id": ""},
             "default_value": "",
             "maxlength": "",
@@ -1662,7 +1670,7 @@
             "type": "repeater",
             "instructions": "FAQ accordion rows. Leave empty to use fallback FAQs.",
             "required": false,
-            "conditional_logic": false,
+            "conditional_logic": [[{ "field": "field_rpd_id_faq_mode", "operator": "==", "value": "custom" }]],
             "wrapper": {"width": "", "class": "", "id": ""},
             "layout": "block",
             "button_label": "Add FAQ",
@@ -1729,5 +1737,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1781300926
+    "modified": 1782345600
 }
