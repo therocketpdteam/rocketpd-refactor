@@ -163,7 +163,7 @@
 
 .rpd-community-hero__subhead {
 	max-width: 43rem;
-	margin-bottom: 1.5rem;
+	margin-bottom: 2.25rem !important;
 	color: var(--community-purple);
 	font-family: var(--font-heading);
 	font-size: clamp(1.25rem, 2.1vw, 1.625rem);
@@ -173,7 +173,7 @@
 
 .rpd-community-hero__body {
 	max-width: 43rem;
-	margin-bottom: 2.25rem;
+	margin-bottom: 3rem !important;
 	color: var(--community-body);
 	font-size: 1.125rem;
 	line-height: 1.7;
