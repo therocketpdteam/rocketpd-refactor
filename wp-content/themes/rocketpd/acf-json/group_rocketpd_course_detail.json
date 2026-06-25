@@ -9,12 +9,14 @@
       "type": "tab",
       "placement": "top"
     },
+    { "key": "field_rpd_cd_hero_mode", "label": "Section Mode", "name": "rpd_course_hero_mode", "type": "select", "instructions": "", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
     {
       "key": "field_rpd_course_title",
       "label": "Course Title",
       "name": "rpd_course_title",
       "type": "text",
-      "default_value": "Rethinking Teacher Supervision, Coaching & Evaluation"
+      "default_value": "Rethinking Teacher Supervision, Coaching & Evaluation",
+      "conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_format",
@@ -26,28 +28,32 @@
         "self-paced": "Self-Paced Course",
         "cohort": "Live-Virtual Cohort"
       },
-      "default_value": "self-paced"
+      "default_value": "self-paced",
+      "conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_topic",
       "label": "Topic",
       "name": "rpd_course_topic",
       "type": "text",
-      "default_value": "Teacher Evaluation"
+      "default_value": "Teacher Evaluation",
+      "conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_price",
       "label": "Price",
       "name": "rpd_course_price",
       "type": "text",
-      "default_value": "$49"
+      "default_value": "$49",
+      "conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_price_meta",
       "label": "Price Meta",
       "name": "rpd_course_price_meta",
       "type": "text",
-      "default_value": "single course \u00b7 anytime access"
+      "default_value": "single course \u00b7 anytime access",
+      "conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_promise",
@@ -55,14 +61,16 @@
       "name": "rpd_course_promise",
       "type": "textarea",
       "rows": 4,
-      "default_value": "Build a more practical, trust-centered approach to teacher evaluation through frequent mini-observations, better feedback conversations, and stronger coaching systems."
+      "default_value": "Build a more practical, trust-centered approach to teacher evaluation through frequent mini-observations, better feedback conversations, and stronger coaching systems.",
+      "conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_trailer_youtube_id",
       "label": "Trailer YouTube ID",
       "name": "rpd_course_trailer_youtube_id",
       "type": "text",
-      "default_value": "1lOJDsHcCPQ"
+      "default_value": "1lOJDsHcCPQ",
+      "conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_image",
@@ -71,7 +79,8 @@
       "type": "image",
       "return_format": "url",
       "preview_size": "medium",
-      "instructions": "Hero course image. If blank, falls back to instructor headshot."
+      "instructions": "Hero course image. If blank, falls back to instructor headshot.",
+      "conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_audiences",
@@ -88,35 +97,40 @@
           "type": "text"
         }
       ],
-      "instructions": "Who this course is for. One entry per audience type."
+      "instructions": "Who this course is for. One entry per audience type.",
+      "conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_primary_cta_label",
       "label": "Primary CTA Label",
       "name": "rpd_course_primary_cta_label",
       "type": "text",
-      "default_value": "Start Learning"
+      "default_value": "Start Learning",
+      "conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_primary_cta_href",
       "label": "Primary CTA URL",
       "name": "rpd_course_primary_cta_href",
       "type": "text",
-      "default_value": "#pricing"
+      "default_value": "#pricing",
+      "conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_secondary_cta_label",
       "label": "Secondary CTA Label",
       "name": "rpd_course_secondary_cta_label",
       "type": "text",
-      "default_value": "Watch Trailer"
+      "default_value": "Watch Trailer",
+      "conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_secondary_cta_href",
       "label": "Secondary CTA URL",
       "name": "rpd_course_secondary_cta_href",
       "type": "text",
-      "default_value": "#course-trailer"
+      "default_value": "#course-trailer",
+      "conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_meta_items",
@@ -140,7 +154,8 @@
           "type": "text"
         }
       ],
-      "instructions": "Small icon+label items shown in the hero (e.g. 1 hour, 5 video modules)."
+      "instructions": "Small icon+label items shown in the hero (e.g. 1 hour, 5 video modules).",
+      "conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_tab_instructor",
@@ -149,12 +164,14 @@
       "type": "tab",
       "placement": "top"
     },
+    { "key": "field_rpd_cd_instructor_mode", "label": "Section Mode", "name": "rpd_course_instructor_mode", "type": "select", "instructions": "", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden \u2014 section not rendered", "defaults": "Defaults \u2014 hardcoded content", "custom": "Custom \u2014 use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
     {
       "key": "field_rpd_course_instructor_name",
       "label": "Instructor Name",
       "name": "rpd_course_instructor_name",
       "type": "text",
-      "default_value": "Kim Marshall"
+      "default_value": "Kim Marshall",
+      "conditional_logic": [[{ "field": "field_rpd_cd_instructor_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_instructor_slug",
@@ -162,7 +179,8 @@
       "name": "rpd_course_instructor_slug",
       "type": "text",
       "default_value": "kim-marshall",
-      "instructions": "Used to build the instructor profile link e.g. kim-marshall"
+      "instructions": "Used to build the instructor profile link e.g. kim-marshall",
+      "conditional_logic": [[{ "field": "field_rpd_cd_instructor_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_instructor_headshot",
@@ -170,28 +188,32 @@
       "name": "rpd_course_instructor_headshot",
       "type": "image",
       "return_format": "url",
-      "preview_size": "thumbnail"
+      "preview_size": "thumbnail",
+      "conditional_logic": [[{ "field": "field_rpd_cd_instructor_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_instructor_title",
       "label": "Instructor Title",
       "name": "rpd_course_instructor_title",
       "type": "text",
-      "default_value": "K-12 Leadership Expert \u00b7 Marshall Memo Founder"
+      "default_value": "K-12 Leadership Expert \u00b7 Marshall Memo Founder",
+      "conditional_logic": [[{ "field": "field_rpd_cd_instructor_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_instructor_role_line",
       "label": "Instructor Role Line",
       "name": "rpd_course_instructor_role_line",
       "type": "text",
-      "default_value": "Former principal, author, and nationally recognized school leadership coach"
+      "default_value": "Former principal, author, and nationally recognized school leadership coach",
+      "conditional_logic": [[{ "field": "field_rpd_cd_instructor_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_instructor_bio",
       "label": "Instructor Bio",
       "name": "rpd_course_instructor_bio",
       "type": "textarea",
-      "rows": 4
+      "rows": 4,
+      "conditional_logic": [[{ "field": "field_rpd_cd_instructor_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_instructor_specialties",
@@ -207,7 +229,8 @@
           "name": "label",
           "type": "text"
         }
-      ]
+      ],
+      "conditional_logic": [[{ "field": "field_rpd_cd_instructor_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_instructor_href",
@@ -215,7 +238,8 @@
       "name": "rpd_course_instructor_href",
       "type": "text",
       "default_value": "/instructors/kim-marshall/",
-      "instructions": "Relative path to the instructor profile page."
+      "instructions": "Relative path to the instructor profile page.",
+      "conditional_logic": [[{ "field": "field_rpd_cd_instructor_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_tab_outcomes",
@@ -224,13 +248,15 @@
       "type": "tab",
       "placement": "top"
     },
+    { "key": "field_rpd_cd_outcomes_mode", "label": "Section Mode", "name": "rpd_course_outcomes_mode", "type": "select", "instructions": "Controls Outcomes and Audience sections.", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden \u2014 section not rendered", "defaults": "Defaults \u2014 hardcoded content", "custom": "Custom \u2014 use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
     {
       "key": "field_rpd_course_outcomes_heading",
       "label": "Outcomes Heading",
       "name": "rpd_course_outcomes_heading",
       "type": "text",
       "default_value": "Three concrete shifts you'll be ready to make on Monday.",
-      "instructions": "Main heading above the outcomes cards."
+      "instructions": "Main heading above the outcomes cards.",
+      "conditional_logic": [[{ "field": "field_rpd_cd_outcomes_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_audience_intro",
@@ -238,7 +264,8 @@
       "name": "rpd_course_audience_intro",
       "type": "textarea",
       "rows": 3,
-      "instructions": "Short paragraph describing who the course is built for."
+      "instructions": "Short paragraph describing who the course is built for.",
+      "conditional_logic": [[{ "field": "field_rpd_cd_outcomes_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_outcomes",
@@ -247,6 +274,7 @@
       "type": "repeater",
       "layout": "block",
       "button_label": "Add Outcome",
+      "conditional_logic": [[{ "field": "field_rpd_cd_outcomes_mode", "operator": "==", "value": "custom" }]],
       "sub_fields": [
         {
           "key": "field_rpd_course_outcome_title",
@@ -270,12 +298,14 @@
       "type": "tab",
       "placement": "top"
     },
+    { "key": "field_rpd_cd_included_mode", "label": "Section Mode", "name": "rpd_course_included_mode", "type": "select", "instructions": "", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
     {
       "key": "field_rpd_course_included_heading",
       "label": "Included Heading",
       "name": "rpd_course_included_heading",
       "type": "text",
-      "instructions": "Heading above the included items list. Leave blank to use format-based fallback."
+      "instructions": "Heading above the included items list. Leave blank to use format-based fallback.",
+      "conditional_logic": [[{ "field": "field_rpd_cd_included_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_included_visual",
@@ -284,7 +314,8 @@
       "type": "image",
       "return_format": "url",
       "preview_size": "medium",
-      "instructions": "Image shown beside the included items list."
+      "instructions": "Image shown beside the included items list.",
+      "conditional_logic": [[{ "field": "field_rpd_cd_included_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_included_items",
@@ -293,6 +324,7 @@
       "type": "repeater",
       "layout": "table",
       "button_label": "Add Item",
+      "conditional_logic": [[{ "field": "field_rpd_cd_included_mode", "operator": "==", "value": "custom" }]],
       "sub_fields": [
         {
           "key": "field_rpd_course_included_item_icon",
@@ -317,13 +349,15 @@
       "type": "tab",
       "placement": "top"
     },
+    { "key": "field_rpd_cd_resources_mode", "label": "Section Mode", "name": "rpd_course_resources_mode", "type": "select", "instructions": "Controls the Related Resources section.", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
     {
       "key": "field_rpd_course_guide_enabled",
       "label": "Guide Enabled",
       "name": "rpd_course_guide_enabled",
       "type": "true_false",
       "ui": 1,
-      "default_value": 1
+      "default_value": 1,
+      "conditional_logic": [[{ "field": "field_rpd_cd_resources_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_guide_title",
@@ -377,7 +411,8 @@
       "name": "rpd_course_podcast_enabled",
       "type": "true_false",
       "ui": 1,
-      "default_value": 1
+      "default_value": 1,
+      "conditional_logic": [[{ "field": "field_rpd_cd_resources_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_podcast_title",
@@ -421,7 +456,8 @@
       "name": "rpd_course_webinar_enabled",
       "type": "true_false",
       "ui": 1,
-      "default_value": 1
+      "default_value": 1,
+      "conditional_logic": [[{ "field": "field_rpd_cd_resources_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_webinar_title",
@@ -465,7 +501,8 @@
       "name": "rpd_course_blog_enabled",
       "type": "true_false",
       "ui": 1,
-      "default_value": 1
+      "default_value": 1,
+      "conditional_logic": [[{ "field": "field_rpd_cd_resources_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_blog_title",
@@ -503,6 +540,7 @@
       "type": "tab",
       "placement": "top"
     },
+    { "key": "field_rpd_cd_pricing_mode", "label": "Section Mode", "name": "rpd_course_pricing_mode", "type": "select", "instructions": "", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
     {
       "key": "field_rpd_course_pricing_cards",
       "label": "Pricing Cards",
@@ -565,7 +603,8 @@
           "instructions": "Renders this card as the featured/raised option."
         }
       ],
-      "instructions": "Leave empty to use format-based fallback pricing cards."
+      "instructions": "Leave empty to use format-based fallback pricing cards.",
+      "conditional_logic": [[{ "field": "field_rpd_cd_pricing_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_tab_related",
@@ -574,6 +613,7 @@
       "type": "tab",
       "placement": "top"
     },
+    { "key": "field_rpd_cd_related_mode", "label": "Section Mode", "name": "rpd_course_related_mode", "type": "select", "instructions": "", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
     {
       "key": "field_rpd_course_related",
       "label": "Related Courses",
@@ -638,7 +678,8 @@
           "type": "text"
         }
       ],
-      "instructions": "Leave empty to use fallback related courses."
+      "instructions": "Leave empty to use fallback related courses.",
+      "conditional_logic": [[{ "field": "field_rpd_cd_related_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_tab_faq",
@@ -647,6 +688,7 @@
       "type": "tab",
       "placement": "top"
     },
+    { "key": "field_rpd_cd_faq_mode", "label": "Section Mode", "name": "rpd_course_faq_mode", "type": "select", "instructions": "Controls FAQ and Final CTA sections.", "required": 0, "conditional_logic": 0, "choices": { "hidden": "Hidden — section not rendered", "defaults": "Defaults — hardcoded content", "custom": "Custom — use fields below" }, "default_value": "custom", "return_format": "value", "multiple": 0, "allow_null": 0, "ui": 0, "ajax": 0, "placeholder": "" },
     {
       "key": "field_rpd_course_faqs",
       "label": "FAQs",
@@ -654,6 +696,7 @@
       "type": "repeater",
       "layout": "block",
       "button_label": "Add FAQ",
+      "conditional_logic": [[{ "field": "field_rpd_cd_faq_mode", "operator": "==", "value": "custom" }]],
       "sub_fields": [
         {
           "key": "field_rpd_course_faq_question",
@@ -676,39 +719,45 @@
       "label": "Final CTA Headline",
       "name": "rpd_course_final_headline",
       "type": "text",
-      "default_value": "Ready to rethink teacher evaluation?"
+      "default_value": "Ready to rethink teacher evaluation?",
+      "conditional_logic": [[{ "field": "field_rpd_cd_faq_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_final_body",
       "label": "Final CTA Body",
       "name": "rpd_course_final_body",
       "type": "textarea",
-      "rows": 3
+      "rows": 3,
+      "conditional_logic": [[{ "field": "field_rpd_cd_faq_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_final_primary_label",
       "label": "Primary Button Label",
       "name": "rpd_course_final_primary_label",
-      "type": "text"
+      "type": "text",
+      "conditional_logic": [[{ "field": "field_rpd_cd_faq_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_final_primary_href",
       "label": "Primary Button URL",
       "name": "rpd_course_final_primary_href",
       "type": "text",
-      "default_value": "#pricing"
+      "default_value": "#pricing",
+      "conditional_logic": [[{ "field": "field_rpd_cd_faq_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_final_secondary_label",
       "label": "Secondary Button Label",
       "name": "rpd_course_final_secondary_label",
-      "type": "text"
+      "type": "text",
+      "conditional_logic": [[{ "field": "field_rpd_cd_faq_mode", "operator": "==", "value": "custom" }]]
     },
     {
       "key": "field_rpd_course_final_secondary_href",
       "label": "Secondary Button URL",
       "name": "rpd_course_final_secondary_href",
-      "type": "text"
+      "type": "text",
+      "conditional_logic": [[{ "field": "field_rpd_cd_faq_mode", "operator": "==", "value": "custom" }]]
     }
   ],
   "location": [
