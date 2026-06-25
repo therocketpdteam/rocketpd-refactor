@@ -114,6 +114,23 @@ Identical to the global Courses gallery (see `dev-notes-rocketpd-courses.md`). L
 - Header + Footer shells match the gallery + instructor pages.
 - All sub-components (`ResourceFeaturedCard`, `ResourceCard`, `PricingCard`, `RelatedCourseCard`, `FaqItem`) live in this file. Each is small enough to lift into a shared `course-template/` folder when the next course page lands.
 
+## Production implementation
+
+The production PHP template (`template-parts/pages/course-detail/index.php`) uses the three-state section mode pattern. Eight mode fields gate the corresponding template parts:
+
+| Mode field | Template part |
+|---|---|
+| `rpd_course_hero_mode` | `hero` |
+| `rpd_course_instructor_mode` | `instructor` |
+| `rpd_course_outcomes_mode` | `outcomes`, `audience` (shared) |
+| `rpd_course_included_mode` | `included` |
+| `rpd_course_resources_mode` | `free-resources` |
+| `rpd_course_pricing_mode` | `pricing` |
+| `rpd_course_related_mode` | `related` |
+| `rpd_course_faq_mode` | `faq`, `final-cta` (shared) |
+
+All modes default to `custom` — courses were built with saved ACF data before three-state mode was introduced. See `rocketpd-acf-architecture.md` → Three-state section mode for the full pattern.
+
 ## How to spin up the next course (interim, pre-CMS)
 
 1. Copy `rocketpd-course-kim-marshall/` → `rocketpd-course-{instructor-slug}-{format}/`.

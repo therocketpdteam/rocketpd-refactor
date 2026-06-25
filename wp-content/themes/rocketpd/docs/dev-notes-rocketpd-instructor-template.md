@@ -103,6 +103,23 @@ Identical to the directory page (see `dev-notes-rocketpd-instructors-directory.m
 - Same brand shell as `rocketpd-instructors/Home.tsx` (header, footer, navy CTA band).
 - Standalone — does NOT import from any `_shared.tsx`. Three local helpers live in this file: `<YouTubeEmbed>`, `<FaqItem>`, and the `KIM` data const.
 
+## Production implementation
+
+The production PHP template (`single-instructor.php`) uses the three-state section mode pattern. Eight mode fields gate the corresponding template parts:
+
+| Mode field | Template part |
+|---|---|
+| `rpd_instructor_hero_mode` | `hero` (Follow Links tab fields share this mode) |
+| `rpd_instructor_authority_mode` | `authority` |
+| `rpd_instructor_resources_mode` | `free-resources` |
+| `rpd_instructor_learning_mode` | `professional-learning` |
+| `rpd_instructor_trust_mode` | `trust` |
+| `rpd_instructor_related_mode` | `related-experts` |
+| `rpd_instructor_faq_mode` | `faq` |
+| `rpd_instructor_final_cta_mode` | `final-cta` |
+
+All modes default to `custom` — instructor posts were built with saved ACF data before three-state mode was introduced. See `rocketpd-acf-architecture.md` → Three-state section mode for the full pattern.
+
 ## How to add a new instructor (interim, pre-CMS)
 
 1. Copy `rocketpd-instructor-kim-marshall/` to `rocketpd-instructor-{slug}/`.

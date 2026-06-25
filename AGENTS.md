@@ -392,6 +392,21 @@ file_put_contents($file, $fixed);
 
 After writing or editing any ACF JSON file, always validate with PHP before committing.
 
+### ACF JSON — Orphan brace on field insertion
+
+When inserting a new field object before an existing field, if `old_string` starts at `"key":` without capturing the preceding `{`, the original `{` stays in place AND the replacement re-adds one — creating a duplicate orphan brace that makes the file unparseable with no clear error message.
+
+**Broken result:**
+```
+},
+{          ← orphan (original opening brace — not captured by old_string)
+{ "key": "field_rpd_id_new_mode", ... },
+{          ← correct opening brace added by new_string
+    "key": "field_rpd_id_existing_field",
+```
+
+**Fix:** always start `old_string` from the `{` that opens the field you are inserting before, not from its `"key":` line. Validate after every edit.
+
 ### ACF JSON — modified timestamp
 
 When bumping `modified` to signal a change, always use the **current** Unix timestamp (`php -r "echo time();"`), never a future date. ACF's Sync sets the DB `modified` to `time()` — if the JSON timestamp is in the future, JSON always appears newer than DB and "Sync available" reappears after every sync. Fields work regardless of timestamp since ACF reads JSON directly at runtime; the timestamp only controls the Sync badge in the admin.
@@ -418,6 +433,18 @@ if ($data) {
 `wp acf sync` is not registered as a WP-CLI subcommand in the ACF Pro version on this site — do not attempt it.
 
 PHP Warnings from ACF's own `compatibility.php` or `admin-field-groups.php` during import are harmless noise and do not indicate failure. A successful import prints `Done: <field group title>`.
+
+### ACF Field Group — Delete and Sync (lighter path)
+
+When WP-CLI is not convenient, use the admin delete + sync workflow:
+
+1. WP Admin → Custom Fields → Field Groups
+2. Hover the field group → Trash
+3. In the Trash view → Delete Permanently
+4. Return to Field Groups — a **Sync** button appears for the JSON version
+5. Click Sync
+
+**Prerequisite:** the JSON file must be valid. If the Sync button does not appear after deleting, the JSON has a parse error — validate with `php -r "json_decode(file_get_contents('path/to/file.json'), true); echo json_last_error_msg();"` and fix before retrying. This workflow is equivalent to the WP-CLI force-import above — use whichever is more convenient.
 
 ## Required Report After Every Task
 
@@ -657,6 +684,15 @@ Yoast SEO is active on this site and owns all JSON-LD structured data. It output
 ### Plugin suppression
 
 `inc/posts.php` suppresses the "Header and Footer Scripts" plugin (by Anand Kumar, slug: `header-and-footer-scripts`) per-post head script output on single post pages. It does this by filtering `get_post_metadata` to return empty for the `_inpost_head_script` meta key on the frontend. The DB value and editor meta box are unaffected. To re-enable: comment out the `add_filter()` call in `inc/posts.php`.
+
+## Naming Conventions
+
+**"Courses" and "LaunchPad" are used interchangeably in conversations with the user.** In practice these are two distinct pages:
+
+- **LaunchPad** — `page-templates/template-launchpad.php`, `acf-json/group_rocketpd_launchpad.json`. An index/landing page hybrid. Has full three-state section mode (all modes default to `defaults`).
+- **Courses Gallery** — the filterable course marketplace. `acf-json/group_rocketpd_courses.json`. Does NOT have three-state mode (PR #38 added it but was reverted).
+
+When a user says "Courses index" they likely mean the LaunchPad. Clarify if in doubt.
 
 ## Staging Domain
 

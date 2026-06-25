@@ -69,6 +69,21 @@ The 9 instructors in the mockup: Kim Marshall, Dr. Luvelle Brown, Dr. Catlin Tuc
 - Decorative icons (Search, Sparkles) use `aria-hidden="true"`.
 - All headshots have descriptive `alt` text.
 
+## Production implementation
+
+The production PHP template uses the three-state section mode pattern. Six mode fields gate the corresponding template parts, all defaulting to `defaults` (index page — no per-instructor saved data needed):
+
+| Mode field | Section |
+|---|---|
+| `rpd_instructors_hero_mode` | Hero |
+| `rpd_instructors_discovery_mode` | Expert discovery / filter grid |
+| `rpd_instructors_trust_mode` | Social proof / stats |
+| `rpd_instructors_learning_mode` | Multiple ways to learn |
+| `rpd_instructors_impact_mode` | Impact / district stats |
+| `rpd_instructors_final_mode` | Final CTA band |
+
+See `rocketpd-acf-architecture.md` → Three-state section mode for the full pattern.
+
 ## Reuses / shares with
 
 - Visual system from `rocketpd-home/Home.tsx` (header, footer, navy CTA band patterns).

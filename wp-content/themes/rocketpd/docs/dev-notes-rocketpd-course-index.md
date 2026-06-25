@@ -103,6 +103,12 @@ The locked RocketPD palette is preserved (navy `#231F58`, gold `#fdb933`, purple
 - **Pagination:** Not yet implemented. With ~12 courses today the grid is fine; once the catalog grows past ~24, paginate or add infinite scroll.
 - **SEO/Schema:** This is a category/marketplace page. Wire `BreadcrumbList` + `ItemList` (of `Course` schema entries) on the production build.
 
+## Production implementation
+
+Three-state section mode is **not currently implemented** on the Courses Gallery page. It was added in PR #38 and immediately reverted — the `group_rocketpd_courses.json` field group has no mode fields.
+
+**Naming note:** "Courses" and "LaunchPad" are used interchangeably in this project's conversations. The **LaunchPad page** (`group_rocketpd_launchpad.json`) is a separate template — an index/landing page hybrid — and it **does** have full three-state mode implemented (11+ sections, all defaulting to `defaults`). Do not confuse the two.
+
 ## Reuses / shares with
 
 - `FORMAT_META` constant + the hero floating-card visual language are reused on the course detail template (`rocketpd-course-kim-marshall/Home.tsx`).
