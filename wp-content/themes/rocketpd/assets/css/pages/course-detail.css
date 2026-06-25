@@ -1172,6 +1172,8 @@
 .rpd-course-detail-page .rpd-course-related-card{
 	position: relative;
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
 	transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
@@ -1223,6 +1225,18 @@
 
 .rpd-course-detail-page .rpd-course-related-card > div:last-child{
 	padding: 1.55rem;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+.rpd-course-detail-page .rpd-course-related-card > div:last-child > strong{
+	margin-top: auto;
+}
+
+.rpd-course-detail-page .rpd-course-related-card > div:last-child > a{
+	padding-top: 0.35rem;
+	display: block;
 }
 
 .rpd-course-detail-page .rpd-course-related__header > div{

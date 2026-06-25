@@ -54,7 +54,7 @@ if ( ! $related ) {
 						<p><?php echo esc_html( $item['topic'] ?? '' ); ?></p>
 						<h3><?php echo esc_html( $item['title'] ?? '' ); ?></h3>
 						<strong><?php echo esc_html( $item['instructor'] ?? '' ); ?></strong>
-						<a href="<?php echo esc_url( $item['href'] ?? '' ); ?>"><?php echo esc_html( $item['cta_label'] ?? __( 'View', 'rocketpd' ) ); ?> <span aria-hidden="true">-&gt;</span></a>
+						<a href="<?php echo esc_url( $item['href'] ?? '' ); ?>"><?php esc_html_e( 'View Course', 'rocketpd' ); ?> <span aria-hidden="true">-&gt;</span></a>
 					</div>
 				</article>
 			<?php endforeach; ?>
