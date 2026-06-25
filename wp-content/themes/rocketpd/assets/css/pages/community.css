@@ -433,7 +433,15 @@
 }
 
 .rpd-community-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	width: fit-content;
 	margin-bottom: 1rem;
+	padding: 0.44rem 0.9rem;
+	border: 1px solid rgba(161, 84, 161, 0.25);
+	border-radius: var(--rpd-radius-pill);
+	background: #fff;
+	box-shadow: var(--rpd-shadow-sm);
 	color: var(--community-magenta);
 	font-size: var(--rpd-font-size-xs);
 	font-weight: 800;
