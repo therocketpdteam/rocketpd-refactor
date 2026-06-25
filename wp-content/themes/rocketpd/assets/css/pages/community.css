@@ -116,6 +116,11 @@
 .rpd-community-hero__copy {
 	grid-column: span 7;
 	max-width: 42rem;
+	padding: 2.5rem;
+	border: 1px solid rgba(196, 196, 229, 0.5);
+	border-radius: var(--rpd-radius);
+	background: rgba(255, 255, 255, 0.82);
+	backdrop-filter: blur(8px);
 }
 
 .rpd-community-hero__visual {
@@ -134,7 +139,7 @@
 	margin: 0 0 1.5rem;
 	padding: 0.44rem 0.9rem;
 	border: 1px solid rgba(161, 84, 161, 0.25);
-	border-radius: 999px;
+	border-radius: var(--rpd-radius);
 	background: #fff;
 	box-shadow: 0 6px 18px rgba(35, 31, 88, 0.08);
 	color: var(--community-magenta);
@@ -433,19 +438,11 @@
 }
 
 .rpd-community-eyebrow {
-	display: inline-flex;
-	align-items: center;
-	width: fit-content;
 	margin-bottom: 1rem;
-	padding: 0.44rem 0.9rem;
-	border: 1px solid rgba(161, 84, 161, 0.25);
-	border-radius: var(--rpd-radius-pill);
-	background: #fff;
-	box-shadow: var(--rpd-shadow-sm);
 	color: var(--community-magenta);
-	font-size: var(--rpd-font-size-xs);
-	font-weight: 800;
-	letter-spacing: 0.14em;
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
 	text-transform: uppercase;
 }
 
@@ -586,6 +583,10 @@
 .rpd-community-benefits__copy h2,
 .rpd-community-benefits__copy p {
 	color: #fff;
+}
+
+.rpd-community-benefits__copy .rpd-community-badge {
+	color: var(--community-magenta);
 }
 
 .rpd-community-benefits__copy > p:not(.rpd-community-badge) {
