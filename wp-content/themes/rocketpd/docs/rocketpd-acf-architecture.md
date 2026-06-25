@@ -236,6 +236,42 @@ Avoid WYSIWYG for:
 - Structured content
 - Image placement
 
+## Three-state section mode
+
+CPT templates and index page templates use a three-state `select` field at the top of each tab to control how a section renders. This replaces boolean show/hide toggles with a more flexible model.
+
+### States
+
+- **`hidden`** — skip the section entirely (no template part is loaded)
+- **`defaults`** — render the section using hardcoded PHP fallback content (no ACF data required)
+- **`custom`** — render the section using the ACF fields in that tab
+
+### Implementation
+
+Each tab gets a `select` field named `rpd_{post_type}_{section}_mode` with those three choices. All content fields in the tab get conditional logic so they only appear in the editor when mode is `custom`:
+
+```json
+"conditional_logic": [[{ "field": "field_rpd_cd_hero_mode", "operator": "==", "value": "custom" }]]
+```
+
+The PHP template reads each mode field and gates the `get_template_part()` call:
+
+```php
+$hero_mode = rocketpd_get_field( 'rpd_course_hero_mode', 'custom' );
+if ( 'hidden' !== $hero_mode ) {
+    get_template_part( 'template-parts/pages/course-detail/hero' );
+}
+```
+
+Each template part checks `$mode === 'defaults'` vs `$mode === 'custom'` internally to decide whether to use fallback content or ACF fields.
+
+### Default value strategy
+
+The correct `default_value` depends on the template type:
+
+- **Index page templates** → `"default_value": "defaults"` — sections display hardcoded fallback data that is already accurate; no per-post ACF data needed
+- **Individual CPT templates** (course detail, instructor detail) → `"default_value": "custom"` — posts were built with saved ACF data before three-state mode was introduced; `custom` preserves existing content; editors on new posts can opt into `defaults`
+
 ## Fallback behavior
 
 Every template should handle empty optional fields gracefully.
