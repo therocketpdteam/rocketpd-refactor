@@ -1,6 +1,6 @@
 {
     "key": "group_rocketpd_community",
-    "title": "RocketPD \u2014 Community Page",
+    "title": "RocketPD — Community Page",
     "fields": [
         {
             "key": "field_rpd_community_hero_tab",
@@ -11,25 +11,41 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_community_hero_mode",
+            "label": "Section Mode",
+            "name": "rpd_community_hero_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_community_hero_eyebrow",
             "label": "Hero Eyebrow",
             "name": "rpd_community_hero_eyebrow",
             "type": "text",
-            "default_value": "Free for K\u201312 Educators"
+            "default_value": "Free for K–12 Educators",
+            "conditional_logic": [[{"field": "field_rpd_community_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_hero_headline",
             "label": "Hero Headline",
             "name": "rpd_community_hero_headline",
             "type": "text",
-            "default_value": "The RocketPD Community"
+            "default_value": "The RocketPD Community",
+            "conditional_logic": [[{"field": "field_rpd_community_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_hero_subhead",
             "label": "Hero Subhead",
             "name": "rpd_community_hero_subhead",
             "type": "text",
-            "default_value": "Free, practical professional learning \u2014 built for educators."
+            "default_value": "Free, practical professional learning — built for educators.",
+            "conditional_logic": [[{"field": "field_rpd_community_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_hero_body",
@@ -39,35 +55,40 @@
             "tabs": "all",
             "toolbar": "basic",
             "media_upload": 0,
-            "default_value": "Join a growing network of <strong>40,000+ K\u201312 educators and school leaders<\/strong> accessing real-world resources, expert insights, and practical strategies \u2014 designed to support your work every day."
+            "default_value": "Join a growing network of <strong>40,000+ K–12 educators and school leaders<\/strong> accessing real-world resources, expert insights, and practical strategies — designed to support your work every day.",
+            "conditional_logic": [[{"field": "field_rpd_community_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_hero_primary_cta_label",
             "label": "Primary CTA Label",
             "name": "rpd_community_hero_primary_cta_label",
             "type": "text",
-            "default_value": "Join the Community \u2014 It's Free"
+            "default_value": "Join the Community — It's Free",
+            "conditional_logic": [[{"field": "field_rpd_community_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_hero_primary_cta_url",
             "label": "Primary CTA URL",
             "name": "rpd_community_hero_primary_cta_url",
             "type": "text",
-            "default_value": "#"
+            "default_value": "#",
+            "conditional_logic": [[{"field": "field_rpd_community_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_hero_secondary_cta_label",
             "label": "Secondary CTA Label",
             "name": "rpd_community_hero_secondary_cta_label",
             "type": "text",
-            "default_value": "Explore Resources"
+            "default_value": "Explore Resources",
+            "conditional_logic": [[{"field": "field_rpd_community_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_hero_secondary_cta_url",
             "label": "Secondary CTA URL",
             "name": "rpd_community_hero_secondary_cta_url",
             "type": "text",
-            "default_value": "#"
+            "default_value": "#",
+            "conditional_logic": [[{"field": "field_rpd_community_hero_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_hero_trust_items",
@@ -76,6 +97,7 @@
             "type": "repeater",
             "layout": "table",
             "button_label": "Add Trust Item",
+            "conditional_logic": [[{"field": "field_rpd_community_hero_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_community_hero_trust_item",
@@ -94,18 +116,33 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_community_intro_mode",
+            "label": "Section Mode",
+            "name": "rpd_community_intro_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_community_intro_eyebrow",
             "label": "Intro Eyebrow",
             "name": "rpd_community_intro_eyebrow",
             "type": "text",
-            "default_value": "A Place to Start"
+            "default_value": "A Place to Start",
+            "conditional_logic": [[{"field": "field_rpd_community_intro_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_intro_heading",
             "label": "Intro Heading",
             "name": "rpd_community_intro_heading",
             "type": "text",
-            "default_value": "Learning that actually supports your work."
+            "default_value": "Learning that actually supports your work.",
+            "conditional_logic": [[{"field": "field_rpd_community_intro_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_intro_body",
@@ -114,7 +151,8 @@
             "type": "wysiwyg",
             "tabs": "all",
             "toolbar": "basic",
-            "media_upload": 0
+            "media_upload": 0,
+            "conditional_logic": [[{"field": "field_rpd_community_intro_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_included_tab",
@@ -125,25 +163,41 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_community_included_mode",
+            "label": "Section Mode",
+            "name": "rpd_community_included_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_community_included_eyebrow",
             "label": "Eyebrow",
             "name": "rpd_community_included_eyebrow",
             "type": "text",
-            "default_value": "What's Included"
+            "default_value": "What's Included",
+            "conditional_logic": [[{"field": "field_rpd_community_included_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_included_heading",
             "label": "Heading",
             "name": "rpd_community_included_heading",
             "type": "text",
-            "default_value": "What you get as a member"
+            "default_value": "What you get as a member",
+            "conditional_logic": [[{"field": "field_rpd_community_included_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_included_sub",
             "label": "Subhead",
             "name": "rpd_community_included_sub",
             "type": "text",
-            "default_value": "Everything you need to grow your practice \u2014 at no cost."
+            "default_value": "Everything you need to grow your practice — at no cost.",
+            "conditional_logic": [[{"field": "field_rpd_community_included_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_included_cards",
@@ -152,6 +206,7 @@
             "type": "repeater",
             "layout": "block",
             "button_label": "Add Card",
+            "conditional_logic": [[{"field": "field_rpd_community_included_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_community_included_card_icon",
@@ -193,39 +248,57 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_community_perks_mode",
+            "label": "Section Mode",
+            "name": "rpd_community_perks_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_community_perks_badge",
             "label": "Badge",
             "name": "rpd_community_perks_badge",
             "type": "text",
-            "default_value": "Member Perks"
+            "default_value": "Member Perks",
+            "conditional_logic": [[{"field": "field_rpd_community_perks_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_perks_heading",
             "label": "Heading",
             "name": "rpd_community_perks_heading",
             "type": "text",
-            "default_value": "Member benefits"
+            "default_value": "Member benefits",
+            "conditional_logic": [[{"field": "field_rpd_community_perks_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_perks_body",
             "label": "Body",
             "name": "rpd_community_perks_body",
             "type": "textarea",
-            "rows": 3
+            "rows": 3,
+            "conditional_logic": [[{"field": "field_rpd_community_perks_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_perks_cta_label",
             "label": "CTA Label",
             "name": "rpd_community_perks_cta_label",
             "type": "text",
-            "default_value": "Join Free"
+            "default_value": "Join Free",
+            "conditional_logic": [[{"field": "field_rpd_community_perks_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_perks_cta_url",
             "label": "CTA URL",
             "name": "rpd_community_perks_cta_url",
             "type": "text",
-            "default_value": "#"
+            "default_value": "#",
+            "conditional_logic": [[{"field": "field_rpd_community_perks_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_perks_items",
@@ -234,6 +307,7 @@
             "type": "repeater",
             "layout": "block",
             "button_label": "Add Perk",
+            "conditional_logic": [[{"field": "field_rpd_community_perks_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_community_perk_icon",
@@ -265,30 +339,47 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_community_learn_mode",
+            "label": "Section Mode",
+            "name": "rpd_community_learn_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_community_learn_eyebrow",
             "label": "Eyebrow",
             "name": "rpd_community_learn_eyebrow",
             "type": "text",
-            "default_value": "Built for Practice"
+            "default_value": "Built for Practice",
+            "conditional_logic": [[{"field": "field_rpd_community_learn_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_learn_heading",
             "label": "Heading",
             "name": "rpd_community_learn_heading",
             "type": "text",
-            "default_value": "Learning, meet doing."
+            "default_value": "Learning, meet doing.",
+            "conditional_logic": [[{"field": "field_rpd_community_learn_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_learn_intro",
             "label": "Intro",
             "name": "rpd_community_learn_intro",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [[{"field": "field_rpd_community_learn_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_learn_pullquote",
             "label": "Pull Quote",
             "name": "rpd_community_learn_pullquote",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [[{"field": "field_rpd_community_learn_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_learn_checks",
@@ -296,6 +387,7 @@
             "name": "rpd_community_learn_checks",
             "type": "repeater",
             "layout": "table",
+            "conditional_logic": [[{"field": "field_rpd_community_learn_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_community_learn_check_text",
@@ -310,7 +402,8 @@
             "label": "Closing",
             "name": "rpd_community_learn_closing",
             "type": "textarea",
-            "rows": 2
+            "rows": 2,
+            "conditional_logic": [[{"field": "field_rpd_community_learn_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_learn_steps",
@@ -318,6 +411,7 @@
             "name": "rpd_community_learn_steps",
             "type": "repeater",
             "layout": "block",
+            "conditional_logic": [[{"field": "field_rpd_community_learn_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_community_learn_step_num",
@@ -361,25 +455,41 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_community_resources_mode",
+            "label": "Section Mode",
+            "name": "rpd_community_resources_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_community_resources_eyebrow",
             "label": "Eyebrow",
             "name": "rpd_community_resources_eyebrow",
             "type": "text",
-            "default_value": "Resource Library"
+            "default_value": "Resource Library",
+            "conditional_logic": [[{"field": "field_rpd_community_resources_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_resources_heading",
             "label": "Heading",
             "name": "rpd_community_resources_heading",
             "type": "text",
-            "default_value": "Real resources. Real classrooms. Zero cost."
+            "default_value": "Real resources. Real classrooms. Zero cost.",
+            "conditional_logic": [[{"field": "field_rpd_community_resources_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_resources_sub",
             "label": "Subhead",
             "name": "rpd_community_resources_sub",
             "type": "textarea",
-            "rows": 2
+            "rows": 2,
+            "conditional_logic": [[{"field": "field_rpd_community_resources_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_resources_cards",
@@ -387,6 +497,7 @@
             "name": "rpd_community_resources_cards",
             "type": "repeater",
             "layout": "block",
+            "conditional_logic": [[{"field": "field_rpd_community_resources_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_community_resource_type",
@@ -437,14 +548,16 @@
             "label": "Button Label",
             "name": "rpd_community_resources_button_label",
             "type": "text",
-            "default_value": "Browse the Resource Library"
+            "default_value": "Browse the Resource Library",
+            "conditional_logic": [[{"field": "field_rpd_community_resources_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_resources_button_url",
             "label": "Button URL",
             "name": "rpd_community_resources_button_url",
             "type": "text",
-            "default_value": "#"
+            "default_value": "#",
+            "conditional_logic": [[{"field": "field_rpd_community_resources_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_flex_tab",
@@ -455,24 +568,40 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_community_flex_mode",
+            "label": "Section Mode",
+            "name": "rpd_community_flex_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_community_flex_eyebrow",
             "label": "Eyebrow",
             "name": "rpd_community_flex_eyebrow",
             "type": "text",
-            "default_value": "However You Show Up"
+            "default_value": "However You Show Up",
+            "conditional_logic": [[{"field": "field_rpd_community_flex_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_flex_heading",
             "label": "Heading",
             "name": "rpd_community_flex_heading",
             "type": "text",
-            "default_value": "Learn in ways that fit your schedule."
+            "default_value": "Learn in ways that fit your schedule.",
+            "conditional_logic": [[{"field": "field_rpd_community_flex_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_flex_sub",
             "label": "Subhead",
             "name": "rpd_community_flex_sub",
-            "type": "text"
+            "type": "text",
+            "conditional_logic": [[{"field": "field_rpd_community_flex_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_flex_cards",
@@ -480,6 +609,7 @@
             "name": "rpd_community_flex_cards",
             "type": "repeater",
             "layout": "block",
+            "conditional_logic": [[{"field": "field_rpd_community_flex_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_community_flex_icon",
@@ -517,18 +647,33 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_community_topic_mode",
+            "label": "Section Mode",
+            "name": "rpd_community_topic_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_community_topic_badge",
             "label": "Badge",
             "name": "rpd_community_topic_badge",
             "type": "text",
-            "default_value": "We're Listening"
+            "default_value": "We're Listening",
+            "conditional_logic": [[{"field": "field_rpd_community_topic_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_topic_heading",
             "label": "Heading",
             "name": "rpd_community_topic_heading",
             "type": "text",
-            "default_value": "Want content on a particular topic?"
+            "default_value": "Want content on a particular topic?",
+            "conditional_logic": [[{"field": "field_rpd_community_topic_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_topic_body",
@@ -537,14 +682,16 @@
             "type": "wysiwyg",
             "tabs": "all",
             "toolbar": "basic",
-            "media_upload": 0
+            "media_upload": 0,
+            "conditional_logic": [[{"field": "field_rpd_community_topic_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_topic_note",
             "label": "Note",
             "name": "rpd_community_topic_note",
             "type": "textarea",
-            "rows": 3
+            "rows": 3,
+            "conditional_logic": [[{"field": "field_rpd_community_topic_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_topic_options",
@@ -552,6 +699,7 @@
             "name": "rpd_community_topic_options",
             "type": "repeater",
             "layout": "table",
+            "conditional_logic": [[{"field": "field_rpd_community_topic_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_community_topic_option",
@@ -566,14 +714,16 @@
             "label": "Form Shortcode",
             "name": "rpd_community_topic_form_shortcode",
             "type": "text",
-            "default_value": ""
+            "default_value": "",
+            "conditional_logic": [[{"field": "field_rpd_community_topic_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_topic_submit_label",
             "label": "Submit Label",
             "name": "rpd_community_topic_submit_label",
             "type": "text",
-            "default_value": "Share What You're Looking For"
+            "default_value": "Share What You're Looking For",
+            "conditional_logic": [[{"field": "field_rpd_community_topic_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_pathways_tab",
@@ -584,18 +734,33 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_community_pathways_mode",
+            "label": "Section Mode",
+            "name": "rpd_community_pathways_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_community_pathways_eyebrow",
             "label": "Eyebrow",
             "name": "rpd_community_pathways_eyebrow",
             "type": "text",
-            "default_value": "When You're Ready"
+            "default_value": "When You're Ready",
+            "conditional_logic": [[{"field": "field_rpd_community_pathways_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_pathways_heading",
             "label": "Heading",
             "name": "rpd_community_pathways_heading",
             "type": "text",
-            "default_value": "Start free. Go further when you're ready."
+            "default_value": "Start free. Go further when you're ready.",
+            "conditional_logic": [[{"field": "field_rpd_community_pathways_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_pathways_body",
@@ -604,7 +769,8 @@
             "type": "wysiwyg",
             "tabs": "all",
             "toolbar": "basic",
-            "media_upload": 0
+            "media_upload": 0,
+            "conditional_logic": [[{"field": "field_rpd_community_pathways_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_pathways_cards",
@@ -612,6 +778,7 @@
             "name": "rpd_community_pathways_cards",
             "type": "repeater",
             "layout": "block",
+            "conditional_logic": [[{"field": "field_rpd_community_pathways_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_community_pathway_title",
@@ -677,7 +844,8 @@
             "label": "Footnote",
             "name": "rpd_community_pathways_footnote",
             "type": "text",
-            "default_value": "You can start here \u2014 and grow into what you need."
+            "default_value": "You can start here — and grow into what you need.",
+            "conditional_logic": [[{"field": "field_rpd_community_pathways_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_network_tab",
@@ -688,32 +856,49 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_community_network_mode",
+            "label": "Section Mode",
+            "name": "rpd_community_network_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_community_network_eyebrow",
             "label": "Eyebrow",
             "name": "rpd_community_network_eyebrow",
             "type": "text",
-            "default_value": "A Growing Network"
+            "default_value": "A Growing Network",
+            "conditional_logic": [[{"field": "field_rpd_community_network_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_network_stat",
             "label": "Stat",
             "name": "rpd_community_network_stat",
             "type": "text",
-            "default_value": "40,000+"
+            "default_value": "40,000+",
+            "conditional_logic": [[{"field": "field_rpd_community_network_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_network_subhead",
             "label": "Subhead",
             "name": "rpd_community_network_subhead",
             "type": "text",
-            "default_value": "educators and school leaders"
+            "default_value": "educators and school leaders",
+            "conditional_logic": [[{"field": "field_rpd_community_network_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_network_body",
             "label": "Body",
             "name": "rpd_community_network_body",
             "type": "textarea",
-            "rows": 3
+            "rows": 3,
+            "conditional_logic": [[{"field": "field_rpd_community_network_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_network_proof",
@@ -721,6 +906,7 @@
             "name": "rpd_community_network_proof",
             "type": "repeater",
             "layout": "block",
+            "conditional_logic": [[{"field": "field_rpd_community_network_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_community_network_proof_icon",
@@ -749,6 +935,7 @@
             "name": "rpd_community_network_roles",
             "type": "repeater",
             "layout": "table",
+            "conditional_logic": [[{"field": "field_rpd_community_network_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_community_network_role_pct",
@@ -773,53 +960,73 @@
             "endpoint": 0
         },
         {
+            "key": "field_rpd_community_cta_mode",
+            "label": "Section Mode",
+            "name": "rpd_community_cta_mode",
+            "type": "select",
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value"
+        },
+        {
             "key": "field_rpd_community_cta_badge",
             "label": "Badge",
             "name": "rpd_community_cta_badge",
             "type": "text",
-            "default_value": "Join 40,000+ Educators"
+            "default_value": "Join 40,000+ Educators",
+            "conditional_logic": [[{"field": "field_rpd_community_cta_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_cta_heading",
             "label": "Heading",
             "name": "rpd_community_cta_heading",
             "type": "text",
-            "default_value": "Join the RocketPD Community"
+            "default_value": "Join the RocketPD Community",
+            "conditional_logic": [[{"field": "field_rpd_community_cta_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_cta_subhead",
             "label": "Subhead",
             "name": "rpd_community_cta_subhead",
             "type": "text",
-            "default_value": "Start exploring practical professional learning \u2014 at no cost."
+            "default_value": "Start exploring practical professional learning — at no cost.",
+            "conditional_logic": [[{"field": "field_rpd_community_cta_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_cta_primary_label",
             "label": "Primary CTA Label",
             "name": "rpd_community_cta_primary_label",
             "type": "text",
-            "default_value": "Join the Community \u2014 It's Free"
+            "default_value": "Join the Community — It's Free",
+            "conditional_logic": [[{"field": "field_rpd_community_cta_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_cta_primary_url",
             "label": "Primary CTA URL",
             "name": "rpd_community_cta_primary_url",
             "type": "text",
-            "default_value": "#"
+            "default_value": "#",
+            "conditional_logic": [[{"field": "field_rpd_community_cta_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_cta_secondary_label",
             "label": "Secondary CTA Label",
             "name": "rpd_community_cta_secondary_label",
             "type": "text",
-            "default_value": "Explore Resources"
+            "default_value": "Explore Resources",
+            "conditional_logic": [[{"field": "field_rpd_community_cta_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_cta_secondary_url",
             "label": "Secondary CTA URL",
             "name": "rpd_community_cta_secondary_url",
             "type": "text",
-            "default_value": "#"
+            "default_value": "#",
+            "conditional_logic": [[{"field": "field_rpd_community_cta_mode", "operator": "==", "value": "custom"}]]
         },
         {
             "key": "field_rpd_community_cta_trust_items",
@@ -827,6 +1034,7 @@
             "name": "rpd_community_cta_trust_items",
             "type": "repeater",
             "layout": "table",
+            "conditional_logic": [[{"field": "field_rpd_community_cta_mode", "operator": "==", "value": "custom"}]],
             "sub_fields": [
                 {
                     "key": "field_rpd_community_cta_trust_item",
@@ -855,5 +1063,5 @@
     "active": true,
     "description": "ACF fields for the RocketPD Community page rebuilt from the Replit handoff.",
     "show_in_rest": 0,
-    "modified": 1781028000
+    "modified": 1782777600
 }

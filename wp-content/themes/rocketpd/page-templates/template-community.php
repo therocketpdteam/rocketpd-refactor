@@ -143,17 +143,53 @@ while ( have_posts() ) {
 	?>
 	<main id="primary" class="rpd-site-main rpd-community-page rpd-community">
 		<?php
-		get_template_part( 'template-parts/pages/community/hero' );
-		get_template_part( 'template-parts/pages/community/intro' );
-		get_template_part( 'template-parts/pages/community/includes' );
-		get_template_part( 'template-parts/pages/community/benefits' );
-		get_template_part( 'template-parts/pages/community/practice' );
-		get_template_part( 'template-parts/pages/community/resources' );
-		get_template_part( 'template-parts/pages/community/flexible-learning' );
-		get_template_part( 'template-parts/pages/community/topic-request' );
-		get_template_part( 'template-parts/pages/community/pathways' );
-		get_template_part( 'template-parts/pages/community/network' );
-		get_template_part( 'template-parts/pages/community/final-cta' );
+		$community_modes = array(
+			'hero'             => rocketpd_get_field( 'rpd_community_hero_mode', 'defaults' ),
+			'intro'            => rocketpd_get_field( 'rpd_community_intro_mode', 'defaults' ),
+			'included'         => rocketpd_get_field( 'rpd_community_included_mode', 'defaults' ),
+			'perks'            => rocketpd_get_field( 'rpd_community_perks_mode', 'defaults' ),
+			'learn'            => rocketpd_get_field( 'rpd_community_learn_mode', 'defaults' ),
+			'resources'        => rocketpd_get_field( 'rpd_community_resources_mode', 'defaults' ),
+			'flex'             => rocketpd_get_field( 'rpd_community_flex_mode', 'defaults' ),
+			'topic'            => rocketpd_get_field( 'rpd_community_topic_mode', 'defaults' ),
+			'pathways'         => rocketpd_get_field( 'rpd_community_pathways_mode', 'defaults' ),
+			'network'          => rocketpd_get_field( 'rpd_community_network_mode', 'defaults' ),
+			'cta'              => rocketpd_get_field( 'rpd_community_cta_mode', 'defaults' ),
+		);
+
+		if ( 'hidden' !== $community_modes['hero'] ) {
+			get_template_part( 'template-parts/pages/community/hero' );
+		}
+		if ( 'hidden' !== $community_modes['intro'] ) {
+			get_template_part( 'template-parts/pages/community/intro' );
+		}
+		if ( 'hidden' !== $community_modes['included'] ) {
+			get_template_part( 'template-parts/pages/community/includes' );
+		}
+		if ( 'hidden' !== $community_modes['perks'] ) {
+			get_template_part( 'template-parts/pages/community/benefits' );
+		}
+		if ( 'hidden' !== $community_modes['learn'] ) {
+			get_template_part( 'template-parts/pages/community/practice' );
+		}
+		if ( 'hidden' !== $community_modes['resources'] ) {
+			get_template_part( 'template-parts/pages/community/resources' );
+		}
+		if ( 'hidden' !== $community_modes['flex'] ) {
+			get_template_part( 'template-parts/pages/community/flexible-learning' );
+		}
+		if ( 'hidden' !== $community_modes['topic'] ) {
+			get_template_part( 'template-parts/pages/community/topic-request' );
+		}
+		if ( 'hidden' !== $community_modes['pathways'] ) {
+			get_template_part( 'template-parts/pages/community/pathways' );
+		}
+		if ( 'hidden' !== $community_modes['network'] ) {
+			get_template_part( 'template-parts/pages/community/network' );
+		}
+		if ( 'hidden' !== $community_modes['cta'] ) {
+			get_template_part( 'template-parts/pages/community/final-cta' );
+		}
 		?>
 	</main>
 	<?php
