@@ -9,6 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$mode = rocketpd_get_field( 'rpd_ee_diff_mode', 'defaults' );
+if ( 'hidden' === $mode ) {
+	return;
+}
+
 $stat      = rocketpd_get_field( 'rpd_ee_diff_stat', __( 'There is a reason only 29% of educators say the professional development they receive at school meets their needs.', 'rocketpd' ) );
 $stat_src  = rocketpd_get_field( 'rpd_ee_diff_stat_source', __( 'Gates Foundation, 2014', 'rocketpd' ) );
 $stat_url  = rocketpd_get_field( 'rpd_ee_diff_stat_url', 'https://s3.amazonaws.com/edtech-production/reports/Gates-PDMarketResearch-Dec5.pdf' );

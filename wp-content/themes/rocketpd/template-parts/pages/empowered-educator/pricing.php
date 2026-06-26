@@ -9,6 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$mode = rocketpd_get_field( 'rpd_ee_pricing_mode', 'defaults' );
+if ( 'hidden' === $mode ) {
+	return;
+}
+
 $eyebrow = rocketpd_get_field( 'rpd_ee_pricing_eyebrow', __( 'RocketPD Pricing', 'rocketpd' ) );
 $heading = rocketpd_get_field( 'rpd_ee_pricing_heading', __( "Great K-12 PD doesn't have to break the budget.", 'rocketpd' ) );
 $sub     = rocketpd_get_field( 'rpd_ee_pricing_sub', __( "How much you'll pay with RocketPD.", 'rocketpd' ) );

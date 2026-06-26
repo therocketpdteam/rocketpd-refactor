@@ -9,6 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$mode = rocketpd_get_field( 'rpd_ee_hero_mode', 'defaults' );
+if ( 'hidden' === $mode ) {
+	return;
+}
+
 $eyebrow   = rocketpd_get_field( 'rpd_ee_hero_eyebrow', __( 'How we\'re different', 'rocketpd' ) );
 $headline  = rocketpd_get_field( 'rpd_ee_hero_headline', __( 'Teachers and staff need access to quality professional development.', 'rocketpd' ) );
 $highlight = rocketpd_get_field( 'rpd_ee_hero_highlight', __( 'quality professional development', 'rocketpd' ) );

@@ -9,6 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$mode = rocketpd_get_field( 'rpd_ee_pillars_mode', 'defaults' );
+if ( 'hidden' === $mode ) {
+	return;
+}
+
 $eyebrow = rocketpd_get_field( 'rpd_ee_pillars_eyebrow', __( 'The Program', 'rocketpd' ) );
 $title   = rocketpd_get_field( 'rpd_ee_pillars_title', __( 'Empowered Educator Experience', 'rocketpd' ) );
 
