@@ -9,6 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$mode = rocketpd_get_field( 'rpd_sol_join_mode', 'defaults' );
+
+if ( 'hidden' === $mode ) {
+	return;
+}
+
 $heading  = rocketpd_get_field( 'rpd_sol_join_heading', __( 'Join our community of 10,000+ educators', 'rocketpd' ) );
 $body     = rocketpd_get_field( 'rpd_sol_join_body', __( 'Want to bring agency & empowerment back to your schools? Don\'t miss our monthly roundup of headlines, resources and inspirational stories.', 'rocketpd' ) );
 $cta_text = rocketpd_get_field( 'rpd_sol_join_cta_text', __( 'Join now', 'rocketpd' ) );

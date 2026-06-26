@@ -9,6 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$mode = rocketpd_get_field( 'rpd_sol_resources_mode', 'defaults' );
+
+if ( 'hidden' === $mode ) {
+	return;
+}
+
 $heading = rocketpd_get_field( 'rpd_sol_resources_heading', __( 'Our universe is infinite — stick around, explore!', 'rocketpd' ) );
 
 $recent_posts = new WP_Query(

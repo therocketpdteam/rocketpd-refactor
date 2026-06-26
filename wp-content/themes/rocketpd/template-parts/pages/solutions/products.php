@@ -9,6 +9,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$cohorts_mode = rocketpd_get_field( 'rpd_sol_cohorts_mode', 'defaults' );
+$courses_mode = rocketpd_get_field( 'rpd_sol_courses_mode', 'defaults' );
+
+if ( 'hidden' === $cohorts_mode && 'hidden' === $courses_mode ) {
+	return;
+}
+
 $cohorts_label    = rocketpd_get_field( 'rpd_sol_cohorts_label', __( 'Live', 'rocketpd' ) );
 $cohorts_heading  = rocketpd_get_field( 'rpd_sol_cohorts_heading', __( 'Live-Virtual Cohorts', 'rocketpd' ) );
 $cohorts_features = rocketpd_get_field(
@@ -41,6 +48,7 @@ $courses_image_id = rocketpd_get_field( 'rpd_sol_courses_image_id', 0 );
 <section class="rpd-sol-products rpd-sol-section">
 	<div class="rpd-sol-container">
 
+		<?php if ( 'hidden' !== $cohorts_mode ) : ?>
 		<!-- Live-Virtual Cohorts -->
 		<div class="rpd-sol-product-card rpd-sol-product-card--cohorts">
 		<div class="rpd-sol-product">
@@ -76,7 +84,9 @@ $courses_image_id = rocketpd_get_field( 'rpd_sol_courses_image_id', 0 );
 			</div>
 		</div>
 		</div><!-- /.rpd-sol-product-card--cohorts -->
+	<?php endif; ?>
 
+	<?php if ( 'hidden' !== $courses_mode ) : ?>
 		<!-- Video-Based Courses -->
 		<div class="rpd-sol-product-card rpd-sol-product-card--courses">
 		<div class="rpd-sol-product rpd-sol-product--reverse rpd-sol-product--alt">
@@ -112,6 +122,7 @@ $courses_image_id = rocketpd_get_field( 'rpd_sol_courses_image_id', 0 );
 			</div>
 		</div>
 		</div><!-- /.rpd-sol-product-card--courses -->
+	<?php endif; ?>
 
 	</div>
 </section>

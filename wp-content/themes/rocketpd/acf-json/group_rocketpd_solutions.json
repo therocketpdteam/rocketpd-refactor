@@ -1,0 +1,385 @@
+{
+    "key": "group_rocketpd_solutions",
+    "title": "Solutions Page",
+    "fields": [
+
+        {
+            "key": "field_rpd_sol_hero_tab",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_sol_hero_mode",
+            "label": "Section Mode",
+            "name": "rpd_sol_hero_mode",
+            "type": "select",
+            "instructions": "Hidden = not shown. Defaults = hardcoded content. Custom = use fields below.",
+            "required": false,
+            "conditional_logic": false,
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0
+        },
+        {
+            "key": "field_rpd_sol_hero_eyebrow",
+            "label": "Eyebrow",
+            "name": "rpd_sol_hero_eyebrow",
+            "type": "text",
+            "default_value": "Professional Learning",
+            "conditional_logic": [[{"field": "field_rpd_sol_hero_mode", "operator": "==", "value": "custom"}]]
+        },
+        {
+            "key": "field_rpd_sol_hero_headline",
+            "label": "Headline",
+            "name": "rpd_sol_hero_headline",
+            "type": "text",
+            "default_value": "Solutions",
+            "conditional_logic": [[{"field": "field_rpd_sol_hero_mode", "operator": "==", "value": "custom"}]]
+        },
+        {
+            "key": "field_rpd_sol_hero_sub",
+            "label": "Subheading",
+            "name": "rpd_sol_hero_sub",
+            "type": "text",
+            "default_value": "Empower your team with access to expert-led live-virtual and video-based professional development.",
+            "conditional_logic": [[{"field": "field_rpd_sol_hero_mode", "operator": "==", "value": "custom"}]]
+        },
+
+        {
+            "key": "field_rpd_sol_cohorts_tab",
+            "label": "Cohorts Card",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_sol_cohorts_mode",
+            "label": "Section Mode",
+            "name": "rpd_sol_cohorts_mode",
+            "type": "select",
+            "instructions": "Hidden = not shown. Defaults = hardcoded content. Custom = use fields below.",
+            "required": false,
+            "conditional_logic": false,
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0
+        },
+        {
+            "key": "field_rpd_sol_cohorts_label",
+            "label": "Label",
+            "name": "rpd_sol_cohorts_label",
+            "type": "text",
+            "default_value": "Live",
+            "conditional_logic": [[{"field": "field_rpd_sol_cohorts_mode", "operator": "==", "value": "custom"}]]
+        },
+        {
+            "key": "field_rpd_sol_cohorts_heading",
+            "label": "Heading",
+            "name": "rpd_sol_cohorts_heading",
+            "type": "text",
+            "default_value": "Live-Virtual Cohorts",
+            "conditional_logic": [[{"field": "field_rpd_sol_cohorts_mode", "operator": "==", "value": "custom"}]]
+        },
+        {
+            "key": "field_rpd_sol_cohorts_features",
+            "label": "Features",
+            "name": "rpd_sol_cohorts_features",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Feature",
+            "conditional_logic": [[{"field": "field_rpd_sol_cohorts_mode", "operator": "==", "value": "custom"}]],
+            "sub_fields": [
+                {
+                    "key": "field_rpd_sol_cohorts_feature_text",
+                    "label": "Feature",
+                    "name": "text",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_sol_cohorts_cta_text",
+            "label": "CTA Label",
+            "name": "rpd_sol_cohorts_cta_text",
+            "type": "text",
+            "default_value": "See our cohorts",
+            "conditional_logic": [[{"field": "field_rpd_sol_cohorts_mode", "operator": "==", "value": "custom"}]]
+        },
+        {
+            "key": "field_rpd_sol_cohorts_cta_url",
+            "label": "CTA URL",
+            "name": "rpd_sol_cohorts_cta_url",
+            "type": "text",
+            "default_value": "/cohorts/",
+            "conditional_logic": [[{"field": "field_rpd_sol_cohorts_mode", "operator": "==", "value": "custom"}]]
+        },
+        {
+            "key": "field_rpd_sol_cohorts_image_id",
+            "label": "Image",
+            "name": "rpd_sol_cohorts_image_id",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "conditional_logic": [[{"field": "field_rpd_sol_cohorts_mode", "operator": "==", "value": "custom"}]]
+        },
+
+        {
+            "key": "field_rpd_sol_courses_tab",
+            "label": "Courses Card",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_sol_courses_mode",
+            "label": "Section Mode",
+            "name": "rpd_sol_courses_mode",
+            "type": "select",
+            "instructions": "Hidden = not shown. Defaults = hardcoded content. Custom = use fields below.",
+            "required": false,
+            "conditional_logic": false,
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0
+        },
+        {
+            "key": "field_rpd_sol_courses_label",
+            "label": "Label",
+            "name": "rpd_sol_courses_label",
+            "type": "text",
+            "default_value": "Video",
+            "conditional_logic": [[{"field": "field_rpd_sol_courses_mode", "operator": "==", "value": "custom"}]]
+        },
+        {
+            "key": "field_rpd_sol_courses_heading",
+            "label": "Heading",
+            "name": "rpd_sol_courses_heading",
+            "type": "text",
+            "default_value": "Video-Based Courses",
+            "conditional_logic": [[{"field": "field_rpd_sol_courses_mode", "operator": "==", "value": "custom"}]]
+        },
+        {
+            "key": "field_rpd_sol_courses_features",
+            "label": "Features",
+            "name": "rpd_sol_courses_features",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Feature",
+            "conditional_logic": [[{"field": "field_rpd_sol_courses_mode", "operator": "==", "value": "custom"}]],
+            "sub_fields": [
+                {
+                    "key": "field_rpd_sol_courses_feature_text",
+                    "label": "Feature",
+                    "name": "text",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_rpd_sol_courses_cta_text",
+            "label": "CTA Label",
+            "name": "rpd_sol_courses_cta_text",
+            "type": "text",
+            "default_value": "Try LaunchPad™",
+            "conditional_logic": [[{"field": "field_rpd_sol_courses_mode", "operator": "==", "value": "custom"}]]
+        },
+        {
+            "key": "field_rpd_sol_courses_cta_url",
+            "label": "CTA URL",
+            "name": "rpd_sol_courses_cta_url",
+            "type": "text",
+            "default_value": "/launchpad/",
+            "conditional_logic": [[{"field": "field_rpd_sol_courses_mode", "operator": "==", "value": "custom"}]]
+        },
+        {
+            "key": "field_rpd_sol_courses_image_id",
+            "label": "Image",
+            "name": "rpd_sol_courses_image_id",
+            "type": "image",
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "conditional_logic": [[{"field": "field_rpd_sol_courses_mode", "operator": "==", "value": "custom"}]]
+        },
+
+        {
+            "key": "field_rpd_sol_contact_tab",
+            "label": "Contact Form",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_sol_contact_mode",
+            "label": "Section Mode",
+            "name": "rpd_sol_contact_mode",
+            "type": "select",
+            "instructions": "Hidden = not shown. Defaults = hardcoded content. Custom = use fields below.",
+            "required": false,
+            "conditional_logic": false,
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0
+        },
+        {
+            "key": "field_rpd_sol_contact_heading",
+            "label": "Heading",
+            "name": "rpd_sol_contact_heading",
+            "type": "text",
+            "default_value": "Want to learn more about our solutions, or have questions about our cohorts and courses?",
+            "conditional_logic": [[{"field": "field_rpd_sol_contact_mode", "operator": "==", "value": "custom"}]]
+        },
+
+        {
+            "key": "field_rpd_sol_resources_tab",
+            "label": "Resources",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_sol_resources_mode",
+            "label": "Section Mode",
+            "name": "rpd_sol_resources_mode",
+            "type": "select",
+            "instructions": "Hidden = not shown. Defaults = hardcoded content. Custom = use fields below.",
+            "required": false,
+            "conditional_logic": false,
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0
+        },
+        {
+            "key": "field_rpd_sol_resources_heading",
+            "label": "Heading",
+            "name": "rpd_sol_resources_heading",
+            "type": "text",
+            "default_value": "Our universe is infinite — stick around, explore!",
+            "conditional_logic": [[{"field": "field_rpd_sol_resources_mode", "operator": "==", "value": "custom"}]]
+        },
+
+        {
+            "key": "field_rpd_sol_join_tab",
+            "label": "Join CTA",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_rpd_sol_join_mode",
+            "label": "Section Mode",
+            "name": "rpd_sol_join_mode",
+            "type": "select",
+            "instructions": "Hidden = not shown. Defaults = hardcoded content. Custom = use fields below.",
+            "required": false,
+            "conditional_logic": false,
+            "choices": {
+                "hidden": "Hidden — section not rendered",
+                "defaults": "Defaults — hardcoded content",
+                "custom": "Custom — use fields below"
+            },
+            "default_value": "defaults",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0
+        },
+        {
+            "key": "field_rpd_sol_join_heading",
+            "label": "Heading",
+            "name": "rpd_sol_join_heading",
+            "type": "text",
+            "default_value": "Join our community of 10,000+ educators",
+            "conditional_logic": [[{"field": "field_rpd_sol_join_mode", "operator": "==", "value": "custom"}]]
+        },
+        {
+            "key": "field_rpd_sol_join_body",
+            "label": "Body",
+            "name": "rpd_sol_join_body",
+            "type": "textarea",
+            "rows": 3,
+            "default_value": "Want to bring agency & empowerment back to your schools? Don't miss our monthly roundup of headlines, resources and inspirational stories.",
+            "conditional_logic": [[{"field": "field_rpd_sol_join_mode", "operator": "==", "value": "custom"}]]
+        },
+        {
+            "key": "field_rpd_sol_join_cta_text",
+            "label": "CTA Label",
+            "name": "rpd_sol_join_cta_text",
+            "type": "text",
+            "default_value": "Join now",
+            "conditional_logic": [[{"field": "field_rpd_sol_join_mode", "operator": "==", "value": "custom"}]]
+        },
+        {
+            "key": "field_rpd_sol_join_cta_url",
+            "label": "CTA URL",
+            "name": "rpd_sol_join_cta_url",
+            "type": "text",
+            "default_value": "/community",
+            "conditional_logic": [[{"field": "field_rpd_sol_join_mode", "operator": "==", "value": "custom"}]]
+        }
+
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates\/template-solutions.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Solutions page fields — three-state (hidden/defaults/custom) per section.",
+    "show_in_rest": 0,
+    "modified": 1750377600
+}

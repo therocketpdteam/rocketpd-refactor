@@ -9,6 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$mode = rocketpd_get_field( 'rpd_sol_contact_mode', 'defaults' );
+
+if ( 'hidden' === $mode ) {
+	return;
+}
+
 $heading = rocketpd_get_field( 'rpd_sol_contact_heading', __( 'Want to learn more about our solutions, or have questions about our cohorts and courses?', 'rocketpd' ) );
 ?>
 

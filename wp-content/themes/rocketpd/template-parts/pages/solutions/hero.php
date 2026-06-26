@@ -9,6 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$mode = rocketpd_get_field( 'rpd_sol_hero_mode', 'defaults' );
+
+if ( 'hidden' === $mode ) {
+	return;
+}
+
 $eyebrow  = rocketpd_get_field( 'rpd_sol_hero_eyebrow', __( 'Professional Learning', 'rocketpd' ) );
 $headline = rocketpd_get_field( 'rpd_sol_hero_headline', __( 'Solutions', 'rocketpd' ) );
 $sub      = rocketpd_get_field( 'rpd_sol_hero_sub', __( 'Empower your team with access to expert-led live-virtual and video-based professional development.', 'rocketpd' ) );
