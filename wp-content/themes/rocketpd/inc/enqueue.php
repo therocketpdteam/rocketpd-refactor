@@ -229,6 +229,10 @@ function rocketpd_enqueue_assets() {
 		$enqueue_page_style( 'rocketpd-empowered-educator', '/assets/css/pages/empowered-educator.css' );
 	}
 
+	if ( is_page_template( 'page-templates/template-solutions.php' ) ) {
+		$enqueue_page_style( 'rocketpd-solutions', '/assets/css/pages/solutions.css' );
+	}
+
 	if ( is_page_template( 'page-templates/template-trust-cycle-guide.php' ) ) {
 		$enqueue_page_style( 'rocketpd-trust-cycle-guide', '/assets/css/pages/trust-cycle-guide.css' );
 	}
