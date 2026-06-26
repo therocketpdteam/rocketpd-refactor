@@ -9,6 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$mode = rocketpd_get_field( 'rpd_ee_costs_mode', 'defaults' );
+if ( 'hidden' === $mode ) {
+	return;
+}
+
 $eyebrow    = rocketpd_get_field( 'rpd_ee_costs_eyebrow', __( 'By the numbers', 'rocketpd' ) );
 $intro_heading = rocketpd_get_field( 'rpd_ee_costs_heading', __( 'Comparing costs', 'rocketpd' ) );
 $intro_body    = rocketpd_get_field( 'rpd_ee_costs_body', __( 'What schools pay for professional development.', 'rocketpd' ) );

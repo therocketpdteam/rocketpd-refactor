@@ -9,7 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$image_id  = 1691;
+$mode = rocketpd_get_field( 'rpd_ee_infographic_mode', 'defaults' );
+if ( 'hidden' === $mode ) {
+	return;
+}
+
+$image_id  = ( 'custom' === $mode ) ? rocketpd_get_field( 'rpd_ee_infographic_image', 1691 ) : 1691;
 $image_alt = rocketpd_get_field( 'rpd_ee_infographic_alt', __( 'Empowered Educator Experience — program overview infographic', 'rocketpd' ) );
 ?>
 

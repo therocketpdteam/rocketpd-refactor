@@ -9,6 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$mode = rocketpd_get_field( 'rpd_ee_cta_mode', 'defaults' );
+if ( 'hidden' === $mode ) {
+	return;
+}
+
 $eyebrow = rocketpd_get_field( 'rpd_ee_cta_eyebrow', __( 'Get started', 'rocketpd' ) );
 $heading = rocketpd_get_field( 'rpd_ee_cta_heading', __( 'Want a better way to do PD in your school or district?', 'rocketpd' ) );
 $sub     = rocketpd_get_field( 'rpd_ee_cta_sub', __( 'Schedule your 30-min. listening session today.', 'rocketpd' ) );
