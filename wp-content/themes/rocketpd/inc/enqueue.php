@@ -233,6 +233,19 @@ function rocketpd_enqueue_assets() {
 		$enqueue_page_style( 'rocketpd-solutions', '/assets/css/pages/solutions.css' );
 	}
 
+	if ( is_page_template( 'page-templates/template-flexible.php' ) ) {
+		$enqueue_page_style( 'rocketpd-flexible', '/assets/css/pages/flexible.css' );
+
+		wp_enqueue_script(
+			'lucide',
+			'https://unpkg.com/lucide@latest/dist/umd/lucide.min.js',
+			array(),
+			null,
+			true
+		);
+		wp_add_inline_script( 'lucide', 'document.addEventListener("DOMContentLoaded",function(){lucide.createIcons();});' );
+	}
+
 	if ( is_page_template( 'page-templates/template-trust-cycle-guide.php' ) ) {
 		$enqueue_page_style( 'rocketpd-trust-cycle-guide', '/assets/css/pages/trust-cycle-guide.css' );
 	}

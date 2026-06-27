@@ -33,6 +33,7 @@ $rocketpd_includes = array(
 	'shortcodes',
 	'gravity-forms',
 	'posts',
+	'flexible-randomizer',
 );
 
 foreach ( $rocketpd_includes as $rocketpd_file ) {

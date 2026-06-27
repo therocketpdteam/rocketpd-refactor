@@ -1,0 +1,542 @@
+/* ============================================================
+   flexible.css — RocketPD Flexible Page Builder
+   ============================================================ */
+
+/* --- Container --- */
+.rpd-flex-container {
+	width: min(100% - 3rem, var(--rpd-container, 75rem));
+	margin-inline: auto;
+}
+
+.rpd-flex-container--prose {
+	width: min(100% - 3rem, var(--rpd-container-md, 64rem));
+}
+
+/* --- Section base --- */
+.rpd-flex-section {
+	--flex-text: var(--rpd-color-text, #45417c);
+	--flex-heading: var(--rpd-color-heading, #231f58);
+	--flex-card-bg: var(--rpd-bg-soft, #f8fafc);
+	--flex-card-border: 1px solid var(--rpd-color-border, rgba(35, 31, 88, 0.14));
+	--flex-icon-color: var(--rpd-purple, #5552b1);
+	position: relative;
+	color: var(--flex-text);
+}
+
+/* --- Overlay --- */
+.rpd-flex-overlay {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 1;
+}
+
+/* --- Background image --- */
+.rpd-flex-section--has-bg-image {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.rpd-flex-section--bg-repeat {
+	background-size: auto;
+	background-repeat: repeat;
+	background-position: 0 0;
+}
+
+/* Container sits above overlay */
+.rpd-flex-container {
+	position: relative;
+	z-index: 2;
+}
+
+/* --- Background variants --- */
+.rpd-flex-bg--white {
+	background: #fff;
+}
+
+.rpd-flex-bg--soft {
+	background: var(--rpd-bg-soft, #f8fafc);
+}
+
+.rpd-flex-bg--navy {
+	--flex-text: rgba(255, 255, 255, 0.88);
+	--flex-heading: #fff;
+	--flex-card-bg: rgba(255, 255, 255, 0.1);
+	--flex-card-border: 1px solid rgba(255, 255, 255, 0.15);
+	--flex-icon-color: var(--rpd-gold, #fdb933);
+	background: var(--gradient-navy, linear-gradient(135deg, #1a1744, #231f58, #343465));
+	color: rgba(255, 255, 255, 0.88);
+}
+
+.rpd-flex-bg--purple {
+	--flex-text: rgba(255, 255, 255, 0.88);
+	--flex-heading: #fff;
+	--flex-card-bg: rgba(255, 255, 255, 0.1);
+	--flex-card-border: 1px solid rgba(255, 255, 255, 0.15);
+	--flex-icon-color: var(--rpd-gold, #fdb933);
+	background: var(--gradient-purple, linear-gradient(135deg, #5552b1, #a154a1));
+	color: rgba(255, 255, 255, 0.88);
+}
+
+.rpd-flex-bg--navy-gold {
+	--flex-text: rgba(255, 255, 255, 0.88);
+	--flex-heading: #fff;
+	--flex-card-bg: rgba(255, 255, 255, 0.1);
+	--flex-card-border: 1px solid rgba(255, 255, 255, 0.15);
+	--flex-icon-color: var(--rpd-gold, #fdb933);
+	background:
+		radial-gradient(circle at 85% 10%, rgba(253, 185, 51, 0.24), transparent 18rem),
+		linear-gradient(135deg, var(--rpd-navy, #231f58), var(--rpd-navy-mid, #343465), var(--rpd-purple, #5552b1));
+	color: rgba(255, 255, 255, 0.88);
+}
+
+.rpd-flex-bg--purple-navy {
+	--flex-text: rgba(255, 255, 255, 0.88);
+	--flex-heading: #fff;
+	--flex-card-bg: rgba(255, 255, 255, 0.1);
+	--flex-card-border: 1px solid rgba(255, 255, 255, 0.15);
+	--flex-icon-color: var(--rpd-gold, #fdb933);
+	background: linear-gradient(135deg, var(--rpd-purple-deep, #a154a1), var(--rpd-purple, #5552b1) 52%, var(--rpd-navy, #231f58));
+	color: rgba(255, 255, 255, 0.88);
+}
+
+.rpd-flex-bg--aurora {
+	background:
+		radial-gradient(circle at 72% 28%, rgba(253, 185, 51, 0.18), transparent 9rem),
+		linear-gradient(135deg, #e9edf6, #ffffff 48%, #d8dcef);
+}
+
+.rpd-flex-bg--lavender {
+	background: var(--gradient-soft, linear-gradient(135deg, #ffffff, #f8fafc, rgba(196, 196, 229, 0.25)));
+}
+
+/* --- Text scheme overrides ---
+ * NOTE: Colors are hardcoded to token values for now. When the ACF Options page for
+ * Flexible Builder settings is built, these should reference CSS custom properties
+ * set from admin so editors can change them sitewide without touching code.
+ */
+.rpd-flex-scheme--light {
+	--flex-text: rgba(255, 255, 255, 0.88);
+	--flex-heading: #fff;
+	--flex-card-bg: rgba(255, 255, 255, 0.1);
+	--flex-card-border: 1px solid rgba(255, 255, 255, 0.15);
+	--flex-icon-color: var(--rpd-gold, #fdb933);
+	color: rgba(255, 255, 255, 0.88);
+}
+
+.rpd-flex-scheme--dark {
+	--flex-text: var(--rpd-body, #45417c);
+	--flex-heading: var(--rpd-navy, #231f58);
+	--flex-card-bg: var(--rpd-bg-soft, #f8fafc);
+	--flex-card-border: 1px solid var(--rpd-color-border, rgba(35, 31, 88, 0.14));
+	--flex-icon-color: var(--rpd-purple, #5552b1);
+	color: var(--rpd-body, #45417c);
+}
+
+.rpd-flex-scheme--light .rpd-flex-btn--secondary {
+	color: #fff;
+	border-color: rgba(255, 255, 255, 0.6);
+}
+
+.rpd-flex-scheme--light .rpd-flex-btn--secondary:hover {
+	background: rgba(255, 255, 255, 0.1);
+	border-color: rgba(255, 255, 255, 0.9);
+}
+
+.rpd-flex-scheme--dark .rpd-flex-btn--secondary {
+	color: var(--rpd-navy, #231f58);
+	border-color: rgba(35, 31, 88, 0.4);
+}
+
+.rpd-flex-scheme--dark .rpd-flex-btn--secondary:hover {
+	background: rgba(35, 31, 88, 0.06);
+	border-color: var(--rpd-navy, #231f58);
+}
+
+/* --- Padding variants --- */
+.rpd-flex-pad--normal {
+	padding-block: var(--rpd-section-y-sm, 4rem);
+}
+
+.rpd-flex-pad--large {
+	padding-block: var(--rpd-section-y, 7rem);
+}
+
+.rpd-flex-pad--none {
+	padding-block: 0;
+}
+
+/* --- Eyebrow --- */
+.rpd-flex-eyebrow {
+	display: inline-block;
+	font-family: var(--font-body, "Inter", sans-serif);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--rpd-gold, #fdb933);
+	margin: 0 0 0.75rem;
+}
+
+/* --- Shared section header --- */
+.rpd-flex-section-header {
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.rpd-flex-section-heading {
+	font-family: var(--font-heading, "Poppins", sans-serif);
+	font-size: clamp(1.75rem, 3vw, 2.5rem);
+	font-weight: 800;
+	line-height: var(--rpd-line-height-heading, 1.18);
+	color: var(--flex-heading);
+	margin: 0;
+}
+
+/* --- Buttons --- */
+.rpd-flex-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--font-body, "Inter", sans-serif);
+	font-size: 0.95rem;
+	font-weight: 700;
+	padding: 0.75rem 1.75rem;
+	border-radius: var(--rpd-radius, 0.5rem);
+	text-decoration: none;
+	transition: filter var(--rpd-transition, 200ms ease), box-shadow var(--rpd-transition, 200ms ease);
+	cursor: pointer;
+}
+
+.rpd-flex-btn--primary {
+	background: var(--rpd-gold, #fdb933);
+	color: var(--rpd-navy, #231f58);
+}
+
+.rpd-flex-btn--primary:hover {
+	filter: brightness(1.06);
+	box-shadow: var(--rpd-shadow-sm, 0 8px 22px rgba(35, 31, 88, 0.08));
+}
+
+.rpd-flex-btn--secondary {
+	background: transparent;
+	color: #fff;
+	border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.rpd-flex-btn--secondary:hover {
+	background: rgba(255, 255, 255, 0.1);
+	border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* On light backgrounds, secondary button uses navy */
+.rpd-flex-bg--white .rpd-flex-btn--secondary,
+.rpd-flex-bg--soft .rpd-flex-btn--secondary {
+	color: var(--rpd-navy, #231f58);
+	border-color: rgba(35, 31, 88, 0.4);
+}
+
+.rpd-flex-bg--white .rpd-flex-btn--secondary:hover,
+.rpd-flex-bg--soft .rpd-flex-btn--secondary:hover {
+	background: rgba(35, 31, 88, 0.06);
+	border-color: var(--rpd-navy, #231f58);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.rpd-flex-section--hero {
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
+
+/* 40px grid overlay on dark hero backgrounds */
+.rpd-flex-bg--navy.rpd-flex-section--hero::before,
+.rpd-flex-bg--purple.rpd-flex-section--hero::before,
+.rpd-flex-bg--navy-gold.rpd-flex-section--hero::before,
+.rpd-flex-bg--purple-navy.rpd-flex-section--hero::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+	background-size: 40px 40px;
+	pointer-events: none;
+}
+
+.rpd-flex-hero__inner {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.25rem;
+	max-width: 52rem;
+	margin-inline: auto;
+	padding-block: 2rem;
+}
+
+.rpd-flex-hero__headline {
+	font-family: var(--font-heading, "Poppins", sans-serif);
+	font-size: clamp(2rem, 4.5vw, 3.5rem);
+	font-weight: 800;
+	line-height: var(--rpd-line-height-heading, 1.18);
+	color: var(--flex-heading);
+	margin: 0;
+}
+
+.rpd-flex-hero__headline mark {
+	background: none;
+	color: var(--rpd-gold, #fdb933);
+}
+
+.rpd-flex-hero__sub {
+	font-size: clamp(1rem, 1.5vw, 1.2rem);
+	line-height: 1.65;
+	opacity: 0.9;
+	max-width: 38rem;
+	margin: 0;
+}
+
+/* ============================================================
+   TEXT + IMAGE
+   ============================================================ */
+
+.rpd-flex-ti__grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 3rem;
+	align-items: center;
+}
+
+@media (min-width: 680px) {
+	.rpd-flex-ti__grid:not(.rpd-flex-ti__grid--text-only) {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.rpd-flex-ti__grid--img-left .rpd-flex-ti__image-wrap {
+		order: -1;
+	}
+}
+
+.rpd-flex-ti__grid--text-only {
+	max-width: 52rem;
+	margin-inline: auto;
+}
+
+.rpd-flex-ti__heading {
+	font-family: var(--font-heading, "Poppins", sans-serif);
+	font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+	font-weight: 800;
+	line-height: var(--rpd-line-height-heading, 1.18);
+	color: var(--flex-heading);
+	margin: 0 0 1rem;
+}
+
+.rpd-flex-ti__body {
+	font-size: 1.05rem;
+	line-height: 1.65;
+	margin: 0 0 1.5rem;
+}
+
+.rpd-flex-ti__image-wrap {
+	border-radius: var(--rpd-radius, 0.5rem);
+	overflow: hidden;
+	box-shadow: var(--rpd-shadow-md, 0 16px 42px rgba(35, 31, 88, 0.12));
+}
+
+.rpd-flex-ti__image {
+	display: block;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+/* ============================================================
+   CARD GRID
+   ============================================================ */
+
+.rpd-flex-card-grid {
+	display: grid;
+	grid-template-columns: repeat(var(--flex-cols, 3), 1fr);
+	gap: var(--rpd-grid-gap, 1.5rem);
+}
+
+@media (max-width: 900px) {
+	.rpd-flex-card-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 560px) {
+	.rpd-flex-card-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.rpd-flex-card {
+	background: var(--flex-card-bg);
+	border: var(--flex-card-border);
+	border-radius: var(--rpd-radius, 0.5rem);
+	padding: 1.75rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	transition: box-shadow var(--rpd-transition, 200ms ease);
+}
+
+.rpd-flex-bg--navy .rpd-flex-card,
+.rpd-flex-bg--purple .rpd-flex-card {
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+}
+
+.rpd-flex-card:hover {
+	box-shadow: var(--rpd-shadow-md, 0 16px 42px rgba(35, 31, 88, 0.12));
+}
+
+.rpd-flex-card__icon {
+	display: flex;
+	align-items: center;
+	width: 2.25rem;
+	height: 2.25rem;
+	margin: 0 0 0.5rem;
+	color: var(--flex-icon-color);
+}
+
+.rpd-flex-card__icon svg {
+	width: 100%;
+	height: 100%;
+	stroke-width: 1.75;
+}
+
+.rpd-flex-card__heading {
+	font-family: var(--font-heading, "Poppins", sans-serif);
+	font-size: 1.1rem;
+	font-weight: 700;
+	color: var(--flex-heading);
+	margin: 0;
+}
+
+.rpd-flex-card__body {
+	font-size: 0.95rem;
+	line-height: 1.6;
+	margin: 0;
+}
+
+/* ============================================================
+   STATS STRIP
+   ============================================================ */
+
+.rpd-flex-stats {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	justify-content: center;
+}
+
+.rpd-flex-stat {
+	flex: 1;
+	min-width: 12rem;
+	text-align: center;
+}
+
+.rpd-flex-stat__value {
+	font-family: var(--font-heading, "Poppins", sans-serif);
+	font-size: clamp(2rem, 4vw, 3rem);
+	font-weight: 800;
+	color: var(--rpd-gold, #fdb933);
+	line-height: 1;
+	margin: 0 0 0.4rem;
+}
+
+.rpd-flex-stat__label {
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--flex-heading);
+	margin: 0 0 0.3rem;
+}
+
+.rpd-flex-stat__source {
+	font-size: 0.75rem;
+	opacity: 0.65;
+	margin: 0;
+}
+
+.rpd-flex-stat__source a {
+	color: inherit;
+}
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+
+.rpd-flex-cta__inner {
+	text-align: center;
+	max-width: 44rem;
+	margin-inline: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.rpd-flex-cta__heading {
+	font-family: var(--font-heading, "Poppins", sans-serif);
+	font-size: clamp(1.75rem, 3vw, 2.5rem);
+	font-weight: 800;
+	line-height: var(--rpd-line-height-heading, 1.18);
+	color: var(--flex-heading);
+	margin: 0;
+}
+
+.rpd-flex-cta__sub {
+	font-size: 1.1rem;
+	opacity: 0.9;
+	margin: 0;
+}
+
+.rpd-flex-cta__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: center;
+	margin-top: 0.5rem;
+}
+
+/* ============================================================
+   RICH TEXT
+   ============================================================ */
+
+.rpd-flex-prose {
+	font-size: 1.05rem;
+	line-height: 1.75;
+	color: var(--flex-text);
+}
+
+.rpd-flex-prose h2,
+.rpd-flex-prose h3,
+.rpd-flex-prose h4 {
+	font-family: var(--font-heading, "Poppins", sans-serif);
+	font-weight: 700;
+	color: var(--flex-heading);
+	margin-top: 2rem;
+}
+
+.rpd-flex-prose p,
+.rpd-flex-prose li {
+	margin-bottom: 1rem;
+}
+
+.rpd-flex-prose a {
+	color: var(--rpd-purple, #5552b1);
+	text-decoration: underline;
+}
+
+.rpd-flex-prose ul,
+.rpd-flex-prose ol {
+	padding-left: 1.5rem;
+}
