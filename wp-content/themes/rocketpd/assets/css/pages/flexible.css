@@ -540,3 +540,23 @@
 .rpd-flex-prose ol {
 	padding-left: 1.5rem;
 }
+
+/* ============================================================
+   HTML BLOCK
+   ============================================================ */
+
+.rpd-flex-html h1,
+.rpd-flex-html h2,
+.rpd-flex-html h3,
+.rpd-flex-html h4,
+.rpd-flex-html h5,
+.rpd-flex-html h6 {
+	color: var(--flex-heading);
+}
+
+.rpd-flex-html p,
+.rpd-flex-html li,
+.rpd-flex-html td,
+.rpd-flex-html th {
+	color: var(--flex-text);
+}
