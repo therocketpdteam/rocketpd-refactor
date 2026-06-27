@@ -210,12 +210,6 @@ function rpd_flex_pools() {
 			array( 'text' => 'Learn More', 'url' => '/solutions' ),
 		),
 
-		'rich_text' => array(
-			'<p>RocketPD offers professional learning experiences that are <strong>practical, research-backed, and designed for the real demands of K–12 education</strong>. From live virtual cohorts to on-demand video courses, we meet educators where they are.</p><ul><li>Grounded in adult learning theory</li><li>Facilitated by experienced K–12 educators</li><li>Flexible formats for any schedule and budget</li><li>Focused on transferable classroom strategies</li></ul>',
-			"<p>The best professional development respects educators' time, expertise, and context. That's the standard RocketPD holds itself to with every program we design.</p><p><strong>Our programs are built around three core principles:</strong></p><ul><li><strong>Empower</strong> — Create time and headspace for strategic thinking</li><li><strong>Immerse</strong> — Foster collaboration and practical application</li><li><strong>Achieve</strong> — Develop a custom plan tied to real organizational goals</li></ul>",
-			'<p>Professional development doesn\'t have to be expensive or exhausting. With RocketPD, school and district leaders get <strong>high-quality learning experiences at a fraction of the cost</strong> of traditional in-person PD — without sacrificing depth, rigor, or results.</p>',
-		),
-
 	);
 }
 
@@ -301,15 +295,6 @@ function rpd_flex_build_text_image( $bg, $p ) {
 	);
 }
 
-function rpd_flex_build_rich_text( $bg, $p ) {
-	return array(
-		'acf_fc_layout' => 'rich-text',
-		'bg'            => $bg,
-		'padding'       => 'normal',
-		'content'       => rpd_flex_pick( $p['rich_text'] ),
-	);
-}
-
 function rpd_flex_build_cta( $p ) {
 	$pair      = rpd_flex_pick( $p['cta'] );
 	$primary   = rpd_flex_pick( $p['cta_primary'] );
@@ -340,7 +325,7 @@ function rpd_flex_build_random_sections() {
 	$light_bgs = array( 'white', 'soft' );
 
 	// Middle section pool — shuffle, pick 2–4
-	$middle_pool = array( 'card-grid', 'stats-strip', 'text-image', 'rich-text' );
+	$middle_pool = array( 'card-grid', 'stats-strip', 'text-image' );
 	shuffle( $middle_pool );
 	$middle_layouts = array_slice( $middle_pool, 0, rand( 2, 4 ) );
 
@@ -362,9 +347,6 @@ function rpd_flex_build_random_sections() {
 				break;
 			case 'text-image':
 				$sections[] = rpd_flex_build_text_image( $bg, $p );
-				break;
-			case 'rich-text':
-				$sections[] = rpd_flex_build_rich_text( $bg, $p );
 				break;
 		}
 
