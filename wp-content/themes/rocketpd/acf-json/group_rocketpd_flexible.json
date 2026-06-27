@@ -1,0 +1,1082 @@
+{
+    "key": "group_rocketpd_flexible",
+    "title": "RocketPD — Flexible Page",
+    "fields": [
+        {
+            "key": "field_rpd_flex_sections",
+            "label": "Page Sections",
+            "name": "rpd_flex_sections",
+            "type": "flexible_content",
+            "instructions": "Add, remove, and drag to reorder sections. Each section has its own background, padding, and content fields.",
+            "required": 0,
+            "conditional_logic": 0,
+            "button_label": "Add Section",
+            "min": "",
+            "max": "",
+            "layouts": [
+
+                {
+                    "key": "layout_rpd_flex_hero",
+                    "name": "hero",
+                    "label": "Hero",
+                    "display": "block",
+                    "min": "",
+                    "max": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_rpd_flex_hero_bg",
+                            "label": "Background",
+                            "name": "bg",
+                            "type": "select",
+                            "choices": { "image": "Image", "navy": "Navy (dark gradient)", "purple": "Purple (gradient)", "white": "White", "soft": "Soft (light gray/blue)", "navy-gold": "Navy + Gold accent", "purple-navy": "Purple → Navy", "aurora": "Aurora (light)", "lavender": "Lavender (light)" },
+                            "default_value": "navy",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_bg_image",
+                            "label": "Image",
+                            "name": "bg_image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_hero_bg", "operator": "==", "value": "image" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_bg_size",
+                            "label": "Image size",
+                            "name": "bg_image_size",
+                            "type": "select",
+                            "choices": { "cover": "Cover (fill)", "repeat": "Repeat (tile)" },
+                            "default_value": "cover",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_hero_bg", "operator": "==", "value": "image" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_ov",
+                            "label": "Color overlay",
+                            "name": "overlay_enabled",
+                            "type": "true_false",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "On",
+                            "ui_off_text": "Off"
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_ov_start",
+                            "label": "Start color",
+                            "name": "overlay_start",
+                            "type": "color_picker",
+                            "default_value": "#231f58",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_hero_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_ov_end",
+                            "label": "End color",
+                            "name": "overlay_end",
+                            "type": "color_picker",
+                            "default_value": "#5552b1",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_hero_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_ov_opacity",
+                            "label": "Opacity",
+                            "name": "overlay_opacity",
+                            "type": "select",
+                            "choices": { "0.1": "10%", "0.25": "25%", "0.5": "50%", "0.75": "75%", "1": "100%" },
+                            "default_value": "0.25",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_hero_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_scheme",
+                            "label": "Text scheme",
+                            "name": "text_scheme",
+                            "type": "select",
+                            "instructions": "Override text colours for this section. Use when the background doesn't give enough contrast automatically — most useful with Image backgrounds.",
+                            "choices": { "": "Default", "light": "Light text", "dark": "Dark text" },
+                            "default_value": "",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_pad",
+                            "label": "Padding",
+                            "name": "padding",
+                            "type": "select",
+                            "choices": { "normal": "Normal", "large": "Large", "none": "None" },
+                            "default_value": "large",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_eyebrow",
+                            "label": "Eyebrow",
+                            "name": "eyebrow",
+                            "type": "text",
+                            "default_value": "",
+                            "placeholder": "e.g. How we're different"
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_headline",
+                            "label": "Headline",
+                            "name": "headline",
+                            "type": "text",
+                            "required": 1,
+                            "default_value": "",
+                            "placeholder": "e.g. Great PD starts here."
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_highlight",
+                            "label": "Highlight phrase",
+                            "name": "highlight",
+                            "type": "text",
+                            "instructions": "A word or phrase from the headline to render in gold. Must match exactly.",
+                            "default_value": "",
+                            "placeholder": "e.g. Great PD"
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_subtext",
+                            "label": "Subtext",
+                            "name": "subtext",
+                            "type": "text",
+                            "default_value": "",
+                            "placeholder": "e.g. A practical, research-backed experience…"
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_show_cta",
+                            "label": "Show CTA button",
+                            "name": "show_cta",
+                            "type": "true_false",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "On",
+                            "ui_off_text": "Off"
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_cta_text",
+                            "label": "Button text",
+                            "name": "cta_text",
+                            "type": "text",
+                            "default_value": "",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_hero_show_cta", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_cta_url",
+                            "label": "Button URL",
+                            "name": "cta_url",
+                            "type": "text",
+                            "default_value": "",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_hero_show_cta", "operator": "==", "value": "1" }]]
+                        }
+                    ]
+                },
+
+                {
+                    "key": "layout_rpd_flex_text_image",
+                    "name": "text-image",
+                    "label": "Text + Image",
+                    "display": "block",
+                    "min": "",
+                    "max": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_rpd_flex_ti_bg",
+                            "label": "Background",
+                            "name": "bg",
+                            "type": "select",
+                            "choices": { "image": "Image", "white": "White", "soft": "Soft (light gray/blue)", "navy": "Navy (dark gradient)", "purple": "Purple (gradient)", "navy-gold": "Navy + Gold accent", "purple-navy": "Purple → Navy", "aurora": "Aurora (light)", "lavender": "Lavender (light)" },
+                            "default_value": "white",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_bg_image",
+                            "label": "Image",
+                            "name": "bg_image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ti_bg", "operator": "==", "value": "image" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_bg_size",
+                            "label": "Image size",
+                            "name": "bg_image_size",
+                            "type": "select",
+                            "choices": { "cover": "Cover (fill)", "repeat": "Repeat (tile)" },
+                            "default_value": "cover",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ti_bg", "operator": "==", "value": "image" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_ov",
+                            "label": "Color overlay",
+                            "name": "overlay_enabled",
+                            "type": "true_false",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "On",
+                            "ui_off_text": "Off"
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_ov_start",
+                            "label": "Start color",
+                            "name": "overlay_start",
+                            "type": "color_picker",
+                            "default_value": "#231f58",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ti_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_ov_end",
+                            "label": "End color",
+                            "name": "overlay_end",
+                            "type": "color_picker",
+                            "default_value": "#5552b1",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ti_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_ov_opacity",
+                            "label": "Opacity",
+                            "name": "overlay_opacity",
+                            "type": "select",
+                            "choices": { "0.1": "10%", "0.25": "25%", "0.5": "50%", "0.75": "75%", "1": "100%" },
+                            "default_value": "0.25",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ti_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_scheme",
+                            "label": "Text scheme",
+                            "name": "text_scheme",
+                            "type": "select",
+                            "instructions": "Override text colours for this section. Use when the background doesn't give enough contrast automatically — most useful with Image backgrounds.",
+                            "choices": { "": "Default", "light": "Light text", "dark": "Dark text" },
+                            "default_value": "",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_pad",
+                            "label": "Padding",
+                            "name": "padding",
+                            "type": "select",
+                            "choices": { "normal": "Normal", "large": "Large", "none": "None" },
+                            "default_value": "normal",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "type": "text",
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_body",
+                            "label": "Body",
+                            "name": "body",
+                            "type": "textarea",
+                            "rows": 4,
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_show_cta",
+                            "label": "Show CTA button",
+                            "name": "show_cta",
+                            "type": "true_false",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "On",
+                            "ui_off_text": "Off"
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_cta_text",
+                            "label": "Button text",
+                            "name": "cta_text",
+                            "type": "text",
+                            "default_value": "",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ti_show_cta", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_cta_url",
+                            "label": "Button URL",
+                            "name": "cta_url",
+                            "type": "text",
+                            "default_value": "",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ti_show_cta", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_show_img",
+                            "label": "Show content image",
+                            "name": "show_image",
+                            "type": "true_false",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "On",
+                            "ui_off_text": "Off"
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_image_pos",
+                            "label": "Image position",
+                            "name": "image_position",
+                            "type": "select",
+                            "choices": { "right": "Right (text left, image right)", "left": "Left (image left, text right)" },
+                            "default_value": "right",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ti_show_img", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_image",
+                            "label": "Image",
+                            "name": "image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ti_show_img", "operator": "==", "value": "1" }]]
+                        }
+                    ]
+                },
+
+                {
+                    "key": "layout_rpd_flex_card_grid",
+                    "name": "card-grid",
+                    "label": "Card Grid",
+                    "display": "block",
+                    "min": "",
+                    "max": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_rpd_flex_cg_bg",
+                            "label": "Background",
+                            "name": "bg",
+                            "type": "select",
+                            "choices": { "image": "Image", "soft": "Soft (light gray/blue)", "white": "White", "navy": "Navy (dark gradient)", "purple": "Purple (gradient)", "navy-gold": "Navy + Gold accent", "purple-navy": "Purple → Navy", "aurora": "Aurora (light)", "lavender": "Lavender (light)" },
+                            "default_value": "soft",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_cg_bg_image",
+                            "label": "Image",
+                            "name": "bg_image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_cg_bg", "operator": "==", "value": "image" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_cg_bg_size",
+                            "label": "Image size",
+                            "name": "bg_image_size",
+                            "type": "select",
+                            "choices": { "cover": "Cover (fill)", "repeat": "Repeat (tile)" },
+                            "default_value": "cover",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_cg_bg", "operator": "==", "value": "image" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_cg_ov",
+                            "label": "Color overlay",
+                            "name": "overlay_enabled",
+                            "type": "true_false",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "On",
+                            "ui_off_text": "Off"
+                        },
+                        {
+                            "key": "field_rpd_flex_cg_ov_start",
+                            "label": "Start color",
+                            "name": "overlay_start",
+                            "type": "color_picker",
+                            "default_value": "#231f58",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_cg_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_cg_ov_end",
+                            "label": "End color",
+                            "name": "overlay_end",
+                            "type": "color_picker",
+                            "default_value": "#5552b1",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_cg_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_cg_ov_opacity",
+                            "label": "Opacity",
+                            "name": "overlay_opacity",
+                            "type": "select",
+                            "choices": { "0.1": "10%", "0.25": "25%", "0.5": "50%", "0.75": "75%", "1": "100%" },
+                            "default_value": "0.25",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_cg_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_cg_scheme",
+                            "label": "Text scheme",
+                            "name": "text_scheme",
+                            "type": "select",
+                            "instructions": "Override text colours for this section. Use when the background doesn't give enough contrast automatically — most useful with Image backgrounds.",
+                            "choices": { "": "Default", "light": "Light text", "dark": "Dark text" },
+                            "default_value": "",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_cg_pad",
+                            "label": "Padding",
+                            "name": "padding",
+                            "type": "select",
+                            "choices": { "normal": "Normal", "large": "Large", "none": "None" },
+                            "default_value": "normal",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_cg_columns",
+                            "label": "Columns",
+                            "name": "columns",
+                            "type": "select",
+                            "choices": { "1": "1 column", "2": "2 columns", "3": "3 columns" },
+                            "default_value": "3",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_cg_show_header",
+                            "label": "Show section header",
+                            "name": "show_header",
+                            "type": "true_false",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "On",
+                            "ui_off_text": "Off"
+                        },
+                        {
+                            "key": "field_rpd_flex_cg_eyebrow",
+                            "label": "Eyebrow",
+                            "name": "eyebrow",
+                            "type": "text",
+                            "default_value": "",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_cg_show_header", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_cg_heading",
+                            "label": "Section heading",
+                            "name": "heading",
+                            "type": "text",
+                            "default_value": "",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_cg_show_header", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_cg_cards",
+                            "label": "Cards",
+                            "name": "cards",
+                            "type": "repeater",
+                            "instructions": "Add up to 9 cards.",
+                            "required": 1,
+                            "min": 1,
+                            "max": 9,
+                            "layout": "block",
+                            "button_label": "Add Card",
+                            "sub_fields": [
+                                {
+                                    "key": "field_rpd_flex_cg_card_icon",
+                                    "label": "Icon",
+                                    "name": "icon",
+                                    "type": "select",
+                                    "instructions": "Lucide icon. Leave blank for no icon.",
+                                    "choices": {
+                                        "rocket": "Rocket",
+                                        "book-open": "Book Open",
+                                        "users": "Users / Group",
+                                        "lightbulb": "Lightbulb",
+                                        "target": "Target",
+                                        "trending-up": "Trending Up",
+                                        "clock": "Clock",
+                                        "graduation-cap": "Graduation Cap",
+                                        "heart": "Heart",
+                                        "star": "Star",
+                                        "check-circle": "Check Circle",
+                                        "award": "Award",
+                                        "globe": "Globe",
+                                        "zap": "Zap",
+                                        "shield": "Shield",
+                                        "bar-chart-2": "Bar Chart",
+                                        "message-circle": "Message",
+                                        "layers": "Layers",
+                                        "compass": "Compass",
+                                        "dollar-sign": "Dollar Sign",
+                                        "calendar": "Calendar",
+                                        "briefcase": "Briefcase",
+                                        "video": "Video / Virtual",
+                                        "play-circle": "Play / On-Demand",
+                                        "repeat": "Repeat / Ongoing"
+                                    },
+                                    "default_value": "",
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 1,
+                                    "ui": 0
+                                },
+                                {
+                                    "key": "field_rpd_flex_cg_card_heading",
+                                    "label": "Heading",
+                                    "name": "heading",
+                                    "type": "text",
+                                    "required": 1
+                                },
+                                {
+                                    "key": "field_rpd_flex_cg_card_body",
+                                    "label": "Body",
+                                    "name": "body",
+                                    "type": "textarea",
+                                    "rows": 3
+                                }
+                            ]
+                        }
+                    ]
+                },
+
+                {
+                    "key": "layout_rpd_flex_stats_strip",
+                    "name": "stats-strip",
+                    "label": "Stats Strip",
+                    "display": "block",
+                    "min": "",
+                    "max": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_rpd_flex_ss_bg",
+                            "label": "Background",
+                            "name": "bg",
+                            "type": "select",
+                            "choices": { "image": "Image", "navy": "Navy (dark gradient)", "purple": "Purple (gradient)", "soft": "Soft (light gray/blue)", "white": "White", "navy-gold": "Navy + Gold accent", "purple-navy": "Purple → Navy", "aurora": "Aurora (light)", "lavender": "Lavender (light)" },
+                            "default_value": "navy",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_ss_bg_image",
+                            "label": "Image",
+                            "name": "bg_image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ss_bg", "operator": "==", "value": "image" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ss_bg_size",
+                            "label": "Image size",
+                            "name": "bg_image_size",
+                            "type": "select",
+                            "choices": { "cover": "Cover (fill)", "repeat": "Repeat (tile)" },
+                            "default_value": "cover",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ss_bg", "operator": "==", "value": "image" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ss_ov",
+                            "label": "Color overlay",
+                            "name": "overlay_enabled",
+                            "type": "true_false",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "On",
+                            "ui_off_text": "Off"
+                        },
+                        {
+                            "key": "field_rpd_flex_ss_ov_start",
+                            "label": "Start color",
+                            "name": "overlay_start",
+                            "type": "color_picker",
+                            "default_value": "#231f58",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ss_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ss_ov_end",
+                            "label": "End color",
+                            "name": "overlay_end",
+                            "type": "color_picker",
+                            "default_value": "#5552b1",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ss_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ss_ov_opacity",
+                            "label": "Opacity",
+                            "name": "overlay_opacity",
+                            "type": "select",
+                            "choices": { "0.1": "10%", "0.25": "25%", "0.5": "50%", "0.75": "75%", "1": "100%" },
+                            "default_value": "0.25",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ss_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ss_scheme",
+                            "label": "Text scheme",
+                            "name": "text_scheme",
+                            "type": "select",
+                            "instructions": "Override text colours for this section. Use when the background doesn't give enough contrast automatically — most useful with Image backgrounds.",
+                            "choices": { "": "Default", "light": "Light text", "dark": "Dark text" },
+                            "default_value": "",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_ss_pad",
+                            "label": "Padding",
+                            "name": "padding",
+                            "type": "select",
+                            "choices": { "normal": "Normal", "large": "Large", "none": "None" },
+                            "default_value": "normal",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_ss_show_header",
+                            "label": "Show section header",
+                            "name": "show_header",
+                            "type": "true_false",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "On",
+                            "ui_off_text": "Off"
+                        },
+                        {
+                            "key": "field_rpd_flex_ss_eyebrow",
+                            "label": "Eyebrow",
+                            "name": "eyebrow",
+                            "type": "text",
+                            "default_value": "",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ss_show_header", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ss_heading",
+                            "label": "Section heading",
+                            "name": "heading",
+                            "type": "text",
+                            "default_value": "",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_ss_show_header", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ss_stats",
+                            "label": "Stats",
+                            "name": "stats",
+                            "type": "repeater",
+                            "required": 1,
+                            "min": 1,
+                            "max": 3,
+                            "layout": "table",
+                            "button_label": "Add Stat",
+                            "sub_fields": [
+                                {
+                                    "key": "field_rpd_flex_ss_stat_value",
+                                    "label": "Value",
+                                    "name": "value",
+                                    "type": "text",
+                                    "required": 1,
+                                    "placeholder": "e.g. 94%"
+                                },
+                                {
+                                    "key": "field_rpd_flex_ss_stat_label",
+                                    "label": "Label",
+                                    "name": "label",
+                                    "type": "text",
+                                    "required": 1,
+                                    "placeholder": "e.g. of participants reported improvement"
+                                },
+                                {
+                                    "key": "field_rpd_flex_ss_stat_source",
+                                    "label": "Source",
+                                    "name": "source",
+                                    "type": "text",
+                                    "placeholder": "e.g. RocketPD Impact Report, 2024"
+                                },
+                                {
+                                    "key": "field_rpd_flex_ss_stat_url",
+                                    "label": "Source URL",
+                                    "name": "source_url",
+                                    "type": "text",
+                                    "placeholder": "e.g. /impact"
+                                }
+                            ]
+                        }
+                    ]
+                },
+
+                {
+                    "key": "layout_rpd_flex_cta_band",
+                    "name": "cta-band",
+                    "label": "CTA Band",
+                    "display": "block",
+                    "min": "",
+                    "max": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_rpd_flex_cb_bg",
+                            "label": "Background",
+                            "name": "bg",
+                            "type": "select",
+                            "choices": { "image": "Image", "navy": "Navy (dark gradient)", "purple": "Purple (gradient)", "soft": "Soft (light gray/blue)", "white": "White", "navy-gold": "Navy + Gold accent", "purple-navy": "Purple → Navy", "aurora": "Aurora (light)", "lavender": "Lavender (light)" },
+                            "default_value": "navy",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_bg_image",
+                            "label": "Image",
+                            "name": "bg_image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_cb_bg", "operator": "==", "value": "image" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_bg_size",
+                            "label": "Image size",
+                            "name": "bg_image_size",
+                            "type": "select",
+                            "choices": { "cover": "Cover (fill)", "repeat": "Repeat (tile)" },
+                            "default_value": "cover",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_cb_bg", "operator": "==", "value": "image" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_ov",
+                            "label": "Color overlay",
+                            "name": "overlay_enabled",
+                            "type": "true_false",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "On",
+                            "ui_off_text": "Off"
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_ov_start",
+                            "label": "Start color",
+                            "name": "overlay_start",
+                            "type": "color_picker",
+                            "default_value": "#231f58",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_cb_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_ov_end",
+                            "label": "End color",
+                            "name": "overlay_end",
+                            "type": "color_picker",
+                            "default_value": "#5552b1",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_cb_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_ov_opacity",
+                            "label": "Opacity",
+                            "name": "overlay_opacity",
+                            "type": "select",
+                            "choices": { "0.1": "10%", "0.25": "25%", "0.5": "50%", "0.75": "75%", "1": "100%" },
+                            "default_value": "0.25",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_cb_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_scheme",
+                            "label": "Text scheme",
+                            "name": "text_scheme",
+                            "type": "select",
+                            "instructions": "Override text colours for this section. Use when the background doesn't give enough contrast automatically — most useful with Image backgrounds.",
+                            "choices": { "": "Default", "light": "Light text", "dark": "Dark text" },
+                            "default_value": "",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_pad",
+                            "label": "Padding",
+                            "name": "padding",
+                            "type": "select",
+                            "choices": { "normal": "Normal", "large": "Large", "none": "None" },
+                            "default_value": "normal",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_eyebrow",
+                            "label": "Eyebrow",
+                            "name": "eyebrow",
+                            "type": "text",
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_heading",
+                            "label": "Heading",
+                            "name": "heading",
+                            "type": "text",
+                            "required": 1,
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_subtext",
+                            "label": "Subtext",
+                            "name": "subtext",
+                            "type": "text",
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_primary_text",
+                            "label": "Primary button text",
+                            "name": "primary_cta_text",
+                            "type": "text",
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_primary_url",
+                            "label": "Primary button URL",
+                            "name": "primary_cta_url",
+                            "type": "text",
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_show_secondary",
+                            "label": "Show secondary button",
+                            "name": "show_secondary_cta",
+                            "type": "true_false",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "On",
+                            "ui_off_text": "Off"
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_secondary_text",
+                            "label": "Secondary button text",
+                            "name": "secondary_cta_text",
+                            "type": "text",
+                            "default_value": "",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_cb_show_secondary", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_secondary_url",
+                            "label": "Secondary button URL",
+                            "name": "secondary_cta_url",
+                            "type": "text",
+                            "default_value": "",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_cb_show_secondary", "operator": "==", "value": "1" }]]
+                        }
+                    ]
+                },
+
+                {
+                    "key": "layout_rpd_flex_rich_text",
+                    "name": "rich-text",
+                    "label": "Rich Text",
+                    "display": "block",
+                    "min": "",
+                    "max": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_rpd_flex_rt_bg",
+                            "label": "Background",
+                            "name": "bg",
+                            "type": "select",
+                            "choices": { "image": "Image", "white": "White", "soft": "Soft (light gray/blue)", "navy": "Navy (dark gradient)", "purple": "Purple (gradient)", "navy-gold": "Navy + Gold accent", "purple-navy": "Purple → Navy", "aurora": "Aurora (light)", "lavender": "Lavender (light)" },
+                            "default_value": "white",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_rt_bg_image",
+                            "label": "Image",
+                            "name": "bg_image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_rt_bg", "operator": "==", "value": "image" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_rt_bg_size",
+                            "label": "Image size",
+                            "name": "bg_image_size",
+                            "type": "select",
+                            "choices": { "cover": "Cover (fill)", "repeat": "Repeat (tile)" },
+                            "default_value": "cover",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_rt_bg", "operator": "==", "value": "image" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_rt_ov",
+                            "label": "Color overlay",
+                            "name": "overlay_enabled",
+                            "type": "true_false",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "On",
+                            "ui_off_text": "Off"
+                        },
+                        {
+                            "key": "field_rpd_flex_rt_ov_start",
+                            "label": "Start color",
+                            "name": "overlay_start",
+                            "type": "color_picker",
+                            "default_value": "#231f58",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_rt_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_rt_ov_end",
+                            "label": "End color",
+                            "name": "overlay_end",
+                            "type": "color_picker",
+                            "default_value": "#5552b1",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_rt_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_rt_ov_opacity",
+                            "label": "Opacity",
+                            "name": "overlay_opacity",
+                            "type": "select",
+                            "choices": { "0.1": "10%", "0.25": "25%", "0.5": "50%", "0.75": "75%", "1": "100%" },
+                            "default_value": "0.25",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_rt_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_rt_scheme",
+                            "label": "Text scheme",
+                            "name": "text_scheme",
+                            "type": "select",
+                            "instructions": "Override text colours for this section. Use when the background doesn't give enough contrast automatically — most useful with Image backgrounds.",
+                            "choices": { "": "Default", "light": "Light text", "dark": "Dark text" },
+                            "default_value": "",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_rt_pad",
+                            "label": "Padding",
+                            "name": "padding",
+                            "type": "select",
+                            "choices": { "normal": "Normal", "large": "Large", "none": "None" },
+                            "default_value": "normal",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_rt_content",
+                            "label": "Content",
+                            "name": "content",
+                            "type": "wysiwyg",
+                            "required": 1,
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        }
+                    ]
+                }
+
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates/template-flexible.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Flexible content builder for composing pages from reusable section layouts.",
+    "show_in_rest": 0,
+    "modified": 1782518400
+}
