@@ -181,6 +181,16 @@
                             "type": "text",
                             "default_value": "",
                             "conditional_logic": [[{ "field": "field_rpd_flex_hero_show_cta", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_hero_css",
+                            "label": "Custom CSS",
+                            "name": "custom_css",
+                            "type": "textarea",
+                            "instructions": "CSS scoped to this section automatically. Write bare declarations: h2 { color: red; }. Use & to target the section itself: & { border-top: 2px solid gold; }.",
+                            "rows": 5,
+                            "default_value": "",
+                            "new_lines": ""
                         }
                     ]
                 },
@@ -365,6 +375,16 @@
                             "preview_size": "medium",
                             "library": "all",
                             "conditional_logic": [[{ "field": "field_rpd_flex_ti_show_img", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_ti_css",
+                            "label": "Custom CSS",
+                            "name": "custom_css",
+                            "type": "textarea",
+                            "instructions": "CSS scoped to this section automatically. Write bare declarations: h2 { color: red; }. Use & to target the section itself: & { border-top: 2px solid gold; }.",
+                            "rows": 5,
+                            "default_value": "",
+                            "new_lines": ""
                         }
                     ]
                 },
@@ -580,6 +600,16 @@
                                     "rows": 3
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_rpd_flex_cg_css",
+                            "label": "Custom CSS",
+                            "name": "custom_css",
+                            "type": "textarea",
+                            "instructions": "CSS scoped to this section automatically. Write bare declarations: h2 { color: red; }. Use & to target the section itself: & { border-top: 2px solid gold; }.",
+                            "rows": 5,
+                            "default_value": "",
+                            "new_lines": ""
                         }
                     ]
                 },
@@ -759,6 +789,16 @@
                                     "placeholder": "e.g. /impact"
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_rpd_flex_ss_css",
+                            "label": "Custom CSS",
+                            "name": "custom_css",
+                            "type": "textarea",
+                            "instructions": "CSS scoped to this section automatically. Write bare declarations: h2 { color: red; }. Use & to target the section itself: & { border-top: 2px solid gold; }.",
+                            "rows": 5,
+                            "default_value": "",
+                            "new_lines": ""
                         }
                     ]
                 },
@@ -931,6 +971,16 @@
                             "type": "text",
                             "default_value": "",
                             "conditional_logic": [[{ "field": "field_rpd_flex_cb_show_secondary", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_cb_css",
+                            "label": "Custom CSS",
+                            "name": "custom_css",
+                            "type": "textarea",
+                            "instructions": "CSS scoped to this section automatically. Write bare declarations: h2 { color: red; }. Use & to target the section itself: & { border-top: 2px solid gold; }.",
+                            "rows": 5,
+                            "default_value": "",
+                            "new_lines": ""
                         }
                     ]
                 },
@@ -1053,6 +1103,160 @@
                             "toolbar": "full",
                             "media_upload": 1,
                             "delay": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_rt_css",
+                            "label": "Custom CSS",
+                            "name": "custom_css",
+                            "type": "textarea",
+                            "instructions": "CSS scoped to this section automatically. Write bare declarations: h2 { color: red; }. Use & to target the section itself: & { border-top: 2px solid gold; }.",
+                            "rows": 5,
+                            "default_value": "",
+                            "new_lines": ""
+                        }
+                    ]
+                },
+
+                {
+                    "key": "layout_rpd_flex_html_block",
+                    "name": "html-block",
+                    "label": "HTML Block",
+                    "display": "block",
+                    "min": "",
+                    "max": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_rpd_flex_hb_bg",
+                            "label": "Background",
+                            "name": "bg",
+                            "type": "select",
+                            "choices": { "image": "Image", "white": "White", "soft": "Soft (light gray/blue)", "navy": "Navy (dark gradient)", "purple": "Purple (gradient)", "navy-gold": "Navy + Gold accent", "purple-navy": "Purple → Navy", "aurora": "Aurora (light)", "lavender": "Lavender (light)" },
+                            "default_value": "white",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_hb_bg_image",
+                            "label": "Image",
+                            "name": "bg_image",
+                            "type": "image",
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_hb_bg", "operator": "==", "value": "image" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_hb_bg_size",
+                            "label": "Image size",
+                            "name": "bg_image_size",
+                            "type": "select",
+                            "choices": { "cover": "Cover (fill)", "repeat": "Repeat (tile)" },
+                            "default_value": "cover",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_hb_bg", "operator": "==", "value": "image" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_hb_ov",
+                            "label": "Color overlay",
+                            "name": "overlay_enabled",
+                            "type": "true_false",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "On",
+                            "ui_off_text": "Off"
+                        },
+                        {
+                            "key": "field_rpd_flex_hb_ov_start",
+                            "label": "Start color",
+                            "name": "overlay_start",
+                            "type": "color_picker",
+                            "default_value": "#231f58",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_hb_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_hb_ov_end",
+                            "label": "End color",
+                            "name": "overlay_end",
+                            "type": "color_picker",
+                            "default_value": "#5552b1",
+                            "conditional_logic": [[{ "field": "field_rpd_flex_hb_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_hb_ov_opacity",
+                            "label": "Opacity",
+                            "name": "overlay_opacity",
+                            "type": "select",
+                            "choices": { "0.1": "10%", "0.25": "25%", "0.5": "50%", "0.75": "75%", "1": "100%" },
+                            "default_value": "0.25",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "conditional_logic": [[{ "field": "field_rpd_flex_hb_ov", "operator": "==", "value": "1" }]]
+                        },
+                        {
+                            "key": "field_rpd_flex_hb_scheme",
+                            "label": "Text scheme",
+                            "name": "text_scheme",
+                            "type": "select",
+                            "instructions": "Override text colours for this section. Use when the background doesn't give enough contrast automatically — most useful with Image backgrounds.",
+                            "choices": { "": "Default", "light": "Light text", "dark": "Dark text" },
+                            "default_value": "",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_hb_pad",
+                            "label": "Padding",
+                            "name": "padding",
+                            "type": "select",
+                            "choices": { "normal": "Normal", "large": "Large", "none": "None" },
+                            "default_value": "normal",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_hb_constrain",
+                            "label": "Constrain width",
+                            "name": "constrain_width",
+                            "type": "true_false",
+                            "instructions": "On: HTML is contained within the standard page width. Off: HTML spans the full section width.",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "On",
+                            "ui_off_text": "Off"
+                        },
+                        {
+                            "key": "field_rpd_flex_hb_html",
+                            "label": "HTML",
+                            "name": "html_content",
+                            "type": "wysiwyg",
+                            "required": 1,
+                            "instructions": "Use the Text tab to paste raw HTML. Headings and body text will automatically adapt to the section background via scoped CSS.",
+                            "default_value": "",
+                            "tabs": "text",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_rpd_flex_hb_css",
+                            "label": "Custom CSS",
+                            "name": "custom_css",
+                            "type": "textarea",
+                            "instructions": "CSS scoped to this section automatically. Write bare declarations: h2 { color: red; }. Use & to target the section itself: & { border-top: 2px solid gold; }.",
+                            "rows": 5,
+                            "default_value": "",
+                            "new_lines": ""
                         }
                     ]
                 }
@@ -1078,5 +1282,5 @@
     "active": true,
     "description": "Flexible content builder for composing pages from reusable section layouts.",
     "show_in_rest": 0,
-    "modified": 1782518400
+    "modified": 0
 }

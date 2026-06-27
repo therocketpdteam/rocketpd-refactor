@@ -36,6 +36,9 @@ function rpd_flex_render_overlay( $args ) {
 }
 
 function rpd_flex_section_open( $layout_name, $args ) {
+	static $section_counter = 0;
+	$section_counter++;
+
 	$bg       = $args['bg'] ?? 'white';
 	$padding  = $args['padding'] ?? 'normal';
 	$is_image = ( 'image' === $bg );
@@ -71,8 +74,16 @@ function rpd_flex_section_open( $layout_name, $args ) {
 		$classes[] = 'rpd-flex-scheme--' . $scheme;
 	}
 
-	$class_str = implode( ' ', array_map( 'sanitize_html_class', $classes ) );
-	echo '<section class="' . $class_str . '"' . $style . '>';
+	$section_id = 'rpd-s-' . ( get_the_ID() ?: 0 ) . '-' . $section_counter;
+	$class_str  = implode( ' ', array_map( 'sanitize_html_class', $classes ) );
+
+	echo '<section id="' . esc_attr( $section_id ) . '" class="' . $class_str . '"' . $style . '>';
+
+	$custom_css = trim( $args['custom_css'] ?? '' );
+	if ( $custom_css ) {
+		echo '<style>#' . esc_html( $section_id ) . '{' . wp_strip_all_tags( $custom_css ) . '}</style>';
+	}
+
 	rpd_flex_render_overlay( $args );
 }
 
